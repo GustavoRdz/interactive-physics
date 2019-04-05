@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="305px" viewBox="0 0 400 305" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+  <g transform="scale(1) translate(0, 0)">
+		<!-- open tube manometer -->
+
+<!-- water -->
+		<path d="M100 100
+					L100 200
+					A100 100 0 0 0 200 300
+					L200 270
+					A70 70 0 0 1 130 200
+					L130 100
+					A8 3 0 0 0 100 100
+					Z" fill="#40a4df" stroke="#40a4df" opacity="0.9"/>
+
+
+		<!-- oil -->
+		<path d="M270 50
+		      L270 200
+					A70 70 0 0  1 200 270
+					L200 300
+					A100 100 0 0 0 300 200
+					L300 50
+					A8 3 0 0 0 270 50
+					Z" fill="#939927" stroke="#939927" opacity="0.9"/>
+
+		<!-- Tube -->
+
+		<path transform="translate(0,0)"
+		      d="M100 10
+					L100 200
+					A10 10 0 0 0 300 200
+					L300 10
+					A10 3 0 0 0 270 10
+					L270 200
+					A8 8 0 0 1 130 200
+					L130 10
+					A10 3 0 0 0 100 10
+					Z" fill="#c6e2e3" stroke="#000" opacity="0.5"/>
+
+		<!-- elliptical ends -->
+		<ellipse cx="115" cy="100" rx = "15" ry="5" fill="#40a4df" stroke="#40a4df" opacity="0.5"/>
+		<ellipse cx="285" cy="50" rx = "15" ry="5" fill="#939927" stroke="#939927" opacity="0.5"/>
+		<ellipse cx="115" cy="10" rx = "15" ry="5" fill="#eee" stroke="#000" opacity="0."/>
+		<ellipse cx="285" cy="10" rx = "15" ry="5" fill="#eee" stroke="#000" opacity="0."/>
+
+		<!-- Measurement points -->
+		<circle cx="115" cy="100" r = "3" fill="#f00" stroke="#000" opacity="0.7"/>
+		<circle cx="285" cy="50" r = "3" fill="#f00" stroke="#000" opacity="0.7"/>
+		<circle cx="200" cy="300" r = "3" fill="#f00" stroke="#000" opacity="0.7"/>
+
+		<!-- cotes limits -->
+		<line stroke="#000" stroke-width="1" x1="55" y1="100" x2="95" y2="100"/>
+		<line stroke="#000" stroke-width="1" x1="55" y1="300" x2="180" y2="300"/>
+		<line stroke="#000" stroke-width="1" x1="305" y1="50" x2="350" y2="50"/>
+		<line stroke="#000" stroke-width="1" x1="220" y1="300" x2="350" y2="300"/>
+
+		<!-- y1 cotes -->
+		<line stroke="#000" stroke-width="1" x1="75" y1="102" x2="75" y2="180"/>
+		<line stroke="#000" stroke-width="1" x1="75" y1="220" x2="75" y2="298"/>
+		<line stroke="#000" stroke-width="1" x1="75" y1="102" x2="72" y2="112"/>
+		<line stroke="#000" stroke-width="1" x1="75" y1="102" x2="78" y2="112"/>
+		<line stroke="#000" stroke-width="1" x1="75" y1="298" x2="72" y2="288"/>
+		<line stroke="#000" stroke-width="1" x1="75" y1="298" x2="78" y2="288"/>
+
+		<!-- y2 cotes -->
+		<line stroke="#000" stroke-width="1" x1="325" y1="52" x2="325" y2="145"/>
+		<line stroke="#000" stroke-width="1" x1="325" y1="195" x2="325" y2="298"/>
+		<line stroke="#000" stroke-width="1" x1="325" y1="52" x2="322" y2="62"/>
+		<line stroke="#000" stroke-width="1" x1="325" y1="52" x2="328" y2="62"/>
+		<line stroke="#000" stroke-width="1" x1="325" y1="298" x2="322" y2="288"/>
+		<line stroke="#000" stroke-width="1" x1="325" y1="298" x2="328" y2="288"/>
+
+
+		<!-- draw text -->
+		<text x="200" y="105" fill="black" font-size="30" font-style="italic">p<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="220" y1="95" x2="280" y2="53"/>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="190" y1="100" x2="122" y2="100"/>
+
+		<text x="180" y="250" fill="black" font-size="30" font-family="Times new roman" font-style="italic">p</text>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="190" y1="260" x2="198" y2="293"/>
+
+		<text x="60" y="200" fill="black" font-size="25" font-family="Times new roman" font-style="italic">h<tspan baseline-shift="sub" font-size="15">water</tspan></text>
+		<text x="310" y="170" fill="black" font-size="30" font-family="Times new roman" font-style="italic">h<tspan baseline-shift="sub" font-size="15">oil</tspan></text>
+
+		<text x="130" y="265" transform="rotate(0,125,260)" fill="black" font-size="20" font-family="Times new roman" font-style="italic"> &#x03c1;<tspan baseline-shift="sub" font-size="15">water</tspan></text>
+
+		<text x="235" y="270" fill="#000" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="15">oil</tspan></text>
+
+	</g>
+
+</svg>

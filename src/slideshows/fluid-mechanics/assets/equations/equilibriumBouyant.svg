@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="300px" viewBox="0 0 400 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+<!-- case boyant -->
+<g transform="translate(20,0) scale(0.6)">
+		// container
+		<path d="m220 15 A75 13 0 0 1 380 15 L380 275 A75 13 0 0 1 220 275 L220 15 Z" stroke="#000" fill-opacity="0"/>
+		<path d="m225 15 A75 10 0 0 1 375 15 L375 275 A75 10 0 0 1 225 275 L225 15 Z" stroke="#000" fill-opacity="0"/>
+
+		// water
+		<path d="m225 25 A75 10 0 0 1 375 25 L375 275 A75 10 0 0 1 225 275 L225 275 Z" fill="#0cafFF" fill-opacity="0.3"/>
+		<ellipse cx="300" cy="25" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+		<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+		// container outter border
+			<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0"/>
+
+		// volume differential
+		<g transform="translate(10,0)">
+
+		<path d="m275 100 L250 115 L300 115 L325 100 Z" fill="#825201" fill-opacity="0.8" stroke="black" stroke-opacity="0.3"/>
+		<path d="m250 115 L250 165 L300 165 L300 115 Z" fill="#b69b4c" fill-opacity="1" stroke="black" stroke-opacity="0.3"/>
+		<path d="m325 100 L325 150 L300 165 L300 115 Z" fill="#b69b4c" fill-opacity="1" stroke="black" stroke-opacity="0.3"/>
+<!-- 
+		<text x="290" y="112" fill="black" font-size="15" font-family="Times new roman" font-style="italic" transform="rotate(5, 290, 120)">A</text> -->
+
+  </g>
+	<!-- forces path -->
+	<!-- <path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#000" fill-opacity="1" stroke="black" stroke-opacity="1"/> -->
+  <!-- weight forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(240,160) rotate(180,30,30) scale(0.6,1)"/>
+	<!-- bouyant forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(270,30) scale(0.6,1)"/>
+	<circle r="5" cx="285" cy="140" fill="#fff"/>
+	
+		<!-- acceleration -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#77f" stroke="black" transform="translate(330,90) scale(0.6,.6)"/>
+
+	  <text x="295" y="80" fill="black" font-size="25" font-family="Times new roman" font-style="bold" >B</text>
+
+	   <text x="295" y="200" fill="black" font-size="25" font-family="Times new roman" font-style="normal">F<tspan baseline-shift="sub" font-size="15" font-style="normal">g</tspan></text>
+
+    <text x="355" y="135" fill="black" font-size="25" font-family="Times new roman" font-style="italic">a</text>
+
+		<text x="340" y="60" fill="red" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">fluid</tspan></text>
+
+		<text x="313" y="130" fill="yellow" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">obj</tspan></text>
+
+		<text x="260" y="270" fill="black" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">obj</tspan> &#x003c; &#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">fluid</tspan></text>
+ </g>
+
+ <!-- case non boyant -->
+<g transform="translate(-100,0) scale(0.6)">
+		// container
+		<path d="m220 15 A75 13 0 0 1 380 15 L380 275 A75 13 0 0 1 220 275 L220 15 Z" stroke="#000" fill-opacity="0"/>
+		<path d="m225 15 A75 10 0 0 1 375 15 L375 275 A75 10 0 0 1 225 275 L225 15 Z" stroke="#000" fill-opacity="0"/>
+
+		// water
+		<path d="m225 25 A75 10 0 0 1 375 25 L375 275 A75 10 0 0 1 225 275 L225 275 Z" fill="#0cafFF" fill-opacity="0.3"/>
+		<ellipse cx="300" cy="25" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+		<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+		// container outter border
+			<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0"/>
+
+		// volume differential
+		<g transform="translate(10,0)">
+		<path d="m275 100 L250 115 L300 115 L325 100 Z" fill="#cdcdcd" fill-opacity="0.8" stroke="black" stroke-opacity="0.3"/>
+		<path d="m250 115 L250 165 L300 165 L300 115 Z" fill="#cdcdcd" fill-opacity="1" stroke="black" stroke-opacity="0.3"/>
+		<path d="m325 100 L325 150 L300 165 L300 115 Z" fill="#cdcdcd" fill-opacity="1" stroke="black" stroke-opacity="0.3"/>
+
+  </g>
+
+  	<!-- bouyant forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(270,50) scale(0.6,1)"/>
+
+  <!-- weight forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(240,190) rotate(180,30,30) scale(0.6,1)"/>
+	<!-- gravity center -->
+	<circle r="5" cx="285" cy="140" fill="#fff"/>
+	
+		<!-- acceleration -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#77f" stroke="black" transform="translate(360,170) rotate(180) scale(0.6,.6)"/>
+
+	  <text x="295" y="80" fill="black" font-size="25" font-family="Times new roman" font-style="bold" >B</text>
+
+	   <text x="295" y="200" fill="black" font-size="25" font-family="Times new roman" font-style="normal">F<tspan baseline-shift="sub" font-size="15" font-style="normal">g</tspan></text>
+
+    <text x="355" y="135" fill="black" font-size="25" font-family="Times new roman" font-style="italic">a</text>
+
+		<text x="340" y="60" fill="red" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">fluid</tspan></text>
+
+		<text x="313" y="130" fill="yellow" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">obj</tspan></text>
+
+		<text x="260" y="270" fill="black" font-size="20" font-family="Times new roman" font-style="italic">&#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">obj</tspan> &#x003e; &#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal">fluid</tspan></text>
+ </g>
+
+ <!-- eqilibrium -->
+ <g>
+ <path d="m280 100 L400 100 L400 170 L280 170 Z" fill="#0cafFF"  stroke-opacity="0.2" stroke="black" fill-opacity=".2"/>
+ <rect x="315" y="75" width="50" height="50" fill="#b69b4c"/>
+ <!-- bouyant forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(325,-10) scale(0.6,1)"/>
+
+  <!-- weight forces -->
+	<path d="m20 110 l10 0 l0 -70 l5 5 l-10 -30 l-10 30 l5 -5 Z" fill="#33f" stroke="black" transform="translate(295,150) rotate(180,30,30) scale(0.6,1)"/>
+	<!-- gravity center -->
+	<circle r="5" cx="340" cy="100" fill="#fff"/>
+
+    <text x="310" y="40" fill="black" font-size="25" font-family="Times new roman" font-style="bold" >B</text>
+
+	   <text x="310" y="155" fill="black" font-size="25" font-family="Times new roman" font-style="normal">F<tspan baseline-shift="sub" font-size="15" font-style="normal">g</tspan></text>
+
+
+		 <text x="240" y="230" fill="black" font-size="20" font-family="Times new roman" font-style="italic"><tspan font-style="normal">B</tspan> = &#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal" fill="#00f">fluid </tspan>gV<tspan baseline-shift="sub" font-size="15" font-style="normal" fill="#00f">displaced </tspan></text>
+		 <text x="258" y="260" fill="black" font-size="20" font-family="Times new roman" font-style="italic"> = &#x03c1;<tspan baseline-shift="sub" font-size="10" font-style="normal" fill="red">obj </tspan>gV<tspan baseline-shift="sub" font-size="15" font-style="normal" fill="red">obj </tspan> = <tspan font-style="normal">F</tspan><tspan baseline-shift="sub" font-size="15" font-style="normal">g</tspan></text>
+
+ </g>
+</svg>
+
