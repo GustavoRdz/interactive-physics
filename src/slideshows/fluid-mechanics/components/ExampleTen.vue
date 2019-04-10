@@ -14,9 +14,9 @@ eg-transition(:enter='enter', :leave='leave')
         input.center.data(:class="checkedUserCrownMass" v-model.number='userCrownMass')
       p.inline.data Crown volume (m<sup>3</sup>)
         input.center.data(:class="checkedUserVolume" v-model.number='userVolume')
-      p.inline.data Crown density (Pa)
+      p.inline.data Crown density (kg/m<sup>3</sup>)
         input.center.data(:class="checkedUserCrownDensity" v-model.number='userCrownDensity')
-      p.inline.data Gold density (Pa)
+      p.inline.data Gold density (kg/m<sup>3</sup>)
         input.center.data(:class="checkedUserGoldDensity" v-model.number='userGoldDensity')
       p.inline.data Cheat (true/false)
         input.center.data(:class="checkedUserCheat" v-model='userCheat')
@@ -46,15 +46,16 @@ export default {
     crownMass: function () {
       return Math.round(1000 * this.airWeight / 9.81) / 1000
     },
-    crownVolume: function () {
-      return (this.crownMass / 19300).toPrecision(3)
-    },
     realGoldBouyant: function () {
-      return (1000 * 9.81 * this.crownVolume).toPrecision(3)
+      return (1000 * 9.81 * this.goldVolume).toPrecision(3)
+    },
+    goldVolume: function () {
+      return Number(this.crownMass / 19300).toPrecision(3)
     },
     waterWeight: function () {
       console.log('mass: ' + this.crownMass)
-      console.log('volume: ' + this.crownVolume)
+      // console.log('volume: ' + this.crownVolume)
+      console.log('volumegold: ' + this.goldVolume)
       console.log('realGoldB: ' + this.realGoldBouyant)
       let max = this.airWeight - this.realGoldBouyant
       let min = this.airWeight - 5 * this.realGoldBouyant
@@ -64,8 +65,12 @@ export default {
     bouyant: function () {
       return (this.airWeight - this.waterWeight) > 0 ? (this.airWeight - this.waterWeight).toPrecision(4) : (this.airWeight - this.waterWeight).toPrecision(3)
     },
+    crownVolume: function () {
+      return Number(this.bouyant / (9.81 * 1000)).toPrecision(3)
+    },
     crownDensity: function () {
-      return (this.airWeight * 1000 / this.bouyant).toPrecision(3)
+      // return (this.airWeight * 1000 / this.bouyant).toPrecision(3)
+      return (this.crownMass / this.crownVolume).toPrecision(3)
     },
     cheat: function () {
       return this.bouyant === this.realGoldBouyant

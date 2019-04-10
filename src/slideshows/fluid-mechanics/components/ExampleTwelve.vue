@@ -31,16 +31,24 @@ export default {
       userInmmersedVolume: '',
       userSolidVolume: '',
       userSolidMass: '',
-      userInmmersedRatio: '',
-      rhoObject: 920,
-      rhoFluid: 1025
+      userInmmersedRatio: ''
     }
   },
   computed: {
+    rhoObject: function () {
+      let max = 950
+      let min = 850
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    },
+    rhoFluid: function () {
+      let max = 1040
+      let min = 1020
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    },
     volumeAbove: function () {
       let max = 100
       let min = 1
-      return Number(1e6 * (Math.floor(Math.random() * (max - min + 1)) + min) / 10).toPrecision(3)
+      return (1e6 * (Math.floor(Math.random() * (max - min + 1)) + min) / 10).toPrecision(3)
     },
     volumeBelow: function () {
       return (this.volumeAbove * this.rhoObject / (this.rhoFluid - this.rhoObject)).toPrecision(3)

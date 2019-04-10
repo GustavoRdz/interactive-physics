@@ -118,10 +118,10 @@ a {
 
 .logo {
   display: inline-block;
-  width: 130px;
-  height:90px;
+  width: 300px;
+  height:100px;
   margin-right: 0.1em;
-  background-image: url(./logo.svg);
+  background-image: url(./U.svg);
   background-size: contain;
   background-position: center bottom;
   background-repeat: no-repeat;

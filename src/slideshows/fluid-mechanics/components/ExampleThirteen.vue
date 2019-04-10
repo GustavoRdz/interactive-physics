@@ -54,13 +54,13 @@ export default {
       return Number(4 * Math.PI * Math.pow(this.radius / 100, 3) / 3).toPrecision(3)
     },
     partialSubmergedBoyant: function () {
-      return Number(1000 * 9.81 * this.volumeTotal * this.volumePartial / 100).toPrecision(4)
+      return Math.round(1000 * 1000 * 9.81 * this.volumeTotal * this.volumePartial / 100) / 1000
     },
     totalSubmergedBoyant: function () {
-      return Number(1000 * 9.81 * this.volumeTotal).toPrecision(4)
+      return Math.round(1000 * 1000 * 9.81 * this.volumeTotal) / 1000
     },
     force: function () {
-      return Number(this.totalSubmergedBoyant - this.partialSubmergedBoyant).toPrecision(3)
+      return Math.round(1000 * (this.totalSubmergedBoyant - this.partialSubmergedBoyant)) / 1000
     },
     mass: function () {
       return Number(this.partialSubmergedBoyant / 9.81).toPrecision(3)

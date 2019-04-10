@@ -57,7 +57,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Oscillatory Motion',
-    description: 'Simple Harmonic Motion Systems',
+    description: 'Simple Harmonic Motion Systems (pending)',
     path: 'oscillatory-motion'
   },
   components: {

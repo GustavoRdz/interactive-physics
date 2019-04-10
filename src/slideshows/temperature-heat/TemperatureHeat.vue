@@ -57,7 +57,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Temperature and Heat',
-    description: 'Temperature, Heat, Calorimetry, and Heat Transfer',
+    description: 'Temperature, Heat, Calorimetry, and Heat Transfer (pending)',
     path: 'temperature-heat'
   },
   components: {

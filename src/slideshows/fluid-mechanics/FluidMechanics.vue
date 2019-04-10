@@ -5,7 +5,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       .center.frontpage
         h1 Fluid Mechanics
-        img(src='./assets/logo.svg')
+        img(src='./assets/U.svg')
         h4 Static and Dynamics of fluids
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
@@ -371,9 +371,125 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+    
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 13
+      example-thirteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 fluid flow
+      .center
+        h5 Ideal fluid
+        p Incompresible (no changes in density)
+        p Without internal friction (no viscosity)
+        p Single particle trajectory is called <em><strong>flow line</strong></em>
+        p A <em><strong>current line</strong></em> is curve whose tangent in every point has the direction of the velocity of the fluid
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Flow pipe
+        .center
+        img(src='./assets/equations/fluxPipe.svg')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Continuity equation
+        .center
+        img(src='./assets/equations/continuityFlowPipe.svg')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Continuity equation
+        .center
+        img(src='./assets/equations/continuityEquation.svg')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Continuity equation
+        .center
+        img(src='./assets/equations/continuityRateEquations.svg')
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 14
+      example-fourteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+    
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 15
+      example-fifteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Bernoulli's equation
+        .center
+        p(style="font-size: 25px; color: #ff0000;") Work
+        img(src='./assets/equations/bernoulliEquation.svg')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Bernoulli's equation
+        .center
+        p(style="font-size: 25px; color: #ff0000;") Kinetic energy
+        img(src='./assets/equations/bernoulliEquationK.svg')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Bernoulli's equation
+        .center
+        p(style="font-size: 25px; color: #ff0000;") Potential energy
+        img(src='./assets/equations/bernoulliEquationU.svg')
+    
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Bernoulli's equation
+        .center
+        p(style="font-size: 25px; color: #ff0000;") 
+        img(src='./assets/equations/bernoulliEquationFinal.svg')
+    
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+
 
 
 
@@ -388,7 +504,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Fluid Mechanics',
-    description: 'Static and Dynamic',
+    description: 'Static and Dynamic (In progress)',
     path: 'fluid-mechanics'
   },
   components: {
@@ -405,7 +521,9 @@ export default {
     'example-ten': require('./components/ExampleTen'),
     'example-eleven': require('./components/ExampleEleven'),
     'example-twelve': require('./components/ExampleTwelve'),
-    'example-thirteen': require('./components/ExampleThirteen')
+    'example-thirteen': require('./components/ExampleThirteen'),
+    'example-fourteen': require('./components/ExampleFourteen'),
+    'example-fifteen': require('./components/ExampleFifteen')
 
   },
   data: function () {

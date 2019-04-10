@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="450px" height="300px" viewBox="0 0 450 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+
+
+<g>
+  <!-- pipe end-->
+	<ellipse cx="380" cy="40" rx="8" ry="20" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-width="1" stroke-opacity="0.1" transform="rotate(0,350,100)" />
+
+ <!--  C190 203 240 40 380 40 -->
+ <!-- path to move the volume differential -->
+<path d="m30 200
+	         C170 200 223 86 320 52
+					 " stroke="#00F" stroke-opacity="0"  fill="none" id="ellipseMotionPath1"/>
+
+  <!-- pipe -->
+  <!-- <path d="m30 150
+	         C200 150 200 20 380 20
+					 A8 20 0 0 1 380 60
+           C275 60 200 250 30 250
+					 A8 20 0 0 1 30 150
+					 Z" stroke="#000" stroke-width="2" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0.31"/> -->
+
+  <!-- velocity vector -->
+      <path
+      d="M30 0 L60 0 M50 3 L60 0 L50 -3"
+      stroke="black"
+      stroke-width="2" >
+        <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+          <mpath xlink:href="#ellipseMotionPath1"/>
+        </animateMotion>
+        <animateTransform 
+        attributeName="transform"
+        type="scale"
+        from="1 1"
+        to="1.6 1"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      </path>
+
+<!-- moving volume differential -->
+<path d="m0 -52
+					 A80 20 0 0 1 30 -51
+					 A20 50 0 0 1 30 48
+           A80 20 0 0 1 0 50
+           A20 50 0 0 1 0 -51
+					 Z" stroke="#000" stroke-opacity="0.3" stroke-width="1" fill="#0cafFF" fill-opacity="1"
+           transform="translate(-50,-500)">
+  <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+  </animateMotion>
+  <animateTransform 
+        attributeName="transform"
+        type="scale"
+        from="1 1"
+        to="1 0.46"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+</path>
+
+   <!-- initial step -->
+
+    <ellipse cx="0" cy="0" rx="20" ry="48" stroke="#000" fill="#0cafFF" fill-opacity="1" stroke-opacity="0.1" transform="rotate(0,50,200)">
+      <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+      </animateMotion>
+      <animate 
+        attributeName="ry"
+        dur="10s"
+        values="50;48;43;38;35;31;25"
+        repeatCount="indefinite"
+      />
+      <animate 
+        attributeName="rx"
+        values="20;23"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+ 
+    </ellipse>
+    <text x="-10" y="0">
+      <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+      </animateMotion>
+      <tspan font-style="italic">A</tspan>
+    </text>
+    <text x="25" y="20">
+      <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+      </animateMotion>
+      <tspan font-style="italic">dV</tspan>
+    </text>
+    <text x="2" y="73">
+      <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+      </animateMotion>
+      <animateTransform 
+        attributeName="transform"
+        type="translate"
+        from="0 0"
+        to="10 -20"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      <tspan font-style="italic" font-family="Times New roman">vdt</tspan>
+    </text>
+    <text x="70" y="15">
+      <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#ellipseMotionPath1"/>
+      </animateMotion>
+      <tspan font-style="italic">v</tspan>
+    </text>
+
+   <!-- cotas -->
+       <path
+      d="M0 52 L0 80"
+      stroke="black"
+      stroke-width="1" >
+        <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+          <mpath xlink:href="#ellipseMotionPath1"/>
+        </animateMotion>
+         <animateTransform 
+        attributeName="transform"
+        type="translate"
+        from="0 0"
+        to="0 -20"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      </path>
+          <path
+      d="M30 50 L30 80"
+      stroke="black"
+      stroke-width="1" >
+        <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+          <mpath xlink:href="#ellipseMotionPath1"/>
+        </animateMotion>
+        <animateTransform 
+        attributeName="transform"
+        type="translate"
+        from="0 0"
+        to="10 -20"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      </path>
+
+       <!-- cota arrow -->
+      <path
+      d="M-30 70 L-2 70 M-12 73 L-2 70 L-12 67"
+      stroke="black"
+      stroke-width="0.5" >
+        <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+          <mpath xlink:href="#ellipseMotionPath1"/>
+        </animateMotion>
+        <animateTransform 
+        attributeName="transform"
+        type="translate"
+        from="0 0"
+        to="0 -20"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      </path>
+      
+      <path
+      d="M-20 73 L-30 70 L-20 67 Z M-30 70 L0 70"
+      stroke="black"
+      stroke-width="0.5" >
+        <animateMotion dur="10" repeatCount="indefinite" rotate="auto">
+          <mpath xlink:href="#ellipseMotionPath1"/>
+        </animateMotion>
+        <animateTransform 
+        attributeName="transform"
+        type="translate"
+        from="60 0"
+        to="70 -20"
+        dur="10s"
+        repeatCount="indefinite"
+      />
+      </path>
+
+    <!-- <ellipse cx="60" cy="198" rx="20" ry="49" stroke="#F00" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.5" transform="rotate(0,50,200)"/>
+    <ellipse cx="0" cy="0" rx="20" ry="48" stroke="#000" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.5" transform="rotate(0,50,200)">
+    </ellipse> -->
+
+    <path d="m30 150
+	         C200 150 200 20 380 20
+					 A8 20 0 0 1 380 60
+           C275 60 200 250 30 250
+					 A8 20 0 0 1 30 150
+					 Z" stroke="#5cafFF" stroke-width="5" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0.31"/>
+       <ellipse cx="30" cy="200" rx="20" ry="48" stroke="#5cafFF" fill="#0cafFF" fill-opacity="0" stroke-width="5" stroke-opacity="1"/>
+
+ 
+
+</g>
+</svg>

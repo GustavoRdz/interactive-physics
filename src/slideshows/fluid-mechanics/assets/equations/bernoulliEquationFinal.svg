@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="300px" viewBox="0 0 500 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+ <text x="10" y="40" fill="blue" font-size="27" font-family="Times new roman" font-style="italic"><tspan font-style="normal">(</tspan>p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan font-style="normal">)</tspan>dV = &#189; &#x3c1; dV<tspan font-style="normal">(</tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan>-v<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan><tspan font-style="normal">)</tspan> + &#x3c1; dV g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan>-y<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan font-style="normal">)</tspan></text>
+
+ <text x="58" y="100" fill="green" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> = &#189; &#x3c1; <tspan font-style="normal">(</tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan>-v<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan><tspan font-style="normal">)</tspan> + &#x3c1;g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan>-y<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan font-style="normal">)</tspan></text>
+
+ <text x="28" y="160" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan> + &#x3c1;gy<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan>  + &#189; &#x3c1; v<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan>= p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> + &#x3c1;gy<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> + &#189; &#x3c1;v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan> </text>
+
+ <text x="58" y="220" fill="green" font-size="27" font-family="Times new roman" font-style="italic">p + &#x3c1;gy + &#189; &#x3c1; v<tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan> = <tspan font-style="normal">constant*</tspan></text>
+
+ <text x="10" y="270" fill="blue" font-size="20" font-family="Times new roman"> *Bernoulli equation applicable to ideal fluids</text>
+ <text x="15" y="290" fill="red" font-size="20" font-family="Times new roman"> (incompressible, non viscous, non turbulent)</text>
+
+</svg>

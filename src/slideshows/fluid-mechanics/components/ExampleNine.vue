@@ -16,9 +16,9 @@ eg-transition(:enter='enter', :leave='leave')
         input.center.data(:class="checkedUserOutsidePressure" v-model.number='userOutsidePressure')
       p.inline.data Inside pressure (Pa)
         input.center.data(:class="checkedUserInsidePressure" v-model.number='userInsidePressure')
-      p.inline.data Area (Pa)
+      p.inline.data Area (m<sup>2</sup>)
         input.center.data(:class="checkedUserArea" v-model.number='userArea')
-      p.inline.data Force (Pa)
+      p.inline.data Force (N)
         input.center.data(:class="checkedUserForce" v-model.number='userForce')
 
 </template>

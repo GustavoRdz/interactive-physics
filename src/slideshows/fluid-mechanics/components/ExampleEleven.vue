@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem It is suspected that a piece of pure gold has a bubble in its center. Its mass in air is {{ airWeight  }} N and in water of {{ waterWeight }} N, what is the volume of the bubble?
+    p.problem It is suspected that a piece of pure gold has a bubble in its center. Its weight in air is {{ airWeight  }} N and in water of {{ waterWeight }} N, what is the volume of the bubble?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Weight in air (N)
@@ -10,11 +10,11 @@ eg-transition(:enter='enter', :leave='leave')
         input.center.data(:class="checkedUserWater" v-model.number='userWater')
       p.inline.data Bouyant force (N)
         input.center.data(:class="checkedUserBouyant" v-model.number='userBouyant')
-      p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>gold</sub> (m<sup>3</sup>)
+      p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>gold</sub> (kg/m<sup>3</sup>)
         input.center.data(:class="checkedUserGoldDensity" v-model.number='userGoldDensity')
       p.inline.data V<sub>gold</sub> (m<sup>3</sup>)
         input.center.data(:class="checkedUserGoldVolume" v-model.number='userGoldVolume')
-      p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>displaced </sub> (m<sup>3</sup>)
+      p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>displaced </sub> (kg/m<sup>3</sup>)
         input.center.data(:class="checkedUserFluidDensity" v-model.number='userFluidDensity')
       p.inline.data V<sub>displaced</sub> (m<sup>3</sup>)
         input.center.data(:class="checkedUserDisplacedVolume" v-model.number='userDisplacedVolume')
@@ -40,13 +40,13 @@ export default {
   computed: {
     airWeight: function () {
       let max = 500
-      let min = 300
-      return ((Math.floor(Math.random() * (max - min + 1)) + min) / 100).toPrecision(3)
+      let min = 450
+      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
     },
     waterWeight: function () {
-      let max = this.airWeight - 1 * Math.random()
-      let min = this.airWeight - 2 * Math.random()
-      return (Math.floor(Math.random() * (max - min + 1)) + min).toPrecision(3)
+      let max = 400
+      let min = 300
+      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
     },
     bouyant: function () {
       return (this.airWeight - this.waterWeight) > 0 ? (this.airWeight - this.waterWeight).toPrecision(4) : (this.airWeight - this.waterWeight).toPrecision(3)

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="300px" viewBox="0 0 400 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+
+
+<g>
+  <!-- Flow pipe -->
+	<ellipse cx="50" cy="200" rx="20" ry="50" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3" transform="rotate(-20,50,200)" />
+
+	<ellipse cx="345" cy="100" rx="20" ry="30" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3" transform="rotate(-20,350,100)" />
+
+	<path d="m33 153
+	         A1000 1500 0 0 1 337 73
+					 A20 30 -20 0 1 355 130
+					 A1000 1500 0 0 0 68 247
+					 A20 50 -20 0 1 33 153
+					 Z" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="1"/>
+
+  	<ellipse cx="50" cy="200" rx="20" ry="50" stroke="#000" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.5" transform="rotate(-20,50,200)" />
+
+  <path d="m44 155 A1000 1500 0 0 1 348 76" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path01"/>
+  <path d="m52 163 A1000 1500 0 0 1 354 81" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path02"/>
+  <path d="m59 173 A1000 1500 0 0 1 359 88" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path03"/>
+  <path d="m64 184 A1000 1500 0 0 1 363 95" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path04"/>
+  <path d="m70 196 A1000 1500 0 0 1 365 102" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path05"/>
+  <path d="m73 210 A1000 1500 0 0 1 366 110" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path06"/>
+  <path d="m75 223 A1000 1500 0 0 1 365 118" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path07"/>
+  <path d="m75 235 A1000 1500 0 0 1 362 125" stroke="#00F" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0" stroke-width="2" id="path08"/>
+
+  <path d="m26 163 A1000 1500 0 0 1 42 154" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m24 173 A1000 1500 0 0 1 49 159" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m25 183 A1000 1500 0 0 1 55 166" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m27 195 A1000 1500 0 0 1 61 175" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m32 207 A1000 1500 0 0 1 67 187" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m36 220 A1000 1500 0 0 1 71 199" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m42 230 A1000 1500 0 0 1 73 210" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m50 240 A1000 1500 0 0 1 75 225" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+  <path d="m59 247 A1000 1500 0 0 1 74 238" stroke="#000" stroke-opacity="0.5"  fill="#0cafFF" fill-opacity="0"/>
+
+<!-- arrow -->
+
+  <path d="m40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+     <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path01"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+    <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path02"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+   <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path03"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+   <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path04"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+    <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path05"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+  <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path06"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+    <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path07"/>
+    </animateMotion>
+  </path>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(-40,-30) rotate(90,40,30)">
+    <animateMotion dur="5" repeatCount="indefinite" rotate="auto">
+        <mpath xlink:href="#path08"/>
+    </animateMotion>
+  </path>
+  <!-- <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(170,122) rotate(65,40,33)"/>
+  <path d="M40 30 L45 45 A6 6 0 0 0 35 45 Z" stroke="#00F" fill="#00F" stroke-width="0.1" transform="translate(280,90) rotate(75,40,33)"/> -->
+
+  <text x="0" y="250">Area A</text>
+	<line x1="20" y1="230" x2="40" y2="200" stroke="#000"/>
+	<text x="100" y="80">Flow pipe</text>
+	<line x1="130" y1="85" x2="140" y2="100" stroke="#000"/>
+	<text x="200" y="200">Flow line</text>
+	<line x1="200" y1="200" x2="180" y2="180" stroke="#000"/>
+	
+</g>
+</svg>

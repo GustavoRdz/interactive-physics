@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The manometer measures {{ tirePressure }} kPa on the tires of a car. The area of each wheel that is in contact with the ground is {{ tireContactArea }} cm2. What is the mass of the car?
+    p.problem The manometer measures {{ tirePressure }} kPa on the tires of a car. The area of each wheel that is in contact with the ground is {{ tireContactArea }} cm<sup>2</sup>. What is the mass of the car?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Gauge measurement (Pa)

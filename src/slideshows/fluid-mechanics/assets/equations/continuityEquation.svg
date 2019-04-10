@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="450px" height="300px" viewBox="0 0 450 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+<g>
+
+  <!-- pipe end-->
+	<ellipse cx="380" cy="40" rx="8" ry="20" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-width="1" stroke-opacity="0.1" transform="rotate(0,350,100)" />
+
+ <!-- pipe -->
+    <path d="m0 150
+	         C240 153 175 8 410 20
+           M410 60
+           C245 48 230 260 0 250
+					 " stroke="#0cafFF" stroke-width="3" stroke-opacity="1"  fill="none"/>
+ <!-- pipe section flow-->
+    <path d="m30 150
+	         C200 150 200 20 380 20
+					 A8 20 0 0 1 380 60
+           C275 60 200 250 30 250
+					 A8 20 0 0 1 30 150
+					 Z" stroke="#5cafFF" stroke-width="1" stroke-opacity="1"  fill="#0cafFF" fill-opacity="0.31"/>
+
+  <!-- volume differential 1-->
+  <path d="m30 150
+		       A80 20 0 0 1 50 150
+					 A20 50 0 0 1 50 248
+           A80 20 0 0 1 30 250
+           A20 50 0 0 1 30 150
+					 Z" stroke="#000" stroke-opacity="0.5" stroke-width="1" fill="#40a4df" fill-opacity="1"
+           transform="translate(0,0)">
+</path>
+
+  <!-- volume differential 1-->
+  <ellipse cx="30" cy="200" rx="20" ry="50" stroke="#000" fill="#40a4df" fill-opacity="1" stroke-width="1" stroke-opacity="0.5"/>
+
+    <!-- volume differential 2-->
+  <path d="m350 22
+		       A80 20 0 0 1 388 20
+					 A8 20 -10 0 1 392 58
+           A80 20 0 0 0 356 63
+           A8 20 -10 0 1 350 22
+					 Z" stroke="#000" stroke-opacity="0.5" stroke-width="1" fill="#40a4df" fill-opacity="1"
+           transform="translate(0,0)">
+</path>
+
+  <!-- volume differential 2-->
+  <ellipse cx="352" cy="43" rx="8" ry="21" stroke="#000" fill="#40a4df" fill-opacity=".51" stroke-width="1" stroke-opacity="0.5" transform="rotate(-10,350,43)"/>
+
+  <!-- velocity vector 1-->
+      <path
+      d="M66 200 L96 197 M86 203 L96 197 L86 194"
+      stroke="black"
+      stroke-width="3" >
+      </path>
+
+ <!-- velocity vector 2-->
+      <path
+      d="M396 40 L450 36 M435 41 L450 36 L435 33"
+      stroke="black"
+      stroke-width="3" >
+      </path>
+  <!-- legends -->
+  <!-- Areas -->
+  <text x="20" y="200" fill="black" font-size="25" font-family="Times new roman" font-style="normal">A<tspan baseline-shift="sub" font-size="15" font-style="normal">1</tspan></text>
+   <text x="345" y="45" fill="black" font-size="15" font-family="Times new roman" font-style="normal">A<tspan baseline-shift="sub" font-size="8" font-style="normal">2</tspan></text>
+  <!-- speeds -->
+ <text x="80" y="180" fill="black" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan></text>
+   <text x="430" y="23" fill="black" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan></text>
+  <!-- displacement -->
+ <text x="85" y="275" fill="black" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="15" font-style="normal">1</tspan>dt</text>
+   <text x="355" y="120" fill="black" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan>dt</text>
+
+
+   <!-- cotas 1-->
+  <path
+      d="M30 255 L30 280 M50 255 L50 280"
+      stroke="black"
+      stroke-width="1" />
+
+  <path
+      d="M0 268 L28 268 M18 271 L28 268 L18 265"
+      stroke="black"
+      stroke-width="1" 
+      />
+  <path
+      d="M0 268 L28 268 M18 271 L28 268 L18 265"
+      stroke="black"
+      stroke-width="1"
+      transform="translate(24,0) rotate(180,28,268)" 
+      />
+
+
+   <!-- cotas 2-->
+  <path
+      d="M355 70 L355 95 M390 70 L390 95"
+      stroke="black"
+      stroke-width="1" />
+
+  <path
+      d="M356 82 L389 82 M378 85 L389 82 L378 79"
+      stroke="black"
+      stroke-width="1" 
+      />
+  <path
+      d="M356 82 L389 82 M378 85 L389 82 L378 79"
+      stroke="black"
+      stroke-width="1"
+      transform="translate(0,0) rotate(180,373,82)" 
+      />
+
+<!-- informative text -->
+<text x="240" y="160">The product Av is constant</text>
+<text x="240" y="180">for an incompresible fluid</text>ç
+
+<text x="160" y="250" fill="blue" font-size="25" font-family="Times new roman" font-style="italic">dV<tspan baseline-shift="sub" font-size="14" font-style="normal">1 </tspan> = A<tspan baseline-shift="sub" font-size="14" font-style="normal">1 </tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">1 </tspan>dt = A<tspan baseline-shift="sub" font-size="14" font-style="normal">2 </tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">2 </tspan>dt = dV<tspan baseline-shift="sub" font-size="14" font-style="normal">2 </tspan></text>
+
+<text x="230" y="292" fill="red" font-size="30" font-family="Times new roman" font-style="italic">A<tspan baseline-shift="sub" font-size="14" font-style="normal">1 </tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">1 </tspan>= A<tspan baseline-shift="sub" font-size="14" font-style="normal">2 </tspan>v<tspan baseline-shift="sub" font-size="14" font-style="normal">2 </tspan></text>
+
+ 
+
+</g>
+</svg>
