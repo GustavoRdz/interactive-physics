@@ -57,43 +57,43 @@ export default {
     },
     checkedRoomWidth: function () {
       let check
-      // console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
+      console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
       check = this.width === parseFloat(this.roomWidth) ? 'correct' : 'not-correct'
       return check
     },
     checkedRoomLarge: function () {
       let check
-      // console.log('depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
+      console.log('depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
       check = this.large === parseFloat(this.roomLarge) ? 'correct' : 'not-correct'
       return check
     },
     checkedRoomHeight: function () {
       let check
-      // console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
+      console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
       check = this.height === parseFloat(this.roomHeight) ? 'correct' : 'not-correct'
       return check
     },
     checked: function () {
       let check
-      // console.log('fluidPressure => ' + 101300 + ' : ' + parseFloat(this.fluidPressure))
+      console.log('fluidPressure => ' + 101300 + ' : ' + parseFloat(this.fluidPressure))
       check = parseFloat(this.fluidPressure) === 101300 ? 'correct' : 'not-correct'
       return check
     },
     checkedFloorArea: function () {
       let check
-      // console.log('area => ' + this.area + ' : ' + parseFloat(this.floorArea))
+      console.log('area => ' + this.area + ' : ' + parseFloat(this.floorArea))
       check = this.area === parseFloat(this.floorArea) ? 'correct' : 'not-correct'
       return check
     },
     checkedWeight: function () {
       let check
-      // console.log('weight => ' + this.weight + ' : ' + parseFloat(this.roomWidth))
+      console.log('weight => ' + this.weight + ' : ' + parseFloat(this.roomWidth))
       check = this.weight === parseFloat(this.fluidWeight) ? 'correct' : 'not-correct'
       return check
     },
     checkedPressureForce: function () {
       let check
-      // console.log('force => ' + this.force + ' : ' + parseFloat(this.pressureForce))
+      console.log('force => ' + this.force + ' : ' + parseFloat(this.pressureForce))
       check = this.force === parseFloat(this.pressureForce) ? 'correct' : 'not-correct'
       return check
     }
@@ -137,7 +137,7 @@ export default {
   margin: 5px 5px 5px 5px;
   font-size: 30px;
   color: blue;
-  width: 700px;
+  width: 95%;
 }
 
 .solution {

@@ -7,15 +7,15 @@
 
 <g>
   // container
-	<path d="m220 15 A75 13 0 0 1 380 15 L380 275 A75 13 0 0 1 220 275 L220 15 Z" stroke="#000" fill-opacity="0"/>
-  <path d="m225 15 A75 10 0 0 1 375 15 L375 275 A75 10 0 0 1 225 275 L225 15 Z" stroke="#000" fill-opacity="0"/>
+	<path d="m220 15 A75 13 0 0 1 380 15 L380 275 A75 13 0 0 1 220 275 L220 15 Z" stroke="#000" fill-opacity="1" stroke-opacity="0.1" fill="#C6E2E3"/>
+  <path d="m225 15 A75 10 0 0 1 375 15 L375 275 A75 10 0 0 1 225 275 L225 15 Z" stroke="#000" fill-opacity="1" stroke-opacity="0.1" fill="#C6E2E3"/>
 
   // water
   <path d="m225 75 A75 10 0 0 1 375 75 L375 275 A75 10 0 0 1 225 275 L225 275 Z" fill="#0cafFF" fill-opacity="0.8"/>
   <ellipse cx="300" cy="75" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
 	<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
 	// container outter border
-		<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0"/>
+		<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0.5" stroke-opacity="0.1" fill="#C6E2E3"/>
 
    // Measurement points
 	 // reference point on the surface

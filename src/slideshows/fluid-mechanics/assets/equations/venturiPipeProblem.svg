@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="350px" height="300px" viewBox="0 0 400 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+  <g transform="scale(1) translate(0, 0)">
+		<!-- Venturi meter -->
+
+		<!-- Water -->
+
+		<path
+		      d="M50 250
+					L150 250
+					A50 50 0 0 0 170 240
+					A50 50 0 0 1 190 230
+					L250 230
+					A50 50 0 0 1 270 240
+					A50 50 0 0 0 290 250
+					L320 250
+					A10 50 0 0 1 320 150
+					L290 150
+					A50 50 0 0 0 270 160
+					A50 50 0 0 1 250 170
+					L230 170
+					L230 120
+					L210 120
+					L210 170
+					A50 50 0 0 1 170 160
+					A50 50 0 0 0 150 150
+					L130 150
+					L130 80
+					L110 80
+					L110 150
+					L50 150
+					A10 50 0 0 0 50 250
+					Z" fill="#40a4df" stroke="#000" stroke-opacity="0" fill-opacity="0.5"/>
+
+		<!-- Tube -->
+		<path
+		      d="M50 250
+					L150 250
+					A50 50 0 0 0 170 240
+					A50 50 0 0 1 190 230
+					L250 230
+					A50 50 0 0 1 270 240
+					A50 50 0 0 0 290 250
+					L320 250
+					M320 150
+					L290 150
+					A50 50 0 0 0 270 160
+					A50 50 0 0 1 250 170
+					L230 170
+					L230 50
+					A10 5 0 0 0 210 50
+					L210 170
+					A50 50 0 0 1 170 160
+					A50 50 0 0 0 150 150
+					L130 150
+					L130 50
+					A10 5 0 0 0 110 50
+					L110 150
+					L50 150" fill="#40a4df" fill-opacity="0" stroke="#000" stroke-opacity="1"/>
+
+		<!-- flow lines -->
+		<path
+		      d="M43 234
+					L145 234
+					A50 50 0 0 0 170 226
+					A50 50 0 0 1 190 221
+					L245 221
+					A50 50 0 0 1 270 226
+					A50 50 0 0 0 290 234
+					L312 234
+					M42 218
+					L145 218
+					A50 50 0 0 0 170 215
+					A50 50 0 0 1 190 210
+					L245 210
+					A50 50 0 0 1 270 215
+					A50 50 0 0 0 290 218
+					L310 218
+					M41 202
+					L310 202
+					M41 186
+					L145 186
+					A50 50 0 0 1 170 191
+					A50 50 0 0 0 190 194
+					L245 194
+					A50 50 0 0 0 270 189
+					A50 50 0 0 1 290 186
+					L310 186
+					M42 170
+					L145 170
+					A50 50 0 0 1 170 175
+					A50 50 0 0 0 190 180
+					L245 180
+					A50 50 0 0 0 270 175
+					A50 50 0 0 1 290 170
+					L310 170
+					" fill="#40a4df" fill-opacity="0" stroke="#40a4df" stroke-opacity="1"/>
+
+		<!-- elliptical ends -->
+		<ellipse cx="120" cy="80" rx = "9" ry="5" fill="#40a4df" stroke="#40a4df" opacity="1"/>
+		<ellipse cx="220" cy="120" rx = "9" ry="5" fill="#40a4df" stroke="#939927" opacity="1"/>
+		<ellipse cx="120" cy="50" rx = "10" ry="5" fill="#eee" stroke="#000" opacity="0."/>
+		<ellipse cx="220" cy="50" rx = "10" ry="5" fill="#eee" stroke="#000" opacity="0."/>
+
+		<!-- cross setion areas -->
+		<ellipse cx="120" cy="200" rx = "10" ry="50" fill="none" stroke="#F00" opacity="0.5"/>
+		<ellipse cx="220" cy="200" rx = "8" ry="30" fill="none" stroke="#F00" opacity="0.5"/>
+
+		<!-- Measurement points -->
+		<circle cx="120" cy="202" r = "3" fill="#f00" stroke="#000" opacity="0.7"/>
+		<circle cx="220" cy="202" r = "3" fill="#f00" stroke="#000" opacity="0.7"/>
+
+		<!-- cotes limits -->
+		<line stroke="#000" stroke-width="1" x1="120" y1="210" x2="120" y2="260"/>
+		<line stroke="#000" stroke-width="1" x1="220" y1="210" x2="220" y2="250"/>
+
+		<line stroke="#000" stroke-width="1" x1="220" y1="120" x2="170" y2="120"/>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="180" y1="80" x2="120" y2="80"/>
+
+		<!-- flow speed  -->
+		<line fill="none" stroke="#00ff00" stroke-width="5" x1="60" y1="202" x2="100" y2="202"/>
+		<line fill="none" stroke="#00ff00" stroke-width="2" x1="90" y1="197" x2="100" y2="202"/>
+		<line fill="none" stroke="#00ff00" stroke-width="2" x1="90" y1="207" x2="100" y2="202"/>
+
+		<line fill="none" stroke="#00ff00" stroke-width="5" x1="225" y1="202" x2="300" y2="202"/>
+		<line fill="none" stroke="#00ff00" stroke-width="2" x1="290" y1="197" x2="300" y2="202"/>
+		<line fill="none" stroke="#00ff00" stroke-width="2" x1="290" y1="207" x2="300" y2="202"/>
+
+		<!-- draw text -->
+		<text x="170" y="106" fill="black" font-size="20" font-style="italic">h</text>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="175" y1="110" x2="175" y2="118"/>
+		<line fill="none" stroke="#000000" stroke-width="1" x1="175" y1="82" x2="175" y2="89"/>
+
+
+		<text x="70" y="190" fill="black" font-size="20" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="10">1</tspan></text>
+		<text x="260" y="190" fill="black" font-size="20" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+
+		<text x="120" y="190" fill="black" font-size="20" font-family="Times new roman" font-style="italic"> p<tspan baseline-shift="sub" font-size="15">1</tspan></text>
+		<text x="220" y="190" fill="#000" font-size="20" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="15">2</tspan></text>
+
+		<text x="110" y="275" fill="black" font-size="20" font-family="Times new roman" font-style="italic">A<tspan baseline-shift="sub" font-size="15">1</tspan></text>
+		<text x="210" y="265" fill="#000" font-size="20" font-family="Times new roman" font-style="italic">A<tspan baseline-shift="sub" font-size="15">2</tspan></text>
+
+	</g>
+
+</svg>

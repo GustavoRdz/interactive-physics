@@ -56,37 +56,37 @@ export default {
     },
     checkedWaterRise: function () {
       let check
-      // console.log('rise : ' + this.rise / 100 + ' : ' + parseFloat(this.waterRise))
+      console.log('rise : ' + this.rise / 100 + ' : ' + parseFloat(this.waterRise))
       check = this.rise / 100 === parseFloat(this.waterRise) ? 'correct' : 'not-correct'
       return check
     },
     checkedAtmPressure: function () {
       let check
-      // console.log('atmPressure : ' + 101300 + ' : ' + parseFloat(this.atmPressure))
+      console.log('atmPressure : ' + 101300 + ' : ' + parseFloat(this.atmPressure))
       check = parseFloat(this.atmPressure) === 101300 ? 'correct' : 'not-correct'
       return check
     },
     checkedFluidDensity: function () {
       let check
-      // console.log('fluidDensity : ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
+      console.log('fluidDensity : ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
       check = parseFloat(this.fluidDensity) === 1.2 ? 'correct' : 'not-correct'
       return check
     },
     checkedPressureBefore: function () {
       let check
-      // console.log('initialPressure : ' + this.initialPressure + ' : ' + parseFloat(this.pressureBefore))
+      console.log('initialPressure : ' + this.initialPressure + ' : ' + parseFloat(this.pressureBefore))
       check = this.initialPressure === parseFloat(this.pressureBefore) ? 'correct' : 'not-correct'
       return check
     },
     checkedPressureAfter: function () {
       let check
-      // console.log('finalPressure : ' + this.finalPressure + ' : ' + parseFloat(this.pressureAfter))
+      console.log('finalPressure : ' + this.finalPressure + ' : ' + parseFloat(this.pressureAfter))
       check = this.finalPressure === parseFloat(this.pressureAfter) ? 'correct' : 'not-correct'
       return check
     },
     checkedPressureDifference: function () {
       let check
-      // console.log('pressureDecrease : ' + this.pressureDecrease + ' : ' + parseFloat(this.pressureDifference))
+      console.log('pressureDecrease : ' + this.pressureDecrease + ' : ' + parseFloat(this.pressureDifference))
       check = this.pressureDecrease === parseFloat(this.pressureDifference) ? 'correct' : 'not-correct'
       return check
     }

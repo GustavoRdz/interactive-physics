@@ -46,25 +46,25 @@ export default {
     },
     checkedGaugeMeasurement: function () {
       let check
-      console.log(this.tirePressure * 1000 + ' : ' + parseFloat(this.gaugeMeasurement))
+      console.log('Pressure: ' + this.tirePressure * 1000 + ' : ' + parseFloat(this.gaugeMeasurement))
       check = this.tirePressure * 1000 === parseFloat(this.gaugeMeasurement) ? 'correct' : 'not-correct'
       return check
     },
     checkedSurfaceArea: function () {
       let check
-      console.log(4 * this.tireContactArea / 10000 + ' : ' + parseFloat(this.surfaceArea))
+      console.log('Area: ' + 4 * this.tireContactArea / 10000 + ' : ' + parseFloat(this.surfaceArea))
       check = 4 * this.tireContactArea / 10000 === parseFloat(this.surfaceArea) ? 'correct' : 'not-correct'
       return check
     },
     checkedCarWeight: function () {
       let check
-      console.log(this.force + ' : ' + parseFloat(this.carWeight))
+      console.log('Weight final: ' + this.force + ' : ' + parseFloat(this.carWeight))
       check = this.force === parseFloat(this.carWeight) ? 'correct' : 'not-correct'
       return check
     },
     checkedCarMass: function () {
       let check
-      console.log(this.mass + ' : ' + parseFloat(this.carMass))
+      console.log('Mass: ' + this.mass + ' : ' + parseFloat(this.carMass))
       check = this.mass === parseFloat(this.carMass) ? 'correct' : 'not-correct'
       return check
     }

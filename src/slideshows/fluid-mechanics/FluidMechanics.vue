@@ -205,7 +205,7 @@
       .center
           img(src='./assets/equations/pascalPrinciple.svg')
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='true')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 4
       example-four
@@ -224,7 +224,7 @@
       p <span><em><strong>Absolute pressure</strong></em></span>: is zero-referenced against a perfect vacuum, using an absolute scale, it is equal to gauge presure plus atmospheric pressure
       p <span><em><strong>Gauge pressure</strong></em></span>: is zero-referenced against ambient air pressure, it is equal to absolute pressure minus atmospheric pressure
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='true')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 5
       example-five
@@ -419,7 +419,7 @@
         .center
         img(src='./assets/equations/continuityRateEquations.svg')
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 14
       example-fourteen
@@ -473,27 +473,53 @@
         p(style="font-size: 25px; color: #ff0000;") 
         img(src='./assets/equations/bernoulliEquationFinal.svg')
     
-    slide(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
+      h3 Exercise 16
+      example-sixteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+    
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 17
+      example-seventeen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 18
+      example-eighteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-
-
-
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .center
+        h3 References
+        p University Physics 13th Edition. Searzs and Zemanzky
+        p Physics for scientist and engineers 8th Edition. Serway, Jewett
+        p.small created by G. Rodríguez-Morales and spheroidGames
+        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
 
 </template>
 
@@ -504,7 +530,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Fluid Mechanics',
-    description: 'Static and Dynamic (In progress)',
+    description: 'Static and Dynamic',
     path: 'fluid-mechanics'
   },
   components: {
@@ -523,7 +549,10 @@ export default {
     'example-twelve': require('./components/ExampleTwelve'),
     'example-thirteen': require('./components/ExampleThirteen'),
     'example-fourteen': require('./components/ExampleFourteen'),
-    'example-fifteen': require('./components/ExampleFifteen')
+    'example-fifteen': require('./components/ExampleFifteen'),
+    'example-sixteen': require('./components/ExampleSixteen'),
+    'example-seventeen': require('./components/ExampleSeventeen'),
+    'example-eighteen': require('./components/ExampleEighteen')
 
   },
   data: function () {
@@ -572,17 +601,6 @@ export default {
     }
   },
   methods: {
-    message: function (name) {
-      return {
-        'baby bunnies': 'Yeeeeah my favorite too !',
-        'fluffy puppies': 'Wow so original.',
-        'funny kitties': 'Good for you ' + this.username + '.',
-        'Theming': 'Ok ' + this.username + ', whatever.',
-        'Slide reuse': 'Seriously ' + this.username + ' you <em>want</em> to see this.',
-        'Interactivity': 'Well that\'s this slide, ' + this.username +
-                         '. <br /> A bit too late to unsee it, heh ?'
-      }[name]
-    }
   }
 }
 </script>

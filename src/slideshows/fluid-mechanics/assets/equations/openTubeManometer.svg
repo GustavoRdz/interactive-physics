@@ -20,7 +20,7 @@
 					A8 8 0 0 1 345 200
 					L345 70
 					A20 20 0 0 0 325 50
-					Z" fill="#59f" stroke="#000" opacity="0.5"/>
+					Z" fill="#C6E2E3" stroke="#000" opacity="0.5"/>
 
 		<!-- Gas -->
 		<path d="M300 50
@@ -44,7 +44,7 @@
 					L430 200
 					A8 8 0 0 1 345 200
 					L345 120
-					Z" fill="#fff" stroke="#000" opacity="0.5"/>
+					Z" fill="#40a4df" stroke="#000" opacity="0.5"/>
 
 		<!-- elliptical ends -->
 		<ellipse cx="335" cy="140" rx = "10" ry="3" fill="#eee" stroke="#000" opacity="0.5"/>

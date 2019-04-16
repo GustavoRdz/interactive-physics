@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="250px" height="150px" viewBox="0 0 250 150" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+<g transform="translate(0,0)">
+<!-- GENERAL SOLUTION -->
+
+ <text x="10" y="40" fill="#000" font-size="20" font-family="Times new roman" font-style="italic">Solution</text>
+ <text x="10" y="100" fill="blue" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan> =</text>
+ <text x="50" y="130" fill="blue" font-size="80" font-family="Times new roman" font-style="italic">&#x221A;</text>
+ <line x1="91" y1="57" x2="240" y2="57" stroke="#00F" stroke-width="2"/>
+ <line x1="90" y1="105" x2="240" y2="105" stroke="#000" stroke-width="2"/>
+
+
+ <text x="150" y="89" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">2gh</text>
+
+ <text x="100" y="130" fill="blue" font-size="27" font-family="Times new roman" font-style="italic"><tspan font-style="normal"></tspan><tspan font-style="normal">(</tspan>A<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan> / A<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan font-style="normal">)</tspan><tspan baseline-shift="super" font-size="14" font-style="normal">2</tspan><tspan font-style="normal"> - 1</tspan></text>
+</g>
+</svg>

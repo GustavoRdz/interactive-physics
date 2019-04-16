@@ -36,8 +36,7 @@ export default {
       fluidMass: '',
       fluidWeight: '',
       waterFluidMass: '',
-      waterFluidWeight: '',
-      correct: false
+      waterFluidWeight: ''
     }
   },
   computed: {
@@ -73,43 +72,43 @@ export default {
     },
     checkedRoomWidth: function () {
       let check
-      // console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
+      console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
       check = this.width === parseFloat(this.roomWidth) ? 'correct' : 'not-correct'
       return check
     },
     checkedRoomLarge: function () {
       let check
-      // console.log('Depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
+      console.log('Depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
       check = this.large === parseFloat(this.roomLarge) ? 'correct' : 'not-correct'
       return check
     },
     checkedRoomHeight: function () {
       let check
-      // console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
+      console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
       check = this.height === parseFloat(this.roomHeight) ? 'correct' : 'not-correct'
       return check
     },
     checked: function () {
       let check
-      // console.log('volume => ' + this.volume + ' : ' + parseFloat(this.fluidVolume))
+      console.log('volume => ' + this.volume + ' : ' + parseFloat(this.fluidVolume))
       check = this.volume === parseFloat(this.fluidVolume) ? 'correct' : 'not-correct'
       return check
     },
     checkedFluidDensity: function () {
       let check
-      // console.log('fluidDensity => ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
+      console.log('fluidDensity => ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
       check = parseFloat(this.fluidDensity) === 1.2 ? 'correct' : 'not-correct'
       return check
     },
     checkedMass: function () {
       let check
-      // console.log('airMass => ' + this.mass + ' : ' + parseFloat(this.fluidMass))
+      console.log('airMass => ' + this.mass + ' : ' + parseFloat(this.fluidMass))
       check = this.mass === parseFloat(this.fluidMass) ? 'correct' : 'not-correct'
       return check
     },
     checkedWeight: function () {
       let check
-      // console.log('airWeight => ' + this.weight + ' : ' + parseFloat(this.fluidWeight))
+      console.log('airWeight => ' + this.weight + ' : ' + parseFloat(this.fluidWeight))
       check = this.weight === parseFloat(this.fluidWeight) ? 'correct' : 'not-correct'
       return check
     },
@@ -121,7 +120,7 @@ export default {
     },
     checkedWaterWeight: function () {
       let check
-      // console.log('waterWeight => ' + this.waterWeight + ' : ' + parseFloat(this.waterFluidWeight))
+      console.log('waterWeight => ' + this.waterWeight + ' : ' + parseFloat(this.waterFluidWeight))
       this.correct = true
       check = this.waterWeight === parseFloat(this.waterFluidWeight) ? 'correct' : 'not-correct'
       return check

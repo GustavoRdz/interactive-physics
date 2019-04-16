@@ -12,16 +12,16 @@
 					   A25 10 0 0 1 600 250
 						 L600 320
 					   A25 10 0 0 0 400 320
-					   Z" fill="#fff" stroke="#000" opacity="0.5"/>
+					   Z" fill="#C6E2E3" stroke="#000"  stroke-opacity="0.1" opacity="0.5"/>
 
 		<path d="M405 250
 					   A25 10 0 0 1 595 250
 						 L595 315
 					   A25 10 0 0 0 405 315
-					   Z" fill="#fff" stroke="#000" opacity="0.5"/>
+					   Z" fill="#C6E2E3" stroke="#000"  stroke-opacity="0.1" opacity="0.5"/>
 
 		<!-- fluid -->
-    <ellipse cx="500" cy="280" rx = "95" ry="38" fill="#d3d3d3" stroke="#000" opacity="0.8"/>
+    <ellipse cx="500" cy="280" rx = "95" ry="38" fill="#C0C0C0" stroke="#000" opacity="1"  stroke-opacity="0.2" />
 
 		<!-- Tube -->
 		<path d="M490 30
@@ -29,7 +29,7 @@
 						 A20 20 0 0 0 510 269
 					   L510 30
 					   A10 10 0 0 0 490 30
-					   Z" fill="#d3d3d3" stroke="#000" opacity="0.8"/>
+					   Z" fill="#C6E2E3" stroke="#000" opacity="0.5"/>
 
 		<!-- Tube  submerged part-->
 		<path d="M490 270
@@ -37,7 +37,7 @@
 						 A20 20 0 0 0 510 300
 					   L510 270
 					   A15 10 0 0 1 490 270
-					   Z" fill="#f3f3f3" stroke="#000" opacity="0.3"/>
+					   Z" fill="#f3f3f3" stroke="#000" opacity="0.1"/>
 
 
 		<!-- petri  front part-->
@@ -45,20 +45,20 @@
 					A25 10 0 0 0 600 250
 					L600 320
 					A25 10 0 0 1 400 320
-					Z" fill="#fff" stroke="#000" opacity="0.3"/>
+					Z" fill="#C6E2E3" stroke="#000"  stroke-opacity="0.1"  opacity="0.5"/>
 			
 		<path d="M405 250
 					A25 10 0 0 0 595 250
 					L595 315
 					A25 10 0 0 1 405 315
-					Z" fill="#fff" stroke="#000" opacity="0.3"/>
+					Z" fill="#C6E2E3" stroke="#000"  stroke-opacity="0.1" opacity="0.5"/>
 
 		<!-- fluid -->
 		<path d="M405 280
 					A25 10 0 0 0 595 280
 					L595 315
 					A25 10 0 0 1 405 315
-					Z" fill="#d3d3d3" stroke="#000" opacity="0.5"/>
+					Z" fill="#C0C0C0" stroke="#000" stroke-opacity="0.2" opacity="1"/>
 
 
 		<!-- Vacuum -->
@@ -67,7 +67,7 @@
              A15 10 0 0 1 510 70
 						 L510 30
 						 A10 10 0 0 0 490 30
-					Z" fill="#fff" stroke="#000" opacity="0.5"/>
+					Z" fill="#C6E2E3" stroke="#000" opacity="0.5"/>
 
 		<!-- elliptical ends -->
 		<ellipse cx="500" cy="70" rx = "10" ry="3" fill="#eee" stroke="#000" opacity="0.5"/>

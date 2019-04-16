@@ -65,43 +65,43 @@ export default {
     },
     checkedSmallRadius: function () {
       let check
-      // console.log('radiusA : ' + this.radiusA + ' : ' + parseFloat(this.smallRadius))
+      console.log('radiusA : ' + this.radiusA / 100 + ' : ' + parseFloat(this.smallRadius))
       check = this.radiusA / 100 === parseFloat(this.smallRadius) ? 'correct' : 'not-correct'
       return check
     },
     checkedBigRadius: function () {
       let check
-      // console.log('radiusB : ' + this.radiusB + ' : ' + parseFloat(this.bigRadius))
+      console.log('radiusB : ' + this.radiusB / 100 + ' : ' + parseFloat(this.bigRadius))
       check = this.radiusB / 100 === parseFloat(this.bigRadius) ? 'correct' : 'not-correct'
       return check
     },
     checkedsmallArea: function () {
       let check
-      // console.log('areaA : ' + this.areaA + ' : ' + parseFloat(this.smallArea))
+      console.log('areaA : ' + this.areaA + ' : ' + parseFloat(this.smallArea))
       check = this.areaA === parseFloat(this.smallArea) ? 'correct' : 'not-correct'
       return check
     },
     checkedBigArea: function () {
       let check
-      // console.log('areaB : ' + this.areaB + ' : ' + parseFloat(this.bigArea))
+      console.log('areaB : ' + this.areaB + ' : ' + parseFloat(this.bigArea))
       check = this.areaB === parseFloat(this.bigArea) ? 'correct' : 'not-correct'
       return check
     },
     checkedCarWeigth: function () {
       let check
-      // console.log('weigth : ' + this.weigth + ' : ' + parseFloat(this.carWeigth))
+      console.log('weigth : ' + this.weigth + ' : ' + parseFloat(this.carWeigth))
       check = this.weigth === parseFloat(this.carWeigth) ? 'correct' : 'not-correct'
       return check
     },
     checkedAirForce: function () {
       let check
-      // console.log('force : ' + this.force + ' : ' + parseFloat(this.airForce))
+      console.log('force : ' + this.force + ' : ' + parseFloat(this.airForce))
       check = this.force === parseFloat(this.airForce) ? 'correct' : 'not-correct'
       return check
     },
     checkedAirPressure: function () {
       let check
-      // console.log('pressure : ' + this.pressure + ' : ' + parseFloat(this.airPressure))
+      console.log('pressure : ' + this.pressure + ' : ' + parseFloat(this.airPressure))
       check = this.pressure === parseFloat(this.airPressure) ? 'correct' : 'not-correct'
       return check
     }

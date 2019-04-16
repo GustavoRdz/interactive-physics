@@ -12,20 +12,20 @@
 					 L380 275
 					 A75 13 0 0 1 220 275
 					 L220 15
-					 Z" stroke="#000" fill-opacity="0"/>
+					 Z" stroke="#000" stroke-opacity="0.1" fill="#C6E2E3" fill-opacity="1"/>
   <path d="m225 15
 	         A75 10 0 0 1 375 15
 					 L375 275
 					 A75 10 0 0 1 225 275
 					 L225 15
-					 Z" stroke="#000" fill-opacity="0"/>
+					 Z" stroke="#000" stroke-opacity="0.1" fill="#C6E2E3" fill-opacity="1"/>
 
   // water
   <path d="m225 25 A75 10 0 0 1 375 25 L375 275 A75 10 0 0 1 225 275 L225 275 Z" fill="#0cafFF" fill-opacity="0.8"/>
-  <ellipse cx="300" cy="25" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
-	<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+  <ellipse cx="300" cy="25" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.1"/>
+	<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.1"/>
 	// container outter border
-		<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0"/>
+		<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" stroke-opacity="0.2" fill="#C6E2E3" fill-opacity="0.5"/>
 
    // volume differential
   <g transform="translate(10,0)">

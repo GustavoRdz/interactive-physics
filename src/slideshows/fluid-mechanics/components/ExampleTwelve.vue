@@ -64,14 +64,14 @@ export default {
     },
     checkeduserRhoSolid: function () {
       let check
-      console.log(920 + ' : ' + parseFloat(this.userRhoSolid))
-      check = parseFloat(this.userRhoSolid) === 920 ? 'correct' : 'not-correct'
+      console.log(this.rhoObject + ' : ' + parseFloat(this.userRhoSolid))
+      check = parseFloat(this.rhoObject) === parseFloat(this.userRhoSolid) ? 'correct' : 'not-correct'
       return check
     },
     checkedUserRhoFluid: function () {
       let check
-      console.log(1025 + ' : ' + parseFloat(this.userRhoFluid))
-      check = parseFloat(this.userRhoFluid) === 1025 ? 'correct' : 'not-correct'
+      console.log(this.rhoFluid + ' : ' + parseFloat(this.userRhoFluid))
+      check = parseFloat(this.rhoFluid) === parseFloat(this.userRhoFluid) ? 'correct' : 'not-correct'
       return check
     },
     checkedUserSalientVolume: function () {

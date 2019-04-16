@@ -97,6 +97,7 @@ h3 {
 .box-card {
   text-align: center;
   margin-bottom: 50px;
+  display: inline;
   .embedded-slideshow-container {
     position: relative;
     width: 150px;
@@ -104,6 +105,7 @@ h3 {
     margin: 0 auto;
     border: 1px solid grey;
     overflow: hidden;
+    margin-top: 50px;
   }
   h3, p {
     margin-bottom: 0;
@@ -132,4 +134,5 @@ a {
   margin: 0 auto;
   margin-top: -10px;
 }
+
 </style>

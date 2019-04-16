@@ -45,37 +45,37 @@ export default {
     },
     checkedPoolDeep: function () {
       let check
-      // console.log('deep => ' + this.deep + ' : ' + parseFloat(this.poolDeep))
+      console.log('deep => ' + this.deep + ' : ' + parseFloat(this.poolDeep))
       check = this.deep === parseFloat(this.poolDeep) ? 'correct' : 'not-correct'
       return check
     },
     checkedAtmPressure: function () {
       let check
-      // console.log('atmPressure => ' + 101300 + ' : ' + parseFloat(this.atmPressure))
+      console.log('atmPressure => ' + 101300 + ' : ' + parseFloat(this.atmPressure))
       check = parseFloat(this.atmPressure) === 101300 ? 'correct' : 'not-correct'
       return check
     },
     checkedFluidDensity: function () {
       let check
-      // console.log('fluidDensity => ' + 1000 + ' : ' + parseFloat(this.fluidDensity))
+      console.log('fluidDensity => ' + 1000 + ' : ' + parseFloat(this.fluidDensity))
       check = parseFloat(this.fluidDensity) === 1000 ? 'correct' : 'not-correct'
       return check
     },
     checkedWaterPressure: function () {
       let check
-      // console.log('pressure => ' + this.pressure + ' : ' + parseFloat(this.waterPressure))
+      console.log('pressure => ' + this.pressure + ' : ' + parseFloat(this.waterPressure))
       check = this.pressure === parseFloat(this.waterPressure) ? 'correct' : 'not-correct'
       return check
     },
     checkedArea: function () {
       let check
-      // console.log('surfaceArea => ' + 0.0001 + ' : ' + parseFloat(this.surfaceArea))
+      console.log('surfaceArea => ' + 0.0001 + ' : ' + parseFloat(this.surfaceArea))
       check = parseFloat(this.surfaceArea) === 0.0001 ? 'correct' : 'not-correct'
       return check
     },
     checkedWaterForce: function () {
       let check
-      // console.log('force => ' + this.force + ' : ' + parseFloat(this.waterForce))
+      console.log('force => ' + this.force + ' : ' + parseFloat(this.waterForce))
       check = this.force === parseFloat(this.waterForce) ? 'correct' : 'not-correct'
       return check
     }

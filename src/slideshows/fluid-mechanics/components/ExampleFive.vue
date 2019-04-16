@@ -42,31 +42,31 @@ export default {
     },
     checkedDeepTank: function () {
       let check
-      // console.log('deep : ' + this.deep + ' : ' + parseFloat(this.deepTank))
+      console.log('deep : ' + this.deep + ' : ' + parseFloat(this.deepTank))
       check = this.deep === parseFloat(this.deepTank) ? 'correct' : 'not-correct'
       return check
     },
     checkedAtmPressure: function () {
       let check
-      // console.log('atmPressure : ' + 101300 + ' : ' + parseFloat(this.atmPressure))
+      console.log('atmPressure : ' + 101300 + ' : ' + parseFloat(this.atmPressure))
       check = this.atmPressure === 101300 ? 'correct' : 'not-correct'
       return check
     },
     checkedDensity: function () {
       let check
-      // console.log('density : ' + 1000 + ' : ' + parseFloat(this.density))
+      console.log('density : ' + 1000 + ' : ' + parseFloat(this.density))
       check = this.density === 1000 ? 'correct' : 'not-correct'
       return check
     },
     checkedAbsolutePressure: function () {
       let check
-      // console.log('absPressure : ' + this.absPressure + ' : ' + parseFloat(this.absolutePressure))
+      console.log('absPressure : ' + this.absPressure + ' : ' + parseFloat(this.absolutePressure))
       check = this.absPressure === parseFloat(this.absolutePressure) ? 'correct' : 'not-correct'
       return check
     },
     checkedGaugePressure: function () {
       let check
-      // console.log('gagPressure : ' + this.gagPressure + ' : ' + parseFloat(this.gaugePressure))
+      console.log('gagPressure : ' + this.gagPressure + ' : ' + parseFloat(this.gaugePressure))
       check = this.gagPressure === parseFloat(this.gaugePressure) ? 'correct' : 'not-correct'
       return check
     }

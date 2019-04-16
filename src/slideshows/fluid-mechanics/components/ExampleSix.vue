@@ -44,25 +44,25 @@ export default {
     },
     checkedhWater: function () {
       let check
-      // console.log('hwater : ' + this.water / 100 + ' : ' + parseFloat(this.hWater))
+      console.log('hwater : ' + this.water / 100 + ' : ' + parseFloat(this.hWater))
       check = this.water / 100 === parseFloat(this.hWater) ? 'correct' : 'not-correct'
       return check
     },
     checkedhOil: function () {
       let check
-      // console.log('hOil : ' + this.oil / 100 + ' : ' + parseFloat(this.hOil))
+      console.log('hOil : ' + this.oil / 100 + ' : ' + parseFloat(this.hOil))
       check = this.oil / 100 === parseFloat(this.hOil) ? 'correct' : 'not-correct'
       return check
     },
     checkedWaterDensity: function () {
       let check
-      // console.log('Rhowater : ' + 1000 + ' : ' + parseFloat(this.waterDensity))
+      console.log('Rhowater : ' + 1000 + ' : ' + parseFloat(this.waterDensity))
       check = parseFloat(this.waterDensity) === 1000 ? 'correct' : 'not-correct'
       return check
     },
     checkedOilDensity: function () {
       let check
-      // console.log('RhoOil : ' + this.density + ' : ' + parseFloat(this.oilDensity))
+      console.log('RhoOil : ' + this.density + ' : ' + parseFloat(this.oilDensity))
       check = this.density === parseFloat(this.oilDensity) ? 'correct' : 'not-correct'
       return check
     }
