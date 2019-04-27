@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);@import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Pompiere);@import url(https://fonts.googleapis.com/css?family=Amatic+SC);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);@import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);@import url(https://fonts.googleapis.com/css?family=Allerta+Stencil);@import url(https://fonts.googleapis.com/css?family=Space+Mono);@import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);@import url(https://fonts.googleapis.com/css?family=Allerta+Stencil);@import url(https://fonts.googleapis.com/css?family=Space+Mono);@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
 body {
   width: 100%;
   margin: 0 0;
@@ -2514,11 +2514,13 @@ a[data-v-7ae855cf] {
       align-content: center;
 }
 #desc {
-  width: 30em;
+  width: 11em;
   border-collapse: collapse;
   border-bottom: 1px solid black;
+  margin: 0 auto;
 }
 #desc th {
+    font-family: 'Times New Roman', Times, serif;
     background-color: whitesmoke;
     border-bottom: 1px solid black;
     padding: 1em;
@@ -2528,14 +2530,17 @@ a[data-v-7ae855cf] {
 }
 #desc td {
     text-align: left;
-    padding-left: 4em;
-    font-size: 10px;
-    height: 15px;
+    padding-left: 1em;
+    font-size: 14px;
+    height: 10px;
 }
 #desc caption {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 15px;
-    font-style: italic;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    background-color: slateblue;
+    color: white;
 }
 
 .eg-slide .eg-slide-content .figure[data-v-69da2c66] {
@@ -2571,6 +2576,247 @@ a[data-v-7ae855cf] {
     -webkit-animation-name: swing;
     -moz-animation-name: bounce;
     transform-origin: center center;
+}
+
+.svg-display[data-v-11a7879a] {
+  font-family: 'Space Mono', monospace;
+  text-transform: "none";
+}
+ul[data-v-11a7879a] {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3f3;
+}
+li[data-v-11a7879a] {
+  float: left;
+}
+li a[data-v-11a7879a], .dropbtn[data-v-11a7879a] {
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a[data-v-11a7879a]:hover, .dropdown:hover .dropbtn[data-v-11a7879a] {
+  background-color: red;
+}
+li.dropdown[data-v-11a7879a] {
+  display: inline-block;
+}
+.dropdown-content[data-v-11a7879a] {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a[data-v-11a7879a] {
+  color: black;
+  padding: 0px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a[data-v-11a7879a]:hover {
+  background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content[data-v-11a7879a] {
+  display: block;
+}
+button[data-v-11a7879a] {
+  width: 200px;
+  height: 40px;
+}
+
+.eg-slide .eg-slide-content .figure[data-v-76488919] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-76488919] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.data[data-v-76488919] {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-76488919] {
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
+  color: blue;
+  width: 100%;
+}
+.solution[data-v-76488919] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-76488919] {
+  background: #fa4408;
+}
+.correct[data-v-76488919] {
+  background: #80c080;
+}
+
+.eg-slide .eg-slide-content .figure[data-v-e29f8c02] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-e29f8c02] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.data[data-v-e29f8c02] {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-e29f8c02] {
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
+  color: blue;
+  width: 100%;
+}
+.solution[data-v-e29f8c02] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-e29f8c02] {
+  background: #fa4408;
+}
+.correct[data-v-e29f8c02] {
+  background: #80c080;
+}
+
+.eg-slide .eg-slide-content .figure[data-v-ee546cde] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-ee546cde] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.data[data-v-ee546cde] {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-ee546cde] {
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
+  color: blue;
+  width: 100%;
+}
+.solution[data-v-ee546cde] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-ee546cde] {
+  background: #fa4408;
+}
+.correct[data-v-ee546cde] {
+  background: #80c080;
+}
+
+.svg-display[data-v-00a155fa] {
+  font-family: 'Space Mono', monospace;
+  text-transform: "none";
+}
+ul[data-v-00a155fa] {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3f3;
+}
+li[data-v-00a155fa] {
+  float: left;
+}
+li a[data-v-00a155fa], .dropbtn[data-v-00a155fa] {
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a[data-v-00a155fa]:hover, .dropdown:hover .dropbtn[data-v-00a155fa] {
+  background-color: red;
+}
+li.dropdown[data-v-00a155fa] {
+  display: inline-block;
+}
+.dropdown-content[data-v-00a155fa] {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.dropdown-content a[data-v-00a155fa] {
+  color: black;
+  padding: 0px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content a[data-v-00a155fa]:hover {
+  background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content[data-v-00a155fa] {
+  display: block;
+}
+button[data-v-00a155fa] {
+  width: 200px;
+  height: 40px;
+}
+.data[data-v-00a155fa] {
+  display: inline-block;
+  text-transform: none;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-00a155fa] {
+  text-transform: none;
+  margin: 1px 2px 1px 2px;
+  font-size: 30px;
+  color: blue;
+  width: 100%;
+}
+.solution[data-v-00a155fa] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-00a155fa] {
+  background: #fa4408;
+}
+.correct[data-v-00a155fa] {
+  background: #80c080;
 }
 
 
