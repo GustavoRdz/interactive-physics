@@ -49,6 +49,7 @@ export default {
 
 <style lang='scss' scoped>
 @import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+@import url(https://fonts.googleapis.com/css?family=Major+Mono+Display);
 
 .frontpage {
   width: 100%;

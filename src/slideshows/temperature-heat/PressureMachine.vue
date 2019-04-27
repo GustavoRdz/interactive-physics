@@ -1,5 +1,5 @@
 <template lang="pug">
-eg-transition-group(:enter='enter', :leave='leave')
+.eg-transition-group(:enter='enter', :leave='leave')
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" height="300" width="500" >
     <g transform="translate(0,0)">
       <rect x="0" y="0" width="500" height="300" fill="none" stroke="#000000"  stroke-width="0.1"/>

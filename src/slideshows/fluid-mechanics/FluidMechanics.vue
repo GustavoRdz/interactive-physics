@@ -2,7 +2,6 @@
 #FluidMechanics.eg-theme-agrume
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       .center.frontpage
         h1 Fluid Mechanics
         img(src='./assets/U.svg')
@@ -499,7 +498,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 18
       example-eighteen
