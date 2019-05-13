@@ -6,7 +6,7 @@
         <g style="text-transform: none;">
           // material 1
           <rect :x="`${ 50 - 5 * position }`" y="50" width="100" height="100" :fill="`${materials[mat1].color}`" stroke="#000000"  stroke-width="0.1" opacity="1"/>
-          <text class="svg-display" :x="`${ 60 - 5 * position }`" y="35" font-size="20px" fill="red">T={{ `${parseFloat(Math.round(10*temperature1)/10)}` }} </text>
+          <text class="svg-display" :x="`${ 50 - 5 * position }`" y="35" font-size="20px" fill="red">T={{ `${parseFloat(Math.round(10*temperature1)/10)}` }}&#x00B0;C</text>
           <text class="svg-display" :x="`${ 70 - 5 * position }`" y="65" font-size="12px" fill="blue">{{ `${ materials[mat1].name}` }} </text>
           <text :x="`${ 70 - 5 * position }`"y="90" font-size="12px" fill="blue">{{  `${ materials[mat1].density}` }} <tspan font-weight="bold">kg/m<tspan font-family="arial" font-size="8px" baseline-shift="super">3</tspan></tspan></text>
           <text :x="`${ 70 - 5 * position }`"y="110" font-size="12px" fill="blue">{{ `${ materials[mat1].calorific}` }} <tspan font-weight="bold">J/kg·K</tspan></text>
@@ -20,7 +20,7 @@
           <text :x="`${ 170 + 5 * position }`" y="110" font-size="12px" fill="blue">{{ `${materials[mat2].calorific}` }} <tspan font-weight="bold">J/kg·K</tspan></text>
           <text :x="`${ 170 + 5 * position }`"y="130" font-size="12px" fill="blue">{{ `${ materials[mat2].conductivity - 1 }` }} <tspan font-weight="bold">W/s</tspan></text>
           <rect :x="`${ 150 + 5 * position }`" y="50" width="100" height="100" fill="#B2c3ff" stroke="#000000"  stroke-width="0.1" :opacity="`${ opacity }`"/>
-          <text class="svg-display" :x="`${160 + 5 * position}`" y="35" font-size="20px" fill="blue">T={{ `${parseFloat(Math.round(10*temperature2))/10}` }} </text>
+          <text class="svg-display" :x="`${160 + 5 * position}`" y="35" font-size="20px" fill="blue">T={{ `${parseFloat(Math.round(10*temperature2))/10}` }}&#x00B0;C</text>
 
           <text v-if="blink" class="svg-display" x="25" y="180" font-size="18px" fill="red"><animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/><tspan font-weight="bold">Thermal contact engaged</tspan></text>
           <text v-if="blink2" class="svg-display"  x="2" y="180" font-size="18px" fill="green"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/><tspan font-weight="bold">Thermal equilibrium reached</tspan></text>

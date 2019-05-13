@@ -1,12 +1,34 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A poorly designed electronic device has two bolts attached to different parts of the device that almost touch each other in its interior. The steel and brass bolts are at different electric potentials, and if they touch, a short circuit will develop, damaging the device. The initial gap between of the bolts is {{ gapSize }} &#x03BC;m at {{ initialTemperature }}&#x00B0;C. At what temperature will the bolts touch? Assume the distance between the wall of the deviceis not affected by the temperature change.
+  p.center Mecanical equivalent of heat
 
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" height="200" width="300" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" height="400" width="300" >
         <g style="text-transform: none;">
 
+          <text x="22" y="0" fill="#FFD700" font-size="120" font-family="arial" transform="translate(100 0) rotate(-5,22,0)">
+          <animateTransform attributeName="transform" type="scale" additive="sum" from="1 1" to="-1 1" dur="2s"repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="translate" additive="sum" from="-60 90" to="-70 90" dur="2s" repeatCount="indefinite" />U</text>
+         
+          <text x="22" y="0" fill="#FFD700" font-size="120" font-family="arial" transform="translate(100 0) rotate(-5,22,0)">
+          <animateTransform attributeName="transform" type="scale" additive="sum" from="1 1" to="-1 1" dur="2s"repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="translate" additive="sum" from="-60 90" to="-70 90" dur="2s" repeatCount="indefinite" />U</text>
+
+          //- axis
+          <line x1="0" y1="0" x2="100" y2="100" stroke="#000"/>
+          //- paddles
+          <rect x="22" y="200" width="50" height="50" fill="peru" stroke="#000" stroke-opacity="0.5" transform="translate(100 0) rotate(-0,22,0)">
+              <animateTransform attributeName="transform" type="rotate" additive="sum" from="-10 22 0" to="10 22 0" dur="2s"repeatCount="indefinite" />
+              <animateTransform attributeName="transform" type="skewX" additive="sum" from="-10" to="10" dur="2s"repeatCount="indefinite" />
+              <animateTransform attributeName="transform" type="scale" additive="sum" from="1 1" to="-1 1" dur="2s"repeatCount="indefinite" />
+          <animateTransform attributeName="transform" type="translate" additive="sum" from="-60 90" to="-70 90" dur="2s" repeatCount="indefinite" />
+          </rect>
+
+
+          //- container
+          <path d="M100 200 A15 25 0 0 0 0 90 L4 90 L4 100 L10 100 L10 106 L4 106 L4 115 L0 115 A15 25 0 0 0 15 130 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
+          
           <g>
             <rect x="20" y="95" width="250" height="15" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
             <path :d="chord" stroke="#000" fill="silver" stroke-opacity="0.5"></path>
@@ -78,14 +100,7 @@
 
         </g>
       </svg>
-      .center
-        p.solution Please do calculations and introduce your results
-        p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-        p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-        p.inline.data Touch T (&#x00B0;C)
-          input.center.data(:class="checkedUserT" v-model.number='userT')
+
 
 </template>
 <script>
