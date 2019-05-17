@@ -1,16 +1,14 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A student eats a dinner at 2000 Calories. He wishes to do an equivalent amount of work in the gymnasium by lifting a 50.0-kg ballbell. How many times must he raise the barbell to expend this much energy? Assume he rises the barbell 2.00m each time lifts it and he regains no energy when he lowers the barbell
+  p.problem A student eats a dinner at {{ calories }} Calories. He wishes to do an equivalent amount of work in the gymnasium by lifting a {{ weight }}-kg barbell. How many times must he raise the barbell to expend this much energy? Assume he rises the barbell {{ height }}m each time lifts it and he regains no energy when he lowers the barbell. Calculate the time required to do the lifts if each one is done in {{ time }}s
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Number of lifts
+        input.center.data(:class="checkedUserLifts" v-model.number='userLifts')
+      p.inline.data Time (hrs)
+        input.center.data(:class="checkedUserTime" v-model.number='userTime')
 
 </template>
 <script>
@@ -19,136 +17,57 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      Calorie: 4186,
+      g: 9.81,
+      userLifts: '',
+      userTime: ''
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
+    calories: function () {
+      let max = 2200
+      let min = 1800
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
+    weight: function () {
+      let max = 50
+      let min = 30
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    initialTemperature: function () {
-      let max = 30
-      let min = 20
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    height: function () {
+      let max = 20
+      let min = 15
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    time: function () {
+      let max = 100
+      let min = 50
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    checkedUserAlphaBr: function () {
+    lifts: function () {
+      return Math.round(this.calories * this.Calorie / (this.weight * this.g * this.height))
+    },
+    totalTime: function () {
+      return Math.round(10 * this.lifts * this.time / 3600) / 10
+    },
+    checkedUserLifts: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log(this.lifts + ' : ' + parseFloat(this.userLifts))
+      check = this.lifts === parseFloat(this.userLifts) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedUserTime: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUserT: function () {
-      let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log(this.totalTime + ' : ' + parseFloat(this.userTime))
+      check = this.totalTime === parseFloat(this.userTime) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>

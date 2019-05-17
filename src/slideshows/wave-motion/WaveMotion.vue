@@ -4,7 +4,7 @@
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
         h1 Wave Motion
-        img(src='./assets/logo.svg')
+        img(src='./assets/microres4.jpg')
         h4 Propagation of oscillations
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',

@@ -1,16 +1,11 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem <strong style="color: black;">Ensuring a Tight Fit.</strong> Aluminium rivets used in airplane construction are made slightly larger than rivets holes and cooled by "dry ice" (solid CO<sub>2</sub>) before being driven. If the diameter of a hole is 4.500 mm, what should be the diameter of a rivet at 23&#x00B0;C if its diameter is equal to that of the hole when rivet is cooled to -78&#x00B0;C, the temperature of the dry ice? expansion coefficient for aluminium is 2.4 x 10<sup>-5</sup> &#x00B0;C<sup>-1</sup>.
-
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-    //-     input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-    //-   p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-    //-     input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-    //-   p.inline.data Touch T (&#x00B0;C)
-    //-     input.center.data(:class="checkedUserT" v-model.number='userT')
+  p.problem <strong style="color: black;">Ensuring a Tight Fit.</strong> Aluminium rivets used in airplane construction are made slightly larger than rivets holes and cooled by "dry ice" (solid CO<sub>2</sub>) before being driven. If the diameter of a hole is {{ holeDiameter }} mm, what should be the diameter of a rivet at {{ hotTemperature }}&#x00B0;C if its diameter is equal to that of the hole when rivet is cooled to -78&#x00B0;C, the temperature of the dry ice? expansion coefficient for aluminium is 2.4 x 10<sup>-5</sup> &#x00B0;C<sup>-1</sup>.
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data <em>&#x03C6; @{{ hotTemperature }}&#x00B0;</em>
+        input.center.data(:class="checkedUserPhi" v-model.number='userPhi')
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -18,136 +13,37 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      userPhi: '',
+      alpha: 2.4e-5,
+      coldTemperature: -78
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    holeDiameter: function () {
+      let max = 60
+      let min = 40
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    initialTemperature: function () {
+    hotTemperature: function () {
       let max = 30
       let min = 20
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    phi: function () {
+      return Math.round(1000 * this.holeDiameter * (1 + this.alpha * (this.hotTemperature - this.coldTemperature))) / 1000
     },
-    checkedUserAlphaBr: function () {
+    checkedUserPhi: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUserAlphaSt: function () {
-      let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUserT: function () {
-      let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log(this.phi + ' : ' + parseFloat(this.userPhi))
+      check = parseFloat(this.phi) === parseFloat(this.userPhi) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>

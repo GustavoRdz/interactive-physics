@@ -4,7 +4,7 @@
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
         h1 Oscillatory Motion
-        img(src='./assets/logo.svg')
+        img(src='./assets/microres4.jpg')
         h4 Simple Harmonic Motion Systems
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
@@ -41,13 +41,15 @@
           p(v-if="step >= 8")
             <b>Forced oscillations and resonance</b>
 
-    slide(:steps=3, enter='bounceInDown')
-      h3 Pressure
+    slide(:steps=0, enter='bounceInDown')
+      h3 Oscillations
       p If <em><span style="font-family: times;">F</span></em> is the magnitude of the force excerted normal to a surface of area <em><span style="font-family: times;">A</span></em>, the pressure in the surface is
-
       .center
-          img(src='./assets/equations/PressureDEf.svg')
-          pressure-machine
+
+    slide(enter='bounceInDown')
+      h3 Fun soon!
+      p If
+
 </template>
 
 <script>
@@ -57,7 +59,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Oscillatory Motion',
-    description: 'Simple Harmonic Motion Systems (pending)',
+    description: 'Simple Harmonic Motion Systems (In early progress)',
     path: 'oscillatory-motion'
   },
   components: {
