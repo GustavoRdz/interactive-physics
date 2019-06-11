@@ -9,14 +9,12 @@
 
     iframe.github-star(src="https://ghbtns.com/github-btn.html?user=GustavoRdz&repo=Interactive-physics&type=star&count=true&size=large"
                        frameborder="0" scrolling="0" width="160px" height="30px")
-    p.
-      Physics playground is a place to play with physics through virtual experimentation
+    p(style="text-align: center;") Physics playground is a place to play with physics through virtual experimentation
 
-    p.
-      Themes with interactive figures will be challenge you.
+    p(style="text-align: center;") Themes with interactive figures will be challenge you.
 
     .thumbnails
-      .box-card(v-for='slideshow in slideshows')
+      .block-box.box-card(v-for='slideshow in slideshows')
         router-link(:to='slideshow.infos.path' @click.native="click")
           .embedded-slideshow-container
             component(:is="slideshow", :embedded='true',
@@ -136,4 +134,10 @@ a {
   margin-top: -10px;
 }
 
+.block-box {
+  display: inline-block;
+  width:200px;
+  height:300px;
+  vertical-align: top;
+}
 </style>

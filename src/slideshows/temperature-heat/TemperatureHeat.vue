@@ -395,7 +395,7 @@
       h4.center Phase changes of water
       .center
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" height="300" width="600" >
-          <path d="M0,0 l0 300 l600 -300 l0 300 z" stroke-width="0.3"stroke="#000" fill="none"/>
+          //-<path d="M0,0 l0 300 l600 -300 l0 300 z" stroke-width="0.3"stroke="#000" fill="none"/>
           //- axis
           <g>
             <path d="M50 40 l0 210 l 500 0" stroke=#000 fill="none"/>
@@ -960,7 +960,7 @@ export default {
   
 }
 #desc {
-  width: 15em;
+  width: 18em;
   border-collapse: collapse;
   border-bottom: 1px solid black;
   margin: 0 auto;
@@ -970,7 +970,7 @@ export default {
     background-color: whitesmoke;
     border-bottom: 1px solid black;
     padding: .5em 0em .5em -3em;
-    text-align: left;
+    text-align: center;
     font-size: 15px;
     font-weight: bold;
   }

@@ -3,10 +3,11 @@
 export default {
   list: [
     require('./introduction/Introduction'),
+    require('./fluid-mechanics/FluidMechanics'),
+    require('./temperature-heat/TemperatureHeat'),
     require('./oscillatory-motion/OscillatoryMotion'),
     require('./wave-motion/WaveMotion'),
-    require('./fluid-mechanics/FluidMechanics'),
-    require('./temperature-heat/TemperatureHeat')
+    require('./comming-soon/CommingSoon')
   ]
 }
 
