@@ -262,7 +262,9 @@ export default {
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
     temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+      let boltSteel = Math.round(100 * (0.025 * this.coteLine1 - 1)) / 100
+      let boltBrass = Math.round(100 * (6 - 0.025 * this.coteLine1)) / 100
+      return Math.round(100 * (this.initialTemperature + ((this.gapSize * 1e-6) / ((19e-6 * boltBrass / 100) + (11e-6 * boltSteel / 100))))) / 100
     },
     checkedUserAlphaBr: function () {
       let check

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="200px" height="50px" viewBox="0 0 300 90" enable-background="new 0 0 64 64" xml:space="preserve">
+<text x="10" y="25" fill="black" font-size="30" font-style="italic">f<tspan font-size="20" baseline-shift = "sub">s+v</tspan></text>
+<line fill="none" stroke="#000000" stroke-width="2" x1="0" y1="40" x2="40" y2="40"/>
+<text x="10" y="65" fill="black" font-size="30" font-style="italic">f<tspan font-size="20" baseline-shift = "sub">s</tspan></text>
+<line fill="none" stroke="#000000" stroke-width="2" x1="50" y1="37" x2="70" y2="37"/>
+<line fill="none" stroke="#000000" stroke-width="2" x1="50" y1="43" x2="70" y2="43"/>
+<text x="130" y="25" fill="black" font-size="30" font-style="italic">1</text>
+<line fill="none" stroke="#000000" stroke-width="2" x1="80" y1="40" x2="240" y2="40"/>
+<text x="85" y="70" fill="black" font-size="30" font-style="italic">1 + (m<tspan font-size="20" baseline-shift = "sub">v</tspan>/m<tspan font-size="20" baseline-shift = "sub">s</tspan>)</text>
+<line fill="none" stroke="#000000" stroke-width="2" x1="70" y1="60" x2="75" y2="70"/>
+<line fill="none" stroke="#000000" stroke-width="1" x1="75" y1="70" x2="90" y2="45"/>
+<line fill="none" stroke="#000000" stroke-width="1" x1="90" y1="45" x2="230" y2="45"/>
+</svg>
