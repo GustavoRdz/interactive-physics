@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="800px" height="400px" viewBox="0 0 800 400" enable-background="new 0 0 400 400" xml:space="preserve">
+
+
+  <g transform="scale(1) translate(-40, 0)">
+
+	  <text x="50" y="250" font-size="35" fill="green">Proportional to</text>
+	  <text x="50" y="290" font-size="35" fill="green">temperture change</text>
+	  <text x="450" y="320" font-size="35" fill="green">Proportional to</text>
+	  <text x="450" y="360" font-size="35" fill="green">initial length</text>
+
+    <!-- Bar T0 -->
+		<line x1="50" y1="50" x2="50" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<path d="M50 30
+				L250 30
+				A5 10 0 0 1 250 50
+				L50 50
+				A5 10 0 0 1 50 30
+				Z" fill="peru" stroke="#000" opacity="1"/>
+		<ellipse cx="250" cy="40" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+		<line x1="250" y1="50" x2="250" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="300" y1="50" x2="300" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<text x="260" y="35" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="140" y="80" font-size="20">L<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="260" y="80" font-size="20">&#x394;L</text>
+
+		<path d="M50 100
+				L300 100
+				A5 10 0 0 1 300 120
+				L50 120
+				A5 10 0 0 1 50 100
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="300" cy="110" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+		<line x1="50" y1="120" x2="50" y2="170" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="250" y1="120" x2="250" y2="170" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="350" y1="120" x2="350" y2="170" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<text x="308" y="105" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan>+&#x394;T</text>
+		<text x="280" y="160" font-size="20">2&#x394;L</text>
+
+		<path d="M50 170
+				L350 170
+				A5 10 0 0 1 350 190
+				L50 190
+				A5 10 0 0 1 50 170
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="350" cy="180" rx="5" ry="10" fill="peru" stroke="#000" ></ellipse>
+
+		<path d="M450 30
+				L550 30
+				A5 10 0 0 1 550 50
+				L450 50
+				A5 10 0 0 1 450 30
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="550" cy="40" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+		<line x1="450" y1="50" x2="450" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="550" y1="50" x2="550" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="600" y1="50" x2="600" y2="100" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<text x="352" y="170" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan>+2&#x394;T</text>
+
+		<path d="M450 100
+				L600 100
+				A5 10 0 0 1 600 120
+				L450 120
+				A5 10 0 0 1 450 100
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="600" cy="110" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+		<text x="560" y="40" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="490" y="80" font-size="20">L<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="560" y="80" font-size="20">&#x394;L</text>
+		<text x="610" y="100" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan>+&#x394;T</text>
+
+		<path d="M450 170
+				L650 170
+				A5 10 0 0 1 650 190
+				L450 190
+				A5 10 0 0 1 450 170
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="650" cy="180" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+		<line x1="450" y1="190" x2="450" y2="240" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="650" y1="190" x2="650" y2="240" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<line x1="750" y1="190" x2="750" y2="240" stroke="#000" stroke-dasharray="10 8" stroke-width="2"></line>
+		<text x="660" y="180" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="530" y="225" font-size="20">2L<tspan baseline-shift="sub" font-size="15">0</tspan></text>
+		<text x="685" y="225" font-size="20">2&#x394;L</text>
+		<text x="760" y="240" font-size="25" fill="red">T<tspan baseline-shift="sub" font-size="15">0</tspan>+&#x394;T</text>
+		<path d="M450 240
+				L750 240
+				A5 10 0 0 1 750 260
+				L450 260
+				A5 10 0 0 1 450 240
+				Z" fill="peru" stroke="#000" opacity="1"/>
+				<ellipse cx="750" cy="250" rx="5" ry="10" fill="peru" stroke="#000"></ellipse>
+
+		<line x1="52" y1="75" x2="130" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="170" y1="75" x2="248" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="252" y1="75" x2="258" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="290" y1="75" x2="298" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="252" y1="155" x2="275" y2="155" stroke="#000" stroke-width="1"></line>
+		<line x1="320" y1="155" x2="348" y2="155" stroke="#000" stroke-width="1"></line>
+		<line x1="452" y1="75" x2="485" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="510" y1="75" x2="548" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="553" y1="75" x2="560" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="590" y1="75" x2="598" y2="75" stroke="#000" stroke-width="1"></line>
+		<line x1="452" y1="220" x2="520" y2="220" stroke="#000" stroke-width="1"></line>
+		<line x1="560" y1="220" x2="647" y2="220" stroke="#000" stroke-width="1"></line>
+		<line x1="653" y1="220" x2="678" y2="220" stroke="#000" stroke-width="1"></line>
+		<line x1="728" y1="220" x2="748" y2="220" stroke="#000" stroke-width="1"></line>
+
+
+	</g>
+</svg>

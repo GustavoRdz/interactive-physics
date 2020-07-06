@@ -20,7 +20,7 @@
         | Topics
         .inline(class='animated infinite pulse heart')
       h5(v-if="step >= 2")
-            <b>Static Fluids</b>
+          <b>Static Fluids</b>
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 2")
@@ -40,11 +40,11 @@
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 3")
             <b>Bernoulli's Equation</b>
-    
+
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Fluid
-      
+
       p A fluid is a collection of molecules that are randomly arranged and held together by weak cohesive forces and forces exerted by the walls of a container. Both liquid and gases are fluids.
 
       .center
@@ -142,7 +142,7 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-    
+
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
@@ -176,14 +176,14 @@
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
       .center
           img(src='./assets/equations/pressureDepth.svg')
-    
+
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Pressure in depth
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
       .center
           img(src='./assets/equations/pressureDepth2.svg')
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 3
@@ -249,14 +249,14 @@
       .center
         h4 Mercury Barometer
         img(src='./assets/equations/mercuryBarometer.svg')
-    
+
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Pressure measurements
       .center
         h4 Bourdon's pressure gauge
         img(src='./assets/equations/bourdonGauge.svg')
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 6
@@ -269,7 +269,7 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 7
@@ -314,7 +314,7 @@
       h3 Bouyancy
       p.center <span style="color: blue;">Bouyancy is a familiar phenomenon</span>:
       p.center A body in water seems to weigh less than when it is in air.
-      p.center When the body is less dense than the fluid, it floats 
+      p.center When the body is less dense than the fluid, it floats
       h3 Archimedes's Principle
       p When a body is completely or partially immersed in a fluid, the fluid exerts an upward force on the body equal to the weight of the fluid displaced by the body.
 
@@ -370,7 +370,7 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 13
@@ -430,7 +430,7 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 15
@@ -464,14 +464,14 @@
         .center
         p(style="font-size: 25px; color: #ff0000;") Potential energy
         img(src='./assets/equations/bernoulliEquationU.svg')
-    
+
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Bernoulli's equation
         .center
-        p(style="font-size: 25px; color: #ff0000;") 
+        p(style="font-size: 25px; color: #ff0000;")
         img(src='./assets/equations/bernoulliEquationFinal.svg')
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 16
@@ -484,7 +484,7 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 17
@@ -665,13 +665,13 @@ export default {
     display: flex;
     padding-left:0px;
     align-content: center;
-    
+
   }
   #desc {
     width: 30em;
     border-collapse: collapse;
     border-bottom: 1px solid black;
-    
+
     & th {
       background-color: whitesmoke;
       border-bottom: 1px solid black;
@@ -680,7 +680,7 @@ export default {
       font-size: 15px;
       font-weight: bold;
     }
-    
+
     & td {
       text-align:left;
       padding-left: 4em;
@@ -703,6 +703,6 @@ export default {
 
   .pressureFormula{
       height: 5em;
-  } 
+  }
 }
 </style>

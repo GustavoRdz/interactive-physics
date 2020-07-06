@@ -7,6 +7,10 @@ export default {
     require('./temperature-heat/TemperatureHeat'),
     require('./oscillatory-motion/OscillatoryMotion'),
     require('./wave-motion/WaveMotion'),
+    require('./relativity/Relativity'),
+    require('./vision-systems/visionSystems'),
+    require('./vision-systems-imagej/imagej'),
+    require('./vision-systems-lab/visionSystemsLab'),
     require('./comming-soon/CommingSoon')
   ]
 }

@@ -1,0 +1,320 @@
+<template lang="pug">
+#Relativity.eg-theme-agrume
+  .eg-slideshow
+    slide(enter='fadeIn' leave='bounceOutLeft')
+      .center.frontpage
+        h1 Physics playground
+        img(src='./assets/microres4.jpg')
+        h4 Relativity
+        eg-triggered-message(:trigger='slideTimer >= 2',
+                            :duration='6', position='top right',
+                            enter='bounceInRight', leave='bounceOutRight')
+          p Next:
+          img.control-schema(src='./assets/controlsNext.svg')
+          p Previous:
+          img.control-schema(src='./assets/controlsPrev.svg')
+
+    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
+      h3
+        | Topics
+        .inline(class='animated infinite pulse heart')
+      .center
+        h6(v-if="step >= 2" style="color: #aa0000; margin: -10px;")
+          <b>Galilean relativity</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
+          p(v-if="step >= 2" style="margin-bottom: -30px;")
+            <b>Galilean principle of relativity</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 2" style="margin-bottom: -30px;")
+            <b>Galilean transformations</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 2" style="margin-bottom: -30px;")
+            <b>Michelson-Morley experiment</b>
+
+        h6(v-if="step>=3"  style="color: #aa0000; margin-bottom: -20px;")
+          <b>Einstein relativity</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 3" style="margin-bottom: -30px;")
+            <b>Einstein relativity principle</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 4" style="margin-bottom: -30px;")
+            <b>Simultainety</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 4" style="margin-bottom: -30px;")
+            <b>Time dilation</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 5" style="margin-bottom: -30px;")
+            <b>Length contraction</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 5" style="margin-bottom: -30px;")
+            <b>Lorentz transformations</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutLeft')
+          p(v-if="step >= 6" style="margin-bottom: -30px;")
+            <b>Linear momentun</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 6" style="margin-bottom: -30px;")
+            <b>Energy</b>
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 The principle of Galilean relativity
+      p The laws of mechanics must be the same in all inertial frames of reference.
+      .center
+        img(src='./assets/inertialFrame.svg')
+      p If objects moves at constant speed with respect to any reference frame it is an <b>inertial frame</b>. It obey the first movement law
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Galilean transformations
+      p Suppose two inertial frames and an event, we measure the speed of the event in one of the reference frames, howcan we calculate the speed of event with respect the other inertial frame?.
+      .center
+        img(src='./assets/galileoTransforms.svg')
+
+    slide(:steps=6, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Space-time Galilean transformations
+      p(v-if="step >= 2" style="margin-bottom: 0px;") From the figure we have that
+      p(v-if="step >= 2" style="margin-bottom: -20px;").center
+          <svg height="50" width="500" viewbox="0 0 500 50">
+            <text x="25" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">x<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan>  = <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">x<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan> -<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">vt</tspan>
+            </text>
+            <text x="195" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">y<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan>=<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">y<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan> </text>
+            <text x="300" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">z<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan>=<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">z<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan> </text>
+
+              <text x="400" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">t<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan>=<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">t<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan> </text>
+            //- <line x1="0" y1="0" x2="600" y2="50" stroke="red" />
+            //- <line x1="0" y1="50" x2="600" y2="0" stroke="red" />
+          </svg>
+      .center
+        img(src='./assets/inertialFrame.svg')
+      p(v-if="step >= 3" style="margin-bottom: -30px;") What is the speed of the event?
+      p(v-if="step >= 5" style="margin-bottom: -30px;").center
+          <svg height="100" width="500" viewbox="0 0 500 100">
+            <text x="25" y="50" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">v</tspan>=
+            </text>
+            <text x="80" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dx</tspan></text>
+            <text x="80" y="75" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dt</tspan></text>
+            <line x1="70" y1="42" x2="130" y2="42" stroke="black" stroke-width="2"/>
+            <text x="150" y="50" > =>
+            </text>
+            <text x="220" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dx<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan></text>
+            <text x="220" y="75" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dt</tspan></text>
+            <line x1="210" y1="42" x2="270" y2="42" stroke="black" stroke-width="2"/>
+            <text x="280" y="50" > =
+            </text>
+              <text x="310" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dx<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan></text>
+            <text x="310" y="75" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dt</tspan></text>
+            <line x1="310" y1="42" x2="360" y2="42" stroke="black" stroke-width="2"/>
+            <text x="370" y="50" > <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">- v</tspan>
+            </text>
+              <text x="420" y="25" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dt</tspan></text>
+            <text x="420" y="75" >
+              <tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">dt</tspan></text>
+            <line x1="415" y1="42" x2="460" y2="42" stroke="black" stroke-width="2"/>
+
+            //- <line x1="0" y1="0" x2="600" y2="50" stroke="red" />
+            //- <line x1="0" y1="50" x2="600" y2="0" stroke="red" />
+            </svg>
+          p(v-if="step >= 6" style="margin-bottom: -10px;").center
+            <svg height="50" width="200" viewbox="0 0 200 50">
+              <text x="25" y="25"  fill="blue">
+                <tspan style="font-style:italic; font-family: Times New Roman; font-size:1.5em;">v<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">2</tspan></tspan> = <tspan style="font-style:italic; font-family: Times New Roman; font-size:1.5em;">v<tspan style="font-size:0.5em; font-style:normal;" baseline-shift="sub">1</tspan></tspan> -<tspan style="font-style:italic; font-family: Times New Roman; font-size:1.5em;">v</tspan>
+              </text>
+              //- <line x1="0" y1="0" x2="200" y2="50" stroke="red" />
+              //- <line x1="0" y1="50" x2="200" y2="0" stroke="red" />
+            </svg>
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 1
+      example-one
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 2
+      example-two
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 3
+      example-three
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 The speed of light
+      //- p Physicst of the late 1800s thought light moves in a medium called <em>Ether</em> in order to justify the propagation of electromagnetic waves in the empty space.
+      p Physicst of the late 1800s thought light  can have a speed of <b><em>c</em></b> only in an special reference frame with respect to the <b><em>ether</em></b>. A stationary substance in which light can move in empty space.
+      .center
+        img(src='./assets/etherVelocity.svg')
+      p If objects moves at constant speed with respect to any reference frame it is an <b>inertial frame</b>. It obey the first movement law
+
+    slide
+      p another
+
+    slide
+      p another
+
+
+
+</template>
+
+<script>
+import eagle from 'eagle.js'
+
+export default {
+  mixins: [eagle.slideshow],
+  infos: {
+    title: 'Relativity',
+    description: 'The special theory of relativity',
+    path: 'relativity'
+  },
+  components: {
+    'example-one': require('./components/ExampleOne'),
+    'example-two': require('./components/ExampleTwo'),
+    'example-three': require('./components/ExampleThree')
+  },
+
+  data: function () {
+    return {
+    }
+  }
+}
+</script>
+
+<style lang='scss'>
+@import 'node_modules/eagle.js/dist/themes/agrume/agrume';
+#Relativity {
+  .frontpage {
+    img {
+      height: 7em;
+    }
+    img.control-schema {
+      width: 8em;
+      height: 3em;
+    }
+  }
+  .heart {
+    width: 1em;
+    height: 0.8em;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+    background-image: url('./assets/logo.svg');
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-size: contain;
+  }
+
+  .quarter {
+    text-align: center;
+    p {
+      margin-top: 0;
+      text-align: center;
+    }
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0
+    }
+  }
+  .boredYet {
+    .button {
+      border: none;
+    }
+    .button.prev {
+      float: left;
+    }
+    .button.next {
+      float: right;
+    }
+  }
+  img.computerkid {
+    height: 6.5em;
+  }
+
+  a {
+    color: black;
+  }
+
+  .parentWindow {
+    border: solide 1px red;
+  }
+
+  #table-wrapper {
+    display: flex;
+    padding-left:0px;
+    align-content: center;
+
+  }
+  #desc {
+    width: 30em;
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
+
+    & th {
+      background-color: whitesmoke;
+      border-bottom: 1px solid black;
+      padding: 1em;
+      text-align: center;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    & td {
+      text-align:left;
+      padding-left: 4em;
+      font-size: 15px;
+      height: 15px;
+    }
+
+    & caption {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 15px;
+      font-style: italic;
+    }
+  }
+
+  .eg-slide-content {
+    width: 30em;
+    max-width: 95%;
+    margin: 0 100 0 50;
+  }
+
+  .pressureFormula{
+      height: 5em;
+  }
+}
+</style>

@@ -7,8 +7,7 @@
       span.grey  playground
     h2 An interactive site to play with physics
 
-    iframe.github-star(src="https://ghbtns.com/github-btn.html?user=GustavoRdz&repo=Interactive-physics&type=star&count=true&size=large"
-                       frameborder="0" scrolling="0" width="160px" height="30px")
+    iframe.github-star(src="https://ghbtns.com/github-btn.html?user=GustavoRdz&repo=Interactive-physics&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px")
     p(style="text-align: center;") Physics playground is a place to play with physics through virtual experimentation
 
     p(style="text-align: center;") Themes with interactive figures will be challenge you.
