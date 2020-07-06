@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=5, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Topics</sup>
       h6
         | Topics
@@ -25,14 +25,11 @@
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 3")
             <b>Acquiring Images</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Human Vision</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
+          p(v-if="step >= 4")
             <b>Printing and Storage</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
+          p(v-if="step >= 5")
             <b>Correcting Imaging Defects</b>
 
     slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')

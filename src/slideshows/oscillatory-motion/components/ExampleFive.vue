@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An object is undergoing Simple Harmonic Motion (SHG) with period {{ period }} s and amplitude {{ amplitude }} cm. At t = 0s the object is at x = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from x = {{ amplitude }} cm to x = {{ amplitude / 2 }} cm and (b) from x = {{ amplitude / 2 }} cm to x = 0 cm.
+    p.problem An object is undergoing Simple Harmonic Motion (SHM) with period {{ period }} s and amplitude {{ amplitude }} cm. At t = 0s the object is at x = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from x = {{ amplitude }} cm to x = {{ amplitude / 2 }} cm and (b) from x = {{ amplitude / 2 }} cm to x = 0 cm.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Period (s)

@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=8, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -28,17 +28,14 @@
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 4")
             <b>Energy of the Simple Harmonic Oscillator</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
-            <b>Simple Harmonic Motion vs Circular Motion</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
+          p(v-if="step >= 5")
             <b>The pendulum and other systems</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 7")
+          p(v-if="step >= 6")
             <b>Damped oscillations</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 8")
+          p(v-if="step >= 7")
             <b>Forced oscillations and resonance</b>
 
     slide(:steps=0, enter='bounceInDown')
@@ -53,7 +50,7 @@
       h3 Oscillations
       p.center Mass-spring system
       p.center
-        <svg height="200" width="500" viewbox="0 0 500 200">
+        <svg height="250" width="600" viewbox="0 0 600 250">
           <defs>
             <path id="r1" fill="none" stroke="black">
               <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
@@ -75,20 +72,21 @@
           <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
           <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
 
-            <text x="200" y="25">
+            <text x="100" y="30">
             <tspan style="font-style:normal; font-family: Times New Roman; font-size:1em;">Amplitude (<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">A</tspan>)</tspan></text>
 
             //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
             //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
         </svg>
       p <span style="font-size: 1.2em;"><b>Amplitude</b></span>, is the maximun displacement of the mass with respect the equilibrium position
-      p <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span> is the position of the mass with respect to the equilibrium position at <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span> = 0.
+      p <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span>: position of the mass with respect to the equilibrium position at <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span> = 0.
+
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Oscillations
+      h3(style="margin-top: -10px;") Oscillations
       p.center Mass-spring system
       p.center
-        <svg height="200" width="500" viewbox="0 0 500 200">
+        <svg height="250" width="600" viewbox="0 0 600 250">
           <defs>
             <path id="r1" fill="none" stroke="black">
               <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
@@ -129,26 +127,24 @@
           </circle>
 
 
-            <text x="200" y="25">
+            <text x="100" y="30">
             <tspan style="font-style:normal; font-family: Times New Roman; font-size:1em;">Period (<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">T</tspan>)</tspan></text>
 
             //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
             //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
         </svg>
-      p {{ tiempo }}
       p <span style="font-size: 1.2em;"><b>Period</b></span>, is the time interval in which the sistem completes an entire oscillation with respect any position
+      p <span style="font-size: 1.2em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
+      p <span style="font-size: 1.2em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Oscillations
-      p If <em><span style="font-family: times;">F</span></em> is the magnitude of the force excerted normal to a surface of area <em><span style="font-family: times;">A</span></em>, the pressure in the surface is
+      h5 Formulas
       .center
-
-    slide(:steps=0, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Oscillations
-      p If <em><span style="font-family: times;">F</span></em> is the magnitude of the force excerted normal to a surface of area <em><span style="font-family: times;">A</span></em>, the pressure in the surface is
+        img(src='./assets/frequencyPeriodFormulas.png' height="150px")
       .center
+        img(src='./assets/angularFrequencyFormula.png' height="150px")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
@@ -163,6 +159,53 @@
         br
         span.small Ctrl + right
 
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center Simple Harmonic Motion
+      p.center
+        <svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            <text x="500" y="98">
+              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            </text>
+            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
+      p(style="margin: 0px 20px 0 0;") Hooke's law
+      .center
+        img(src='./assets/hookeLaw.png' height="100px" style="margin: -20px 20px 0 0;")
+        img(src='./assets/secondNewton.png' height="100px"  style="margin: -20px 20px 0 0;")
+      p(style="margin: 0px 20px 0 0;") with
+      .center
+        img(src='./assets/angularFrequency.png' height="100px"  style="margin: -50px 10px 0 0")
+      p(style="margin: 0px 20px 0 0;") we have
+      .center
+        img(src='./assets/frequency.png' height="100px"  style="margin-right: 20px;")
+        img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
+
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 2
@@ -175,6 +218,154 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Simple Harmonic Motion</sup>
+      h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
+      p.center
+        <svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            <text x="500" y="98">
+              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            </text>
+            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
+
+      p(style="margin: -40px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
+      .center
+        img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 0;")
+      .center
+        img(src='./assets/displacementGraph.png' height="250px")
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Simple Harmonic Motion</sup>
+      h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
+      p <b>Displacement:</b>
+      .center
+        img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
+        img(src='./assets/displacementB.png' height="250px")
+      .center
+        img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
+        img(src='./assets/displacementPhase.png' height="250px")
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Simple Harmonic Motion</sup>
+      h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
+        <svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            //- <text x="500" y="98">
+            //-   <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            //- </text>
+            //- <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
+      p(style="margin: -40px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
+      .center
+        img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -100px 20px 300px 0;")
+        img(src='./assets/velocityAccelerationGraphs.png' height="550px" style="margin: -100px 20px 100px 0;")
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Simple Harmonic Motion</sup>
+      h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
+        <svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            //- <text x="500" y="98">
+            //-   <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            //- </text>
+            //- <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
+
+
+      p(style="margin: -40px 0px -40px -20px; font-size: 1.3em;") <b>Velocity<br> and<br> acceleration</b>
+      .center
+        img(src='./assets/velocityAccelerationSigns.png' height="460px" style="margin: -200px 20px 150px 35px;")
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Simple Harmonic Motion</sup>
+      h4(style="margin-top: -10px;").center Phase constant and Amplitude
+      p At t = 0
+      .center
+        img(src='./assets/displacementT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
+        img(src='./assets/velocityT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
+      p(style="margin: -150px 20px 150px 35px;") dividing
+      .center
+        img(src='./assets/velocityOverDisplacementT0.png' height="100px" style="margin: -150px 20px 150px 35px;")
+      p(style="margin: -150px 20px 150px 35px;") then
+      .center
+        img(src='./assets/phaseT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
+      p(style="margin: -150px 20px 150px 35px;") and squaring the displacement and velocity we get
+      .center
+        img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
+
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
@@ -253,6 +444,58 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
+      p.center
+        <svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            <text x="500" y="98">
+              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            </text>
+            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
+      p(style="margin: 0px 20px 0 0;") Energies
+      .center
+        img(src='./assets/kineticEnergy.png' height="50px"  style="margin: -20px 100px 0 0;")
+        img(src='./assets/potentialEnergy.png' height="50px" style="margin: -20px 20px 0 0;")
+      p(style="margin: 0px 20px 0 0;") Mecanical energy
+      .center
+        img(src='./assets/totalEnergyA.png' height="50px"  style="margin: -50px 10px 0 0")
+      p(style="margin: 0px 20px 0 0;") the constant
+      .center
+        img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
+
+    slide(:steps=0, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
+      p.center We can derivre formulas for velocity
+      .center
+        img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
