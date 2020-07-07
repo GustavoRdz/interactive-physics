@@ -223,20 +223,125 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
       h3 Calculating Histograms
       p Computing the histogram of an 8-bit grayscale image containing intensity values between 0 and 255 is a simple task. All we need is a set of 256 counters, one for each possible intensity value. First, all counters are initialized to zero. Then we iterate through the image I, determining the pixel value p at each location (u, v), and incrementing the corresponding counter by one. At the end, each counter will contain the number of pixels in the image that have the corresponding intensity value.
-      p An image with K possible intensity values requires exactly K counter variables; for example, since an 8-bit grayscale image can contain at most 256 different intensity values, we require 256 counters. While individual counters make sense conceptually, an actual
+      p An image with K possible intensity values requires exactly K counter variables; for example, since an 8-bit grayscale image can contain at most 256 different intensity values, we require 256 counters.
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
+      h5.center Calculating Histograms (8-bits)
+      p Implementing a macro
+      .center
+          img(src='./assets/macroHistogrma.png' height="300px")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
+      h5.center Histograms of Images with More than 8 Bits
+      p Normally histograms are computed in order to visualize the image’s distribution on the screen. This presents no problem when dealing with images having 2<sup>8</sup> = 256 entries, but when an image uses a larger range of values, for instance 16- and 32-bit or floating-point images, then the growing number of necessary histogram entries makes this no longer practical.
+      p Binning
+      p Since it is not possible to represent each intensity value with its own entry in the histogram, we will instead let a given entry in the histogram represent a range of intensity values. This technique is often referred to as “binning” since you can visualize it as collecting a range of pixel values in a container such as a bin or bucket.
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
+      h5.center Histograms of Images with More than 8 Bits
+      p In a binned histogram of size <span style="font-family: New Times; font-style: italic;">B</span>, each bin <b>h</b>(<span style="font-family: New Times; font-style: italic;">j</span>) contains the number of image elements having values within the interval [<span style="font-family: New Times; font-style: italic;">a<sub>j</sub></span>, <span style="font-family: New Times; font-style: italic;">aj</span><span style="font-family: New Times;">+1</span>), and therefore
+      .center
+          img(src='./assets/chap04/p046-eqn4-2.png')
+      p Typically the range of possible values in <span style="font-family: New Times; font-style: italic;">B</span> is divided into bins of equal size <span style="font-family: New Times; font-style: italic;">kB = K/B</span> such that the starting value of the interval j is
+      .center
+          img(src='./assets/chap04/p046-math-a.png' height="80px")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
+      h5.center Histograms of Images with More than 8 Bits
+      p Example
+      p In order to create a typical histogram containing B = 256 entries from a 14-bit image, one would divide the original value range j = 0, . . . , 2<sup>14</sup>−1 into 256 equal intervals, each of length kB = 214/256 = 64. This gives the following association between pixel values and histogram bins h(0), . . . , h(255):
+      .center
+          img(src='./assets/chap04/p047-math-a.png' height="300px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
+        h5.center Histograms of Color Images
+        p When referring to histograms of color images, typically what is meant is a histogram of the image intensity (luminance) or of the individual color channels. Both of these variants are supported by practically every image-processing application and are used to objectively appraise the image quality, especially directly after image acquisition.
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5.center Intensity Histograms
+        p The intensity or luminance histogram hLum of a color image is nothing more than the histogram of the corresponding grayscale image, so naturally all aspects of the preceding discussion also apply to this type of histogram. The grayscale image is obtained by computing the luminance of the individual channels of the color image. When computing the luminance, it is not sufficient to simply average the values of each color channel; instead, a weighted sum that takes into account color perception theory should be computed.
+        .center
+          img(src='./assets/p249-eqn12-5.png')
+        .center
+          img(src='./assets/p249-eqn12-6.png')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
+        h5(style="margin-top: -10px;").center   3.5.2 Individual Color Channel Histograms
+        p(style="margin-top: -30px;") Even though the luminance histogram takes into account all color channels, image errors appearing in single channels can remain undiscovered. For example, the luminance histogram may appear clean even when one of the color channels is oversaturated. In RGB images, the blue channel contributes only a small amount to the total brightness and so is especially sensitive to this problem. Component histograms supply additional information about the intensity distribution within the individual color channels.
+        .center
+          img(src='./assets/chap04/p049-fig4-12.png' height="450px")
 
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5(style="margin-top: -10px;").center The Cumulative Histogram
+        p(style="margin-top: -10px;") The cumulative histogram, which is derived from the ordinary histogram, is useful when performing certain image operations involving histograms; for instance, histogram equalization (see Sec. 4.5). The cumulative histogram H is defined as
+        .center
+          img(src='./assets/chap04/p050-eqn4-5.png' height="100px")
+        p(style="margin-top: -10px;") A particular value H(i) is thus the sum of all histogram values h(j), with j ≤ i. Alternatively, we can define H recursively:
+        .center
+          img(src='./assets/chap04/p050-eqn4-6.png' height="100px")
+        p(style="margin-top: -10px;") The cumulative histogram H(i) is a monotonically increasing function with the maximum value
+        .center
+          img(src='./assets/chap04/p050-eqn4-7.png' height="100px"  style="margin-top: -50px;" )
+        p(style="margin-top: -10px;") that is, the total number of pixels in an image of width M and height N
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5(style="margin-top: -10px;").center The Cumulative Histogram
+        .center
+          img(src='./assets/chap04/p051-fig4-13.png' height="450px")
+        p The cumulative histogram is useful not primarily for  viewing but as a simple and powerful tool for capturing statistical information from an image.
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5(style="margin-top: -10px;").center Statistical Information from the Histogram
+        p Some common statistical parameters of the image can be conveniently calculated directly from its histogram. For example, the minimum and maximum pixel value of an image I can be obtained by simply finding the smallest and largest histogram index with nonzero value,
+        .center
+          img(src='./assets/308.png')
+        p If we assume that the histogram is already available, the advantage is that the calculation does not include the entire image but only the relatively small set of histogram elements.
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
+        h5(style="margin-top: -10px;").center Mean and Variance
+        p The mean value μ of an image I (of size M × N) can be calculated as
+        .center
+          img(src='./assets/309.png')
+        p i.e., either directly from the pixel values I(u, v) or indirectly from the histogram h (of size K), where MN = i h(i) is the total number of pixels.
+        p Analogously we can also calculate the variance of the pixel values straight from the histogram as
+        .center
+          img(src='./assets/310.png')
 
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5(style="margin-top: -10px;").center Mean and Variance
+        p The mean and the variance can be calculated together in a single iteration over the image pixels or the associated histogram in the form
+        .center
+          img(src='./assets/311-312.png' height="150px")
+        p with the quantities
+        .center
+          img(src='./assets/313-314.png' height="200px" style="margin-top:-50px;")
+        p The above formulation has the additional numerical advantage that all summations can be performed with integer values, in contrast to the summation of floating-point values.
 
-
-
-
-
-
-
-
-
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
+        h5(style="margin-top:-30px;").center Median
+        p(style="margin-top:-50px;") The median m of an image is defined as the smallest pixel value that is greater or equal to one half of all pixel values, i.e., lies “in the middle” of the pixel values. The median can also be easily calculated from the image’s histogram.
+        p To determine the median of an image I from the associated histogram it is sufficient to find the index i that separates the histogram into two halves, such that the sum of the histogram entries to the left and the right of i are approximately equal. In other words, i is the smallest index where the sum of the histogram entries below (and including) i corresponds to at least half of the image size, that is,
+        .center
+          img(src='./assets/315.png' height="100px" style="margin-top:-50px;")
+        p the median calculation can be formulated even simpler as
+        .center
+          img(src='./assets/316.png' height="70px" style="margin-top:-30px;")
+        p given the cumulative histogram H.
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References</sup>
