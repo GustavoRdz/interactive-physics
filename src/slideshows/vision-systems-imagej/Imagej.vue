@@ -282,7 +282,7 @@
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
         h5(style="margin-top: -10px;").center The Cumulative Histogram
-        p(style="margin-top: -10px;") The cumulative histogram, which is derived from the ordinary histogram, is useful when performing certain image operations involving histograms; for instance, histogram equalization (see Sec. 4.5). The cumulative histogram H is defined as
+        p(style="margin-top: -10px;") The cumulative histogram, which is derived from the ordinary histogram, is useful when performing certain image operations involving histograms; for instance, histogram equalization. The cumulative histogram H is defined as
         .center
           img(src='./assets/chap04/p050-eqn4-5.png' height="100px")
         p(style="margin-top: -10px;") A particular value H(i) is thus the sum of all histogram values h(j), with j ≤ i. Alternatively, we can define H recursively:

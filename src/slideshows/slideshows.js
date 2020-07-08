@@ -10,6 +10,7 @@ export default {
     require('./relativity/Relativity'),
     require('./vision-systems/visionSystems'),
     require('./vision-systems-imagej/imagej'),
+    require('./vision-systems-point/pointoperations'),
     require('./vision-systems-lab/visionSystemsLab'),
     require('./comming-soon/CommingSoon')
   ]
