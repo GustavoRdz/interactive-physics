@@ -562,6 +562,49 @@
         br
         span.small Ctrl + right
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center Other systems of SHM
+      p(style="margin-top: -30px;").center Angular SHM
+      .center
+        img(src='./assets/angularSHM.png' height="300px")
+      .center
+        img(src='./assets/angularTheta.png')
+      .center
+        img(src='./assets/angularWf.png' height="100px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center Inertia moments
+      p(style="margin-top: -30px;").center
+      .center
+        img(src='./assets/inertiaMomentsTable.png')
+      p.center Parallel axis theorem
+      .center
+        img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center The simple pendulum
+      .center
+        img(src='./assets/simplePendulum.png' height="350px")
+      .center
+        img(src='./assets/simplePendulumW.png' height="100px")
+      .center
+        img(src='./assets/simplePendulumF.png' height="100px")
+      .center
+        img(src='./assets/simplePendulumT.png' height="100px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin-top: -10px;").center The physical pendulum
+      p.center We can derivre formulas for velocity
+      .center
+        img(src='./assets/physicalPendulum.png' height="350px")
+      .center
+        img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
+        img(src='./assets/physicalPendulumT.png' height="100px")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 14
@@ -630,19 +673,6 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 19
-      example-nineteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 20
       example-twenty
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -652,6 +682,23 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h5.center Damped oscillations
+      .center
+        img(src='./assets/dampedOscillationsX.png')
+      .center
+        img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
+        img(src='./assets/struts.png' height="300px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h5.center Forced oscillations
+      .center
+        img(src='./assets/forcedOscA.png' height="100px")
+      .center
+        img(src='./assets/forcedOscillationsGraph.png' height="500px")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>

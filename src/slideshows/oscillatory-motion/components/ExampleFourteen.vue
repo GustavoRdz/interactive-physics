@@ -3,15 +3,7 @@ eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem A thin metal disk with mass {{ mass }} kg and radius {{ radius }} cm is attached at its center to a long fiber. The disk, when twisted and released, oscillates with a period of {{ period }} s. Find the torsion constant of the fiber.
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 800 500" height="200px" width="400px" >
-
-        <!-- Axis -->
-        <line fill="none" stroke="#000" stroke-width="5" x1="400" y1="0" x2="400" y2="200" stroke-linecap="round"/>
-        <!-- graph -->
-        <!-- <path :d="chord" stroke="#f00" fill="none" stroke-opacity="1" stroke-width="5" ></path> -->
-         <text x="400" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times"> figure pend</text>
-
-      </svg>
+        img(src='../assets/problem14.png' height="200px")
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Mass (kg)

@@ -122,7 +122,7 @@
       p(style="margin-top: -30px;") Automatic contrast adjustment (auto-contrast) is a point operation whose task is to modify the pixels such that the vailable range of values is fully covered. This is done by mapping the current darkest and brightest pixels to the minimum and maximum intensity values, respectively, and linearly distributing the intermediate values. Let us assume that <b>a<sub>lo</sub></b> and <b>a<sub>hi</sub></b> are the lowest and highest pixel values found in the current image, whose full intensity range is <b>[a<sub>min</sub>, a<sub>max</sub>]</b>. The mapping function for the auto-contrast operation is thus defined as
       .center
         img(src='./assets/chap05/p057-eqn5-6.png' height="100px")
-      p For an 8-bit image with amin = 0 and amax = 255, the function in Eqn. (4.7) simplifies to
+      p For an 8-bit image with amin = 0 and amax = 255, the function simplifies to
       .center
         img(src='./assets/chap05/p057-eqn5-7.png' height="100px" style="margin-top: -40px;")
 
@@ -157,262 +157,237 @@
       p We may get a first idea by observing that the cumulative histogram of a uniformly distributed image is a linear ramp. So we can reformulate the goal as finding a point operation that shifts the histogram lines such that the resulting cumulative histogram is approximately linear
       .center
         img(src='./assets/chap05/p061-fig5-9.png' height="200px")
-      p The desired point operation feq() is simply obtained from the cumulative histogram H of the original image as4
+      p The desired point operation feq() is simply obtained from the cumulative histogram H of the original image as
       .center
         img(src='./assets/chap05/p061-eqn5-11.png' height="100px")
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : ImageJ</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
       h3.center(style="margin-top: -10px;") Histogram Equalization
       .center
         img(src='./assets/chap05/p062-fig5-10.png')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : ImageJ</sup>
-      h3.center(style="margin-top: -10px;") Fun soon!
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h4.center(style="margin-top: -10px;") Histogram Specification
+      p In most real images, the distribution of the pixel values is not even remotely uniform but is usually more similar, if at all, to perhaps a Gaussian distribution.
+      p The images produced by linear equalization thus usually appear quite unnatural, which renders the technique practically useless.
+      p Histogram specification is a more general technique that modifies the image to match an arbitrary intensity distribution, including the histogram of a given image.
+      p This is particularly useful, for example, for adjusting a set of images taken by different cameras or under varying exposure or lighting conditions to give a similar impression in print production or when displayed.
+      p Similar to histogram equalization, this process relies on the alignment of the cumulative histograms by applying a homogeneous point operation.
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Histograms</sup>
-      h5.center Histograms and Image Statistics
-      p Histograms are used to depict image statistics in an easily interpreted visual format.
-      p With a histogram, it is easy to determine certain types of problems in an image.
-      p In fact, histograms are so useful that modern digital cameras often provide a real-time histogram overlay on the viewfinder.
-      p It is important to catch errors like this at the image capture stage because poor exposure results in a permanent loss of information, which it is not possible to recover later using image-processing techniques.
-      p In addition to their usefulness during image capture, histograms are also used later to improve the visual appearance of an image and as a “forensic” tool for determining what type of processing has previously been applied to an image.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Histograms</sup>
-      h5.center(style="margin-top: 0px;") What is a Histogram?
-      p Histograms in general are frequency distributions, and histograms of images describe the frequency of the intensity values that occur in an image.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center Frequencies and Probabilities
+      p The value in each histogram cell describes the observed frequency of the corresponding intensity value, i.e., the histogram is a discrete <em>frequency distribution</em>. For a given image <b>I</b> of size <b>M × N</b>, the sum of all histogram entries <b>h(i)</b> equals the number of image pixels,
       .center
-          img(src='./assets/chap04/p038-fig4-2.png' height="300px")
-      p The histogram <b>h</b> for a grayscale image <span style="font-family:New Times; font-style: italic;"><b>I</b></span> with intensity values in the range <span style="font-family:New Times; font-style: italic;"><b>I</b></span>(<span style="font-family:New Times; font-style: italic;">u, v</span>) ∈ [<span style="font-family:New Times; font-style: normal;">0</span>,<span style="font-family:New Times; font-style: italic;">K</span><span style="font-family:New Times; font-style: normal;">−1</span>] holds exactly <span style="font-family:New Times; font-style: italic;">K</span> entries, where <span style="font-family:New Times; font-style: italic;">K</span> <span style="font-family:New Times; font-style: normal;">= 2<sup>8</sup> = 256</span> for a typical <span style="font-family:New Times;">8</span>-bit grayscale image.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Histograms</sup>
-      h5.center(style="margin-top: 0px;") What is a Histogram?
-      p Each single histogram entry is defined as
-      p.center <b>h</b>(<span style="font-family:New Times; font-style: italic;">i</span>) = the <span style="font-style: italic;"><b>number</b></span> of pixels in <span style="font-family:New Times; font-style: italic;">I</span> with the intensity value <span style="font-family:New Times; font-style: italic;">i</span>,
-      p for all <span style="font-family:New Times;">0</span> ≤ <span style="font-family:New Times; font-style: italic;">i</span> < <span style="font-family:New Times; font-style: italic;">K</span>. More formally stated,
-      p.center <b>h</b>(<span style="font-family:New Times; font-style: italic;">i</span>) = {<span style="font-family:New Times; ">card</span>(<span style="font-family:New Times; font-style: italic;">u</span>, <span style="font-family:New Times; font-style: italic;">v</span>) | <span style="font-family:New Times; font-style: italic;">I</span>(<span style="font-family:New Times; font-style: italic;">u</span>, <span style="font-family:New Times; font-style: italic;">v</span>) = <span style="font-family:New Times; font-style: italic;">i</span>} </span>.
-      p Therefore,<br><b>h</b>(<span style="font-family:New Times;">0</span>) is the number of pixels with the value <span style="font-family:New Times;">0</span>,<br><b>h</b>(<span style="font-family:New Times;">1</span>) the number of pixels with the value <span style="font-family:New Times;">1</span>, and so forth. Finally, <b>h</b>(<span style="font-family:New Times;">255</span>) is the number of all white pixels with the maximum intensity value <span style="font-family:New Times;">255</span> = <span style="font-family:New Times; font-style: italic;">K</span><span style="font-family:New Times;">-1</span>.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Histograms</sup>
-      h5.center(style="margin-top: 0px;") What is a Histogram?
-      p The result of the histogram computation is a 1D vector <b>h</b> of length <span style="font-family:New Times; font-style: italic;">k</span>.
+        img(src='./assets/chap05/p063-eqn5-13.png' height="70px" style="margin-top: -20px;")
+      p(style="margin-top: -20px;") The associated normalized histogram,
       .center
-          img(src='./assets/chap04/p039-fig4-3.png')
-      p Since the histogram encodes no information about where each of its individual entries originated in the image, it contains no information about the spatial arrangement of pixels in the image.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Histograms</sup>
-      h5.center(style="margin-top: 0px;") What is a Histogram?
-      p This is intentional, since the main function of a histogram is to provide statistical information, (e.g., the distribution of intensity values) in a compact form.
-      p Is it possible to reconstruct an image using only its histogram?<br> Given the loss of spatial information, the answer is <b>no</b>.
-      .center
-          img(src='./assets/chap04/p039-fig4-4.png')
-      p(style="margin-top: -10px; font-size: 0.7em;").center These images would appear different but have exactly the same histogram
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms</sup>
-      h5.center(style="margin-top: -10px;") Interpreting Histograms
-      p A histogram depicts problems that originate during image acquisition, such as those involving contrast and dynamic range, as well as artifacts resulting from image-processing steps that were applied to the image.
-      .center
-          img(src='./assets/chap04/p039-fig4-5.png' height="300px")
-      p Histograms are often used to determine if an image is making effective use of its intensity range by examining the size and uniformity of the histogram’s distribution.
+        img(src='./assets/chap05/p063-eqn5-14.png' height="70px" style="margin-top: -20px;")
+      p(style="margin-top: -0px;") is usually interpreted as the probability distribution or probability density function (pdf) of a random process, where <b>p(i)</b> is the probability for the occurrence of the pixel value <b>i</b>.
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image acquisition</sup>
-      h5.center Image Acquisition
-      p Histograms make typical exposure problems readily apparent.
-      p As an example, a histogram where a large section of the intensity range at one end is largely unused while the other end is crowded with high-value peaks is representative of an improperly exposed image.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center Frequencies and Probabilities
+      p The cumulative probability of <b>i</b> being any possible value is <b>1</b>, and the distribution <b>p</b> must thus satisfy
       .center
-          img(src='./assets/chap04/p040-fig4-6.png')
+        img(src='./assets/chap05/p064-eqn5-15.png' height="70px")
+      p The statistical counterpart to the cumulative histogram <b>H</b> is the discrete distribution function <b>P()</b> (also called the cumulative distribution function or cdf),
+      .center
+        img(src='./assets/chap05/p064-eqn5-16.png' height="140px")
+      p The resulting function <b>P(i)</b> is (as the cumulative histogram) monotonically increasing and
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Contrast</sup>
-      h5.center Contrast
-      p Contrast is understood as the range of intensity values effectively used within a given image.
-      p A full-contrast image makes effective use of the entire range of available intensity values from <b>a = a<sub>min</sub>, . . . , a<sub>max</sub></b> with <b>a<sub>min</sub> = 0</b>, <b>a<sub>max</sub> = K−1</b> (black to white).
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: 0px;") Frequencies and Probabilities
+      p in particular,
       .center
-          img(src='./assets/chap04/p041-fig4-7.png' height="300px")
+          img(src='./assets/chap05/p064-eqn5-17.png' height="100px")
+      p This statistical formulation implicitly treats the generation of images as a random process whose exact properties are mostly unknown.
+      p However, the process is usually assumed to be homogeneous (independent of the image position); that is, each pixel value is the result of a “random experiment” on a single random variable <b>i</b>.
+      p The observed frequency distribution given by the histogram <b>h(i)</b> serves as a (coarse) estimate of the probability distribution <b>p(i)</b> of this random variable.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: 0px;") Principle of Histogram Specification
+      p The goal of histogram specification is to modify a given image <b>I<sub>A</sub></b> by some point operation such that its distribution function <b>P<sub>A</sub></b> matches a reference distribution <b>P<sub>R</sub></b> as closely as possible. We thus look for a mapping function
+      .center
+          img(src='./assets/chap05/p065-eqn5-18.png' height="70px" style="margin-top:-10px;")
+      p(style="margin-top:-0px;") to convert the original image <b>I<sub>A</sub></b> by a point operation to a new image <b>I<sub>A'</sub></b> with pixel values <b>a'</b>, such that its distribution function <b>P'<sub>A</sub></b> matches <b>P<sub>R</sub></b>, that is,
+      .center
+          img(src='./assets/chap05/p065-eqn5-19.png' height="70px" style="margin-top:-10px;")
+      p(style="margin-top:-0px;") The desired mapping <b>f<sub>hs</sub></b> is found by combining the two distribution functions <b>P<sub>R</sub></b> and <b>P<sub>A</sub></b>.
+      .center
+          img(src='./assets/chap05/p065-fig5-11.png' height="200px" style="margin-top:-50px;")
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: 0px;") Principle of Histogram Specification
+      p For a given pixel value a in the original image, we obtain the new pixel value <b>a'</b> as
+      .center
+          img(src='./assets/chap05/p065-eqn5-20.png' height="70px")
+      p and thus the mapping <b>f<sub>hs</sub></b> is defined as
+      .center
+          img(src='./assets/chap05/p065-eqn5-21.png' height="70px")
+      p This of course assumes that <b>P<sub>R</sub>(i)</b> is invertible, that is, that the function <b>P<sub>R</sub><sup>−1</sup>(b)</b> exists for <b>b ∈ [0, 1]</b>.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: 0px;") Adjusting to a Piecewise Linear Distribution
+      p If the reference distribution <b>P<sub>R</sub></b> is given as a continuous, invertible function, then the mapping function <b>f<sub>hs</sub></b> can be obtained from
+        img(src='./assets/chap05/p065-eqn5-21.png' height="60px" style="margin-bottom: -20px;")
+      p(style="margin-top: -30px;") without any difficulty. In practice, it is convenient to specify the (synthetic) reference distribution as a piecewise linear function <b>P<sub>L</sub>(i)</b>; that is, as a sequence of <b>N+1</b> coordinate pairs
+      .center
+          img(src='./assets/chap05/p065-math-a.png' height="70px")
+      .center
+          img(src='./assets/chap05/p066-fig5-12.png' height="250px")
+      p(style="margin-top:-10px;") each consisting of an intensity value <b>a<sub>k</sub></b> and the corresponding cumulative probability <b>P<sub>k</sub></b>.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: 0px;") Adjusting to a Piecewise Linear Distribution
+      p We assert that <b>0 ≤ a<sub>k</sub> < K, a<sub>k</sub> < a<sub>k+1</sub></b>, and <b>0 ≤ P<sub>k</sub> < 1</b>. Also, the two endpoints <b>(a<sub>0</sub>, P<sub>0</sub>)</b> and <b>(a<sub>N</sub>, P<sub>N</sub>)</b> are fixed at
+      .center
+          img(src='./assets/chap05/p065-math-b.png' height="70px" style="margin-top: -30px")
+      p(style="margin-top: -30px") respectively.
+      p To be invertible, the function must also be strictly monotonic, that is, <b>P<sub>k</sub> < P<sub>k+1</sub></b> for <b>0 ≤ k < N</b>. Figure shows an example of such a function, which is specified by <b>N = 5</b> variable points <b>(P<sub>0</sub>, . . ., P<sub>4</sub>)</b> and a fixed end point <b>P<sub>5</sub></b> and thus consists of <b>N = 5</b> linear segments. The reference distribution can of course be specified at an arbitrary accuracy by inserting additional control points.
+      .center
+          img(src='./assets/chap05/p066-fig5-12.png' height="200px")
+
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: -10px;") Adjusting to a Piecewise Linear Distribution
+      p The intermediate values of <b>P<sub>L</sub>(i)</b> are obtained by linear interpolation between the control points as
+      .center
+          img(src='./assets/chap05/p066-eqn5-22.png' height="100px" style="margin-top: -30px")
+      p where <b>m = max {j ∈ [0,N −1] | aj ≤ i}</b> is the index of the line segment <b>(a<sub>m</sub>, P<sub>m</sub>) → (a<sub>m+1</sub>, P<sub>m+1</sub>)</b>, which overlaps the position i.
+      p For the histogram specification, we also need the inverse distribution function <b>P<sub>L</sub><sup>−1</sup> (b)</b> for <b>b ∈ [0, 1]</b>. The function <b>P<sub>L</sub>(i)</b> is in general not invertible for values <b>b < P<sub>L</sub>(0)</b>.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center(style="margin-top: -10px;") Adjusting to a Piecewise Linear Distribution
+      p We can fix this problem by mapping all values <b>b < P<sub>L</sub>(0)</b> to zero and thus obtain a “semi-inverse” of the reference distribution as
+      .center
+          img(src='./assets/chap05/p066-eqn5-23.png' height="120px" style="margin-top: -30px")
+      p Here <b>n = max{ j ∈ {0, . . .N−1} | P<sub>j</sub> ≤ b}</b> is the index of the line segment <b>(a<sub>n</sub>, P<sub>n</sub>) → (a<sub>n+1</sub>, P<sub>n+1</sub>)</b>, which overlaps the argument value b. The required mapping function <b>f<sub>hs</sub></b> for adapting a given image with intensity distribution <b>P<sub>A</sub></b> is finally specified as
+      .center
+          img(src='./assets/chap05/p066-eqn5-24.png' height="60px" style="margin-top: -50px")
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center Algorithm
+      p
+      .center
+          img(src='./assets/chap05/p067-alg5-2.png' height="600px")
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Interpreting Histograms : Dynamic range</sup>
-      h5(style="margin-top: -10px").center Dynamic range
-      p The dynamic range of an image is the number of distinct pixel values in an image. In the ideal case, the dynamic range encompasses all <b>K</b> usable pixel values, in which case the value range is completely utilized.
-      p When an image has an available range of contrast <b>a = a<sub>low</sub>, . . . , a<sub>high</sub></b>, with  <b>a<sub>min</sub> < a<sub>low</sub></b> and <b>a<sub>high</sub> < a<sub>max</sub></b>, then the maximum possible dynamic range is achieved when all the intensity values lying in this range are utilized.
-      .center
-          img(src='./assets/chap04/p041-fig4-8.png' height="300px")
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image Defects</sup>
-      h5.center Image Defects
-      p Histograms can be used to detect a wide range of image defects that originate either during image acquisition or as the result of later image processing.
-      p Since histograms always depend on the visual characteristics of the scene captured in the image, no single “ideal” histogram exists.
-      p While a given histogram may be optimal for a specific scene, it may be entirely unacceptable for another.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image Defects</sup>
-      h5.center Saturation
-      p Ideally the contrast range of a sensor should be greater than the range of the intensity of the light that it receives from a scene. In such a case, the resulting histogram will be smooth at both ends
-      p The result is a histogram that is saturated at one or both ends of its range.
-      .center
-          img(src='./assets/chap04/p043-fig4-9.png' height="300px")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Adjusting to a Given Histogram (Histogram Matching)
+      p If we want to adjust one image to the histogram of another image, the reference distribution function <b>P<sub>R</sub>(i)</b> is not continuous and thus, in general, cannot be inverted.
+      p  For example, if the reference distribution contains zero entries (i.e., pixel values <b>k</b> with probability <b>p(k) = 0</b>), the corresponding cumulative distribution function P (just like the cumulative histogram) has intervals of constant value on which no inverse function value can be determined.
+      p In the following, we describe a simple method for histogram matching that works with discrete reference distributions.
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image Defects</sup>
-      h5(style="margin-top: -10px").center Spikes and gaps
-      p The intensity value distribution for an unprocessed image is generally smooth; that is, it is unlikely that isolated spikes or gaps will appear in its histogram.
-      p It is also unlikely that the count of any given intensity value will differ greatly from that of its neighbors
-      p While artifacts like these are observed very rarely in original images, they will often be present after an image has been manipulated, for instance, by changing its contrast.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px;").center Adjusting to a Given Histogram (Histogram Matching)
       .center
-          img(src='./assets/chap04/p043-fig4-9.png' height="300px")
+          img(src='./assets/chap05/p068-fig5-13.png' height="250px")
+      p The mapping function <b>f<sub>hs</sub></b> is not obtained by inverting but by “<b>filling in</b>” the reference distribution function <b>P<sub>R</sub>(i)</b>.
+      p For each possible pixel value <b>a</b>, starting with <b>a = 0</b>, the corresponding probability <b>p<sub>A</sub>(a)</b> is stacked layer by layer “under” the reference distribution <b>P<sub>R</sub></b>.
+      p The thickness of each horizontal bar for <b>a</b> equals the corresponding probability <b>p<sub>A</sub>(a)</b>. The bar for a particular intensity value a with thickness <b>p<sub>A</sub>(a)</b> runs from right to left, down to position <b>a'</b>, where it hits the reference distribution <b>P<sub>R</sub></b>.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center  Adjusting to a Given Histogram (Histogram Matching)
+      p
+      .center
+          img(src='./assets/chap05/p068-fig5-13.png' height="150px")
+      p(style="margin-top: -20px") This position a corresponds to the new pixel value to which <b>a</b> should be mapped.
+      p Since the sum of all probabilities <b>p<sub>A</sub></b> and the maximum of the distribution function <b>P<sub>R</sub></b> are both <b>1</b>, all horizontal bars will exactly fit underneath the function <b>P<sub>R</sub></b>.
+      p Given some intensity value <b>a</b>, it is therefore sufficient to find the minimum value a, where the reference distribution <b>P<sub>R</sub>(a)</b> is greater than or equal to the cumulative probability <b>P<sub>A</sub>(a)</b>, that is,
+      .center
+          img(src='./assets/chap05/p068-eqn5-25.png' height="60px")
+
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Algorithm for Matching Histograms
+      .center
+          img(src='./assets/chap05/p069-alg5-3.png')
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image Defects</sup>
-      h5(style="margin-top: -10px").center Impacts of image compression
-      p Image compression also changes an image in ways that are immediately evident in its histogram.
-      p As an example, during GIF compression, an image’s dynamic range is reduced to only a few intensities or colors, resulting in an obvious line structure in the histogram that cannot be removed by subsequent processing.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Matching Histograms
+      p
       .center
-          img(src='./assets/chap04/p043-fig4-10.png' height="300px")
-      p Generally, a histogram can quickly reveal whether an image has ever been subjected to color quantization.
+          img(src='./assets/chap05/p069-fig5-14.png')
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Interpreting Histograms : Image Defects</sup>
-      h5(style="margin-top: -10px").center Impacts of image compression
-      p A simple line graphic with only two gray values (128, 255) is subjected to a compression method such as JPEG, that is not designed for line graphics but instead for natural photographs.
-      p The histogram of the resulting image clearly shows that it now contains a large number of gray values that were not present in the original image, resulting in a poor-quality image that appears dirty, fuzzy, and blurred.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Matching Histograms
+      p
       .center
-          img(src='./assets/chap04/p044-fig4-11.png' height="400px")
+          img(src='./assets/chap05/p071-fig5-15.png' height="700px")
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
-      h3 Calculating Histograms
-      p Computing the histogram of an 8-bit grayscale image containing intensity values between 0 and 255 is a simple task. All we need is a set of 256 counters, one for each possible intensity value. First, all counters are initialized to zero. Then we iterate through the image I, determining the pixel value p at each location (u, v), and incrementing the corresponding counter by one. At the end, each counter will contain the number of pixels in the image that have the corresponding intensity value.
-      p An image with K possible intensity values requires exactly K counter variables; for example, since an 8-bit grayscale image can contain at most 256 different intensity values, we require 256 counters.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Matching Histograms
+      p
+      .center
+          img(src='./assets/chap05/p072-fig5-16.png' height="700px")
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
-      h5.center Calculating Histograms (8-bits)
-      p Implementing a macro
-      .center
-          img(src='./assets/macroHistogrma.png' height="300px")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5(style="margin-top: -10px").center Gamma Correction
+      p When applied to digital intensity images, the ideal is to have some kind of “calibrated intensity space” that optimally matches the human perception of intensity and requires a minimum number of bits to represent the required intensity range.
+      p Gamma correction denotes a simple point operation to compensate for the transfer characteristics of different input and output devices and to map them to a unified intensity space.
+      p The term “gamma” originates from analog photography, where the relationship between the light energy and the resulting film density is approximately logarithmic.
+
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
-      h5.center Histograms of Images with More than 8 Bits
-      p Normally histograms are computed in order to visualize the image’s distribution on the screen. This presents no problem when dealing with images having 2<sup>8</sup> = 256 entries, but when an image uses a larger range of values, for instance 16- and 32-bit or floating-point images, then the growing number of necessary histogram entries makes this no longer practical.
-      p Binning
-      p Since it is not possible to represent each intensity value with its own entry in the histogram, we will instead let a given entry in the histogram represent a range of intensity values. This technique is often referred to as “binning” since you can visualize it as collecting a range of pixel values in a container such as a bin or bucket.
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center Gamma correction
+      p The “exposure function”, specifying the relationship between the logarithmic light intensity and the resulting film density, is therefore approximately linear over a wide range of light intensities.
+      .center
+          img(src='./assets/chap05/p073-fig5-17.png' height="200px")
+      p The slope of this function within this linear range is traditionally referred to as the “gamma” of the photographic material.
+      p The same term was adopted later in television broadcasting to describe the nonlinearities of the cathode ray tubes used in TV receivers, that is, to model the relationship between the amplitude (voltage) of the video signal and the emitted light intensity.
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
-      h5.center Histograms of Images with More than 8 Bits
-      p In a binned histogram of size <span style="font-family: New Times; font-style: italic;">B</span>, each bin <b>h</b>(<span style="font-family: New Times; font-style: italic;">j</span>) contains the number of image elements having values within the interval [<span style="font-family: New Times; font-style: italic;">a<sub>j</sub></span>, <span style="font-family: New Times; font-style: italic;">aj</span><span style="font-family: New Times;">+1</span>), and therefore
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Point Operations and Histograms</sup>
+      h5.center Mathematical Definition
+      p Gamma correction is based on the exponential function fγ(a) = aγ, (4.27)
       .center
-          img(src='./assets/chap04/p046-eqn4-2.png')
-      p Typically the range of possible values in <span style="font-family: New Times; font-style: italic;">B</span> is divided into bins of equal size <span style="font-family: New Times; font-style: italic;">kB = K/B</span> such that the starting value of the interval j is
+          img(src='./assets/chap05/p074-eqn5-26.png' height="60px")
+      p where the parameter <b>γ ∈ R</b> is called the gamma value. If a is constrained to the interval [0, 1], then—independent of γ—the value of <b>f<sub>γ</sub>(a)</b> also stays within [0, 1], and the function always runs through the points (0, 0) and (1, 1).
       .center
-          img(src='./assets/chap04/p046-math-a.png' height="80px")
+          img(src='./assets/chap05/p074-fig5-18.png' height="300px")
+
 
     slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Calculating Histograms</sup>
-      h5.center Histograms of Images with More than 8 Bits
-      p Example
-      p In order to create a typical histogram containing B = 256 entries from a 14-bit image, one would divide the original value range j = 0, . . . , 2<sup>14</sup>−1 into 256 equal intervals, each of length kB = 214/256 = 64. This gives the following association between pixel values and histogram bins h(0), . . . , h(255):
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Real Gamma Values
+      p The actual gamma values of individual devices are usually specified by the manufacturers based on real measurements. For example, common gamma values for CRT monitors are in the range 1.8 to 2.8, with 2.4 as a typical value.
+      p Most LCD monitors are internally adjusted to similar values. Digital video and still cameras also emulate the transfer characteristics of analog film and photographic cameras by making internal corrections to give the resulting images an accustomed “look”.
       .center
-          img(src='./assets/chap04/p047-math-a.png' height="300px")
+          img(src='./assets/chap05/p076-fig5-19.png' height="200px")
 
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
-        h5.center Histograms of Color Images
-        p When referring to histograms of color images, typically what is meant is a histogram of the image intensity (luminance) or of the individual color channels. Both of these variants are supported by practically every image-processing application and are used to objectively appraise the image quality, especially directly after image acquisition.
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Real gamma values
+      .center
+          img(src='./assets/chap05/p077-fig5-20.png' height="500px")
 
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5.center Intensity Histograms
-        p The intensity or luminance histogram hLum of a color image is nothing more than the histogram of the corresponding grayscale image, so naturally all aspects of the preceding discussion also apply to this type of histogram. The grayscale image is obtained by computing the luminance of the individual channels of the color image. When computing the luminance, it is not sufficient to simply average the values of each color channel; instead, a weighted sum that takes into account color perception theory should be computed.
-        .center
-          img(src='./assets/p249-eqn12-5.png')
-        .center
-          img(src='./assets/p249-eqn12-6.png')
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
-        h5(style="margin-top: -10px;").center   3.5.2 Individual Color Channel Histograms
-        p(style="margin-top: -30px;") Even though the luminance histogram takes into account all color channels, image errors appearing in single channels can remain undiscovered. For example, the luminance histogram may appear clean even when one of the color channels is oversaturated. In RGB images, the blue channel contributes only a small amount to the total brightness and so is especially sensitive to this problem. Component histograms supply additional information about the intensity distribution within the individual color channels.
-        .center
-          img(src='./assets/chap04/p049-fig4-12.png' height="450px")
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Fun Soon!
 
 
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5(style="margin-top: -10px;").center The Cumulative Histogram
-        p(style="margin-top: -10px;") The cumulative histogram, which is derived from the ordinary histogram, is useful when performing certain image operations involving histograms; for instance, histogram equalization. The cumulative histogram H is defined as
-        .center
-          img(src='./assets/chap04/p050-eqn4-5.png' height="100px")
-        p(style="margin-top: -10px;") A particular value H(i) is thus the sum of all histogram values h(j), with j ≤ i. Alternatively, we can define H recursively:
-        .center
-          img(src='./assets/chap04/p050-eqn4-6.png' height="100px")
-        p(style="margin-top: -10px;") The cumulative histogram H(i) is a monotonically increasing function with the maximum value
-        .center
-          img(src='./assets/chap04/p050-eqn4-7.png' height="100px"  style="margin-top: -50px;" )
-        p(style="margin-top: -10px;") that is, the total number of pixels in an image of width M and height N
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5(style="margin-top: -10px;").center The Cumulative Histogram
-        .center
-          img(src='./assets/chap04/p051-fig4-13.png' height="450px")
-        p The cumulative histogram is useful not primarily for  viewing but as a simple and powerful tool for capturing statistical information from an image.
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5(style="margin-top: -10px;").center Statistical Information from the Histogram
-        p Some common statistical parameters of the image can be conveniently calculated directly from its histogram. For example, the minimum and maximum pixel value of an image I can be obtained by simply finding the smallest and largest histogram index with nonzero value,
-        .center
-          img(src='./assets/308.png')
-        p If we assume that the histogram is already available, the advantage is that the calculation does not include the entire image but only the relatively small set of histogram elements.
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}:</sup>
-        h5(style="margin-top: -10px;").center Mean and Variance
-        p The mean value μ of an image I (of size M × N) can be calculated as
-        .center
-          img(src='./assets/309.png')
-        p i.e., either directly from the pixel values I(u, v) or indirectly from the histogram h (of size K), where MN = i h(i) is the total number of pixels.
-        p Analogously we can also calculate the variance of the pixel values straight from the histogram as
-        .center
-          img(src='./assets/310.png')
-
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5(style="margin-top: -10px;").center Mean and Variance
-        p The mean and the variance can be calculated together in a single iteration over the image pixels or the associated histogram in the form
-        .center
-          img(src='./assets/311-312.png' height="150px")
-        p with the quantities
-        .center
-          img(src='./assets/313-314.png' height="200px" style="margin-top:-50px;")
-        p The above formulation has the additional numerical advantage that all summations can be performed with integer values, in contrast to the summation of floating-point values.
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: </sup>
-        h5(style="margin-top:-30px;").center Median
-        p(style="margin-top:-50px;") The median m of an image is defined as the smallest pixel value that is greater or equal to one half of all pixel values, i.e., lies “in the middle” of the pixel values. The median can also be easily calculated from the image’s histogram.
-        p To determine the median of an image I from the associated histogram it is sufficient to find the index i that separates the histogram into two halves, such that the sum of the histogram entries to the left and the right of i are approximately equal. In other words, i is the smallest index where the sum of the histogram entries below (and including) i corresponds to at least half of the image size, that is,
-        .center
-          img(src='./assets/315.png' height="100px" style="margin-top:-50px;")
-        p the median calculation can be formulated even simpler as
-        .center
-          img(src='./assets/316.png' height="70px" style="margin-top:-30px;")
-        p given the cumulative histogram H.
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References</sup>
