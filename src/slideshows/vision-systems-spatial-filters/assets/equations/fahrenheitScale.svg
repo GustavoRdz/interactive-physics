@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="100px" height="400px" viewBox="0 0 100 400" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+  <g transform="scale(1) translate(0, 0)">
+		<!-- mercury thermometer -->
+			<path d="M20 50
+			  L20 250
+				A5 5 0 0 0 23 255
+				L23 280
+				A5 5 0 0 0 37 280
+				L37 255
+				A5 5 0 0 0 40 250
+				L40 50
+				A10 10 0 0 0 20 50
+				Z" fill="#C6E2E3" stroke="#000" opacity="0.5"/>
+
+						<!-- mercury -->
+			<path d="M25 255
+				L25 280
+				A5 5 0 0 0 35 280
+				L35 255
+				A5 5 0 0 0 25 255
+				Z" fill="#D5D2D1" stroke="#D5D2D1" opacity="1">
+				 <animate
+				  attributeName="fill"
+					values="#D5D2D1;red;#D5D2D1"
+					dur="5s"
+					repeatCount="indefinite"
+				/>
+				</path>
+			
+			<!-- capillar and bulb -->
+			<path d="M28 50
+			  L28 250
+				A5 5 0 0 0 25 255
+				L25 280
+				A5 5 0 0 0 35 280
+				L35 255
+				A5 5 0 0 0 32 250
+				L32 50
+				Z" fill="none" stroke="#000" opacity="0.1"/>
+
+
+			<rect x="28.65" y="150" width="3" height="100" fill="#CDCDCD"  stroke-width="0">
+			  <animate
+				  attributeName="y"
+					values="222;70;222"
+					dur="5s"
+					repeatCount="indefinite"
+				/>
+				<animate
+				  attributeName="height"
+					values="28;180;28"
+					dur="5s"
+					repeatCount="indefinite"
+				/>
+
+					 </rect>
+
+    <!-- scale -->
+		<path d="M38 60
+		         L38 240
+					   " fill="none" stroke="#222" stroke-width="5" opacity="1" stroke-dasharray="2 4">
+		     	<animate
+				  attributeName="opacity"
+					values="0;0;0;0;1;0"
+					dur="5s"
+					repeatCount="indefinite"
+				/>
+						 </path>
+
+		<!-- Pressure change -->
+  
+
+
+
+
+				<!-- cotes and texts -->
+
+				<line x1="42" y1="223" x2="70" y2="223" stroke="black">
+				<animateTransform
+				  attributeName="transform"
+				  type="translate"
+				  values="0 0;0 0;0 0;0 -150;0 -150; 0 -150;0 0"
+				  dur="5s"
+				  repeatCount="indefinite"
+				/></line>
+
+				<text x="65" y="220">
+				<animate
+				  attributeName="opacity"
+				  values="1;1;1;1;1;0;0;0;1"
+				  dur="5s"
+				  repeatCount="indefinite"/>
+					32&#x00B0; F</text>
+				
+				<text x="65" y="70">
+				<animate
+				  attributeName="opacity"
+				  values="0;0;0;0;0;1;1;1;0"
+				  dur="5s"
+				  repeatCount="indefinite"/>
+					212&#x00B0; F</text>
+
+
+      <g transform="translate(-10,-7)">
+				<!-- ice cube -->
+				<path d="M10 300
+			  L10 350
+				A5 5 0 0 0 15 355
+				L65 355
+				A5 5 0 0 0 70 350
+				L70 300
+				A5 5 0 0 0 65 295
+				L15 295
+				A5 5 0 0 0 10 300
+				Z" fill="#C6E2E3" stroke="none" opacity="1"></path>>
+
+          <!-- shines -->
+				<path d="M55 300
+			  L20 300
+				A5 5 0 0 0 15 305
+				L15 340
+				L20 340
+				L20 310
+				A5 5 0 0 1 25 305
+				L55 305
+				Z" fill="#fff" stroke="none" opacity="0.5"></path>>
+
+				<path d="M60 300
+			  L60 340
+				A5 5 0 0 1 55 345
+				L15 345
+				A5 5 0 0 0 20 350
+				L60 350
+				A5 5 0 0 0 65 345
+				L65 305
+				A5 5 0 0 0 60 300
+				Z" fill="#00f" stroke="none" opacity="0.3"></path>>
+
+				<animate
+				      attributeName="opacity"
+					    values="0;0;0;1;1;1;1;1;0"
+					    dur="5s"
+					    repeatCount="indefinite"/>  
+				</g>
+
+				<g transform="translate(0,0)">
+				<!-- boiling water cube -->
+				<path d="M0 293
+			  L0 343
+				A5 5 0 0 0 5 348
+				L55 348
+				A5 5 0 0 0 60 343
+				L60 293
+				A5 5 0 0 0 55 288
+				L5 288
+				A5 5 0 0 0 0 293
+				Z" fill="#C6E2E3" stroke="none" opacity="1"></path>>
+
+          <!-- bubbles -->
+					<circle cx="50" cy="350" r="4" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.6s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="40" cy="350" r="2" fill="#fff" stroke="none" opacity="1">
+			      <animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.8s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="30" cy="350" r="3" fill="#fff" stroke="noen" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.7s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="20" cy="350" r="2" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.8s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="10" cy="350" r="3" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.7s"
+					    repeatCount="indefinite"/>
+							</circle>
+					<circle cx="15" cy="350" r="4" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.6s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="21" cy="350" r="2" fill="#fff" stroke="none" opacity="1">
+			      <animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.8s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="43" cy="350" r="3" fill="#fff" stroke="noen" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.7s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="35" cy="350" r="2" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.8s"
+					    repeatCount="indefinite"/>
+					</circle>
+					<circle cx="25" cy="350" r="3" fill="#fff" stroke="none" opacity="1">
+					<animate
+				      attributeName="cy"
+					    values="350;290"
+					    dur="0.75s"
+					    repeatCount="indefinite"/>
+							</circle>
+
+					 <animate
+				      attributeName="opacity"
+					    values="1;1;1;0;0;0;0;0;1"
+					    dur="5s"
+					    repeatCount="indefinite"/> 
+
+      </g>
+
+	</g>
+</svg>

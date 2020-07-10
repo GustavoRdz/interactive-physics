@@ -1,8 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (a) Audible wavelengths. The range of audible frequencies is from about 20 Hz to 20,000 Hz. What is the range of the wavelengths of audible sound in air? (b) Visible light. The range of visible light extends from 400 nm to 700 nm. What is the range of visible frequencies of light? (c) Brain surgery. Surgeons can remove brain tumors by using a cavitron ultrasonic surgical aspirator, which produces sound waves of frequency 23 kHz. What is the wavelength of these waves in air? (d) Sound in the body. What would be the wavelength of the sound in part (c) in bodily fluids in which the speed of sound is 1480 m s but the frequency is unchanged?
-    
+    p.problem (a) Audible wavelengths. The range of audible frequencies is from about 20 Hz to 20,000 Hz. What is the range of the wavelengths of audible sound in air?<br> (b) Visible light. The range of visible light extends from 400 nm to 700 nm. What is the range of visible frequencies of light?<br>(c) Brain surgery. Surgeons can remove brain tumors by using a cavitron ultrasonic surgical aspirator, which produces sound waves of frequency 23 kHz. What is the wavelength of these waves in air?<br> (d) Sound in the body. What would be the wavelength of the sound in part<br> (e) in bodily fluids in which the speed of sound is 1480 m s but the frequency is unchanged?
+
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Silicon silver mass (fg)

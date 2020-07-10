@@ -1,8 +1,9 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem A uniform string has a mass of 0.300 kg and a length of 6.00 m (Fig. 16.12). The string passes over a pulley and supports a 2.00-kg object. Find the speed of a pulse traveling along this string.A spring is mounted horizontally, with its left end fixed.
+      p.problem A uniform string has a mass of 0.300 kg and a length of 6.00 m. The string passes over a pulley and supports a 2.00-kg object. Find the speed of a pulse traveling along this string.
       .center
+        img(src='../assets/problem2.png' height="200px")
         //- p.solution Please do calculations and introduce your results
         //- p.inline.data Force (N)
         //-   input.center.data(:class="checkedForce" v-model.number='enterForce')

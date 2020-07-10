@@ -1,9 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A 1.50-m string of weight 0.0125 N is tied to the ceiling at its upper end, and the lower end supports a weight W. Neglect the very small variation in tension along the length of the string that is produced by the weight of the string. When you pluck the string slightly, the waves traveling up the string obey the equation 
+    p.problem A 1.50-m string of weight 0.0125 N is tied to the ceiling at its upper end, and the lower end supports a weight W. Neglect the very small variation in tension along the length of the string that is produced by the weight of the string. When you pluck the string slightly, the waves traveling up the string obey the equation
       .center.problem y(x, t) = (8.50mm)cos(172m<sup>-1</sup>x - 4830s<sup>-1</sup>t)
-    p.problem Assume that the tension of the string is constant and equal to W. (a) How much time does it take a pulse to travel the full length of the string? (b) What is the weight W? (c) How many wavelengths are on the string at any instant of time? (d) What is the equation for waves traveling down the string?
+    p.problem Assume that the tension of the string is constant and equal to W.<br> (a) How much time does it take a pulse to travel the full length of the string?<br> (b) What is the weight W?<br> (c) How many wavelengths are on the string at any instant of time?<br> (d) What is the equation for waves traveling down the string?
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Amplitude (m)

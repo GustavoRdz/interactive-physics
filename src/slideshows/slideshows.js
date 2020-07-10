@@ -11,6 +11,7 @@ export default {
     require('./vision-systems/visionSystems'),
     require('./vision-systems-imagej/imagej'),
     require('./vision-systems-point/pointoperations'),
+    require('./vision-systems-spatial-filters/spatialfilters'),
     require('./vision-systems-lab/visionSystemsLab'),
     require('./comming-soon/CommingSoon')
   ]

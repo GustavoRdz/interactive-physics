@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A sinusoidal wave traveling in the negative x direction (to the left) has an amplitude of 20.0 cm, a wavelength of 35.0 cm, and a frequency of 12.0 Hz. The transverse position of an element of the medium at t = 0, x = 0 is y = 23.00 cm, and the element has a positive velocity here. We wish to find an expression for the wave function describing this wave. (a) Sketch the wave at t = 0. (b) Find the angular wave number k from the wavelength. (c) Find the period T from the frequency. Find (d) the angular frequency v and (e) the wave speed v. (f) From the information about t = 0, find the phase constant &phi;. (g) Write an expression for the wave function y(x, t).
+    p.problem A sinusoidal wave traveling in the negative x direction (to the left) has an amplitude of 20.0 cm, a wavelength of 35.0 cm, and a frequency of 12.0 Hz. The transverse position of an element of the medium at t = 0, x = 0 is y = 23.00 cm, and the element has a positive velocity here. We wish to find an expression for the wave function describing this wave.<br> (a) Sketch the wave at t = 0.<br> (b) Find the angular wave number k from the wavelength.<br> (c) Find the period T from the frequency. Find<br> (d) the angular frequency v and<br> (e) the wave speed v.<br> (f) From the information about t = 0, find the phase constant &phi;.<br> (g) Write an expression for the wave function y(x, t).
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Period (s)
