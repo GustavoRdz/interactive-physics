@@ -3,9 +3,9 @@
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
-        h1 Vision Systems Laboratory
+        h1 Laboratorio
         img(src='./assets/U.svg')
-        h4 Vision Sytems
+        h4 Sistemas de visión
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -17,31 +17,31 @@
     slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3
-        | Lab practices
+        | Practicas
         .inline(class='animated infinite pulse heart')
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 2")
-            <b>1.- ImageJ introduction</b>
+            <b>1.- Introducción al ImageJ</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 3")
-            <b>2.- Imagen scan</b>
+            <b>2.- Barrido de una imagen</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 4")
-            <b>3.- Color and B/W images</b>
+            <b>3.- Imagenes a color y B/W</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 5")
-            <b>4.- Pixel Counter</b>
+            <b>4.- Contador de pixeles</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 6")
-            <b>5.- Coin counter</b>
+            <b>5.- Contador de monedas</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 7")
-            <b>6.- Coin identifier</b>
+            <b>6.- Identificador de monedas</b>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 <b>Formato</b> para reportes
+      h4.center <b>Formato</b> para reportes
       ol
         li La <b>portada</b> debe incluir
           ul
@@ -55,18 +55,19 @@
         li <b>Resultados</b>
           ul
             li(style="font-size: 0.7em;") Explicar si los resultados concuerdan con el objetivo de la practica y en caso de haber discrepacias justificar el origen de esas diferencias
+            li(style="font-size: 0.7em;") Responder las preguntas del manual de laboratorio y considerar los puntos que menciona el manual para la elaborción del reporte
         li <b>Referencias</b>
           ul
             li(style="font-size: 0.7em;") Incluir las fuentes de información de donde se documento para llevar a cabo la practica
+        p <a href="http://labmtc.fime.uanl.mx/@acad_mi/@264/Lab%20264.pdf">Manual de laboratorio</a>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Practice 1
-      p.center <b>ImageJ</b> introduction
+      h3 Practica 1
+      h5.center <b>ImageJ</b> introduction al imageJ
 
-      p When measuring tempetature usually hold two objects in thermal contact. One of these objects use to be a thermometer <em> <strong>termometer</strong></em>
-      p It is common to wait a long period of time (minutes) before get the correct measutement because reaching the <em><strong>thermal equilibrium</strong></em> is a slow process
-      p Once the thermal equilibrium is reached the thermometer has the same temperature as the object to measure and its calibration allows to get the temperature of the object in it's scale
+      p Objetivo
+      p Que el alumno conozca y aprenda del software IMAGEJ, desde su descarga y e instalación hasta ver todas las funciones del mismo
 
 
     slide(:steps=1, enter='bounceInDown')

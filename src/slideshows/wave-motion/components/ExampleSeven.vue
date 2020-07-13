@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Sound having frequencies above the range of human hearing (about 20,000 Hz) is called ultrasound. Waves above this frequency can be used to penetrate the body and to produce images by reflecting from surfaces. In a typical ultrasound scan, the waves travel through body tissue with a speed of 1500 m/sFor a good, detailed image, the wavelength should be no more than 1.0 mm. What frequency sound is required for a good scan?
+    p.problem Sound having frequencies above the range of human hearing (about 20,000 Hz) is called ultrasound. Waves above this frequency can be used to penetrate the body and to produce images by reflecting from surfaces. In a typical ultrasound scan, the waves travel through body tissue with a speed of 1500 m/s For a good, detailed image, the wavelength should be no more than 1.0 mm. What frequency sound is required for a good scan?
 
     //- .center
     //-   p.solution Please do calculations and introduce your results

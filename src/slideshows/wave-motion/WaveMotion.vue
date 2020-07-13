@@ -177,35 +177,10 @@
         br
         span.small Ctrl + right
 
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 6
-      example-four
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 7
-      example-five
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 8
       example-six
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -216,49 +191,66 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 9
-      example-seven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      h4(style="margin: 10px 0 0 0;").center Wave interference
+        h5(style="margin:20px 0 0 0;").center Boundary conditions
+        .center
+          img(src='./assets/boundaryCond.png')
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin: 10px 0 0 0;").center Wave interference
+        h5(style="margin:20px 0 0 0;").center Two pulses
+        .center
+          img(src='./assets/twoPulsesDifferentSign.png' style="margin: 20px 0 0 20px;")
+          img(src='./assets/twoPulsesEqualSign.png' height="440px" style="margin: 0px 0 50px 10px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h5(style="margin:0px 0 0 0;").center Two traveling waves
+        .center
+          img(src='./assets/waveInterferenceCases.png' style="margin: 20px 0 0 20px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4(style="margin: 10px 0 0 0;").center Superposition principle
+        .center
+          img(src='./assets/superposition.png' height="50px" style="margin: 20px 0 0 20px;")
+      h5(style="margin:20px 0 0 0; color: blue;").center Standing waves on a string
+      p two counterpropagating waves
+      .center
+        img(src='./assets/towwavesEqn.png' height="100px" style="margin: -20px 0 0 20px;")
+      p Its superposition
+      .center
+        img(src='./assets/twoWavesSum.png'  style="margin: 20px 0 0 20px;")
+      p using
+          img(src='./assets/identity.png' height="30px" style="margin: 20px 0 0 20px;")
+      .center
+          img(src='./assets/twoWavesInterference.png' style="margin: 20px 0 0 20px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4.center Standing waves
+        .center
+          img(src='./assets/standingWavesFig.png' height="500px" style="margin: 30px 0 0 0;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4.center Normal modes on a string
+        .center
+          img(src='./assets/normalModesInterference.png' height="50px" style="margin: 30px 0 0 0;")
+        .center
+          img(src='./assets/normalModesFig.png' height="400px" style="margin: auto")
+        .center
+          img(src='./assets/nodesNormalModesL.png' height="50px" style="margin-right: 40px;")
+          img(src='./assets/nodesNormalModesW.png' height="50px" style="margin: auto;")
+        .center
+          img(src='./assets/normalModesFrequency.png' height="50px" style="margin: auto;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 10
-      example-eight
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 11
-      example-eleven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 12
+      h3 Exercise 7
       example-twelve
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -271,7 +263,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 13
+      h3 Exercise 8
       example-thirteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -282,9 +274,21 @@
         br
         span.small Ctrl + right
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h2.center Sound waves
+      ul
+        li Mechanical wave
+        li Longitudinal wave
+        li Frequency range: 20 to 20000Hz (Audible range)
+      p other ranges
+      ul
+        li infrasound: <20Hz
+        li ultrasound: >20000Hz
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 14
+      h3 Exercise not this theme
       example-fourteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -364,6 +368,71 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 20
       example-twenty
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 6
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 7
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 9
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 10
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 11
+      example-eleven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br

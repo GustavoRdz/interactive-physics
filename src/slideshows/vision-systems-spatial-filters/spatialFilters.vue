@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Vision Systems
         img(src='./assets/U.svg')
-        h4 Point operations
+        h4 Space Domain Filters
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -30,7 +30,7 @@
             <b>Formal Properties of Linear Filters</b><br><span style="font-size: 0.7em;">Linear Convolution, Formal Properties of Linear Convolution, Separability of Linear Filters, Impulse Response of a Filter</span>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 5")
-            <b>Nonlinear Filters</b><br><span style="font-size: 0.7em;">Minimum and Maximum Filters, Median Filter, Weighted Median Filter, 4 Other Nonlinear Filters</span>
+            <b>Nonlinear Filters</b><br><span style="font-size: 0.7em;">Minimum and Maximum Filters, Median Filter, Weighted Median Filter, Other Nonlinear Filters</span>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 6")
             <b>Implementing Filters</b><br><span style="font-size: 0.7em;">Efficiency of Filter Programs, Handling Image Borders, Debugging Filter Programs</span>
@@ -325,16 +325,130 @@
 
     slide.boredYet(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Fun Soon!
+      h3.center Nonlinear Filters
+      h5.center Minimum and Maximum Filters
+      p Nonlinear filters calculate the result at a given image position <b>(u, v)</b> from the pixels inside the moving region <b>R<sub>u,v</sub></b> of the original image.
+      p The filters are called “nonlinear” because the source pixel values are combined by some nonlinear function.
+      p The simplest of all nonlinear filters are the minimum and maximum filters, defined as
+      .center
+          img(src='./assets/clips-06/p107-eqn6-30.png')
+      .center
+          img(src='./assets/clips-06/p107-eqn6-31.png')
 
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Minimum and Maximum Filters
+      p The effects of a 1D minimum filter on various local signal structures.
+      .center
+          img(src='./assets/chap06/p105-fig6-14.png')
 
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Minimum and Maximum Filters
+      p The effects of a 1D minimum filter on various local signal structures.
+      .center
+          img(src='./assets/chap06/p106-fig6-15.png')
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Median Filter
+      p It is impossible of course to design a filter that removes any noise but keeps all the important image structures intact, because no filter can discriminate which image content is important to the viewer and which is not.
+      p The popular median filter is at least a good step in this direction.
+      p The median filter replaces every image pixel by the median of the pixels in the current filter region R, that is,
+      .center
+          img(src='./assets/chap06/p107-fig6-33.png')
+      .center
+          img(src='./assets/chap06/p107-fig6-16.png')
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Median Filter
+      p
+      .center
+          img(src='./assets/chap06/p108-fig6-18.png'  height="400px")
+      .center
+          img(src='./assets/chap06/p108-fig6-17.png' height="200px")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Weighted Median Filter
+      p In an ordinary median filter, each pixel in the filter region has the same influence, regardless of its distance from the center.
+      p The weighted median filter assigns individual weights to the positions in the filter region, which can be interpreted as the “number of votes” for the corresponding pixel values.
+      p Similar to the coefficient matrix H of a linear filter, the distribution of weights is specified by a weight matrix <b>W</b>, with <b>W(i, j) ∈ N</b>.
+      p To compute the result of the modified filter, each pixel value <b>I(u + i, v + j)</b> involved is inserted <b>W(i, j)</b> times into the extended pixel vector
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Weighted Median Filter
+      .center
+          img(src='./assets/medianVsWeighted.png', height="500px")
+      .center
+          img(src='./assets/chap06/p110-eqn6-36.png', height="100px")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Other Nonlinear Filters
+      p Median and weighted median filters are two examples of nonlinear filters that are easy to describe and frequently used.
+      p Since “nonlinear” refers to anything that is not linear, there are a multitude of filters that fall into this category, including the morphological filters for binary and grayscale images.
+      p Other types of nonlinear filters, such as the corner detector described, are often described algorithmically and thus defy a simple, compact description.
+      p In contrast to the linear case, there is usually no “strong theory” for nonlinear filters that could, for example, describe the relationship between the sum of two images and the results of a median filter, as for linear convolution.
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Efficiency of Filter Programs
+      p Computing the results of filters is computationally expensive in most cases, especially with large images, large filter kernels, or both.
+      p Given an image of size <b>M×N</b> and a filter kernel of size <b>(2K+1)×(2L+1)</b>, a direct implementation requires
+      p.center <b>2K·2L·M·N = 4KLMN</b>
+      p operations, namely multiplications and additions (in the case of a linear filter).
+      p Thus if both the image and the filter are simply assumed to be of size <b>N×N</b>, the time complexity of direct filtering is <b>O(N<sup>4</sup>)</b>.
+      p Substantial savings are possible when large, 2D filters can be decomposed into smaller, possibly 1D filters.
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h4.center Handling Image Borders
+      p The image borders require special attention in most filter implementations.
+      p We have argued that theoretically no filter results can be computed at positions where the filter matrix is not fully contained in the image array.
+      p Thus any filter operation would reduce the size of the resulting image, which is not acceptable in most applications.
+      p While no formally correct remedy exists, there are several more or less practical methods for handling the remaining border regions
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Handling Image Borders
+      p <b>Method 1</b>:
+      p.center Set the unprocessed pixels at the borders to some constant value (e.g., “black”).
+      p This is certainly the simplest method, but not acceptable in many situations because the image size is incrementally reduced by every filter operation.
+      p <b>Method 2</b>:
+      p.center Set the unprocessed pixels to the original (unfiltered) image values.
+      p Usually the results are unacceptable, too, due to the noticeable difference between filtered and unprocessed image parts.
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Handling Image Borders
+      p <b>Method 3</b>:
+      p Expand the image by “padding” additional pixels around it and apply the filter to the border regions as well.
+      p <b>A</b>. The pixels outside the image have a constant value.<br> <span style="font-size: 0.7em;">This may produce strong artifacts at the image borders, particularly when large filters are used.</span>
+      p <b>B</b>. The border pixels extend beyond the image boundaries.<br> <span style="font-size: 0.7em;">Only minor artifacts can be expected at the borders. The method is also simple to compute and is thus often considered the method of choice.</span>
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Handling Image Borders
+      p <b>Method 3</b>:
+      p Expand the image by “padding” additional pixels around it and apply the filter to the border regions as well.
+      p <b>C</b>. The image is mirrored at each of its four boundaries.<br> <span style="font-size: 0.7em;"> The results will be similar to those of the previous method unless very large filters are used.</span>
+      p D. The image repeats periodically in the horizontal and vertical directions.<br> <span style="font-size: 0.7em;"> This may seem strange at first, and the results are generally not satisfactory.</span>
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
+      h5.center Handling Image Borders
+      .center
+          img(src='./assets/chap06/p113-fig6-20.png')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References: {{ slides.length }}</sup>
         h3 References
         ul
           li <b>Digital Image Processing</b><br> <span class="small">An Algorithmic Introduction Using Java</span> <br>Wilhelm Burger and Mark J. Burge<br> Springer
-        p.small created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+        p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
 
 </template>
 
