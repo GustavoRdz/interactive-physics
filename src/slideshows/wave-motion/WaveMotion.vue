@@ -286,100 +286,31 @@
         li infrasound: <20Hz
         li ultrasound: >20000Hz
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise not this theme
-      example-fourteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      h5(style="margin-top: -0px").center Sound waves
+      .center
+        img(src='./assets/ondaSonora.png' style="margin-top: -20px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h5(style="margin-top: -0px").center Sound waves
+      .center
+          img(src='./assets/waveSpeedMaterial.png' style="margin-top: -20px;")
+      p In a liquid, <b>B</b>: Volumetric module, <span style="font-family: Times New Roman;"><b>&rho;</b></span> density
+      .center
+          img(src='./assets/velocidadFluido.png' style="margin-top: -20px;")
+          img(src='./assets/moduloVolumetrico.png' style="margin-top: -20px; margin-left: 50px;")
+      p(style="margin-bottom: 50px;") En un solido, <b>Y</b>: modulo de Young
+      img(src='./assets/velocidadSonidoSolido.png' style="margin-bottom: -0px; margin-left: 150px; margin-top: -20px;" )
+      p(style="margin-bottom: 50px; margin-top: 0px;" ) En un gas, &gamma; the ratio of heat capacities, <b>T</b> temperature (K), <b>M</b> the molar mass
+      .center
+          img(src='./assets/velocidadSonidoGas.png' height="90px" style="margin-top: -40px; margin-left: -40px;")
+          img(src='./assets/R.png' height="40px" style="margin-bottom: 20px; margin-left: 50px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 15
-      example-fifteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 16
-      example-sixteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 17
-      example-seventeen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 18
-      example-eighteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 19
-      example-nineteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 20
-      example-twenty
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 6
+      h3 Exercise 9
       example-four
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -390,9 +321,18 @@
         br
         span.small Ctrl + right
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3(style="margin-top: -0px").center Doppler effect
+      p Is a change in perceived frequency due to relative motion
+      .center
+        img(src='./assets/dopplerFig.png' style="margin-top: -20px;")
+      .center
+        img(src='./assets/dopplerFormula.png' style="margin-top: 40px;")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 7
+      h3 Exercise 10
       example-five
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -405,7 +345,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 9
+      h3 Exercise 11
       example-seven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -416,9 +356,18 @@
         br
         span.small Ctrl + right
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3(style="margin-top: -0px").center Shock waves
+      p
+      .center
+        img(src='./assets/shockWavesFig.png' height="300px" style="margin-top: -20px;")
+      .center
+        img(src='./assets/shockAngle.png' style="margin-top: 40px;")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 10
+      h3 Exercise 12
       example-eight
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -431,7 +380,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 11
+      h3 Exercise 13
       example-eleven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide

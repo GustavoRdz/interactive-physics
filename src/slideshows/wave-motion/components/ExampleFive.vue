@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A sinusoidal wave traveling in the negative x direction (to the left) has an amplitude of 20.0 cm, a wavelength of 35.0 cm, and a frequency of 12.0 Hz. The transverse position of an element of the medium at t = 0, x = 0 is y = 23.00 cm, and the element has a positive velocity here. We wish to find an expression for the wave function describing this wave.<br> (a) Sketch the wave at t = 0.<br> (b) Find the angular wave number k from the wavelength.<br> (c) Find the period T from the frequency. Find<br> (d) the angular frequency v and<br> (e) the wave speed v.<br> (f) From the information about t = 0, find the phase constant &phi;.<br> (g) Write an expression for the wave function y(x, t).
+    p.problem A police car’s siren emits a sinusoidal wave with frequency <b>f<sub>s</sub></b> = 300 Hz. The speed of sound is 340 m/s and the air is still.<br> (a) If a listener L is at rest and the siren is moving away from L at 30 m/s, what frequency does the listener hear? <br>(b) The siren is moving away from the listener with a speed of 45 m/s relative to the air, and the listener is moving toward the siren with a speed of 15 m/s relative to the air. What frequency does the listener hear?
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Period (s)

@@ -64,10 +64,20 @@
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Practica 1
-      h5.center <b>ImageJ</b> introduction al imageJ
+      h5.center <b>ImageJ</b> Introduction al imageJ
 
       p Objetivo
       p Que el alumno conozca y aprenda del software IMAGEJ, desde su descarga y e instalación hasta ver todas las funciones del mismo
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Practica 2
+      h5.center <b> Barrido de una imagen</b>
+
+      p Objetivo
+      p Que el alumno aprenda a utilizar la función de macro, y haga un barrido de una imagen con varias condiciones para subir y bajar el brillo de una imagen.
+
+      <a href="https://docs.google.com/document/d/1Rt0O4pFJ4LEYcO_MAH2nEa88awm7U79gA0ClkznObuM/edit?usp=sharing">Macro</a>
 
 
     slide(:steps=1, enter='bounceInDown')

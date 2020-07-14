@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A transverse sinusoidal wave on a string has a period T = 25.0 ms and travels in the negative x direction with a speed of 30.0 m/s. At t = 0, an element of the string at x = 0 has a transverse position of 2.00 cm and is traveling downward with a speed of 2.00 m/s.<br> (a) What is the amplitude of the wave?<br> (b) What is the initial phase angle?<br> (c) What is the maximum transverse speed of an element of the string?<br> (d) Write the wave function for the wave.
+    p.problem Find the speed of sound in air at T = 20°C and find the range of wavelengths in air to which the human ear (which can hear frequencies in the range of 20–20,000 Hz) is sensitive. The mean molar, mass for air (a mixture of mostly nitrogen and oxygen) is M = 28.8 * 10<sup>-3</sup> kg/mol and the ratio of heat capacities is &gamma; = 1.40.
     .center
       //- p.solution Please do calculations and introduce your results
       //- p.inline.data Initial displacement (s)

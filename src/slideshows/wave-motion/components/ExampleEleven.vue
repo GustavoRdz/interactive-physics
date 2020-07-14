@@ -1,69 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A wave pulse on a string has the dimensions shown in the figure at t = 0. The wave speed is 40 cm/s. (a) If point O is a fixed end, draw the total wave on the string at t = 15ms, 20 ms, 25 ms, 30 ms, 35 ms, 40 ms, and 45 ms. (b) Repeat part (a) for the case in which point O is a free end.
-    .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" height="400px" width="800px" >
+    p.problem The shock-wave cone created by the space shuttle at one instant during its reentry into the atmosphere makes an angle of 58.0º with its direction of motion. The speed of sound at this altitude is 331 m/s. <br>(a) What is the Mach number of the shuttle at this instant, and <br> (b) how fast (in and in ) is it traveling relative to the atmosphere? <br>(c) What would be its Mach number and the angle of its shock-wave cone if it flew at the same speed but at low altitude where the speed of sound is 334 m/s?
 
-        <!-- <rect x="0" y="0" width="800" height="400" stroke="#f57c00" fill="#f57c00" stroke-width="1" opacity= "0.2"/> -->
-        <!-- string -->
-        <line fill="none" stroke="#f57c00" stroke-width="10" x1="0" y1="300" x2="200" y2="300" stroke-linecap="round"/>
-        <line fill="none" stroke="#f57c00" stroke-width="10" x1="200" y1="300" x2="300" y2="200" stroke-linecap="round"/>
-        <line fill="none" stroke="#f57c00" stroke-width="10" x1="300" y1="200" x2="400" y2="300" stroke-linecap="round"/>
-        <line fill="none" stroke="#f57c00" stroke-width="10" x1="400" y1="300" x2="600" y2="300" stroke-linecap="round"/>
-        <circle cx="600" cy="300" r="15" style="stroke:#000; fill:#000"/>
-        
-        <!-- cota1 Left2Right -->
-        <text x="50" y="260" font-size="35" fill="black" font-weight="normal" font-family="Times"> 4.0 mm</text>
-        <line x1="150" y1="200" x2="190" y2="200" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="175" y1="205" x2="175" y2="293" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-        <line x1="175" y1="200" x2="165" y2="220" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="175" y1="200" x2="185" y2="220" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="175" y1="300" x2="165" y2="280" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="175" y1="300" x2="185" y2="280" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        
-        <!-- cota2 -->
-        <text x="180" y="140" font-size="35" fill="black" font-weight="normal" font-family="Times"> 4.0 mm</text>
-        <line x1="200" y1="150" x2="200" y2="190" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="300" y1="150" x2="300" y2="190" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="205" y1="170" x2="295" y2="170" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-        <line x1="205" y1="170" x2="220" y2="160" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="205" y1="170" x2="220" y2="180" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="295" y1="170" x2="280" y2="160" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="295" y1="170" x2="280" y2="180" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        
-        <!-- cota3 -->
-        <text x="310" y="140" font-size="35" fill="black" font-weight="normal" font-family="Times"> 4.0 mm</text>
-        <line x1="400" y1="150" x2="400" y2="200" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="305" y1="170" x2="395" y2="170" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-        <line x1="305" y1="170" x2="320" y2="160" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="305" y1="170" x2="320" y2="180" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="395" y1="170" x2="380" y2="160" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="395" y1="170" x2="380" y2="180" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        
-        <!-- cota4 -->
-        <text x="440" y="385" font-size="35" fill="black" font-weight="normal" font-family="Times"> 8.0 mm</text>
-        <line x1="400" y1="330" x2="400" y2="370" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="600" y1="330" x2="600" y2="370" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="405" y1="350" x2="595" y2="350" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-
-        <line x1="405" y1="350" x2="420" y2="340" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="405" y1="350" x2="420" y2="360" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="595" y1="350" x2="580" y2="340" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        <line x1="595" y1="350" x2="580" y2="360" stroke="#000" stroke-width="3" stroke-linecap="round"/>
-        
-
-        <!-- speed -->
-        <line x1="400" y1="230" x2="500" y2="230" stroke="#00f" stroke-width="10" stroke-linecap="round"/>
-        <line x1="470" y1="221" x2="500" y2="230" stroke="#00f" stroke-width="8" stroke-linecap="round"/>
-        <line x1="470" y1="239" x2="500" y2="230" stroke="#00f" stroke-width="8" stroke-linecap="round"/>
-         <text x="520" y="240" font-size="45" fill="black" font-weight="normal" font-style="italic" font-family="Times"> v = 40 cm/s</text>
-
-         <text x="630" y="310" font-size="45" fill="black" font-weight="bold" font-style="italic" font-family="Times"> O</text>
-      </svg>
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Displacement (m)
