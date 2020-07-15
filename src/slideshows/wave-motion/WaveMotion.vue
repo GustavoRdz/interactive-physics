@@ -413,7 +413,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Wave Motion',
-    description: 'Waves an its Propagation (pending)',
+    description: 'Waves an its Propagation',
     path: 'wave-motion'
   },
   components: {

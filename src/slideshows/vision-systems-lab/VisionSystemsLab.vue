@@ -59,7 +59,7 @@
         li <b>Referencias</b>
           ul
             li(style="font-size: 0.7em;") Incluir las fuentes de información de donde se documento para llevar a cabo la practica
-        p <a href="http://labmtc.fime.uanl.mx/@acad_mi/@264/Lab%20264.pdf">Manual de laboratorio</a>
+        p.center <a href="http://labmtc.fime.uanl.mx/@acad_mi/@264/Lab%20264.pdf">Manual de laboratorio</a>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
@@ -76,8 +76,18 @@
 
       p Objetivo
       p Que el alumno aprenda a utilizar la función de macro, y haga un barrido de una imagen con varias condiciones para subir y bajar el brillo de una imagen.
+      .center
+        <a href="https://docs.google.com/document/d/1Rt0O4pFJ4LEYcO_MAH2nEa88awm7U79gA0ClkznObuM/edit?usp=sharing">Macro</a>
 
-      <a href="https://docs.google.com/document/d/1Rt0O4pFJ4LEYcO_MAH2nEa88awm7U79gA0ClkznObuM/edit?usp=sharing">Macro</a>
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Practica 2
+      h5.center <b>De color a blanco y negro</b>
+
+      p Objetivo
+      p Que el alumno aprenda cómo hacer que con ayuda de una macro, se pueda pasar de una imagen a color RGB a blanco y negro (escala de grises) usando el software IMAGEJ.
+      .center
+        <a href="https://docs.google.com/document/d/12IP5eZmsQws7pbbbrFn23VqSZNCu5qyJCpgNBzoZSac/edit?usp=sharing">Macro</a>
 
 
     slide(:steps=1, enter='bounceInDown')
