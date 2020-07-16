@@ -81,7 +81,7 @@
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Practica 2
+      h3 Practica 3
       h5.center <b>De color a blanco y negro</b>
 
       p Objetivo

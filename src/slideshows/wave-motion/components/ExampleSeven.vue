@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The police car is moving toward a warehouse at 30 m/s.  What frequency does the driver hear reflected from the warehouse?
+    p.problem The police car is moving toward a warehouse at 30 m/s. What frequency does the driver hear reflected from the warehouse?
 
     //- .center
     //-   p.solution Please do calculations and introduce your results
