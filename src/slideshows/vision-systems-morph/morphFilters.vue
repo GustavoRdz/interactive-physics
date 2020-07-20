@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Vision Systems
         img(src='./assets/U.svg')
-        h4 Morhpological filters
+        h4 Morphological filters
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -318,6 +318,8 @@
       .center
         img(src='./assets/chap10/BN.png' height="100px")
       p We also define the so-called “connectivity number”.
+      .center
+        img(src='./assets/chap10/cn.png' height="70px")
       .center
         img(src='./assets/chap10/3x3Filters.png' height="80px")
 

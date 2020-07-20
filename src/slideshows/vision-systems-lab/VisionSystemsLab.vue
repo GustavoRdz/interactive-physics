@@ -89,6 +89,15 @@
       .center
         <a href="https://docs.google.com/document/d/12IP5eZmsQws7pbbbrFn23VqSZNCu5qyJCpgNBzoZSac/edit?usp=sharing">Macro</a>
 
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Practica 4
+      h5.center <b>Contador de pixeles</b>
+
+      p Objetivo
+      p Que el alumno aprenda como hacer un programa que cuente el nivel de pixeles máximos que pueda tener una figura en este caso, el circulo, conociendo con esto su diametro en pixeles.
+      .center
+        <a href="https://docs.google.com/document/d/1jGwbIo_losBddLE8wXLYCuNqlfrhq9QhacwLU_jQYZs/edit?usp=sharing">Macro</a>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>

@@ -14,6 +14,7 @@ export default {
     require('./vision-systems-spatial-filters/spatialFilters'),
     require('./vision-systems-edges-contours/edgesContours'),
     require('./vision-systems-morph/morphFilters'),
+    require('./vision-systems-regions-binary/regionBinary'),
     require('./vision-systems-lab/visionSystemsLab'),
     require('./comming-soon/CommingSoon')
   ]

@@ -1,4 +1,0 @@
-Aus: W. Burger, M.J. Burge 
-     Digitale Bildverarbeitung - Eine Einführung mit Java und ImageJ
-     © Springer-Verlag Berlin Heidelberg 2005-2006
-     www.imagingbook.com
