@@ -43,52 +43,52 @@
             <b>Mechanisms of Heat Transfer</b>
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Temperature and Heat
       p What is <em><strong>temperature</strong></em> ?
-     
+
       p When measuring tempetature usually hold two objects in thermal contact. One of these objects use to be a thermometer <em> <strong>termometer</strong></em>
       p It is common to wait a long period of time (minutes) before get the correct measutement because reaching the <em><strong>thermal equilibrium</strong></em> is a slow process
       p Once the thermal equilibrium is reached the thermometer has the same temperature as the object to measure and its calibration allows to get the temperature of the object in it's scale
 
     slide(enter='bounceInDown', :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Thermal equilibrium
         .center
           equilibrio-termico
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermometer
       p If a physical quantity varies with heat, it can be used to measure temperature
       .center
         img(src='./assets/equations/thermometers.svg')
-     
-      
+
+
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center The zeroth law of thermodynamics
       p If <em><strong>C</strong></em> is initially in thermal equilibrium with both <em><strong>A</strong></em> and <em><strong>B</strong></em>, then <em><strong>A</strong></em> and <em><strong>B</strong></em> are also in thermal equilibrium with each other.
       .center
         img(src='./assets/equations/zerothLaw.svg')
-      
+
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
-      p  <em><strong>Celsius temperature scale.</strong></em>  Celsius takes the melting (as T = 0&#x00B0; C) and boiling (T = 100&#x00B0; C) point of water as the reference points and then added one hundred equally spaced marks (degrees) between the reference points. 
+      p  <em><strong>Celsius temperature scale.</strong></em>  Celsius takes the melting (as T = 0&#x00B0; C) and boiling (T = 100&#x00B0; C) point of water as the reference points and then added one hundred equally spaced marks (degrees) between the reference points.
         .center
           img(src='./assets/equations/celsiusScale.svg')
-    
+
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
-      p  <em><strong>Fahrenheit temperature scale.</strong></em>  The melting point of water is at 32&#x00B0;F and the boling point at 212&#x00B0; F. Then we have 180 degrees between the reference points 
+      p  <em><strong>Fahrenheit temperature scale.</strong></em>  The melting point of water is at 32&#x00B0;F and the boling point at 212&#x00B0; F. Then we have 180 degrees between the reference points
         .center
           img(src='./assets/equations/fahrenheitScale.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Conversion between Celsius and Fahrenheit
       .center
           img(src='./assets/equations/celsiusToFahrenheit.svg')
@@ -96,14 +96,14 @@
           img(src='./assets/equations/fahrenheitToCelsius.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Kelvin temperature scale</strong></em> and the gas thermometer
         .center
           img(src='./assets/equations/constantVolumeGasThermometer.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 1
       example-one
       .button.prev(@click.stop='previousSlide')
@@ -116,7 +116,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Thermal expansion
       p Most materials expand when their temperatures increase
       h5.center Linear expansion
@@ -124,7 +124,7 @@
           img(src='./assets/equations/linearExpansion.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Linear expansion
       p.center(style="font-family: serif;") &#x394;<em>L</em> = &#x03B1;<em>L</em><sub>0</sub>&#x394;<em>T</em>
       p.center(style="font-family: serif;") <em>L</em> = <em>L</em><sub>0</sub> + &#x394;<em>L</em>
@@ -160,7 +160,7 @@
                 td 1.1 x 10<sup>-5</sup>
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Volume expansion
       p.center(style="font-family: serif;") &#x394;<em>V</em> = <em>&#x03B2;</em><em>V</em><sub>0</sub>&#x394;<em>T</em>
       p.center(style="font-family: serif;") <em>V</em> = <em>V</em><sub>0</sub> + &#x394;<em>V</em>
@@ -194,9 +194,9 @@
               tr
                 td Steel
                 td 3.3 x 10<sup>-5</sup>
-    
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 2
       example-two
       .button.prev(@click.stop='previousSlide')
@@ -209,7 +209,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 3
       example-three
       .button.prev(@click.stop='previousSlide')
@@ -222,7 +222,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 4
       example-four
       .button.prev(@click.stop='previousSlide')
@@ -235,7 +235,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 5
       example-five
       .button.prev(@click.stop='previousSlide')
@@ -246,9 +246,9 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-      
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 6
       example-six
       .button.prev(@click.stop='previousSlide')
@@ -261,7 +261,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Quantity of heat
       //- quantity-of-heat
       p Energy transfer that takes place solely because of temperature difference is called <strong><em>heat flow</em></strong> or <strong><em>heat transfer</em></strong> and energy transferred in this way is called <strong><em style="color: red;">heat</em></strong>
@@ -272,7 +272,7 @@
       p.center <strong>1 Btu = 778 ft·lb = 252 cal = 1055 J</strong>
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 7
       example-seven
       .button.prev(@click.stop='previousSlide')
@@ -285,7 +285,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       p The quantity of heat <strong><em>Q</em></strong> required to increase the temperature of a mass <strong><em>m</em></strong> of a certain material from <strong><em>T<sub>1</sub></em></strong> to <strong><em>T<sub>2</sub></em></strong> is proportional to the temperature change &#x394;<strong><em>T</em></strong> = <strong><em>T<sub>2</sub></em></strong> - <strong><em>T<sub>1</sub></em></strong>. It is also proportional to the mass <strong><em>m</em></strong> of the material
       p.center <strong><em>Q</em></strong> = <strong><em>m</em></strong><strong><em>c</em></strong>&#x394;<strong><em>T</em></strong>
@@ -293,7 +293,7 @@
       p where <strong><em>c</em></strong> is a quantity, different for different materials, called the <strong>specifc heat</strong> of the material.
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       .centered
           #table-wrapper
@@ -341,15 +341,15 @@
               tr
                 td Water (liquid)
                 td 4190
-    
+
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p One technique for measuring specific heat involves heating a sample to some known temperature <strong><em>T<sub>x</sub></em></strong>, placing it in a vessel containing water of known mass and temperature <strong><em>T<sub>w</sub></em></strong><<strong><em>T<sub>x</sub></em></strong>, and measuring the temperature of the water after equilibrium has been reached.
       p This technique is called <strong><em>calorimetry</em></strong>, and devices in which this energy trasfer occurs are called <strong><em>calorimeters</em></strong>.
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p.center <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;" >cold</sub> + <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;">hot</sub> = 0
       p.center <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;">cold</sub> = - <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;">hot</sub>
@@ -368,7 +368,7 @@
         </svg>
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 8
       example-eight
       .button.prev(@click.stop='previousSlide')
@@ -382,16 +382,16 @@
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       p <strong><em>Phase</em></strong> refers to the materia state: solid, liquid and gas
       p A transition between the materia states is called <strong><em>Phase change</em></strong>
       p Heat transfer in a phase change of a material is proportional to its mass
       p.center <strong><em>Q = &#x00B1; mL</em></strong>
 
-    
+
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase changes of water
       .center
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" height="300" width="600" >
@@ -403,7 +403,7 @@
             <line x1=70 y1=221 x2=550 y2=221 stroke-width="2" stroke=#000 stroke-dasharray="20 20"/>
             <line x1=70 y1=85 x2=550 y2=85 stroke-width="2" stroke=#000 stroke-dasharray="20 20"/>
             <path d="M50 251 l15 -30 l40 0 l130 -136 l200 0 l130 -136" fill="none" stroke="red" stroke-width="3"/>
-            
+
             <text x="35" y="30" font-family="times" font-size="20" font-style="italic">T(&#x00B0;C)</text>
             <text x="15" y="57" font-family="times" font-size="20">125</text>
             <text x="15" y="92" font-family="times" font-size="20">100</text>
@@ -433,9 +433,9 @@
 
           </g>
         </svg>
-    
+
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       .centered
           #table-wrapper
@@ -533,7 +533,7 @@
                 td 5069 x 10<sup>3</sup>
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 9
       example-nine
       .button.prev(@click.stop='previousSlide')
@@ -546,7 +546,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 10
       example-ten
       .button.prev(@click.stop='previousSlide')
@@ -559,7 +559,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Mechanisms of heat transfer
       h5 Conduction, H: heat current
       .center
@@ -579,7 +579,7 @@
             <path d="M35 40 A5 5 0 0 1 43 40 m0 0 A5 5 0 0 0 50 40 A5 5 0 0 1 58 40 L63 40 L58 38 L60 40 L58 42 L63 40" stroke="#F00" fill="none" stroke-opacity="1" transform="translate(50,-5)"></path>
 
             <ellipse cx="85" cy="27.5" rx="5" ry="17.5" stroke="black" fill="none" stroke-dasharray="6 2"/>
-            
+
             <text x=80 y=30 font-family="times" font-style="italic" font-size="15">A</text>
             <text x="10" y="40" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">H</tspan></text>
             <text x="130" y="40" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">C</tspan></text>
@@ -593,7 +593,7 @@
 
           <g transform="translate(0, 100)">
             <path d="M15 1 l-14 15 l0 90 l40 0 l15 -15 l0 -90 l-41 0 m41 0 l-15 15 m-40 0 l40 0 m0 0 l0 90" stroke="#000" fill="tomato" stroke-opacity="0.5"></path>
-            
+
             <g transform="translate(0,0)">
               <path d="M50 10 A10 20 0 0 0 50 45 l70 0 l0 -35z" stroke="#000" fill="peru" stroke-opacity="0.5"></path>
               <path d="M50 10 A10 20 0 0 0 50 45 l70 0 l0 -35z" stroke="#000" fill="peru" stroke-opacity="0.5"></path>
@@ -646,7 +646,7 @@
 
 
             <ellipse cx="120" cy="27.5" rx="5" ry="17.5" stroke="black" fill="none" stroke-dasharray="6 2"/>
-            
+
             <text x=116 y=30 font-family="times" font-style="italic" font-size="15">A</text>
             <text x="10" y="40" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">H</tspan></text>
             <text x="195" y="40" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">C</tspan></text>
@@ -750,7 +750,7 @@
                 td 2300
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermal resistance: <strong>R</strong>
       .center
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" height="150" width="200" >
@@ -783,7 +783,7 @@
         </svg>
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 11
       example-eleven
       .button.prev(@click.stop='previousSlide')
@@ -796,7 +796,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 12
       example-twelve
       .button.prev(@click.stop='previousSlide')
@@ -809,7 +809,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 13
       example-thirteen
       .button.prev(@click.stop='previousSlide')
@@ -822,7 +822,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Convection
       p <strong>Convection</strong> is the transfer of heat by mass motion of a fluid from one region of space to another.
       p Convective heat transfer is a very complex process, and there is no simple equation to describe it. Here are a few experimental facts:
@@ -833,7 +833,7 @@
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Radiation
       p <strong>Radiation</strong> is the transfer of heat by electromagnetic waves such as visible light, infrared, and ultraviolet radiation.
       p The heat current <strong>H = dQ/dt</strong> due to radiation from a surface area <strong>A</strong> with emissivity <strong>e</strong> at absolute temperature <strong>T</strong> can be expressed as
@@ -841,7 +841,7 @@
       p where <strong>&#x03C3; = 5.6704x10<sup>-8</sup> W/m<sup>2</sup> · K<sup>4</sup></strong>,  is the Stefan–Boltzmann constant.
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
         p University Physics 13th Edition. Searzs and Zemanzky
@@ -851,7 +851,7 @@
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Fun soon!
 </template>
 
@@ -885,6 +885,7 @@ export default {
   },
   data: function () {
     return {
+      theme: 'Temperature and Heat'
     }
   },
   methods: {
@@ -957,14 +958,14 @@ export default {
   display: flex;
   padding-left:0px;
   align-content: center;
-  
+
 }
 #desc {
   width: 18em;
   border-collapse: collapse;
   border-bottom: 1px solid black;
   margin: 0 auto;
-  
+
   & th {
     font-family: 'Times New Roman', Times, serif;
     background-color: whitesmoke;
@@ -974,7 +975,7 @@ export default {
     font-size: 15px;
     font-weight: bold;
   }
-  
+
   & td {
     text-align: center;
     padding-left: 0em;

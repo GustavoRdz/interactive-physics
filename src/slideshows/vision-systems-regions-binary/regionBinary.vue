@@ -633,11 +633,11 @@ export default {
 .math{
   font-family: Times New Roman;
 }
-.it{
+.bd{
   font-family: Times New Roman;
   font-weight: bold;
 }
-.bd{
+.it{
   font-family: Times New Roman;
   font-style: italic;
 }

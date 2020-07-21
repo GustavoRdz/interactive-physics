@@ -1,0 +1,13 @@
+                 --- Copyright Notice ---
+
+The material contained in this folder is copyright protected. It is made 
+available as a supplement to the book "Digital Image Processing - An 
+Algorithmic Introduction using Java" by Wilhelm Burger and Mark J. Burge, 
+Copyright (C) 2005-2008 Springer-Verlag Berlin, Heidelberg, New York.
+
+Use of this material is free for non-profit educational purposes only, 
+provided that the original source is properly referenced. For all other
+use permission must be obtain from the publisher.
+
+See http://www.imagingbook.com for contact information.
+
