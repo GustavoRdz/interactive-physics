@@ -101,7 +101,31 @@
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h4.center Fun soon!
+      h3 Practica 5
+      h5.center <b>Contador de monedas</b>
+
+      p Objetivo
+      p Que el alumno, con los conocimientos que ha adquirido durante el laboratorio, haga un conteo de una imagen con monedas mexicanas y decir cuál es el tamaño de cada una de ellas por ayuda de la programación de una macro
+      //- .center
+      //-   <a href="https://docs.google.com/document/d/1jGwbIo_losBddLE8wXLYCuNqlfrhq9QhacwLU_jQYZs/edit?usp=sharing">Macro</a>
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Practica 6
+      h5.center <b>Contador de pixeles</b>
+
+      p Objetivo
+      p Que el alumno, con los conocimientos ya adquiridos sepa cómo identificar entre unas monedas de otras, como de moneda mexicana y americana, cuantas hay de cada una y saber de qué tamaño son.
+      //- .center
+      //-   <a href="https://docs.google.com/document/d/1jGwbIo_losBddLE8wXLYCuNqlfrhq9QhacwLU_jQYZs/edit?usp=sharing">Macro</a>
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: </sup>
+        h3 References
+        ul
+          li <b>Digital Image Processing</b><br> <span class="small">An Algorithmic Introduction Using Java</span> <br>Wilhelm Burger and Mark J. Burge<br> Springer
+        p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
+
 </template>
 
 <script>
