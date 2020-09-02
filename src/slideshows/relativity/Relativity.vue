@@ -72,7 +72,7 @@
 
     slide(:steps=6, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Space-time Galilean transformations
+      h4 Space-time Galilean Transformations
       p(v-if="step >= 2" style="margin-bottom: 0px;") From the figure we have that
       p(v-if="step >= 2" style="margin-bottom: -20px;").center
           <svg height="50" width="500" viewbox="0 0 500 50">
@@ -181,13 +181,82 @@
       p Physicst of the late 1800s thought light  can have a speed of <b><em>c</em></b> only in an special reference frame with respect to the <b><em>ether</em></b>. A stationary substance in which light can move in empty space.
       .center
         img(src='./assets/etherVelocity.svg')
-      p If objects moves at constant speed with respect to any reference frame it is an <b>inertial frame</b>. It obey the first movement law
+      p Velocity of light resulting from different situations according to <b>Galilean relativity</b>
+      p.center But light is so fast, how can we detect that changes is light velocity?
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Michelson-Morley Experiment
+      .center
+        img(src='./assets/michelsonInterferometer.svg')
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Einstein's Principle of Relativity
+      p 1. The principle of relativity:
+      p.center <b>The laws of physics must be the same in all inertial reference frames.</b>
+      p 2. The constancy of the speed of light:
+      p.center <b>The speed of light in vacuum has the same value, c = 3.00 x 10<sup>8</sup> m/s, in all inertial frames, regardless of the velocity of the observer or the velocity of the source emitting the light</b>.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Simultaneity
+      p.center Time measurement depends on the refereence frame of the observer
+      .center
+        img(src='./assets/simultaneity.svg')
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Relativity of time
+      p.center Time measurement depends on the refereence frame of the observer
+      .center
+        img(src='./assets/timeDilation.svg')
+      p.center
+
+
+    slide
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4.center Lorentz tranformations equations
+      .center
+        img(src='./assets/inertialFrame.svg' width="400px")
+      .center
+        img(src='./assets/lorentzEqs.svg')
+
+    slide
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h4.center Lorentz tranformations in two dimensions
+      .center
+        img(src='./assets/lorentzEqs2D.svg')
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 4
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 5
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide
       p another
-
-    slide
-      p another
+      sodoku
 
 
 
@@ -206,7 +275,10 @@ export default {
   components: {
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
-    'example-three': require('./components/ExampleThree')
+    'example-three': require('./components/ExampleThree'),
+    'example-four': require('./components/ExampleFour'),
+    'example-five': require('./components/ExampleFive'),
+    'sodoku': require('./components/Sodoku')
   },
 
   data: function () {
