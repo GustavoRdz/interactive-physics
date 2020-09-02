@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ frequency }} MHz. How long does each oscillation take, and what is the angular frequency?
+    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ frequency / 1e6 }} MHz. How long does each oscillation take, and what is the angular frequency?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Frequency: f (Hz)
@@ -26,13 +26,15 @@ export default {
     frequency: function () {
       let max = 8
       let min = 5
-      return Math.round(1000 * ((Math.random() * (max - min + 1)) + min)) / 1000
+      // return Math.round(1000 * ((Math.random() * (max - min + 1)) + min)) / 1000
+      return 1e6 * parseFloat(((Math.random() * (max - min + 1)) + min).toPrecision(4))
     },
     period: function () {
-      return Math.round((1 / this.frequency) * 1000) / 1000
+      return parseFloat((1 / this.frequency).toPrecision(4))
     },
     angularFrequency: function () {
-      return Math.round(2 * Math.PI * this.frequency * 1000) / 1000
+      // return Math.round(2 * Math.PI * (this.frequency * 1e6) * 1000) / 1000
+      return parseFloat((2 * Math.PI * this.frequency).toPrecision(4))
     },
     errorAngular: function () {
       return Math.abs(this.angular - this.angularFrequency) / this.angularFrequency

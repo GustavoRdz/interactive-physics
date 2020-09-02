@@ -68,7 +68,7 @@ export default {
       return Math.round(1000 * Math.sqrt(this.elastic / this.mass)) / 1000
     },
     period: function () {
-      return Math.round(1000 * Math.sqrt(1 / this.frequency)) / 1000
+      return Math.round(1000 * (1 / this.frequency)) / 1000
     },
     checkedForce: function () {
       let check
