@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An &alpha; particle is moving to the {{ particleDirection }} at an speeed of {{ Math.abs(alphaLabSpeed) }}c measured from the laboratory; from the particle emerges an electron that travels in the opposite direction at {{ Math.abs(electronAlphaSpeed) }}c. What is the velocity of the electron measured by the person in the laboratory?
+    p.problem An &alpha; particle is moving to the {{ particleDirection }} at an speeed of {{ Math.abs(alphaLabSpeed) }}c measured from the laboratory; from the particle emerges an electron that travels in the opposite direction at {{ Math.abs(electronAlphaSpeed) }}c measured from the &alpha; particle. What is the velocity of the electron measured by the person in the laboratory?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Velocity of the particle from lab (in c)
@@ -47,7 +47,7 @@ export default {
       return this.electronAlphaSpeed
     },
     electronLabSpeed: function () {
-      return this.alphaLabSpeed - this.electronAlphaSpeed
+      return parseFloat((this.alphaLabSpeed - this.electronAlphaSpeed).toPrecision(3))
     },
     electronAlpha: function () {
       return -this.electronAlphaSpeed

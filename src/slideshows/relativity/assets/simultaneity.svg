@@ -271,9 +271,9 @@
           <animate attributeName="opacity" from="0" to="1" dur="15s" begin="0s" values="0; 0; 0; 1; 1; 1; 1" keyTimes="0; 0.35; 0.45; 0.6; 0.75; 0.9; 1" fill="freeze" repeatCount="indefinite" />
         </circle>
         <path d="M50,50  150,50 140,45 150,50 140,55" stroke="red" fill="none" stroke-width="2" opacity="1"/>
-        <text x="80" y="45" font-size="50" font-style="italic" stroke="red" fill="red">-v</text>
+        <text x="80" y="45" font-size="50" font-style="italic" stroke="red" fill="red">+v</text>
         <path d="M550,50  450,50 460,45 450,50 460,55" stroke="green" fill="none" stroke-width="2" opacity="1"/>
-        <text x="470" y="45" font-size="50" font-style="italic" stroke="green" fill="green">+v</text>
+        <text x="470" y="45" font-size="50" font-style="italic" stroke="green" fill="green">-v</text>
 
     </g>
 

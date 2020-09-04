@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An observer on Earth sees that one spaceship (A) follow another (B) and acccording to him, theis speeds are {{ Math.abs(speedA).toExponential() }}m/s  and {{ Math.abs(speedB).toExponential() }} m/s respectively suppose their motion is to the {{ side }}, determine:
+    p.problem An observer on Earth sees that one spaceship (A) follow another (B) and acccording to him, their speeds are {{ Math.abs(speedA).toExponential() }}m/s  and {{ Math.abs(speedB).toExponential() }} m/s respectively suppose their motion is to the {{ side }}, determine:
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Velocity of A from the Earth (in c)

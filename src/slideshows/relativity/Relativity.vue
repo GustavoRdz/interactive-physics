@@ -181,7 +181,7 @@
       p Physicst of the late 1800s thought light  can have a speed of <b><em>c</em></b> only in an special reference frame with respect to the <b><em>ether</em></b>. A stationary substance in which light can move in empty space.
       .center
         img(src='./assets/etherVelocity.svg')
-      p Velocity of light resulting from different situations according to <b>Galilean relativity</b>
+      p.center Velocity of light resulting from different situations according to <b>Galilean relativity</b>
       p.center But light is so fast, how can we detect that changes is light velocity?
 
     slide(:steps=1, enter='bounceInDown')
@@ -201,14 +201,14 @@
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Simultaneity
-      p.center Time measurement depends on the refereence frame of the observer
+      p.center Time measurement depends on the reference frame of the observer
       .center
         img(src='./assets/simultaneity.svg')
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Relativity of time
-      p.center Time measurement depends on the refereence frame of the observer
+      p.center Time measurement depends on the reference frame of the observer
       .center
         img(src='./assets/timeDilation.svg')
       p.center
@@ -256,7 +256,7 @@
 
     slide
       p another
-      sodoku
+      //- sodoku
 
 
 
