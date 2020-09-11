@@ -450,19 +450,6 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 8
-      example-eight
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
@@ -517,7 +504,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 9
+      h3 Exercise 8
       example-nine
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -530,7 +517,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 10
+      h3 Exercise 9
       example-ten
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -543,7 +530,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 11
+      h3 Exercise 10
       example-eleven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -556,7 +543,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 12
+      h3 Exercise 11
       example-twelve
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -569,7 +556,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 13
+      h3 Exercise 12
       example-thirteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -625,7 +612,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 14
+      h3 Exercise 13
       example-fourteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -638,7 +625,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 15
+      h3 Exercise 14
       example-fifteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -651,7 +638,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 16
+      h3 Exercise 15
       example-sixteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -664,7 +651,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 17
+      h3 Exercise 16
       example-seventeen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -677,7 +664,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 18
+      h3 Exercise 17
       example-eighteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -690,7 +677,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 19
+      h3 Exercise 18
       example-twenty
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -726,41 +713,6 @@
         p Physics for scientist and engineers 8th Edition. Serway, Jewett
         p.small created by G. Rodríguez-Morales and spheroidGames
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Fun soon!
-      p.center
-        <svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink" width="400px" height="200px" viewBox="0 0 400 200">
-          <title>SVG navigation Links</title>
-          <defs>
-            <path id="p" d="M30,220 C50,40 350,40 380,220" />
-          </defs>
-          <text x="200" y="30" role="heading" aria-level="1">Welcome!<tspan x="200" y="180">to my website! </tspan></text>
-          <text role="navigation">
-            <textPath xlink:href="#p" startOffset="50%">
-              <a aria-current="#">Home</a>
-              <a xlink:href="#">Archives</a>
-              <a xlink:href="#">About me</a>
-            </textPath>
-          </text>
-        </svg>
-
-    slide(enter='bounceInDown')
-      h3 Fun soon!
-      p.center
-        <svg version="1.1" width="320" height="320" viewBox="0 0 320 320" fill="none" stroke="#000" stroke-linecap="round"      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-          <defs>
-            <path id="r1">
-              <animate id="p1" attributeName="d" :values="resorte" dur="6s" repeatCount="indefinite"/>
-              <animate attributeName="stroke-width" values="1;2;2;2;1" dur="6s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-        </svg>
-
-
 
 </template>
 

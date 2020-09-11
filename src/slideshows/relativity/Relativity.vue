@@ -56,7 +56,7 @@
             <b>Energy</b>
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 The principle of Galilean relativity
       p The laws of mechanics must be the same in all inertial frames of reference.
       .center
@@ -64,14 +64,14 @@
       p If objects moves at constant speed with respect to any reference frame it is an <b>inertial frame</b>. It obey the first movement law
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Galilean transformations
       p Suppose two inertial frames and an event, we measure the speed of the event in one of the reference frames, howcan we calculate the speed of event with respect the other inertial frame?.
       .center
         img(src='./assets/galileoTransforms.svg')
 
     slide(:steps=6, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4 Space-time Galilean Transformations
       p(v-if="step >= 2" style="margin-bottom: 0px;") From the figure we have that
       p(v-if="step >= 2" style="margin-bottom: -20px;").center
@@ -136,7 +136,7 @@
               //- <line x1="0" y1="50" x2="200" y2="0" stroke="red" />
             </svg>
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 1
       example-one
       .button.prev(@click.stop='previousSlide')
@@ -149,7 +149,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 2
       example-two
       .button.prev(@click.stop='previousSlide')
@@ -162,7 +162,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 3
       example-three
       .button.prev(@click.stop='previousSlide')
@@ -175,7 +175,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 The speed of light
       //- p Physicst of the late 1800s thought light moves in a medium called <em>Ether</em> in order to justify the propagation of electromagnetic waves in the empty space.
       p Physicst of the late 1800s thought light  can have a speed of <b><em>c</em></b> only in an special reference frame with respect to the <b><em>ether</em></b>. A stationary substance in which light can move in empty space.
@@ -185,13 +185,13 @@
       p.center But light is so fast, how can we detect that changes is light velocity?
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Michelson-Morley Experiment
       .center
         img(src='./assets/michelsonInterferometer.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Einstein's Principle of Relativity
       p 1. The principle of relativity:
       p.center <b>The laws of physics must be the same in all inertial reference frames.</b>
@@ -199,14 +199,14 @@
       p.center <b>The speed of light in vacuum has the same value, c = 3.00 x 10<sup>8</sup> m/s, in all inertial frames, regardless of the velocity of the observer or the velocity of the source emitting the light</b>.
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Simultaneity
       p.center Time measurement depends on the reference frame of the observer
       .center
         img(src='./assets/simultaneity.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Relativity of time
       p.center Time measurement depends on the reference frame of the observer
       .center
@@ -215,7 +215,7 @@
 
 
     slide
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations equations
       .center
         img(src='./assets/inertialFrame.svg' width="400px")
@@ -223,13 +223,13 @@
         img(src='./assets/lorentzEqs.svg')
 
     slide
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations in two dimensions
       .center
         img(src='./assets/lorentzEqs2D.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 4
       example-four
       .button.prev(@click.stop='previousSlide')
@@ -242,7 +242,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 5
       example-five
       .button.prev(@click.stop='previousSlide')
@@ -254,9 +254,116 @@
         br
         span.small Ctrl + right
 
-    slide
-      p another
-      //- sodoku
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Length contraction
+      .center
+        img(src='./assets/lengthContraction.svg' width="500px")
+      p <b>L<sub>1</sub></b>: Length measured by an observer when motion exist between him and the object
+      p <b>L<sub>2</sub></b>: Length measured by an observer when <b>NO</b> motion exist between him and the object
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 6
+      example-six
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 7
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Time dilation
+      .center
+        img(src='./assets/timeDilation2.svg' width="500px")
+      p <b>T<sub>1</sub></b>: time interval measured by an observer when motion exist between him and the object
+      p <b>T<sub>2</sub></b>: time interval measured by an observer when <b>NO</b> motion exist between him and the object
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 8
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Mass variation
+      .center
+        img(src='./assets/massVariation.svg' width="500px")
+      p <b>m<sub>1</sub></b>: time interval measured by an observer when motion exist between him and the object
+      p <b>m<sub>2</sub></b>: time interval measured by an observer when <b>NO</b> motion exist between him and the object
+
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 10
+      example-ten
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 11
+      example-eleven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      .center
+        h3 References
+        p.center Física Moderna<br> Edición revisada<br> Norma Esthela Flores, Jorge Enrique Figueroa.<br>Pearsons-Prentice Hall
+        p.center Physics for Scientist and Engineers with Modern Physics <br>9th Edition<br> Serway, Jewett
+        p.small created by G. Rodríguez-Morales and spheroidGames
+        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
 
 
 
@@ -278,11 +385,18 @@ export default {
     'example-three': require('./components/ExampleThree'),
     'example-four': require('./components/ExampleFour'),
     'example-five': require('./components/ExampleFive'),
+    'example-six': require('./components/ExampleSix'),
+    'example-seven': require('./components/ExampleSeven'),
+    'example-eight': require('./components/ExampleEight'),
+    'example-nine': require('./components/ExampleNine'),
+    'example-ten': require('./components/ExampleTen'),
+    'example-eleven': require('./components/ExampleEleven'),
     'sodoku': require('./components/Sodoku')
   },
 
   data: function () {
     return {
+      theme: 'Relativity'
     }
   }
 }

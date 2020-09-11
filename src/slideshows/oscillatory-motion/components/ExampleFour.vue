@@ -46,26 +46,26 @@ eg-transition(:enter='enter', :leave='leave')
         <!-- text -->
         <text x="0" y="-25" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic"> x </text>
         <text x="25" y="-25" font-size="35" fill="black" font-weight="bold" font-family="Times"> (cm) </text>
-         <text x="-25" y="20" font-size="35" fill="#00f" font-family="Times"  font-weight="bold" > 10.0 </text>
-         <text x="15" y="235" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
-         <text x="-37" y="400" font-size="35" fill="#00f" font-family="Times"  font-weight="bold" > -10.0 </text>
+        <text x="-25" y="20" font-size="35" fill="#00f" font-family="Times"  font-weight="bold" > 10.0 </text>
+        <text x="15" y="235" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
+        <text x="-37" y="400" font-size="35" fill="#00f" font-family="Times"  font-weight="bold" > -10.0 </text>
 
-         <text x="220" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 5.0 </text>
-         <text x="395" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 10.0 </text>
-         <text x="585" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 15.0 </text>
-         <text x="720" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic"> t </text>
-         <text x="735" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times"> (s) </text>
+        <text x="220" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 5.0 </text>
+        <text x="395" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 10.0 </text>
+        <text x="585" y="235" font-size="35" fill="#00f" font-family="Times" font-weight="bold" > 15.0 </text>
+        <text x="720" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic"> t </text>
+        <text x="735" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times"> (s) </text>
 
       </svg>
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Initial displacement (s)
+      p.inline.data Initial displacement (cm)
         input.center.data(:class="checkedInitialX" v-model.number='enterInitialX')
       p.inline.data Period (s)
         input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
       p.inline.data Frequency (Hz)
         input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-      p.inline.data Amplitude (m)
+      p.inline.data Amplitude (cm)
         input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
       p.inline.data Angular frequency (rad/s)
         input.center.data(:class="checkedAngular" v-model='enterAngular')
