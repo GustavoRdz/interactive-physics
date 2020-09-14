@@ -85,7 +85,12 @@ export default {
     checkedElastic: function () {
       let check
       console.log('Elastic Constant : ' + this.elasticK + ' : ' + parseFloat(this.enterElastic))
-      check = this.elasticK === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
+      console.log(this.elasticK)
+      console.log(parseFloat(this.enterElastic))
+      // check = this.elasticK === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
+      console.log(Math.abs(this.elasticK - parseFloat(this.enterElastic)))
+      console.log(Math.abs(this.elasticK - parseFloat(this.enterElastic)) < 0.01)
+      check = Math.abs(this.elasticK - parseFloat(this.enterElastic)) < 0.01 ? 'correct' : 'not-correct'
       return check
     },
     checkedOccupiedPeriod: function () {

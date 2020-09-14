@@ -7,7 +7,8 @@ export default {
     require('./wave-motion/WaveMotion'),
     require('./fluid-mechanics/FluidMechanics'),
     require('./temperature-heat/TemperatureHeat'),
-    require('./relativity/Relativity')
+    require('./relativity/Relativity'),
+    require('./optics/Optics')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),

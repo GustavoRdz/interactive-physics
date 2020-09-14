@@ -15,22 +15,8 @@
           img.control-schema(src='./assets/controlsPrev.svg')
 
     slide(:steps=5, enter='bounceInRight' leave='bounceOutDown')
-      h3
-        | Topics
-        .inline(class='animated infinite pulse heart')
-      .center
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Oscillatory Motion</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Wave Motion and Sound</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Fluid Mechanics</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
-            <b>Temperature and Heat</b>
+      h3 Introduction
+      p.center  A brief explanation on the site
 
 
 </template>
@@ -42,7 +28,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'physics playground',
-    description: 'introduction to the site',
+    description: 'intro to site',
     path: 'introduction'
   },
   data: function () {

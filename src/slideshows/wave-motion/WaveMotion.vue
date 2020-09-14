@@ -4,7 +4,7 @@
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
         h1 Wave Motion
-        img(src='./assets/microres4.jpg')
+        img(src='./assets/U.svg')
         h4 Propagation of oscillations
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
@@ -413,7 +413,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Wave Motion',
-    description: 'Waves an its Propagation',
+    description: 'Wave Propagation',
     path: 'wave-motion'
   },
   components: {

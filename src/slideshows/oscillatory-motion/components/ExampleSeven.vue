@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem On a frictionless, horizontal air track, a glider oscillates at the end of an ideal spring of force constant {{ elastic }} N/cm. The graph in shows the acceleration of the glider as a function of time. Find (a) the mass of the glider; (b) the maximum displacement of the glider from the equilibrium point; (c) the maximum force the spring exerts on the glider.
+    p.problem On a frictionless, horizontal air track, a glider oscillates at the end of an ideal spring of force constant {{ elastic }} N/m. The graph shows the acceleration of the glider as a function of time. Find (a) the mass of the glider; (b) the maximum displacement of the glider from the equilibrium point; (c) the maximum force the spring exerts on the glider.
     .center
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -70 800 500" height="200px" width="400px" >
 

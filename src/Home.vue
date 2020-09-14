@@ -12,16 +12,16 @@
 
     p(style="text-align: center;") Themes with interactive figures will be challenge you.
 
-    .thumbnails
-      .block-box.box-card(v-for='slideshow in slideshows')
+    .thumbnails(style="margin-button: -120px;")
+      .block-box.box-card(v-for='slideshow in slideshows' style="height:150px;")
         router-link(:to='slideshow.infos.path' @click.native="click")
           .embedded-slideshow-container
             component(:is="slideshow", :embedded='true',
                       :keyboardNavigation='false',
                       :mouseNavigation='false')
         .caption
-          h3 {{slideshow.infos.title}}
-          p.thumbnail-description {{slideshow.infos.description}}
+          //- h3(style="color:blue;") {{slideshow.infos.title}}
+          p(style="color:green;").thumbnail-description {{slideshow.infos.description}}
 </template>
 
 <script>
