@@ -1,21 +1,17 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A laser beam is incident on a 45°–45°–90° prism perpendicular to one of its faces as shown in Figure P35.33. The transmitted beam that exits the hypotenuse of the prism makes an angle of u 5 15.0° with the direction of the incident beam. Find the index of refraction of the prism.An observer on Earth sees that one spaceship (A) follow another (B) and acccording to him, their speeds are {{ Math.abs(speedA).toExponential() }}m/s  and {{ Math.abs(speedB).toExponential() }} m/s respectively suppose their motion is to the {{ side }}, determine:
+    p.problem A laser beam is incident on a prism perpendicular to one of its faces as shown in figure. The transmitted beam that exits the hypotenuse of the prism makes an angle of {{ angle }}º with the direction of the incident beam. Find the index of refraction of the prism.
+    .center
+      img(src='../assets/example3.png' width="200px")
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Velocity of A from the Earth (in c)
-        input.center.data(:class="checkedAMoon" v-model.number='enterAMoon')
-      p.inline.data Velocity of B from the Earth (in c)
-        input.center.data(:class="checkedBMoon" v-model.number='enterBMoon')
-      p.inline.data Velocity of B from A (in c)
-        input.center.data(:class="checkedBA" v-model.number='enterBA')
-      p.inline.data Velocity of A from B (in c)
-        input.center.data(:class="checkedAB" v-model='enterAB')
-      p.inline.data Velocity of the Earth from A (in c)
-        input.center.data(:class="checkedMoonA" v-model='enterMoonA')
-      p.inline.data Velocity of the Earth from B (in c)
-        input.center.data(:class="checkedMoonB" v-model='enterMoonB')
+      p.inline.data Incidence angle (degrees)
+        input.center.data(:class="checkedIncident" v-model.number='enterIncident')
+      p.inline.data Transmitted angle (degrees)
+        input.center.data(:class="checkedTransmitted" v-model.number='enterTransmitted')
+      p.inline.data Refractive index
+        input.center.data(:class="checkedIndex" v-model.number='enterIndex')
 
 </template>
 <script>
@@ -23,70 +19,42 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterAMoon: '',
-      enterBMoon: '',
-      enterBA: '',
-      enterAB: '',
-      enterMoonA: '',
-      enterMoonB: '',
-      direction: '',
-      side: ''
+      enterIncident: '',
+      enterTransmitted: '',
+      enterIndex: ''
     }
   },
   computed: {
-    speedA: function () {
-      let max = 100
-      let min = 50
-      this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'rigth' : 'left'
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction * 3e8
+    angle: function () {
+      let max = 30
+      let min = 10
+      return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
     },
-    speedB: function () {
-      let max = 50
-      let min = 20
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction * 3e8
+    incident: function () {
+      return 45
     },
-    speedAB: function () {
-      return this.speedB - this.speedA
+    transmitted: function () {
+      return this.incident + this.angle
     },
-    speedBA: function () {
-      // v2 = v1 -v
-      return this.speedA - this.speedB
+    index: function () {
+      return Math.round(1000 * Math.sin(Math.PI * this.transmitted / 180) / Math.sin(Math.PI * this.incident / 180)) / 1000
     },
-    checkedAMoon: function () {
+    checkedIncident: function () {
       let check
-      console.log('A from M => ' + this.speedA + ' : ' + parseFloat(this.enterAMoon))
-      check = this.speedA === parseFloat(this.enterAMoon) ? 'correct' : 'not-correct'
+      console.log('Incident => ' + this.incident + ' : ' + parseFloat(this.enterIncident))
+      check = this.incident === parseFloat(this.enterIncident) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBMoon: function () {
+    checkedTransmitted: function () {
       let check
-      console.log('B from M => ' + this.speedB + ' : ' + parseFloat(this.enterBMoon))
-      check = this.speedB === parseFloat(this.enterBMoon) ? 'correct' : 'not-correct'
+      console.log('Transmitted => ' + this.transmitted + ' : ' + parseFloat(this.enterTransmitted))
+      check = this.transmitted === parseFloat(this.enterTransmitted) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBA: function () {
+    checkedIndex: function () {
       let check
-      console.log('B from A => ' + this.speedBA + ' : ' + parseFloat(this.enterBA))
-      check = this.speedBA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedAB: function () {
-      let check
-      console.log('A from B => ' + this.speedAB + ' : ' + parseFloat(this.enterAB))
-      check = this.speedAB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMoonA: function () {
-      let check
-      console.log('M from A => ' + this.speedA * -this.direction + ' : ' + parseFloat(this.enterMoonA))
-      check = this.speedA * -this.direction === parseFloat(this.enterMoonA) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMoonB: function () {
-      let check
-      console.log('M from B => ' + this.speedB * -this.direction + ' : ' + parseFloat(this.enterMoonB))
-      check = this.speedB * -this.direction === parseFloat(this.enterMoonB) ? 'correct' : 'not-correct'
+      console.log('Index => ' + this.index + ' : ' + parseFloat(this.enterIndex))
+      check = this.index === parseFloat(this.enterIndex) ? 'correct' : 'not-correct'
       return check
     }
   },

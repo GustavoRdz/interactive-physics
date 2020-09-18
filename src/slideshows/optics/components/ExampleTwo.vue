@@ -1,23 +1,22 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A laser beam is incident on a prism perpendicular to one of its faces as shown in figure. The transmitted beam that exits the hypotenuse of the prism makes an angle of {{ angle }}º with the direction of the incident beam. Find the index of refraction of the prism.
+    p.problem A ray of light travels from air into another medium, making an angle of &theta;<sub>1</sub> = {{ incident }}° with the normal. <br>Find the angle of refraction &theta;<sub>2</sub> if the second medium is {{ transmitted }}
+    p.problem (a) {{ materials[materialIndex[0]].material }},  n = {{ materials[materialIndex[0]].index }}<br>(b) {{ materials[materialIndex[1]].material}},  n = {{ materials[materialIndex[1]].index }}<br>(c){{ materials[materialIndex[2]].material}},  n = {{ materials[materialIndex[2]].index }}
     .center
-      img(src='../assets/example2.png' width="300px")
+      img(src='../assets/example2.png' width="200px" style="margin: -100px 0 50px 200px;")
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Incidence angle (degrees)
-        input.center.data(:class="checkedAMoon" v-model.number='enterAMoon')
-      p.inline.data Velocity of B from the moon (in c)
-        input.center.data(:class="checkedBMoon" v-model.number='enterBMoon')
-      p.inline.data Velocity of B from A (in c)
-        input.center.data(:class="checkedBA" v-model.number='enterBA')
-      p.inline.data Velocity of A from B (in c)
-        input.center.data(:class="checkedAB" v-model='enterAB')
-      p.inline.data Velocity of the moon from A (in c)
-        input.center.data(:class="checkedMoonA" v-model='enterMoonA')
-      p.inline.data Velocity of the moon from B (in c)
-        input.center.data(:class="checkedMoonB" v-model='enterMoonB')
+        input.center.data(:class="checkedIncident" v-model.number='enterIncident')
+      p.inline.data a) angle (degrees)
+        input.center.data(:class="checkedAngleA" v-model.number='enterAngleA')
+      p.inline.data b) angle (degrees)
+        input.center.data(:class="checkedAngleB" v-model.number='enterAngleB')
+      p.inline.data c) angle (degrees)
+        input.center.data(:class="checkedAngleC" v-model='enterAngleC')
+      p.inline.data Max. deviation: a, b or c?
+        input.center.data(:class="checkedDev" v-model='enterDev')
 
 </template>
 <script>
@@ -25,66 +24,100 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterAMoon: '',
-      enterBMoon: '',
-      enterBA: '',
-      enterAB: '',
-      enterMoonA: '',
-      enterMoonB: '',
-      direction: '',
-      side: ''
+      enterIncident: '',
+      enterAngleA: '',
+      enterAngleB: '',
+      enterAngleC: '',
+      enterDev: '',
+      materials: [
+        {material: 'Cubic zirconia', index: 2.20},
+        {material: 'Benzene', index: 1.501},
+        {material: 'Diamond (C)', index: 2.419},
+        {material: 'Carbon disulfide', index: 1.628},
+        {material: 'Fluorite (CaF2)', index: 1.434},
+        {material: 'Carbon tetrachloride', index: 1.461},
+        {material: 'Fused quartz (SiO2)', index: 1.458},
+        {material: 'Ethyl alcohol', index: 1.361},
+        {material: 'Gallium phosphide', index: 3.50},
+        {material: 'Glycerin', index: 1.473},
+        {material: 'Glass, crown', index: 1.52},
+        {material: 'Water', index: 1.333},
+        {material: 'Glass, flint', index: 1.66},
+        {material: 'Ice (H2O)', index: 1.309},
+        {material: 'Polystyrene', index: 1.49},
+        {material: 'Air', index: 1.000},
+        {material: 'Sodium chloride (NaCl)', index: 1.544},
+        {material: 'Carbon dioxide', index: 1.000}
+      ],
+      row: [],
+      angles: []
     }
   },
   computed: {
-    angle: function () {
-      let max = 30
-      let min = 10
+    incident: function () {
+      let max = 70
+      let min = 20
       return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
     },
-    speedAB: function () {
-      return this.speedB - this.speedA
+    materialIndex: function () {
+      for (let i = 0; i < 18; i++) {
+        let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+        for (let j = 0; j < 4; j++) {
+          // console.log('(row, col): numero ==>' + '(' + i + ',' + j + '): ' + this.row)
+          let index = Math.floor(Math.random() * data.length)
+          // console.log('index: ' + index)
+          this.row[j] = data.slice(index, index + 1)[0]
+          data.splice(index, 1)
+          // console.log('row[j]: ' + this.row[j])
+          // console.log('data: ' + data)
+        }
+      }
+      return this.row
     },
-    speedBA: function () {
-      // v2 = v1 -v
-      return this.speedA - this.speedB
+    transmitted: function () {
+      for (let i = 0; i < 3; i++) {
+        this.angles[i] = Math.round(1000 * 180 * (Math.asin(Math.sin(this.incident * Math.PI / 180) / this.materials[this.materialIndex[i]].index)) / Math.PI) / 1000
+      }
+      return this.angles
     },
-    electronAlpha: function () {
-      return -this.electronAlphaSpeed
+    deviation: function () {
+      let dev = 0
+      let op = ['a', 'b', 'c']
+      for (let i = 0; i < 3; i++) {
+        if (this.materials[this.materialIndex[i]].index > this.materials[this.materialIndex[dev]].index) {
+          dev = i
+        }
+      }
+      return op[dev]
     },
-    checkedAMoon: function () {
+    checkedIncident: function () {
       let check
-      console.log('A from M => ' + this.speedA + ' : ' + parseFloat(this.enterAMoon))
-      check = this.speedA === parseFloat(this.enterAMoon) ? 'correct' : 'not-correct'
+      console.log('Incident => ' + this.incident + ' : ' + parseFloat(this.enterIncident))
+      check = this.incident === parseFloat(this.enterIncident) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBMoon: function () {
+    checkedAngleA: function () {
       let check
-      console.log('B from M => ' + this.speedB + ' : ' + parseFloat(this.enterBMoon))
-      check = this.speedB === parseFloat(this.enterBMoon) ? 'correct' : 'not-correct'
+      console.log('AngleA => ' + this.transmitted[0] + ' : ' + parseFloat(this.enterAngleA))
+      check = this.transmitted[0] === parseFloat(this.enterAngleA) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBA: function () {
+    checkedAngleB: function () {
       let check
-      console.log('B from A => ' + this.speedBA + ' : ' + parseFloat(this.enterBA))
-      check = this.speedBA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
+      console.log('AngelB=> ' + this.transmitted[1] + ' : ' + parseFloat(this.enterAngleB))
+      check = this.transmitted[1] === parseFloat(this.enterAngleB) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAB: function () {
+    checkedAngleC: function () {
       let check
-      console.log('A from B => ' + this.speedAB + ' : ' + parseFloat(this.enterAB))
-      check = this.speedAB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
+      console.log('AngleC => ' + this.transmitted[2] + ' : ' + parseFloat(this.enterAngleC))
+      check = this.transmitted[2] === parseFloat(this.enterAngleC) ? 'correct' : 'not-correct'
       return check
     },
-    checkedMoonA: function () {
+    checkedDev: function () {
       let check
-      console.log('M from A => ' + this.speedA * -this.direction + ' : ' + parseFloat(this.enterMoonA))
-      check = this.speedA * -this.direction === parseFloat(this.enterMoonA) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMoonB: function () {
-      let check
-      console.log('M from B => ' + this.speedB * -this.direction + ' : ' + parseFloat(this.enterMoonB))
-      check = this.speedB * -this.direction === parseFloat(this.enterMoonB) ? 'correct' : 'not-correct'
+      console.log('Max deviation => ' + this.deviation + ' : ' + this.enterDev)
+      check = this.deviation === this.enterDev ? 'correct' : 'not-correct'
       return check
     }
   },

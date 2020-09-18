@@ -1,21 +1,43 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The pilot on a spaceship (A) that moves at a velocity of {{ Math.abs(speedA) }} c respect to a radar on Earth, the radar operators detects another spaceship (B) that moves toward the first spacecraft at a velocity of {{ Math.abs(speedB) }}  c. Suppose A moves is to the {{ side }} and B in opposite direction, Determine:
+    p.problem A concave spherical mirror has a focus distance radius of curvature of magnitude {{ 2 * focus }} cm. (a) Find the location of the image for object distances of (i) {{ 4 * focus}} cm, (ii) {{ 2 * focus }} cm, and (iii) {{ focus }} cm. For each case, state whether the image is (b) real or virtual and (c) upright or inverted. (d) Find the magnification in each case.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Velocity of A from the radar (in c)
-        input.center.data(:class="checkedARadar" v-model.number='enterARadar')
-      p.inline.data Velocity of B from the radar (in c)
-        input.center.data(:class="checkedBRadar" v-model.number='enterBRadar')
-      p.inline.data Velocity of B from A (in c)
-        input.center.data(:class="checkedBA" v-model.number='enterBA')
-      p.inline.data Velocity of A from B (in c)
-        input.center.data(:class="checkedAB" v-model='enterAB')
-      p.inline.data Velocity of the radar from A (in c)
-        input.center.data(:class="checkedRadarA" v-model='enterRadarA')
-      p.inline.data Velocity of the radar from B (in c)
-        input.center.data(:class="checkedRadarB" v-model='enterRadarB')
+      p.inline.data Focus (cm)
+        input.center.data(:class="checkedFocus" v-model.number='enterFocus')
+      p.inline.data  p<sub>i</sub> (cm)
+        input.center.data(:class="checkedPi" v-model.number='enterPi')
+      p.inline.data q<sub>i</sub> (cm)
+        input.center.data(:class="checkedQi" v-model.number='enterQi')
+      p.inline.data M<sub>i</sub>
+        input.center.data(:class="checkedMi" v-model='enterMi')
+      p.inline.data Real or virtual?
+        input.center.data(:class="checkedRVi" v-model='enterRVi')
+      p.inline.data upright or inverted
+        input.center.data(:class="checkedUIi" v-model='enterUIi')
+    .center
+      p.inline.data  p<sub>ii</sub> (cm)
+        input.center.data(:class="checkedPii" v-model.number='enterPii')
+      p.inline.data q<sub>ii</sub> (cm)
+        input.center.data(:class="checkedQii" v-model.number='enterQii')
+      p.inline.data M<sub>ii</sub>
+        input.center.data(:class="checkedMii" v-model='enterMii')
+      p.inline.data Real or virtual?
+        input.center.data(:class="checkedRVii" v-model='enterRVii')
+      p.inline.data upright or inverted
+        input.center.data(:class="checkedUIii" v-model='enterUIii')
+    .center
+      p.inline.data  p<sub>iii</sub> (cm)
+        input.center.data(:class="checkedPiii" v-model.number='enterPiii')
+      p.inline.data q<sub>iii</sub> (cm)
+        input.center.data(:class="checkedQiii" v-model.number='enterQiii')
+      p.inline.data M<sub>iii</sub>
+        input.center.data(:class="checkedMiii" v-model='enterMiii')
+      p.inline.data Real or virtual?
+        input.center.data(:class="checkedRViii" v-model='enterRViii')
+      p.inline.data upright or inverted
+        input.center.data(:class="checkedUIiii" v-model='enterUIiii')
 
 </template>
 <script>
@@ -23,69 +45,161 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterARadar: '',
-      enterBRadar: '',
-      enterBA: '',
-      enterAB: '',
-      enterRadarA: '',
-      enterRadarB: '',
-      direction: '',
-      side: ''
+      enterFocus: '',
+      enterPi: '',
+      enterPii: '',
+      enterPiii: '',
+      enterQi: '',
+      enterQii: '',
+      enterQiii: '',
+      enterMi: '',
+      enterMii: '',
+      enterMiii: '',
+      enterRVi: '',
+      enterRVii: '',
+      enterRViii: '',
+      enterUIi: '',
+      enterUIii: '',
+      enterUIiii: ''
     }
   },
   computed: {
-    speedA: function () {
-      let max = 95
-      let min = 50
-      this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'rigth' : 'left'
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction
+    focus: function () {
+      let max = 50
+      let min = 10
+      return (Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 10)
     },
-    speedB: function () {
-      let max = 95
-      let min = 50
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * -this.direction
+    qi: function () {
+      return Math.round(1000 * 4 * this.focus / 3) / 1000
     },
-    speedAB: function () {
-      return Math.floor(((this.speedA - this.speedB) / (1 - (this.speedA * this.speedB))) * 100) / 100
+    qii: function () {
+      return Math.round(1000 * 2 * this.focus) / 1000
     },
-    speedBA: function () {
-      return -this.speedAB
+    qiii: function () {
+      return 'infinite'
     },
-    checkedARadar: function () {
+    Mi: function () {
+      return Math.round(-1000 * this.qi / (4 * this.focus)) / 1000
+    },
+    Mii: function () {
+      return Math.round(-1000 * this.qii / (2 * this.focus)) / 1000
+    },
+    Miii: function () {
+      return ['infinite', '-infinite']
+    },
+    rVi: function () {
+      return 'real'
+    },
+    rVii: function () {
+      return 'real'
+    },
+    rViii: function () {
+      return 'none'
+    },
+    uIi: function () {
+      return 'inverted'
+    },
+    uIii: function () {
+      return 'inverted'
+    },
+    uIiii: function () {
+      return 'none'
+    },
+    checkedFocus: function () {
       let check
-      console.log('A from M => ' + this.speedA + ' : ' + parseFloat(this.enterARadar))
-      check = this.speedA === parseFloat(this.enterARadar) ? 'correct' : 'not-correct'
+      console.log('Focus => ' + this.focus + ' : ' + parseFloat(this.enterFocus))
+      check = this.focus === parseFloat(this.enterFocus) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBRadar: function () {
+    checkedPi: function () {
       let check
-      console.log('B from M => ' + this.speedB + ' : ' + parseFloat(this.enterBRadar))
-      check = this.speedB === parseFloat(this.enterBRadar) ? 'correct' : 'not-correct'
+      console.log('Pi => ' + 4 * this.focus + ' : ' + parseFloat(this.enterPi))
+      check = 4 * this.focus === parseFloat(this.enterPi) ? 'correct' : 'not-correct'
       return check
     },
-    checkedBA: function () {
+    checkedPii: function () {
       let check
-      console.log('B from A => ' + this.speedBA + ' : ' + parseFloat(this.enterBA))
-      check = this.speedBA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
+      console.log('Pii => ' + 2 * this.focus + ' : ' + parseFloat(this.enterPii))
+      check = 2 * this.focus === parseFloat(this.enterPii) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAB: function () {
+    checkedPiii: function () {
       let check
-      console.log('A from B => ' + this.speedAB + ' : ' + parseFloat(this.enterAB))
-      check = this.speedAB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
+      console.log('Piii => ' + this.focus + ' : ' + parseFloat(this.enterPiii))
+      check = this.focus === parseFloat(this.enterPiii) ? 'correct' : 'not-correct'
       return check
     },
-    checkedRadarA: function () {
+    checkedQi: function () {
       let check
-      console.log('M from A => ' + this.speedA * -this.direction + ' : ' + parseFloat(this.enterRadarA))
-      check = this.speedA * -this.direction === parseFloat(this.enterRadarA) ? 'correct' : 'not-correct'
+      console.log('Qi => ' + this.qi + ' : ' + parseFloat(this.enterQi))
+      check = this.qi === parseFloat(this.enterQi) ? 'correct' : 'not-correct'
       return check
     },
-    checkedRadarB: function () {
+    checkedQii: function () {
       let check
-      console.log('M from B => ' + this.speedB * -this.direction + ' : ' + parseFloat(this.enterRadarB))
-      check = this.speedB * -this.direction === parseFloat(this.enterRadarB) ? 'correct' : 'not-correct'
+      console.log('Qii => ' + this.qii + ' : ' + parseFloat(this.enterQii))
+      check = this.qii === parseFloat(this.enterQii) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedQiii: function () {
+      let check
+      console.log('Qiii => ' + this.qiii + ' : ' + this.enterQiii)
+      check = this.qiii === this.enterQiii ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedMi: function () {
+      let check
+      console.log('Mi: ' + this.Mi + ' : ' + parseFloat(this.Mi))
+      check = this.Mi === parseFloat(this.enterMi) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedMii: function () {
+      let check
+      console.log('Mii: ' + this.Mii + ' : ' + parseFloat(this.Mii))
+      check = this.Mii === parseFloat(this.enterMii) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedMiii: function () {
+      let check
+      console.log('Miii: ' + this.Miii[0] + ' : ' + this.enterMiii)
+      console.log('Miii: ' + this.Miii[1] + ' : ' + this.enterMiii)
+      check = (this.Miii[0] === this.enterMiii || this.Miii[1] === this.enterMiii) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedRVi: function () {
+      let check
+      console.log('Real o vitual i=> ' + this.rVi + ' : ' + this.enterRVi.toString().toLowerCase())
+      check = this.rVi === this.enterRVi.toString().toLowerCase() ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedRVii: function () {
+      let check
+      console.log('Real o vitual ii=> ' + this.rVii + ' : ' + this.enterRVii.toString().toLowerCase())
+      check = this.rVii === this.enterRVii.toString().toLowerCase() ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedRViii: function () {
+      let check
+      console.log('Real o vitual iii=> ' + this.rViii + ' : ' + this.enterRViii.toString().toLowerCase())
+      check = this.rViii === this.enterRViii.toString().toLowerCase() ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedUIi: function () {
+      let check
+      console.log('Upright or inverted i=> ' + this.uIi + ' : ' + this.enterUIi.toString().toLowerCase())
+      check = this.uIi === this.enterUIi.toString().toLowerCase() ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedUIii: function () {
+      let check
+      console.log('Upright or inverted ii=> ' + this.uIii + ' : ' + this.enterUIii.toString().toLowerCase())
+      check = this.uIii === this.enterUIii.toString().toLowerCase() ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedUIiii: function () {
+      let check
+      console.log('Upright or inverted iii=> ' + this.uIiii + ' : ' + this.enterUIiii.toString().toLowerCase())
+      check = this.uIiii === this.enterUIiii.toString().toLowerCase() ? 'correct' : 'not-correct'
       return check
     }
   },
