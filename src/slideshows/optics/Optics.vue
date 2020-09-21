@@ -383,6 +383,15 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center Interference
       p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
+      .center
+        img(src='./assets/interference.svg' width="500px;")
+
+    slide(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3.center Interference
+      p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
+      .center
+        interference
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -500,6 +509,7 @@ export default {
     'example-nine': require('./components/ExampleNine'),
     'example-ten': require('./components/ExampleTen'),
     'example-eleven': require('./components/ExampleEleven'),
+    'interference': require('./components/interference'),
     'sodoku': require('./components/Sodoku')
   },
 

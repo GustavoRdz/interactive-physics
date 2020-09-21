@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="300" width="600" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 600 300">
+    <rect x="0" y="0" width="600" height="300" stroke="red" fill="none" stroke-width="0.2"/>
+    <!-- <rect x="0" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/>
+    <rect x="267" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/>
+    <rect x="534" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/> -->
+    <line x1="50" y1="0" x2="600" y2="550" style="stroke:rgb(0,0,255);stroke-width:0.5" />
+    <line x1="0" y1="550" x2="550" y2="0" style="stroke:rgb(0,0,255);stroke-width:0.5" />
+
+    <line x1="260" y1="0" x2="300" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+    <line x1="215" y1="0" x2="300" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+    <line x1="165" y1="0" x2="277" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+    <line x1="105" y1="0" x2="270" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+    <line x1="10" y1="0" x2="265" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+    <line x1="0" y1="110" x2="255" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
+
+    <path d="M260,0 270,63 280,125 290,189 298,250" stroke="black" fill="none"/>
+    <path d="M215,0 220,15 230,44 240,74 250,103 260,132 270,162 280,191 290,221 300,250" stroke="black" fill="none"/>
+    <path d="M105,0 160,80 170,95 180,110 190,126 200,142 210,160 220,179 230,201 240,250" stroke="black" fill="none"/>
+    <path d="M10,0 120,108 130,117 140,127 150,136 160,146 170,156 180,167 190,177 200,189 210,202 220,217 230,250" stroke="black" fill="none"/>
+
+    <path d="M0,110 120,174 130,180 140,186 150,192 160,198 170,204 180,211 190,219 200,229 210,250" stroke="black" fill="none"/>
+
+    <!-- fuente -->
+    <circle cx="400" cy="250" r="5" fill="white" stroke="gray" stroke-width="5" opacity="1"/>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="0s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="1s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="2s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="3s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="4s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="5s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="6s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="7s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="8s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="9s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="10s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="11s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="12s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="13s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="400" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="14s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+
+
+    <circle cx="200" cy="250" r="5" fill="white" stroke="gray" stroke-width="5" opacity="1"/>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="0s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="1s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="2s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="3s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="4s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="5s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="6s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="7s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="8s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="9s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="10s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="11s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="12s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="13s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <circle cx="200" cy="250" r="5" fill="none" stroke="gray" stroke-width="5" opacity="0.5">
+      <animate attributeName="r" from="0" to="450" dur="15s" begin="14s" fill="freeze" repeatCount="indefinite" />
+    </circle>
+
+    <circle cx="300" cy="250" r="5" fill="none" stroke="red" stroke-width="5" opacity="0.5">
+      <animate attributeName="cy" from="240" to="0" dur="15s" begin="3s"  values="250; 200; 0; 0" keyTimes="0; 0.06; 0.4; 1" fill="freeze" repeatCount="indefinite" />
+    </circle>
+    <line x1="300" x2="300" y1="0" y2="300" stroke="black"/>
+
+    <!-- equations -->
+    <!-- <path d="M300,300 L450,300 450 250 300,300" stroke="black" fill="lightgray"/>
+    <path d="M450,300 L600,300 450 250" stroke="black" stroke-dasharray="8 8" fill="white"/> -->
+    <!-- <g transform="translate(15,-70)">
+    <text x="352" y="315" stroke="none" fill="black" font-style="italic"> c</text>
+    <text x="360" y="315" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+    <text x="371" y="315" stroke="none" fill="black" font-style="italic">t</text>
+    <line x1="350" x2="380" y1="320" y2="320" stroke="black"/>
+    <text x="360" y="335" stroke="none" fill="black" font-style="normal">2</text>
+    </g> -->
+    <!-- <g transform="translate(15,0)">
+    <text x="352" y="315" stroke="none" fill="black" font-style="italic"> v</text>
+    <text x="360" y="315" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+    <text x="371" y="315" stroke="none" fill="black" font-style="italic">t</text>
+    <line x1="350" x2="380" y1="320" y2="320" stroke="black"/>
+    <text x="360" y="335" stroke="none" fill="black" font-style="normal">2</text>
+    </g> -->
+    <!-- <text x="455" y="280" stroke="none" fill="black" font-style="italic">d</text> -->
+
+    <g transform="translate(-30,-30)">
+      <!-- <g transform="translate(-300,100)">
+        <text x="340" y="330" font-size="40" stroke="none" fill="black" font-style="normal">(</text>
+        <text x="352" y="315" stroke="none" fill="black" font-style="italic">c</text>
+        <text x="360" y="315" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+        <text x="371" y="315" stroke="none" fill="black" font-style="italic">t</text>
+        <line x1="350" x2="380" y1="320" y2="320" stroke="black"/>
+        <text x="360" y="335" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="375" y="330" font-size="40" stroke="none" fill="black" font-style="normal" font-family="Times">)</text>
+        <text x="385" y="310" font-size="15" stroke="none" fill="black" font-style="normal">2</text>
+      </g> -->
+        <!-- <text x="95" y="425" stroke="none" fill="black" font-style="normal">=</text> -->
+      <!-- <g transform="translate(-230,100)">
+        <text x="340" y="330" font-size="40" stroke="none" fill="black" font-style="normal">(</text>
+        <text x="352" y="315" stroke="none" fill="black" font-style="italic">v</text>
+        <text x="360" y="315" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+        <text x="371" y="315" stroke="none" fill="black" font-style="italic">t</text>
+        <line x1="350" x2="380" y1="320" y2="320" stroke="black"/>
+        <text x="360" y="335" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="375" y="330" font-size="40" stroke="none" fill="black" font-style="normal">)</text>
+        <text x="385" y="310" font-size="15" stroke="none" fill="black" font-style="normal">2</text>
+      </g> -->
+        <!-- <text x="165" y="425" stroke="none" fill="black" font-style="normal">+</text>
+        <text x="180" y="425" stroke="none" fill="black" font-style="normal">d</text>
+        <text x="188" y="417" font-size="15" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="250" y="425" font-size="30" stroke="none" fill="red" font-style="normal">></text>
+        <line x1="230" x2="260" y1="414" y2="414" stroke="red" stroke-width="2"/>
+        <line x1="230" x2="260" y1="420" y2="420" stroke="red" stroke-width="2"/> -->
+    </g>
+
+
+
+    <g transform="translate(200,-30)">
+      <!-- <g transform="translate(-300,100)">
+        <text x="360" y="325" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+        <text x="371" y="325" stroke="none" fill="black" font-style="italic">t</text>
+      </g> -->
+        <!-- <text x="80" y="425" stroke="none" fill="black" font-style="normal">=</text>
+        <line x1="95" x2="170" y1="422" y2="422" stroke="black"/>
+        <text x="120" y="420" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="129" y="420" stroke="none" fill="black" font-style="italic">d</text>
+        <text x="95" y="440" stroke="none" fill="black" font-style="normal">&#x221a;</text>
+        <line x1="105" x2="170" y1="425" y2="425" stroke="black"/>
+        <text x="110" y="440" stroke="none" fill="black" font-style="italic">c</text>
+        <text x="118" y="435" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="130" y="440" stroke="none" fill="black" font-style="normal">-</text>
+        <text x="145" y="440" stroke="none" fill="black" font-style="italic">v</text>
+        <text x="155" y="435" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="180" y="425" stroke="none" fill="black" font-style="normal">=</text>
+        <line x1="195" x2="270" y1="422" y2="422" stroke="black"/>
+        <text x="220" y="420" stroke="none" fill="black" font-style="normal">2</text>
+        <text x="229" y="420" stroke="none" fill="black" font-style="italic">d</text>
+        <text x="190" y="450" stroke="none" fill="black" font-style="italic">c</text> -->
+        <!-- <g transform="translate(10,0)">
+          <text x="190" y="460" stroke="none" fill="black" font-size="30" font-family="arial">&#x221a;</text>
+          <line x1="235" x2="265" y1="444" y2="444" stroke="black"/>
+          <text x="210" y="450" stroke="none" fill="black" font-style="normal">1</text>
+          <text x="220" y="448" stroke="none" fill="black" font-style="normal">-</text>
+          <path d="M206,432 L207,425 265,425" fill="none" stroke="black" />
+          <text x="245" y="440" stroke="none" fill="black" font-style="italic">v</text>
+          <text x="253" y="435" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+          <text x="245" y="460" stroke="none" fill="black" font-style="italic">c</text>
+          <text x="253" y="455" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+        </g> -->
+    </g>
+
+    <!-- <text x="50" y="470">As</text>
+    <text x="75" y="470" stroke="none" fill="black" font-style="normal">&#x0394;</text>
+    <text x="87" y="470" stroke="none" fill="black" font-style="italic">t</text>
+    <text x="90" y="475" stroke="none" fill="black" font-style="italic" font-size="12">p</text>
+    <text x="100" y="470" stroke="none" fill="black" font-style="normal">=</text>
+    <text x="115" y="470" stroke="none" fill="black" font-style="normal">2</text>
+    <text x="122" y="470" stroke="none" fill="black" font-style="italic">d</text>
+    <text x="132" y="470" stroke="none" fill="black" font-style="normal">/</text>
+    <text x="138" y="470" stroke="none" fill="black" font-style="italic">c</text> -->
+
+
+    <g transform="translate(180,50)">
+      <!-- <g transform="translate(-300,100)">
+        <text x="360" y="325" stroke="none" fill="black" font-style="normal"> &#x0394;</text>
+        <text x="371" y="325" stroke="none" fill="black" font-style="italic">t</text>
+      </g> -->
+        <!-- <text x="80" y="425" stroke="none" fill="black" font-style="normal">=</text>
+        <text x="120" y="415" stroke="none" fill="black" font-style="normal">&#x0394;</text>
+        <text x="132" y="415" stroke="none" fill="black" font-style="italic">t</text>
+        <text x="135" y="420" stroke="none" fill="black" font-style="italic" font-size="12">p</text>
+        <line x1="95" x2="170" y1="422" y2="422" stroke="black"/> -->
+
+        <!-- <g transform="translate(-100,0)">
+          <text x="190" y="460" stroke="none" fill="black" font-size="30" font-family="arial">&#x221a;</text>
+          <line x1="235" x2="265" y1="444" y2="444" stroke="black"/>
+          <text x="210" y="450" stroke="none" fill="black" font-style="normal">1</text>
+          <text x="220" y="448" stroke="none" fill="black" font-style="normal">-</text>
+          <path d="M206,432 L207,425 265,425" fill="none" stroke="black" />
+          <text x="245" y="440" stroke="none" fill="black" font-style="italic">v</text>
+          <text x="253" y="435" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+          <text x="245" y="460" stroke="none" fill="black" font-style="italic">c</text>
+          <text x="253" y="455" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+        </g> -->
+        <!-- <text x="180" y="425" stroke="none" fill="black" font-style="normal">=</text>
+        <text x="200" y="425" stroke="none" fill="black" font-style="normal">&#x03B3;</text>
+        <text x="207" y="425" stroke="none" fill="black" font-style="normal">&#x0394;</text>
+        <text x="218" y="425" stroke="none" fill="black" font-style="italic">t</text>
+        <text x="222" y="430" stroke="none" fill="black" font-style="italic" font-size="12">p</text>
+
+        <text x="30" y="425" font-size="30" stroke="none" fill="red" font-style="normal">></text>
+        <line x1="10" x2="40" y1="414" y2="414" stroke="red" stroke-width="2"/>
+        <line x1="10" x2="40" y1="420" y2="420" stroke="red" stroke-width="2"/>
+
+        <text x="250" y="430" stroke="none" fill="blue">with</text>
+
+        <text x="300" y="430" stroke="none" fill="black" font-style="normal">&#x03B3;</text>
+        <text x="310" y="430" stroke="none" fill="black" font-style="normal">=</text>
+
+        <text x="355" y="420" stroke="none" fill="black" font-style="normal">1</text>
+        <line x1="320" x2="395" y1="425" y2="425" stroke="black"/> -->
+        <!-- <g transform="translate(130,3)">
+          <text x="190" y="460" stroke="none" fill="black" font-size="30" font-family="arial">&#x221a;</text>
+          <line x1="235" x2="265" y1="444" y2="444" stroke="black"/>
+          <text x="210" y="450" stroke="none" fill="black" font-style="normal">1</text>
+          <text x="220" y="448" stroke="none" fill="black" font-style="normal">-</text>
+          <path d="M206,432 L207,425 265,425" fill="none" stroke="black" />
+          <text x="245" y="440" stroke="none" fill="black" font-style="italic">v</text>
+          <text x="253" y="435" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+          <text x="245" y="460" stroke="none" fill="black" font-style="italic">c</text>
+          <text x="253" y="455" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
+        </g> -->
+    </g>
+
+</svg>

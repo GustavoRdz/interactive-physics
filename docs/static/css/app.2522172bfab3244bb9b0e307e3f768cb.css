@@ -6630,6 +6630,42 @@ button[data-v-2b5aa473] {
   background: #80c080;
 }
 
+.eg-slide .eg-slide-content .figure[data-v-c7b7cec0] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-c7b7cec0] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.data[data-v-c7b7cec0] {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-c7b7cec0] {
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
+  color: blue;
+  width: 95%;
+}
+.solution[data-v-c7b7cec0] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-c7b7cec0] {
+  background: #fa4408;
+}
+.correct[data-v-c7b7cec0] {
+  background: #80c080;
+}
+
 .eg-slide .eg-slide-content .figure[data-v-fdbce662] {
   width: 80%;
   margin-left: 10%;

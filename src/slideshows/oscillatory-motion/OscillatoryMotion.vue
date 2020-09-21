@@ -166,7 +166,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 1
+      h3(style="margin-top: -20px;") Exercise 1
       example-one
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -226,7 +226,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 2
+      h3(style="margin-top: -20px;") Exercise 2
       example-two
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -387,7 +387,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 3
+      h3(style="margin-top: -20px;") Exercise 3
       example-three
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -400,7 +400,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 4
+      h3(style="margin-top: -20px;") Exercise 4
       example-four
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -413,7 +413,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 5
+      h3(style="margin-top: -20px;") Exercise 5
       example-five
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -426,7 +426,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 6
+      h3(style="margin-top: -20px;") Exercise 6
       example-six
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -439,7 +439,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 7
+      h3(style="margin-top: -20px;") Exercise 7
       example-seven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -504,7 +504,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 8
+      h3(style="margin-top: -20px;") Exercise 8
       example-nine
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -517,7 +517,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 9
+      h3(style="margin-top: -20px;") Exercise 9
       example-ten
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -530,33 +530,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 10
-      example-eleven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 11
-      example-twelve
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 12
+      h3(style="margin-top: -30px;") Exercise 10
       example-thirteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -612,7 +586,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 13
+      h3(style="margin-top: -20px;") Exercise 11
       example-fourteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -625,33 +599,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 14
-      example-fifteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 15
-      example-sixteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 16
+      h3(style="margin-top: -20px;") Exercise 12
       example-seventeen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -664,21 +612,8 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 17
+      h3(style="margin-top: -20px;") Exercise 13
       example-eighteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Exercise 18
-      example-twenty
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
