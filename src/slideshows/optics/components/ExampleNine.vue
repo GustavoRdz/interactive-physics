@@ -1,14 +1,16 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Two people carry out a test and find that, from the start of a fire until the alarm system was activated, {{ t2.toFixed(3) }} seconds elapsed, although an observer who was vigilant from a airship assures that the time was {{ t1.toFixed(3) }} sec. How fast was the observer airship moving?
+    p.problem Light of wavelength {{ lambda }} nm is incident on a slit having a width of {{ a }} mm. The viewing screen is {{ l }} m from the slit. Find the width of the central bright fringe.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data T<sub>1</sub> (s)
+      p.inline.data &lambda; (m)
         input.center.data(:class="checkedT1" v-model.number='enterT1')
-      p.inline.data T<sub>2</sub> (s)
+      p.inline.data a (m)
         input.center.data(:class="checkedT2" v-model.number='enterT2')
-      p.inline.data v (in c)
+      p.inline.data L (m)
+        input.center.data(:class="checkedV" v-model.number='enterV')
+      p.inline.data width (m)
         input.center.data(:class="checkedV" v-model.number='enterV')
 
 </template>

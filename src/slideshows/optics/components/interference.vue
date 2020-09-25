@@ -2,26 +2,12 @@
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
   <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="300" width="600" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 600 300">
-      <rect x="0" y="0" width="600" height="300" stroke="red" fill="none" stroke-width="0.2"/>
+      //- <rect x="0" y="0" width="600" height="300" stroke="red" fill="none" stroke-width="0.2"/>
       <!-- <rect x="0" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/>
       <rect x="267" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/>
       <rect x="534" y="0" width="266" height="200" stroke="green" fill="none" stroke-width="0.1"/> -->
-      //- <line x1="50" y1="0" x2="600" y2="550" style="stroke:rgb(0,0,255);stroke-width:0.5" />
-      //- <line x1="0" y1="550" x2="550" y2="0" style="stroke:rgb(0,0,255);stroke-width:0.5" />
 
-      //- <line x1="260" y1="0" x2="300" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-      //- <line x1="215" y1="0" x2="300" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-      //- <line x1="165" y1="0" x2="277" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-      //- <line x1="105" y1="0" x2="270" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-      //- <line x1="10" y1="0" x2="265" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-      //- <line x1="0" y1="110" x2="255" y2="250" style="stroke:rgb(255,0,0);stroke-width:0.2" />
-
-      <path :d="hyper" stroke="red" fill="none" stroke-width="3"/>
-      //- <path d="M215,0 220,15 230,44 240,74 250,103 260,132 270,162 280,191 290,221 300,250" stroke="black" fill="none"/>
-      //- <path d="M105,0 160,80 170,95 180,110 190,126 200,142 210,160 220,179 230,201 240,250" stroke="black" fill="none"/>
-      //- <path d="M10,0 120,108 130,117 140,127 150,136 160,146 170,156 180,167 190,177 200,189 210,202 220,217 230,250" stroke="black" fill="none"/>
-
-      //- <path d="M0,110 120,174 130,180 140,186 150,192 160,198 170,204 180,211 190,219 200,229 210,250" stroke="black" fill="none"/>
+      <path :d="hyper" stroke="red" fill="none" stroke-width="3" opacity="0.2"/>
 
       <!-- fuente -->
       <circle cx="400" cy="250" r="5" fill="white" stroke="gray" stroke-width="5" opacity="1"/>
@@ -119,10 +105,10 @@
         <animate attributeName="r" from="0" to="450" dur="15s" begin="14s" fill="freeze" repeatCount="indefinite" />
       </circle>
 
-      <circle cx="300" cy="250" r="5" fill="none" stroke="red" stroke-width="5" opacity="0.5">
-        <animate attributeName="cy" from="240" to="0" dur="15s" begin="3s"  values="250; 200; 0; 0" keyTimes="0; 0.06; 0.4; 1" fill="freeze" repeatCount="indefinite" />
-      </circle>
-      <line x1="300" x2="300" y1="0" y2="300" stroke="black"/>
+      //- <circle cx="300" cy="250" r="5" fill="none" stroke="red" stroke-width="5" opacity="0.5">
+      //-   <animate attributeName="cy" from="240" to="0" dur="15s" begin="3s"  values="250; 200; 0; 0" keyTimes="0; 0.06; 0.4; 1" fill="freeze" repeatCount="indefinite" />
+      //- </circle>
+      //- <line x1="300" x2="300" y1="0" y2="300" stroke="black"/>
   </svg>
 
 
@@ -189,8 +175,16 @@ function hyperbol () {
   let yt = 250
   let d = ''
   for (var c = 0; c < 6; c++) {
-    d += `M${xt - a[c]},${yt} `
+    d += `M${xt + a[c]},${yt} `
     for (var i = a[c] + 10; i <= 300; i = i + 10) {
+      let y = e[c] * Math.sqrt(Math.pow(i, 2) - Math.pow(a[c], 2))
+      d += `${xt + i},${yt - y} `
+    }
+  }
+  d += `M${xt},${yt} ${xt},0 `
+  for (c = 0; c < 6; c++) {
+    d += `M${xt - a[c]},${yt} `
+    for (i = a[c] + 10; i <= 300; i = i + 10) {
       let y = e[c] * Math.sqrt(Math.pow(i, 2) - Math.pow(a[c], 2))
       d += `${xt - i},${yt - y} `
     }

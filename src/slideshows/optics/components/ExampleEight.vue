@@ -1,15 +1,19 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem From a beach, a group of people observe that a sportsman kept skiing during {{ t1.toFixed(3) }}min at a speed of {{ speed.toFixed(3) }}c. How long does the pilot of the boat think he was helping you the skier?
+    p.problem Two slits spaced {{ d }} &mu;m apart are placed {{ l }} cm from a screen and illuminated by coherent light with a wavelength of {{ lambda }} nm. The intensity at the center of the central maximum is <br>(a) What is the distance on the screen from the center of the central maximum to the first minimum? <br>(b) What is the distance on the screen from the center of the central maximum to the point where the intensity has fallen to half of I<sub>0</sub>?
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data v (in c)
-        input.center.data(:class="checkedV" v-model.number='enterV')
-      p.inline.data T<sub>1</sub> (min)
-        input.center.data(:class="checkedT1" v-model.number='enterT1')
-      p.inline.data T<sub>2</sub> (min)
-        input.center.data(:class="checkedT2" v-model.number='enterT2')
+      p.inline.data d (m)
+        input.center.data(:class="checkedD" v-model.number='enterD')
+      p.inline.data L (m)
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data &lambda; (m)
+        input.center.data(:class="checkedLambda" v-model.number='enterLambda')
+      p.inline.data a) y (m)
+        input.center.data(:class="checkedYa" v-model.number='enterYa')
+      p.inline.data b) y (m)
+        input.center.data(:class="checkedYb" v-model.number='enterYb')
 
 </template>
 <script>
@@ -17,41 +21,63 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterT1: '',
-      enterT2: '',
-      enterV: ''
+      enterD: '',
+      enterL: '',
+      enterLambda: '',
+      enterYa: '',
+      enterYb: ''
     }
   },
   computed: {
-    t1: function () {
-      let max = 30
-      let min = 10
+    d: function () {
+      let max = 300
+      let min = 100
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    },
+    l: function () {
+      let max = 150
+      let min = 50
       return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    speed: function () {
-      let max = 80
-      let min = 50
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
+    lambda: function () {
+      let max = 700
+      let min = 400
+      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
     },
-    t2: function () {
-      return Math.round(1000 * this.t1 * Math.sqrt(1 - this.speed * this.speed)) / 1000
+    ya: function () {
+      return parseFloat((this.l * 1e-2 * 0.5 * this.lambda * 1e-9 / (this.d * 1e-6)).toPrecision(3))
     },
-    checkedT1: function () {
+    yb: function () {
+      return parseFloat((this.lambda * 1e-9 * this.l * 1e-2 * Math.acos(0.25) / (Math.PI * this.d * 1e-6)).toPrecision(3))
+    },
+    checkedD: function () {
       let check
-      console.log('T1 => ' + this.t1 + ' : ' + parseFloat(this.enterT1))
-      check = this.t1 === parseFloat(this.enterT1) ? 'correct' : 'not-correct'
+      console.log('d => ' + this.d * 1e-6 + ' : ' + parseFloat(this.enterD))
+      check = this.d * 1e-6 === parseFloat(this.enterD) ? 'correct' : 'not-correct'
       return check
     },
-    checkedV: function () {
+    checkedL: function () {
       let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
+      console.log('L => ' + this.l * 1e-2 + ' : ' + parseFloat(this.enterL))
+      check = this.l * 1e-2 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
       return check
     },
-    checkedT2: function () {
+    checkedLambda: function () {
       let check
-      console.log('T2 => ' + this.t2 + ' : ' + parseFloat(this.enterT2))
-      check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      console.log('lambda => ' + parseFloat((this.lambda * 1e-9).toPrecision(3)) + ' : ' + parseFloat(this.enterLambda))
+      check = parseFloat((this.lambda * 1e-9).toPrecision(3)) === parseFloat(this.enterLambda) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedYa: function () {
+      let check
+      console.log('a) y => ' + this.ya + ' : ' + parseFloat(this.enterYa))
+      check = this.ya === parseFloat(this.enterYa) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedYb: function () {
+      let check
+      console.log('b) Y => ' + this.yb + ' : ' + parseFloat(this.enterYb))
+      check = this.yb === parseFloat(this.enterYb) ? 'correct' : 'not-correct'
       return check
     }
   },

@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A photoelectric tube is weighed in a laboratory, and its mass is found to be {{ m2 }}g. After it is sent in a spaceship whose speed is {{ speed }} c and is analyzed again during the flight. What mass will determine ... <br>a) the people in the laboratory? <br>b) the occupants of the spaceship?
+    p.problem Unpolarized light passes through two ideal Polaroid sheets. The axis of the first is vertical, and the axis of the second is at 30.0° to the vertical. What fraction of the incident light is transmitted?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data v (in c)

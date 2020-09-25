@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Optics
         img(src='./assets/microres4.jpg')
-        h4 Nature of light, geometrical optics, interference, difracction and polarization
+        h4 Nature of light, geometrical optics, interference, diffraction and polarization
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -379,24 +379,57 @@
       h6.center Difraction
       h6.center Polarization
 
-    slide(:steps=2, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3.center Interference
-      p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
-      .center
-        img(src='./assets/interference.svg' width="500px;")
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center Interference
       p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
       .center
         interference
 
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3.center Interference
+      p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
+      .center
+        interference2
+
+    slide(:steps=5, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top:-30px;").center Young experiment
+      .center
+        img(v-if="step >= 1" src='./assets/youngA.png' width="400px")
+        img(v-if="step >= 2" src='./assets/youngB.png' width="235px" style="margin-left:30px;")
+      .center
+        img(v-if="step >= 3" src='./assets/fringeBright.png' width="600px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 4" src='./assets/fringeDark.png' width="600px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 5" src='./assets/yTan.png' width="150px" style="margin-top:30px;")
+
+    slide(:steps=6, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h5.center Young experiment
+      .center
+        img(v-if="step >= 1" src='./assets/fringeBright.png' width="600px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 2" src='./assets/fringeDark.png' width="600px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 3" src='./assets/yTan.png' width="200px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 4" src='./assets/yBright0.png' width="400px" style="margin-top:20px;")
+        img(v-if="step >= 5" src='./assets/yDark0.png' width="370px" style="margin-top:20px; margin-left: 30px;")
+      .center
+        img(v-if="step >= 6" src='./assets/yBright.png' width="500px" style="margin-top:30px;")
+      .center
+        img(v-if="step >= 6" src='./assets/yDark.png' width="500px" style="margin-top:30px;")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Exercise 7
-      example-seven
+      h3(style="margin-top: -20px;") Exercise 7
+      .center
+        img(src='./assets/youngA.png' width="200px" style="margin-top:-30px; object-fit: cover; width: 300px; height: 210px; object-position: -40% 0;")
+      example-seven(style="margin-top: -30px;")
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -406,13 +439,46 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(:steps=6, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Time dilation
+      h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
       .center
-        img(src='./assets/timeDilation2.svg' width="500px")
-      p <b>T<sub>1</sub></b>: time interval measured by an observer when motion exist between him and the object
-      p <b>T<sub>2</sub></b>: time interval measured by an observer when <b>NO</b> motion exist between him and the object
+        img(v-if="step >= 1" src='./assets/interf1.png' width="240px" style="margin-right: 15px;")
+        img(v-if="step >= 1" src='./assets/interf2.png' width="300px" style="margin-left: 15px;")
+        p(v-if="step >= 2" style="color: blue; margin-top: -5px; margin-bottom: -0px") then
+      .center
+        img(v-if="step >= 2" src='./assets/interf5.png' width="600px")
+        p(v-if="step >= 3" style="color: blue; margin-top: -5px; margin-bottom: -0px") with
+        img(v-if="step >= 3" src='./assets/interf6.png' width="300px")
+        p(v-if="step >= 4" style="color: blue; margin-top: -5px; margin-bottom: -0px") and
+      .center
+        img(v-if="step >= 4" src='./assets/interf7.png' width="100px" style="margin-right: 15px;")
+        | <span v-if="step >= 4" style="color: blue; font-size: 20px;">and</span>
+        img(v-if="step >= 4" src='./assets/interf8.png' width="60px" style="margin-left: 15px;")
+        p(v-if="step >= 5" style="color: blue; margin-top: -5px; margin-bottom: 10px") we have
+      .center
+        img(v-if="step >= 5" src='./assets/interf9.png' width="500px" style="margin-bottom: 25px;")
+      .center
+        p(v-if="step >= 6" style="color: blue; margin-top: -5px; margin-bottom: 10px") and the intensity
+        img(v-if="step >= 6" src='./assets/interf10.png' width="500px" style="margin-right: 15px;")
+
+    slide.boredYet(:steps=5, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
+      .center
+        img(v-if="step >= 1" src='./assets/interf11.png' width="240px" style="margin-right: 30px;")
+      p.center
+        | <span v-if="step >= 2" style="color: blue; margin-rigth: 0px;">as</span>
+        img(v-if="step >= 2" src='./assets/interf3.png' width="80px" style="margin-left: 30px; margin-right: 20px;")
+        | <span v-if="step >= 3" style="color: blue;"> or</span>
+        img(v-if="step >= 3" src='./assets/interf4.png' width="200px" style="margin-right: 30px; margin-left: 30px;")
+      p(v-if="step >= 4" style="color: blue; margin-top: -5px; margin-bottom: 10px").center then
+      .center
+        img(v-if="step >= 4" src='./assets/interf12.png' width="300px" style="margin-left: 0px;")
+      .center
+        img(v-if="step >= 5" src='./assets/interf13.png' width="400px" style="margin-right: 0px;")
+      .center
+        img(v-if="step >= 5" src='./assets/interf14.png' width="250px" style="margin-top: 40px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -427,6 +493,81 @@
         br
         span.small Ctrl + right
 
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: 20px;").center Diffraction
+      .center
+        img(src='./assets/diffraction1.jpg' width="600px")
+
+    slide.boredYet(:steps=3 enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: 20px;").center Diffraction
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion1.png' width="255px" style="margin-right: 30px;")
+        img(v-if="step >= 2" src='./assets/difraccion3.png' width="200px" style="margin-top: 30px;")
+      .center
+        img(v-if="step >= 3" src='./assets/difraccion2.png' width="600px" style="margin-top: 30px;")
+
+    slide.boredYet(:steps=7, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h5(style="margin-top: -20px;").center Diffraction: Single slit
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion4.png' width="300px" style="margin-top: -30px; margin-right: 20px;")
+        img(v-if="step >= 2" src='./assets/difraccion5.png' width="166px" style="margin-top: -30px; margin-left: 30px;")
+      .center
+        img(v-if="step >= 3" src='./assets/difraccion6.png' width="200px" style="margin-right: 20px;")
+        | <span v-if="step >= 4" style="color: blue;"> then</span>
+        img(v-if="step >= 4" src='./assets/difraccion7.png' width="200px" style="margin-left: 30px;")
+      .center
+        img(v-if="step >= 5" src='./assets/difraccion8.png' width="250px" style="margin-top: 40px; margin-right: 30px;")
+        img(v-if="step >= 6" src='./assets/difraccion9.png' width="250px" style="margin-top: 40px; margin-left: 30px;")
+      .center
+        img(v-if="step >= 7" src='./assets/difraccion10.png' width="700px" style="margin-top: 40px;")
+
+    slide.boredYet(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Diffraction: Single slit
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion11.png' width="400px" style="margin-top: -40px;")
+      .center
+        img(v-if="step >= 2" src='./assets/difraccion16.png' width="500px" style="margin-top: 40px;")
+
+    slide.boredYet(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Diffraction: Double slit
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion15.png' width="500px" style="margin-top: -40px;")
+      .center
+        img(v-if="step >= 2" src='./assets/difraccion17.png' width="600px" style="margin-top: 40px;")
+
+    slide.boredYet(:steps=3, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Multiple slits: diffraction grating
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion19.png' width="300px" style="margin-top: -40px;")
+      .center
+        img(v-if="step >= 2" src='./assets/difraccion18.png' width="600px" style="margin-top: 50px;")
+      .center
+        img(v-if="step >= 3" src='./assets/difraccion20.png' width="400px" style="margin-top: 50px;")
+
+    slide.boredYet(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Diffraction applications
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion21.png' width="300px" style="margin-top: -40px;")
+      .center
+        img(v-if="step >= 2" src='./assets/difraccion22.png' width="600px" style="margin-top: 10px;")
+
+    slide.boredYet(:steps=4, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Diffraction applications
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion23.png' width="446px" style="margin-top: -40px; margin-right: 40px;")
+        img(v-if="step >= 2" src='./assets/difraccion24.png' width="400px" style="margin-top: -40px;")
+      .center
+        img(v-if="step >= 3" src='./assets/difraccion25.png' width="200px" style="margin-top: 40px; margin-right: 40px;")
+        img(v-if="step >= 4" src='./assets/difraccion26.png' width="400px" style="margin-top: 40px; margin-left: 40px;")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 9
@@ -440,14 +581,6 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Mass variation
-      .center
-        img(src='./assets/massVariation.svg' width="500px")
-      p <b>m<sub>1</sub></b>: time interval measured by an observer when motion exist between him and the object
-      p <b>m<sub>2</sub></b>: time interval measured by an observer when <b>NO</b> motion exist between him and the object
-
     slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 10
@@ -460,6 +593,23 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -40px;") Polarization
+      .center
+        img(src='./assets/polarizacion1.png' width="500px" style="margin-top: 40px; margin-right: 20px;")
+        img(src='./assets/polarizacion2.png' width="255px" style="margin-top: 40px; margin-left: 20px;")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4.center(style="margin-top: -20px;") Polarization: Malus Law
+      .center
+        img(src='./assets/polarizacion3.png' width="400px" style="margin-top: -40px;")
+      .center
+        img(src='./assets/polarizacion4.png' width="600px")
+      .center
+        img(src='./assets/polarizacion5.png' width="300px" style="margin-top: 40px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -510,6 +660,7 @@ export default {
     'example-ten': require('./components/ExampleTen'),
     'example-eleven': require('./components/ExampleEleven'),
     'interference': require('./components/interference'),
+    'interference2': require('./components/interference2'),
     'sodoku': require('./components/Sodoku')
   },
 

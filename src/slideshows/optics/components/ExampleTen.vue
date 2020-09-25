@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem What speed must a proton have to increase {{ factor.toFixed(4) }} times its mass in rest?
+    p.problem Monochromatic light from a helium–neon laser (l 5 632.8 nm) is incident normally on a diffraction grating containing 6 000 grooves per centimeter. Find the angles at which the first- and second-order maxima are observed.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data v (in c)
