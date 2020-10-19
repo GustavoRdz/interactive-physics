@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=9, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -33,15 +33,9 @@
             <b>Reflection and Transmission</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 6")
-            <b>Rate of Energy Transfer of a Sinusoidal Wave in a String</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 7")
-            <b>The Linear Wave Equation</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 8")
             <b>Waves in interference, Resonance</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 9")
+          p(v-if="step >= 7")
             <b>Sound, Speed, Intensity and the Doppler Effect</b>
 
     slide(:steps=0, enter='bounceInDown')

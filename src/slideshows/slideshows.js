@@ -8,7 +8,8 @@ export default {
     require('./fluid-mechanics/FluidMechanics'),
     require('./temperature-heat/TemperatureHeat'),
     require('./relativity/Relativity'),
-    require('./optics/Optics')
+    require('./optics/Optics'),
+    require('./photoelectric/photoelectric')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),

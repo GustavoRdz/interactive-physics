@@ -151,11 +151,11 @@
       .center
           img.pressureFormula(src='./assets/equations/PressureDEf.svg')
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Pressure
-      h5.center Pressure machine
-      pressure-machine
+    //- slide(:steps=1, enter='bounceInDown')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    //-   h3 Pressure
+    //-   h5.center Pressure machine
+    //-   pressure-machine
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
