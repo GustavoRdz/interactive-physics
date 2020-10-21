@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Quantum physics
         img(src='./assets/microres4.jpg')
-        h4 Introduction:<br>Black body radiation<br> Photoelectric efect
+        h4 Introduction:<br>Black body radiation<br> Photoelectric effect
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -26,7 +26,7 @@
             <b>Black body radiation</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
           p(v-if="step >= 2")
-            <b>Plank hypotesis</b>
+            <b>Planck hypotesis</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
           p(v-if="step>=3")
             <b>Photoelectric effect</b>
@@ -159,238 +159,109 @@
         br
         span.small Ctrl + right
 
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Photoelectric effect
+      .center
+        img(src='./assets/photoelectricDevice.png' width="300px")
+
+    slide(:steps=3, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Photoelectric effect
+      p(style="color: blue;").center Features of the photoelectric effect
+      p(v-if="step >= 1") 1. <span style="color: red;"><b>Classical prediction</b></span>: Electrons should absorb energy continuously from electromagnetic waves.
+      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: The maximum kinetic energy of photoelectrons is independent of light intensity as shown in figure both curves fall to zero at the same negative voltage.
+      .center
+        img(src='./assets/photoelectricDevice.png' width="180px" v-if="step >=3" style="margin-right: 100px;")
+        img(src='./assets/currentVsV.png' width="400px" v-if="step >= 3" style="margin-left: 100px;")
+
     slide(:steps=2, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Photoelectric effect
-    //-   p For a given material, the refractive index varies with the wavelength of the light passing through the material.
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/dispersionGraph.png' width="300px")
-    //-     img(v-if="step >= 2" src='./assets/dispersionExample.png' width="300px")
+      h4.center Photoelectric effect
+      p(style="color: blue;").center Features of the photoelectric effect
+      p(v-if="step >= 1") 2. <span style="color: red;"><b>Classical prediction</b></span>: At low light intensities, a measurable time interval should pass between the instant the light is turned on and the time an electron is ejected from the metal.
+      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: Electrons are emitted from the surface of the metal almost instantaneously (less than 10<sup>-9</sup> s after the surface is illuminated), even at very low light intensities.
 
     slide(:steps=3, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Photoelectric effect
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/dispersionDrop.png' width="300px")
-    //-     img(v-if="step >= 2" src='./assets/dispersionBow.png' width="300px")
-    //-     img(v-if="step >= 3" src='./assets/dispersionRainbow.png', width="400px")
-
-    slide(:steps=4, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Photoelectric effect
-    //-   .center
-    //-     div(style="display: flex; justify-content: rigth;")
-    //-       div
-    //-         img(v-if="step >= 1" src='./assets/totalInternaEjemplos.png' width="700px")
-    //-       div
-    //-         img(v-if="step >= 2" src='./assets/snellLaw.png' width="500px" style="margin-bottom: 30px;")
-    //-         img(v-if="step >= 3" src='./assets/snellInterna1.png' width="500px" style="margin-bottom: 30px;")
-    //-         img(v-if="step >= 4" src='./assets/snellInterna2.png' width="500px")
+      h4(style="margin-top: -20px;").center Photoelectric effect
+      p(style="color: blue;").center Features of the photoelectric effect
+      p(v-if="step >= 1") 3. <span style="color: red;"><b>Classical prediction</b></span>: Electrons should be ejected from the metal at any incident light frequency, as long as the light intensity is high enough, because energy is transferred to the metal regardless of the incident light frequency.
+      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: No electrons are emitted if the incident light frequency falls below some cutoff frequency <b>f<sub>c</sub></b>, whose value is characteristic of the material being illuminated. No electrons are ejected below this cutoff frequency regardless of the light intensity.
+      .center
+        img(src='./assets/energyGraph.png' width="300px" v-if="step >= 3" style="margin-left: 100px;")
 
     slide(:steps=3, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4 Photoelectric effect
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/piscinaOlimpica.jpg' width="334px" style="margin-right: 30px;")
-    //-     img(v-if="step >= 2" src='./assets/espejismoBarco.jpg' width="400px")
-    //-     img(v-if="step >= 3" src='./assets/espejismoCarretera.jpg' width="500px")
+      h4.center Photoelectric effect
+      p(style="color: blue;").center Features of the photoelectric effect
+      p(v-if="step >= 1") 4. <span style="color: red;"><b>Classical prediction</b></span>: There should be no relationship between the frequency of the light and the electron kinetic energy. The kinetic energy should be related to the intensity of the light.
+      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: The maximum kinetic energy of the photoelectrons increases with increasing light frequency.
+      .center
+        img(src='./assets/energyGraph.png' width="330px" v-if="step >= 3")
 
-
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4 Photoelectric effect
-    //-   p(style="margin-top:-50px;").center Optical fiber
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/internaFibra.png' width="310px")
-    //-     img(v-if="step >= 2" src='./assets/esquemaFibra.png' width="240px" style="margin-left: 10px;")
-    //-     img(v-if="step >= 3" src='./assets/ejemplosFibras.png' width="500px" style="margin-left: 10px;")
+      h3(style="margin-top: -10px;") Photoelectric effect
+      h4.center Equation
+      .center
+        img(src='./assets/photoelectricEq.png' width="300px" style="margin-top: -10px;")
+      .left
+        p(style="padding-left:160px;") <b><span style="font-style: italic; font-family: times;">K</span><sub>max</sub></b>: photoelectron's maximum kinetic energy
+        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>h</b></span>: planck constant
+        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>f</b></span>: frequency of the photon
+        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>φ</b></span>: work function
 
-    //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h1(style="margin-top: -10px;") Image formation
-    //-   .center
-    //-     img(src='./assets/imageFormationFront.png' width="450px" style="margin-top: -10px;")
+    slide(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -40px;").center Photoelectric effect
+      h5(style="margin-top: -40px;").center Quantum features
+      .center
+        img(src='./assets/photoelectricEq.png' width="300px" style="margin-top: -10px;")
+      p 1. Dependence of photoelectron kinetic energy on light intensity equation shows that Kmax is independent of the light intensity.
+      p 2. Time interval between incidence of light and ejection of photoelectrons, near-instantaneous emission of electrons is consistent with the photon model of light.
+      p 3. Dependence of ejection of electrons on light frequency. Because the photon must have energy greater than the work function f to eject an electron, the photoelectric effect cannot be observed below a certain cutoff frequency.
+      p 4. Dependence of photoelectron kinetic energy on light frequency. A photon of higher frequency carries more energy and therefore ejects a photoelectron with more kinetic energy than does a photon of lower frequency.
 
-    //- slide(:steps=3, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: -40px;") Image formation
-    //-   h4(style="margin-top: -40px;").center Flat Mirror
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/espejoPlano1.png' width="300px" style="margin-right: 30px;")
-    //-     img(v-if="step >= 2" src='./assets/espejoPlano2.png' width="300px" style="margin-left: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/magnification.png' width="300px" style="margin-top: 50px;")
+    slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 3
+      example-three
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: -40px;") Image formation
-    //-   h4(style="margin-top: -40px;").center Spherical mirrors
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/concaveMirror.png' width="300px" style="margin-right: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/concaveSphericalMirror.png' width="400px" style="margin-right: 30px;")
 
-    //- slide(:steps=4, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Spherical mirrors
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/parallelConcave1.png' width="300px;")
-    //-     img(v-if="step >= 2" src='./assets/parallelConcave2.png' width="325px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/parallelConvex1.png' width="300px;")
-    //-     img(v-if="step >= 4" src='./assets/parallelConvex2.png' width="270px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -10px;") Exercise 4
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Sign conventions for mirrors
-    //-   .center
-    //-     img(src='./assets/signMirrors.png' width="300px;" style="margin-bottom:50px;")
-    //-     #table-wrapper
-    //-       table(style="width:90%;")#desc
-    //-         caption Sign convection
-    //-         tr
-    //-           th Quantity
-    //-           th Positive when ...
-    //-           th Negative when ...
-    //-         tr
-    //-           td Object location (<b>p</b>)
-    //-           td object is in front of mirror (<b>real object</b>).
-    //-           td object is in back of mirror (<b>virtual object</b>).
-    //-         tr
-    //-           td Image location (<b>q</b>)
-    //-           td image is in front of mirror (<b>real image</b>).
-    //-           td image is in back of mirror (<b>virtual image</b>).
-    //-         tr
-    //-           td Image height (<b>h'</b>)
-    //-           td image is <b>upright</b>.
-    //-           td image is <b>inverted</b>.
-    //-         tr
-    //-           td Focal length (<b>f</b>) and radius (<b>R</b>)
-    //-           td mirror is <b>concave</b>.
-    //-           td mirror is <b>convex</b>.
-    //-         tr
-    //-           td Magnification (<b>M</b>)
-    //-           td image is <b>upright</b>.
-    //-           td image is <b>inverted</b>.
-
-    //- slide(:steps=3, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Sign conventions for mirrors
-    //-   .center
-    //-     img(v-if="step >= 1"  src='./assets/trazoRayosA.png' width="400px;" style="margin-bottom:50px;")
-    //-     img(v-if="step >= 2"  src='./assets/trazoRayosB.png' width="400px;" style="margin-bottom:50px;")
-    //-     img(v-if="step >= 3"  src='./assets/trazoRayosC.png' width="400px;" style="margin-bottom:50px;")
-
-    //- slide(:steps=3, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Spherical mirrors equation
-    //-   .center
-    //-     img(v-if="step >= 1"  src='./assets/eqMirror1.png' width="300px;" style="margin-bottom:50px;")
-    //-   .center
-    //-     img(v-if="step >= 2"  src='./assets/eqFR.png' width="150px;" style="margin-bottom:50px;")
-    //-   .center
-    //-     img(v-if="step >= 3"  src='./assets/eqMirror2.png' width="300px;" style="margin-bottom:50px;")
-
-    //- slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3 Exercise 4
-    //-   example-four
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide(:steps=4, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Thin lenses
-    //-   .center
-    //-     p(style="margin-top: -40px; color: blue;") Convergent
-    //-     img(v-if="step >= 1"  src='./assets/lensConvergent.png' width="300px;" style="margin-bottom:50px;")
-    //-     img(v-if="step >= 3"  src='./assets/lensConvergent2.png' width="360px;" style="margin-bottom:50px; margin-left:40px;")
-    //-   .center
-    //-     p(v-if="step >= 2" style="margin-top: -40px; color: blue;") Divergent
-    //-     img(v-if="step >= 2"  src='./assets/lensDivergent.png' width="300px;" style="margin-bottom:50px;")
-    //-     img(v-if="step >= 4"  src='./assets/lensDivergent2.png' width="350px;" style="margin-bottom:50px; margin-left:40px;")
-
-    //- slide(:steps=3, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Ray tracing
-    //-   .center
-    //-     img(v-if="step >= 1"  src='./assets/lensRays2.png' width="400px;" style="margin-bottom:50px;")
-    //-     img(v-if="step >= 2"  src='./assets/lensRays3.png' width="280px;" style="margin-bottom:50px; margin-left:40px;")
-    //-   .center
-    //-     img(v-if="step >= 3"  src='./assets/lensRays4.png' width="300px;" style="margin-bottom:50px;")
-
-    //- slide(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Thin lens equation
-    //-   .center
-    //-     img(v-if="step >= 1"  src='./assets/eqMirror1.png' width="300px;" style="margin-bottom:50px;")
-    //-   .center
-    //-     img(v-if="step >= 2"  src='./assets/lensMagnification.png' width="300px;" style="margin-bottom:50px;")
-
-    //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -40px;").center Sign conventions for mirrors
-    //-   .center
-    //-     img(src='./assets/lensSigns.png' width="300px;" style="margin-bottom:50px;")
-    //-     #table-wrapper
-    //-       table(style="width:90%;")#desc
-    //-         caption Sign convection
-    //-         tr
-    //-           th Quantity
-    //-           th Positive when ...
-    //-           th Negative when ...
-    //-         tr
-    //-           td Object location (<b>p</b>)
-    //-           td object is in front of mirror (<b>real object</b>).
-    //-           td object is in back of mirror (<b>virtual object</b>).
-    //-         tr
-    //-           td Image location (<b>q</b>)
-    //-           td image is in back of mirror (<b>real image</b>).
-    //-           td image is in front of mirror (<b>virtual image</b>).
-    //-         tr
-    //-           td Image height (<b>h'</b>)
-    //-           td image is <b>upright</b>.
-    //-           td image is <b>inverted</b>.
-    //-         tr
-    //-           td Focal length (<b>f</b>) and radius (<b>R</b>)
-    //-           td lens is <b>convergent</b>.
-    //-           td lens is <b>Divergent</b>.
-    //-         tr
-    //-           td Magnification (<b>M</b>)
-    //-           td image is <b>upright</b>.
-    //-           td image is <b>inverted</b>.
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: -10px;") Exercise 5
-    //-   example-five
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3 Exercise 6
-    //-   example-six
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 5
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide(:steps=2, enter='bounceInDown')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>

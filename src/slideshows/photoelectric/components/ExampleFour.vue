@@ -1,43 +1,23 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A concave spherical mirror has a focus distance radius of curvature of magnitude {{ 2 * focus }} cm. (a) Find the location of the image for object distances of (i) {{ 4 * focus}} cm, (ii) {{ 2 * focus }} cm, and (iii) {{ focus }} cm. For each case, state whether the image is (b) real or virtual and (c) upright or inverted. (d) Find the magnification in each case.
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Focus (cm)
-        input.center.data(:class="checkedFocus" v-model.number='enterFocus')
-      p.inline.data  p<sub>i</sub> (cm)
-        input.center.data(:class="checkedPi" v-model.number='enterPi')
-      p.inline.data q<sub>i</sub> (cm)
-        input.center.data(:class="checkedQi" v-model.number='enterQi')
-      p.inline.data M<sub>i</sub>
-        input.center.data(:class="checkedMi" v-model='enterMi')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRVi" v-model='enterRVi')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIi" v-model='enterUIi')
-    .center
-      p.inline.data  p<sub>ii</sub> (cm)
-        input.center.data(:class="checkedPii" v-model.number='enterPii')
-      p.inline.data q<sub>ii</sub> (cm)
-        input.center.data(:class="checkedQii" v-model.number='enterQii')
-      p.inline.data M<sub>ii</sub>
-        input.center.data(:class="checkedMii" v-model='enterMii')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRVii" v-model='enterRVii')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIii" v-model='enterUIii')
-    .center
-      p.inline.data  p<sub>iii</sub> (cm)
-        input.center.data(:class="checkedPiii" v-model.number='enterPiii')
-      p.inline.data q<sub>iii</sub> (cm)
-        input.center.data(:class="checkedQiii" v-model.number='enterQiii')
-      p.inline.data M<sub>iii</sub>
-        input.center.data(:class="checkedMiii" v-model='enterMiii')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRViii" v-model='enterRViii')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIiii" v-model='enterUIiii')
+    p.problem The threshold frequency for a certain material is {{ thresholdF.toExponential() }} cycles/s.<br> a) Determine the maximum kinetic energy for photoelectrons when light, whose frequency is {{ frequency.toExponential() }} cycles/s, strikes that material.<br> b) Calculate the stopping potential and<br>c) finally find the maximum velocity of the photoelectrons.
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data f<sub>Th</sub> (Hz)
+    //-     input.center.data(:class="checkedFocus" v-model.number='enterFocus')
+    //-   p.inline.data  φ (J)
+    //-     input.center.data(:class="checkedPi" v-model.number='enterPi')
+    //-   p.inline.data f<sub>photon</sub> (Hz)
+    //-     input.center.data(:class="checkedQi" v-model.number='enterQi')
+    //-   p.inline.data E<sub>photon</sub> (J)
+    //-     input.center.data(:class="checkedMi" v-model='enterMi')
+    //-   p.inline.data K<sub>max</sub>
+    //-     input.center.data(:class="checkedRVi" v-model='enterRVi')
+    //-   p.inline.data V<sub>0</sub> (volts)
+    //-     input.center.data(:class="checkedUIi" v-model='enterUIi')
+    //-   p.inline.data  v<sub>max</sub> (m/s)
+    //-     input.center.data(:class="checkedPii" v-model.number='enterPii')
 
 </template>
 <script>
@@ -64,13 +44,15 @@ export default {
     }
   },
   computed: {
-    focus: function () {
-      let max = 50
-      let min = 10
-      return (Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 10)
+    thresholdF: function () {
+      let max = 200
+      let min = 100
+      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
-    qi: function () {
-      return Math.round(1000 * 4 * this.focus / 3) / 1000
+    frequency: function () {
+      let max = 250
+      let min = this.thresholdF / 1e15 + 10
+      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
     },
     qii: function () {
       return Math.round(1000 * 2 * this.focus) / 1000

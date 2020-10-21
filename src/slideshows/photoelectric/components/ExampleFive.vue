@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A converging lens has a focal length of {{ focus }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ 2 * focus }} cm and (b) {{ 5* focus }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ 2 * focus }} cm and (d) {{ 5 * focus }} cm.
+    p.problem Si la función trabajo de un material dado es de 4.3 eV, ¿cuál es la energía cinética máxima de los electrones expulsados de una superficie pulida de ese material por la línea ultravioleta de 2537 Å del mercurio (1Å  1010 m). Determine también la velocidad máxima y el potencial de frenado.A converging lens has a focal length of {{ focus }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ 2 * focus }} cm and (b) {{ 5* focus }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ 2 * focus }} cm and (d) {{ 5 * focus }} cm.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Focus (cm)

@@ -7,17 +7,17 @@ eg-transition(:enter='enter', :leave='leave')
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data A) Temp. (K)
+      p.inline.data A) T (K)
         input.center.data(:class="checkedTA" v-model='enterTA')
-      p.inline.data A) lambda (m)
+      p.inline.data A) λ (m)
         input.center.data(:class="checkedA" v-model='enterA')
-      p.inline.data B) Temp. (K)
+      p.inline.data B) T (K)
         input.center.data(:class="checkedTB" v-model='enterTB')
-      p.inline.data B) lambda (m)
+      p.inline.data B) λ (m)
         input.center.data(:class="checkedB" v-model='enterB')
-      p.inline.data C) Temp. (K)
+      p.inline.data C) T (K)
         input.center.data(:class="checkedTC" v-model='enterTC')
-      p.inline.data C) lambda (m)
+      p.inline.data C) λ (m)
         input.center.data(:class="checkedC" v-model.number='enterC')
 
 </template>

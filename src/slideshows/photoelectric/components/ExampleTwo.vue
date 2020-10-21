@@ -1,20 +1,22 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A 2.00-kg block is attached to a massless spring that has a force constant of k 5 25.0 N/m. The spring is stretched 0.400 m from its equilibrium position and released from rest. <br>(A) Find the total energy of the system and the frequency of oscillation according to classical calculations. (B) Assuming the energy of the oscillator is quantized, find the quantum number n for the system oscillating with this amplitude.
+    p.problem A {{ mass }}-kg block is attached to a massless spring that has a force constant of k = {{ elasticK }} N/m. The spring is stretched {{ amplitude }} m from its equilibrium position and released from rest. <br>(A) Find the total energy of the system and the frequency of oscillation according to classical calculations. (B) Assuming the energy of the oscillator is quantized, find the quantum number n for the system oscillating with this amplitude.
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data Block mass (kg)
-    //-     input.center.data(:class="checkedIncident" v-model.number='enterIncident')
-    //-   p.inline.data Force const. (N/m)
-    //-     input.center.data(:class="checkedAngleA" v-model.number='enterAngleA')
-    //-   p.inline.data Amplitude (m)
-    //-     input.center.data(:class="checkedAngleB" v-model.number='enterAngleB')
-    //-   p.inline.data c) angle (degrees)
-    //-     input.center.data(:class="checkedAngleC" v-model='enterAngleC')
-    //-   p.inline.data Max. deviation: a, b or c?
-    //-     input.center.data(:class="checkedDev" v-model='enterDev')
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data mass (kg)
+        input.center.data(:class="checkedMass" v-model.number='enterMass')
+      p.inline.data k (N/m)
+        input.center.data(:class="checkedK" v-model.number='enterK')
+      p.inline.data Amplitude (m)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+      p.inline.data A) Classical energy (J)
+        input.center.data(:class="checkedEc" v-model='enterEc')
+      p.inline.data frequency (Hz)
+        input.center.data(:class="checkedF" v-model='enterF')
+      p.inline.data B) n
+        input.center.data(:class="checkedN" v-model='enterN')
 
 </template>
 <script>
@@ -22,100 +24,73 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterIncident: '',
-      enterAngleA: '',
-      enterAngleB: '',
-      enterAngleC: '',
-      enterDev: '',
-      materials: [
-        {material: 'Cubic zirconia', index: 2.20},
-        {material: 'Benzene', index: 1.501},
-        {material: 'Diamond (C)', index: 2.419},
-        {material: 'Carbon disulfide', index: 1.628},
-        {material: 'Fluorite (CaF2)', index: 1.434},
-        {material: 'Carbon tetrachloride', index: 1.461},
-        {material: 'Fused quartz (SiO2)', index: 1.458},
-        {material: 'Ethyl alcohol', index: 1.361},
-        {material: 'Gallium phosphide', index: 3.50},
-        {material: 'Glycerin', index: 1.473},
-        {material: 'Glass, crown', index: 1.52},
-        {material: 'Water', index: 1.333},
-        {material: 'Glass, flint', index: 1.66},
-        {material: 'Ice (H2O)', index: 1.309},
-        {material: 'Polystyrene', index: 1.49},
-        {material: 'Air', index: 1.000},
-        {material: 'Sodium chloride (NaCl)', index: 1.544},
-        {material: 'Carbon dioxide', index: 1.000}
-      ],
-      row: [],
-      angles: []
+      enterMass: '',
+      enterK: '',
+      enterA: '',
+      enterEc: '',
+      enterF: '',
+      enterN: ''
     }
   },
   computed: {
-    incident: function () {
-      let max = 70
-      let min = 20
-      return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
+    mass: function () {
+      let max = 500
+      let min = 100
+      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
-    materialIndex: function () {
-      for (let i = 0; i < 18; i++) {
-        let data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
-        for (let j = 0; j < 4; j++) {
-          // console.log('(row, col): numero ==>' + '(' + i + ',' + j + '): ' + this.row)
-          let index = Math.floor(Math.random() * data.length)
-          // console.log('index: ' + index)
-          this.row[j] = data.slice(index, index + 1)[0]
-          data.splice(index, 1)
-          // console.log('row[j]: ' + this.row[j])
-          // console.log('data: ' + data)
-        }
-      }
-      return this.row
+    elasticK: function () {
+      let max = 500
+      let min = 200
+      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 10
     },
-    transmitted: function () {
-      for (let i = 0; i < 3; i++) {
-        this.angles[i] = Math.round(1000 * 180 * (Math.asin(Math.sin(this.incident * Math.PI / 180) / this.materials[this.materialIndex[i]].index)) / Math.PI) / 1000
-      }
-      return this.angles
+    amplitude: function () {
+      let max = 50
+      let min = 10
+      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
-    deviation: function () {
-      let dev = 0
-      let op = ['a', 'b', 'c']
-      for (let i = 0; i < 3; i++) {
-        if (this.materials[this.materialIndex[i]].index > this.materials[this.materialIndex[dev]].index) {
-          dev = i
-        }
-      }
-      return op[dev]
+    energy: function () {
+      return Math.floor(1000 * (this.elasticK * this.amplitude ** 2 / 2)) / 1000
     },
-    checkedIncident: function () {
+    frequency: function () {
+      return Math.floor(1000 * (Math.sqrt(this.elasticK / this.mass) / (2 * Math.PI))) / 1000
+    },
+    level: function () {
+      return parseFloat((this.energy / (6.626e-34 * this.frequency)).toPrecision(4))
+    },
+    checkedMass: function () {
       let check
-      console.log('Incident => ' + this.incident + ' : ' + parseFloat(this.enterIncident))
-      check = this.incident === parseFloat(this.enterIncident) ? 'correct' : 'not-correct'
+      console.log('Mass => ' + this.mass + ' : ' + parseFloat(this.enterMass))
+      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngleA: function () {
+    checkedK: function () {
       let check
-      console.log('AngleA => ' + this.transmitted[0] + ' : ' + parseFloat(this.enterAngleA))
-      check = this.transmitted[0] === parseFloat(this.enterAngleA) ? 'correct' : 'not-correct'
+      console.log('K => ' + this.elasticK + ' : ' + parseFloat(this.enterK))
+      check = this.elasticK === parseFloat(this.enterK) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngleB: function () {
+    checkedA: function () {
       let check
-      console.log('AngelB=> ' + this.transmitted[1] + ' : ' + parseFloat(this.enterAngleB))
-      check = this.transmitted[1] === parseFloat(this.enterAngleB) ? 'correct' : 'not-correct'
+      console.log('Amplitude => ' + this.amplitude + ' : ' + parseFloat(this.enterA))
+      check = this.amplitude === parseFloat(this.enterA) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngleC: function () {
+    checkedEc: function () {
       let check
-      console.log('AngleC => ' + this.transmitted[2] + ' : ' + parseFloat(this.enterAngleC))
-      check = this.transmitted[2] === parseFloat(this.enterAngleC) ? 'correct' : 'not-correct'
+      console.log('classical energy => ' + this.energy + ' : ' + parseFloat(this.enterEc))
+      check = this.energy === parseFloat(this.enterEc) ? 'correct' : 'not-correct'
       return check
     },
-    checkedDev: function () {
+    checkedF: function () {
       let check
-      console.log('Max deviation => ' + this.deviation + ' : ' + this.enterDev)
-      check = this.deviation === this.enterDev ? 'correct' : 'not-correct'
+      console.log('Frequency => ' + this.frequency + ' : ' + this.enterF)
+      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedN: function () {
+      let check
+      console.log('Level => ' + this.level + ' : ' + this.enterN)
+      check = this.level === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     }
   },
