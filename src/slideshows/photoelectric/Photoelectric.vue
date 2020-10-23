@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Quantum physics
         img(src='./assets/microres4.jpg')
-        h4 Introduction:<br>Black body radiation<br> Photoelectric effect
+        h4 Introduction:<br>Black body radiation<br> Photoelectric effect<br> Compton scattering
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }} </sup>
 
-    slide(:steps=3, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
@@ -30,12 +30,16 @@
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
           p(v-if="step>=3")
             <b>Photoelectric effect</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
+          p(v-if="step>=4")
+            <b>Compton scattering</b>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top:-20px;") Thermal radiation
+      h1 Black body radiation
+      h3(style="margin-top:0px;") Thermal radiation
       .center
-        img(src='./assets/filament.png' width="500px")
+        img(src='./assets/filament.png' width="300px")
 
 
     slide(:steps=1, enter='bounceInDown')
@@ -263,21 +267,19 @@
         br
         span.small Ctrl + right
 
-    //- slide(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h1.center Physical Optics
-    //-   h3 Wave Optics
-    //-   h6.center Interference
-    //-   h6.center Difraction
-    //-   h6.center Polarization
+    slide(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Photoelectric effect application
+      .center
+        img(v-if="step >= 1" src='./assets/photomultiplier.png' width="350px" style="margin-top: -30px;")
 
 
-    //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3.center Interference
-    //-   p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
-    //-   .center
-    //-     interference
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h1 Compoton scattering
+      p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
+      .center
+        interference
 
     //- slide(:steps=1, enter='bounceInDown')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>

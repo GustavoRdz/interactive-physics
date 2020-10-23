@@ -1,54 +1,19 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Si la función trabajo de un material dado es de 4.3 eV, ¿cuál es la energía cinética máxima de los electrones expulsados de una superficie pulida de ese material por la línea ultravioleta de 2537 Å del mercurio (1Å  1010 m). Determine también la velocidad máxima y el potencial de frenado.A converging lens has a focal length of {{ focus }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ 2 * focus }} cm and (b) {{ 5* focus }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ 2 * focus }} cm and (d) {{ 5 * focus }} cm.
+    p.problem If the work function of a given material is {{ work }} eV, what is the maximum kinetic energy of electrons ejected from a polished surface of that material by the {{ wavelength }} Å ultraviolet line of mercury (1Å = 10<sup>-10</sup> m). Also determine the maximum speed and stopping potential.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Focus (cm)
-        input.center.data(:class="checkedFocus" v-model.number='enterFocus')
-      p.inline.data  p<sub>a</sub> (cm)
-        input.center.data(:class="checkedPi" v-model.number='enterPi')
-      p.inline.data q<sub>a</sub> (cm)
-        input.center.data(:class="checkedQi" v-model.number='enterQi')
-      p.inline.data M<sub>a</sub>
-        input.center.data(:class="checkedMi" v-model='enterMi')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRVi" v-model='enterRVi')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIi" v-model='enterUIi')
-    .center
-      p.inline.data  p<sub>b</sub> (cm)
-        input.center.data(:class="checkedPii" v-model.number='enterPii')
-      p.inline.data q<sub>b</sub> (cm)
-        input.center.data(:class="checkedQii" v-model.number='enterQii')
-      p.inline.data M<sub>b</sub>
-        input.center.data(:class="checkedMii" v-model='enterMii')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRVii" v-model='enterRVii')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIii" v-model='enterUIii')
-    .center
-      p.inline.data  p<sub>c</sub> (cm)
-        input.center.data(:class="checkedPiii" v-model.number='enterPiii')
-      p.inline.data q<sub>c</sub> (cm)
-        input.center.data(:class="checkedQiii" v-model.number='enterQiii')
-      p.inline.data M<sub>c</sub>
-        input.center.data(:class="checkedMiii" v-model='enterMiii')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRViii" v-model='enterRViii')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIiii" v-model='enterUIiii')
-    .center
-      p.inline.data  p<sub>d</sub> (cm)
-        input.center.data(:class="checkedPiiii" v-model.number='enterPiiii')
-      p.inline.data q<sub>d</sub> (cm)
-        input.center.data(:class="checkedQiiii" v-model.number='enterQiiii')
-      p.inline.data M<sub>d</sub>
-        input.center.data(:class="checkedMiiii" v-model='enterMiiii')
-      p.inline.data Real or virtual?
-        input.center.data(:class="checkedRViiii" v-model='enterRViiii')
-      p.inline.data upright or inverted
-        input.center.data(:class="checkedUIiiii" v-model='enterUIiiii')
+      p.inline.data φ (J)
+        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
+      p.inline.data  λ (m)
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data K<sub>max</sub> (J)
+        input.center.data(:class="checkedKmax" v-model.number='enterKmax')
+      p.inline.data v<sub>max</sub> (m/s)
+        input.center.data(:class="checkedVmax" v-model='enterVmax')
+      p.inline.data V<sub>0</sub> (volts)
+        input.center.data(:class="checkedV0" v-model='enterV0')
 
 </template>
 <script>
@@ -56,207 +21,68 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterFocus: '',
-      enterPi: '',
-      enterPii: '',
-      enterPiii: '',
-      enterPiiii: '',
-      enterQi: '',
-      enterQii: '',
-      enterQiii: '',
-      enterQiiii: '',
-      enterMi: '',
-      enterMii: '',
-      enterMiii: '',
-      enterMiiii: '',
-      enterRVi: '',
-      enterRVii: '',
-      enterRViii: '',
-      enterRViiii: '',
-      enterUIi: '',
-      enterUIii: '',
-      enterUIiii: '',
-      enterUIiiii: ''
+      enterPhi: '',
+      enterL: '',
+      enterKmax: '',
+      enterVmax: '',
+      enterV0: '',
+      h: 6.626e-34,
+      e: 1.6e-19,
+      c: 3e8,
+      me: 9.1e-31
     }
   },
   computed: {
-    focus: function () {
-      let max = 50
-      let min = 10
-      return (Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 10)
+    work: function () {
+      let max = 500
+      let min = 400
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
     },
-    pi: function () {
-      return Math.round(1000 * 2 * this.focus) / 1000
+    wavelength: function () {
+      let max = 3000
+      let min = 2000
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    pii: function () {
-      return Math.round(1000 * 5 * this.focus / 4) / 1000
+    phi: function () {
+      return parseFloat((this.work * this.e).toPrecision(4))
     },
-    piii: function () {
-      return Math.round(1000 * 2 * this.focus / 3) / 1000
+    kMax: function () {
+      return parseFloat((this.h * this.c / (this.wavelength * 1e-10) - this.phi).toPrecision(4))
     },
-    piiii: function () {
-      return Math.round(1000 * 5 * this.focus / 6) / 1000
+    vMax: function () {
+      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
     },
-    Mi: function () {
-      return Math.round(-1000 * 2 * this.focus / this.pi) / 1000
+    v0: function () {
+      return parseFloat((this.kMax / this.e).toPrecision(4))
     },
-    Mii: function () {
-      return Math.round(-1000 * 5 * this.focus / this.pii) / 1000
-    },
-    Miii: function () {
-      return Math.round(-1000 * -2 * this.focus / this.piii) / 1000
-    },
-    Miiii: function () {
-      return Math.round(-1000 * -5 * this.focus / this.piiii) / 1000
-    },
-    rVi: function () {
-      return 'real'
-    },
-    rVii: function () {
-      return 'real'
-    },
-    rViii: function () {
-      return 'real'
-    },
-    rViiii: function () {
-      return 'real'
-    },
-    uIi: function () {
-      return 'inverted'
-    },
-    uIii: function () {
-      return 'inverted'
-    },
-    uIiii: function () {
-      return 'upright'
-    },
-    uIiiii: function () {
-      return 'upright'
-    },
-    checkedFocus: function () {
+    checkedPhi: function () {
       let check
-      console.log('Focus => ' + this.focus + ' : ' + parseFloat(this.enterFocus))
-      check = this.focus === parseFloat(this.enterFocus) ? 'correct' : 'not-correct'
+      console.log('phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
+      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPi: function () {
+    checkedL: function () {
       let check
-      console.log('Pi => ' + this.pi + ' : ' + parseFloat(this.enterPi))
-      check = this.pi === parseFloat(this.enterPi) ? 'correct' : 'not-correct'
+      console.log('λ => ' + this.wavelength * 1e-10 + ' : ' + parseFloat(this.enterL))
+      check = this.wavelength * 1e-10 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPii: function () {
+    checkedKmax: function () {
       let check
-      console.log('Pii => ' + this.pii + ' : ' + parseFloat(this.enterPii))
-      check = this.pii === parseFloat(this.enterPii) ? 'correct' : 'not-correct'
+      console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterKmax))
+      check = this.kMax === parseFloat(this.enterKmax) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPiii: function () {
+    checkedVmax: function () {
       let check
-      console.log('Piii => ' + this.piii + ' : ' + parseFloat(this.enterPiii))
-      check = this.piii === parseFloat(this.enterPiii) ? 'correct' : 'not-correct'
+      console.log('vmax => ' + this.vMax + ' : ' + parseFloat(this.enterVmax))
+      check = this.vMax === parseFloat(this.enterVmax) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPiiii: function () {
+    checkedV0: function () {
       let check
-      console.log('Piiii => ' + this.piiii + ' : ' + parseFloat(this.enterPiiii))
-      check = this.piiii === parseFloat(this.enterPiiii) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedQi: function () {
-      let check
-      console.log('Qi => ' + 2 * this.focus + ' : ' + parseFloat(this.enterQi))
-      check = 2 * this.focus === parseFloat(this.enterQi) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedQii: function () {
-      let check
-      console.log('Qii => ' + 5 * this.focus + ' : ' + parseFloat(this.enterQii))
-      check = 5 * this.focus === parseFloat(this.enterQii) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedQiii: function () {
-      let check
-      console.log('Qiii => ' + (-2 * this.focus) + ' : ' + this.enterQiii)
-      check = (-2 * this.focus) === this.enterQiii ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedQiiii: function () {
-      let check
-      console.log('Qiiii => ' + (-5 * this.focus) + ' : ' + this.enterQiiii)
-      check = (-5 * this.focus) === this.enterQiiii ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMi: function () {
-      let check
-      console.log('Mi: ' + this.Mi + ' : ' + parseFloat(this.Mi))
-      check = this.Mi === parseFloat(this.enterMi) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMii: function () {
-      let check
-      console.log('Mii: ' + this.Mii + ' : ' + parseFloat(this.Mii))
-      check = this.Mii === parseFloat(this.enterMii) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMiii: function () {
-      let check
-      console.log('Miii: ' + this.Miii + ' : ' + parseFloat(this.Miii))
-      check = this.Miii === parseFloat(this.enterMiii) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMiiii: function () {
-      let check
-      console.log('Miiii: ' + this.Miiii + ' : ' + parseFloat(this.Miiii))
-      check = this.Miiii === parseFloat(this.enterMiiii) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedRVi: function () {
-      let check
-      console.log('Real o vitual i=> ' + this.rVi + ' : ' + this.enterRVi.toString().toLowerCase())
-      check = this.rVi === this.enterRVi.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedRVii: function () {
-      let check
-      console.log('Real o vitual ii=> ' + this.rVii + ' : ' + this.enterRVii.toString().toLowerCase())
-      check = this.rVii === this.enterRVii.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedRViii: function () {
-      let check
-      console.log('Real o vitual iii=> ' + this.rViii + ' : ' + this.enterRViii.toString().toLowerCase())
-      check = this.rViii === this.enterRViii.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedRViiii: function () {
-      let check
-      console.log('Real o vitual iiii=> ' + this.rViiii + ' : ' + this.enterRViiii.toString().toLowerCase())
-      check = this.rViiii === this.enterRViiii.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUIi: function () {
-      let check
-      console.log('Upright or inverted i=> ' + this.uIi + ' : ' + this.enterUIi.toString().toLowerCase())
-      check = this.uIi === this.enterUIi.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUIii: function () {
-      let check
-      console.log('Upright or inverted ii=> ' + this.uIii + ' : ' + this.enterUIii.toString().toLowerCase())
-      check = this.uIii === this.enterUIii.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUIiii: function () {
-      let check
-      console.log('Upright or inverted iii=> ' + this.uIiii + ' : ' + this.enterUIiii.toString().toLowerCase())
-      check = this.uIiii === this.enterUIiii.toString().toLowerCase() ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUIiiii: function () {
-      let check
-      console.log('Upright or inverted iiii=> ' + this.uIiiii + ' : ' + this.enterUIiiii.toString().toLowerCase())
-      check = this.uIiiii === this.enterUIiiii.toString().toLowerCase() ? 'correct' : 'not-correct'
+      console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
+      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
       return check
     }
   },

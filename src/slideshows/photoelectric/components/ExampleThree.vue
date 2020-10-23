@@ -82,7 +82,7 @@ export default {
     wavelength: function () {
       let max = this.wavelengthC * 1e9
       let min = 100
-      return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * 1e-9
+      return parseFloat((Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * 1e-9).toPrecision(4)
     },
     material: function () {
       return Math.floor((Math.random() * 46)) + 1
