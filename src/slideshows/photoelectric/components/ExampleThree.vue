@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A <b>{{ materials[material].name }}</b> surface is illuminated with light having a wavelength of {{ wavelength }} nm. The work function for <b>{{ materials[material].material }}</b> metal is {{ materials[material].phi }} eV.<br>(A) Find the maximum kinetic energy of the ejected photoelectrons.<br>B) Find the cutoff wavelength λ<sub>c</sub> for sodium.
+    p.problem A <b>{{ materials[material].name }}</b> surface is illuminated with light having a wavelength of {{ wavelength }} nm. The work function for <b>{{ materials[material].material }}</b> metal is {{ materials[material].phi }} eV.<br>(A) Find the maximum kinetic energy of the ejected photoelectrons.<br>B) Find the cutoff wavelength λ<sub>c</sub> for <b>{{ materials[material].name }}</b>.
     .center
       //img(src='../assets/example2.png' width="200px" style="margin: -100px 0 50px 200px;")
     .center

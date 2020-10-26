@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Quantum physics
         img(src='./assets/microres4.jpg')
-        h4 Introduction:<br>Black body radiation<br> Photoelectric effect<br> Compton scattering
+        h4 Black body radiation<br> Photoelectric effect<br> X Rays
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -32,7 +32,7 @@
             <b>Photoelectric effect</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
           p(v-if="step>=4")
-            <b>Compton scattering</b>
+            <b>X Rays</b>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -267,94 +267,83 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Photoelectric effect application
       .center
-        img(v-if="step >= 1" src='./assets/photomultiplier.png' width="350px" style="margin-top: -30px;")
+        img(src='./assets/photomultiplier.png' width="350px" style="margin-top: -30px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h1 Compoton scattering
-      p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
+      h1(style="margin-top:-20px") X Rays
       .center
-        interference
+        img(src='./assets/firstXrayImage.jpg' width="500px" style="margin-top: -0px;")
+      p.center X-rays were first discovered in 1895<br>German physicist Wilhelm Conrad Röntgen (1845 – 1923).
 
-    //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3.center Interference
-    //-   p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
-    //-   .center
-    //-     interference2
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h1(style="margin-top:-20px") X Rays
+      h6.center themes
+      p.center Bremsstrahlung, X-rays origins
+      p.center Compton scattering
 
-    //- slide(:steps=5, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top:-30px;").center Young experiment
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/youngA.png' width="400px")
-    //-     img(v-if="step >= 2" src='./assets/youngB.png' width="235px" style="margin-left:30px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/fringeBright.png' width="600px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 4" src='./assets/fringeDark.png' width="600px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 5" src='./assets/yTan.png' width="150px" style="margin-top:30px;")
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3.center X-Rays
+      h6.center Characteristics
+      ul(style="padding-left:150px;")
+        li It is electromagnetic radiation
+        li Wavelength range: λ = 0.01 - 10 nanometers (1nm = 1x10<sup>-9</sup>)
+        li Frequency range: f = 30 petaHertz - 30 exaHertz (30x10<sup>15</sup> - 30x10<sup>18</sup>Hz)
+        li Energy: E = 100eV - 100keV
 
-    //- slide(:steps=6, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h5.center Young experiment
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/fringeBright.png' width="600px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/fringeDark.png' width="600px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/yTan.png' width="200px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 4" src='./assets/yBright0.png' width="400px" style="margin-top:20px;")
-    //-     img(v-if="step >= 5" src='./assets/yDark0.png' width="370px" style="margin-top:20px; margin-left: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 6" src='./assets/yBright.png' width="500px" style="margin-top:30px;")
-    //-   .center
-    //-     img(v-if="step >= 6" src='./assets/yDark.png' width="500px" style="margin-top:30px;")
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top:-30px;").center X-ray tube
+      .center
+        img(src="./assets/coolidge_xray_tube.jpg")
+        p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: -20px;") Exercise 7
-    //-   .center
-    //-     img(src='./assets/youngA.png' width="200px" style="margin-top:-30px; object-fit: cover; width: 300px; height: 210px; object-position: -40% 0;")
-    //-   example-seven(style="margin-top: -30px;")
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top:-30px;").center X-ray tube
+      h6.center Modern X-ray tube
+      p(style="margin-top: -50px;").center
+        img(src="./assets/modernXrayTube.png" width="800px;")
+        p.center <span style="font-size: 20px;">Taken without permision from: Handbook of X-ray imaging.  PAolo Russo, editor. Fig 2.2</span>
 
-    //- slide.boredYet(:steps=6, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/interf1.png' width="240px" style="margin-right: 15px;")
-    //-     img(v-if="step >= 1" src='./assets/interf2.png' width="300px" style="margin-left: 15px;")
-    //-     p(v-if="step >= 2" style="color: blue; margin-top: -5px; margin-bottom: -0px") then
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/interf5.png' width="600px")
-    //-     p(v-if="step >= 3" style="color: blue; margin-top: -5px; margin-bottom: -0px") with
-    //-     img(v-if="step >= 3" src='./assets/interf6.png' width="300px")
-    //-     p(v-if="step >= 4" style="color: blue; margin-top: -5px; margin-bottom: -0px") and
-    //-   .center
-    //-     img(v-if="step >= 4" src='./assets/interf7.png' width="100px" style="margin-right: 15px;")
-    //-     | <span v-if="step >= 4" style="color: blue; font-size: 20px;">and</span>
-    //-     img(v-if="step >= 4" src='./assets/interf8.png' width="60px" style="margin-left: 15px;")
-    //-     p(v-if="step >= 5" style="color: blue; margin-top: -5px; margin-bottom: 10px") we have
-    //-   .center
-    //-     img(v-if="step >= 5" src='./assets/interf9.png' width="500px" style="margin-bottom: 25px;")
-    //-   .center
-    //-     p(v-if="step >= 6" style="color: blue; margin-top: -5px; margin-bottom: 10px") and the intensity
-    //-     img(v-if="step >= 6" src='./assets/interf10.png' width="500px" style="margin-right: 15px;")
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3.center X-Ray Spectrum
+      .center
+        img(src='./assets/xRaySpectrum.jpg' width="500px" style="margin-top:30px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4.center Bremsstrahlung: Breaking radiation
+      .center
+        img(src='./assets/bremsstrahlungChar.png' width="600px" style="margin-top:30px;")
+        p(style="font-size: 20px;") Image from: X-ray imaging using 100 μm thick Gas Electron Multipliers operating in Kr-CO2 mixtures. Rita Roque, 2018
+
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Energy in breaking radiation
+      p <span style="color: blue;"><b>Cases 1, 2</b></span>: The resulting photon has the diference of energy that the electron has after and before the interaction
+      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sub style="font-size: 15px;">0</sub><sup style="font-size: 20px;">2</sup> - <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sub style="font-size: 15px;">f</sub><sup style="font-size: 20px;">2</sup> = hf
+      p <span style="color: blue;"><b>Case 3</b></span>: The energy tranfer from electron to photos is the maximum:
+      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = hf
+      p <span style="color: blue;"><b>Case 4</b></span>: The photon energy is detemined by the electronic transition
+      p The electron speed is determined by the electric potential that is applied between electrodes.
+      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = eV
+
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -20px;") Compton effect
+      .center
+
 
     //- slide.boredYet(:steps=5, enter='bounceInDown')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -538,7 +527,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Photoelectric',
-    description: 'Black body radiation and the Photoelectric effect',
+    description: 'Introduction to quantum physics',
     path: 'photoelectric'
   },
   components: {
