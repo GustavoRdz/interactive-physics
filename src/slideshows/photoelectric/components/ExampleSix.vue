@@ -1,34 +1,19 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ h1 }}-cm-tall object is {{ p1 }} cm to the left of a converging lens of focal length {{ f1 }} cm. A second converging lens, this one having a focal length of {{ f2 }} cm, is located {{ distance }} cm to the right of the first lens along the same optic axis. Find the location, height and magnification of the final image.
+    p.problem An X-ray photon whose wavelength is {{ (lambda1 * 1e10).toPrecision(3)}} Å collides with an electron, scattered photons are detected at an angle of {{ theta }}º to its original path. Calculate:<br>a) The electron scattering angle<br> B) The kinetic energy of the electron.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data h<sub>1</sub> (cm)
-        input.center.data(:class="checkedH1" v-model.number='enterH1')
-      p.inline.data p<sub>1</sub> (cm)
-        input.center.data(:class="checkedP1" v-model.number='enterP1')
-      p.inline.data q<sub>1</sub> (cm)
-        input.center.data(:class="checkedQ1" v-model.number='enterQ1')
-      p.inline.data M<sub>1</sub>
-        input.center.data(:class="checkedM1" v-model.number='enterM1')
-      p.inline.data h'<sub>1</sub> (cm)
-        input.center.data(:class="checkedH11" v-model.number='enterH11')
-      p.inline.data distance between lenses (cm)
-        input.center.data(:class="checkedDistance" v-model.number='enterDistance')
-      .center
-      p.inline.data h<sub>2</sub> (cm)
-        input.center.data(:class="checkedH2" v-model.number='enterH2')
-      p.inline.data p<sub>2</sub> (cm)
-        input.center.data(:class="checkedP2" v-model.number='enterP2')
-      p.inline.data q<sub>2</sub> (cm)
-        input.center.data(:class="checkedQ2" v-model.number='enterQ2')
-      p.inline.data M<sub>2</sub>
-        input.center.data(:class="checkedM2" v-model.number='enterM2')
-      p.inline.data h<sub>2</sub> (cm)
-        input.center.data(:class="checkedH21" v-model.number='enterH21')
-      p.inline.data M<sub>T</sub>
-        input.center.data(:class="checkedMt" v-model.number='enterMt')
+      p.inline.data λ<sub>1</sub> (m)
+        input.center.data(:class="checkedLambda1" v-model.number='enterLambda1')
+      p.inline.data θ (º)
+        input.center.data(:class="checkedTheta" v-model.number='enterTheta')
+      p.inline.data λ<sub>2</sub> (m)
+        input.center.data(:class="checkedLambda2" v-model.number='enterLambda2')
+      p.inline.data φ (º)
+        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
+      p.inline.data K<sub>e</sub> (J)
+        input.center.data(:class="checkedKe" v-model.number='enterKe')
 
 </template>
 <script>
@@ -36,141 +21,64 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterH1: '',
-      enterH11: '',
-      enterH2: '',
-      enterH21: '',
-      enterP1: '',
-      enterP2: '',
-      enterQ1: '',
-      enterQ2: '',
-      enterM1: '',
-      enterM2: '',
-      enterDistance: '',
-      enterMt: ''
+      enterLambda1: '',
+      enterTheta: '',
+      enterLambda2: '',
+      enterPhi: '',
+      enterKe: '',
+      h: 6.626e-34,
+      m: 9.1e-31,
+      c: 3e8
     }
   },
   computed: {
-    h1: function () {
-      let max = 30
+    lambda1: function () {
+      let max = 1000
+      let min = 100
+      return parseFloat((1e-12 * Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100).toPrecision(4))
+    },
+    theta: function () {
+      let max = 350
       let min = 10
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 10
-    },
-    p1: function () {
-      let max = 3 * this.f1
-      let min = 3 * this.f1 / 2
       return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
     },
-    f1: function () {
-      let max = 50
-      let min = 30
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    lambda2: function () {
+      return parseFloat((this.lambda1 + this.h * (1 - Math.cos(this.theta * Math.PI / 180)) / (this.m * this.c)).toPrecision(3))
     },
-    f2: function () {
-      let max = 2 * this.f1
-      let min = 3 * this.f1 / 2
-      console.log('min: ' + min)
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    phi: function () {
+      return Math.round(100 * Math.atan(this.lambda1 * Math.sin(this.theta * Math.PI / 180) / (this.lambda2 - this.lambda1 * Math.cos(this.theta * Math.PI / 180))) * 180 / Math.PI) / 100
     },
-    distance: function () {
-      let max = 3 * this.f1
-      let min = 2 * this.f1
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    Ke: function () {
+      return parseFloat((this.h * this.c * (1 / this.lambda1 - 1 / this.lambda2)).toPrecision(3))
     },
-    q1: function () {
-      return Math.round(1000 * this.p1 * this.f1 / (this.p1 - this.f1)) / 1000
-    },
-    m1: function () {
-      return Math.round(1000 * -this.q1 / this.p1) / 1000
-    },
-    h11: function () {
-      return parseFloat((this.m1 * this.h1).toPrecision(3))
-    },
-    p2: function () {
-      return parseFloat((this.distance - this.q1).toPrecision(3))
-    },
-    q2: function () {
-      return parseFloat((this.p2 * this.f2 / (this.p2 - this.f2)).toPrecision(3))
-    },
-    m2: function () {
-      return parseFloat((-this.q2 / this.p2).toPrecision(3))
-    },
-    h21: function () {
-      return parseFloat((this.m2 * this.h11).toPrecision(3))
-    },
-    mt: function () {
-      return parseFloat((this.m1 * this.m2).toPrecision(3))
-    },
-    checkedH1: function () {
+    checkedLambda1: function () {
       let check
-      console.log('H1 => ' + this.h1 + ' : ' + parseFloat(this.enterH1))
-      check = this.h1 === parseFloat(this.enterH1) ? 'correct' : 'not-correct'
+      console.log('Lambda1 => ' + this.lambda1 + ' : ' + parseFloat(this.enterLambda1))
+      check = this.lambda1 === parseFloat(this.enterLambda1) ? 'correct' : 'not-correct'
       return check
     },
-    checkedP1: function () {
+    checkedTheta: function () {
       let check
-      console.log('P1 => ' + this.p1 + ' : ' + parseFloat(this.enterP1))
-      check = this.p1 === parseFloat(this.enterP1) ? 'correct' : 'not-correct'
+      console.log('Theta => ' + this.theta + ' : ' + parseFloat(this.enterTheta))
+      check = this.theta === parseFloat(this.enterTheta) ? 'correct' : 'not-correct'
       return check
     },
-    checkedQ1: function () {
+    checkedLambda2: function () {
       let check
-      console.log('Q1 => ' + this.q1 + ' : ' + parseFloat(this.enterQ1))
-      check = this.q1 === parseFloat(this.enterQ1) ? 'correct' : 'not-correct'
+      console.log('Lambda2 => ' + this.lambda2 + ' : ' + parseFloat(this.enterLambda2))
+      check = this.lambda2 === parseFloat(this.enterLambda2) ? 'correct' : 'not-correct'
       return check
     },
-    checkedM1: function () {
+    checkedPhi: function () {
       let check
-      console.log('M1 => ' + this.m1 + ' : ' + parseFloat(this.enterM1))
-      check = this.m1 === parseFloat(this.enterM1) ? 'correct' : 'not-correct'
+      console.log('Phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
+      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
       return check
     },
-    checkedH11: function () {
+    checkedKe: function () {
       let check
-      console.log('H11 => ' + this.h11 + ' : ' + parseFloat(this.enterH11))
-      check = this.h11 === parseFloat(this.enterH11) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedDistance: function () {
-      let check
-      console.log('distance => ' + this.distance + ' : ' + parseFloat(this.enterDistance))
-      check = this.distance === parseFloat(this.enterDistance) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedH2: function () {
-      let check
-      console.log('H2 => ' + this.h11 + ' : ' + parseFloat(this.enterH2))
-      check = this.h11 === parseFloat(this.enterH2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedP2: function () {
-      let check
-      console.log('P2 => ' + this.p2 + ' : ' + parseFloat(this.enterP2))
-      check = this.p2 === parseFloat(this.enterP2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedQ2: function () {
-      let check
-      console.log('Q2 => ' + this.q2 + ' : ' + parseFloat(this.enterQ2))
-      check = this.q2 === parseFloat(this.enterQ2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedM2: function () {
-      let check
-      console.log('M2 => ' + this.m2 + ' : ' + parseFloat(this.enterM2))
-      check = this.m2 === parseFloat(this.enterM2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedH21: function () {
-      let check
-      console.log('H2 => ' + this.h2 + ' : ' + parseFloat(this.enterH2))
-      check = this.h2 === parseFloat(this.enterH2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMt: function () {
-      let check
-      console.log('Mt => ' + this.mt + ' : ' + parseFloat(this.enterMt))
-      check = this.mt === parseFloat(this.enterMt) ? 'correct' : 'not-correct'
+      console.log('Ke => ' + this.Ke + ' : ' + parseFloat(this.enterKe))
+      check = this.Ke === parseFloat(this.enterKe) ? 'correct' : 'not-correct'
       return check
     }
   },

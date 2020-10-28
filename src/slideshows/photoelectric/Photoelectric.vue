@@ -300,7 +300,15 @@
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top:-30px;").center X-ray tube
+      h3(style="margin-top: 40px;").center Crookes Tube
+      .center
+        img(src="./assets/crookesTube.jpg" width="418px")
+        img(src="./assets/crookesTubeTwo.jpg" width="300px")
+        //- p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top:40px;").center X-ray tube
       .center
         img(src="./assets/coolidge_xray_tube.jpg")
         p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
@@ -339,143 +347,176 @@
       p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = eV
 
 
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -20px;") Compton scattering
+      h5.center Scattering experiment
+      .center
+        img(src='./assets/comptonExperiment.png' width="700px" style="margin-top:-30px;")
+
+    slide.boredYet(:steps=4, enter='bounceInDown' style="background-color: white;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -20px;") Compton experiment
+      h5(style="margin-top: -40px;").center Results
+      .center
+        img(src='./assets/comptonExperiment.png' width="300px" style="margin-top:-30px;")
+      .center
+        img(v-if="step >= 1" src='./assets/comptonResult0.png' width="300px" style="margin-right: 30px;")
+        img(v-if="step >= 2" src='./assets/comptonResult45.png' width="260px" style="margin-left: 30px;")
+      .center
+        img(v-if="step >= 3" src='./assets/comptonResult90.png' width="270px" style="margin-right: 0px; margin-left: 30px;")
+        img(v-if="step >= 4" src='./assets/comptonResult135.png' width="300px" style="margin-left: 90px;")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: -20px;") Compton scattering
+      h5.center Compton effect
+      .center
+        img(src='./assets/comptonFig.png' width="500px" style="margin-top:-30px;")
+
+    slide.boredYet(:steps=4, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="400px" style=" position: absolute; left: 50px; top: 30px;")
+      h5(style="margin-top: 130px;").center Compton equation
+      p Photon has linear momentum, for the incident and scattered photons  given by
+      .center
+        img(v-if="step >= 1" src='./assets/comptonEq01.png' width="240px" style="margin-right: 30px;")
+        img(v-if="step >= 1" src='./assets/comptonEq02.png' width="240px" style="margin-left: 30px;")
+      p(v-if="step >= 2" ) conservation of momentum gives
+      .center
+        img(v-if="step >= 3" src='./assets/comptonEq03.png' width="220px" style="margin-top: -60px;")
+      p(v-if="step >= 4") or
+      .center
+        img(v-if="step >= 4" src='./assets/comptonEq04.png' width="400px" style="margin-top: -30px;")
+
+    slide.boredYet(:steps=4, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
+      h5(style="margin-top: 130px;").center Compton equation
+      p(v-if="step >= 1") with electron energies
+        |
+        img(v-if="step >= 1" src='./assets/comptonEq05.png' width="100px" style="margin: 0px 10px -10px 10px;")
+        | and
+        |
+        img(v-if="step >= 1" src='./assets/comptonEnergye.png' width="120px" style="margin: 0px 10px  -5px 10px;")
+        | before and after collision respectively, conservation of energy gives
+      .center
+        img(v-if="step >= 2" src='./assets/comptonEq07.png' width="600px" style="margin-right: 30px;")
+      p(v-if="step >= 3") squaring to remove the square root
+      .center
+        img(v-if="step >= 3" src='./assets/comptonEq08.png' width="600px" style="margin-right: 30px;")
+      p(v-if="step >= 4") for the electron momentum
+      .center
+        img(v-if="step >= 4" src='./assets/comptonEq09.png' width="600px" style="margin-right: 30px;")
+
+    slide.boredYet(:steps=3, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
+      h5(style="margin-top: 130px;").center Compton equation
+      p then from the <b>momentum conservation</b> we have
+      .center
+        img(v-if="step >= 1" src='./assets/electronMomentum1.png' width="40px")
+        img(v-if="step >= 1" src='./assets/electronMomentum2.png' width="400px")
+      p(v-if="step >= 2") and from the <b>energy conservation</b> we have
+      .center
+        img(v-if="step >= 2" src='./assets/comptonEq09.png' width="700px" style="margin-right: 30px;")
+      p(v-if="step >= 3") equating these expression we have
+      .center
+        img(v-if="step >= 3" src='./assets/comptonEq10.png' width="500px" style="margin-right: 30px;")
+
+    slide.boredYet(:steps=3, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
+      h5(style="margin-top: 130px;").center Compton equation
+      p Then multiplying
+      .center
+        img(v-if="step >= 1" src='./assets/comptonEq10.png' width="400px" style="margin-top: -30px;")
+      p by
+        |
+        img(v-if="step >= 1" src='./assets/comptonEq11.png' width="150px" style="margin: 0 10px -15px 10px;")
+        | and using
+        img(v-if="step >= 1" src='./assets/comptonEq12.png' width="150px" style="margin: 0 10px -20px 10px;")
+      p(v-if="step >= 2") we have
+      .center
+        img(v-if="step >= 2" src='./assets/comptonEq13.png' width="600px" style="margin-top: -50px;")
+      p(v-if="step >= 3" style="margin-top: -0px;") then the photon change of wavelength after scattering is given by
+      .center
+        img(v-if="step >= 3" src='./assets/comptonEq14.png' width="600px" style="margin-top: -20px; border: orange solid;")
+
+    slide.boredYet(:steps=4, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
+      h5(style="margin-top: 40px;").center Compton equations
+      h6.center Electron scattering
+      p Conservation of momentum by components
+      .center
+        img(v-if="step >= 1" src='./assets/pComponents.png' width="400px" style="margin-top: -30px;")
+      p(v-if="step >= 2" style="margin-top: -0px;") solving for the electron moment components
+      .center
+        img(v-if="step >= 2" src='./assets/pComponents2.png' width="300px" style="margin-top: -30px;")
+      p(v-if="step >= 3" style="margin-top: 10px;") then dividing the <b>y</b>-component by the <b>x</b>-component we have
+      .center
+        img(v-if="step >= 3" src='./assets/pComponents3.png' width="300px" style="margin-top: -30px;")
+      p(v-if="step >= 4" style="margin-top: 10px;") or
+      .center
+        img(v-if="step >= 4" src='./assets/pComponents4.png' width="300px" style="margin-top: -30px;")
+
+    slide.boredYet(:steps=2, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
+      h5(style="margin-top: 130px;").center Compton equations
+      h6.center Electron scattering
+      .center
+        img(v-if="step >= 1" src='./assets/pComponents4.png' width="300px" style="margin-top: -30px;")
+      p(style="margin-top: -20px;") using
+        img(v-if="step >= 1" src='./assets/pComponents5.png' width="120px" style="margin: 0 10px -5px 10px;")
+        | we have
+      .center
+        img(v-if="step >= 1" src='./assets/pComponents7.png' width="300px" style="margin-top: -40px;")
+      p(style="margin-top: -20px;") then
+      .center
+        img(v-if="step >= 1" src='./assets/pComponents8.png' width="270px" style="margin-top: -40px;")
+      p(style="margin-top: -40px;") thus
+      .center
+        img(v-if="step >= 1" src='./assets/pComponents9.png' width="300px" style="margin-top: -0px; border: orange solid;")
+
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3(style="margin-top: 20px;").center Compton effect equations
+      .center
+        img(src='./assets/comptonScattering.png' width="500px" style="margin-bottom: 50px;")
+      p Photon scattering
+      .center
+        img(src='./assets/comptonEq14.png' width="530px" style="margin: -150px 0 50px 0; border: 2px solid rgba(255, 0, 0, .3);")
+      p(style="margin-top: -10px;") Electron scattering
+      .center
+        img(src='./assets/pComponents9.png' width="500px" style="margin: -120px 0 50px 0; border: 2px solid rgba(255, 0, 0, .3);")
+
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: -20px;") Compton effect
-      .center
+      h3 Exercise 6
+      example-six
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-
-    //- slide.boredYet(:steps=5, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/interf11.png' width="240px" style="margin-right: 30px;")
-    //-   p.center
-    //-     | <span v-if="step >= 2" style="color: blue; margin-rigth: 0px;">as</span>
-    //-     img(v-if="step >= 2" src='./assets/interf3.png' width="80px" style="margin-left: 30px; margin-right: 20px;")
-    //-     | <span v-if="step >= 3" style="color: blue;"> or</span>
-    //-     img(v-if="step >= 3" src='./assets/interf4.png' width="200px" style="margin-right: 30px; margin-left: 30px;")
-    //-   p(v-if="step >= 4" style="color: blue; margin-top: -5px; margin-bottom: 10px").center then
-    //-   .center
-    //-     img(v-if="step >= 4" src='./assets/interf12.png' width="300px" style="margin-left: 0px;")
-    //-   .center
-    //-     img(v-if="step >= 5" src='./assets/interf13.png' width="400px" style="margin-right: 0px;")
-    //-   .center
-    //-     img(v-if="step >= 5" src='./assets/interf14.png' width="250px" style="margin-top: 40px;")
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3 Exercise 8
-    //-   example-eight
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: 20px;").center Diffraction
-    //-   .center
-    //-     img(src='./assets/diffraction1.jpg' width="600px")
-
-    //- slide.boredYet(:steps=3 enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3(style="margin-top: 20px;").center Diffraction
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion1.png' width="255px" style="margin-right: 30px;")
-    //-     img(v-if="step >= 2" src='./assets/difraccion3.png' width="200px" style="margin-top: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/difraccion2.png' width="600px" style="margin-top: 30px;")
-
-    //- slide.boredYet(:steps=7, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h5(style="margin-top: -20px;").center Diffraction: Single slit
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion4.png' width="300px" style="margin-top: -30px; margin-right: 20px;")
-    //-     img(v-if="step >= 2" src='./assets/difraccion5.png' width="166px" style="margin-top: -30px; margin-left: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/difraccion6.png' width="200px" style="margin-right: 20px;")
-    //-     | <span v-if="step >= 4" style="color: blue;"> then</span>
-    //-     img(v-if="step >= 4" src='./assets/difraccion7.png' width="200px" style="margin-left: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 5" src='./assets/difraccion8.png' width="250px" style="margin-top: 40px; margin-right: 30px;")
-    //-     img(v-if="step >= 6" src='./assets/difraccion9.png' width="250px" style="margin-top: 40px; margin-left: 30px;")
-    //-   .center
-    //-     img(v-if="step >= 7" src='./assets/difraccion10.png' width="700px" style="margin-top: 40px;")
-
-    //- slide.boredYet(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -20px;").center Diffraction: Single slit
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion11.png' width="400px" style="margin-top: -40px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/difraccion16.png' width="500px" style="margin-top: 40px;")
-
-    //- slide.boredYet(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -20px;").center Diffraction: Double slit
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion15.png' width="500px" style="margin-top: -40px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/difraccion17.png' width="600px" style="margin-top: 40px;")
-
-    //- slide.boredYet(:steps=3, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -20px;").center Multiple slits: diffraction grating
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion19.png' width="300px" style="margin-top: -40px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/difraccion18.png' width="600px" style="margin-top: 50px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/difraccion20.png' width="400px" style="margin-top: 50px;")
-
-    //- slide.boredYet(:steps=2, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -20px;").center Diffraction applications
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion21.png' width="300px" style="margin-top: -40px;")
-    //-   .center
-    //-     img(v-if="step >= 2" src='./assets/difraccion22.png' width="600px" style="margin-top: 10px;")
-
-    //- slide.boredYet(:steps=4, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h4(style="margin-top: -20px;").center Diffraction applications
-    //-   .center
-    //-     img(v-if="step >= 1" src='./assets/difraccion23.png' width="446px" style="margin-top: -40px; margin-right: 40px;")
-    //-     img(v-if="step >= 2" src='./assets/difraccion24.png' width="400px" style="margin-top: -40px;")
-    //-   .center
-    //-     img(v-if="step >= 3" src='./assets/difraccion25.png' width="200px" style="margin-top: 40px; margin-right: 40px;")
-    //-     img(v-if="step >= 4" src='./assets/difraccion26.png' width="400px" style="margin-top: 40px; margin-left: 40px;")
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3 Exercise 9
-    //-   example-nine
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-    //-   h3 Exercise 10
-    //-   example-ten
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 7
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide.boredYet(enter='bounceInDown')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
