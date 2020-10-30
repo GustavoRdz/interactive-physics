@@ -9,7 +9,8 @@ export default {
     require('./temperature-heat/TemperatureHeat'),
     require('./relativity/Relativity'),
     require('./optics/Optics'),
-    require('./photoelectric/photoelectric')
+    require('./photoelectric/photoelectric'),
+    require('./atom-physics/Atom-physics')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),
