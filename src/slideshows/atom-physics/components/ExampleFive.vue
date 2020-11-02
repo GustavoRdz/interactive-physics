@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem If the work function of a given material is {{ work }} eV, what is the maximum kinetic energy of electrons ejected from a polished surface of that material by the {{ wavelength }} Å ultraviolet line of mercury (1Å = 10<sup>-10</sup> m). Also determine the maximum speed and stopping potential.
+    p.problem (a) Construct an energy-level diagram for the He<sup>+</sup> ion, for which Z = 2, using the Bohr model.
+    p.problem (b) What is the ionization energy for He<sup>+</sup>?
+
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data φ (J)

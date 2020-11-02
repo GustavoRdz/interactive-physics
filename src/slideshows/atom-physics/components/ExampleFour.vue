@@ -1,7 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The threshold frequency for a certain material is {{ thresholdF.toExponential() }} cycles/s.<br> a) Determine the maximum kinetic energy for photoelectrons when light, whose frequency is {{ frequency.toExponential() }} cycles/s, strikes that material.<br> b) Calculate the stopping potential and<br>c) finally find the maximum velocity of the photoelectrons.
+    p.problem Suppose the electron in the simply ionized helium atom is spinning in the ground state. Calculate:
+    p.problem a) The necessary energy that must be supplied to the atom to bring it to n = 2, since the electron is spinning at n = 1.
+    p.problem b) The additional energy that must be supplied to the atom to bring the electron into orbit n = 4.
+    p.problem c) For that orbit (n = 4), the energy that must be given to the atom to release its electron.
+    p.problem d) Suppose that by carrying the electron in n = 4, it remains in that state for a time of 1x10^8 sec. Before returning to the ground state, calculate how many laps it will make in that state.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data f<sub>Th</sub> (Hz)

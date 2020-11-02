@@ -1,22 +1,21 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ mass }}-kg block is attached to a massless spring that has a force constant of k = {{ elasticK }} N/m. The spring is stretched {{ amplitude }} m from its equilibrium position and released from rest. <br>(A) Find the total energy of the system and the frequency of oscillation according to classical calculations. (B) Assuming the energy of the oscillator is quantized, find the quantum number n for the system oscillating with this amplitude.
+    p.problem A photon is emitted when a hydrogen atom undergoes a transition from the n = {{ levelUp }} state to the n = {{ levelDown }} state. Calculate
+    p.problem (a) the energy (in electron volts),
+    p.problem (b) the wavelength, and
+    p.problem (c) the frequency of the emitted photon.
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data mass (kg)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-      p.inline.data k (N/m)
-        input.center.data(:class="checkedK" v-model.number='enterK')
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedA" v-model.number='enterA')
-      p.inline.data A) Classical energy (J)
-        input.center.data(:class="checkedEc" v-model='enterEc')
-      p.inline.data frequency (Hz)
+      p.inline.data a) E  (eV)
+        input.center.data(:class="checkedE" v-model.number='enterE')
+      p.inline.data E (J)
+        input.center.data(:class="checkedEj" v-model.number='enterEj')
+      p.inline.data b) λ (m)
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data c) f (Hz)
         input.center.data(:class="checkedF" v-model='enterF')
-      p.inline.data B) n
-        input.center.data(:class="checkedN" v-model='enterN')
 
 </template>
 <script>
@@ -24,73 +23,60 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterMass: '',
-      enterK: '',
-      enterA: '',
-      enterEc: '',
+      enterE: '',
+      enterEj: '',
+      enterL: '',
       enterF: '',
-      enterN: ''
+      e: 1.6e-19,
+      h: 6.626e-34,
+      c: 3e8
     }
   },
   computed: {
-    mass: function () {
-      let max = 500
-      let min = 100
-      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
+    levelDown: function () {
+      let max = 5
+      let min = 1
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    elasticK: function () {
-      let max = 500
-      let min = 200
-      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 10
+    levelUp: function () {
+      let max = 10
+      let min = this.levelDown + 1
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    amplitude: function () {
-      let max = 50
-      let min = 10
-      return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
+    energyEv: function () {
+      return Math.round(1000 * -13.606 * (1 / Math.pow(this.levelUp, 2) - 1 / Math.pow(this.levelDown, 2))) / 1000
     },
-    energy: function () {
-      return Math.floor(1000 * (this.elasticK * this.amplitude ** 2 / 2)) / 1000
+    energyJ: function () {
+      return parseFloat((this.energyEv * this.e).toPrecision(4))
+    },
+    lambda: function () {
+      return parseFloat((this.h * this.c / this.energyJ).toPrecision(4))
     },
     frequency: function () {
-      return Math.floor(1000 * (Math.sqrt(this.elasticK / this.mass) / (2 * Math.PI))) / 1000
+      return parseFloat((this.energyJ / this.h).toPrecision(4))
     },
-    level: function () {
-      return parseFloat((this.energy / (6.626e-34 * this.frequency)).toPrecision(4))
-    },
-    checkedMass: function () {
+    checkedE: function () {
       let check
-      console.log('Mass => ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
+      console.log('E (eV) => ' + this.energyEv + ' : ' + parseFloat(this.enterE))
+      check = this.energyEv === parseFloat(this.enterE) ? 'correct' : 'not-correct'
       return check
     },
-    checkedK: function () {
+    checkedEj: function () {
       let check
-      console.log('K => ' + this.elasticK + ' : ' + parseFloat(this.enterK))
-      check = this.elasticK === parseFloat(this.enterK) ? 'correct' : 'not-correct'
+      console.log('E (J) => ' + this.energyJ + ' : ' + parseFloat(this.enterEj))
+      check = this.energyJ === parseFloat(this.enterEj) ? 'correct' : 'not-correct'
       return check
     },
-    checkedA: function () {
+    checkedL: function () {
       let check
-      console.log('Amplitude => ' + this.amplitude + ' : ' + parseFloat(this.enterA))
-      check = this.amplitude === parseFloat(this.enterA) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedEc: function () {
-      let check
-      console.log('classical energy => ' + this.energy + ' : ' + parseFloat(this.enterEc))
-      check = this.energy === parseFloat(this.enterEc) ? 'correct' : 'not-correct'
+      console.log('λ => ' + this.lambda + ' : ' + parseFloat(this.enterL))
+      check = this.lambda === parseFloat(this.enterL) ? 'correct' : 'not-correct'
       return check
     },
     checkedF: function () {
       let check
       console.log('Frequency => ' + this.frequency + ' : ' + this.enterF)
       check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedN: function () {
-      let check
-      console.log('Level => ' + this.level + ' : ' + this.enterN)
-      check = this.level === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     }
   },

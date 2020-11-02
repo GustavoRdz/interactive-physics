@@ -1,24 +1,16 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (A) Find the peak wavelength of the blackbody radiation emitted by the human body when the skin temperature is {{ tempA - 273 }}°C.
-    p.problem (B) Find the peak wavelength of the blackbody radiation emitted by the tungsten filament of a lightbulb, which operates at {{ tempB }} K.
-    p.problem (C) Find the peak wavelength of the blackbody radiation emitted by the Sun, which has a surface temperature of approximately {{ tempC }} K.
+    p.problem What is the energy of a photon that, when absorbed by a hydrogen atom, could cause an electronic transition from
+    p.problem (a) the n = {{ levelA1 }} state to the n = {{ levelA2 }} state
+    p.problem (b) the n = {{ levelB1 }} state to the n = {{ levelB2 }} state?
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data A) T (K)
-        input.center.data(:class="checkedTA" v-model='enterTA')
-      p.inline.data A) λ (m)
-        input.center.data(:class="checkedA" v-model='enterA')
-      p.inline.data B) T (K)
-        input.center.data(:class="checkedTB" v-model='enterTB')
-      p.inline.data B) λ (m)
-        input.center.data(:class="checkedB" v-model='enterB')
-      p.inline.data C) T (K)
-        input.center.data(:class="checkedTC" v-model='enterTC')
-      p.inline.data C) λ (m)
-        input.center.data(:class="checkedC" v-model.number='enterC')
+      p.inline.data a) E<sub>n = {{ levelA1 }} to {{ levelA2 }}</sub> (eV)
+        input.center.data(:class="checkedEa" v-model='enterEa')
+      p.inline.data A) E<sub>n = {{ levelB1 }} to {{ levelB2 }} </sub> (eV)
+        input.center.data(:class="checkedEb" v-model='enterEb')
 
 </template>
 <script>
@@ -26,73 +18,47 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterTA: '',
-      enterTB: '',
-      enterTC: '',
-      enterA: '',
-      enterB: '',
-      enterC: ''
+      enterEa: '',
+      enterEb: ''
     }
   },
   computed: {
-    tempA: function () {
-      let max = 39 + 273
-      let min = 34 + 273
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    levelA1: function () {
+      let max = 3
+      let min = 1
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    tempB: function () {
-      let max = 2500
-      let min = 1500
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    levelA2: function () {
+      let max = 8
+      let min = 4
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    tempC: function () {
-      let max = 59
-      let min = 55
-      return 100 * (Math.floor(Math.random() * (max - min + 1)) + min)
+    levelB1: function () {
+      let max = 6
+      let min = 3
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    lamA: function () {
-      return parseFloat((2.898e-3 / this.tempA).toPrecision(4))
+    levelB2: function () {
+      let max = 10
+      let min = 7
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    lamB: function () {
-      return parseFloat((2.898e-3 / this.tempB).toPrecision(4))
+    eA: function () {
+      return parseFloat((-13.606 * (1 / Math.pow(this.levelA2, 2) - 1 / Math.pow(this.levelA1, 2))).toFixed(3))
     },
-    lamC: function () {
-      return parseFloat((2.898e-3 / this.tempC).toPrecision(4))
+    eB: function () {
+      return parseFloat((-13.606 * (1 / Math.pow(this.levelB2, 2) - 1 / Math.pow(this.levelB1, 2))).toFixed(3))
     },
-    checkedTA: function () {
+    checkedEa: function () {
       let check
-      console.log('a) Temperature (K): => ' + this.tempA + ' : ' + parseFloat(this.enterTA))
-      check = this.tempA === parseFloat(this.enterTA) ? 'correct' : 'not-correct'
+      console.log('a) E: => ' + this.eA + ' : ' + parseFloat(this.enterEa))
+      check = this.eA === parseFloat(this.enterEa) ? 'correct' : 'not-correct'
       return check
     },
-    checkedA: function () {
+    checkedEb: function () {
       let check
-      console.log('A) lambda: => ' + this.lamA + ' : ' + parseFloat(this.enterA))
-      check = this.lamA === parseFloat(this.enterA) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedTB: function () {
-      let check
-      console.log('a) Temperature (K): => ' + this.tempB + ' : ' + parseFloat(this.enterTB))
-      check = this.tempB === parseFloat(this.enterTB) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedB: function () {
-      let check
-      console.log('B) lambda: => ' + this.lamB + ' : ' + parseFloat(this.enterB))
-      check = this.lamB === parseFloat(this.enterB) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedTC: function () {
-      let check
-      console.log('a) Temperature (K): => ' + this.tempC + ' : ' + parseFloat(this.enterTC))
-      check = this.tempC === parseFloat(this.enterTC) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedC: function () {
-      let check
-      console.log('C) lambda: => ' + this.lamC + ' : ' + parseFloat(this.enterC))
-      check = this.lamC === parseFloat(this.enterC) ? 'correct' : 'not-correct'
+      console.log('b) E: => ' + this.eB + ' : ' + parseFloat(this.enterEb))
+      check = this.eB === parseFloat(this.enterEb) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -124,7 +90,7 @@ export default {
 
 .data {
   display: inline-block;
-  width: 100px;
+  width: 130px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;

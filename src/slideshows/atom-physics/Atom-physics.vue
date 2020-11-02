@@ -68,11 +68,11 @@
           .center
             img(src='./assets/atomo05.png' width="540px")
         div
-          p Lyman series (fall down n = 1)
-          p Paschen series (fall down n = 3)
-          p Brackett series (fall down n = 4)
-          p Pfund series (fall down n = 5)
-          p Humphreys series (fall down n = 6)
+          p Lyman series (fall down to n = 1)
+          p Paschen series (fall down to n = 3)
+          p Brackett series (fall down to n = 4)
+          p Pfund series (fall down to n = 5)
+          p Humphreys series (fall down to n = 6)
 
 
 
@@ -126,22 +126,22 @@
       p(style="margin-top:20px;")
       p With potential energy given by
         |
-        img(src='./assets/atomo15.png' width="250px")
+        img(src='./assets/atomo15.png' width="300px" style="margin: 0px 10px -11px 10px;")
         | total energy is
       .center
         img(src='./assets/atomo16.png' width="400px")
-      p electrical force on electron must equal the it mass times the centripetal acceleration
+      p electrical force on electron must equal it's mass times the centripetal acceleration
         |
-        img(src='./assets/atomo18.png' width="100px")
+        img(src='./assets/atomo18.png' width="130px"  style="margin: 0px 10px -11px 10px;")
         | that is
       .center
-        img(src='./assets/atomo19.png' width="200px")
+        img(src='./assets/atomo19.png' width="200px"  style="margin: 0px 100px -40px 10px;")
         | then
         |
-        img(src='./assets/atomo20.png' width="200px" style="margin-top: -40px;")
+        img(src='./assets/atomo20.png' width="200px" style="margin: 0px 10px -40px 100px;")
       p and kinetic energy becomes
       .center
-        img(src='./assets/atomo21.png' width="250px")
+        img(src='./assets/atomo21.png' width="300px" style="margin: -20px 10px 0px 10px;")
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -150,13 +150,13 @@
       p And total energy becomes
       .center
         img(src='./assets/atomo22.png' width="200px" style="margin-top: -30px;")
-      p(style="margin-top: -30px;") Now solving <span style="font-family: Times; font-style: italic;">v</span> from
+      p(style="margin-top: -10px;") Now solving <span style="font-family: Times; font-style: italic;">v</span> from
       .center(style="margin-top: -30px;")
-        img(src='./assets/atomo14.png' width="350px")
+        img(src='./assets/atomo14.png' width="350px" style="margin: 0px 100px -20px 10px;")
         | with
         |
-        img(src='./assets/atomo20.png' width="100px")
-      p(style="margin-top: -0px;") we have
+        img(src='./assets/atomo20.png' width="100px" style="margin: 0px 10px -20px 100px;")
+      p(style="margin-top: 20px;") we have
       .center
         img(src='./assets/atomo24.png' width="250px" style="margin-top: -30px;")
       p(style="margin-top: -0px;") and the orbital radius is given by
@@ -186,7 +186,7 @@
         |
         img(src='./assets/atomo27.png' width="450px" style="margin: 0 10px -5px 10px;")
         | in the relation
-        img(src='./assets/atomo22.png' width="70px" style="margin: 0 10px -12px 10px;" )
+        img(src='./assets/atomo22.png' width="100px" style="margin: 0 10px -20px 10px;" )
         | energy becomes
       .center
         img(src='./assets/atomo28.png' width="500px" style="margin-top: -10px;" )
@@ -200,13 +200,14 @@
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Bohr's model of the Hydrogen atom
-      p Changing for wavelength
+      p(style="margin: -20px 100px 10px 10px;") Changing for wavelength
       .center
-        img(src='./assets/atomo32.png' width="250px")
+        img(src='./assets/atomo32.png' width="300px" style="margin: 0px 100px -30px 10px;")
+        | or
+        img(src='./assets/atomo33.png' width="250px" style="margin: 0px 10px -30px 100px;")
+      p(style=" position: absolute; top: 280px; right: 100px;").center Rydberg constant:<br> R<sub>H</sub> = 1.0973732x10<sup>7</sup> m<sup>-1</sup>
       .center
-        img(src='./assets/atomo33.png' width="250px")
-      .center
-        img(src='./assets/atomo30.png' width="250px")
+        img(src='./assets/atomo30.png' width="300px" style="margin: 50px 10px 0px 50px;")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -243,47 +244,6 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
-
-    slide(:steps=3, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Photoelectric effect
-      p(style="color: blue;").center Features of the photoelectric effect
-      p(v-if="step >= 1") 3. <span style="color: red;"><b>Classical prediction</b></span>: Electrons should be ejected from the metal at any incident light frequency, as long as the light intensity is high enough, because energy is transferred to the metal regardless of the incident light frequency.
-      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: No electrons are emitted if the incident light frequency falls below some cutoff frequency <b>f<sub>c</sub></b>, whose value is characteristic of the material being illuminated. No electrons are ejected below this cutoff frequency regardless of the light intensity.
-      //- .center
-      //-   img(src='./assets/energyGraph.png' width="300px" v-if="step >= 3" style="margin-left: 100px;")
-
-    slide(:steps=3, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4.center Photoelectric effect
-      p(style="color: blue;").center Features of the photoelectric effect
-      p(v-if="step >= 1") 4. <span style="color: red;"><b>Classical prediction</b></span>: There should be no relationship between the frequency of the light and the electron kinetic energy. The kinetic energy should be related to the intensity of the light.
-      p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: The maximum kinetic energy of the photoelectrons increases with increasing light frequency.
-      //- .center
-      //-   img(src='./assets/energyGraph.png' width="330px" v-if="step >= 3")
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: -10px;") Photoelectric effect
-      h4.center Equation
-      //- .center
-      //-   img(src='./assets/photoelectricEq.png' width="300px" style="margin-top: -10px;")
-      .left
-        p(style="padding-left:160px;") <b><span style="font-style: italic; font-family: times;">K</span><sub>max</sub></b>: photoelectron's maximum kinetic energy
-        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>h</b></span>: planck constant
-        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>f</b></span>: frequency of the photon
-        p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>φ</b></span>: work function
-
-    slide(:steps=2, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -40px;").center Photoelectric effect
-      h5(style="margin-top: -40px;").center Quantum features
-      //- .center
-      //-   img(src='./assets/photoelectricEq.png' width="300px" style="margin-top: -10px;")
-      p 1. Dependence of photoelectron kinetic energy on light intensity equation shows that Kmax is independent of the light intensity.
-      p 2. Time interval between incidence of light and ejection of photoelectrons, near-instantaneous emission of electrons is consistent with the photon model of light.
-      p 3. Dependence of ejection of electrons on light frequency. Because the photon must have energy greater than the work function f to eject an electron, the photoelectric effect cannot be observed below a certain cutoff frequency.
-      p 4. Dependence of photoelectron kinetic energy on light frequency. A photon of higher frequency carries more energy and therefore ejects a photoelectron with more kinetic energy than does a photon of lower frequency.
 
     slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -325,256 +285,51 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(:steps=3 enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Photoelectric effect application
-      //- .center
-      //-   img(src='./assets/photomultiplier.png' width="350px" style="margin-top: -30px;")
+      h4(style="margin-top: -0px; margin-bottom: 40px").center Spontaneous end stimulated emission
+      div(class="container" style="display: flex; flex-direction: row; margin-top: 20px;")
+        div(style= "display: flex; flex-direction: row; height: 100%;  width: 100%; justify-content: center;")
+          div(v-if="step >= 1" style= "width: 485px;")
+            h5(style="margin: 0;").center Absorption
+            .center
+              img(src='./assets/lasers1.png' width="100%")
+          div(v-if="step >= 2" style= "width: 400px;")
+            h5(style="margin: 0;").center Spontaneous emission
+            .center
+              img(src='./assets/lasers2.png' width="100%")
+      div(v-if="step >= 3" style= "display: flex; flex-direction: row; justify-content: center; width: 100%; margin-top: 20px;")
+        div(style= "width: 500px;")
+          h5(style="margin: 0;").center Stimulated emission
+          .center
+            img(src='./assets/lasers3.png' width="100%")
 
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h1(style="margin-top:-20px") X Rays
+      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h5.center Laser
+      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">L</span>igth
+      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">A</span>mplification by
+      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">S</span>timulated
+      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">E</span>mission of
+      p(style="margin: 0 0 -0PX 400px;") <span style="font-size: 60px; color: blue;">R</span>adiation
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h5.center Lasers
       .center
-        //- img(src='./assets/firstXrayImage.jpg' width="500px" style="margin-top: -0px;")
-      p.center X-rays were first discovered in 1895<br>German physicist Wilhelm Conrad Röntgen (1845 – 1923).
+        img(src='./assets/lasers4.png' width="700px" style="margin-top: -30px; margin-right: 0px;")
+        img(src='./assets/lasers5.png' width="250px" style="margin-top: -30px; margin-left: 50px;")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h1(style="margin-top:-20px") X Rays
-      h6.center themes
-      p.center Bremsstrahlung, X-rays origins
-      p.center Compton scattering
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3.center X-Rays
-      h6.center Characteristics
-      ul(style="padding-left:150px;")
-        li It is electromagnetic radiation
-        li Wavelength range: λ = 0.01 - 10 nanometers (1nm = 1x10<sup>-9</sup>)
-        li Frequency range: f = 30 petaHertz - 30 exaHertz (30x10<sup>15</sup> - 30x10<sup>18</sup>Hz)
-        li Energy: E = 100eV - 100keV
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: 40px;").center Crookes Tube
-      //- .center
-      //-   img(src="./assets/crookesTube.jpg" width="418px")
-      //-   img(src="./assets/crookesTubeTwo.jpg" width="300px")
-        //- p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top:40px;").center X-ray tube
-      //- .center
-      //-   img(src="./assets/coolidge_xray_tube.jpg")
-      //-   p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top:-30px;").center X-ray tube
-      h6.center Modern X-ray tube
-      //- p(style="margin-top: -50px;").center
-      //-   img(src="./assets/modernXrayTube.png" width="800px;")
-      //-   p.center <span style="font-size: 20px;">Taken without permision from: Handbook of X-ray imaging.  PAolo Russo, editor. Fig 2.2</span>
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3.center X-Ray Spectrum
-      //- .center
-      //-   img(src='./assets/xRaySpectrum.jpg' width="500px" style="margin-top:30px;")
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4.center Bremsstrahlung: Breaking radiation
-      //- .center
-      //-   img(src='./assets/bremsstrahlungChar.png' width="600px" style="margin-top:30px;")
-      //-   p(style="font-size: 20px;") Image from: X-ray imaging using 100 μm thick Gas Electron Multipliers operating in Kr-CO2 mixtures. Rita Roque, 2018
-
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Energy in breaking radiation
-      p <span style="color: blue;"><b>Cases 1, 2</b></span>: The resulting photon has the diference of energy that the electron has after and before the interaction
-      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sub style="font-size: 15px;">0</sub><sup style="font-size: 20px;">2</sup> - <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sub style="font-size: 15px;">f</sub><sup style="font-size: 20px;">2</sup> = hf
-      p <span style="color: blue;"><b>Case 3</b></span>: The energy tranfer from electron to photos is the maximum:
-      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = hf
-      p <span style="color: blue;"><b>Case 4</b></span>: The photon energy is detemined by the electronic transition
-      p The electron speed is determined by the electric potential that is applied between electrodes.
-      p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = eV
-
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: -20px;") Compton scattering
-      h5.center Scattering experiment
-      //- .center
-      //-   img(src='./assets/comptonExperiment.png' width="700px" style="margin-top:-30px;")
-
-    slide.boredYet(:steps=4, enter='bounceInDown' style="background-color: white;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: -20px;") Compton experiment
-      h5(style="margin-top: -40px;").center Results
-      //- .center
-      //-   img(src='./assets/comptonExperiment.png' width="300px" style="margin-top:-30px;")
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/comptonResult0.png' width="300px" style="margin-right: 30px;")
-      //-   img(v-if="step >= 2" src='./assets/comptonResult45.png' width="260px" style="margin-left: 30px;")
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/comptonResult90.png' width="270px" style="margin-right: 0px; margin-left: 30px;")
-      //-   img(v-if="step >= 4" src='./assets/comptonResult135.png' width="300px" style="margin-left: 90px;")
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: -20px;") Compton scattering
-      h5.center Compton effect
-      //- .center
-      //-   img(src='./assets/comptonFig.png' width="500px" style="margin-top:-30px;")
-
-    slide.boredYet(:steps=4, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="400px" style=" position: absolute; left: 50px; top: 30px;")
-      h5(style="margin-top: 130px;").center Compton equation
-      p Photon has linear momentum, for the incident and scattered photons  given by
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/comptonEq01.png' width="240px" style="margin-right: 30px;")
-      //-   img(v-if="step >= 1" src='./assets/comptonEq02.png' width="240px" style="margin-left: 30px;")
-      //- p(v-if="step >= 2" ) conservation of momentum gives
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/comptonEq03.png' width="220px" style="margin-top: -60px;")
-      //- p(v-if="step >= 4") or
-      //- .center
-      //-   img(v-if="step >= 4" src='./assets/comptonEq04.png' width="400px" style="margin-top: -30px;")
-
-    slide.boredYet(:steps=4, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
-      h5(style="margin-top: 130px;").center Compton equation
-      //- p(v-if="step >= 1") with electron energies
-      //-   |
-      //-   img(v-if="step >= 1" src='./assets/comptonEq05.png' width="100px" style="margin: 0px 10px -10px 10px;")
-      //-   | and
-      //-   |
-      //-   img(v-if="step >= 1" src='./assets/comptonEnergye.png' width="120px" style="margin: 0px 10px  -5px 10px;")
-      //-   | before and after collision respectively, conservation of energy gives
-      //- .center
-      //-   img(v-if="step >= 2" src='./assets/comptonEq07.png' width="600px" style="margin-right: 30px;")
-      //- p(v-if="step >= 3") squaring to remove the square root
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/comptonEq08.png' width="600px" style="margin-right: 30px;")
-      //- p(v-if="step >= 4") for the electron momentum
-      //- .center
-      //-   img(v-if="step >= 4" src='./assets/comptonEq09.png' width="600px" style="margin-right: 30px;")
-
-    slide.boredYet(:steps=3, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
-      h5(style="margin-top: 130px;").center Compton equation
-      //- p then from the <b>momentum conservation</b> we have
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/electronMomentum1.png' width="40px")
-      //-   img(v-if="step >= 1" src='./assets/electronMomentum2.png' width="400px")
-      //- p(v-if="step >= 2") and from the <b>energy conservation</b> we have
-      //- .center
-      //-   img(v-if="step >= 2" src='./assets/comptonEq09.png' width="700px" style="margin-right: 30px;")
-      //- p(v-if="step >= 3") equating these expression we have
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/comptonEq10.png' width="500px" style="margin-right: 30px;")
-
-    slide.boredYet(:steps=3, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
-      h5(style="margin-top: 130px;").center Compton equation
-      p Then multiplying
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/comptonEq10.png' width="400px" style="margin-top: -30px;")
-      //- p by
-      //-   |
-      //-   img(v-if="step >= 1" src='./assets/comptonEq11.png' width="150px" style="margin: 0 10px -15px 10px;")
-      //-   | and using
-      //-   img(v-if="step >= 1" src='./assets/comptonEq12.png' width="150px" style="margin: 0 10px -20px 10px;")
-      //- p(v-if="step >= 2") we have
-      //- .center
-      //-   img(v-if="step >= 2" src='./assets/comptonEq13.png' width="600px" style="margin-top: -50px;")
-      //- p(v-if="step >= 3" style="margin-top: -0px;") then the photon change of wavelength after scattering is given by
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/comptonEq14.png' width="600px" style="margin-top: -20px; border: orange solid;")
-
-    slide.boredYet(:steps=4, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
-      h5(style="margin-top: 40px;").center Compton equations
-      h6.center Electron scattering
-      p Conservation of momentum by components
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/pComponents.png' width="400px" style="margin-top: -30px;")
-      //- p(v-if="step >= 2" style="margin-top: -0px;") solving for the electron moment components
-      //- .center
-      //-   img(v-if="step >= 2" src='./assets/pComponents2.png' width="300px" style="margin-top: -30px;")
-      //- p(v-if="step >= 3" style="margin-top: 10px;") then dividing the <b>y</b>-component by the <b>x</b>-component we have
-      //- .center
-      //-   img(v-if="step >= 3" src='./assets/pComponents3.png' width="300px" style="margin-top: -30px;")
-      //- p(v-if="step >= 4" style="margin-top: 10px;") or
-      //- .center
-      //-   img(v-if="step >= 4" src='./assets/pComponents4.png' width="300px" style="margin-top: -30px;")
-
-    slide.boredYet(:steps=2, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
-      h5(style="margin-top: 130px;").center Compton equations
-      h6.center Electron scattering
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/pComponents4.png' width="300px" style="margin-top: -30px;")
-      //- p(style="margin-top: -20px;") using
-      //-   img(v-if="step >= 1" src='./assets/pComponents5.png' width="120px" style="margin: 0 10px -5px 10px;")
-      //-   | we have
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/pComponents7.png' width="300px" style="margin-top: -40px;")
-      //- p(style="margin-top: -20px;") then
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/pComponents8.png' width="270px" style="margin-top: -40px;")
-      //- p(style="margin-top: -40px;") thus
-      //- .center
-      //-   img(v-if="step >= 1" src='./assets/pComponents9.png' width="300px" style="margin-top: -0px; border: orange solid;")
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3(style="margin-top: 20px;").center Compton effect equations
-      //- .center
-      //-   img(src='./assets/comptonScattering.png' width="500px" style="margin-bottom: 50px;")
-      //- p Photon scattering
-      //- .center
-      //-   img(src='./assets/comptonEq14.png' width="530px" style="margin: -150px 0 50px 0; border: 2px solid rgba(255, 0, 0, .3);")
-      //- p(style="margin-top: -10px;") Electron scattering
-      //- .center
-      //-   img(src='./assets/pComponents9.png' width="500px" style="margin: -120px 0 50px 0; border: 2px solid rgba(255, 0, 0, .3);")
-
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Exercise 6
-      example-six
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
-
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 Exercise 7
-      example-seven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h5.center Laser cooling
+      .center
+        img(src='./assets/lasers7.png' width="400px" style="margin-top: -30px;")
+        img(src='./assets/lasers6.png' width="400px" style="margin-top: -30px; margin-left: 100px;")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
