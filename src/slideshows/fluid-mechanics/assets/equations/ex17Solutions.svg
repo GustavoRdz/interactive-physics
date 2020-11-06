@@ -13,7 +13,7 @@
  <line x1="90" y1="105" x2="300" y2="105" stroke="#000" stroke-width="2"/>
  <line x1="110" y1="80" x2="190" y2="80" stroke="#000" stroke-width="2"/>
  <text x="95" y="89" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">2</text>
- <text x="120" y="70" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan></text>
+ <text x="120" y="70" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">0</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">atm</tspan></text>
 
  <text x="140" y="97" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">&#x3c1;</text>
 
@@ -30,20 +30,20 @@
  <line x1="362" y1="147" x2="590" y2="147" stroke="#00F" stroke-width="2"/>
  <line x1="390" y1="180" x2="470" y2="180" stroke="#000" stroke-width="2"/>
  <text x="365" y="190" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">2</text>
- <text x="400" y="170" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan></text>
+ <text x="400" y="170" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="14" font-style="normal">0</tspan> - p<tspan baseline-shift="sub" font-size="14" font-style="normal">atm</tspan></text>
 
  <text x="425" y="197" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">&#x3c1;</text>
 
  <text x="480" y="189" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">+ 2g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan>-y<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan font-style="normal">)</tspan></text>
 
 <!-- if v1=0 or A1>>A2  and p1=p2 Torrielli theorem-->
- <text x="0" y="275" fill="blue" font-size="27" font-family="Times new roman" font-style="italic"><tspan font-family="Times new roman" font-style="normal">If</tspan> A<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan>  <tspan font-family="Times new roman" font-style="normal">&#x226b;</tspan>  A<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan font-family="Times new roman" font-style="normal">&#x21d2;</tspan> v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> &#x2248; 0  &#x2227; p<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> = p<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan font-family="Times new roman" font-style="normal"> &#x21d2;</tspan></text>
+ <text x="0" y="275" fill="blue" font-size="27" font-family="Times new roman" font-style="italic"><tspan font-family="Times new roman" font-style="normal">If</tspan> A<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan>  <tspan font-family="Times new roman" font-style="normal">&#x226b;</tspan>  A<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan><tspan font-family="Times new roman" font-style="normal">&#x21d2;</tspan> v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> &#x2248; 0  &#x2227; p<tspan baseline-shift="sub" font-size="14" font-style="normal">0</tspan> = p<tspan baseline-shift="sub" font-size="14" font-style="normal">atm</tspan><tspan font-family="Times new roman" font-style="normal"> &#x21d2;</tspan></text>
 
  <text x="370" y="270" fill="blue" font-size="25" font-family="Times new roman" font-style="italic">v<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan> =</text>
  <text x="420" y="300" fill="blue" font-size="80" font-family="Times new roman" font-style="italic">&#x221A;</text>
  <line x1="462" y1="227" x2="570" y2="227" stroke="#00F" stroke-width="2"/>
  <line x1="390" y1="180" x2="470" y2="180" stroke="#000" stroke-width="2"/>
- 
+
  <text x="470" y="270" fill="blue" font-size="27" font-family="Times new roman" font-style="italic">2g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="14" font-style="normal">2</tspan>-y<tspan baseline-shift="sub" font-size="14" font-style="normal">1</tspan><tspan font-style="normal">)</tspan></text>
 
   <text x="285" y="310" fill="#F00" font-size="20" font-family="Times new roman" font-style="italic">This is known as the Torricelli theorem</text>

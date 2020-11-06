@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
 
     slide(:steps=3, enter='bounceInRight' leave='bounceOutDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -42,7 +42,7 @@
             <b>Bernoulli's Equation</b>
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Fluid
 
       p A fluid is a collection of molecules that are randomly arranged and held together by weak cohesive forces and forces exerted by the walls of a container. Both liquid and gases are fluids.
@@ -51,14 +51,14 @@
           img.shadowbox(src='https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Density
       p Force exerted by a fluid depends on the mass that the volumen of fluid has, then if different fluids has different mass it is important to use a quantity that involves the mass per volume unit: <b>Density</b>.
       .center
           img.pressureFormula(src='./assets/equations/density.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Density
       .centered
           #table-wrapper
@@ -131,7 +131,7 @@
                 td 19100
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 1
       example-one
       .button.prev(@click.stop='previousSlide')
@@ -145,20 +145,20 @@
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure
       p If <em><span style="font-family: times;">F</span></em> is the magnitude of the force excerted normal to a surface of area <em><span style="font-family: times;">A</span></em>, the pressure in the surface is
       .center
           img.pressureFormula(src='./assets/equations/PressureDEf.svg')
 
     //- slide(:steps=1, enter='bounceInDown')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
     //-   h3 Pressure
     //-   h5.center Pressure machine
     //-   pressure-machine
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 2
       example-two
       .button.prev(@click.stop='previousSlide')
@@ -171,21 +171,21 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure and depth
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
       .center
           img(src='./assets/equations/pressureDepth.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure in depth
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
       .center
           img(src='./assets/equations/pressureDepth2.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 3
       example-three
       .button.prev(@click.stop='previousSlide')
@@ -198,14 +198,14 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pascal principle
       p A change in the pressure applied to a fluid is transmitted undiminished to every point of the fluid and to the walls of the container
       .center
           img(src='./assets/equations/pascalPrinciple.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 4
       example-four
       .button.prev(@click.stop='previousSlide')
@@ -218,13 +218,13 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Absolute and gauge pressure
       p <span><em><strong>Absolute pressure</strong></em></span>: is zero-referenced against a perfect vacuum, using an absolute scale, it is equal to gauge presure plus atmospheric pressure
       p <span><em><strong>Gauge pressure</strong></em></span>: is zero-referenced against ambient air pressure, it is equal to absolute pressure minus atmospheric pressure
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 5
       example-five
       .button.prev(@click.stop='previousSlide')
@@ -237,28 +237,28 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure measurements
       .center
         h4 Open-tube manometer
         img(src='./assets/equations/openTubeManometer.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure measurements
       .center
         h4 Mercury Barometer
         img(src='./assets/equations/mercuryBarometer.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure measurements
       .center
         h4 Bourdon's pressure gauge
         img(src='./assets/equations/bourdonGauge.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 6
       example-six
       .button.prev(@click.stop='previousSlide')
@@ -271,7 +271,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 7
       example-seven
       .button.prev(@click.stop='previousSlide')
@@ -284,7 +284,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 8
       example-eight
       .button.prev(@click.stop='previousSlide')
@@ -297,7 +297,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 9
       example-nine
       .button.prev(@click.stop='previousSlide')
@@ -310,7 +310,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyancy
       p.center <span style="color: blue;">Bouyancy is a familiar phenomenon</span>:
       p.center A body in water seems to weigh less than when it is in air.
@@ -319,21 +319,21 @@
       p When a body is completely or partially immersed in a fluid, the fluid exerts an upward force on the body equal to the weight of the fluid displaced by the body.
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyant force
       .center
         h4 Bouyancy
         img(src='./assets/equations/bouyantForce.svg')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyant force
       .center
         h4 Equilibrium with bouyant force
         img(src='./assets/equations/equilibriumBouyant.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 10
       example-ten
       .button.prev(@click.stop='previousSlide')
@@ -346,7 +346,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 11
       example-eleven
       .button.prev(@click.stop='previousSlide')
@@ -359,7 +359,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 12
       example-twelve
       .button.prev(@click.stop='previousSlide')
@@ -372,7 +372,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 13
       example-thirteen
       .button.prev(@click.stop='previousSlide')
@@ -385,7 +385,7 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 fluid flow
       .center
         h5 Ideal fluid
@@ -395,31 +395,31 @@
         p A <em><strong>current line</strong></em> is curve whose tangent in every point has the direction of the velocity of the fluid
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Flow pipe
         .center
         img(src='./assets/equations/fluxPipe.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
         img(src='./assets/equations/continuityFlowPipe.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
         img(src='./assets/equations/continuityEquation.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
         img(src='./assets/equations/continuityRateEquations.svg')
 
     slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 14
       example-fourteen
       .button.prev(@click.stop='previousSlide')
@@ -432,7 +432,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 15
       example-fifteen
       .button.prev(@click.stop='previousSlide')
@@ -445,35 +445,35 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Work
         img(src='./assets/equations/bernoulliEquation.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Kinetic energy
         img(src='./assets/equations/bernoulliEquationK.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Potential energy
         img(src='./assets/equations/bernoulliEquationU.svg')
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;")
         img(src='./assets/equations/bernoulliEquationFinal.svg')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 16
       example-sixteen
       .button.prev(@click.stop='previousSlide')
@@ -486,7 +486,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 17
       example-seventeen
       .button.prev(@click.stop='previousSlide')
@@ -499,7 +499,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 18
       example-eighteen
       .button.prev(@click.stop='previousSlide')
@@ -511,8 +511,21 @@
         br
         span.small Ctrl + right
 
+    //- slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    //-   h3 Exercise 19
+    //-   example-nineteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       .center
         h3 References
         p University Physics 13th Edition. Searzs and Zemanzky
@@ -551,7 +564,8 @@ export default {
     'example-fifteen': require('./components/ExampleFifteen'),
     'example-sixteen': require('./components/ExampleSixteen'),
     'example-seventeen': require('./components/ExampleSeventeen'),
-    'example-eighteen': require('./components/ExampleEighteen')
+    'example-eighteen': require('./components/ExampleEighteen'),
+    'example-nineteen': require('./components/ExampleNineteen')
 
   },
   data: function () {

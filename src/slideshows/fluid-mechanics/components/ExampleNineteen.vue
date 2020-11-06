@@ -1,27 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A jet of water squirts out horizontally from a hole near the bottom of the tank shown.
-    p.problem  If the hole has a diameter of 3.50 mm, what is the height h of the water level in the tank?
+    p.problem A Venturi meter is used to measure the flow speed in a pipe. Derive an expression for the flow speed v<sub>1</sub> in terms of the cross-setional areas A<sub>1</sub> and A<sub>2</sub> and the difference in height h of the liquid levels in the two vertical tubes.
     .center
-        img(src='../assets/exerciseTorricelli.png'  width="300px")
+      img(src='../assets/equations/venturiPipeProblem.svg' width="200px")
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data A<sub>1</sub> (m<sup>2</sup>)
-    //-     input.center.data(:class="checkedUserHoseArea" v-model.number='userHoseArea')
-    //-   p.inline.data P<sub>1</sub> (Pa)
-    //-     input.center.data(:class="checkedUserFlowRate" v-model.number='userFlowRate')
-    //-   p.inline.data A<sub>2</sub> (m<sup>2</sup>)
-    //-     input.center.data(:class="checkedUserSpeedHose" v-model.number='userSpeedHose')
-    //-   p.inline.data Height difference (m)
-    //-     input.center.data(:class="checkedUserNozzleArea" v-model.number='userNozzleArea')
-    //-   p.inline.data Flow speed (m/s)
-    //-     input.center.data(:class="checkedUserSpeedNozzle" v-model.number='userSpeedNozzle')
-    //-   p.inline.data Speed<sub>bath</sub> (m/s)
-    //-     input.center.data(:class="checkedUserTravelTime" v-model.number='userTravelTime')
-    //-   p.inline.data P<sub>2</sub> (Pa)
-    //-     input.center.data(:class="checkedUserHorizontalDistance" v-model.number='userHorizontalDistance')
+    .center
+        img(src='../assets/equations/ex18Solutions.svg'  width="150px")
 
 
 </template>

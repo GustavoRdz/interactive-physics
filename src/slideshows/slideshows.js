@@ -10,7 +10,8 @@ export default {
     require('./relativity/Relativity'),
     require('./optics/Optics'),
     require('./photoelectric/photoelectric'),
-    require('./atom-physics/Atom-physics')
+    require('./atom-physics/Atom-physics'),
+    require('./nuclear-physics/Nuclear-physics')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),
