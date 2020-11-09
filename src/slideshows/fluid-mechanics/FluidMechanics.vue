@@ -511,18 +511,31 @@
         br
         span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    //-   h3 Exercise 19
-    //-   example-nineteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 19
+      example-nineteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      h3 Exercise 20
+      example-twenty
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -565,7 +578,8 @@ export default {
     'example-sixteen': require('./components/ExampleSixteen'),
     'example-seventeen': require('./components/ExampleSeventeen'),
     'example-eighteen': require('./components/ExampleEighteen'),
-    'example-nineteen': require('./components/ExampleNineteen')
+    'example-nineteen': require('./components/ExampleNineteen'),
+    'example-twenty': require('./components/ExampleTwenty')
 
   },
   data: function () {

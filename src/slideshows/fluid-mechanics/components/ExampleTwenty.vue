@@ -1,12 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A Venturi meter is used to measure the flow speed in a pipe. Derive an expression for the flow speed v<sub>1</sub> in terms of the cross-setional areas A<sub>1</sub> and A<sub>2</sub> and the difference in height h of the liquid levels in the two vertical tubes.
+    p.problem Figure below shows a manometer being used to indicate the pressure difference between two points in a fabricated system (called venturi meter). Calculate the volumen flow rate of water in the system if the manometer deflection h is 260mm
     .center
-      img(src='../assets/equations/venturiPipeProblem.svg' width="400px" style="margin-top: -100px;")
+      img(src='../assets/venturiExercise.png' width="400px" style="margin-top: 0px;")
 
     .center
-        img(src='../assets/equations/ex18Solutions.svg'  width="200px")
+        //- img(src='../assets/equations/ex18Solutions.svg'  width="200px")
 
 
 </template>
