@@ -16,7 +16,7 @@
 
     slide(:steps=5, enter='bounceInRight' leave='bounceOutDown')
       h3 Introduction
-      p.center  A brief explanation on the site
+      p This is an interactive page to learn physics, it is under construction. By now it has images taken from college physics books but it will be replaced by its own, commonly animated, figures or simulators.
 
 
 </template>
@@ -28,7 +28,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'physics playground',
-    description: 'intro to site',
+    description: 'intro to playground',
     path: 'introduction'
   },
   data: function () {

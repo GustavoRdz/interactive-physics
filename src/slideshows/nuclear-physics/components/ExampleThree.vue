@@ -1,33 +1,23 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    div(class="container" style="display: flex; flex-direction: column;")
-      div(style="display: flex; flex-direction: row; height: 100%;  align-items: center;")
-        div(style="flex-shrink: 4;")
-          p.problem The Balmer series for the hydrogen atom corresponds to electronic transitions that terminate in the state with quantum number n = 2 as shown. Consider the photon of longest wavelength corresponding to a transition shown in the figure.
-          p.problem Determine (a) its energy and (b) its wavelength.
-          p.problem Consider the spectral line of shortest wavelength corresponding to a transition shown in the figure.
-          p.problem Find (c) its photon energy and (d) its wavelength. (e) What is the shortest possible wavelength in the Balmer series?
-        div(style="flex-shrink: 3;")
-          .center
-            img(src='../assets/balmerSeries.png' width="700px;")
-      div(style="align-content: center;")
-        .center
-          p.solution Please do calculations and introduce your results
-          p.inline.data a) E (eV)
-            input.center.data(:class="checkedEeV1" v-model.number='enterEeV1')
-          p.inline.data E (J)
-            input.center.data(:class="checkedEj1" v-model.number='enterEj1')
-          p.inline.data b) λ (m)
-            input.center.data(:class="checkedL1" v-model.number='enterL1')
-          p.inline.data c) E (eV)
-            input.center.data(:class="checkedEeV2" v-model.number='enterEeV2')
-          p.inline.data E (J)
-            input.center.data(:class="checkedEj2" v-model.number='enterEj2')
-          p.inline.data d) λ (m)
-            input.center.data(:class="checkedL2" v-model='enterL2')
-          p.inline.data e) λ<sub>short</sub> (m)
-            input.center.data(:class="checkedLs" v-model='enterLs')
+    p.problem Calculate the nuclear binding energy per nucleon for the next isotope <sup>13</sup><sub>7</sub>N
+        //- .center
+        //-   p.solution Please do calculations and introduce your results
+        //-   p.inline.data a) E (eV)
+        //-     input.center.data(:class="checkedEeV1" v-model.number='enterEeV1')
+        //-   p.inline.data E (J)
+        //-     input.center.data(:class="checkedEj1" v-model.number='enterEj1')
+        //-   p.inline.data b) λ (m)
+        //-     input.center.data(:class="checkedL1" v-model.number='enterL1')
+        //-   p.inline.data c) E (eV)
+        //-     input.center.data(:class="checkedEeV2" v-model.number='enterEeV2')
+        //-   p.inline.data E (J)
+        //-     input.center.data(:class="checkedEj2" v-model.number='enterEj2')
+        //-   p.inline.data d) λ (m)
+        //-     input.center.data(:class="checkedL2" v-model='enterL2')
+        //-   p.inline.data e) λ<sub>short</sub> (m)
+        //-     input.center.data(:class="checkedLs" v-model='enterLs')
 
 </template>
 <script>

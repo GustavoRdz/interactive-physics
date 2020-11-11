@@ -1,21 +1,21 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A photon is emitted when a hydrogen atom undergoes a transition from the n = {{ levelUp }} state to the n = {{ levelDown }} state. Calculate
-    p.problem (a) the energy (in electron volts),
-    p.problem (b) the wavelength, and
-    p.problem (c) the frequency of the emitted photon.
+    p.problem Calculate the binding energy of the following isotope <sup>33</sup><sub>16</sub>S
+    //- p.problem (a) the energy (in electron volts),
+    //- p.problem (b) the wavelength, and
+    //- p.problem (c) the frequency of the emitted photon.
 
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data a) E  (eV)
-        input.center.data(:class="checkedE" v-model.number='enterE')
-      p.inline.data E (J)
-        input.center.data(:class="checkedEj" v-model.number='enterEj')
-      p.inline.data b) λ (m)
-        input.center.data(:class="checkedL" v-model.number='enterL')
-      p.inline.data c) f (Hz)
-        input.center.data(:class="checkedF" v-model='enterF')
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data a) E  (eV)
+    //-     input.center.data(:class="checkedE" v-model.number='enterE')
+    //-   p.inline.data E (J)
+    //-     input.center.data(:class="checkedEj" v-model.number='enterEj')
+    //-   p.inline.data b) λ (m)
+    //-     input.center.data(:class="checkedL" v-model.number='enterL')
+    //-   p.inline.data c) f (Hz)
+    //-     input.center.data(:class="checkedF" v-model='enterF')
 
 </template>
 <script>

@@ -1,16 +1,17 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem What is the energy of a photon that, when absorbed by a hydrogen atom, could cause an electronic transition from
-    p.problem (a) the n = {{ levelA1 }} state to the n = {{ levelA2 }} state
-    p.problem (b) the n = {{ levelB1 }} state to the n = {{ levelB2 }} state?
+    p.problem Calculate the nuclear radius of <sup>115</sup><sub>50</sub>Sn
+    //- p.problem What is the energy of a photon that, when absorbed by a hydrogen atom, could cause an electronic transition from
+    //- p.problem (a) the n = {{ levelA1 }} state to the n = {{ levelA2 }} state
+    //- p.problem (b) the n = {{ levelB1 }} state to the n = {{ levelB2 }} state?
 
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data a) E<sub>n = {{ levelA1 }} to {{ levelA2 }}</sub> (eV)
-        input.center.data(:class="checkedEa" v-model='enterEa')
-      p.inline.data A) E<sub>n = {{ levelB1 }} to {{ levelB2 }} </sub> (eV)
-        input.center.data(:class="checkedEb" v-model='enterEb')
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data a) E<sub>n = {{ levelA1 }} to {{ levelA2 }}</sub> (eV)
+    //-     input.center.data(:class="checkedEa" v-model='enterEa')
+    //-   p.inline.data A) E<sub>n = {{ levelB1 }} to {{ levelB2 }} </sub> (eV)
+    //-     input.center.data(:class="checkedEb" v-model='enterEb')
 
 </template>
 <script>

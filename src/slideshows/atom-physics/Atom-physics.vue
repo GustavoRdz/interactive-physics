@@ -287,7 +287,7 @@
 
     slide(:steps=3 enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -0px; margin-bottom: 40px").center Spontaneous end stimulated emission
+      h4(style="margin-top: -0px; margin-bottom: 40px").center Spontaneous and stimulated emission
       div(class="container" style="display: flex; flex-direction: row; margin-top: 20px;")
         div(style= "display: flex; flex-direction: row; height: 100%;  width: 100%; justify-content: center;")
           div(v-if="step >= 1" style= "width: 485px;")
@@ -307,7 +307,7 @@
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Laser
       p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">L</span>igth
       p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">A</span>mplification by
@@ -317,7 +317,7 @@
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Lasers
       .center
         img(src='./assets/lasers4.png' width="700px" style="margin-top: -30px; margin-right: 0px;")
@@ -325,7 +325,7 @@
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
+      h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Laser cooling
       .center
         img(src='./assets/lasers7.png' width="400px" style="margin-top: -30px;")
