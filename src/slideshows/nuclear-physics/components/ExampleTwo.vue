@@ -1,82 +1,128 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Calculate the binding energy of the following isotope <sup>33</sup><sub>16</sub>S
-    //- p.problem (a) the energy (in electron volts),
-    //- p.problem (b) the wavelength, and
-    //- p.problem (c) the frequency of the emitted photon.
+    p.problem Calculate the binding energy of the following isotope
+    p.problem.center <span style="font-family: Courier;">{{ elements[element] }}-{{ masic }}</span>
+    div(style="display: flex; align-items: center; justify-content: center;")
+      div(style="width: 250px; height: 200px;display: flex; align-items: center; justify-content: center;")
+        div
+          div(style="width: 70px;")
+            p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") {{ masic }}
+          div(style="width: 70px; justify-content: right;")
+            p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ atomic }}
+        div(style="width: 100px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[element]].symbol }}
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data a) E  (eV)
-    //-     input.center.data(:class="checkedE" v-model.number='enterE')
-    //-   p.inline.data E (J)
-    //-     input.center.data(:class="checkedEj" v-model.number='enterEj')
-    //-   p.inline.data b) λ (m)
-    //-     input.center.data(:class="checkedL" v-model.number='enterL')
-    //-   p.inline.data c) f (Hz)
-    //-     input.center.data(:class="checkedF" v-model='enterF')
+    //- p(style="font-size: 10px;") {{ elements[element] }} {{ iso[elements[element]] }} {{ element }}
+    //- p {{ mass }} {{ massDefect }}
+
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data A
+        input.center.data(:class="checkedA" v-model.number='enterA')
+      p.inline.data Z
+        input.center.data(:class="checkedZ" v-model.number='enterZ')
+      p.inline.data N
+        input.center.data(:class="checkedN" v-model.number='enterN')
+      p.inline.data M(<sup>{{ masic }}</sup>{{ iso[elements[element]].symbol }})
+        input.center.data(:class="checkedMass" v-model='enterMass')
+      p.inline.data Mass defect
+        input.center.data(:class="checkedMassDefect" v-model='enterMassDefect')
+      p.inline.data E<sub>b</sub>
+        input.center.data(:class="checkedEb" v-model='enterEb')
 
 </template>
 <script>
 import eagle from 'eagle.js'
+import iso from '../assets/isotopes.json'
 export default {
   data: function () {
     return {
-      enterE: '',
-      enterEj: '',
-      enterL: '',
-      enterF: '',
-      e: 1.6e-19,
-      h: 6.626e-34,
-      c: 3e8
+      enterA: '',
+      enterZ: '',
+      enterN: '',
+      enterMass: '',
+      enterMassDefect: '',
+      enterEb: '',
+      iso: iso
     }
   },
   computed: {
-    levelDown: function () {
-      let max = 5
+    element: function () {
+      let max = 100
       let min = 1
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    levelUp: function () {
-      let max = 10
-      let min = this.levelDown + 1
-      return Math.floor(Math.random() * (max - min + 1) + min)
+    elements: function () {
+      let elems = []
+      for (var item in iso) {
+        elems.push(item)
+      }
+      return elems
     },
-    energyEv: function () {
-      return Math.round(1000 * -13.606 * (1 / Math.pow(this.levelUp, 2) - 1 / Math.pow(this.levelDown, 2))) / 1000
+    isotope: function () {
+      let max = this.iso[this.elements[this.element]].A.length - 1
+      let min = 0
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    energyJ: function () {
-      return parseFloat((this.energyEv * this.e).toPrecision(4))
+    neutronMass: function () {
+      return this.iso['neutron'].mass[0]
     },
-    lambda: function () {
-      return parseFloat((this.h * this.c / this.energyJ).toPrecision(4))
+    protonMass: function () {
+      return this.iso['Hydrogen'].mass[0]
     },
-    frequency: function () {
-      return parseFloat((this.energyJ / this.h).toPrecision(4))
+    masic: function () {
+      return this.iso[this.elements[this.element]].A[this.isotope]
     },
-    checkedE: function () {
+    mass: function () {
+      return this.iso[this.elements[this.element]].mass[this.isotope]
+    },
+    atomic: function () {
+      return this.iso[this.elements[this.element]].z
+    },
+    neutrons: function () {
+      return this.masic - this.atomic
+    },
+    massDefect: function () {
+      return Math.round(1000000 * (this.atomic * this.protonMass + this.neutrons * this.neutronMass - this.mass)) / 1000000
+    },
+    bindE: function () {
+      return Math.round(1000 * (this.massDefect * 931.494)) / 1000
+    },
+    checkedA: function () {
       let check
-      console.log('E (eV) => ' + this.energyEv + ' : ' + parseFloat(this.enterE))
-      check = this.energyEv === parseFloat(this.enterE) ? 'correct' : 'not-correct'
+      console.log('A: => ' + this.masic + ' : ' + parseFloat(this.enterA))
+      check = this.masic === parseFloat(this.enterA) ? 'correct' : 'not-correct'
       return check
     },
-    checkedEj: function () {
+    checkedZ: function () {
       let check
-      console.log('E (J) => ' + this.energyJ + ' : ' + parseFloat(this.enterEj))
-      check = this.energyJ === parseFloat(this.enterEj) ? 'correct' : 'not-correct'
+      console.log('Z: => ' + this.atomic + ' : ' + parseFloat(this.enterZ))
+      check = this.atomic === parseFloat(this.enterZ) ? 'correct' : 'not-correct'
       return check
     },
-    checkedL: function () {
+    checkedN: function () {
       let check
-      console.log('λ => ' + this.lambda + ' : ' + parseFloat(this.enterL))
-      check = this.lambda === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      console.log('N: => ' + this.neutrons + ' : ' + parseFloat(this.enterN))
+      check = this.neutrons === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     },
-    checkedF: function () {
+    checkedMass: function () {
       let check
-      console.log('Frequency => ' + this.frequency + ' : ' + this.enterF)
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      console.log('isotope Mass: => ' + this.mass + ' : ' + this.enterMass)
+      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedMassDefect: function () {
+      let check
+      console.log('Mass defect: => ' + this.massDefect + ' : ' + this.enterMassDefect)
+      check = this.massDefect === parseFloat(this.enterMassDefect) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedEb: function () {
+      let check
+      console.log('Eb: => ' + this.bindE + ' : ' + this.enterEb)
+      check = this.bindE === parseFloat(this.enterEb) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -112,6 +158,7 @@ export default {
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: Courier;
 }
 
 .problem {

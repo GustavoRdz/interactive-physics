@@ -1,65 +1,87 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Calculate the nuclear radius of <sup>115</sup><sub>50</sub>Sn
-    //- p.problem What is the energy of a photon that, when absorbed by a hydrogen atom, could cause an electronic transition from
-    //- p.problem (a) the n = {{ levelA1 }} state to the n = {{ levelA2 }} state
-    //- p.problem (b) the n = {{ levelB1 }} state to the n = {{ levelB2 }} state?
+    p.problem Calculate the nuclear radius of
+    p.problem.center <span style="font-family: Courier;">{{ elements[element] }}-{{ masic }}</span>
+    div(style="display: flex; align-items: center; justify-content: center;")
+      div(style="width: 250px; height: 200px;display: flex; align-items: center; justify-content: center;")
+        div
+          div(style="width: 70px;")
+            p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") {{ masic }}
+          div(style="width: 70px; justify-content: right;")
+            p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ atomic}}
+        div(style="width: 100px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[element]].symbol }}
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data a) E<sub>n = {{ levelA1 }} to {{ levelA2 }}</sub> (eV)
-    //-     input.center.data(:class="checkedEa" v-model='enterEa')
-    //-   p.inline.data A) E<sub>n = {{ levelB1 }} to {{ levelB2 }} </sub> (eV)
-    //-     input.center.data(:class="checkedEb" v-model='enterEb')
+    //- p(style="font-size: 20px;") {{ elements[element] }} {{ iso[elements[element]] }} {{ element }} {{ iso[elements[element]].A }}  {{ iso[elements[element]].A.length }} {{ isotope }}
+
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data A
+        input.center.data(:class="checkedA" v-model='enterA')
+      p.inline.data a (m)
+        input.center.data(:class="checkeda" v-model='entera')
+      p.inline.data r  (m)
+        input.center.data(:class="checkedR" v-model='enterR')
 
 </template>
 <script>
 import eagle from 'eagle.js'
+import iso from '../assets/isotopes.json'
+
 export default {
   data: function () {
     return {
-      enterEa: '',
-      enterEb: ''
+      enterA: '',
+      entera: '',
+      enterR: '',
+      iso: iso,
+      a: 1.2e-15
     }
   },
   computed: {
-    levelA1: function () {
-      let max = 3
+    element: function () {
+      let max = 100
       let min = 1
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    levelA2: function () {
-      let max = 8
-      let min = 4
+    elements: function () {
+      let elems = []
+      for (var item in iso) {
+        elems.push(item)
+      }
+      return elems
+    },
+    isotope: function () {
+      let max = this.iso[this.elements[this.element]].A.length - 1
+      let min = 0
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    levelB1: function () {
-      let max = 6
-      let min = 3
-      return Math.floor(Math.random() * (max - min + 1)) + min
+    masic: function () {
+      return this.iso[this.elements[this.element]].A[this.isotope]
     },
-    levelB2: function () {
-      let max = 10
-      let min = 7
-      return Math.floor(Math.random() * (max - min + 1)) + min
+    atomic: function () {
+      return this.iso[this.elements[this.element]].z
     },
-    eA: function () {
-      return parseFloat((-13.606 * (1 / Math.pow(this.levelA2, 2) - 1 / Math.pow(this.levelA1, 2))).toFixed(3))
+    radius: function () {
+      return parseFloat((this.a * Math.pow(this.masic, 1 / 3)).toPrecision(4))
     },
-    eB: function () {
-      return parseFloat((-13.606 * (1 / Math.pow(this.levelB2, 2) - 1 / Math.pow(this.levelB1, 2))).toFixed(3))
-    },
-    checkedEa: function () {
+    checkedA: function () {
       let check
-      console.log('a) E: => ' + this.eA + ' : ' + parseFloat(this.enterEa))
-      check = this.eA === parseFloat(this.enterEa) ? 'correct' : 'not-correct'
+      console.log('A: => ' + this.masic + ' : ' + parseFloat(this.enterA))
+      check = this.masic === parseFloat(this.enterA) ? 'correct' : 'not-correct'
       return check
     },
-    checkedEb: function () {
+    checkeda: function () {
       let check
-      console.log('b) E: => ' + this.eB + ' : ' + parseFloat(this.enterEb))
-      check = this.eB === parseFloat(this.enterEb) ? 'correct' : 'not-correct'
+      console.log('a: => ' + this.a + ' : ' + parseFloat(this.entera))
+      check = this.a === parseFloat(this.entera) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedR: function () {
+      let check
+      console.log('r: => ' + this.radius + ' : ' + parseFloat(this.enterR))
+      check = this.radius === parseFloat(this.enterR) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -95,6 +117,7 @@ export default {
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: arial;
 }
 
 .problem {

@@ -47,11 +47,11 @@
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Begining of nuclear physics
-      p In 1896 French physicist <b>Antoine-Henri Becquerel</b> (1852–1908) discovered radioactivity in uranium compounds.
-      p <b>Ernest Rutherford</b> showed that the radiation is of three types—<b>alpha</b>, <b>beta</b>, and <b>gamma rays</b>
-      p Later experiments showed that <b>alpha rays</b> are <b>helium nuclei</b>, <b>beta rays</b> are <b>electrons</b>, and <b>gamma rays</b> are <b>high-energy photons</b>.
+      p In 1896 French physicist <b>Antoine-Henri Becquerel</b> (1852–1908) discovered radioactivity in uranium compounds.<b>Ernest Rutherford</b> showed that the radiation is of three types—<b>alpha</b>, <b>beta</b>, and <b>gamma rays</b>
+      p(style="margin: 0;") Later experiments showed that
+      p(style="margin: 0;").center <b>alpha rays</b> are <b><span style="color: #9E0601;">helium nuclei</span></b>, <br><b>beta rays</b> are <b><span style="color: #5BC3DC;">electrons</span></b>, and <br><b>gamma rays</b> are <b>high-energy photons</b>.
       .center
-        img(src='./assets/nuclear10.png' width="350px")
+        img(src='./assets/nuclear10.png' width="350px" style="margin-top: 30px;")
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -67,7 +67,7 @@
       p Subsequent studies revealed the presence of a new type of force, the short-range nuclear force, which is predominant at particle separation distances less than approximately 10<sup>-14</sup> m and is zero for large distances.
       .center
         img(src='./assets/forces.png' width="540px")
-      p 1. Nuclear forces are effective only over short intervals (short distances).<br> 2. Nuclear forces are independent of charge. <br>3. Nuclear forces are the strongest known in nature.<br>4. Nuclear forces are quickly saturated by the surrounding nucleons.
+      p(style="margin-left: 120px;") 1. Nuclear forces are effective only over short intervals (short distances).<br> 2. Nuclear forces are independent of charge. <br>3. Nuclear forces are the strongest known in nature.<br>4. Nuclear forces are quickly saturated by the surrounding nucleons.
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -77,7 +77,8 @@
       p The <b>atomic number <span style="font-family: Times; font-style: italic;">Z</span></b>, which equals the number of protons in the nucleus (sometimes called the charge number)
       p The <b>neutron number <span style="font-family: Times; font-style: italic;">N</span></b>, which equals the number of neutrons in the nucleus
       p The <b>mass number <span style="font-family: Times; font-style: italic;">A</span> = <span style="font-family: Times; font-style: italic;">Z</span> + <span style="font-family: Times; font-style: italic;">N</span></b>, which equals the number of nucleons (neutrons plus protons) in the nucleus
-      p A nuclide is a specific combination of atomic number and mass number that represents a nucleus. In representing nuclides, it is convenient to use the symbol <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>A</b></sup><sub style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>Z</b></sub> <span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>X</b></span>
+      p A nuclide is a specific combination of atomic number and mass number that represents a nucleus.
+      //- In representing nuclides, it is convenient to use the symbol <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>A</b></sup><sub style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>Z</b></sub> <span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>X</b></span>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -99,9 +100,10 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Nuclear structure
       .center
-        img(src='./assets/nuclear05.png' width="250px")
+        img(src='./assets/nuclear05.png' width="250px" style="margin-top: -30px;")
+      p.center Nucleus radius
       .center
-        img(src='./assets/nuclear04.png' width="200px")
+        img(src='./assets/nuclear04.png' width="200px" style="margin-top: -30px;")
       p.center <span style="font-family: Times; font-style: italic; font-size: 40px;">a</span><span style="font-family: Times; font-style: normal; font-size: 40px;"> = 1.2 fm</span>
       .center
         img(src='./assets/nuclear03.png' width="250px")
@@ -111,12 +113,11 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Binding energy
       p The total mass of a nucleus is less than the sum of the masses of its individual nucleons.
-      p Therefore, the rest energy of the bound system (the nucleus) is less than the combined rest energy of the separated nucleons.
       p This difference in energy is called the binding energy of the nucleus and can be interpreted as the energy that must be added to a nucleus to break it apart into its components.
       p Conservation of energy and the Einstein mass–energy equivalence relationship show that the binding energy Eb in MeV of any nucleus is
       .center
-        img(src='./assets/nuclear07.png' width="600px")
-      p where M(H) is the atomic mass of the neutral hydrogen atom, mn is the mass of the neutron, M(AZ X) represents the atomic mass of an atom of the isotope AZ X, and the masses are all in atomic mass units.
+        img(src='./assets/nuclear07.png' width="800px")
+      p where M(H) is the atomic mass of the neutral hydrogen atom, mn is the mass of the neutron, M(<sup>A</sup><sub>Z</sub>X) represents the atomic mass of an atom of the isotope <sup>A</sup><sub>Z</sub>X, and the masses are all in atomic mass units.
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -159,29 +160,70 @@
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
-      p Bohr applied Planck’s ideas of quantized energy levels to Rutherford’s orbiting atomic electrons
+      h4(style="margin-top:-20px;").center Radioactivity
+      p With the discovery of radiactivity scientist found three types of radiation
       .center
-        //- img(src='./assets/atomo10.png' width="400px")
+        img(src='./assets/nuclear10.png' width="500px")
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-bottom: 0px;").center Nuclear decay
+      p(style="margin-top:20px;")
       .center
-        img(src='./assets/nuclear06.png' width="250px")
-        img(src='./assets/nuclear08.png' width="250px")
-        img(src='./assets/nuclear09.png' width="250px")
-        img(src='./assets/nuclear11.png' width="250px")
-        img(src='./assets/nuclear12.png' width="250px")
-        img(src='./assets/nuclear13.png' width="250px")
+        img(src='./assets/nuclear08.png' width="200px")
+      .center
+        img(src='./assets/nuclear09.png' width="200px")
+      .center
+        img(src='./assets/nuclear12.png' width="200px")
+      .center
+        img(src='./assets/nuclear11.png' width="300px")
+
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top:0px;").center Half-life
+      .center
+        img(src='./assets/nuclear11.png' width="300px" style="margin-top: -40px;")
+      .center
         img(src='./assets/nuclear14.png' width="250px")
+      .center|
+        img(src='./assets/nuclear13.png' width="350px")
+      .center
         img(src='./assets/nuclear15.png' width="250px")
-        img(src='./assets/nuclear16.png' width="250px")
-        img(src='./assets/nuclear17.png' width="250px")
-        img(src='./assets/nuclear18.png' width="250px")
-        img(src='./assets/nuclear19.png' width="250px")
+
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top:-20px;").center Activity
+      .center
+        img(src='./assets/nuclear13.png' width="450px")
+      .center
+        img(src='./assets/nuclear18.png' width="400px")
+      .center
+        img(src='./assets/nuclear17.png' width="550px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
+      h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
+      p From the orbilat radius
+      .center
+        //- img(src='./assets/atomo25.png' width="350px")
+      p we can join all constant in a new one, called the <b>Bohr radius</b> (<span style="font-family: Times; font-style: italic;">a<sub style="font-size: 20px;">0</sub></span>)
+      .center
+        //- img(src='./assets/atomo26.png' width="350px")
+      p and revisiting the orbital radius we have
+      .center
+        //- img(src='./assets/atomo27.png' width="600px")
+      .center
         img(src='./assets/nuclear20.png' width="250px")
+        img(src='./assets/nuclear06.png' width="250px")
         img(src='./assets/nuclear21.png' width="250px")
         img(src='./assets/nuclear22.png' width="250px")
         img(src='./assets/nuclear23.png' width="250px")
         img(src='./assets/nuclear24.png' width="250px")
         img(src='./assets/nuclear25.png' width="250px")
+        img(src='./assets/nuclear16.png' width="250px")
         //- img(src='./assets/nuclear26.png' width="250px")
         img(src='./assets/nuclear27.png' width="250px")
         img(src='./assets/nuclear28.png' width="250px")
@@ -197,78 +239,6 @@
         //- img(src='./assets/nuclear37.png' width="250px")
         img(src='./assets/nuclear38.png' width="250px")
         img(src='./assets/nuclear39.png' width="250px")
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-bottom: 60px;").center Bohr's model of the Hydrogen atom
-      p(style="margin-top:20px;") 1. Physical components: The electron moves in circular orbits around the proton under the influence of the electric force of attraction.
-      p 2. Behavior of the components: <br>(a) Only certain electron orbits are stable.<br>(b) The atom emits radiation when the electron makes a transition from a more energetic initial stationary state to a lower-energy stationary state.<br>(c) The allowed orbits are those for which the electron’s orbital angular momentum about the nucleus is quantized and equal to an integral multiple of
-      .center
-        //- img(src='./assets/atomo14.png' width="350px")
-      p where <span style="font-family: Times; font-style: italic; font-weight: bold;">m<sub>e</sub></span> is the electron mass, <span style="font-family: Times; font-style: italic; font-weight: bold;">v</span> is the electron’s speed in its orbit, <span style="font-family: Times; font-style: italic; font-weight: bold;">r</span> is the orbital radius, and
-          |
-          //- img(src='./assets/atomo13.png' width="120px" style="margin: 0px 0 -3px 20px;")
-
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-top:0px;").center Bohr's model of the Hydrogen atom
-      p(style="margin-top:20px;")
-      p With potential energy given by
-        |
-        //- img(src='./assets/atomo15.png' width="300px" style="margin: 0px 10px -11px 10px;")
-        | total energy is
-      .center
-        //- img(src='./assets/atomo16.png' width="400px")
-      p electrical force on electron must equal it's mass times the centripetal acceleration
-        |
-        //- img(src='./assets/atomo18.png' width="130px"  style="margin: 0px 10px -11px 10px;")
-        | that is
-      .center
-        //- img(src='./assets/atomo19.png' width="200px"  style="margin: 0px 100px -40px 10px;")
-        | then
-        |
-        //- img(src='./assets/atomo20.png' width="200px" style="margin: 0px 10px -40px 100px;")
-      p and kinetic energy becomes
-      .center
-        //- img(src='./assets/atomo21.png' width="300px" style="margin: -20px 10px 0px 10px;")
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
-      p And total energy becomes
-      .center
-        //- img(src='./assets/atomo22.png' width="200px" style="margin-top: -30px;")
-      p(style="margin-top: -10px;") Now solving <span style="font-family: Times; font-style: italic;">v</span> from
-      .center(style="margin-top: -30px;")
-        //- img(src='./assets/atomo14.png' width="350px" style="margin: 0px 100px -20px 10px;")
-        | with
-        |
-        //- img(src='./assets/atomo20.png' width="100px" style="margin: 0px 10px -20px 100px;")
-      p(style="margin-top: 20px;") we have
-      .center
-        //- img(src='./assets/atomo24.png' width="250px" style="margin-top: -30px;")
-      p(style="margin-top: -0px;") and the orbital radius is given by
-      .center
-        //- img(src='./assets/atomo25.png' width="300px")
-
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
-      p From the orbilat radius
-      .center
-        //- img(src='./assets/atomo25.png' width="350px")
-      p we can join all constant in a new one, called the <b>Bohr radius</b> (<span style="font-family: Times; font-style: italic;">a<sub style="font-size: 20px;">0</sub></span>)
-      .center
-        //- img(src='./assets/atomo26.png' width="350px")
-      p and revisiting the orbital radius we have
-      .center
-        //- img(src='./assets/atomo27.png' width="600px")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -395,11 +365,11 @@
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
 
 
-
 </template>
 
 <script>
 import eagle from 'eagle.js'
+import iso from './assets/isotopes.json'
 
 export default {
   mixins: [eagle.slideshow],
@@ -427,7 +397,8 @@ export default {
 
   data: function () {
     return {
-      theme: 'Optics'
+      theme: 'Optics',
+      iso: iso
     }
   }
 }

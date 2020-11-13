@@ -1,106 +1,126 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Calculate the nuclear binding energy per nucleon for the next isotope <sup>13</sup><sub>7</sub>N
-        //- .center
-        //-   p.solution Please do calculations and introduce your results
-        //-   p.inline.data a) E (eV)
-        //-     input.center.data(:class="checkedEeV1" v-model.number='enterEeV1')
-        //-   p.inline.data E (J)
-        //-     input.center.data(:class="checkedEj1" v-model.number='enterEj1')
-        //-   p.inline.data b) λ (m)
-        //-     input.center.data(:class="checkedL1" v-model.number='enterL1')
-        //-   p.inline.data c) E (eV)
-        //-     input.center.data(:class="checkedEeV2" v-model.number='enterEeV2')
-        //-   p.inline.data E (J)
-        //-     input.center.data(:class="checkedEj2" v-model.number='enterEj2')
-        //-   p.inline.data d) λ (m)
-        //-     input.center.data(:class="checkedL2" v-model='enterL2')
-        //-   p.inline.data e) λ<sub>short</sub> (m)
-        //-     input.center.data(:class="checkedLs" v-model='enterLs')
+    p.problem Calculate the nuclear binding energy per nucleon for the isotope
+    p.center.problem <span style="font-family: Courier;">{{ elements[element] }}-{{ masic }}</span>
+    div(style="display: flex; align-items: center; justify-content: center;")
+      div(style="width: 250px; height: 200px;display: flex; align-items: center; justify-content: center;")
+        div
+          div(style="width: 70px;")
+            p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") {{ masic }}
+          div(style="width: 70px; justify-content: right;")
+            p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ atomic }}
+        div(style="width: 100px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[element]].symbol }}
+
+    //- p(style="font-size: 15px;") {{ elements[element] }} {{ iso[elements[element]] }} {{ element }} {{ isotope }}
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data N
+        input.center.data(:class="checkedN" v-model.number='enterN')
+      p.inline.data M(<sup>{{ masic }}</sup>{{ iso[elements[element]].symbol }})
+        input.center.data(:class="checkedMass" v-model='enterMass')
+      p.inline.data Mass defect
+        input.center.data(:class="checkedMassDefect" v-model='enterMassDefect')
+      p.inline.data E<sub>b</sub>
+        input.center.data(:class="checkedEb" v-model='enterEb')
+      p.inline.data E<sub>b</sub> per nucleon
+        input.center.data(:class="checkedEbN" v-model='enterEbN')
 
 </template>
 <script>
 import eagle from 'eagle.js'
+import iso from '../assets/isotopes.json'
 export default {
   data: function () {
     return {
-      enterEeV1: '',
-      enterEj1: '',
-      enterL1: '',
-      enterEeV2: '',
-      enterEj2: '',
+      enterN: '',
+      enterMass: '',
+      enterMassDefect: '',
+      enterEb: '',
+      enterEbN: '',
       enterL2: '',
       enterLs: '',
       h: 6.626e-34,
       e: 1.6e-19,
       c: 3e8,
-      el2: 3.401
+      el2: 3.401,
+      iso: iso
     }
   },
   computed: {
-    eEv1: function () {
-      console.clear()
-      return Math.round(1000 * 13.606 * (1 / 4 - 1 / 9)) / 1000
+    element: function () {
+      let max = 100
+      let min = 1
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    eJ1: function () {
-      return parseFloat((this.eEv1 * this.e).toPrecision(4))
+    elements: function () {
+      let elems = []
+      for (var item in iso) {
+        elems.push(item)
+      }
+      return elems
     },
-    lambda1: function () {
-      return parseFloat((this.h * this.c / this.eJ1).toPrecision(4))
+    isotope: function () {
+      let max = this.iso[this.elements[this.element]].A.length - 1
+      let min = 0
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    eEv2: function () {
-      return Math.round(1000 * 13.606 * (1 / 4 - 1 / 36)) / 1000
+    neutronMass: function () {
+      return this.iso['neutron'].mass[0]
     },
-    eJ2: function () {
-      return parseFloat((this.eEv2 * this.e).toPrecision(4))
+    protonMass: function () {
+      return this.iso['Hydrogen'].mass[0]
     },
-    lambda2: function () {
-      return parseFloat((this.h * this.c / this.eJ2).toPrecision(4))
+    masic: function () {
+      return this.iso[this.elements[this.element]].A[this.isotope]
     },
-    lambdaS: function () {
-      return parseFloat((this.h * this.c / (this.el2 * this.e)).toPrecision(4))
+    mass: function () {
+      return this.iso[this.elements[this.element]].mass[this.isotope]
     },
-    checkedEeV1: function () {
+    atomic: function () {
+      return this.iso[this.elements[this.element]].z
+    },
+    neutrons: function () {
+      return this.masic - this.atomic
+    },
+    massDefect: function () {
+      return Math.round(1000000 * (this.atomic * this.protonMass + this.neutrons * this.neutronMass - this.mass)) / 1000000
+    },
+    bindE: function () {
+      return Math.round(1000 * (this.massDefect * 931.494)) / 1000
+    },
+    bindEN: function () {
+      return Math.round(1000 * (this.bindE / this.masic)) / 1000
+    },
+    checkedN: function () {
       let check
-      console.log('a) E (eV) => ' + this.eEv1 + ' : ' + parseFloat(this.enterEeV1))
-      check = this.eEv1 === parseFloat(this.enterEeV1) ? 'correct' : 'not-correct'
+      console.log('N: => ' + this.neutrons + ' : ' + parseFloat(this.enterN))
+      check = this.neutrons === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     },
-    checkedEj1: function () {
+    checkedMass: function () {
       let check
-      console.log('   E (J) => ' + this.eJ1 + ' : ' + parseFloat(this.enterEj1))
-      check = this.eJ1 === parseFloat(this.enterEj1) ? 'correct' : 'not-correct'
+      console.log('isotope Mass: => ' + this.mass + ' : ' + this.enterMass)
+      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedL1: function () {
+    checkedMassDefect: function () {
       let check
-      console.log('b) λ => ' + this.lambda1 + ' : ' + parseFloat(this.enterL1))
-      check = this.lambda1 === parseFloat(this.enterL1) ? 'correct' : 'not-correct'
+      console.log('Mass defect: => ' + this.massDefect + ' : ' + this.enterMassDefect)
+      check = this.massDefect === parseFloat(this.enterMassDefect) ? 'correct' : 'not-correct'
       return check
     },
-    checkedEeV2: function () {
+    checkedEb: function () {
       let check
-      console.log('c) E (eV) => ' + this.eEv2 + ' : ' + parseFloat(this.enterEeV2))
-      check = this.eEv2 === parseFloat(this.enterEeV2) ? 'correct' : 'not-correct'
+      console.log('Eb: => ' + this.bindE + ' : ' + this.enterEb)
+      check = this.bindE === parseFloat(this.enterEb) ? 'correct' : 'not-correct'
       return check
     },
-    checkedEj2: function () {
+    checkedEbN: function () {
       let check
-      console.log('   E (J) => ' + this.eJ2 + ' : ' + parseFloat(this.enterEj2))
-      check = this.eJ2 === parseFloat(this.enterEj2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedL2: function () {
-      let check
-      console.log('d) λ => ' + this.lambda2 + ' : ' + parseFloat(this.enterL2))
-      check = this.lambda2 === parseFloat(this.enterL2) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedLs: function () {
-      let check
-      console.log('e) λs => ' + this.lambdaS + ' : ' + parseFloat(this.enterLs))
-      check = this.lambdaS === parseFloat(this.enterLs) ? 'correct' : 'not-correct'
+      console.log('Eb: => ' + this.bindEN + ' : ' + this.enterEbN)
+      check = this.bindEN === parseFloat(this.enterEbN) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -136,6 +156,7 @@ export default {
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: Courier;
 }
 
 .problem {
