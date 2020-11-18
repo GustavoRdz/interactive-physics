@@ -1,21 +1,18 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (a) Construct an energy-level diagram for the He<sup>+</sup> ion, for which Z = 2, using the Bohr model.
-    p.problem (b) What is the ionization energy for He<sup>+</sup>?
+    p.problem A sample of the isotope <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -10px 0px  10px"><b>131</b></sup><span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>I</b></span>, which has a half-life of {{ halfLife }} days, has an activity of {{ initialActivity }} mCi at the time of shipment. Upon receipt of the sample at a medical laboratory, the activity is {{ finalActivity }} mCi. How much time has elapsed between the two measurements?
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data φ (J)
-        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
-      p.inline.data  λ (m)
-        input.center.data(:class="checkedL" v-model.number='enterL')
-      p.inline.data K<sub>max</sub> (J)
-        input.center.data(:class="checkedKmax" v-model.number='enterKmax')
-      p.inline.data v<sub>max</sub> (m/s)
-        input.center.data(:class="checkedVmax" v-model='enterVmax')
-      p.inline.data V<sub>0</sub> (volts)
-        input.center.data(:class="checkedV0" v-model='enterV0')
+      p.inline.data T<sub>1/2</sub>
+        input.center.data(:class="checkedTh" v-model.number='enterTh')
+      p.inline.data  Initial activity
+        input.center.data(:class="checkedR0" v-model.number='enterR0')
+      p.inline.data Final activity
+        input.center.data(:class="checkedR" v-model.number='enterR')
+      p.inline.data Elapsed time
+        input.center.data(:class="checkedTime" v-model='enterTime')
 
 </template>
 <script>
@@ -23,68 +20,51 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterPhi: '',
-      enterL: '',
-      enterKmax: '',
-      enterVmax: '',
-      enterV0: '',
-      h: 6.626e-34,
-      e: 1.6e-19,
-      c: 3e8,
-      me: 9.1e-31
+      enterTh: '',
+      enterR0: '',
+      enterR: '',
+      enterTime: ''
     }
   },
   computed: {
-    work: function () {
-      let max = 500
-      let min = 400
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    halfLife: function () {
+      return 8.04
     },
-    wavelength: function () {
-      let max = 3000
-      let min = 2000
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    initialActivity: function () {
+      let max = 200
+      let min = 50
+      return (Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    phi: function () {
-      return parseFloat((this.work * this.e).toPrecision(4))
+    finalActivity: function () {
+      let max = this.initialActivity - 10
+      let min = 10
+      return (Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    kMax: function () {
-      return parseFloat((this.h * this.c / (this.wavelength * 1e-10) - this.phi).toPrecision(4))
+    time: function () {
+      return -parseFloat(((this.halfLife / 0.693) * Math.log(this.finalActivity / this.initialActivity)).toPrecision(4))
     },
-    vMax: function () {
-      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
-    },
-    v0: function () {
-      return parseFloat((this.kMax / this.e).toPrecision(4))
-    },
-    checkedPhi: function () {
+    checkedTh: function () {
       let check
-      console.log('phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      console.log('Half life => ' + this.halfLife + ' : ' + parseFloat(this.enterTh))
+      check = this.halfLife === parseFloat(this.enterTh) ? 'correct' : 'not-correct'
       return check
     },
-    checkedL: function () {
+    checkedR0: function () {
       let check
-      console.log('λ => ' + this.wavelength * 1e-10 + ' : ' + parseFloat(this.enterL))
-      check = this.wavelength * 1e-10 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      console.log('R0 => ' + this.initialActivity + ' : ' + parseFloat(this.enterR0))
+      check = this.initialActivity === parseFloat(this.enterR0) ? 'correct' : 'not-correct'
       return check
     },
-    checkedKmax: function () {
+    checkedR: function () {
       let check
-      console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterKmax))
-      check = this.kMax === parseFloat(this.enterKmax) ? 'correct' : 'not-correct'
+      console.log('R => ' + this.finalActivity + ' : ' + parseFloat(this.enterR))
+      check = this.finalActivity === parseFloat(this.enterR) ? 'correct' : 'not-correct'
       return check
     },
-    checkedVmax: function () {
+    checkedTime: function () {
       let check
-      console.log('vmax => ' + this.vMax + ' : ' + parseFloat(this.enterVmax))
-      check = this.vMax === parseFloat(this.enterVmax) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedV0: function () {
-      let check
-      console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
-      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
+      console.log('Time => ' + this.time + ' : ' + parseFloat(this.enterTime))
+      check = this.time === parseFloat(this.enterTime) ? 'correct' : 'not-correct'
       return check
     }
   },

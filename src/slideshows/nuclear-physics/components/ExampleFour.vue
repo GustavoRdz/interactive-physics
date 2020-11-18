@@ -1,27 +1,17 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Suppose the electron in the simply ionized helium atom is spinning in the ground state. Calculate:
-    p.problem a) The necessary energy that must be supplied to the atom to bring it to n = 2, since the electron is spinning at n = 1.
-    p.problem b) The additional energy that must be supplied to the atom to bring the electron into orbit n = 4.
-    p.problem c) For that orbit (n = 4), the energy that must be given to the atom to release its electron.
-    p.problem d) Suppose that by carrying the electron in n = 4, it remains in that state for a time of 1x10^8 sec. Before returning to the ground state, calculate how many laps it will make in that state.
+    p.problem The isotope carbon-14, <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -20px 0px  10px"><b>14</b></sup><sub style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -20px 0px  10px"><b>6</b></sub> <span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>C</b></span>, is radioactive and has a half-life of {{ halfLife }} years. If you start with a sample of {{ initialSample }} carbon-14 nuclei, how many nuclei will still be undecayed in {{ time }} years?
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data f<sub>Th</sub> (Hz)
-        input.center.data(:class="checkedFTh" v-model.number='enterFTh')
-      p.inline.data  φ (J)
-        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
-      p.inline.data f<sub>photon</sub> (Hz)
-        input.center.data(:class="checkedF" v-model.number='enterF')
-      p.inline.data E<sub>photon</sub> (J)
-        input.center.data(:class="checkedE" v-model='enterE')
-      p.inline.data K<sub>max</sub>
-        input.center.data(:class="checkedK" v-model='enterK')
-      p.inline.data V<sub>0</sub> (volts)
-        input.center.data(:class="checkedV0" v-model='enterV0')
-      p.inline.data  v<sub>max</sub> (m/s)
-        input.center.data(:class="checkedVmax" v-model.number='enterVmax')
+      p.inline.data N<sub>0</sub>
+        input.center.data(:class="checkedN0" v-model='enterN0')
+      p.inline.data λ
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data  T<sub>1/2</sub>
+        input.center.data(:class="checkedTh" v-model.number='enterTh')
+      p.inline.data N
+        input.center.data(:class="checkedN" v-model.number='enterN')
 
 </template>
 <script>
@@ -29,86 +19,52 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterFTh: '',
-      enterPhi: '',
-      enterF: '',
-      enterE: '',
-      enterK: '',
-      enterV0: '',
-      enterVmax: '',
-      h: 6.626e-34,
-      e: 1.6e-19,
-      c: 3e8,
-      me: 9.1e-31
-
+      enterN0: '',
+      enterL: '',
+      enterTh: '',
+      enterN: ''
     }
   },
   computed: {
-    thresholdF: function () {
-      let max = 200
-      let min = 100
-      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
+    halfLife: function () {
+      return 5730
     },
-    frequency: function () {
-      let max = 250
-      let min = (this.thresholdF / 1e15) * 10
-      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    initialSample: function () {
+      let max = 2000
+      let min = 1000
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    phi: function () {
-      return parseFloat((this.h * this.thresholdF).toPrecision(3))
+    time: function () {
+      return 25000
     },
-    eF: function () {
-      return parseFloat((this.h * this.frequency).toPrecision(4))
+    lambda: function () {
+      return parseFloat((0.693 / this.halfLife).toPrecision(4))
     },
-    kMax: function () {
-      return parseFloat((this.h * (this.frequency - this.thresholdF)).toPrecision(4))
+    finalSample: function () {
+      return parseFloat((this.initialSample * Math.exp(-this.lambda * this.time)).toPrecision(4))
     },
-    v0: function () {
-      return parseFloat((this.eF / this.e).toPrecision(4))
-    },
-    ve: function () {
-      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
-    },
-    checkedFTh: function () {
+    checkedN0: function () {
       let check
-      console.log('F threshold => ' + this.thresholdF + ' : ' + parseFloat(this.enterFTh))
-      check = this.thresholdF === parseFloat(this.enterFTh) ? 'correct' : 'not-correct'
+      console.log('N0 => ' + this.initialSample + ' : ' + parseFloat(this.enterN0))
+      check = this.initialSample === parseFloat(this.enterN0) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPhi: function () {
+    checkedL: function () {
       let check
-      console.log('Phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      console.log('λ => ' + this.lambda + ' : ' + parseFloat(this.enterL))
+      check = this.lambda === parseFloat(this.enterL) ? 'correct' : 'not-correct'
       return check
     },
-    checkedF: function () {
+    checkedTh: function () {
       let check
-      console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.enterF))
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      console.log('T1/2 => ' + this.halfLife + ' : ' + parseFloat(this.enterTh))
+      check = this.halfLife === parseFloat(this.enterTh) ? 'correct' : 'not-correct'
       return check
     },
-    checkedE: function () {
+    checkedN: function () {
       let check
-      console.log('Efoton => ' + this.eF + ' : ' + parseFloat(this.enterE))
-      check = this.eF === parseFloat(this.enterE) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedK: function () {
-      let check
-      console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterK))
-      check = this.kMax === parseFloat(this.enterK) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedV0: function () {
-      let check
-      console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
-      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedVmax: function () {
-      let check
-      console.log('vmax => ' + this.ve + ' : ' + this.enterVmax)
-      check = this.ve === this.enterVmax ? 'correct' : 'not-correct'
+      console.log('Final sample => ' + this.finalSample + ' : ' + parseFloat(this.enterN))
+      check = this.finalSample === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     }
   },

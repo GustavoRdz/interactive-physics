@@ -172,11 +172,11 @@
       .center
         img(src='./assets/nuclear08.png' width="200px")
       .center
-        img(src='./assets/nuclear09.png' width="200px")
+        //- img(src='./assets/nuclear09.png' width="200px")
       .center
         img(src='./assets/nuclear12.png' width="200px")
       .center
-        img(src='./assets/nuclear11.png' width="300px")
+        img(src='./assets/nuclear11.png' width="400px")
 
 
     slide(:steps=1, enter='bounceInDown')
@@ -185,103 +185,22 @@
       .center
         img(src='./assets/nuclear11.png' width="300px" style="margin-top: -40px;")
       .center
-        img(src='./assets/nuclear14.png' width="250px")
+        img(src='./assets/nuclear13.png' width="500px" style="margin-top: 30px;")
       .center|
-        img(src='./assets/nuclear13.png' width="350px")
+        img(src='./assets/nuclear14.png' width="250px" style="margin-top: 20px;")
       .center
-        img(src='./assets/nuclear15.png' width="250px")
+        img(src='./assets/nuclear15.png' width="250px" style="margin-top: 20px;")
 
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Activity
       .center
-        img(src='./assets/nuclear13.png' width="450px")
+        img(src='./assets/nuclear13.png' width="450px" style="margin-top: 20px;")
       .center
-        img(src='./assets/nuclear18.png' width="400px")
+        img(src='./assets/nuclear18.png' width="400px" style="margin-top: 40px;")
       .center
-        img(src='./assets/nuclear17.png' width="550px")
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
-      p From the orbilat radius
-      .center
-        //- img(src='./assets/atomo25.png' width="350px")
-      p we can join all constant in a new one, called the <b>Bohr radius</b> (<span style="font-family: Times; font-style: italic;">a<sub style="font-size: 20px;">0</sub></span>)
-      .center
-        //- img(src='./assets/atomo26.png' width="350px")
-      p and revisiting the orbital radius we have
-      .center
-        //- img(src='./assets/atomo27.png' width="600px")
-      .center
-        img(src='./assets/nuclear20.png' width="250px")
-        img(src='./assets/nuclear06.png' width="250px")
-        img(src='./assets/nuclear21.png' width="250px")
-        img(src='./assets/nuclear22.png' width="250px")
-        img(src='./assets/nuclear23.png' width="250px")
-        img(src='./assets/nuclear24.png' width="250px")
-        img(src='./assets/nuclear25.png' width="250px")
-        img(src='./assets/nuclear16.png' width="250px")
-        //- img(src='./assets/nuclear26.png' width="250px")
-        img(src='./assets/nuclear27.png' width="250px")
-        img(src='./assets/nuclear28.png' width="250px")
-        img(src='./assets/nuclear29.png' width="250px")
-        img(src='./assets/nuclear30.png' width="250px")
-        img(src='./assets/nuclear31.png' width="250px")
-        img(src='./assets/nuclear10.png' width="250px")
-        img(src='./assets/nuclear32.png' width="250px")
-        img(src='./assets/nuclear33.png' width="250px")
-        img(src='./assets/nuclear34.png' width="250px")
-        img(src='./assets/nuclear35.png' width="250px")
-        img(src='./assets/nuclear36.png' width="250px")
-        //- img(src='./assets/nuclear37.png' width="250px")
-        img(src='./assets/nuclear38.png' width="250px")
-        img(src='./assets/nuclear39.png' width="250px")
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
-      h4(style="margin-top: -20px;").center Bohr's model of the Hydrogen atom
-      p Using the Bohr radius
-        |
-        //- img(src='./assets/atomo27.png' width="450px" style="margin: 0 10px -5px 10px;")
-        | in the relation
-        //- img(src='./assets/atomo22.png' width="100px" style="margin: 0 10px -20px 10px;" )
-        | energy becomes
-      .center
-        //- img(src='./assets/atomo28.png' width="500px" style="margin-top: -10px;" )
-      p(style="margin-top: -10px;") evaluating constans we have
-      .center
-        //- img(src='./assets/atomo29.png' width="500px" style="margin-top: -10px;" )
-      p For emision frequency we have
-      .center
-        //- img(src='./assets/atomo31.png' width="500px" style="margin-top: -10px;" )
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Bohr's model of the Hydrogen atom
-      p(style="margin: -20px 100px 10px 10px;") Changing for wavelength
-      .center
-        //- img(src='./assets/atomo32.png' width="300px" style="margin: 0px 100px -30px 10px;")
-        | or
-        //- img(src='./assets/atomo33.png' width="250px" style="margin: 0px 10px -30px 100px;")
-      p(style=" position: absolute; top: 280px; right: 100px;").center Rydberg constant:<br> R<sub>H</sub> = 1.0973732x10<sup>7</sup> m<sup>-1</sup>
-      .center
-        //- img(src='./assets/atomo30.png' width="300px" style="margin: 50px 10px 0px 50px;")
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Ionized atoms
-      p Some ionized atoms can be modeled with the model for the hydrogen atom
-      p Z is the atomic number, and is added to the equations as
-      //- .center
-      //-   img(src='./assets/atomo34.png' width="250px")
-      //- .center
-      //-   img(src='./assets/atomo35.png' width="500px")
-
-
+        img(src='./assets/nuclear17.png' width="550px" style="margin-top: 40px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -309,35 +228,72 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=3 enter='bounceInDown')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -0px; margin-bottom: 40px").center Spontaneous end stimulated emission
-      div(class="container" style="display: flex; flex-direction: row; margin-top: 20px;")
-        div(style= "display: flex; flex-direction: row; height: 100%;  width: 100%; justify-content: center;")
-          div(v-if="step >= 1" style= "width: 485px;")
-            h5(style="margin: 0;").center Absorption
-            .center
-              //- img(src='./assets/lasers1.png' width="100%")
-          div(v-if="step >= 2" style= "width: 400px;")
-            h5(style="margin: 0;").center Spontaneous emission
-            .center
-              //- img(src='./assets/lasers2.png' width="100%")
-      div(v-if="step >= 3" style= "display: flex; flex-direction: row; justify-content: center; width: 100%; margin-top: 20px;")
-        div(style= "width: 500px;")
-          h5(style="margin: 0;").center Stimulated emission
-          .center
-            //- img(src='./assets/lasers3.png' width="100%")
+      h4(style="margin-top:-20px;").center Alpha decay (<em>α</em>)
+      .center
+        img(src='./assets/nuclear23.png' width="400px")
+      p.center examples
+      .center
+        img(src='./assets/nuclear24.png' width="250px")
+      .center
+        img(src='./assets/nuclear25.png' width="250px" style="margin: 10px 30px 0 0;")
+        img(src='./assets/nuclear29.png' width="250px" style="margin: 10px 0 0 30px;")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
+      .center
+        img(src='./assets/nuclear27.png' width="500px" style="margin: 0 0 30px 0;")
+      .center
+        img(src='./assets/nuclear28.png' width="200px")
+        img(src='./assets/nuclear29.png' width="200px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
+      h5.center Neutrino properties
+      p • It has zero electric charge.
+      p • Its mass is either zero (in which case it travels at the speed of light) or very small; much recent persuasive experimental evidence suggests that the neutrino mass is not zero. Current experiments place the upper bound of the mass of the neutrino at approximately 7 eV/c<sup>2</sup>.
+      p • It has a spin of 1/2, which allows the law of conservation of angular momentum to be satisfied in beta decay.
+      p • It interacts very weakly with matter and is therefore very difficult to detect.
 
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
-      h5.center Laser
-      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">L</span>igth
-      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">A</span>mplification by
-      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">S</span>timulated
-      p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">E</span>mission of
-      p(style="margin: 0 0 -0PX 400px;") <span style="font-size: 60px; color: blue;">R</span>adiation
+      h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
+      .center
+        img(src='./assets/nuclear30.png' width="400px")
+      p.center examples
+      .center
+        img(src='./assets/nuclear31.png' width="400px")
+      .center
+        img(src='./assets/nuclear32.png' width="500px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Gamma decay (<em>γ</em>)
+      .center
+        img(src='./assets/nuclear33.png' width="250px")
+      .center
+        img(src='./assets/nuclear34.png' width="250px")
+      .center
+        img(src='./assets/nuclear35.png' width="250px")
+
+    slide(:steps=3 enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -0px; margin-bottom: 40px").center Radiative decay series
+      .center
+        img(v-if="step >= 1" src='./assets/nuclear38.png' width="400px")
+      .center
+        img(v-if="step >= 2" src='./assets/nuclear36.png' width="250px")
+        img(v-if="step >= 3"  src='./assets/nuclear39.png' width="400px" style="margin-bottom: 180px;")
+
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Nuclear reactions
+
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
