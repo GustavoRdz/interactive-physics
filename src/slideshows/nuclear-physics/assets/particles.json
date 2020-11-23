@@ -1,0 +1,7 @@
+{
+  "neutron": {"z": 0, "letter": "n", "symbol": "η", "A": 1, "mass": 1.008665},
+  "Proton": {"z": 1, "letter": "p","symbol": "ρ", "A": 1, "mass": 1.007825},
+  "Deuteron": {"z": 1, "letter": "d","symbol": "δ", "A": 2, "mass": 2.014102},
+  "Tritio": {"z": 1, "letter": "t","symbol": "τ", "A": 3, "mass": 3.016049},
+  "Alpha":  {"z": 2, "letter":"α", "symbol": "α", "A": 4, "mass": 4.002603}
+}

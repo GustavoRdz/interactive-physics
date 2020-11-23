@@ -8830,8 +8830,8 @@ button[data-v-2b5aa473] {
 }
 .data[data-v-826017f8] {
   display: inline-block;
-  width: 100px;
-  height: 30px;
+  width: 30px;
+  height: 25px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
@@ -8842,6 +8842,7 @@ button[data-v-2b5aa473] {
   width: 95%;
 }
 .solution[data-v-826017f8] {
+  position: absolute;
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
@@ -8851,7 +8852,48 @@ button[data-v-2b5aa473] {
   background: #fa4408;
 }
 .correct[data-v-826017f8] {
-  background: #80c080;
+  background: #F0E1CE;
+  border: 0;
+}
+.element[data-v-826017f8] {
+  position: relative;
+  width: 60px;
+  height: 50px;
+}
+.container[data-v-826017f8] {
+  background-image: url(../../static/img/problemSix.45d1b26.png);
+  background-repeat: no-repeat;
+  background-size: 460px 500px;
+}
+.elem[data-v-826017f8] {
+  font-family: Times;
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  margin: 0;
+  width: 30px;
+  height: 25px;
+}
+.masic[data-v-826017f8] {
+  font-family: Times;
+  font-size: 10px;
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  margin: 0;
+  width: 20px;
+  height: 13px;
+}
+.atomic[data-v-826017f8] {
+  font-family: Times;
+  font-size: 10px;
+  position: absolute;
+  right: 25px;
+  margin: 0;
+  width: 20px;
+  height: 13px;
+  top: 24px;
 }
 
 .eg-slide .eg-slide-content .figure[data-v-c2c8a1a2] {
@@ -8866,10 +8908,11 @@ button[data-v-2b5aa473] {
 }
 .data[data-v-c2c8a1a2] {
   display: inline-block;
-  width: 100px;
+  width: 130px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: Courier;
 }
 .problem[data-v-c2c8a1a2] {
   margin: 15px 20px 15px 20px;
@@ -8902,10 +8945,11 @@ button[data-v-2b5aa473] {
 }
 .data[data-v-0e57eeb1] {
   display: inline-block;
-  width: 100px;
+  width: 130px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: Courier;
 }
 .problem[data-v-0e57eeb1] {
   margin: 15px 20px 15px 20px;

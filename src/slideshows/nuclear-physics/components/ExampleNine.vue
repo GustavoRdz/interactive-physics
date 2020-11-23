@@ -1,59 +1,78 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Light of wavelength {{ lambda }} nm is incident on a slit having a width of {{ a }} mm. The viewing screen is {{ l }} m from the slit. Find the width of the central bright fringe.
+    p.problem Calculate the energy released when {{ mass.toPrecision(3) }} kg of <sup>{{ masic }}</sup>U fissions, taking the disintegration energy per event to be Q = {{ fisionEnergy }} MeV.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data &lambda; (m)
-        input.center.data(:class="checkedT1" v-model.number='enterT1')
-      p.inline.data a (m)
-        input.center.data(:class="checkedT2" v-model.number='enterT2')
-      p.inline.data L (m)
-        input.center.data(:class="checkedV" v-model.number='enterV')
-      p.inline.data width (m)
-        input.center.data(:class="checkedV" v-model.number='enterV')
-
+      p.inline.data Nuclei number
+        input.center.data(:class="checkedN" v-model.number='enterN')
+      p.inline.data Energy per fision (MeV)
+        input.center.data(:class="checkedEf" v-model.number='enterEf')
+      p.inline.data Total energy (MeV)
+        input.center.data(:class="checkedEt" v-model.number='enterEt')
+      p.inline.data Energy (kWh)
+        input.center.data(:class="checkedE" v-model.number='enterE')
+      p.small <span class="small">N<sub>A</sub> = 6.02 x10<sup>23</sup> mol<sup>-1</sup></span> -- <span class="small">1 kWh = 3.6x10<sup>6</sup>J</span>
+      p(v-if="legend").small Energy which, if released slowly, is enough energy to keep a 100-W lightbulb operating for 30 000 years!<br> If were suddenly released, it would be equivalent to detonating about 20 000 tons of TNT.
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterT1: '',
-      enterT2: '',
-      enterV: ''
+      enterN: '',
+      enterEf: '',
+      enterEt: '',
+      enterE: '',
+      legend: false
     }
   },
   computed: {
-    t1: function () {
-      let max = 50
-      let min = 25
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
+    mass: function () {
+      return 1.0
     },
-    t2: function () {
-      let max = 20
-      let min = 10
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
+    masic: function () {
+      return 235
     },
-    speed: function () {
-      return Math.round(100 * Math.sqrt(1 - Math.pow(this.t2, 2) / Math.pow(this.t1, 2))) / 100
+    fisionEnergy: function () {
+      return 208
     },
-    checkedT1: function () {
+    N: function () {
+      return parseFloat((this.mass * 1e3 * 6.02e23 / this.masic).toPrecision(4))
+    },
+    energy: function () {
+      return parseFloat((this.N * this.fisionEnergy).toPrecision(4))
+    },
+    energykWh: function () {
+      return parseFloat((this.energy * 1.6e-13 / 3.6e6).toPrecision(4))
+    },
+    checkedN: function () {
       let check
-      console.log('T1 => ' + this.t1 + ' : ' + parseFloat(this.enterT1))
-      check = this.t1 === parseFloat(this.enterT1) ? 'correct' : 'not-correct'
+      console.log('N => ' + this.N + ' : ' + parseFloat(this.enterN))
+      check = this.N === parseFloat(this.enterN) ? 'correct' : 'not-correct'
       return check
     },
-    checkedV: function () {
+    checkedEf: function () {
       let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
+      console.log('Qf => ' + this.fisionEnergy + ' : ' + parseFloat(this.enterEf))
+      check = this.fisionEnergy === parseFloat(this.enterEf) ? 'correct' : 'not-correct'
       return check
     },
-    checkedT2: function () {
+    checkedEt: function () {
       let check
-      console.log('T2 => ' + this.t2 + ' : ' + parseFloat(this.enterT2))
-      check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      console.log('Qt => ' + this.energy + ' : ' + parseFloat(this.enterEt))
+      check = this.energy === parseFloat(this.enterEt) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedE: function () {
+      let check
+      console.log('Q kWh => ' + this.energykWh + ' : ' + parseFloat(this.enterE))
+      check = this.energykWh === parseFloat(this.enterE) ? 'correct' : 'not-correct'
+      if (this.energykWh === parseFloat(this.enterE)) {
+        this.legend = true
+      } else {
+        this.legend = false
+      }
       return check
     }
   },

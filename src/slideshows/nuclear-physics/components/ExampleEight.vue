@@ -1,84 +1,170 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Two slits spaced {{ d }} &mu;m apart are placed {{ l }} cm from a screen and illuminated by coherent light with a wavelength of {{ lambda }} nm. The intensity at the center of the central maximum is <br>(a) What is the distance on the screen from the center of the central maximum to the first minimum? <br>(b) What is the distance on the screen from the center of the central maximum to the point where the intensity has fallen to half of I<sub>0</sub>?
+    p.problem Determine the Q value for the following nuclear reaction
+    div(style="display: flex; justify-content: center; width: 100%;")
+
+      div(style="width: 200px; height: 200px;display: flex; align-items: center; justify-content: flex-end;")
+        div
+          div(style="width: 70px;")
+            p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") {{ masic }}
+          div(style="width: 70px; justify-content: right;")
+            p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ atomic }}
+        div(style="width: 110px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[element]].symbol }}
+
+
+      div(style="width: 270px; height: 200px;display: flex; align-items: center; justify-content: flex-start;")
+        div(style="width: 150px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  (<em>{{ part[particles[particle]].symbol}}</em>,<em>{{ part[particles[particle2]].symbol}}</em>)
+
+      div(style="width:250px; height: 200px;display: flex; align-items: center; justify-content: flex-end;")
+        div
+          div(style="width: 90px;")
+            p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") ?
+          div(style="width: 90px; justify-content: right;")
+            p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") ?
+        div(style="width: 1500px;")
+          p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;") ?
+      //- div(style="width:250px; height: 200px;display: flex; align-items: center; justify-content: flex-end;")
+      //-   div
+      //-     div(style="width: 90px;")
+      //-       p(style="margin: 0 0 10px 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;") {{ productA }}
+      //-     div(style="width: 90px; justify-content: right;")
+      //-       p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ productZ }}
+      //-   div(style="width: 1500px;")
+      //-     p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[productZ]].symbol }}
+
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data d (m)
-        input.center.data(:class="checkedD" v-model.number='enterD')
-      p.inline.data L (m)
-        input.center.data(:class="checkedL" v-model.number='enterL')
-      p.inline.data &lambda; (m)
-        input.center.data(:class="checkedLambda" v-model.number='enterLambda')
-      p.inline.data a) y (m)
-        input.center.data(:class="checkedYa" v-model.number='enterYa')
-      p.inline.data b) y (m)
-        input.center.data(:class="checkedYb" v-model.number='enterYb')
+      p.inline.data <sup>{{ masic }}</sup>{{ iso[elements[element]].symbol }} (u)
+        input.center.data(:class="checkedE1" v-model.number='enterE1')
+      p.inline.data {{ part[particles[particle]].symbol}} (u)
+        input.center.data(:class="checkedP1" v-model.number='enterP1')
+      p.inline.data {{ part[particles[particle2]].symbol}} (u)
+        input.center.data(:class="checkedP2" v-model.number='enterP2')
+      p.inline.data <sup>?</sup>? (u)
+        input.center.data(:class="checkedE2" v-model.number='enterE2')
+      p.inline.data mass defect (u)
+        input.center.data(:class="checkedM" v-model.number='enterM')
+      p.inline.data exotermic or endotermic
+        input.center.data(:class="checkedExo" v-model.number='enterExo')
 
 </template>
 <script>
 import eagle from 'eagle.js'
+import iso from '../assets/isotopes.json'
+import part from '../assets/particles.json'
+
 export default {
   data: function () {
     return {
-      enterD: '',
-      enterL: '',
-      enterLambda: '',
-      enterYa: '',
-      enterYb: ''
+      enterE1: '',
+      enterE2: '',
+      enterP1: '',
+      enterP2: '',
+      enterM: '',
+      enterExo: '',
+      iso: iso,
+      a: 1.2e-15,
+      part: part
     }
   },
   computed: {
-    d: function () {
-      let max = 300
-      let min = 100
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    element: function () {
+      let max = 100
+      let min = 1
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    l: function () {
-      let max = 150
-      let min = 50
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
+    elements: function () {
+      let elems = []
+      for (var item in iso) {
+        elems.push(item)
+      }
+      return elems
     },
-    lambda: function () {
-      let max = 700
-      let min = 400
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+    isotope: function () {
+      let max = this.iso[this.elements[this.element]].A.length - 1
+      let min = 0
+      return Math.floor(Math.random() * (max - min + 1)) + min
     },
-    ya: function () {
-      // return parseFloat((this.l * 1e-2 * 0.5 * this.lambda * 1e-9 / (this.d * 1e-6)).toPrecision(3))
-      return parseFloat((this.l * 0.5 * this.lambda / this.d).toPrecision(3))
+    masic: function () {
+      return this.iso[this.elements[this.element]].A[this.isotope]
     },
-    yb: function () {
-      return parseFloat((this.lambda * 1e-9 * this.l * 1e-2 * Math.acos(0.25) / (Math.PI * this.d * 1e-6)).toPrecision(3))
+    atomic: function () {
+      return this.iso[this.elements[this.element]].z
     },
-    checkedD: function () {
+    particle: function () {
+      let max = 4
+      let min = 0
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    },
+    particle2: function () {
+      let max = 3
+      let min = 0
+      let p1 = [0, 1, 2, 3, 4]
+      p1.splice(this.particle, 1)
+      return p1[Math.floor(Math.random() * (max - min + 1)) + min]
+    },
+    particles: function () {
+      let elems = []
+      for (var item in part) {
+        elems.push(item)
+      }
+      return elems
+    },
+    productA: function () {
+      return this.masic + this.part[this.particles[this.particle]].A - this.part[this.particles[this.particle2]].A
+    },
+    isotope2: function () {
+      return this.productA - this.iso[this.elements[this.productZ]].A[0]
+    },
+    productZ: function () {
+      return this.atomic + this.part[this.particles[this.particle]].z - this.part[this.particles[this.particle2]].z
+    },
+    massDefect: function () {
+      return parseFloat((this.iso[this.elements[this.element]].mass[this.isotope] + this.part[this.particles[this.particle]].mass - this.iso[this.elements[this.productZ]].mass[this.isotope2] - this.part[this.particles[this.particle2]].mass).toPrecision(7))
+    },
+    exo: function () {
+      return this.massDefect > 0 ? 'exotermic' : 'endotermic'
+    },
+    checkedE1: function () {
       let check
-      console.log('d => ' + this.d * 1e-6 + ' : ' + parseFloat(this.enterD))
-      check = this.d * 1e-6 === parseFloat(this.enterD) ? 'correct' : 'not-correct'
+      console.log('Iso mass: => ' + this.iso[this.elements[this.element]].mass[this.isotope] + ' : ' + parseFloat(this.enterE1))
+      check = this.iso[this.elements[this.element]].mass[this.isotope] === parseFloat(this.enterE1) ? 'correct' : 'not-correct'
       return check
     },
-    checkedL: function () {
+    checkedP1: function () {
       let check
-      console.log('L => ' + this.l * 1e-2 + ' : ' + parseFloat(this.enterL))
-      check = this.l * 1e-2 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      console.log('P1 mass: => ' + this.part[this.particles[this.particle]].mass + ' : ' + parseFloat(this.enterP1))
+      check = this.part[this.particles[this.particle]].mass === parseFloat(this.enterP1) ? 'correct' : 'not-correct'
       return check
     },
-    checkedLambda: function () {
+    checkedP2: function () {
       let check
-      console.log('lambda => ' + parseFloat((this.lambda * 1e-9).toPrecision(3)) + ' : ' + parseFloat(this.enterLambda))
-      check = parseFloat((this.lambda * 1e-9).toPrecision(3)) === parseFloat(this.enterLambda) ? 'correct' : 'not-correct'
+      console.log('P2 mass: => ' + this.part[this.particles[this.particle2]].mass + ' : ' + parseFloat(this.enterP2))
+      check = this.part[this.particles[this.particle2]].mass === parseFloat(this.enterP2) ? 'correct' : 'not-correct'
       return check
     },
-    checkedYa: function () {
+    checkedE2: function () {
       let check
-      console.log('a) y => ' + this.ya + ' : ' + parseFloat(this.enterYa))
-      check = this.ya === parseFloat(this.enterYa) ? 'correct' : 'not-correct'
+      console.log('P2 mass: => ' + this.iso[this.elements[this.productZ]].mass[this.isotope2] + ' : ' + parseFloat(this.enterE2))
+      check = this.iso[this.elements[this.productZ]].mass[this.isotope2] === parseFloat(this.enterE2) ? 'correct' : 'not-correct'
       return check
     },
-    checkedYb: function () {
+    checkedM: function () {
       let check
-      console.log('b) Y => ' + this.yb + ' : ' + parseFloat(this.enterYb))
-      check = this.yb === parseFloat(this.enterYb) ? 'correct' : 'not-correct'
+      console.log('mass defect: => ' + this.massDefect + ' : ' + parseFloat(this.enterM))
+      check = this.massDefect === parseFloat(this.enterM) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedExo: function () {
+      let check
+      console.log('Exo : => ' + this.exo + ' : ' + this.enterExo)
+      console.log(this.exo === this.enterExo)
+      console.log(typeof this.exo)
+      console.log(typeof this.enterExo)
+      check = this.exo === this.enterExo ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -110,10 +196,11 @@ export default {
 
 .data {
   display: inline-block;
-  width: 100px;
+  width: 130px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
+  font-family: Courier;
 }
 
 .problem {

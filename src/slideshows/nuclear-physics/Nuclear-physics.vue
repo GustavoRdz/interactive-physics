@@ -287,29 +287,118 @@
         img(v-if="step >= 1" src='./assets/nuclear38.png' width="400px")
       .center
         img(v-if="step >= 2" src='./assets/nuclear36.png' width="250px")
-        img(v-if="step >= 3"  src='./assets/nuclear39.png' width="400px" style="margin-bottom: 180px;")
+        img(v-if="step >= 3"  src='./assets/nuclear39.png' width="600px" style="margin-bottom: 180px;")
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 6
+      example-six
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear reactions
+      .center
+        img(src='./assets/reaction.png' width="500px" style="margin-right: 50px;")
+        img(src='./assets/reactionCompact.png' width="250px" style="margin-left: 50px;")
+      .center
+        img(src='./assets/reactionParticles.png' width="450px" style="margin-top: 50px; margin-bottom: 40px;")
+      .center <span style="color: green;">Energy calculation</span><br>
+        img(src='./assets/reactionEnergy.png' width="700px" style="margin-top: 10px;")
 
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 7
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 8
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
-      h5.center Lasers
+      h4(style="margin-top: -20px;").center Nuclear fision
       .center
-        //- img(src='./assets/lasers4.png' width="700px" style="margin-top: -30px; margin-right: 0px;")
-        //- img(src='./assets/lasers5.png' width="250px" style="margin-top: -30px; margin-left: 50px;")
+        img(src='./assets/fision01.png' width="300px" style="margin: 30px 30px 50px 0px; ")
+        img(src='./assets/fision02.png' width="300px" style="margin-left: 30px;")
+      .center
+        img(src='./assets/fision03.png' width="700px" style="margin: 50px 30px 0px 30px;")
+      p(style="color: green;").center example
+      .center
+        img(src='./assets/fision04.png' width="600px")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h4(style="margin-top: -20px;").center Sponteneous end stimulated emission
-      h5.center Laser cooling
+      h4(style="margin-top: -20px;").center Nuclear chain reaction
       .center
-        //- img(src='./assets/lasers7.png' width="400px" style="margin-top: -30px;")
-        //- img(src='./assets/lasers6.png' width="400px" style="margin-top: -30px; margin-left: 100px;")
+        img(src='./assets/fision05.png' width="800px")
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h3 Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Nuclear reactor
+      .center
+        img(src='./assets/fision06.png' width="600px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Nuclear fusion
+      p.center proton-proton cycle
+      .center
+        img(src='./assets/fusion01.png' width="500px")
+      .center
+        img(src='./assets/fusion02.png' width="500px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Fusion reactor
+      .center
+        img(src='./assets/fusion03.png' width="700px")
+
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Radiactivity applications
+      .center
+        img(src='./assets/application01.png' width="500px")
+        img(src='./assets/application02.png' width="375px")
+        img(src='./assets/application03.png' width="500px")
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
