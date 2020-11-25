@@ -1,17 +1,21 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A camper pours 0.300 kg of coffee initially in a pot at 70&#x00B0;C, in an aluminum cup of 0.120 kg initially at 20&#x00B0;C. What is the equilibrium temperature? suppose that the coffee has the same specific heat as the water and does not exchange heat with the environment
+  p.problem A camper pours {{ coffeeMass }} kg of coffee initially in a pot at {{ coffeeTemp }}&#x00B0;C, in an aluminum cup of {{ cupMass }} kg initially at {{ cupTemp }}&#x00B0;C. What is the equilibrium temperature? suppose that the coffee has the same specific heat as the water and does not exchange heat with the environment
 
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Coffee mass (kg)
+        input.center.data(:class="checkedCoffeeMass" v-model.number='enterCoffeeMass')
+      p.inline.data Coffee T<sub>i</sub> (ºC)
+        input.center.data(:class="checkedCoffeeTemp" v-model.number='enterCoffeeTemp')
+      p.inline.data Cup mass (kg)
+        input.center.data(:class="checkedCupMass" v-model.number='enterCupMass')
+      p.inline.data Cup T<sub>i</sub>ºC)
+        input.center.data(:class="checkedCupTemp" v-model.number='enterCupTemp')
+      p.inline.data equilibrium T (ºC)
+        input.center.data(:class="checkedTempFinal" v-model.number='enterTempFinal')
 
 </template>
 <script>
@@ -20,100 +24,67 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterCoffeeMass: '',
+      enterCoffeeTemp: '',
+      enterCupMass: '',
+      enterCupTemp: '',
+      enterTempFinal: '',
+      cCoffe: 4190,
+      cCup: 910
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
+    coffeeMass: function () {
+      let max = 500
+      let min = 200
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+    },
+    coffeeTemp: function () {
+      let max = 80
+      let min = 60
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
+    cupMass: function () {
+      let max = 220
+      let min = 100
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
     },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    initialTemperature: function () {
+    cupTemp: function () {
       let max = 30
       let min = 20
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    finalTemp: function () {
+      return parseFloat(((this.coffeeMass * this.cCoffe * this.coffeeTemp + this.cupMass * this.cCup * this.cupTemp) / (this.coffeeMass * this.cCoffe + this.cupMass * this.cCup)).toPrecision(4))
     },
-    checkedUserAlphaBr: function () {
+    checkedCoffeeMass: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('Coffee mass :' + this.coffeeMass + ' : ' + parseFloat(this.enterCoffeeMass))
+      check = this.coffeeMass === parseFloat(this.enterCoffeeMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedCoffeeTemp: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('Coffee temp :' + this.coffeeTemp + ' : ' + parseFloat(this.enterCoffeeTemp))
+      check = this.coffeeTemp === parseFloat(this.enterCoffeeTemp) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedCupMass: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('Cup mass : ' + this.cupMass + ' : ' + parseFloat(this.enterCupMass))
+      check = this.cupMass === parseFloat(this.enterCupMass) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedCupTemp: function () {
+      let check
+      console.log('Cup temp : ' + this.cupTemp + ' : ' + parseFloat(this.enterCupTemp))
+      check = this.cupTemp === parseFloat(this.enterCupTemp) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTempFinal: function () {
+      let check
+      console.log('Eq. temp : ' + this.finalTemp + ' : ' + parseFloat(this.enterTempFinal))
+      check = this.finalTemp === parseFloat(this.enterTempFinal) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -142,15 +113,15 @@ export default {
   mixins: [eagle.slide]
 }
 
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
-}
+// function calcChord () {
+//   let d = ''
+//   let step = 8
+//   var i
+//   for (i = 0; i <= 30; i++) {
+//     d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
+//   }
+//   return d
+// }
 
 </script>
 

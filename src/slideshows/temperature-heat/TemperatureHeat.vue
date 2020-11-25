@@ -481,7 +481,7 @@
                 td Mercury
                 td -39.00
                 td 11.8 x 10<sup>3</sup>
-                td -357.00
+                td 357.00
                 td 272 x 10<sup>3</sup>
               tr
                 td Water

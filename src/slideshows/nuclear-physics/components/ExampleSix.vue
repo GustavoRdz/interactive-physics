@@ -153,8 +153,8 @@ export default {
     },
     checkedE7: function () {
       let check
-      console.log('E7 => ' + 'As' + ' : ' + this.enterE7)
-      check = this.enterE7 === 'As' ? 'correct' : 'not-correct'
+      console.log('E7 => ' + 'At' + ' : ' + this.enterE7)
+      check = this.enterE7 === 'At' ? 'correct' : 'not-correct'
       return check
     },
     checkedE8: function () {

@@ -1,16 +1,22 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A Styrofoam cooler has total wall area (including the lid) of 0.80 m<sup>2</sup> and wall thickness 2.0 cm. It is filled with ice, water, and cans of beverage, all at 0°C. What is the rate of heat flow into the cooler if the temperature of the outside wall is 30°C? How much ice melts in 3 hours?
+  p.problem A Styrofoam cooler has total wall area (including the lid) of {{ area }} m<sup>2</sup> and wall thickness {{ length*100 }} cm. It is filled with ice, water, and cans of beverage, all at 0°C. What is the rate of heat flow into the cooler if the temperature of the outside wall is {{ outTemp }}°C? How much ice melts in {{ time }} hours?
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data k (W/mºC)
+        input.center.data(:class="checkedK" v-model.number='enterK')
+      p.inline.data Area (m<sup>2</sup>)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+      p.inline.data Length (m)
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data Hot temp. (ºC)
+        input.center.data(:class="checkedHT" v-model.number='enterHT')
+      p.inline.data Cold temp. (ºC)
+        input.center.data(:class="checkedCT" v-model.number='enterCT')
+      p.inline.data Mass melted (kg)
+        input.center.data(:class="checkedMM" v-model.number='enterMM')
 
 </template>
 <script>
@@ -19,136 +25,91 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterK: '',
+      enterA: '',
+      enterL: '',
+      enterHT: '',
+      enterCT: '',
+      enterMM: '',
+      k: 0.027,
+      lv: 2256000
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
+    area: function () {
+      let max = 150
+      let min = 50
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    length: function () {
+      let max = 5
+      let min = 2
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    inTemp: function () {
+      return 0
+    },
+    outTemp: function () {
+      let max = 35
+      let min = 25
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
+    time: function () {
+      let max = 5
+      let min = 2
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    initialTemperature: function () {
-      let max = 30
-      let min = 20
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    heatFlow: function () {
+      return this.k * this.area * (this.outTemp - this.inTemp) / this.length
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    energy: function () {
+      return this.heatFlow * this.time * 3600
     },
-    checkedUserAlphaBr: function () {
+    massMelted: function () {
+      return parseFloat((this.energy / this.lv).toPrecision(3))
+    },
+    checkedK: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('Conductivity : ' + this.k + ' : ' + parseFloat(this.enterK))
+      check = this.k === parseFloat(this.enterK) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedA: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('Area : ' + this.area + ' : ' + parseFloat(this.enterA))
+      check = this.area === parseFloat(this.enterA) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedL: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('length : ' + this.length + ' : ' + parseFloat(this.enterL))
+      check = this.length === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedHT: function () {
+      let check
+      console.log('Hot temp : ' + this.outTemp + ' : ' + parseFloat(this.enterHT))
+      check = this.outTemp === parseFloat(this.enterHT) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedCT: function () {
+      let check
+      console.log('Cold temp : ' + this.inTemp + ' : ' + parseFloat(this.enterCT))
+      check = this.inTemp === parseFloat(this.enterCT) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedMM: function () {
+      let check
+      console.log('Mass melted : ' + this.massMelted + ' : ' + parseFloat(this.enterMM))
+      check = this.massMelted === parseFloat(this.enterMM) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>

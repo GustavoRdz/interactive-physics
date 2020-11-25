@@ -1,16 +1,22 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A hot cooper pot of mass 2.0 kg (including its copper lid) is at a temperature of 150 &#x00B0;C. You pour 0.1 kg of cool water at 25&#x00B0;C into the pot, then quickly replace the lid so no steam can scape. Find the final temperature of the pot and its contents, ans determine the phase of the water (liquid, gas or a mixture). Assume that no heat is lost to the surroundings.
+  p.problem A hot copper pot of mass {{ copperMass}} kg (including its copper lid) is at a temperature of {{ copperTemp }}&#x00B0;C. You pour {{ waterMass }} kg of cool water at {{ waterTemp }}&#x00B0;C into the pot, then quickly replace the lid so no steam can scape. Find the final temperature of the pot and its contents, ans determine the phase of the water (liquid, gas or a mixture). Assume that no heat is lost to the surroundings.
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Pot mass (kg)
+        input.center.data(:class="checkedPotMass" v-model.number='enterPotMass')
+      p.inline.data Water mass (kg)
+        input.center.data(:class="checkedWaterMass" v-model.number='enterWaterMass')
+      p.inline.data Pot temp. (&#x00B0;C)
+        input.center.data(:class="checkedPotTemp" v-model.number='enterPotTemp')
+      p.inline.data Water temp. (&#x00B0;C)
+        input.center.data(:class="checkedWaterTemp" v-model.number='enterWaterTemp')
+      p.inline.data Equilibrium temp. (&#x00B0;C)
+        input.center.data(:class="checkedEqTemp" v-model.number='enterEqTemp')
+      p.inline.data final steam mass (kg)
+        input.center.data(:class="checkedSteam" v-model.number='enterSteam')
 
 </template>
 <script>
@@ -19,136 +25,87 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterPotMass: '',
+      enterWaterMass: '',
+      enterPotTemp: '',
+      enterWaterTemp: '',
+      enterEqTemp: '',
+      enterSteam: '',
+      lV: 2256000,
+      cC: 390,
+      cW: 4190,
+      phase: 'mixture'
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
+    copperMass: function () {
+      let max = 250
+      let min = 200
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    copperTemp: function () {
+      let max = 200
+      let min = 150
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
+    waterMass: function () {
+      let max = 100
+      let min = 50
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
     },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    initialTemperature: function () {
-      let max = 30
+    waterTemp: function () {
+      let max = 25
       let min = 20
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    finalTemp: function () {
+      return 100
     },
-    checkedUserAlphaBr: function () {
+    steamMass: function () {
+      return parseFloat(((-this.copperMass * this.cC * (this.finalTemp - this.copperTemp) - this.waterMass * this.cW * (this.finalTemp - this.waterTemp)) / this.lV).toPrecision(3))
+    },
+    checkedPotMass: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('Pot mass : ' + this.copperMass + ' : ' + parseFloat(this.enterPotMass))
+      check = this.copperMass === parseFloat(this.enterPotMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedWaterMass: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('Water mass : ' + this.waterMass + ' : ' + parseFloat(this.enterWaterMass))
+      check = this.waterMass === parseFloat(this.enterWaterMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedPotTemp: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('Pot temp : ' + this.copperTemp + ' : ' + parseFloat(this.enterPotTemp))
+      check = this.copperTemp === parseFloat(this.enterPotTemp) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedWaterTemp: function () {
+      let check
+      console.log('Water temp : ' + this.waterTemp + ' : ' + parseFloat(this.enterWaterTemp))
+      check = this.waterTemp === parseFloat(this.enterWaterTemp) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedEqTemp: function () {
+      let check
+      console.log('final Temp : ' + this.finalTemp + ' : ' + parseFloat(this.enterEqTemp))
+      check = this.finalTemp === parseFloat(this.enterEqTemp) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedSteam: function () {
+      let check
+      console.log('Steam mass : ' + this.steamMass + ' : ' + this.enterSteam)
+      check = this.steamMass === this.enterSteam ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>

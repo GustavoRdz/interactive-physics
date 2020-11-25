@@ -1,16 +1,24 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A glass containing 0.25 kg of a beverage (mostly water) initially at 25 &#x00B0;C. How much ice, initially at -20&#x00B0;C, must you add to obtain a final temperature of 0&#x00B0; with all ice melted? Neglect the heat capacity of glass
+  p.problem A glass containing {{ wMass }} kg of a beverage (mostly water) initially at {{ wTemp }} &#x00B0;C. How much ice, initially at {{ iTemp }}&#x00B0;C, must you add to obtain a final temperature of {{ fTemp }}&#x00B0;C with all ice melted? Neglect the heat capacity of glass
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Water <b>mass</b> (kg)
+        input.center.data(:class="checkedWM" v-model.number='enterWM')
+      p.inline.data Water <b>Temp</b> (&#x00B0;C)
+        input.center.data(:class="checkedWT" v-model.number='enterWT')
+      p.inline.data Ice <b>Temp</b> (&#x00B0;C)
+        input.center.data(:class="checkedIT" v-model.number='enterIT')
+      p.inline.data water <b>c</b> (J/kgºC)
+        input.center.data(:class="checkedWc" v-model.number='enterWc')
+      p.inline.data ice <b>c</b> (J/kgºC)
+        input.center.data(:class="checkedIc" v-model.number='enterIc')
+      p.inline.data Water <b>L<sub>f</sub></b> (J/kg)
+        input.center.data(:class="checkedLf" v-model.number='enterLf')
+      p.inline.data Ice <b>mass</b>(kg)
+        input.center.data(:class="checkedIM" v-model.number='enterIM')
 
 </template>
 <script>
@@ -19,136 +27,88 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterWM: '',
+      enterWT: '',
+      enterIT: '',
+      enterWc: '',
+      enterIc: '',
+      enterLf: '',
+      enterIM: '',
+      wC: 4190,
+      iC: 2100,
+      lF: 334000
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    wMass: function () {
+      let max = 400
+      let min = 200
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
     },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
-      let max = 15
-      let min = 5
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    initialTemperature: function () {
-      let max = 30
+    wTemp: function () {
+      let max = 40
       let min = 20
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    iTemp: function () {
+      let max = 30
+      let min = 15
+      return -Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    checkedUserAlphaBr: function () {
+    fTemp: function () {
+      return 0
+    },
+    iMass: function () {
+      return -parseFloat((this.wMass * this.wC * (this.fTemp - this.wTemp) / (this.iC * (this.fTemp - this.iTemp) + this.lF)).toPrecision(3))
+    },
+    checkedWM: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('water mass : ' + this.wMass + ' : ' + parseFloat(this.enterWM))
+      check = this.wMass === parseFloat(this.enterWM) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedWT: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('water temp : ' + this.wTemp + ' : ' + parseFloat(this.enterWT))
+      check = this.wTemp === parseFloat(this.enterWT) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedIT: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('ice temp : ' + this.iTemp + ' : ' + parseFloat(this.enterIT))
+      check = this.iTemp === parseFloat(this.enterIT) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedWc: function () {
+      let check
+      console.log('c water : ' + this.wC + ' : ' + parseFloat(this.enterWc))
+      check = this.wC === parseFloat(this.enterWc) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedIc: function () {
+      let check
+      console.log('c ice : ' + this.iC + ' : ' + parseFloat(this.enterIc))
+      check = this.iC === parseFloat(this.enterIc) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedLf: function () {
+      let check
+      console.log('Lf : ' + this.lF + ' : ' + parseFloat(this.enterLf))
+      check = this.lF === parseFloat(this.enterLf) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedIM: function () {
+      let check
+      console.log('Ice mass : ' + this.iMass + ' : ' + parseFloat(this.enterIM))
+      check = this.iMass === parseFloat(this.enterIM) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>
