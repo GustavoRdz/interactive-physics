@@ -15,6 +15,10 @@
         input.center.data(:class="checkedHT" v-model.number='enterHT')
       p.inline.data Cold temp. (ºC)
         input.center.data(:class="checkedCT" v-model.number='enterCT')
+      p.inline.data Heat current (W)
+        input.center.data(:class="checkedH" v-model.number='enterH')
+      p.inline.data Q<sub>{{ time }} hrs</sub> (J)
+        input.center.data(:class="checkedQ" v-model.number='enterQ')
       p.inline.data Mass melted (kg)
         input.center.data(:class="checkedMM" v-model.number='enterMM')
 
@@ -30,9 +34,11 @@ export default {
       enterL: '',
       enterHT: '',
       enterCT: '',
+      enterH: '',
+      enterQ: '',
       enterMM: '',
       k: 0.027,
-      lv: 2256000
+      lv: 334000
     }
   },
   computed: {
@@ -60,13 +66,13 @@ export default {
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
     heatFlow: function () {
-      return this.k * this.area * (this.outTemp - this.inTemp) / this.length
+      return parseFloat((this.k * this.area * (this.outTemp - this.inTemp) / this.length).toFixed(3))
     },
     energy: function () {
-      return this.heatFlow * this.time * 3600
+      return parseFloat((this.heatFlow * this.time * 3600).toFixed(3))
     },
     massMelted: function () {
-      return parseFloat((this.energy / this.lv).toPrecision(3))
+      return parseFloat((this.energy / this.lv).toFixed(3))
     },
     checkedK: function () {
       let check
@@ -96,6 +102,18 @@ export default {
       let check
       console.log('Cold temp : ' + this.inTemp + ' : ' + parseFloat(this.enterCT))
       check = this.inTemp === parseFloat(this.enterCT) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedH: function () {
+      let check
+      console.log('Heat current : ' + this.heatFlow + ' : ' + parseFloat(this.enterH))
+      check = this.heatFlow === parseFloat(this.enterH) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedQ: function () {
+      let check
+      console.log('Energy in t : ' + this.energy + ' : ' + parseFloat(this.enterE))
+      check = this.energy === parseFloat(this.enterQ) ? 'correct' : 'not-correct'
       return check
     },
     checkedMM: function () {

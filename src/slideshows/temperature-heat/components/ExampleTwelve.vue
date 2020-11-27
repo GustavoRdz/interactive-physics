@@ -1,43 +1,55 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A steel bar 10.0 cm long is welded end to end to a copper bar 20.0 cm long. Each bar has a square cross section, 2.00 cm on a side. The free end of the steel bar is kept at 100°C by placing it in contact with steam, and the free end of the copper bar is kept at 0°C by placing it in contact with ice. Both bars are perfectly insulated on their sides. Find the steady-state temperature at the junction of the two bars and the total rate of heat flow through the bars.
+  p.problem A steel bar {{ Math.round(lS * 100) }} cm long is welded end to end to a copper bar {{ Math.round(lC * 100) }} cm long. Each bar has a square cross section, {{ Math.round(side * 100) }} cm on a side. The free end of the steel bar is kept at {{ hotTemp }}°C by placing it in contact with steam, and the free end of the copper bar is kept at {{ coldTemp }}°C by placing it in contact with ice. Both bars are perfectly insulated on their sides. Find the steady-state temperature at the junction of the two bars and the total rate of heat flow through the bars.
 
   .center
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 120" height="120" width="380" >
       //- <path d="M0,0 l0 120 l380 -120 l0 120 z" stroke-width="0.3"stroke="#000" fill="none"/>
 
-      <rect x=9 y=10 width=30 height=100 stroke="red" fill="red"/>
+      <rect x=-1 y=10 width=40 height=100 stroke="red" fill="red"/>
       <rect x=40 y=35 width=100 height=50 stroke="silver" fill="silver"/>
       <rect x=141 y=35 width=200 height=50 stroke="peru" fill="peru"/>
-      <rect x=341 y=10 width=30 height=100 stroke="deepskyblue" fill="deepskyblue"/>
+      <rect x=330 y=10 width=50 height=100 stroke="deepskyblue" fill="deepskyblue"/>
 
-        <text x="15" y="62" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">H</tspan></text>
-        <text x="345" y="62" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">C</tspan></text>
+        <text x="0" y="62" font-family="times" font-size="18" font-style="italic">{{ hotTemp }}ºC </text>
+        <text x="330" y="62" font-family="times" font-size="18" font-style="italic">{{ coldTemp }}ºC</text>
         <text x="75" y="62" font-family="times" font-size="20" font-style="italic">Steel</text>
         <text x="200" y="62" font-family="times" font-size="20" font-style="italic">Cooper</text>
 
-        <text x="294" y="65" font-family="times" font-size="25" font-style="italic">&#x03c6;</text>
+        <text x="294" y="65" font-family="times" font-size="20" font-style="italic" stroke="blue" fill="blue">{{ side * 100 }}cm </text>
         <path d="M290 35 l0 50 M290 35 l-3 10 M290 35 l3 10 M290 85 l-3 -10 M290 85 l3 -10" stroke=#000 fill="none"/>
 
-        <text x="80" y="105" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">S</tspan></text>
-        <path d="M40 100 l35 0 M40 100 l10 3 M40 100 l10 -3 M100 100 l40 0 M140 100 l-10 -3 M140 100 l-10 3" stroke=#000 fill="none"/>
+        <text x="75" y="105" font-family="times" font-size="20" font-style="italic">{{ lS * 100 }}cm</text>
+        <path d="M40 100 l25 0 M40 100 l10 3 M40 100 l10 -3 M115 100 l25 0 M140 100 l-10 -3 M140 100 l-10 3" stroke=#000 fill="none"/>
 
         <line x1=140 y1=90 x2=140 y2=110 stroke="#000"/>
 
-        <text x="230" y="105" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">C</tspan></text>
-        <path d="M140 100 l85 0 M140 100 l10 3 M140 100 l10 -3 M250 100 l90 0 M340 100 l-10 -3 M340 100 l-10 3" stroke=#000 fill="none"/>
+        <text x="220" y="105" font-family="times" font-size="20" font-style="italic">{{ lC * 100 }}cm</text>
+        <path d="M140 100 l75 0 M140 100 l10 3 M140 100 l10 -3 M270 100 l70 0 M340 100 l-10 -3 M340 100 l-10 3" stroke=#000 fill="none"/>
 
     </svg>
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data l<sub>steel</sub> (m)
+        input.center.data(:class="checkedLS" v-model.number='enterLS')
+      p.inline.data l<sub>copper</sub> (m)
+        input.center.data(:class="checkedLC" v-model.number='enterLC')
+      p.inline.data T<sub>hot</sub> (ºC)
+        input.center.data(:class="checkedTH" v-model.number='enterTH')
+      p.inline.data T<sub>cool</sub> (ºC)
+        input.center.data(:class="checkedTC" v-model.number='enterTC')
+      p.inline.data Area (m<sup>2</sup>)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+      p.inline.data k<sub>steel</sub> (W/kgºC)
+        input.center.data(:class="checkedKS" v-model.number='enterKS')
+      p.inline.data k<sub>copper</sub> (W/kgºC)
+        input.center.data(:class="checkedKC" v-model.number='enterKC')
+      p.inline.data T<sub>steady</sub>(ºC)
+        input.center.data(:class="checkedTSS" v-model.number='enterTSS')
+      p.inline.data H (W)
+        input.center.data(:class="checkedH" v-model.number='enterH')
 
 </template>
 <script>
@@ -46,138 +58,115 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterLS: '',
+      enterLC: '',
+      enterTH: '',
+      enterTC: '',
+      enterA: '',
+      enterKS: '',
+      enterKC: '',
+      enterTSS: '',
+      enterH: '',
+      kS: 50.2,
+      kC: 385
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
+    lS: function () {
       let max = 15
       let min = 5
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    lC: function () {
+      let max = 25
+      let min = 15
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    side: function () {
+      let max = 5
+      let min = 2
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    hotTemp: function () {
+      let max = 150
+      let min = 50
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    initialTemperature: function () {
-      let max = 30
-      let min = 20
+    coldTemp: function () {
+      let max = 20
+      let min = -50
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    steadyT: function () {
+      return parseFloat(((this.kS * this.hotTemp / this.lS + this.kC * this.coldTemp / this.lC) / (this.kS / this.lS + this.kC / this.lC)).toFixed(3))
     },
-    checkedUserAlphaBr: function () {
+    area: function () {
+      return parseFloat((this.side * this.side).toPrecision(3))
+    },
+    heatFlow: function () {
+      return parseFloat((this.kS * this.area * (this.hotTemp - this.coldTemp) / this.lS).toFixed(3))
+    },
+    checkedLS: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('Steel length : ' + this.lS + ' : ' + parseFloat(this.enterLS))
+      check = this.lS === parseFloat(this.enterLS) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedLC: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('cooper length : ' + this.lC + ' : ' + parseFloat(this.enterLC))
+      check = this.lC === parseFloat(this.enterLC) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedTH: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('hot temperature : ' + this.hotTemp + ' : ' + parseFloat(this.enterTH))
+      check = this.hotTemp === parseFloat(this.enterTH) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTC: function () {
+      let check
+      console.log('cool temperature : ' + this.coldTemp + ' : ' + parseFloat(this.enterTC))
+      check = this.coldTemp === parseFloat(this.enterTC) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedA: function () {
+      let check
+      console.log('Area : ' + this.area + ' : ' + parseFloat(this.enterA))
+      check = this.area === parseFloat(this.enterA) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedKS: function () {
+      let check
+      console.log('steel K : ' + this.kS + ' : ' + parseFloat(this.enterKS))
+      check = this.kS === parseFloat(this.enterKS) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedKC: function () {
+      let check
+      console.log('copper K : ' + this.kC + ' : ' + parseFloat(this.enterKC))
+      check = this.kC === parseFloat(this.enterKC) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTSS: function () {
+      let check
+      console.log('Steady state temp. : ' + this.steadyT + ' : ' + parseFloat(this.enterTSS))
+      check = this.steadyT === parseFloat(this.enterTSS) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedH: function () {
+      let check
+      console.log('Heat flow : ' + this.heatFlow + ' : ' + parseFloat(this.enterH))
+      check = this.heatFlow === parseFloat(this.enterH) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
 }
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
-}
-
 </script>
 
 <style lang='scss' scoped>

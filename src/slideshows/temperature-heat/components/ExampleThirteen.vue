@@ -1,45 +1,55 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem Suppose the two bars of the former Example are separated. One end of each bar is kept at 100°C and the other end of each bar is kept at 0°C. What is the total heat current in the two bars?
+  p.problem Suppose the two bars of the former Example are separated. One end of each bar is kept at {{ hotTemp }}°C and the other end of each bar is kept at {{ coldTemp }}°C. What is the total heat current in the two bars?
   .center
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 220" height="220" width="280" >
       //- <path d="M0,0 l0 220 l280 -220 l0 220 z" stroke-width="0.3"stroke="#000" fill="none"/>
 
-      <path d="M9 10 l30 0 l0 90 l100 25 l0 85 l-130 0 Z" stroke="red" fill="red"/>
+      <path d="M0 10 l40 0 l0 90 l60 25 l0 85 l-140 0 Z" stroke="red" fill="red"/>
       <rect x=40 y=35 width=200 height=50 stroke="peru" fill="peru"/>
-      <rect x=140 y=140 width=100 height=50 stroke="silver" fill="silver"/>
-      <rect x=241 y=10 width=30 height=200 stroke="deepskyblue" fill="deepskyblue"/>
+      <rect x=100 y=140 width=130 height=50 stroke="silver" fill="silver"/>
+      <rect x=230 y=10 width=50 height=200 stroke="deepskyblue" fill="deepskyblue"/>
 
-        <text x="15" y="110" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">H</tspan></text>
-        <text x="245" y="110" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">C</tspan></text>
+        <text x="10" y="120" font-family="times" font-size="20" font-style="italic">{{ hotTemp }}ºC</text>
+        <text x="232" y="120" font-family="times" font-size="20" font-style="italic">{{ coldTemp }}ºC</text>
         <text x="110" y="62" font-family="times" font-size="20" font-style="italic">Cooper</text>
-        <text x="150" y="170" font-family="times" font-size="20" font-style="italic">Steel</text>
+        <text x="130" y="170" font-family="times" font-size="20" font-style="italic">Steel</text>
 
-        <text x="210" y="65" font-family="times" font-size="25" font-style="italic">&#x03c6;</text>
-        <path d="M205 35 l0 50 M205 35 l-3 10 M205 35 l3 10 M205 85 l-3 -10 M205 85 l3 -10" stroke=#000 fill="none"/>
-        <text x="210" y="170" font-family="times" font-size="25" font-style="italic">&#x03c6;</text>
-        <path d="M205 140 l0 50 M205 140 l-3 10 M205 140 l3 10 M205 190 l-3 -10 M205 190 l3 -10" stroke=#000 fill="none"/>
+        <text x="195" y="65" font-family="times" font-size="20" font-style="italic">{{ side*100 }}cm</text>
+        <path d="M190 35 l0 50 M190 35 l-3 10 M190 35 l3 10 M190 85 l-3 -10 M190 85 l3 -10" stroke=#000 fill="none"/>
+        <text x="195" y="170" font-family="times" font-size="20" font-style="italic">{{ side*100 }}cm</text>
+        <path d="M190 140 l0 50 M190 140 l-3 10 M190 140 l3 10 M190 190 l-3 -10 M190 190 l3 -10" stroke=#000 fill="none"/>
 
-        <text x="180" y="205" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">S</tspan></text>
-        <path d="M140 200 l35 0 M140 200 l10 3 M140 200 l10 -3 M200 200 l40 0 M240 200 l-10 -3 M240 200 l-10 3" stroke=#000 fill="none"/>
+        <text x="147" y="205" font-family="times" font-size="15" font-style="italic">{{ (lS*100).toFixed() }}cm</text>
+        <path d="M100 200 l40 0 M100 200 l10 3 M100 200 l10 -3 M190 200 l40 0 M230 200 l-10 -3 M230 200 l-10 3" stroke=#000 fill="none"/>
 
-        <text x="130" y="100" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">C</tspan></text>
-        <path d="M40 95 l85 0 M40 95 l10 3 M40 95 l10 -3 M150 95 l90 0 M240 95 l-10 -3 M240 95 l-10 3" stroke=#000 fill="none"/>
+        <text x="130" y="100" font-family="times" font-size="15" font-style="italic">{{ (lC*100).toFixed() }}cm</text>
+        <path d="M40 95 l75 0 M40 95 l10 3 M40 95 l10 -3 M180 95 l50 0 M230 95 l-10 -3 M230 95 l-10 3" stroke=#000 fill="none"/>
 
-        
+
 
     </svg>
 
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-      //- p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-      //-   input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-      //- p.inline.data Touch T (&#x00B0;C)
-      //-   input.center.data(:class="checkedUserT" v-model.number='userT')
+      p.solution Please do calculations and introduce your results
+      p.inline.data l<sub>steel</sub> (m)
+        input.center.data(:class="checkedLS" v-model.number='enterLS')
+      p.inline.data l<sub>copper</sub> (m)
+        input.center.data(:class="checkedLC" v-model.number='enterLC')
+      p.inline.data T<sub>hot</sub> (ºC)
+        input.center.data(:class="checkedTH" v-model.number='enterTH')
+      p.inline.data T<sub>cool</sub> (ºC)
+        input.center.data(:class="checkedTC" v-model.number='enterTC')
+      p.inline.data Area (m<sup>2</sup>)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+      p.inline.data k<sub>steel</sub> (W/kgºC)
+        input.center.data(:class="checkedKS" v-model.number='enterKS')
+      p.inline.data k<sub>copper</sub> (W/kgºC)
+        input.center.data(:class="checkedKC" v-model.number='enterKC')
+      p.inline.data H (W)
+        input.center.data(:class="checkedH" v-model.number='enterH')
 
 </template>
 <script>
@@ -48,136 +58,111 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      stepScrew: 8,
-      temperature1: 100,
-      temperature2: 0,
-      opacity: 1,
-      mat1: 0,
-      mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: ''
+      enterLS: '',
+      enterLC: '',
+      enterTH: '',
+      enterTC: '',
+      enterA: '',
+      enterKS: '',
+      enterKC: '',
+      enterTSS: '',
+      enterH: '',
+      kS: 50.2,
+      kC: 385
     }
   },
   computed: {
-    boltLengthOne: function () {
-      let max = 188
-      let min = 12
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
-    },
-    boltLengthTwo: function () {
-      return 195 - this.boltLengthOne
-    },
-    chord: function () {
-      return calcChord()
-    },
-    move: function () {
-      return Math.round(1000 * (this.boltLengthOne - 100) * (1 - this.position / 5)) / 1000
-    },
-    bolt1: function () {
-      return `${-110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    bolt2: function () {
-      return `${255 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote1: function () {
-      return `${-113 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    cote2: function () {
-      return `${257 - 110 + (this.boltLengthOne - 110)}` + ' 0'
-    },
-    coteLine1: function () {
-      return `${-62 + (this.boltLengthOne + 110)}`
-    },
-    coteLine2: function () {
-      return `${275 - 110 + (this.boltLengthOne - 110)}`
-    },
-    text1: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    text2: function () {
-      return `${-152 + (0.5 * this.boltLengthOne + 110)}`
-    },
-    moveBolt1: function () {
-      return 'translate(' + `${-120 + this.move}` + ',0)'
-    },
-    moveBolt2: function () {
-      return 'translate(' + `${135 + this.move}` + ',0)'
-    },
-    moveLine1: function () {
-      return 149 + this.move
-    },
-    moveLine2: function () {
-      return 155 + this.move
-    },
-    gapText: function () {
-      return `${-0 + (1 * (this.boltLengthOne - 110))}`
-    },
-    gapSize: function () {
+    lS: function () {
       let max = 15
       let min = 5
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    lC: function () {
+      let max = 25
+      let min = 15
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    side: function () {
+      let max = 5
+      let min = 2
+      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    },
+    hotTemp: function () {
+      let max = 150
+      let min = 50
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    initialTemperature: function () {
-      let max = 30
-      let min = 20
+    coldTemp: function () {
+      let max = 20
+      let min = -50
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    temperatureFinal: function () {
-      return Math.round(100 * (this.initialTemperature + this.gapSize * 1e-6 / (19e-6 * this.boltLengthOne + 11e-6 * this.boltLengthTwo))) / 100
+    area: function () {
+      return parseFloat((this.side * this.side).toPrecision(3))
     },
-    checkedUserAlphaBr: function () {
+    heatFlow: function () {
+      return parseFloat((this.kS * this.area * (this.hotTemp - this.coldTemp) / this.lS + this.kC * this.area * (this.hotTemp - this.coldTemp) / this.lC).toFixed(3))
+    },
+    checkedLS: function () {
       let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
+      console.log('Steel length : ' + this.lS + ' : ' + parseFloat(this.enterLS))
+      check = this.lS === parseFloat(this.enterLS) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserAlphaSt: function () {
+    checkedLC: function () {
       let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
+      console.log('cooper length : ' + this.lC + ' : ' + parseFloat(this.enterLC))
+      check = this.lC === parseFloat(this.enterLC) ? 'correct' : 'not-correct'
       return check
     },
-    checkedUserT: function () {
+    checkedTH: function () {
       let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
+      console.log('hot temperature : ' + this.hotTemp + ' : ' + parseFloat(this.enterTH))
+      check = this.hotTemp === parseFloat(this.enterTH) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTC: function () {
+      let check
+      console.log('cool temperature : ' + this.coldTemp + ' : ' + parseFloat(this.enterTC))
+      check = this.coldTemp === parseFloat(this.enterTC) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedA: function () {
+      let check
+      console.log('Area : ' + this.area + ' : ' + parseFloat(this.enterA))
+      check = this.area === parseFloat(this.enterA) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedKS: function () {
+      let check
+      console.log('steel K : ' + this.kS + ' : ' + parseFloat(this.enterKS))
+      check = this.kS === parseFloat(this.enterKS) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedKC: function () {
+      let check
+      console.log('copper K : ' + this.kC + ' : ' + parseFloat(this.enterKC))
+      check = this.kC === parseFloat(this.enterKC) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTSS: function () {
+      let check
+      console.log('Steady state temp. : ' + this.steadyT + ' : ' + parseFloat(this.enterTSS))
+      check = this.steadyT === parseFloat(this.enterTSS) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedH: function () {
+      let check
+      console.log('Heat flow : ' + this.heatFlow + ' : ' + parseFloat(this.enterH))
+      check = this.heatFlow === parseFloat(this.enterH) ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    }
   },
   watch: {
   },
   mixins: [eagle.slide]
-}
-
-function calcChord () {
-  let d = ''
-  let step = 8
-  var i
-  for (i = 0; i <= 30; i++) {
-    d += `M${22 + i * step} 92 L${20 + i * step} 94 L${23 + i * step} 111 L${25 + i * step} 113 L${28 + i * step} 111 L${25 + i * step} 94 L${22 + i * step} 92 L${25 + i * step} 113 `
-  }
-  return d
 }
 
 </script>
