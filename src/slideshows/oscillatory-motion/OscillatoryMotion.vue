@@ -63,106 +63,39 @@
       .center
         img(height="400px" src='./assets/motor vocho.gif')
 
-    slide(:steps=0, enter='bounceInDown')
+    slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Oscillations
-      p.center Mass-spring system
-      p.center
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-            <text x="100" y="30">
-            <tspan style="font-style:normal; font-family: Times New Roman; font-size:1em;">Amplitude (<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">A</tspan>)</tspan></text>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
-      p <span style="font-size: 1.2em;"><b>Amplitude</b></span>, is the maximun displacement of the mass with respect the equilibrium position
-      p <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span>: position of the mass with respect to the equilibrium position at <span style="font-size: 1.5em; font-family: Times New Roman;"><em>x</em></span> = 0.
+      h4(style="margin-top: -20px;") Oscillations
+      p(style="margin: 0 0 -0px 0;").center Mass-spring system
+      spring-mass
+      p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
+      p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
+      .button.prev(@click.stop='previousSlide' style="float: left; border: 0px;")
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide' style="float: right; border: 0px;")
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -10px;") Oscillations
-      p.center Mass-spring system
-      p.center
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-          <text x="435" y="20">
-            <tspan style="font-style:normal; font-family: Times New Roman; font-size:0.4em;">Period</tspan>
-            <animate attributeName="visibility" values="visible;hidden" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </text>
-          <circle cx="450px" cy="30" r="10px">
-            <animate attributeName="fill" values="green;green;red" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            <animate attributeName="visibility" values="visible;hidden;hidden;hidden" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </circle>
-
-          <text x="285" y="120">
-            <tspan style="font-style:normal; font-family: Times New Roman; font-size:0.4em;">Period</tspan>
-            <animate attributeName="visibility" values="visible;hidden" dur="2s" repeatCount="indefinite" begin="p1.begin+0.5"/>
-          </text>
-          <circle cx="300px" cy="130" r="10px">
-            <animate attributeName="fill" values="green;green;red" dur="2s" repeatCount="indefinite" begin="p1.begin+0.5"/>
-            <animate attributeName="visibility" values="visible;hidden;hidden;hidden" dur="2s" repeatCount="indefinite" begin="p1.begin+0.5"/>
-          </circle>
-
-
-            <text x="100" y="30">
-            <tspan style="font-style:normal; font-family: Times New Roman; font-size:1em;">Period (<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">T</tspan>)</tspan></text>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
-      p <span style="font-size: 1.2em;"><b>Period</b></span>, is the time interval in which the sistem completes an entire oscillation with respect any position
-      p <span style="font-size: 1.2em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
-      p <span style="font-size: 1.2em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
+      h4(style="margin-top: -30px;") Oscillations
+      p(style="margin: 0 0 -0px 0;").center Mass-spring system
+      spring-mass
+      p <span style="font-size: 1em;"><b>Period</b></span>, is the time interval in which the sistem completes an oscillation
+      p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
+      p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Oscillations
-      h5 Formulas
+      h4(style="margin-top: -20px;") Oscillations
+      p(style="margin: 0 0 0px 0;").center Mass-spring system
+      spring-mass
+      p(style="margin: 50px 0 -0px 0;") Formulas: <b>frequency</b>, <b>period</b> and <b>angular frequency</b>
       .center
-        img(src='./assets/frequencyPeriodFormulas.png' height="150px")
-      .center
-        img(src='./assets/angularFrequencyFormula.png' height="150px")
+        img(src='./assets/equations/frequency.svg' height="150px")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -180,47 +113,16 @@
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Simple Harmonic Motion
-      p.center
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-            <text x="500" y="98">
-              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-            </text>
-            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
+      spring-mass
       p(style="margin: 0px 20px 0 0;") Hooke's law
       .center
-        img(src='./assets/hookeLaw.png' height="100px" style="margin: -20px 20px 0 0;")
-        img(src='./assets/secondNewton.png' height="100px"  style="margin: -20px 20px 0 0;")
+        img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
       p(style="margin: 0px 20px 0 0;") with
       .center
-        img(src='./assets/angularFrequency.png' height="100px"  style="margin: -50px 10px 0 0")
-      p(style="margin: 0px 20px 0 0;") we have
+        img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
+      p(style="margin: -10px 20px 0 0;") we have
       .center
-        img(src='./assets/frequency.png' height="100px"  style="margin-right: 20px;")
+        img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
         img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
 
 
@@ -241,41 +143,11 @@
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-      p.center
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-            <text x="500" y="98">
-              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-            </text>
-            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
-
-      p(style="margin: -40px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
+      p(style="margin-top: -40px;").center
+      spring-mass
+      p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
       .center
-        img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 0;")
+        img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
       .center
         img(src='./assets/displacementGraph.png' height="250px")
 
@@ -293,79 +165,21 @@
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-            //- <text x="500" y="98">
-            //-   <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-            //- </text>
-            //- <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
-      p(style="margin: -40px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-      .center
-        img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -100px 20px 300px 0;")
-        img(src='./assets/velocityAccelerationGraphs.png' height="550px" style="margin: -100px 20px 100px 0;")
+      p(style="margin-top:-60px;")
+        spring-mass(style="margin-left: -70px;")
+      p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
+      p
+        img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
+        img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-        <svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-
-          </defs>
-          <use xlink:href="#r1"/>
-
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-            //- <text x="500" y="98">
-            //-   <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-            //- </text>
-            //- <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-        </svg>
-
-
-      p(style="margin: -40px 0px -40px -20px; font-size: 1.3em;") <b>Velocity<br> and<br> acceleration</b>
+      p(style="margin-top:-60px;")
+        spring-mass(style="margin-left: -100px;")
+      p(style="margin: 40px 0px -40px -20px; font-size: 1.3em;") <b>Velocity and acceleration</b>
       .center
-        img(src='./assets/velocityAccelerationSigns.png' height="460px" style="margin: -200px 20px 150px 35px;")
+        img(src='./assets/velocityAccelerationSigns.png' height="550px" style="margin: -300px -600px 0px 300px;")
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -683,7 +497,8 @@ export default {
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
     'example-twenty': require('./components/ExampleTwenty'),
-    'simple-pendulum': require('./components/SimplePendulum')
+    'simple-pendulum': require('./components/SimplePendulum'),
+    'spring-mass': require('./components/SpringMass')
   },
   data: function () {
     return {

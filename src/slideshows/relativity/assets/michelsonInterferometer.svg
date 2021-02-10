@@ -53,45 +53,45 @@
     <!-- <path d="M150,250 340,250 360,240 579,240" fill="none" stroke="#39FF14" stroke-width="4"/> -->
 
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="0s" path="M150,250 340,250 360,240 466,240 360,240 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="1s" path="M150,250 340,250 360,240 466,240 360,240 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="2s" path="M150,250 340,250 360,240 466,240 360,240 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="3s" path="M150,250 340,250 360,240 466,240 360,240 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="4s" path="M150,250 340,250 360,240 466,240 360,240 340,250 350,230 350,120" />
     </g>
 
 
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="0s" path="M150,250 340,250 340,377 340,250 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="1s" path="M150,250 340,250 340,377 340,250 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="2s" path="M150,250 340,250 340,377 340,250 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="3s" path="M150,250 340,250 340,377 340,250 340,250 350,230 350,120" />
     </g>
     <g>
-      <path id="flecha" d="M0,-5 10,0 0,5" fill="none" stroke="#39FF14" stroke-width="2" opacity="0.9"/>
+      <path id="flecha" d="M0,-5 10,0 0,5" fill="#39FF14" stroke="#39FF14" stroke-width="2" opacity="0.5"/>
       <animateMotion dur="5s" fill="freeze" repeatCount="indefinite" rotate="auto" begin="4s" path="M150,250 340,250 340,377 340,250 340,250 350,230 350,120" />
     </g>
 

@@ -46,16 +46,16 @@ export default {
       let min = 20
       return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * (-this.direction)
     },
-    speedAB: function () {
-      return this.speedB - this.speedA
+    speedAfromB: function () {
+      return Math.round(1000 * (this.speedA - this.speedB)) / 1000
     },
-    speedBA: function () {
+    speedBfromA: function () {
       // v2 = v1 -v
-      return this.speedA - this.speedB
+      return Math.round(1000 * (this.speedB - this.speedA)) / 1000
     },
-    electronAlpha: function () {
-      return -this.electronAlphaSpeed
-    },
+    // electronAlpha: function () {
+    //   return -this.electronAlphaSpeed
+    // },
     checkedAMoon: function () {
       let check
       console.log('A from M => ' + this.speedA + ' : ' + parseFloat(this.enterAMoon))
@@ -70,26 +70,26 @@ export default {
     },
     checkedBA: function () {
       let check
-      console.log('B from A => ' + this.speedBA + ' : ' + parseFloat(this.enterBA))
-      check = this.speedBA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
+      console.log('B from A => ' + this.speedBfromA + ' : ' + parseFloat(this.enterBA))
+      check = this.speedBfromA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
       return check
     },
     checkedAB: function () {
       let check
-      console.log('A from B => ' + this.speedAB + ' : ' + parseFloat(this.enterAB))
-      check = this.speedAB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
+      console.log('A from B => ' + this.speedAfromB + ' : ' + parseFloat(this.enterAB))
+      check = this.speedAfromB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
       return check
     },
     checkedMoonA: function () {
       let check
-      console.log('M from A => ' + this.speedA * -this.direction + ' : ' + parseFloat(this.enterMoonA))
-      check = this.speedA * -this.direction === parseFloat(this.enterMoonA) ? 'correct' : 'not-correct'
+      console.log('M from A => ' + this.speedA * this.direction + ' : ' + parseFloat(this.enterMoonA))
+      check = this.speedA * this.direction === parseFloat(this.enterMoonA) ? 'correct' : 'not-correct'
       return check
     },
     checkedMoonB: function () {
       let check
-      console.log('M from B => ' + this.speedB * -this.direction + ' : ' + parseFloat(this.enterMoonB))
-      check = this.speedB * -this.direction === parseFloat(this.enterMoonB) ? 'correct' : 'not-correct'
+      console.log('M from B => ' + this.speedB * this.direction + ' : ' + parseFloat(this.enterMoonB))
+      check = this.speedB * this.direction === parseFloat(this.enterMoonB) ? 'correct' : 'not-correct'
       return check
     }
   },
