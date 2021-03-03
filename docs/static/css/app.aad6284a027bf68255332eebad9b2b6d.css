@@ -21,7 +21,7 @@ html {
   background-image: assetUrl("~eagle.js/dist/themes/assets/crossword.png");
 }
 .frontpage .content[data-v-7a8d8cab] {
-    width: 600px;
+    width: 800px;
     max-width: 90%;
     margin: 0 auto;
 }
@@ -1330,6 +1330,96 @@ input:checked + .slider[data-v-3ad4b803]:before {
   border-radius: 50% 50% 50% 50%;
 }
 
+.eg-slide .eg-slide-content .figure[data-v-06ee7b94] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-06ee7b94] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.eg-slide .eg-slide-content .included-svg[data-v-06ee7b94] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .included-svg g path[data-v-06ee7b94] {
+    transform-origin: center bottom;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+.eg-slide .eg-slide-content .included-svg .svg-bounce path[data-v-06ee7b94] {
+    -webkit-animation-name: bounce;
+    transform-origin: center bottom;
+}
+.eg-slide .eg-slide-content .included-svg .svg-pulse path[data-v-06ee7b94] {
+    -webkit-animation-name: pulse;
+    -moz-animation-name: bounce;
+    transform-origin: center center;
+}
+.eg-slide .eg-slide-content .included-svg .svg-swing path[data-v-06ee7b94] {
+    -webkit-animation-name: swing;
+    -moz-animation-name: bounce;
+    transform-origin: center center;
+}
+
+/* The switch - the box around the slider */
+.switch[data-v-06ee7b94] {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input[data-v-06ee7b94] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider[data-v-06ee7b94] {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+.slider[data-v-06ee7b94]:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 14px;
+  left: 4px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+}
+input:checked + .slider[data-v-06ee7b94] {
+  background-color: #80f321;
+}
+input:focus + .slider[data-v-06ee7b94] {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider[data-v-06ee7b94]:before {
+  transform: translateX(30px);
+}
+
+/* Rounded sliders */
+.slider.round[data-v-06ee7b94] {
+  border-radius: 34px;
+}
+.slider.round[data-v-06ee7b94]:before {
+  border: green solid 4px;
+  border-radius: 50% 50% 50% 50%;
+}
+
 .eg-theme-agrume {
   /* Solarized Green */
   /* Solarized Cyan */
@@ -1713,8 +1803,8 @@ input:checked + .slider[data-v-3ad4b803]:before {
 }
 
 .eg-slide .eg-slide-content .figure[data-v-6110b598] {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-left: 0;
 }
 .eg-slide .eg-slide-content .figure p[data-v-6110b598] {
     font-size: 0.7em;
@@ -1733,7 +1823,7 @@ input:checked + .slider[data-v-3ad4b803]:before {
   margin: 5px 5px 5px 5px;
   font-size: 30px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 .solution[data-v-6110b598] {
   margin: 5px 5px 5px 5px;
@@ -1748,12 +1838,12 @@ input:checked + .slider[data-v-3ad4b803]:before {
 }
 
 .eg-slide .eg-slide-content .figure[data-v-4505c2ea] {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-left: 0;
 }
 .eg-slide .eg-slide-content .figure p[data-v-4505c2ea] {
     font-size: 0.7em;
-    margin-top: 2em;
+    margin-top: 0;
     margin-bottom: 0;
     color: #555;
 }
@@ -1765,7 +1855,7 @@ input:checked + .slider[data-v-3ad4b803]:before {
   font-size: 20px;
 }
 .problem[data-v-4505c2ea] {
-  margin: 15px 20px 15px 20px;
+  margin: auto;
   font-size: 30px;
   color: blue;
   width: 100%;
@@ -1972,7 +2062,7 @@ input:checked + .slider[data-v-3ad4b803]:before {
 }
 
 .eg-slide .eg-slide-content .figure[data-v-6e593216] {
-  width: 80%;
+  width: 100%;
   margin-left: 10%;
 }
 .eg-slide .eg-slide-content .figure p[data-v-6e593216] {
@@ -2080,8 +2170,8 @@ input:checked + .slider[data-v-3ad4b803]:before {
 }
 
 .eg-slide .eg-slide-content .figure[data-v-577a2d7d] {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
+  margin-left: 0%;
 }
 .eg-slide .eg-slide-content .figure p[data-v-577a2d7d] {
     font-size: 0.7em;
@@ -2091,19 +2181,19 @@ input:checked + .slider[data-v-3ad4b803]:before {
 }
 .data[data-v-577a2d7d] {
   display: inline-block;
-  width: 100px;
+  width: 100%;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
 .problem[data-v-577a2d7d] {
-  margin: 15px 20px 15px 20px;
+  margin: auto;
   font-size: 30px;
   color: blue;
   width: 100%;
 }
 .solution[data-v-577a2d7d] {
-  margin: 15px 5px 5px 5px;
+  margin: auto;
   font-size: 20px;
   color: red;
   width: 100%;
