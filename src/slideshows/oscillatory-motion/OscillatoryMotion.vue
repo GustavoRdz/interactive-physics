@@ -2,6 +2,7 @@
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
+      //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Oscillatory Motion
         img(src='./assets/U.svg')
@@ -16,44 +17,44 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3 Oscillatory motion
-      h5.center Simple pendulum example
-      simple-pendulum
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3 Oscillatory motion
+    //-   h5.center Simple pendulum example
+    //-   simple-pendulum
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
 
 
-    slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
+          p(v-if="step >= 1")
             <b>Motion of an Object Attached to a Spring</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
+          p(v-if="step >= 1")
             <b>Particle Model in Simple Harmonic Motion</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
+          p(v-if="step >= 1")
             <b>Energy of the Simple Harmonic Oscillator</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 5")
+        eg-transition(enter='bounceInLeft' leave='bounceOutTop')
+          p(v-if="step >= 1")
             <b>The pendulum and other systems</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
+        eg-transition(enter='bounceInLeft' leave='bounceOutRight')
+          p(v-if="step >= 1")
             <b>Damped oscillations</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 7")
+          p(v-if="step >= 1")
             <b>Forced oscillations and resonance</b>
 
     slide(:steps=0, enter='bounceInDown')
@@ -176,10 +177,10 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top:-60px;")
-        spring-mass(style="margin-left: -100px;")
-      p(style="margin: 40px 0px -40px -20px; font-size: 1.3em;") <b>Velocity and acceleration</b>
+        spring-mass
+      p(style="margin: 40px 0px -40px 100px; font-size: 1.3em;") <b>Velocity and acceleration</b>
       .center
-        img(src='./assets/velocityAccelerationSigns.png' height="550px" style="margin: -300px -600px 0px 300px;")
+        img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
 
     slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -359,6 +360,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Other systems of SHM
       p(style="margin-top: -30px;").center Angular SHM
+      torsion-pendulum
       .center
         img(src='./assets/angularSHM.png' height="300px")
       .center
@@ -498,7 +500,8 @@ export default {
     'example-nineteen': require('./components/ExampleNineteen'),
     'example-twenty': require('./components/ExampleTwenty'),
     'simple-pendulum': require('./components/SimplePendulum'),
-    'spring-mass': require('./components/SpringMass')
+    'spring-mass': require('./components/SpringMass'),
+    'torsion-pendulum': require('./components/TorsionPendulum')
   },
   data: function () {
     return {

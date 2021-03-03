@@ -54,7 +54,7 @@ export default {
   position: absolute;
   background-image: assetUrl("~eagle.js/dist/themes/assets/crossword.png");
   .content{
-    width: 600px;
+    width: 800px;
     max-width: 90%;
     margin: 0 auto;
   }

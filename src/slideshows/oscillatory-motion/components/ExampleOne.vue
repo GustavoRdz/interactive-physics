@@ -42,19 +42,22 @@ export default {
     checkedFrequency: function () {
       let check
       console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.freq))
-      check = this.frequency === parseFloat(this.freq) ? 'correct' : 'not-correct'
+      // check = this.frequency === parseFloat(this.freq) ? 'correct' : 'not-correct'
+      check = Math.abs(this.frequency - parseFloat(this.freq)) / this.frequency < 0.01 ? 'correct' : 'not-correct'
       return check
     },
     checkedPeriod: function () {
       let check
       console.log('Period => ' + this.period + ' : ' + parseFloat(this.peri))
-      check = this.period === parseFloat(this.peri) ? 'correct' : 'not-correct'
+      console.log('error => ' + 1 * (Math.abs(this.period - parseFloat(this.peri)) / this.period) + ':' + this.period * 0.01)
+      check = Math.abs(this.period - parseFloat(this.peri)) / this.period < 0.005 ? 'correct' : 'not-correct'
       return check
     },
     checkedAngularFreq: function () {
       let check
       console.log('Angular frequency => ' + this.angularFrequency + ' : ' + parseFloat(this.angular))
-      check = this.angularFrequency === parseFloat(this.angular) ? 'correct' : 'not-correct'
+      console.log('error  ' + 1 * (this.angularFrequency - parseFloat(this.angular)) / this.angularFrequency + ' : ' + 0.01 * this.angularFrequency)
+      check = Math.abs(this.angularFrequency - parseFloat(this.angular)) / this.angularFrequency < 1e-9 ? 'correct' : 'not-correct'
       return check
     }
   },

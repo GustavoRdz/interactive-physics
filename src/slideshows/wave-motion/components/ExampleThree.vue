@@ -1,22 +1,26 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An 80.0-kg hiker is trapped on a mountain ledge following a storm. A helicopter rescues the hiker by hovering above him and lowering a cable to him. The mass of the cable is 8.00 kg, and its length is 15.0 m. A sling of mass 70.0 kg is attached to the end of the cable. The hiker attaches himself to the sling, and the helicopter then accelerates upward. Terrified by hanging from the cable in midair, the hiker tries to signal the pilot by sending transverse pulses up the cable. A pulse takes 0.250 s to travel the length of the cable. What is the acceleration of the helicopter? Assume the tension in the cable is uniform.
+    p.problem An {{ hikerMass }}-kg hiker is trapped on a mountain ledge following a storm. A helicopter rescues the hiker by hovering above him and lowering a cable to him. The mass of the cable is {{ cableMass }} kg, and its length is {{ length }} m. A sling of mass {{ slingMass }} kg is attached to the end of the cable. The hiker attaches himself to the sling, and the helicopter then accelerates upward. Terrified by hanging from the cable in midair, the hiker tries to signal the pilot by sending transverse pulses up the cable. A pulse takes {{ time }} s to travel the length of the cable. What is the acceleration of the helicopter? Assume the tension in the cable is uniform.
 
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data Initial displacement (m)
-      //-   input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
-      //- p.inline.data Initial speed (m/s)
-      //-   input.center.data(:class="checkedInitSpeed" v-model.number='enterInitSpeed')
-      //- p.inline.data Angular frequency (rad/s)
-      //-   input.center.data(:class="checkedAngularFreq" v-model.number='enterAngularFreq')
-      //- p.inline.data Period (s)
-      //-   input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      //- p.inline.data Amplitude (m)
-      //-   input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
-      //- p.inline.data Phase angle (rad)
-      //-   input.center.data(:class="checkedPhase" v-model='enterPhase')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Hiker mass (kg)
+        input.center.data(:class="checkedHikerMass" v-model.number='enterHikerMass')
+      p.inline.data Cable mass (kg)
+        input.center.data(:class="checkedCableMass" v-model.number='enterCableMass')
+      p.inline.data Length (m)
+        input.center.data(:class="checkedLength" v-model.number='enterLength')
+      p.inline.data Sling mass (kg)
+        input.center.data(:class="checkedSlingMass" v-model.number='enterSlingMass')
+      p.inline.data Pulse time travel (s)
+        input.center.data(:class="checkedTime" v-model='enterTime')
+      p.inline.data Speed (m/s)
+        input.center.data(:class="checkedSpeed" v-model='enterSpeed')
+      p.inline.data Tension (N)
+        input.center.data(:class="checkedTension" v-model='enterTension')
+      p.inline.data Acceleration (m/s<sup>2</sup>)
+        input.center.data(:class="checkedAcceleration" v-model='enterAcceleration')
 
 </template>
 <script>
@@ -24,73 +28,100 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterInitDisp: '',
-      enterInitSpeed: '',
-      enterAngularFreq: '',
-      enterPeriod: '',
-      enterAmplitude: '',
-      enterPhase: ''
+      enterHikerMass: '',
+      enterCableMass: '',
+      enterLength: '',
+      enterSlingMass: '',
+      enterTime: '',
+      enterSpeed: '',
+      enterTension: '',
+      enterAcceleration: ''
     }
   },
   computed: {
-    initialDisplacement: function () {
-      let max = 5
-      let min = 1
-      return Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+    hikerMass: function () {
+      let max = 90
+      let min = 70
+      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
     },
-    initialSpeed: function () {
-      let max = 5
-      let min = 1
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
+    cableMass: function () {
+      let max = 10
+      let min = 5
+      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
     },
-    angular: function () {
-      let max = 50
-      let min = 20
-      return Math.round(1000 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+    length: function () {
+      let max = 20
+      let min = 10
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
     },
-    period: function () {
-      return Math.round(1000 * 2 * Math.PI / this.angular) / 1000
+    slingMass: function () {
+      let max = 70
+      let min = 50
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
     },
-    amplitude: function () {
-      return Math.round(1000 * Math.sqrt(Math.pow(this.initialDisplacement, 2) + Math.pow(this.initialSpeed / this.angular, 2))) / 1000
+    time: function () {
+      let max = 300
+      let min = 200
+      return Math.round(1 * (Math.random() * (max - min + 1) + min)) / 1000
     },
-    phase: function () {
-      return Math.round(1000 * Math.atan2(-this.initialSpeed, this.angular * this.initialDisplacement)) / 1000
+    speed: function () {
+      return Math.round(1000 * this.length / this.time) / 1000
     },
-    checkedInitDisp: function () {
+    density: function () {
+      return Math.round(1000 * this.cableMass / this.length) / 1000
+    },
+    tension: function () {
+      return Math.round(1000 * this.density * this.speed ** 2) / 1000
+    },
+    acceleration: function () {
+      return Math.round(1000 * (this.tension - (this.slingMass + this.hikerMass) * 9.81) / (this.slingMass + this.hikerMass)) / 1000
+    },
+    checkedHikerMass: function () {
       let check
-      console.log('Initial displacement => ' + this.initialDisplacement + ' : ' + parseFloat(this.enterInitDisp))
-      check = this.initialDisplacement === parseFloat(this.enterInitDisp) ? 'correct' : 'not-correct'
+      console.log('Hiker mass => ' + this.hikerMass + ' : ' + parseFloat(this.enterHikerMass))
+      check = this.hikerMass === parseFloat(this.enterHikerMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedInitSpeed: function () {
+    checkedCableMass: function () {
       let check
-      console.log('Initial speed => ' + this.initialSpeed + ' : ' + parseFloat(this.enterInitSpeed))
-      check = this.initialSpeed === parseFloat(this.enterInitSpeed) ? 'correct' : 'not-correct'
+      console.log('Cable mass => ' + this.cableMass + ' : ' + parseFloat(this.enterCableMass))
+      check = this.cableMass === parseFloat(this.enterCableMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngularFreq: function () {
+    checkedLength: function () {
       let check
-      console.log('Angular frequency => ' + this.angular + ' : ' + parseFloat(this.enterAngularFreq))
-      check = this.angular === parseFloat(this.enterAngularFreq) ? 'correct' : 'not-correct'
+      console.log('Cable length => ' + this.length + ' : ' + parseFloat(this.enterLength))
+      check = this.length === parseFloat(this.enterLength) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPeriod: function () {
+    checkedSlingMass: function () {
       let check
-      console.log('Period => ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
+      console.log('Sling mass => ' + this.slingMass + ' : ' + parseFloat(this.enterSlingMass))
+      check = this.slingMass === parseFloat(this.enterSlingMass) ? 'correct' : 'not-correct'
       return check
     },
-    checkedAmplitude: function () {
+    checkedTime: function () {
       let check
-      console.log('Amplitude => ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
+      console.log('Pulse time travel => ' + this.time + ' : ' + parseFloat(this.enterTime))
+      check = this.time === parseFloat(this.enterTime) ? 'correct' : 'not-correct'
       return check
     },
-    checkedPhase: function () {
+    checkedSpeed: function () {
       let check
-      console.log('Phase angle => ' + this.phase + ' : ' + parseFloat(this.enterPhase))
-      check = this.phase === parseFloat(this.enterPhase) ? 'correct' : 'not-correct'
+      console.log('Speed => ' + this.speed + ' : ' + parseFloat(this.enterSpeed))
+      check = this.speed === parseFloat(this.enterSpeed) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedTension: function () {
+      let check
+      console.log('Tension => ' + this.tension + ' : ' + parseFloat(this.enterTension))
+      check = this.tension === parseFloat(this.enterTension) ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedAcceleration: function () {
+      let check
+      console.log('Acceleration => ' + this.acceleration + ' : ' + parseFloat(this.enterAcceleration))
+      check = this.acceleration === parseFloat(this.enterAcceleration) ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -110,12 +141,12 @@ export default {
     .figure {
       p {
         font-size: 0.7em;
-        margin-top: 2em;
+        margin-top: 0;
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0;
     }
   }
 }
@@ -129,7 +160,7 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
+  margin: auto;
   font-size: 30px;
   color: blue;
   width: 100%;

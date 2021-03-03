@@ -7,7 +7,7 @@ eg-transition(:enter='enter', :leave='leave')
     //-   circle(fill='#000', stroke-width='2', cx='12', cy='9', r='3')
 
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 1080 300" width="980px" height="210px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 300" width="980px" height="210px">
 
        <!-- <rect x="0" y="0" width="980" height="210" stroke="#f57c00" fill="#0f0" stroke-width="1"  opacity= "0.3"/> -->
 
@@ -188,29 +188,29 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
 
 .data {
   display: inline-block;
-  width: 100px;
+  width: 100%;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
+  margin: auto;
   font-size: 30px;
   color: blue;
   width: 100%;
 }
 
 .solution {
-  margin: 15px 5px 5px 5px;
+  margin: auto;
   font-size: 20px;
   color: red;
   width: 100%;

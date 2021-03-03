@@ -59,7 +59,7 @@ eg-transition(:enter='enter', :leave='leave')
         </svg>
 
     .center
-      p.solution initial X: {{ initialX }}, amplitudeAcc: {{ amplitudeVel }}, frequency: {{ frequency }}, period: {{ period }}, phase: {{ phase }}:{{ Math.round(phase * 1800 / Math.PI) /10 }}º
+      //- p.solution initial X: {{ initialX }}, amplitudeAcc: {{ amplitudeVel }}, frequency: {{ frequency }}, period: {{ period }}, phase: {{ phase }}:{{ Math.round(phase * 1800 / Math.PI) /10 }}º
       p.solution Please do calculations and introduce your results
       p.inline.data Elastic constant (N/m)
         input.center.data(:class="checkedElastic" v-model.number='enterElastic')

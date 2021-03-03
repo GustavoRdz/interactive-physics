@@ -73,7 +73,8 @@ export default {
     checkedForce: function () {
       let check
       console.log('Force => ' + this.force + ' : ' + parseFloat(this.enterForce))
-      check = this.force === parseFloat(this.enterForce) ? 'correct' : 'not-correct'
+      console.log('error => ' + Math.abs(this.force - parseFloat(this.enterForce)) / this.force + ' : ' + parseFloat(this.enterForce))
+      check = Math.abs(this.force - parseFloat(this.enterForce)) / this.force < 0.0005 ? 'correct' : 'not-correct'
       return check
     },
     checkedDispl: function () {

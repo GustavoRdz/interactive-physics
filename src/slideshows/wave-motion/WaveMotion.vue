@@ -14,28 +14,28 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
+          p(v-if="step >= 1")
             <b>Propagation of a Disturbance</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
+          p(v-if="step >= 1")
             <b>Traveling Wave</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Speed of Waves on Stings</b>
+          p(v-if="step >= 1")
+            <b>Speed of Waves on Strings</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
+          p(v-if="step >= 1")
             <b>Reflection and Transmission</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
+          p(v-if="step >= 1")
             <b>Waves in interference, Resonance</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 7")
+        eg-transition(enter='bounceInLeft' leave='bounceOutRight')
+          p(v-if="step >= 1")
             <b>Sound, Speed, Intensity and the Doppler Effect</b>
 
     slide(:steps=0, enter='bounceInDown')
@@ -145,10 +145,11 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide(style="width: 90%; max-width: 100%;").boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h3 Exercise 4
-      example-three
+      .center
+      example-three(style="width: 100%;")
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -158,32 +159,32 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 5
-      example-ten
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    //-   h3 Exercise 5
+    //-   example-ten
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
 
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 6
-      example-six
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+    //-   h3 Exercise 6
+    //-   example-six
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
@@ -244,7 +245,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 7
+      h3 Exercise 5
       example-twelve
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -257,7 +258,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 8
+      h3 Exercise 6
       example-thirteen
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -304,7 +305,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 9
+      h3 Exercise 7
       example-four
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -326,7 +327,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 10
+      h3 Exercise 8
       example-five
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -339,7 +340,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 11
+      h3 Exercise 9
       example-seven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -361,7 +362,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 12
+      h3 Exercise 11
       example-eight
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -374,7 +375,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 13
+      h3 Exercise 11
       example-eleven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
