@@ -43,14 +43,14 @@
       p Ripples on a pond, musical sounds, seismic tremors triggered by an earthquake—all these are wave phenomena. Waves can occur whenever a system is disturbed from equilibrium and when the disturbance can travel, or propagate, from one region of the system to another. As a wave propagates, it carries energy. The energy in light waves from the sun warms the surface of our planet; the energy in seismic waves can crack our planet’s crust.
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Waves</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Types of waves
       .center
         img(src='./assets/waveTypes.png' height="400px")
 
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Waves</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       .center
         img(src='./assets/oscillationWave.png' height="200px")
@@ -62,7 +62,7 @@
         img(src='./assets/oscillatoryVariable.png')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Waves</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       p Traveling wave
       .center
@@ -78,7 +78,7 @@
         img(src='./assets/travelingWaveR3.png')
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Waves</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       p Traveling waves
       .center
@@ -96,7 +96,7 @@
         img(src='./assets/period.png'  height="200px"  style="margin: 30px 20px -20px 20px")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 1
       example-one
       .button.prev(@click.stop='previousSlide')
@@ -109,7 +109,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 2
       example-nine
       .button.prev(@click.stop='previousSlide')
@@ -122,7 +122,7 @@
         span.small Ctrl + right
 
     slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Waves</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Waves on a string
       p Waves speed in materials depends on the material characteristics, that is
       .center
@@ -133,7 +133,7 @@
 
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 3
       example-two
       .button.prev(@click.stop='previousSlide')
@@ -146,7 +146,7 @@
         span.small Ctrl + right
 
     slide(style="width: 90%; max-width: 100%;").boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 4
       .center
       example-three(style="width: 100%;")
@@ -159,56 +159,52 @@
         br
         span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    //-   h3 Exercise 5
-    //-   example-ten
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h4(style="margin: 10px 0 0 0;").center Wave interference:  superposition principle
+      p(style="margin: -10px 0 0px 0;").center
+        img(src='./assets/superposition.png' height="50px" style="margin: 30px 0 0 20px;")
+        h5(style="margin:30px 0 0 0;").center Waves in the same direction
+      p(style="margin: -20px 0 0px 0;") Two sinusoidal waves
+      .center
+        img(src='./assets/sinWaves.png' style="margin: 20px 0px -15px 15px;")
+      p Applying the superposition principle
+      .center
+        img(src='./assets/sinWaveSuperposition.png' style="margin: 0px 0px 25px 0px;")
+      p(style="margin: -20px 0 0px 0;") using 
+        |
+        img(src='./assets/sinWaveIdentity.png' width="300px" style="margin: 20px 0px -15px 15px;")
+      .center
+        img(src='./assets/sinWavesInterference.png' width="500px" style="margin: 30px 0px 15px 0px;")
 
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h4(style="margin: 10px 0 0 0;").center Wave interference
+      wave-interference
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-    //-   h3 Exercise 6
-    //-   example-six
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    //- slide(enter='bounceInDown')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h4(style="margin: 10px 0 0 0;").center Wave interference
+    //-     h5(style="margin:20px 0 0 0;").center Two pulses
+    //-     .center
+    //-       img(src='./assets/twoPulsesDifferentSign.png' style="margin: 20px 0 0 20px;")
+    //-       img(src='./assets/twoPulsesEqualSign.png' height="440px" style="margin: 0px 0 50px 10px;")
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4(style="margin: 10px 0 0 0;").center Wave interference
         h5(style="margin:20px 0 0 0;").center Boundary conditions
         .center
           img(src='./assets/boundaryCond.png')
 
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h4(style="margin: 10px 0 0 0;").center Wave interference
-        h5(style="margin:20px 0 0 0;").center Two pulses
-        .center
-          img(src='./assets/twoPulsesDifferentSign.png' style="margin: 20px 0 0 20px;")
-          img(src='./assets/twoPulsesEqualSign.png' height="440px" style="margin: 0px 0 50px 10px;")
+    //- slide(enter='bounceInDown')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h5(style="margin:0px 0 0 0;").center Two traveling waves
+    //-     .center
+    //-       img(src='./assets/waveInterferenceCases.png' style="margin: 20px 0 0 20px;")
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h5(style="margin:0px 0 0 0;").center Two traveling waves
-        .center
-          img(src='./assets/waveInterferenceCases.png' style="margin: 20px 0 0 20px;")
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4(style="margin: 10px 0 0 0;").center Superposition principle
         .center
           img(src='./assets/superposition.png' height="50px" style="margin: 20px 0 0 20px;")
@@ -225,13 +221,13 @@
           img(src='./assets/twoWavesInterference.png' style="margin: 20px 0 0 20px;")
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4.center Standing waves
         .center
           img(src='./assets/standingWavesFig.png' height="500px" style="margin: 30px 0 0 0;")
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4.center Normal modes on a string
         .center
           img(src='./assets/normalModesInterference.png' height="50px" style="margin: 30px 0 0 0;")
@@ -244,7 +240,7 @@
           img(src='./assets/normalModesFrequency.png' height="50px" style="margin: auto;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 5
       example-twelve
       .button.prev(@click.stop='previousSlide')
@@ -257,7 +253,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 6
       example-thirteen
       .button.prev(@click.stop='previousSlide')
@@ -270,7 +266,7 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h2.center Sound waves
       ul
         li Mechanical wave
@@ -282,13 +278,13 @@
         li ultrasound: >20000Hz
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h5(style="margin-top: -0px").center Sound waves
       .center
         img(src='./assets/ondaSonora.png' style="margin-top: -20px;")
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h5(style="margin-top: -0px").center Sound waves
       .center
           img(src='./assets/waveSpeedMaterial.png' style="margin-top: -20px;")
@@ -304,7 +300,7 @@
           img(src='./assets/R.png' height="40px" style="margin-bottom: 20px; margin-left: 50px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 7
       example-four
       .button.prev(@click.stop='previousSlide')
@@ -317,7 +313,7 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3(style="margin-top: -0px").center Doppler effect
       p Is a change in perceived frequency due to relative motion
       .center
@@ -326,7 +322,7 @@
         img(src='./assets/dopplerFormula.png' style="margin-top: 40px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 8
       example-five
       .button.prev(@click.stop='previousSlide')
@@ -339,7 +335,7 @@
         span.small Ctrl + right
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 9
       example-seven
       .button.prev(@click.stop='previousSlide')
@@ -352,7 +348,7 @@
         span.small Ctrl + right
 
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3(style="margin-top: -0px").center Shock waves
       p
       .center
@@ -361,8 +357,8 @@
         img(src='./assets/shockAngle.png' style="margin-top: 40px;")
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 11
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h3 Exercise 10
       example-eight
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -373,10 +369,15 @@
         br
         span.small Ctrl + right
 
+    
+    slide.boredYet(enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h1 Additional exercices
+    
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
-      h3 Exercise 11
-      example-eleven
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h3 Problem 1
+      example-six
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -386,18 +387,118 @@
         br
         span.small Ctrl + right
 
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h3 Problem 2
+      example-ten
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 3
+    //-   example-fourteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 4
+    //-   example-fifteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 5
+    //-   example-sixteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 6
+    //-   example-seventeen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 7
+    //-   example-eighteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 8
+    //-   example-nineteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+    //-   h3 Problem 9
+    //-   example-twentyteen
+    //-   .button.prev(@click.stop='previousSlide')
+    //-     span &lt; Prev. slide
+    //-     br
+    //-     span.small  Ctrl + left
+    //-   .button.next(@click.stop='nextSlide')
+    //-     span Next slide &gt;
+    //-     br
+    //-     span.small Ctrl + right
+
     slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       .center
         h3 References
         p University Physics 13th Edition. Searzs and Zemanzky
         p Physics for scientist and engineers 8th Edition. Serway, Jewett
         p.small created by G. Rodríguez-Morales and spheroidGames
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
-
-    slide(enter='bounceInDown')
-      h3 Fun soon!
-      p If
 
 </template>
 
@@ -431,7 +532,8 @@ export default {
     'example-seventeen': require('./components/ExampleSeventeen'),
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
-    'example-twenty': require('./components/ExampleTwenty')
+    'example-twenty': require('./components/ExampleTwenty'),
+    'wave-interference': require('./components/waveInterference')
   },
   data: function () {
     return {
