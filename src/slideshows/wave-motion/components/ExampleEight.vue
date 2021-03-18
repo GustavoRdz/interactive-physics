@@ -1,20 +1,27 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An airplane is flying at Mach 1.75 at an altitude of 8000 m, where the speed of sound is How long after the plane passes directly overhead will you hear the sonic boom?(a) Audible wavelengths.
+    p.problem An airplane is flying at Mach {{ M }} at an altitude of {{ h }} m, where the speed of sound is {{ speed }} m/s How long after the plane passes directly overhead will you hear the sonic boom?
     .center
       img(src='../assets/shockProblem.png' height="250px")
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data Silicon silver mass (fg)
-    //-     input.center.data(:class="checkedSilverMass" v-model.number='enterSilverMass')
-    //-   p.inline.data Silicon silver frequency (PHz)
-    //-     input.center.data(:class="checkedSilverFreq" v-model.number='enterSilverFreq')
-    //-   p.inline.data Frequency with virus (PHz)
-    //-     input.center.data(:class="checkedVirusFreq" v-model.number='enterVirusFreq')
-    //-   p.inline.data Virus mass (fgr)
-    //-     input.center.data(:class="checkedVirusMassF" v-model.number='enterVirusMassF')
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data M
+        input.center.data(:class="checkedM" v-model.number='enterM')
+        <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(2) }}%]</span>
+      p.inline.data h (m)
+        input.center.data(:class="checkedH" v-model.number='enterH')
+        <span  class="error" v-if="errorH">[e: {{ errorH.toPrecision(2) }}%]</span>
+      p.inline.data α (º)
+        input.center.data(:class="checkedAlpha" v-model.number='enterAlpha')
+        <span  class="error" v-if="errorAlpha">[e: {{ errorAlpha.toPrecision(2) }}%]</span>
+      p.inline.data d (m)
+        input.center.data(:class="checkedD" v-model.number='enterD')
+        <span class="error"  v-if="errorD">[e: {{ errorD.toPrecision(2) }}%]</span>
+      p.inline.data t (s) 
+        input.center.data(:class="checkedT" v-model.number='enterT')
+        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -22,65 +29,81 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterSilverMass: '',
-      enterSilverFreq: '',
-      enterVirusFreq: '',
-      enterVirusMass: '',
-      enterVirusMassF: ''
+      enterM: '',
+      errorM: 0,
+      enterH: '',
+      errorH: 0,
+      enterAlpha: '',
+      errorAlpha: 0,
+      enterD: '',
+      errorD: 0,
+      enterT: '',
+      errorT: 0
     }
   },
   computed: {
-    silverMass: function () {
-      let max = 25
-      let min = 18
-      return (0.01 * Math.round((Math.floor(Math.random() * (max - min + 1)) + min)))
+    M: function () {
+      let max = 20
+      let min = 11
+      return Math.round((Math.floor(Math.random() * (max - min + 1)) + min)) / 10
     },
-    sFrequency: function () {
-      let max = 23
-      let min = 17
-      return (Math.round(10 * (Math.floor(Math.random() * (max - min + 1)) + min)) / 100)
+    h: function () {
+      let max = 12000
+      let min = 5000
+      return Math.round((Math.random() * (max - min + 1) + min))
     },
-    vFrequency: function () {
-      let max = 23
-      let min = 1.4 * this.sFrequency / 1e14
-      return (0.01 * Math.round((Math.floor(Math.random() * (max - min + 1)) + min)))
+    speed: function () {
+      let max = 350
+      let min = 335
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    virusMass: function () {
-      let mass = (this.silverMass * (Math.pow(this.sFrequency / this.vFrequency, 2)))
-      return (Math.pow(10, -15) * Math.round(1000 * mass) / 1000)
+    alpha: function () {
+      return Math.asin(1 / this.M)
     },
-    virusMassF: function () {
-      console.log('La masa F:' + (this.silverMass * (Math.pow(this.sFrequency / this.vFrequency, 2) - 1)))
-      return Math.round(1000 * (this.silverMass * (Math.pow(this.sFrequency / this.vFrequency, 2) - 1))) / 1000
+    d: function () {
+      return this.h / Math.tan(this.alpha)
     },
-    checkedSilverMass: function () {
+    t: function () {
+      return this.d / (this.M * this.speed)
+    },
+    checkedM: function () {
       let check
-      console.log('Silicon Silver mass : ' + this.silverMass + ' : ' + parseFloat(this.enterSilverMass))
-      check = this.silverMass === parseFloat(this.enterSilverMass) ? 'correct' : 'not-correct'
+      console.log('Mach => ' + this.M + ' : ' + parseFloat(this.enterM))
+      this.errorM = 100 * Math.abs(this.M - parseFloat(this.enterM)) / this.M
+      console.log('error  ' + this.errorM + ' %')
+      check = this.errorM < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedSilverFreq: function () {
+    checkedH: function () {
       let check
-      console.log('Silicon silver frequency: ' + this.sFrequency + ' : ' + parseFloat(this.enterSilverFreq))
-      check = this.sFrequency === parseFloat(this.enterSilverFreq) ? 'correct' : 'not-correct'
+      console.log('Altura => ' + this.h + ' : ' + parseFloat(this.enterH))
+      this.errorH = 100 * Math.abs(this.h - parseFloat(this.enterH)) / this.h
+      console.log('error  ' + this.errorH + ' %')
+      check = this.errorH < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedVirusFreq: function () {
+    checkedAlpha: function () {
       let check
-      console.log('virus and silicon frequency : ' + this.vFrequency + ' : ' + parseFloat(this.enterVirusFreq))
-      check = this.vFrequency === parseFloat(this.enterVirusFreq) ? 'correct' : 'not-correct'
+      console.log('Angle => ' + 180 * this.alpha / Math.PI + ' : ' + parseFloat(this.enterAlpha))
+      this.errorAlpha = 100 * Math.abs(180 * this.alpha / Math.PI - parseFloat(this.enterAlpha)) / (180 * this.alpha / Math.PI)
+      console.log('error  ' + this.errorAlpha + ' %')
+      check = this.errorAlpha < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedVirusMass: function () {
+    checkedD: function () {
       let check
-      console.log('Virus mass: ' + this.virusMass + ' : ' + parseFloat(this.enterVirusMass))
-      check = this.virusMass === parseFloat(this.enterVirusMass) ? 'correct' : 'not-correct'
+      console.log('Distance => ' + this.d + ' : ' + parseFloat(this.enterD))
+      this.errorD = 100 * Math.abs(this.d - parseFloat(this.enterD)) / this.d
+      console.log('error  ' + this.errorD + ' %')
+      check = this.errorD < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedVirusMassF: function () {
+    checkedT: function () {
       let check
-      console.log('Virus femto mass: ' + this.virusMassF + ' : ' + parseFloat(this.enterVirusMassF))
-      check = this.virusMassF === parseFloat(this.enterVirusMassF) ? 'correct' : 'not-correct'
+      console.log('time => ' + this.t + ' : ' + parseFloat(this.enterT))
+      this.errorT = 100 * Math.abs(this.t - parseFloat(this.enterT)) / this.t
+      console.log('error  ' + this.errorT + ' %')
+      check = this.errorT < 1e-2 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -96,17 +119,7 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    max-width: 100%;
   }
 }
 
@@ -119,8 +132,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
@@ -137,5 +151,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 12px;
 }
 </style>

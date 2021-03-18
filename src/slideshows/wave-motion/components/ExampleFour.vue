@@ -1,21 +1,25 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the speed of sound in air at T = 20°C and find the range of wavelengths in air to which the human ear (which can hear frequencies in the range of 20–20,000 Hz) is sensitive. The mean molar, mass for air (a mixture of mostly nitrogen and oxygen) is M = 28.8 * 10<sup>-3</sup> kg/mol and the ratio of heat capacities is &gamma; = 1.40.
+    p.problem Find the speed of sound in air at T = {{ temperature }}°C and find the range of wavelengths in air to which the human ear (which can hear frequencies in the range of 20–20,000 Hz) is sensitive. The mean molar, mass for air (a mixture of mostly nitrogen and oxygen) is M = 28.8 * 10<sup>-3</sup> kg/mol and the ratio of heat capacities is <span style="font-family: Times;">&gamma;</span> = {{ gamma }}.<br> R = 8.314472(15) J/mol·K
     .center
-      //- p.solution Please do calculations and introduce your results
-      //- p.inline.data Initial displacement (s)
-      //-   input.center.data(:class="checkedInitialX" v-model.number='enterInitialX')
-      //- p.inline.data Period (s)
-      //-   input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      //- p.inline.data Frequency (Hz)
-      //-   input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-      //- p.inline.data Amplitude (m)
-      //-   input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-      //- p.inline.data Angular frequency (rad/s)
-      //-   input.center.data(:class="checkedAngular" v-model='enterAngular')
-      //- p.inline.data phase (rad)
-      //-   input.center.data(:class="checkedPhase" v-model='enterPhase')
+      p.solution Please do calculations and introduce your results
+      p.inline.data Temperature (K) 
+        input.center.data(:class="checkedTemp" v-model.number='enterTemp')
+        <span class="error" v-if="errorTemp">[e: {{ errorTemp.toPrecision(3) }}%]</span>
+      p.inline.data  <span style="font-family: Times;">&gamma;</span>
+        input.center.data(:class="checkedGamma" v-model.number='enterGamma')
+      p.inline.data M (kg/mol)
+        input.center.data(:class="checkedMass" v-model.number='enterMass')
+      p.inline.data v (m/s) 
+        input.center.data(:class="checkedSpeed" v-model='enterSpeed')
+        <span class="error" v-if="errorSpeed">[e: {{ errorSpeed.toPrecision(3) }}%]</span>
+      p.inline.data λ<sub>min</sub>(m)
+        input.center.data(:class="checkedLambdaMin" v-model.number='enterLambdaMin')
+        <span class="error" v-if="errorLambdaMin">[e: {{ errorLambdaMin.toPrecision(3) }}%]</span>
+      p.inline.data λ<sub>max</sub> (m) 
+        input.center.data(:class="checkedLambdaMax" v-model='enterLambdaMax')
+        <span class="error" v-if="errorLambdaMax">[e: {{ errorLambdaMax.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -23,82 +27,92 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterInitialX: '',
-      enterPeriod: '',
-      enterFrequency: '',
-      enterAmplitude: '',
-      enterAngular: '',
-      enterPhase: ''
+      enterTemp: '',
+      errorTemp: 0,
+      enterGamma: '',
+      errorGamma: '',
+      enterMass: '',
+      errorMass: 0,
+      enterSpeed: '',
+      errorSpeed: 0,
+      enterLambdaMin: '',
+      errorLambdaMin: 0,
+      enterLambdaMax: '',
+      errorLambdaMax: 0,
+      fmin: 20,
+      fmax: 20000,
+      gamma: 1.4,
+      R: 8.314472,
+      M: 28.8e-3
     }
   },
   computed: {
-    chord: function () {
-      return calcChord(this.initialX, this.frequency, this.amplitude, this.phase)
-    },
-    initialX: function () {
-      let max = this.amplitude
-      let min = -this.amplitude
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    frequency: function () {
-      return Math.round(1000 / this.period) / 1000
-    },
-    amplitude: function () {
-      let max = 10
-      let min = 2
+    temperature: function () {
+      let max = 30
+      let min = 20
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    phase: function () {
-      return (2 * Math.round(Math.random()) - 1) * Math.round(1000 * Math.acos(this.initialX / this.amplitude)) / 1000
+    speed: function () {
+      return Math.sqrt(this.gamma * this.R * (this.temperature + 273.15) / this.M)
     },
-    period: function () {
-      let max = 32
-      let min = 4
-      return Math.floor(Math.random() * (max - min + 1) + min)
+    lambdaMin: function () {
+      return this.speed / this.fmax
     },
-    angular: function () {
-      return Math.round(2000 * Math.PI * this.frequency) / 1000
+    lambdaMax: function () {
+      return this.speed / this.fmin
     },
-    checkedPeriod: function () {
+    checkedTemp: function () {
       let check
-      console.log('Period : ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
+      console.log('T => ' + 1 * (this.temperature + 273.15) + ' : ' + parseFloat(this.enterTemp))
+      this.errorTemp = 100 * Math.abs(this.temperature + 273.15 - parseFloat(this.enterTemp)) / (this.temperature + 273.15)
+      console.log('error  ' + this.errorTemp + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorTemp < 1e-3 ? 'correct' : 'not-correct'
       return check
     },
-    checkedFrequency: function () {
+    checkedGamma: function () {
       let check
-      console.log('Frequency: ' + this.frequency + ' : ' + parseFloat(this.enterFrequency))
-      check = this.frequency === parseFloat(this.enterFrequency) ? 'correct' : 'not-correct'
+      console.log('γ => ' + this.gamma + ' : ' + parseFloat(this.enterGamma))
+      this.errorGamma = 100 * Math.abs(this.gamma - parseFloat(this.enterGamma)) / this.gamma
+      console.log('error  ' + this.errorGamma + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorGamma < 1e0 ? 'correct' : 'not-correct'
       return check
     },
-    checkedAmplitude: function () {
+    checkedMass: function () {
       let check
-      console.log('Amplitude : ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
+      console.log('Mass => ' + this.M + ' : ' + parseFloat(this.enterMass))
+      this.errorMass = 100 * Math.abs(this.M - parseFloat(this.enterMass)) / this.M
+      console.log('error  ' + this.errorMass + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorMass < 1e0 ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngular: function () {
+    checkedSpeed: function () {
       let check
-      console.log('Angular frequency: ' + this.angular + ' : ' + parseFloat(this.enterAngular))
-      check = this.angular === parseFloat(this.enterAngular) ? 'correct' : 'not-correct'
+      console.log('Speed => ' + this.speed + ' : ' + parseFloat(this.enterSpeed))
+      this.errorSpeed = 100 * Math.abs(this.speed - parseFloat(this.enterSpeed)) / this.speed
+      console.log('error  ' + this.errorSpeed + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorSpeed < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedPhase: function () {
+    checkedLambdaMin: function () {
       let check
-      console.log('Phase: ' + this.phase + ' : ' + parseFloat(this.enterPhase))
-      check = this.phase === parseFloat(this.enterPhase) ? 'correct' : 'not-correct'
+      console.log('λ min => ' + this.lambdaMin + ' : ' + parseFloat(this.enterLambdaMin))
+      this.errorLambdaMin = 100 * Math.abs(this.lambdaMin - parseFloat(this.enterLambdaMin)) / this.lambdaMin
+      console.log('error  ' + this.errorLambdaMin + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorLambdaMin < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedInitialX: function () {
+    checkedLambdaMax: function () {
       let check
-      console.log('Initial X : ' + this.initialX + ' : ' + parseFloat(this.enterInitialX))
-      check = this.initialX === parseFloat(this.enterInitialX) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedAirPressure: function () {
-      let check
-      console.log('pressure : ' + this.pressure + ' : ' + parseFloat(this.airPressure))
-      check = this.pressure === parseFloat(this.airPressure) ? 'correct' : 'not-correct'
+      console.log('λ max => ' + this.lambdaMax + ' : ' + parseFloat(this.enterLambdaMax))
+      this.errorLambdaMax = 100 * Math.abs(this.lambdaMax - parseFloat(this.enterLambdaMax)) / this.lambdaMax
+      console.log('error  ' + this.errorLambdaMax + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorLambdaMax < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -110,23 +124,13 @@ export default {
   mixins: [eagle.slide]
 }
 
-function calcChord (initialX, frequency, amplitude, phase) {
-  let d = `M50,${200 - initialX * 19}`
-  let timeIncrement = 16 / 100
-  let xIncrement = 610 / 19
-  // let phase = Math.acos(initialX / amplitude)
-  var time
-  for (time = 0; time <= 200; time++) {
-    d += `L${50 + 19 * time * timeIncrement} ${200 - 0.6 * xIncrement * amplitude * Math.cos(1 * Math.PI * frequency * time * timeIncrement + phase)}`
-  }
-  return d
-}
-
 </script>
 
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
+    width: 100%;
+    max-width: 100%;
     // FIGURE AND CAPTIONS
     .figure {
       p {
@@ -135,7 +139,7 @@ function calcChord (initialX, frequency, amplitude, phase) {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
+      width: 100%;
       margin-left: 10%;
     }
   }
@@ -150,10 +154,11 @@ function calcChord (initialX, frequency, amplitude, phase) {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -168,5 +173,8 @@ function calcChord (initialX, frequency, amplitude, phase) {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

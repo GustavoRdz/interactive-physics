@@ -1,57 +1,52 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Unpolarized light passes through two ideal Polaroid sheets. The axis of the first is vertical, and the axis of the second is at 30.0° to the vertical. What fraction of the incident light is transmitted?
+    p.problem Unpolarized light passes through two ideal Polaroid sheets. The axis of the first is vertical, and the axis of the second is at {{ angle }}º to the vertical. What fraction of the incident light is transmitted?
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data v (in c)
-        input.center.data(:class="checkedV" v-model.number='enterV')
-      p.inline.data a) m (g)
-        input.center.data(:class="checkedMa" v-model.number='enterMa')
-      p.inline.data b) m (g)
-        input.center.data(:class="checkedMb" v-model.number='enterMb')
-
+      p.inline.data Angle (in c) 
+        input.center.data(:class="checkedAngle" v-model.number='enterAngle')
+        <span class="error" v-if="errorAngle">[e: {{ errorAngle.toPrecision(3) }}%]</span>
+      p.inline.data Fraction (%) 
+        input.center.data(:class="checkedFraction" v-model.number='enterFraction')
+        <span class="error" v-if="errorFraction">[e: {{ errorFraction.toPrecision(3) }}%]</span>
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterMa: '',
-      enterMb: '',
-      enterV: ''
+      enterAngle: '',
+      errorAngle: 0,
+      enterFraction: '',
+      errorFraction: 0
     }
   },
   computed: {
-    m2: function () {
-      let max = 100
-      let min = 20
+    angle: function () {
+      let max = 80
+      let min = 10
       return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    speed: function () {
-      let max = 80
-      let min = 50
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
+    fraction: function () {
+      return Math.pow(Math.cos(this.angle * Math.PI / 180), 2)
     },
-    m1: function () {
-      return Math.round(1000 * this.m2 / Math.sqrt(1 - this.speed * this.speed)) / 1000
-    },
-    checkedMa: function () {
+    checkedAngle: function () {
       let check
-      console.log('Ma => ' + this.m1 + ' : ' + parseFloat(this.enterMa))
-      check = this.m1 === parseFloat(this.enterMa) ? 'correct' : 'not-correct'
+      console.log('Angle => ' + this.angle + ' : ' + parseFloat(this.enterAngle))
+      this.errorAngle = 100 * Math.abs(this.angle - parseFloat(this.enterAngle)) / (this.angle)
+      console.log('error  ' + this.errorAngle + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorAngle < 1e-3 ? 'correct' : 'not-correct'
       return check
     },
-    checkedV: function () {
+    checkedFraction: function () {
       let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMb: function () {
-      let check
-      console.log('Mb => ' + this.m2 + ' : ' + parseFloat(this.enterMb))
-      check = this.m2 === parseFloat(this.enterMb) ? 'correct' : 'not-correct'
+      console.log('Fraction => ' + this.fraction * 100 + ' : ' + parseFloat(this.enterFraction))
+      this.errorFraction = 100 * Math.abs(this.fraction * 100 - parseFloat(this.enterFraction)) / (this.fraction * 100)
+      console.log('error  ' + this.errorFraction + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorFraction < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -90,10 +85,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -108,5 +104,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

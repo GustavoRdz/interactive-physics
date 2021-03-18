@@ -11,7 +11,8 @@ export default {
     require('./photoelectric/photoelectric'),
     require('./atom-physics/Atom-physics'),
     require('./nuclear-physics/Nuclear-physics'),
-    require('./introduction/Introduction')
+    require('./introduction/Introduction'),
+    require('./exercises-waves/ExercisesWaves')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),

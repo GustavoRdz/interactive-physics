@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="100" width="200" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 200 100">
+ <!-- <g transform="translate(-264 -285)">
+  <path d="m384 332c-26.7-32.1-68.1-59.2-103-32.4-26.7 24.4-13.1 68.9 16.1 77.5 40.7 10 65.5-18.2 86.5-45.1z" fill-rule="evenodd" fill="#272200"/>
+  <ellipse rx="38.9" ry="37.4" cy="336" cx="320" fill="#f6fb05"/>
+  <ellipse rx="14.9" ry="15.7" cy="337" cx="321"/>
+  <ellipse fill-opacity=".304" rx="45.4" ry="18.2" transform="matrix(.976 .217 -.313 .950 0 0)" cy="239" cx="409"/>
+  <ellipse fill-opacity=".968" rx="3.15" ry="3.43" cy="328" cx="327" fill="#fff"/>
+ </g> -->
+ <!-- <text x="10" y="20" fill="green">#funPhysics</text> -->
+
+ <text x="22" y="0" fill="#FFD700" font-size="120" font-family="arial" transform="translate(100 0) rotate(-5,22,0)">
+    <animateTransform 
+        attributeName="transform"
+        type="scale"
+        additive="sum"
+        from="1 1"
+        to="-1 1"
+        dur="2s"
+        repeatCount="indefinite"
+    />
+    <animateTransform 
+        attributeName="transform"
+        type="translate"
+        additive="sum"
+        from="-60 90"
+        to="-70 90"
+        dur="2s"
+        repeatCount="indefinite"
+    />U</text>
+    <!-- <line x1="100" y1="0" x2="100" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="90" y1="0" x2="90" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="110" y1="0" x2="110" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="80" y1="0" x2="80" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="120" y1="0" x2="120" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="30" y1="0" x2="30" y2="100" stroke="black" stroke-widt="2"/>
+    <line x1="170" y1="0" x2="170" y2="100" stroke="black" stroke-widt="2"/> -->
+
+</svg>

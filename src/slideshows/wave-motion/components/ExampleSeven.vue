@@ -1,24 +1,35 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The police car is moving toward a warehouse at 30 m/s. What frequency does the driver hear reflected from the warehouse?
+    p.problem The police car is moving toward a warehouse at {{ speedSourceA }} m/s, emitting a sound of {{ frequency }}Hz. What frequency does the driver hear reflected from the warehouse?
 
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data Elastic constant (N/m)
-    //-     input.center.data(:class="checkedElastic" v-model.number='enterElastic')
-    //-   p.inline.data Period (s)
-    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-    //-   p.inline.data Angular frequency (rad/s)
-    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-    //-   p.inline.data (a) Glider's mass (kg)
-    //-     input.center.data(:class="checkedMass" v-model.number='enterMass')
-    //-   p.inline.data Maximum acceleration (m/s<sup>2</sup>)
-    //-     input.center.data(:class="checkedAccel" v-model='enterAccel')
-    //-   p.inline.data (b) Amplitude (m)
-    //-     input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
-    //-   p.inline.data (c) Maximum force (N)
-    //-     input.center.data(:class="checkedForce" v-model='enterForce')
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data f<sub>S</sub> (Hz)
+        input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
+        <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>L</sub> (m/s)
+        input.center.data(:class="checkedSpeedLA" v-model.number='enterSpeedLA')
+        <span class="error" v-if="errorSpeedLA">[e: {{ errorSpeedLA.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>S</sub> (m/s)
+        input.center.data(:class="checkedSpeedSA" v-model.number='enterSpeedSA')
+        <span class="error" v-if="errorSpeedSA">[e: {{ errorSpeedSA.toPrecision(3) }}%]</span>
+      p.inline.data f<sub>@wall</sub> (Hz)
+        input.center.data(:class="checkedFWall" v-model.number='enterFWall')
+        <span class="error" v-if="errorFWall">[e: {{ errorFWall.toPrecision(3) }}%]</span>
+    .center
+      p.inline.data f<sub>S</sub> (Hz)
+        input.center.data(:class="checkedFrequencyB" v-model='enterFrequencyB')
+        <span class="error" v-if="errorFrequencyB">[e: {{ errorFrequencyB.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>L</sub> (m/s)
+        input.center.data(:class="checkedSpeedLB" v-model='enterSpeedLB')
+        <span class="error" v-if="errorSpeedSB">[e: {{ errorSpeedSB.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>S</sub> (m/s)
+        input.center.data(:class="checkedSpeedSB" v-model='enterSpeedSB')
+        <span class="error" v-if="errorSpeedSB">[e: {{ errorSpeedSB.toPrecision(3) }}%]</span>
+      p.inline.data f<sub>@car</sub> (Hz)
+        input.center.data(:class="checkedFCar" v-model='enterFCar')
+        <span class="error" v-if="errorFCar">[e: {{ errorFCar.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -26,100 +37,117 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterElastic: '',
-      enterPeriod: '',
-      enterAngular: '',
-      enterMass: '',
-      enterAccel: '',
-      enterAmplitude: '',
-      enterForce: ''
+      enterFrequency: '',
+      errorFrequency: 0,
+      enterSpeedLA: '',
+      errorSpeedLA: 0,
+      enterSpeedSA: '',
+      errorSpeedSA: 0,
+      enterFWall: '',
+      errorFWall: 0,
+      enterFrequencyB: '',
+      errorFrequencyB: 0,
+      enterSpeedLB: '',
+      errorSpeedLB: 0,
+      enterSpeedSB: '',
+      errorSpeedSB: 0,
+      enterFCar: '',
+      errorFCar: 0,
+      speed: 340,
+      speedListenerA: 0,
+      speedSourceB: 0
     }
   },
   computed: {
-    chord: function () {
-      return calcChord(this.initialX, this.frequency, this.amplitudeAccel, this.phase)
-    },
-    initialX: function () {
-      let max = this.amplitudeAccel
-      let min = -this.amplitudeAccel
+    speedSourceA: function () {
+      let max = 50
+      let min = 20
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     frequency: function () {
-      return Math.round(1000 / this.period) / 1000
+      let max = 800
+      let min = 400
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    amplitudeAccel: function () {
-      let max = 15
-      let min = 2
-      return Math.floor(Math.random() * (max - min + 1) + min)
+    frequencyWall: function () {
+      return this.frequency * this.speed / (this.speed - this.speedSourceA)
     },
-    period: function () {
-      let max = 32
-      let min = 4
-      return Math.round(1000 * Math.floor((Math.random() * (max - min + 1) + min)) * 0.025) / 1000
+    speedListenerB: function () {
+      return this.speedSourceA
     },
-    phase: function () {
-      return (2 * Math.round(Math.random()) - 1) * Math.round(1000 * Math.acos(this.initialX / this.amplitudeAccel)) / 1000
+    frequencyCar: function () {
+      return this.frequencyWall * (this.speed + this.speedSourceA) / (this.speed + this.speedSourceB)
     },
-    elastic: function () {
-      let max = 10
-      let min = 2
-      return Math.round((100 * Math.floor(Math.random() * (max - min + 1)) + min)) / 100
-    },
-    angular: function () {
-      return Math.round(2000 * Math.PI / this.period) / 1000
-    },
-    mass: function () {
-      return Math.round(1000 * this.elastic / Math.pow(this.angular, 2)) / 1000
-    },
-    accel: function () {
-      return Math.round(1.2 * 9.81 * (1 - this.rise / 100) * 1000) / 1000
-    },
-    amplitude: function () {
-      return Math.round(1000 * (this.amplitudeAccel / Math.pow(this.angular, 2))) / 1000
-    },
-    force: function () {
-      return Math.round(1000 * (this.elastic * this.amplitude)) / 1000
-    },
-    checkedElastic: function () {
+    checkedFrequency: function () {
       let check
-      console.log('Elastic Constant : ' + this.elastic + ' : ' + parseFloat(this.enterElastic))
-      check = this.elastic === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
+      console.log('source frequency => ' + this.frequency + ' : ' + parseFloat(this.enterFrequency))
+      this.errorFrequency = 100 * Math.abs(this.frequency - parseFloat(this.enterFrequency)) / this.frequency
+      console.log('error  ' + this.errorFrequency + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorFrequency < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedPeriod: function () {
+    checkedSpeedLA: function () {
       let check
-      console.log('Period : ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
+      console.log('Speed listener => ' + this.speedListenerA + ' : ' + parseFloat(this.enterSpeedLA))
+      this.errorSpeedLA = 100 * Math.abs(this.speedListenerA - parseFloat(this.enterSpeedLA)) / 1
+      console.log('error  ' + this.errorSpeedLA + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorSpeedLA < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedAngular: function () {
+    checkedSpeedSA: function () {
       let check
-      console.log('&omega;: ' + this.angular + ' : ' + parseFloat(this.enterAngular))
-      check = this.angular === parseFloat(this.enterAngular) ? 'correct' : 'not-correct'
+      console.log('Speed car => ' + -1 * this.speedSourceA + ' : ' + parseFloat(this.enterSpeedSA))
+      this.errorSpeedSA = 100 * Math.abs(-1 * this.speedSourceA - parseFloat(this.enterSpeedSA)) / this.speedSourceA
+      console.log('error  ' + this.errorSpeedSA + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorSpeedSA < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedMass: function () {
+    checkedFWall: function () {
       let check
-      console.log('Glider`s mass: ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
+      console.log('Reflected frequency => ' + this.frequencyWall + ' : ' + parseFloat(this.enterFWall))
+      this.errorFWall = 100 * Math.abs(this.frequencyWall - parseFloat(this.enterFWall)) / this.frequencyWall
+      console.log('error  ' + this.errorFWall + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorFWall < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedAccel: function () {
+    checkedFrequencyB: function () {
       let check
-      console.log('Maximum aceleration : ' + this.amplitudeAccel + ' : ' + parseFloat(this.enterAccel))
-      check = this.amplitudeAccel === parseFloat(this.enterAccel) ? 'correct' : 'not-correct'
+      console.log('Reflected frequency => ' + this.frequencyWall + ' : ' + parseFloat(this.enterFrequencyB))
+      this.errorFrequencyB = 100 * Math.abs(this.frequencyWall - parseFloat(this.enterFrequencyB)) / this.frequencyWall
+      console.log('error  ' + this.errorFrequencyB + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorFrequencyB < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedAmplitude: function () {
+    checkedSpeedLB: function () {
       let check
-      console.log('Amplitude : ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
+      console.log('Speed Listener reflected => ' + this.speedListenerB + ' : ' + parseFloat(this.enterSpeedLB))
+      this.errorSpeedLB = 100 * Math.abs(this.speedListenerB - parseFloat(this.enterSpeedLB)) / this.speedListenerB
+      console.log('error  ' + this.errorSpeedLB + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorSpeedLB < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
-    checkedForce: function () {
+    checkedSpeedSB: function () {
       let check
-      console.log('Force : ' + this.force + ' : ' + parseFloat(this.enterForce))
-      check = this.force === parseFloat(this.enterForce) ? 'correct' : 'not-correct'
+      console.log('Speed Source reflected => ' + this.speedSourceB + ' : ' + parseFloat(this.enterSpeedSB))
+      this.errorSpeedSB = 100 * Math.abs(this.speedSourceB - parseFloat(this.enterSpeedSB)) / 1
+      console.log('error  ' + this.errorSpeedSB + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorSpeedSB < 1e-2 ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedFCar: function () {
+      let check
+      console.log('f Car => ' + this.frequencyCar + ' : ' + parseFloat(this.enterFCar))
+      this.errorFCar = 100 * Math.abs(this.frequencyCar - parseFloat(this.enterFCar)) / this.frequencyCar
+      console.log('error  ' + this.errorFCar + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorFCar < 1e-2 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -130,35 +158,13 @@ export default {
   },
   mixins: [eagle.slide]
 }
-
-function calcChord (initialX, frequency, amplitudeAccel, phase) {
-  let xIncrement = 380 / 19
-  let d = `M50,${200 - initialX * 0.625 * xIncrement} `
-  let timeIncrement = 0.425 / 50
-  let pixelTime = 570 / 0.75
-  // let phase = Math.acos(initialX / amplitude)
-  var time
-  for (time = 0; time <= 94; time++) {
-    d += `L${50 + pixelTime * time * timeIncrement} ${200 - 0.625 * xIncrement * amplitudeAccel * Math.cos(1 * Math.PI * frequency * time * timeIncrement + phase)}`
-  }
-  return d
-}
 </script>
 
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    max-width: 100%;
+    width: 100%;
   }
 }
 
@@ -171,8 +177,9 @@ function calcChord (initialX, frequency, amplitudeAccel, phase) {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
@@ -189,5 +196,8 @@ function calcChord (initialX, frequency, amplitudeAccel, phase) {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 12px;
 }
 </style>

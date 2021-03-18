@@ -145,7 +145,7 @@
         br
         span.small Ctrl + right
 
-    slide(style="width: 90%; max-width: 100%;").boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 4
       .center
@@ -219,6 +219,11 @@
           img(src='./assets/identity.png' height="30px" style="margin: 20px 0 0 20px;")
       .center
           img(src='./assets/twoWavesInterference.png' style="margin: 20px 0 0 20px;")
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h4(style="margin: 10px 0 0 0;").center Wave interference
+      standing-waves
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
@@ -311,6 +316,13 @@
         span Next slide &gt;
         br
         span.small Ctrl + right
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
+      h3(style="margin-top: -0px").center Doppler effect
+      p Is a change in perceived frequency due to relative motion
+      .center
+        doppler-simulator
 
     slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
@@ -533,7 +545,9 @@ export default {
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
     'example-twenty': require('./components/ExampleTwenty'),
-    'wave-interference': require('./components/waveInterference')
+    'wave-interference': require('./components/waveInterference'),
+    'standing-waves': require('./components/standingWaves'),
+    'doppler-simulator': require('./components/dopplerSimulator')
   },
   data: function () {
     return {

@@ -5,13 +5,14 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data &lambda; (m)
-        input.center.data(:class="checkedT1" v-model.number='enterT1')
+        input.center.data(:class="checkedLambda" v-model.number='enterLambda')
       p.inline.data a (m)
-        input.center.data(:class="checkedT2" v-model.number='enterT2')
+        input.center.data(:class="checkedA" v-model.number='enterA')
       p.inline.data L (m)
-        input.center.data(:class="checkedV" v-model.number='enterV')
-      p.inline.data width (m)
-        input.center.data(:class="checkedV" v-model.number='enterV')
+        input.center.data(:class="checkedL" v-model.number='enterL')
+      p.inline.data width (m) 
+        input.center.data(:class="checkedW" v-model.number='enterW')
+        <span class="error" v-if="errorW">[e: {{ errorW.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -19,41 +20,69 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterT1: '',
-      enterT2: '',
-      enterV: ''
+      enterLambda: '',
+      errorLambda: 0,
+      enterA: '',
+      errorA: 0,
+      enterL: '',
+      errorL: 0,
+      enterW: '',
+      errorW: 0
     }
   },
   computed: {
-    t1: function () {
-      let max = 50
-      let min = 25
+    lambda: function () {
+      let max = 700
+      let min = 400
       return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
     },
-    t2: function () {
+    a: function () {
+      let max = 30
+      let min = 1
+      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 10
+    },
+    l: function () {
       let max = 20
-      let min = 10
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
+      let min = 5
+      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
-    speed: function () {
-      return Math.round(100 * Math.sqrt(1 - Math.pow(this.t2, 2) / Math.pow(this.t1, 2))) / 100
+    width: function () {
+      return (2 * this.lambda * 1e-9 * this.l / (this.a * 1e-3)).toPrecision(3)
     },
-    checkedT1: function () {
+    checkedLambda: function () {
       let check
-      console.log('T1 => ' + this.t1 + ' : ' + parseFloat(this.enterT1))
-      check = this.t1 === parseFloat(this.enterT1) ? 'correct' : 'not-correct'
+      console.log('λ => ' + this.lambda * 1e-9 + ' : ' + parseFloat(this.enterLambda))
+      this.errorLambda = 100 * Math.abs(this.lambda * 1e-9 - parseFloat(this.enterLambda)) / (this.lambda * 1e-9)
+      console.log('error  ' + this.errorLambda + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorLambda < 1e-3 ? 'correct' : 'not-correct'
       return check
     },
-    checkedV: function () {
+    checkedA: function () {
       let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
+      console.log('a => ' + this.a * 1e-3 + ' : ' + parseFloat(this.enterA))
+      this.errorA = 100 * Math.abs(this.a * 1e-3 - parseFloat(this.enterA)) / (this.a * 1e-3)
+      console.log('error  ' + this.errorA + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      check = this.errorA < 1e-3 ? 'correct' : 'not-correct'
       return check
     },
-    checkedT2: function () {
+    checkedL: function () {
       let check
-      console.log('T2 => ' + this.t2 + ' : ' + parseFloat(this.enterT2))
-      check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      console.log('L => ' + this.l + ' : ' + parseFloat(this.enterL))
+      console.log('error  ' + 100 * Math.abs(this.l - parseFloat(this.enterL)) / this.l + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      this.errorL = 100 * Math.abs(this.l - parseFloat(this.enterL)) / this.l
+      check = this.errorL < 1e-3 ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedW: function () {
+      let check
+      console.log('Width => ' + this.width + ' : ' + parseFloat(this.enterW))
+      console.log('error  ' + 100 * Math.abs(this.width - parseFloat(this.enterW)) / this.width + ' %')
+      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
+      this.errorW = 100 * Math.abs(this.width - parseFloat(this.enterW)) / this.width
+      check = this.errorW < 1e0 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -92,10 +121,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -110,5 +140,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>
