@@ -138,20 +138,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -159,25 +149,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

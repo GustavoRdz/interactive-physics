@@ -5,17 +5,23 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Pool deep (m)
-        input.center.data(:class="checkedPoolDeep" v-model.number='poolDeep')
+        input.center.data(:class="checkedDeep" v-model.number='enterDeep')
+        <span class="error" v-if="errorDeep">[e: {{ errorDeep.toPrecision(2) }}%]</span>
       p.inline.data Atm pressure (Pa)
-        input.center.data(:class="checkedAtmPressure" v-model.number='atmPressure')
+        input.center.data(:class="checkedAtmPressure" v-model.number='enterAtmPressure')
+        <span class="error" v-if="errorAtmPressure">[e: {{ errorAtmPressure.toPrecision(2) }}%]</span>
       p.inline.data Fluid density (kg/m<sup>2</sup>)
-        input.center.data(:class="checkedFluidDensity" v-model.number='fluidDensity')
+        input.center.data(:class="checkedDensity" v-model.number='enterDensity')
+        <span class="error" v-if="errorDensity">[e: {{ errorDensity.toPrecision(2) }}%]</span>
       p.inline.data Water pressure (Pa)
-        input.center.data(:class="checkedWaterPressure" v-model.number='waterPressure')
+        input.center.data(:class="checkedWaterPressure" v-model.number='enterWaterPressure')
+        <span class="error" v-if="errorWaterPressure">[e: {{ errorWaterPressure.toPrecision(2) }}%]</span>
       p.inline.data Surface area (m<sup>2</sup>)
-        input.center.data(:class="checkedArea" v-model='surfaceArea')
+        input.center.data(:class="checkedArea" v-model='enterArea')
+        <span class="error" v-if="errorArea">[e: {{ errorArea.toPrecision(2) }}%]</span>
       p.inline.data Water Force (N)
-        input.center.data(:class="checkedWaterForce" v-model='waterForce')
+        input.center.data(:class="checkedForce" v-model='enterForce')
+        <span class="error" v-if="errorForce">[e: {{ errorForce.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -23,16 +29,23 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      poolDeep: '',
-      atmPressure: '',
-      fluidDensity: '',
-      waterPressure: '',
-      surfaceArea: '',
-      waterForce: ''
+      enterDeep: '',
+      errorDeep: 0,
+      enterAtmPressure: '',
+      errorAtmPressure: 0,
+      enterDensity: '',
+      errorDensity: 0,
+      enterWaterPressure: '',
+      errorWaterPressure: 0,
+      enterArea: '',
+      errorArea: 0,
+      enterForce: '',
+      errorForce: 0
     }
   },
   computed: {
     deep: function () {
+      console.clear()
       let max = 1000
       let min = 300
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
@@ -41,48 +54,39 @@ export default {
       return 1000 * 9.810 * this.deep
     },
     force: function () {
-      return Math.round(1000 * this.pressure * 0.0001) / 1000
+      return this.pressure * 0.0001
     },
-    checkedPoolDeep: function () {
-      let check
-      console.log('deep => ' + this.deep + ' : ' + parseFloat(this.poolDeep))
-      check = this.deep === parseFloat(this.poolDeep) ? 'correct' : 'not-correct'
-      return check
+    checkedDeep: function () {
+      this.errorDeep = this.errorRelative('Deep => ', this.deep, parseFloat(this.enterDeep))
+      return this.errorDeep < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAtmPressure: function () {
-      let check
-      console.log('atmPressure => ' + 101300 + ' : ' + parseFloat(this.atmPressure))
-      check = parseFloat(this.atmPressure) === 101300 ? 'correct' : 'not-correct'
-      return check
+      this.errorAtmPressure = this.errorRelative('Atm pressure => ', 101300, parseFloat(this.enterAtmPressure))
+      return this.errorAtmPressure < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFluidDensity: function () {
-      let check
-      console.log('fluidDensity => ' + 1000 + ' : ' + parseFloat(this.fluidDensity))
-      check = parseFloat(this.fluidDensity) === 1000 ? 'correct' : 'not-correct'
-      return check
+    checkedDensity: function () {
+      this.errorDensity = this.errorRelative('Water density => ', 1000, parseFloat(this.enterDensity))
+      return this.errorDensity < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWaterPressure: function () {
-      let check
-      console.log('pressure => ' + this.pressure + ' : ' + parseFloat(this.waterPressure))
-      check = this.pressure === parseFloat(this.waterPressure) ? 'correct' : 'not-correct'
-      return check
+      this.errorWaterPressure = this.errorRelative('Water pressure => ', this.pressure, parseFloat(this.enterWaterPressure))
+      return this.errorWaterPressure < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedArea: function () {
-      let check
-      console.log('surfaceArea => ' + 0.0001 + ' : ' + parseFloat(this.surfaceArea))
-      check = parseFloat(this.surfaceArea) === 0.0001 ? 'correct' : 'not-correct'
-      return check
+      this.errorArea = this.errorRelative('Ear Area => ', 0.0001, parseFloat(this.enterArea))
+      return this.errorArea < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedWaterForce: function () {
-      let check
-      console.log('force => ' + this.force + ' : ' + parseFloat(this.waterForce))
-      check = this.force === parseFloat(this.waterForce) ? 'correct' : 'not-correct'
-      return check
+    checkedForce: function () {
+      this.errorForce = this.errorRelative('Force => ', this.force, parseFloat(this.enterForce))
+      return this.errorForce < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -92,20 +96,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -113,25 +107,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

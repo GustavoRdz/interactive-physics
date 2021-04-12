@@ -6,16 +6,22 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Displacement (in A)
         input.center.data(:class="checkedDispl" v-model.number='enterDispl')
+        <span class="error" v-if="errorDispl">[e: {{ errorDispl.toPrecision(3) }}%]</span>
       p.inline.data velocity ( in v<sub>max</sub>)
         input.center.data(:class="checkedVelocity" v-model.number='enterVelocity')
+        <span class="error" v-if="errorVelocity">[e: {{ errorVelocity.toPrecision(3) }}%]</span>
       p.inline.data Times in a period (times)
         input.center.data(:class="checkedTimes" v-model.number='enterTimes')
+        <span class="error" v-if="errorTimes">[e: {{ errorTimes.toPrecision(3) }}%]</span>
       p.inline.data Time between occurences (in T)
-        input.center.data(:class="checkedOccurences" v-model.number='enterOccurences')
+        input.center.data(:class="checkedOccurrences" v-model.number='enterOccurrences')
+        <span class="error" v-if="errorOccurrences">[e: {{ errorOccurrences.toPrecision(3) }}%]</span>
       p.inline.data Kinetic energy at A/2 (%)
         input.center.data(:class="checkedKinetic" v-model.number='enterKinetic')
+        <span class="error" v-if="errorKinetic">[e: {{ errorKinetic.toPrecision(3) }}%]</span>
       p.inline.data Potential energy at A/2 (%)
         input.center.data(:class="checkedPotential" v-model.number='enterPotential')
+        <span class="error" v-if="errorPotential">[e: {{ errorPotential.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -24,62 +30,52 @@ export default {
   data: function () {
     return {
       enterDispl: '',
+      errorDispl: 0,
       enterVelocity: '',
+      errorVelocity: 0,
       enterTimes: '',
-      enterOccurences: '',
+      errorTimes: 0,
+      enterOccurrences: '',
+      errorOccurrences: 0,
       enterKinetic: '',
-      enterPotential: ''
+      errorKinetic: 0,
+      enterPotential: '',
+      errorPotential: 0
     }
   },
   computed: {
     checkedDispl: function () {
-      let check
-      console.log('Displacement : ' + Math.round(1000 * Math.sqrt(2) / 2) / 1000 + ' : ' + parseFloat(this.enterDispl))
-      check = Math.round(1000 * Math.sqrt(2) / 2) / 1000 === parseFloat(this.enterDispl) ? 'correct' : 'not-correct'
-      return check
+      console.clear()
+      this.errorDispl = this.errorRelative('Displacement => ', Math.sqrt(2) / 2, parseFloat(this.enterDispl))
+      return this.errorDispl < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedVelocity: function () {
-      let check
-      console.log('Velocty : ' + Math.round(1000 * Math.sqrt(2) / 2) / 1000 + ' : ' + parseFloat(this.enterVelocity))
-      check = Math.round(1000 * Math.sqrt(2) / 2) / 1000 === parseFloat(this.enterVelocity) ? 'correct' : 'not-correct'
-      return check
+      this.errorVelocity = this.errorRelative('Speed => ', Math.sqrt(2) / 2, parseFloat(this.enterVelocity))
+      return this.errorVelocity < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedTimes: function () {
-      let check
-      console.log('Times : ' + 4 + ' : ' + parseFloat(this.enterTimes))
-      check = parseFloat(this.enterTimes) === 4 ? 'correct' : 'not-correct'
-      return check
+      this.errorTimes = this.errorRelative('Times => ', 4, parseFloat(this.enterTimes))
+      return this.errorTimes < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedOccurences: function () {
-      let check
-      console.log('Time between occurences: ' + 0.25 + ' : ' + parseFloat(this.enterOccurences))
-      check = parseFloat(this.enterOccurences) === 0.25 ? 'correct' : 'not-correct'
-      return check
+    checkedOccurrences: function () {
+      this.errorOccurrences = this.errorRelative('Occurrences => ', 0.25, parseFloat(this.enterOccurrences))
+      return this.errorOccurrences < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedKinetic: function () {
-      let check
-      console.log('Kinetic energy at A/2 : ' + 75 + parseFloat(this.enterKinetic))
-      check = parseFloat(this.enterKinetic) === 75 ? 'correct' : 'not-correct'
-      return check
+      this.errorKinetic = this.errorRelative('Kinetic %=> ', 75, parseFloat(this.enterKinetic))
+      return this.errorKinetic < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPotential: function () {
-      let check
-      console.log('Potential energy at A/2 : ' + 25 + ' : ' + parseFloat(this.enterPotential))
-      check = parseFloat(this.enterPotential) === 25 ? 'correct' : 'not-correct'
-      return check
+      this.errorPotential = this.errorRelative('Potential % => ', 25, parseFloat(this.enterPotential))
+      return this.errorPotential < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return {
-        'baby bunnies': 'Yeeeeah my favorite too !',
-        'fluffy puppies': 'Wow so original.',
-        'funny kitties': 'Good for you ' + this.volume + '.',
-        'Theming': 'Ok ' + this.volume + ', whatever.',
-        'Slide reuse': 'Seriously ' + this.volume + ' you <em>want</em> to see this.',
-        'Interactivity': 'Well that\'s this slide, ' + this.volume +
-                         '. <br /> A bit too late to unsee it, heh ?'
-      }[name]
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -87,22 +83,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -110,25 +90,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

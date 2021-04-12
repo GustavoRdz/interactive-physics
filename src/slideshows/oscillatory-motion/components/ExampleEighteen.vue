@@ -11,18 +11,25 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Mass (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
+        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
       p.inline.data Radius (m)
         input.center.data(:class="checkedRadius" v-model.number='enterRadius')
+        <span class="error" v-if="errorRadius">[e: {{ errorRadius.toPrecision(3) }}%]</span>
       p.inline.data Inertia of a hollow sphere (axis by center) (kgm<sup>2</sup>)
         input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+        <span class="error" v-if="errorInertia">[e: {{ errorInertia.toPrecision(3) }}%]</span>
       p.inline.data Distance from pivot to center of gravity (m)
         input.center.data(:class="checkedDistance" v-model.number='enterDistance')
+        <span class="error" v-if="errorDistance">[e: {{ errorDistance.toPrecision(3) }}%]</span>
       p.inline.data Inertia of a hollow sphere (axis by surface)
         input.center.data(:class="checkedInertia2" v-model.number='enterInertia2')
+        <span class="error" v-if="errorInertia2">[e: {{ errorInertia2.toPrecision(3) }}%]</span>
       p.inline.data Angular frequency (rad/s)
         input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+        <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
       p.inline.data Period (s)
         input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -31,86 +38,83 @@ export default {
   data: function () {
     return {
       enterMass: '',
+      errorMass: 0,
       enterRadius: '',
+      errorRadius: 0,
       enterInertia: '',
+      errorInertia: 0,
       enterDistance: '',
+      errorDistance: 0,
       enterInertia2: '',
+      errorInertia2: 0,
       enterAngular: '',
-      enterPeriod: ''
+      errorAngular: 0,
+      enterPeriod: '',
+      errorPeriod: 0
     }
   },
   computed: {
     mass: function () {
+      console.clear()
       let max = 30
       let min = 10
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.floor(Math.random() * (max - min + 1) + min) / 1000
     },
     radius: function () {
       let max = 100
       let min = 10
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.floor(Math.random() * (max - min + 1) + min) / 1000
     },
     inertia: function () {
-      return Math.round(100000000 * 2 * this.mass * Math.pow(this.radius, 2) / 3) / 100000000
+      return 2 * this.mass * Math.pow(this.radius, 2) / 3
     },
     distance: function () {
       return this.radius
     },
     inertia2: function () {
-      return Math.round(100000000 * (this.inertia + this.mass * Math.pow(this.distance, 2))) / 100000000
+      return this.inertia + this.mass * Math.pow(this.distance, 2)
     },
     angular: function () {
-      return Math.round(1000 * Math.sqrt(9.81 * this.mass * this.distance / this.inertia2)) / 1000
+      return Math.sqrt(9.81 * this.mass * this.distance / this.inertia2)
     },
     period: function () {
-      return Math.round(1000 * 2 * Math.PI / this.angular) / 1000
+      return 2 * Math.PI / this.angular
     },
     checkedMass: function () {
-      let check
-      console.log('Mass : ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorMass = this.errorRelative('Mass => ', this.mass, parseFloat(this.enterMass))
+      return this.errorMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedRadius: function () {
-      let check
-      console.log('Radius : ' + this.radius + ' : ' + parseFloat(this.enterRadius))
-      check = this.radius === parseFloat(this.enterRadius) ? 'correct' : 'not-correct'
-      return check
+      this.errorRadius = this.errorRelative('Radius => ', this.radius, parseFloat(this.enterRadius))
+      return this.errorRadius < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedInertia: function () {
-      let check
-      console.log('Inertia center : ' + this.inertia + ' : ' + parseFloat(this.enterInertia))
-      check = this.inertia === parseFloat(this.enterInertia) ? 'correct' : 'not-correct'
-      return check
+      this.errorInertia = this.errorRelative('Inertia => ', this.inertia, parseFloat(this.enterInertia))
+      return this.errorInertia < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedDistance: function () {
-      let check
-      console.log('Distance from pivot : ' + this.distance + ' : ' + parseFloat(this.enterDistance))
-      check = this.distance === parseFloat(this.enterDistance) ? 'correct' : 'not-correct'
-      return check
+      this.errorDistance = this.errorRelative('Distance => ', this.distance, parseFloat(this.enterDistance))
+      return this.errorDistance < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedInertia2: function () {
-      let check
-      console.log('Inertia surface : ' + this.inertia2 + ' : ' + parseFloat(this.enterInertia2))
-      check = this.inertia2 === parseFloat(this.enterInertia2) ? 'correct' : 'not-correct'
-      return check
+      this.errorInertia2 = this.errorRelative('Inertia 2 => ', this.inertia2, parseFloat(this.enterInertia2))
+      return this.errorInertia2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngular: function () {
-      let check
-      console.log('Angular : ' + this.angular + ' : ' + parseFloat(this.enterAngular))
-      check = this.angular === parseFloat(this.enterAngular) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngular = this.errorRelative('Angular => ', this.angular, parseFloat(this.enterAngular))
+      return this.errorAngular < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPeriod: function () {
-      let check
-      console.log('Period : ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
-      return check
+      this.errorPeriod = this.errorRelative('Period => ', this.period, parseFloat(this.enterPeriod))
+      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -118,22 +122,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -141,25 +129,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

@@ -1,131 +1,123 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A certain transverse wave is described by 
-      .center.problem y(x, t) = ({{ (amplitude * 100).toFixed(1) }}cm)cos2&pi;(x/{{ (wavelength * 100).toFixed(1)}}cm {{ sign }} t/{{ period.toFixed(1) }}s)
-    p.problem Determine the wave’s (a) amplitude; (b) wavelength; (c) frequency; (d) speed of propagation; (e) direction of propagation.
+    p.problem The police car is moving toward a warehouse at {{ speedSourceA }} m/s, emitting a sound of {{ frequency }}Hz. What frequency does the driver hear reflected from the warehouse?
+
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data A (m)
-        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-      p.inline.data λ (m)
-        input.center.data(:class="checkedWavelength" v-model.number='enterWavelength')
-      p.inline.data T (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      p.inline.data ω (rad/s)
-        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
-      p.inline.data f (Hz)
+      p.inline.data f<sub>S</sub> (Hz)
         input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-      p.inline.data v (m/s)
-        input.center.data(:class="checkedVelocity" v-model.number='enterVelocity')
-      p.inline.data direction (+x/-x)
-        input.center.data(:class="checkedDirection" v-model.number='enterDirection')
-      
+        <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>L</sub> (m/s)
+        input.center.data(:class="checkedSpeedLA" v-model.number='enterSpeedLA')
+        <span class="error" v-if="errorSpeedLA">[e: {{ errorSpeedLA.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>S</sub> (m/s)
+        input.center.data(:class="checkedSpeedSA" v-model.number='enterSpeedSA')
+        <span class="error" v-if="errorSpeedSA">[e: {{ errorSpeedSA.toPrecision(3) }}%]</span>
+      p.inline.data f<sub>@wall</sub> (Hz)
+        input.center.data(:class="checkedFWall" v-model.number='enterFWall')
+        <span class="error" v-if="errorFWall">[e: {{ errorFWall.toPrecision(3) }}%]</span>
+    .center
+      p.inline.data f<sub>S</sub> (Hz)
+        input.center.data(:class="checkedFrequencyB" v-model='enterFrequencyB')
+        <span class="error" v-if="errorFrequencyB">[e: {{ errorFrequencyB.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>L</sub> (m/s)
+        input.center.data(:class="checkedSpeedLB" v-model='enterSpeedLB')
+        <span class="error" v-if="errorSpeedSB">[e: {{ errorSpeedSB.toPrecision(3) }}%]</span>
+      p.inline.data v<sub>S</sub> (m/s)
+        input.center.data(:class="checkedSpeedSB" v-model='enterSpeedSB')
+        <span class="error" v-if="errorSpeedSB">[e: {{ errorSpeedSB.toPrecision(3) }}%]</span>
+      p.inline.data f<sub>@car</sub> (Hz)
+        input.center.data(:class="checkedFCar" v-model='enterFCar')
+        <span class="error" v-if="errorFCar">[e: {{ errorFCar.toPrecision(3) }}%]</span>
+
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterAmplitude: '',
-      enterWavelength: '',
-      enterPeriod: '',
-      enterOmega: '',
       enterFrequency: '',
-      enterVelocity: '',
-      enterDirection: ''
+      errorFrequency: 0,
+      enterSpeedLA: '',
+      errorSpeedLA: 0,
+      enterSpeedSA: '',
+      errorSpeedSA: 0,
+      enterFWall: '',
+      errorFWall: 0,
+      enterFrequencyB: '',
+      errorFrequencyB: 0,
+      enterSpeedLB: '',
+      errorSpeedLB: 0,
+      enterSpeedSB: '',
+      errorSpeedSB: 0,
+      enterFCar: '',
+      errorFCar: 0,
+      speed: 340,
+      speedListenerA: 0,
+      speedSourceB: 0
     }
   },
   computed: {
-    amplitude: function () {
-      let max = 20
-      let min = 5
-      return Math.round(10 * ((Math.random() * (max - min + 1)) + min)) / 1000
-    },
-    wavelength: function () {
-      let max = 20
-      let min = 5
-      return Math.round(10 * ((Math.random() * (max - min + 1)) + min)) / 1000
-    },
-    period: function () {
-      let max = 20
-      let min = 5
-      return Math.round(10 * ((Math.random() * (max - min + 1)) + min)) / 10
-    },
-    omega: function () {
-      return Math.round(1000 * 2 * Math.PI / this.period) / 1000
+    speedSourceA: function () {
+      console.clear()
+      let max = 50
+      let min = 20
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     frequency: function () {
-      return Math.round(1000 / this.period) / 1000
+      let max = 800
+      let min = 400
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    velocity: function () {
-      return Math.round(1000 * this.wavelength * this.frequency) / 1000
+    frequencyWall: function () {
+      return this.frequency * this.speed / (this.speed - this.speedSourceA)
     },
-    directionTo: function () {
-      let max = 1
-      let min = 0
-      return Math.round(((Math.random() * (max - min + 1)) + min))
+    speedListenerB: function () {
+      return this.speedSourceA
     },
-    sign: function () {
-      return this.directionTo === 1 ? '-' : '+'
-    },
-    checkedAmplitude: function () {
-      let check
-      console.log('Amplitude : ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedWavelength: function () {
-      let check
-      console.log('Longitud de onda : ' + this.wavelength + ' : ' + parseFloat(this.enterWavelength))
-      check = this.wavelength === parseFloat(this.enterWavelength) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedPeriod: function () {
-      let check
-      console.log('Period : ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedOmega: function () {
-      let check
-      console.log('Angular frequency : ' + this.omega + ' : ' + parseFloat(this.enterOmega))
-      check = this.omega === parseFloat(this.enterOmega) ? 'correct' : 'not-correct'
-      return check
+    frequencyCar: function () {
+      return this.frequencyWall * (this.speed + this.speedSourceA) / (this.speed + this.speedSourceB)
     },
     checkedFrequency: function () {
-      let check
-      console.log('Frequency : ' + this.frequency + ' : ' + parseFloat(this.enterFrequency))
-      check = this.frequency === parseFloat(this.enterFrequency) ? 'correct' : 'not-correct'
-      return check
+      this.errorFrequency = this.errorRelative('F source => ', this.frequency, parseFloat(this.enterFrequency))
+      return this.errorFrequency < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedVelocity: function () {
-      let check
-      console.log('Velocity : ' + this.velocity + ' : ' + parseFloat(this.enterVelocity))
-      check = this.velocity === parseFloat(this.enterVelocity) ? 'correct' : 'not-correct'
-      return check
+    checkedSpeedLA: function () {
+      this.errorSpeedLA = this.errorRelative('Speed listener => ', this.speedListenerA, parseFloat(this.enterSpeedLA))
+      return this.errorSpeedLA < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedDirection: function () {
-      let check
-      let a
-      a = this.sign === '+' ? '-x' : '+x'
-      console.log('Direction: ' + this.directionTo)
-      console.log('Direction: ' + this.sign + ' : ' + a + ' : ' + this.enterDirection)
-      check = a === this.enterDirection ? 'correct' : 'not-correct'
-      return check
+    checkedSpeedSA: function () {
+      this.errorSpeedSA = this.errorRelative('Car speed => ', -1 * this.speedSourceA, parseFloat(this.enterSpeedSA))
+      return this.errorSpeedSA < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedFWall: function () {
+      this.errorFWall = this.errorRelative('Reflected frequency => ', this.frequencyWall, parseFloat(this.enterFWall))
+      return this.errorFWall < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedFrequencyB: function () {
+      this.errorFrequencyB = this.errorRelative('reflected frequency => ', this.frequencyWall, parseFloat(this.enterFrequencyB))
+      return this.errorFrequencyB < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedSpeedLB: function () {
+      this.errorSpeedLB = this.errorRelative('Speed Listener reflected => ', this.speedListenerB, parseFloat(this.enterSpeedLB))
+      return this.errorSpeedLB < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedSpeedSB: function () {
+      this.errorSpeedSB = this.errorRelative('Speed Source reflected => ', this.speedSourceB, parseFloat(this.enterSpeedSB))
+      return this.errorSpeedSB < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedFCar: function () {
+      this.errorFCar = this.errorRelative('F car => ', this.frequencyCar, parseFloat(this.enterFCar))
+      return this.errorFCar < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return {
-        'baby bunnies': 'Yeeeeah my favorite too !',
-        'fluffy puppies': 'Wow so original.',
-        'funny kitties': 'Good for you ' + this.volume + '.',
-        'Theming': 'Ok ' + this.volume + ', whatever.',
-        'Slide reuse': 'Seriously ' + this.volume + ' you <em>want</em> to see this.',
-        'Interactivity': 'Well that\'s this slide, ' + this.volume +
-                         '. <br /> A bit too late to unsee it, heh ?'
-      }[name]
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -135,20 +127,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 100%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -156,25 +138,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

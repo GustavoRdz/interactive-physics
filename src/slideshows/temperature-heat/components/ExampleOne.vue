@@ -5,19 +5,26 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data T1 (celsius)
-        input.center.data(:class="checkedUserT1Celsius" v-model.number='userT1Celsius')
+        input.center.data(:class="checkedT1Celsius" v-model.number='enterT1Celsius')
+        <span class="error" v-if="errorT1Celsius">[e: {{ errorT1Celsius.toPrecision(2) }}%]</span>
       p.inline.data T2 (celsius)
-        input.center.data(:class="checkedUserT2Celsius" v-model.number='userT2Celsius')
+        input.center.data(:class="checkedT2Celsius" v-model.number='enterT2Celsius')
+        <span class="error" v-if="errorT2Celsius">[e: {{ errorT2Celsius.toPrecision(2) }}%]</span>
       p.inline.data T1 (kelvin)
-        input.center.data(:class="checkedUserT1Kelvin" v-model.number='userT1Kelvin')
+        input.center.data(:class="checkedT1Kelvin" v-model.number='enterT1Kelvin')
+        <span class="error" v-if="errorT1Kelvin">[e: {{ errorT1Kelvin.toPrecision(2) }}%]</span>
       p.inline.data T2 (kelvin)
-        input.center.data(:class="checkedUserT2Kelvin" v-model.number='userT2Kelvin')
+        input.center.data(:class="checkedT2Kelvin" v-model.number='enterT2Kelvin')
+        <span class="error" v-if="errorT2Kelvin">[e: {{ errorT2Kelvin.toPrecision(2) }}%]</span>
       p.inline.data &#x394;T (celcius)
-        input.center.data(:class="checkedUserDTCelsius" v-model.number='userDTCelsius')
+        input.center.data(:class="checkedDTCelsius" v-model.number='enterDTCelsius')
+        <span class="error" v-if="errorDTCelsius">[e: {{ errorDTCelsius.toPrecision(2) }}%]</span>
       p.inline.data &#x394;T (kelvin)
-        input.center.data(:class="checkedUserDTKelvin" v-model.number='userDTKelvin')
+        input.center.data(:class="checkedDTKelvin" v-model.number='enterDTKelvin')
+        <span class="error" v-if="errorDTKelvin">[e: {{ errorDTKelvin.toPrecision(2) }}%]</span>
       p.inline.data &#x394;T (Fahrenheit)
-        input.center.data(:class="checkedUserDTFahrenheit" v-model.number='userDTFahrenheit')
+        input.center.data(:class="checkedDTFahrenheit" v-model.number='enterDTFahrenheit')
+        <span class="error" v-if="errorDTFahrenheit">[e: {{ errorDTFahrenheit.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -27,17 +34,25 @@ export default {
     return {
       T1Fahrenheit: 32,
       T2Fahrenheit: 98.6,
-      userT1Celsius: '',
-      userT2Celsius: '',
-      userT1Kelvin: '',
-      userT2Kelvin: '',
-      userDTCelsius: '',
-      userDTKelvin: '',
-      userDTFahrenheit: ''
+      enterT1Celsius: '',
+      errorT1Celsius: 0,
+      enterT2Celsius: '',
+      errorT2Celsius: 0,
+      enterT1Kelvin: '',
+      errorT1Kelvin: 0,
+      enterT2Kelvin: '',
+      errorT2Kelvin: 0,
+      enterDTCelsius: '',
+      errorDTCelsius: 0,
+      enterDTKelvin: '',
+      errorDTKelvin: 0,
+      enterDTFahrenheit: '',
+      errorDTFahrenheit: 0
     }
   },
   computed: {
     T1Celsius: function () {
+      console.clear()
       return Math.round(100 * 5 * (parseFloat(this.T1Fahrenheit) - 32) / 9) / 100
     },
     T2Celsius: function () {
@@ -58,52 +73,41 @@ export default {
     DTFahrenheit: function () {
       return this.T2Fahrenheit - this.T1Fahrenheit
     },
-    checkedUserT1Celsius: function () {
-      let check
-      console.log(this.T1Celsius + ' : ' + parseFloat(this.userT1Celsius))
-      check = parseFloat(this.T1Celsius) === parseFloat(this.userT1Celsius) ? 'correct' : 'not-correct'
-      return check
+    checkedT1Celsius: function () {
+      this.errorT1Celsius = this.errorRelative('T1 celsius => ', this.T1Celsius, parseFloat(this.enterT1Celsius))
+      return this.errorT1Celsius < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserT2Celsius: function () {
-      let check
-      console.log(this.T2Celsius + ' : ' + parseFloat(this.userT2Celsius))
-      check = parseFloat(this.T2Celsius) === parseFloat(this.userT2Celsius) ? 'correct' : 'not-correct'
-      return check
+    checkedT2Celsius: function () {
+      this.errorT2Celsius = this.errorRelative('T2 celsius => ', this.T2Celsius, parseFloat(this.enterT2Celsius))
+      return this.errorT2Celsius < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserT1Kelvin: function () {
-      let check
-      console.log(this.T1Kelvin + ' : ' + parseFloat(this.userT1Kelvin))
-      check = parseFloat(this.T1Kelvin) === parseFloat(this.userT1Kelvin) ? 'correct' : 'not-correct'
-      return check
+    checkedT1Kelvin: function () {
+      this.errorT1Kelvin = this.errorRelative('T1 Kelvin => ', this.T1Kelvin, parseFloat(this.enterT1Kelvin))
+      return this.errorT1Kelvin < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserT2Kelvin: function () {
-      let check
-      console.log(this.T2Kelvin + ' : ' + parseFloat(this.userT2Kelvin))
-      check = parseFloat(this.T2Kelvin) === parseFloat(this.userT2Kelvin) ? 'correct' : 'not-correct'
-      return check
+    checkedT2Kelvin: function () {
+      this.errorT2Kelvin = this.errorRelative('T2 Kelvin => ', this.T2Kelvin, parseFloat(this.enterT2Kelvin))
+      return this.errorT2Kelvin < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDTCelsius: function () {
-      let check
-      console.log(this.DTCelsius + ' : ' + parseFloat(this.userDTCelsius))
-      check = parseFloat(this.DTCelsius) === parseFloat(this.userDTCelsius) ? 'correct' : 'not-correct'
-      return check
+    checkedDTCelsius: function () {
+      this.errorDTCelsius = this.errorRelative('ΔT celsius => ', this.DTCelsius, parseFloat(this.enterDTCelsius))
+      return this.errorDTCelsius < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDTKelvin: function () {
-      let check
-      console.log(this.DTKelvin + ' : ' + parseFloat(this.userDTKelvin))
-      check = parseFloat(this.DTKelvin) === parseFloat(this.userDTKelvin) ? 'correct' : 'not-correct'
-      return check
+    checkedDTKelvin: function () {
+      this.errorDTKelvin = this.errorRelative('ΔT Kelvin => ', this.DTKelvin, parseFloat(this.enterDTKelvin))
+      return this.errorDTKelvin < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDTFahrenheit: function () {
-      let check
-      console.log(this.DTFahrenheit + ' : ' + parseFloat(this.userDTFahrenheit))
-      check = parseFloat(this.DTFahrenheit) === parseFloat(this.userDTFahrenheit) ? 'correct' : 'not-correct'
-      return check
+    checkedDTFahrenheit: function () {
+      this.errorDTFahrenheit = this.errorRelative('ΔT Fahrenheit => ', this.DTFahrenheit, parseFloat(this.enterDTFahrenheit))
+      return this.errorDTFahrenheit < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -113,20 +117,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -134,25 +128,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

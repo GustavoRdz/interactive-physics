@@ -1,25 +1,27 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A 1.50-m string of weight 0.0125 N is tied to the ceiling at its upper end, and the lower end supports a weight W. Neglect the very small variation in tension along the length of the string that is produced by the weight of the string. When you pluck the string slightly, the waves traveling up the string obey the equation
-      .center.problem y(x, t) = (8.50mm)cos(172m<sup>-1</sup>x - 4830s<sup>-1</sup>t)
-    p.problem Assume that the tension of the string is constant and equal to W.<br> (a) How much time does it take a pulse to travel the full length of the string?<br> (b) What is the weight W?<br> (c) How many wavelengths are on the string at any instant of time?<br> (d) What is the equation for waves traveling down the string?
-    //- .center
-    //-   p.solution Please do calculations and introduce your results
-    //-   p.inline.data Amplitude (m)
-    //-     input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-    //-   p.inline.data  Frequency (Hz)
-    //-     input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-    //-   p.inline.data Max Acceleration (m/s<sup>2</sup>)
-    //-     input.center.data(:class="checkedMaxAcc" v-model.number='enterMaxAcc')
-    //-   p.inline.data Max velocity (m/s)
-    //-     input.center.data(:class="checkedMaxVel" v-model.number='enterMaxVel')
-    //-   p.inline.data Acceleration (m/s<sup>2</sup>) at x = {{ position }} (m);
-    //-     input.center.data(:class="checkedAcc" v-model.number='enterAcc')
-    //-   p.inline.data Velocity (m/s)  at x = {{ position }} (m);
-    //-     input.center.data(:class="checkedVel" v-model.number='enterVel')
-    //-   p.inline.data Time (s)
-    //-     input.center.data(:class="checkedTime" v-model.number='enterTime')
+    p.problem An airplane is flying at Mach {{ M }} at an altitude of {{ h }} m, where the speed of sound is {{ speed }} m/s How long after the plane passes directly overhead will you hear the sonic boom?
+    .center
+      img(src='../assets/shockProblem.png' height="250px")
+
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data M
+        input.center.data(:class="checkedM" v-model.number='enterM')
+        <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(2) }}%]</span>
+      p.inline.data h (m)
+        input.center.data(:class="checkedH" v-model.number='enterH')
+        <span  class="error" v-if="errorH">[e: {{ errorH.toPrecision(2) }}%]</span>
+      p.inline.data α (º)
+        input.center.data(:class="checkedAlpha" v-model.number='enterAlpha')
+        <span  class="error" v-if="errorAlpha">[e: {{ errorAlpha.toPrecision(2) }}%]</span>
+      p.inline.data d (m)
+        input.center.data(:class="checkedD" v-model.number='enterD')
+        <span class="error"  v-if="errorD">[e: {{ errorD.toPrecision(2) }}%]</span>
+      p.inline.data t (s) 
+        input.center.data(:class="checkedT" v-model.number='enterT')
+        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -27,110 +29,71 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterAmplitude: '',
-      enterFrequency: '',
-      enterMaxAcc: '',
-      enterMaxVel: '',
-      enterAcc: '',
-      enterVel: '',
-      enterTime: ''
+      enterM: '',
+      errorM: 0,
+      enterH: '',
+      errorH: 0,
+      enterAlpha: '',
+      errorAlpha: 0,
+      enterD: '',
+      errorD: 0,
+      enterT: '',
+      errorT: 0
     }
   },
   computed: {
-    amplitude: function () {
-      let max = 2000
-      let min = 1000
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    M: function () {
+      console.clear()
+      let max = 20
+      let min = 11
+      return Math.round((Math.floor(Math.random() * (max - min + 1)) + min)) / 10
     },
-    frequency: function () {
-      let max = 2000
-      let min = 500
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+    h: function () {
+      let max = 12000
+      let min = 5000
+      return Math.round((Math.random() * (max - min + 1) + min))
     },
-    position: function () {
-      let max = 1500
-      let min = 500
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    speed: function () {
+      let max = 350
+      let min = 335
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    position2: function () {
-      let max = 1900
-      let min = 1000
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    alpha: function () {
+      return Math.asin(1 / this.M)
     },
-    angular: function () {
-      return 2 * Math.PI * this.frequency
+    d: function () {
+      return this.h / Math.tan(this.alpha)
     },
-    maxAcc: function () {
-      return Math.round(1000 * Math.pow(this.angular, 2) * this.amplitude / 100) / 1000
+    t: function () {
+      return this.d / (this.M * this.speed)
     },
-    maxVel: function () {
-      return Math.round(1000 * this.angular * this.amplitude / 100) / 1000
+    checkedM: function () {
+      this.errorM = this.errorRelative('Mach => ', this.M, parseFloat(this.enterM))
+      return this.errorM < 1e-1 ? 'correct' : 'not-correct'
     },
-    acc: function () {
-      return Math.round(1000 * Math.pow(this.angular, 2) * this.position / 100) / 1000
+    checkedH: function () {
+      this.errorH = this.errorRelative('High => ', this.h, parseFloat(this.enterH))
+      return this.errorH < 1e-1 ? 'correct' : 'not-correct'
     },
-    vel: function () {
-      return Math.round(1000 * this.angular * Math.sqrt(Math.pow((this.amplitude / 100), 2) - Math.pow((this.position / 100), 2))) / 1000
+    checkedAlpha: function () {
+      this.errorAlpha = this.errorRelative('Angle => ', 180 * this.alpha / Math.PI, parseFloat(this.enterAlpha))
+      return this.errorAlpha < 1e-1 ? 'correct' : 'not-correct'
     },
-    time: function () {
-      return Math.round(1000 * Math.acos((this.position2 / 100) / (this.amplitude / 100)) / this.angular) / 1000
+    checkedD: function () {
+      this.errorD = this.errorRelative('Distance => ', this.d, parseFloat(this.enterD))
+      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
     },
-    crownVolume: function () {
-      return Number(this.bouyant / (9.81 * 1000)).toPrecision(3)
-    },
-    crownDensity: function () {
-      // return (this.airWeight * 1000 / this.bouyant).toPrecision(3)
-      return (this.crownMass / this.crownVolume).toPrecision(3)
-    },
-    cheat: function () {
-      return this.bouyant === this.realGoldBouyant
-    },
-    checkedAmplitude: function () {
-      let check
-      console.log('Amplitude : ' + Math.round(1000 * this.amplitude / 100) / 1000 + ' : ' + parseFloat(this.enterAmplitude))
-      check = Math.round(1000 * this.amplitude / 100) / 1000 === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedFrequency: function () {
-      let check
-      console.log('Frequency : ' + this.frequency + ' : ' + parseFloat(this.enterFrequency))
-      check = parseFloat(this.frequency) === parseFloat(this.enterFrequency) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMaxAcc: function () {
-      let check
-      console.log('Maximum acceleration : ' + this.maxAcc + ' : ' + parseFloat(this.enterMaxAcc))
-      check = parseFloat(this.maxAcc) === parseFloat(this.enterMaxAcc) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedMaxVel: function () {
-      let check
-      console.log('Maximum velocity : ' + this.maxVel + ' : ' + parseFloat(this.enterMaxVel))
-      check = this.maxVel === parseFloat(this.enterMaxVel) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedAcc: function () {
-      let check
-      console.log('Acceleration at ' + this.position + ' : ' + this.acc + ' : ' + parseFloat(this.enterAcc))
-      check = this.acc === parseFloat(this.enterAcc) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedVel: function () {
-      let check
-      console.log('Velocity at x = ' + this.position + ' : ' + this.vel + ' : ' + parseFloat(this.enterVel))
-      check = this.vel === parseFloat(this.enterVel) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedTime: function () {
-      let check
-      console.log('Time : ' + this.time + ' : ' + parseFloat(this.enterTime))
-      check = this.time === parseFloat(this.enterTime) ? 'correct' : 'not-correct'
-      return check
+    checkedT: function () {
+      this.errorT = this.errorRelative('time => ', this.t, parseFloat(this.enterT))
+      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -140,20 +103,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -161,25 +114,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

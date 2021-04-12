@@ -41,6 +41,7 @@ export default {
   },
   computed: {
     d: function () {
+      console.clear()
       let max = 300
       let min = 100
       return Math.round(Math.random() * (max - min + 1) + min)
@@ -61,59 +62,38 @@ export default {
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     ya: function () {
-      // return parseFloat((this.l * 1e-2 * 0.5 * this.lambda * 1e-9 / (this.d * 1e-6)).toPrecision(3))
       return this.l * 1e-2 * 0.5 * this.lambda * 1e-9 / (this.d * 1e-6)
     },
     yb: function () {
       return this.lambda * 1e-9 * this.l * 1e-2 * Math.acos(Math.sqrt(this.factor / 100)) / (Math.PI * this.d * 1e-6)
     },
     checkedD: function () {
-      let check
-      console.log('d => ' + this.d * 1e-6 + ' : ' + parseFloat(this.enterD))
-      this.errorD = 100 * Math.abs(this.d * 1e-6 - parseFloat(this.enterD)) / (this.d * 1e-6)
-      console.log('errorD  ' + this.errorD + ' %')
-      check = this.errorD < 1e-1 ? 'correct' : 'not-correct'
-      return check
+      this.errorD = this.errorRelative('d => ', this.d * 1e-6, parseFloat(this.enterD))
+      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL: function () {
-      let check
-      console.log('L => ' + this.l * 1e-2 + ' : ' + parseFloat(this.enterL))
-      this.errorL = 100 * Math.abs(this.l * 1e-2 - parseFloat(this.enterL)) / (this.l * 1e-2)
-      console.log('error  ' + this.errorL + ' %')
-      // check = this.l * 1e-2 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
-      check = this.errorL < 1e-3 ? 'correct' : 'not-correct'
-      return check
+      this.errorL = this.errorRelative('L => ', this.l * 1e-2, parseFloat(this.enterL))
+      return this.errorL < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedLambda: function () {
-      let check
-      console.log('lambda => ' + parseFloat((this.lambda * 1e-9).toPrecision(3)) + ' : ' + parseFloat(this.enterLambda))
-      this.errorLambda = 100 * Math.abs(this.lambda * 1e-9 - parseFloat(this.enterLambda)) / (this.lambda * 1e-9)
-      console.log('error  ' + this.errorLambda + ' %')
-      check = this.errorLambda < 1e-3 ? 'correct' : 'not-correct'
-      return check
+      this.errorLambda = this.errorRelative('λ => ', this.lambda * 1e-9, parseFloat(this.enterLambda))
+      return this.errorLambda < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedYa: function () {
-      let check
-      console.log('a) y => ' + this.ya + ' : ' + parseFloat(this.enterYa))
-      this.errorA = 100 * Math.abs(this.ya - parseFloat(this.enterYa)) / this.ya
-      console.log('error  ' + this.errorA + ' %')
-      // check = this.ya === parseFloat(this.enterYa) ? 'correct' : 'not-correct'
-      check = this.errorA < 1e0 ? 'correct' : 'not-correct'
-      return check
+      this.errorYa = this.errorRelative('a) Y => ', this.ya, parseFloat(this.enterYa))
+      return this.errorYa < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedYb: function () {
-      let check
-      console.log('b) Y => ' + this.yb + ' : ' + parseFloat(this.enterYb))
-      this.errorB = 100 * Math.abs(this.yb - parseFloat(this.enterYb)) / this.yb
-      console.log('error  ' + this.errorB + ' %')
-      // check = this.yb === parseFloat(this.enterYb) ? 'correct' : 'not-correct'
-      check = this.errorB < 1e0 ? 'correct' : 'not-correct'
-      return check
+      this.errorYb = this.errorRelative('b) Y => ', this.yb, parseFloat(this.enterYb))
+      return this.errorYb < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -121,24 +101,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    width: 100%;
-    max-width: 100%;
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -146,7 +108,6 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
   margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -154,14 +115,12 @@ export default {
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }

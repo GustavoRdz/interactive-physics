@@ -7,15 +7,20 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data &#x394;T (&#x00B0;C)
-        input.center.data(:class="checkedUserDT" v-model.number='userDT')
+        input.center.data(:class="checkedDT" v-model.number='enterDT')
+        <span class="error" v-if="errorDT">[e: {{ errorDT.toPrecision(2) }}%]</span>
       p.inline.data &#x394;L (m)
-        input.center.data(:class="checkedUserDL" v-model.number='userDL')
+        input.center.data(:class="checkedDL" v-model.number='enterDL')
+        <span class="error" v-if="errorDL">[e: {{ errorDL.toPrecision(2) }}%]</span>
       p.inline.data (a) L (m)
-        input.center.data(:class="checkedUserL" v-model.number='userL')
-      p.inline.data L/L<sub>0</sub> (.00000)
-        input.center.data(:class="checkedUserLL" v-model.number='userLL')
+        input.center.data(:class="checkedL" v-model.number='enterL')
+        <span class="error" v-if="errorL">[e: {{ errorL.toPrecision(2) }}%]</span>
+      p.inline.data L/L<sub>0</sub>
+        input.center.data(:class="checkedLL" v-model.number='enterLL')
+        <span class="error" v-if="errorLL">[e: {{ errorLL.toPrecision(2) }}%]</span>
       p.inline.data (b) L (m)
-        input.center.data(:class="checkedUserLb" v-model.number='userLb')
+        input.center.data(:class="checkedLb" v-model.number='enterLb')
+        <span class="error" v-if="errorLb">[e: {{ errorLb.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -23,96 +28,83 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      userDT: '',
-      userDL: '',
-      userL: '',
-      userLL: '',
-      userLb: '',
+      enterDT: '',
+      errorDT: 0,
+      enterDL: '',
+      errorDL: 0,
+      enterL: '',
+      errorL: 0,
+      enterLL: '',
+      errorLL: 0,
+      enterLb: '',
+      errorLb: 0,
       steelAlpha: 1.2e-5
     }
   },
   computed: {
     tapeLength: function () {
+      console.clear()
       let max = 6
       let min = 3
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) * 10
+      return Math.floor(Math.random() * (max - min + 1) + min) * 10
     },
     calibrationTemperature: function () {
       let max = 28
       let min = 20
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     measurementTemperature: function () {
       let max = 40
       let min = 30
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     measurement: function () {
       let max = 44000
       let min = 25000
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.floor(Math.random() * (max - min + 1) + min) / 1000
     },
     DT: function () {
       return this.measurementTemperature - this.calibrationTemperature
     },
     DL: function () {
-      return Math.round(1000 * this.steelAlpha * this.tapeLength * this.DT) / 1000
+      return this.steelAlpha * this.tapeLength * this.DT
     },
     L: function () {
-      return Math.round(1000 * (this.tapeLength + this.DL)) / 1000
+      return this.tapeLength + this.DL
     },
     LL: function () {
-      return Math.round(100000 * this.L / this.tapeLength) / 100000
+      return this.L / this.tapeLength
     },
     Lb: function () {
-      return Math.round(1000 * this.LL * this.measurement) / 1000
+      return this.LL * this.measurement
     },
-    checkedUserT1Celsius: function () {
-      let check
-      console.log(this.T1Celsius + ' : ' + parseFloat(this.userT1Celsius))
-      check = parseFloat(this.T1Celsius) === parseFloat(this.userT1Celsius) ? 'correct' : 'not-correct'
-      return check
+    checkedDT: function () {
+      this.errorDT = this.errorRelative('DT => ', this.DT, parseFloat(this.enterDT))
+      return this.errorDT < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserT2Celsius: function () {
-      let check
-      console.log(this.T2Celsius + ' : ' + parseFloat(this.userT2Celsius))
-      check = parseFloat(this.T2Celsius) === parseFloat(this.userT2Celsius) ? 'correct' : 'not-correct'
-      return check
+    checkedDL: function () {
+      this.errorDL = this.errorRelative('DL => ', this.DL, parseFloat(this.enterDL))
+      return this.errorDL < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDT: function () {
-      let check
-      console.log(this.DT + ' : ' + parseFloat(this.userDT))
-      check = parseFloat(this.DT) === parseFloat(this.userDT) ? 'correct' : 'not-correct'
-      return check
+    checkedL: function () {
+      this.errorL = this.errorRelative('L => ', this.L, parseFloat(this.enterL))
+      return this.errorL < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDL: function () {
-      let check
-      console.log(this.DL + ' : ' + parseFloat(this.userDL))
-      check = parseFloat(this.DL) === parseFloat(this.userDL) ? 'correct' : 'not-correct'
-      return check
+    checkedLL: function () {
+      this.errorLL = this.errorRelative('LL => ', this.LL, parseFloat(this.enterLL))
+      return this.errorLL < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserL: function () {
-      let check
-      console.log(this.L + ' : ' + parseFloat(this.userL))
-      check = parseFloat(this.L) === parseFloat(this.userL) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUserLL: function () {
-      let check
-      console.log(this.LL + ' : ' + parseFloat(this.userLL))
-      check = parseFloat(this.LL) === parseFloat(this.userLL) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedUserLb: function () {
-      let check
-      console.log(this.Lb + ' : ' + parseFloat(this.userLb))
-      check = parseFloat(this.Lb) === parseFloat(this.userLb) ? 'correct' : 'not-correct'
-      return check
+    checkedLb: function () {
+      this.errorLb = this.errorRelative('Lb => ', this.Lb, parseFloat(this.enterLb))
+      return this.errorLb < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -122,20 +114,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -143,25 +125,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

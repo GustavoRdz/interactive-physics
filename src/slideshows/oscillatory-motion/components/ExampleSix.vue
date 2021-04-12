@@ -7,18 +7,26 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Chair mass (kg)
         input.center.data(:class="checkedChairMass" v-model.number='enterChairMass')
+        <span class="error" v-if="errorChairMass">[e: {{ errorChairMass.toPrecision(3) }}%]</span>
       p.inline.data Empty chair period (s)
         input.center.data(:class="checkedEmptyPeriod" v-model.number='enterEmptyPeriod')
+        <span class="error" v-if="errorEmptyPeriod">[e: {{ errorEmptyPeriod.toPrecision(3) }}%]</span>
       p.inline.data chair angular frequency (rad/s)
         input.center.data(:class="checkedAngular1" v-model.number='enterAngular1')
+        <span class="error" v-if="errorAngular1">[e: {{ errorAngular1.toPrecision(3) }}%]</span>
       p.inline.data Spring constant (N/m)
         input.center.data(:class="checkedElastic" v-model.number='enterElastic')
+        <span class="error" v-if="errorElastic">[e: {{ errorElastic.toPrecision(3) }}%]</span>
+      <br>
       p.inline.data Occupied chair period (s)
         input.center.data(:class="checkedOccupiedPeriod" v-model.number='enterOccupiedPeriod')
+        <span class="error" v-if="errorOccupiedPeriod">[e: {{ errorOccupiedPeriod.toPrecision(3) }}%]</span>
       p.inline.data chair + astronaut &omega; (rad/s)
         input.center.data(:class="checkedAngular2" v-model.number='enterAngular2')
+        <span class="error" v-if="errorAngular2">[e: {{ errorAngular2.toPrecision(3) }}%]</span>
       p.inline.data Astronaut mass (kg)
         input.center.data(:class="checkedAstronautMass" v-model='enterAstronautMass')
+        <span class="error" v-if="errorAstronautMass">[e: {{ errorAstronautMass.toPrecision(3) }}%]</span>
 
 
 </template>
@@ -28,93 +36,85 @@ export default {
   data: function () {
     return {
       enterChairMass: '',
+      errorChairMass: 0,
       enterEmptyPeriod: '',
+      errorEmptyPeriod: 0,
       enterElastic: '',
+      errorElastic: 0,
       enterAngular1: '',
+      errorAngular1: 0,
       enterOccupiedPeriod: '',
+      errorOccupiedPeriod: 0,
       enterAngular2: '',
-      enterAstronautMass: ''
+      errorAngular2: 0,
+      enterAstronautMass: '',
+      errorAstronautMass: 0
     }
   },
   computed: {
     chairMass: function () {
-      let max = 50
-      let min = 30
-      return Math.round(1000 * (Math.random() * (max - min + 1) + min)) / 1000
+      console.clear()
+      let max = 30
+      let min = 20
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
     },
     emptyPeriod: function () {
       let max = 2
       let min = 1
-      return Math.round(1000 * (Math.random() * (max - min + 1) + min)) / 1000
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
     },
     occupiedPeriod: function () {
-      let max = 3 * this.emptyPeriod
-      let min = Math.sqrt(3) * this.emptyPeriod
-      return Math.round(1000 * (Math.random() * (max - min + 1) + min)) / 1000
+      let max = 2 * this.emptyPeriod
+      let min = Math.sqrt(2) * this.emptyPeriod
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
     },
     angular1: function () {
-      return Math.round(2000 * Math.PI / this.emptyPeriod) / 1000
+      return Math.PI / this.emptyPeriod
     },
     elasticK: function () {
-      return Math.round(1000 * this.chairMass * Math.pow(this.angular1, 2)) / 1000
+      return this.chairMass * Math.pow(this.angular1, 2)
     },
     angular2: function () {
-      return Math.round(2000 * Math.PI / this.occupiedPeriod) / 1000
+      return Math.PI / this.occupiedPeriod
     },
     astronautMass: function () {
-      return Math.round(1000 * (this.elasticK / Math.pow(this.angular2, 2) - this.chairMass)) / 1000
+      return this.elasticK / Math.pow(this.angular2, 2) - this.chairMass
     },
     checkedChairMass: function () {
-      let check
-      console.log('Chair mass : ' + this.chairMass + ' : ' + parseFloat(this.enterChairMass))
-      check = this.chairMass === parseFloat(this.enterChairMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorChairMass = this.errorRelative('Chair mass => ', this.chairMass, parseFloat(this.enterChairMass))
+      return this.errorChairMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedEmptyPeriod: function () {
-      let check
-      console.log('Empty chair period : ' + this.emptyPeriod + ' : ' + parseFloat(this.enterEmptyPeriod))
-      check = this.emptyPeriod === parseFloat(this.enterEmptyPeriod) ? 'correct' : 'not-correct'
-      return check
+      this.errorEmptyPeriod = this.errorRelative('Empty chair period => ', this.enterEmptyPeriod, parseFloat(this.enterEmptyPeriod))
+      return this.errorEmptyPeriod < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngular1: function () {
-      let check
-      console.log('Empty chair angular frequency: ' + this.angular1 + ' : ' + parseFloat(this.enterAngular1))
-      check = this.angular1 === parseFloat(this.enterAngular1) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngular1 = this.errorRelative('Omega empty chair=> ', this.angular1, parseFloat(this.enterAngular1))
+      return this.errorAngular1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedElastic: function () {
-      let check
-      console.log('Elastic Constant : ' + this.elasticK + ' : ' + parseFloat(this.enterElastic))
-      console.log(this.elasticK)
-      console.log(parseFloat(this.enterElastic))
-      // check = this.elasticK === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
-      console.log(Math.abs(this.elasticK - parseFloat(this.enterElastic)))
-      console.log(Math.abs(this.elasticK - parseFloat(this.enterElastic)) < 0.01)
-      check = Math.abs(this.elasticK - parseFloat(this.enterElastic)) < 0.01 ? 'correct' : 'not-correct'
-      return check
+      this.errorElastic = this.errorRelative('K => ', this.elasticK, parseFloat(this.enterElastic))
+      return this.errorElastic < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedOccupiedPeriod: function () {
-      let check
-      console.log('Occupied chair period : ' + this.occupiedPeriod + ' : ' + parseFloat(this.enterOccupiedPeriod))
-      check = parseFloat(this.occupiedPeriod) === parseFloat(this.enterOccupiedPeriod) ? 'correct' : 'not-correct'
-      return check
+      this.errorOccupiedPeriod = this.errorRelative('Perido occupied chair => ', this.occupiedPeriod, parseFloat(this.enterOccupiedPeriod))
+      return this.errorOccupiedPeriod < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngular2: function () {
-      let check
-      console.log('astronaut + chair angular frequency: ' + this.angular2 + ' : ' + parseFloat(this.enterAngular2))
-      check = this.angular2 === parseFloat(this.enterAngular2) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngular2 = this.errorRelative('Omega occupied chair => ', this.angular2, parseFloat(this.enterAngular2))
+      return this.errorAngular2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAstronautMass: function () {
-      let check
-      console.log('Astronaut Mass : ' + this.astronautMass + ' : ' + parseFloat(this.enterAstronautMass))
-      check = this.astronautMass === parseFloat(this.enterAstronautMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorAstronautMass = this.errorRelative('Astronaut mass => ', this.astronautMass, parseFloat(this.enterAstronautMass))
+      return this.errorAstronautMass < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -122,29 +122,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-  img {
-    width: 150px;
-    display: inline-block;
-  }
-  em {
-    color: black;
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -152,27 +129,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  display: inline-block;
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
 }
-
+.error {
+  font-size: 14px;
+}
 </style>

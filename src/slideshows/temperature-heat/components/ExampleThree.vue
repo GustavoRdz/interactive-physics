@@ -5,17 +5,23 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data <em>&#x03B2;</em><sub>Hg</sub> (K<sup>-1</sup>)
-        input.center.data(:class="checkedBetaHg" v-model.number='userBetaHg')
+        input.center.data(:class="checkedBetaHg" v-model.number='enterBetaHg')
+        <span class="error" v-if="errorBetaHg">[e: {{ errorBetaHg.toPrecision(2) }}%]</span>
       p.inline.data <em>&#x03B2;</em><sub>Glass</sub> (K<sup>-1</sup>)
-        input.center.data(:class="checkedUserBetaGlass" v-model.number='userBetaGlass')
+        input.center.data(:class="checkedBetaGlass" v-model.number='enterBetaGlass')
+        <span class="error" v-if="errorBetaGlass">[e: {{ errorBetaGlass.toPrecision(2) }}%]</span>
       p.inline.data &#x394;T (&#x00B0;C)
-        input.center.data(:class="checkedUserDT" v-model.number='userDT')
+        input.center.data(:class="checkedDT" v-model.number='enterDT')
+        <span class="error" v-if="errorDT">[e: {{ errorDT.toPrecision(2) }}%]</span>
       p.inline.data &#x394;V<sub>Hg</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserDVHg" v-model.number='userDVHg')
+        input.center.data(:class="checkedDVHg" v-model.number='enterDVHg')
+        <span class="error" v-if="errorDVHg">[e: {{ errorDVHg.toPrecision(2) }}%]</span>
       p.inline.data  &#x394;V<sub>Glass</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserDVGlass" v-model.number='userDVGlass')
+        input.center.data(:class="checkedDVGlass" v-model.number='enterDVGlass')
+        <span class="error" v-if="errorDVGlass">[e: {{ errorDVGlass.toPrecision(2) }}%]</span>
       p.inline.data  &#x394;V<sub>overflow</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserOverflow" v-model.number='userOverflow')
+        input.center.data(:class="checkedOverflow" v-model.number='enterOverflow')
+        <span class="error" v-if="errorOverflow">[e: {{ errorOverflow.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -23,31 +29,38 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      userBetaHg: '',
-      userBetaGlass: '',
-      userDT: '',
-      userDVHg: '',
-      userDVGlass: '',
-      userOverflow: '',
+      enterBetaHg: '',
+      errorBetaHg: 0,
+      enterBetaGlass: '',
+      errorBetaGlass: 0,
+      enterDT: '',
+      errorDT: 0,
+      enterDVHg: '',
+      errorDVHg: 0,
+      enterDVGlass: '',
+      errorDVGlass: 0,
+      enterOverflow: '',
+      errorOverflow: 0,
       hgBeta: 18e-5,
       glassAlpha: 0.4e-5
     }
   },
   computed: {
     glassVolume: function () {
+      console.clear()
       let max = 250
       let min = 150
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     initialTemperature: function () {
       let max = 35
       let min = 15
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     finalTemperature: function () {
       let max = 120
       let min = 90
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     DT: function () {
       return this.finalTemperature - this.initialTemperature
@@ -56,60 +69,45 @@ export default {
       return 3 * this.glassAlpha
     },
     DVHg: function () {
-      return Math.round(1000 * this.hgBeta * this.glassVolume * this.DT) / 1000
+      return this.hgBeta * this.glassVolume * this.DT
     },
     DVGlass: function () {
-      return Math.round(1000 * this.glassBeta * this.glassVolume * this.DT) / 1000
+      return this.glassBeta * this.glassVolume * this.DT
     },
     overflow: function () {
-      return Math.round(1000 * (this.DVHg - this.DVGlass)) / 1000
-    },
-    checkedUserT1Celsius: function () {
-      let check
-      console.log(this.T1Celsius + ' : ' + parseFloat(this.userT1Celsius))
-      check = parseFloat(this.T1Celsius) === parseFloat(this.userT1Celsius) ? 'correct' : 'not-correct'
-      return check
+      return this.DVHg - this.DVGlass
     },
     checkedBetaHg: function () {
-      let check
-      console.log(this.hgBeta + ' : ' + parseFloat(this.userBetaHg))
-      check = parseFloat(this.hgBeta) === parseFloat(this.userBetaHg) ? 'correct' : 'not-correct'
-      return check
+      this.errorBetaHg = this.errorRelative('β Hg => ', this.hgBeta, parseFloat(this.enterBetaHg))
+      return this.errorBetaHg < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserBetaGlass: function () {
-      let check
-      console.log(this.glassBeta + ' : ' + parseFloat(this.userBetaGlass))
-      check = parseFloat(this.glassBeta) === parseFloat(this.userBetaGlass) ? 'correct' : 'not-correct'
-      return check
+    checkedBetaGlass: function () {
+      this.errorBetaGlass = this.errorRelative('β glass => ', this.glassBeta, parseFloat(this.enterBetaGlass))
+      return this.errorBetaGlass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDT: function () {
-      let check
-      console.log(this.DT + ' : ' + parseFloat(this.userDT))
-      check = parseFloat(this.DT) === parseFloat(this.userDT) ? 'correct' : 'not-correct'
-      return check
+    checkedDT: function () {
+      this.errorDT = this.errorRelative('ΔT => ', this.DT, parseFloat(this.enterDT))
+      return this.errorDT < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDVHg: function () {
-      let check
-      console.log(this.DVHg + ' : ' + parseFloat(this.userDVHg))
-      check = parseFloat(this.DVHg) === parseFloat(this.userDVHg) ? 'correct' : 'not-correct'
-      return check
+    checkedDVHg: function () {
+      this.errorDVHg = this.errorRelative('ΔV Hg => ', this.DVHg, parseFloat(this.enterDVHg))
+      return this.errorDVHg < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserDVGlass: function () {
-      let check
-      console.log(this.DVGlass + ' : ' + parseFloat(this.userDVGlass))
-      check = parseFloat(this.DVGlass) === parseFloat(this.userDVGlass) ? 'correct' : 'not-correct'
-      return check
+    checkedDVGlass: function () {
+      this.errorDVGlass = this.errorRelative('ΔV glass => ', this.DVGlass, parseFloat(this.enterDVGlass))
+      return this.errorDVGlass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserOverflow: function () {
-      let check
-      console.log(this.overflow + ' : ' + parseFloat(this.userOverflow))
-      check = parseFloat(this.overflow) === parseFloat(this.userOverflow) ? 'correct' : 'not-correct'
-      return check
+    checkedOverflow: function () {
+      this.errorOverflow = this.errorRelative('Volume overflow => ', this.overflow, parseFloat(this.enterOverflow))
+      return this.errorOverflow < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -119,20 +117,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -140,25 +128,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

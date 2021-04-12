@@ -1,54 +1,75 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A converging lens has a focal length of {{ focus }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ 2 * focus }} cm and (b) {{ 5* focus }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ 2 * focus }} cm and (d) {{ 5 * focus }} cm.
+    p.problem A converging lens has a focal length of {{ focus.toPrecision(4) }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ (2 * focus).toPrecision(4) }} cm and (b) {{ (5* focus).toPrecision(4) }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ (2 * focus).toPrecision(4) }} cm and (d) {{ (5 * focus).toPrecision(4) }} cm.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Focus (cm)
         input.center.data(:class="checkedFocus" v-model.number='enterFocus')
+        <span class="error" v-if="errorFocus">[e: {{ errorFocus.toPrecision(2) }}%]</span>
       p.inline.data  p<sub>a</sub> (cm)
         input.center.data(:class="checkedPi" v-model.number='enterPi')
+        <span class="error" v-if="errorPi">[e: {{ errorPi.toPrecision(2) }}%]</span>
       p.inline.data q<sub>a</sub> (cm)
         input.center.data(:class="checkedQi" v-model.number='enterQi')
+        <span class="error" v-if="errorQi">[e: {{ errorQi.toPrecision(2) }}%]</span>
       p.inline.data M<sub>a</sub>
         input.center.data(:class="checkedMi" v-model='enterMi')
-      p.inline.data Real or virtual?
+        <span class="error" v-if="errorMi">[e: {{ errorMi.toPrecision(2) }}%]</span>
+      p.inline.data Object real or virtual?
         input.center.data(:class="checkedRVi" v-model='enterRVi')
+        <span class="error" v-if="errorRVi">[e: {{ errorRVi.toPrecision(2) }}%]</span>
       p.inline.data upright or inverted
         input.center.data(:class="checkedUIi" v-model='enterUIi')
+        <span class="error" v-if="errorUIi">[e: {{ errorUIi.toPrecision(2) }}%]</span>
     .center
       p.inline.data  p<sub>b</sub> (cm)
         input.center.data(:class="checkedPii" v-model.number='enterPii')
+        <span class="error" v-if="errorPii">[e: {{ errorPii.toPrecision(2) }}%]</span>
       p.inline.data q<sub>b</sub> (cm)
         input.center.data(:class="checkedQii" v-model.number='enterQii')
+        <span class="error" v-if="errorQii">[e: {{ errorQii.toPrecision(2) }}%]</span>
       p.inline.data M<sub>b</sub>
         input.center.data(:class="checkedMii" v-model='enterMii')
+        <span class="error" v-if="errorMii">[e: {{ errorMii.toPrecision(2) }}%]</span>
       p.inline.data Real or virtual?
         input.center.data(:class="checkedRVii" v-model='enterRVii')
+        <span class="error" v-if="errorRVii">[e: {{ errorRVii.toPrecision(2) }}%]</span>
       p.inline.data upright or inverted
         input.center.data(:class="checkedUIii" v-model='enterUIii')
+        <span class="error" v-if="errorUIii">[e: {{ errorUIii.toPrecision(2) }}%]</span>
     .center
       p.inline.data  p<sub>c</sub> (cm)
         input.center.data(:class="checkedPiii" v-model.number='enterPiii')
+        <span class="error" v-if="errorPiii">[e: {{ errorPiii.toPrecision(2) }}%]</span>
       p.inline.data q<sub>c</sub> (cm)
         input.center.data(:class="checkedQiii" v-model.number='enterQiii')
+        <span class="error" v-if="errorQiii">[e: {{ errorQiii.toPrecision(2) }}%]</span>
       p.inline.data M<sub>c</sub>
         input.center.data(:class="checkedMiii" v-model='enterMiii')
+        <span class="error" v-if="errorMiii">[e: {{ errorMiii.toPrecision(2) }}%]</span>
       p.inline.data Real or virtual?
         input.center.data(:class="checkedRViii" v-model='enterRViii')
+        <span class="error" v-if="errorRViii">[e: {{ errorRViii.toPrecision(2) }}%]</span>
       p.inline.data upright or inverted
         input.center.data(:class="checkedUIiii" v-model='enterUIiii')
+        <span class="error" v-if="errorUIiii">[e: {{ errorUIiii.toPrecision(2) }}%]</span>
     .center
       p.inline.data  p<sub>d</sub> (cm)
         input.center.data(:class="checkedPiiii" v-model.number='enterPiiii')
+        <span class="error" v-if="errorPiiii">[e: {{ errorPiiii.toPrecision(2) }}%]</span>
       p.inline.data q<sub>d</sub> (cm)
         input.center.data(:class="checkedQiiii" v-model.number='enterQiiii')
+        <span class="error" v-if="errorQiiii">[e: {{ errorQiiii.toPrecision(2) }}%]</span>
       p.inline.data M<sub>d</sub>
         input.center.data(:class="checkedMiiii" v-model='enterMiiii')
+        <span class="error" v-if="errorMiiii">[e: {{ errorMiiii.toPrecision(2) }}%]</span>
       p.inline.data Real or virtual?
         input.center.data(:class="checkedRViiii" v-model='enterRViiii')
+        <span class="error" v-if="errorRViiii">[e: {{ errorRViiii.toPrecision(2) }}%]</span>
       p.inline.data upright or inverted
         input.center.data(:class="checkedUIiiii" v-model='enterUIiiii')
+        <span class="error" v-if="errorUIiiii">[e: {{ errorUIiiii.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -57,57 +78,79 @@ export default {
   data: function () {
     return {
       enterFocus: '',
+      errorFocus: 0,
       enterPi: '',
+      errorPi: 0,
       enterPii: '',
+      errorPii: 0,
       enterPiii: '',
+      errorPiii: 0,
       enterPiiii: '',
+      errorPiiii: 0,
       enterQi: '',
+      errorQi: 0,
       enterQii: '',
+      errorQii: 0,
       enterQiii: '',
+      errorQiii: 0,
       enterQiiii: '',
+      errorQiiii: 0,
       enterMi: '',
+      errorMi: 0,
       enterMii: '',
+      errorMii: 0,
       enterMiii: '',
+      errorMiii: 0,
       enterMiiii: '',
+      errorMiiii: 0,
       enterRVi: '',
+      errorRVi: 0,
       enterRVii: '',
+      errorRVii: 0,
       enterRViii: '',
+      errorRViii: 0,
       enterRViiii: '',
+      errorRViiii: 0,
       enterUIi: '',
+      errorUIi: 0,
       enterUIii: '',
+      errorUIii: 0,
       enterUIiii: '',
-      enterUIiiii: ''
+      errorUIiii: 0,
+      enterUIiiii: '',
+      errorUIiiii: 0
     }
   },
   computed: {
     focus: function () {
+      console.clear()
       let max = 50
       let min = 10
-      return (Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 10)
+      return (Math.round(100 * Math.random() * (max - min + 1) + min) / 100)
     },
     pi: function () {
-      return Math.round(1000 * 2 * this.focus) / 1000
+      return 2 * this.focus
     },
     pii: function () {
-      return Math.round(1000 * 5 * this.focus / 4) / 1000
+      return 5 * this.focus / 4
     },
     piii: function () {
-      return Math.round(1000 * 2 * this.focus / 3) / 1000
+      return 2 * this.focus / 3
     },
     piiii: function () {
-      return Math.round(1000 * 5 * this.focus / 6) / 1000
+      return 5 * this.focus / 6
     },
     Mi: function () {
-      return Math.round(-1000 * 2 * this.focus / this.pi) / 1000
+      return -2 * this.focus / this.pi
     },
     Mii: function () {
-      return Math.round(-1000 * 5 * this.focus / this.pii) / 1000
+      return -5 * this.focus / this.pii
     },
     Miii: function () {
-      return Math.round(-1000 * -2 * this.focus / this.piii) / 1000
+      return 2 * this.focus / this.piii
     },
     Miiii: function () {
-      return Math.round(-1000 * -5 * this.focus / this.piiii) / 1000
+      return 5 * this.focus / this.piiii
     },
     rVi: function () {
       return 'real'
@@ -134,82 +177,56 @@ export default {
       return 'upright'
     },
     checkedFocus: function () {
-      let check
-      console.log('Focus => ' + this.focus + ' : ' + parseFloat(this.enterFocus))
-      check = this.focus === parseFloat(this.enterFocus) ? 'correct' : 'not-correct'
-      return check
+      this.errorFocus = this.errorRelative('Focus => ', this.focus, parseFloat(this.enterFocus))
+      return this.errorFocus < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPi: function () {
-      let check
-      console.log('Pi => ' + this.pi + ' : ' + parseFloat(this.enterPi))
-      check = this.pi === parseFloat(this.enterPi) ? 'correct' : 'not-correct'
-      return check
+      this.errorPi = this.errorRelative('pi => ', this.pi, parseFloat(this.enterPi))
+      return this.errorPi < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPii: function () {
-      let check
-      console.log('Pii => ' + this.pii + ' : ' + parseFloat(this.enterPii))
-      check = this.pii === parseFloat(this.enterPii) ? 'correct' : 'not-correct'
-      return check
+      this.errorPii = this.errorRelative('pii => ', this.pii, parseFloat(this.enterPii))
+      return this.errorPii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPiii: function () {
-      let check
-      console.log('Piii => ' + this.piii + ' : ' + parseFloat(this.enterPiii))
-      check = this.piii === parseFloat(this.enterPiii) ? 'correct' : 'not-correct'
-      return check
+      this.errorPiii = this.errorRelative('piii => ', this.piii, parseFloat(this.enterPiii))
+      return this.errorPiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPiiii: function () {
-      let check
-      console.log('Piiii => ' + this.piiii + ' : ' + parseFloat(this.enterPiiii))
-      check = this.piiii === parseFloat(this.enterPiiii) ? 'correct' : 'not-correct'
-      return check
+      this.errorPiiii = this.errorRelative('piiii => ', this.piiii, parseFloat(this.enterPiiii))
+      return this.errorPiiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedQi: function () {
-      let check
-      console.log('Qi => ' + 2 * this.focus + ' : ' + parseFloat(this.enterQi))
-      check = 2 * this.focus === parseFloat(this.enterQi) ? 'correct' : 'not-correct'
-      return check
+      this.errorQi = this.errorRelative('qi => ', 2 * this.focus, parseFloat(this.enterQi))
+      return this.errorQi < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedQii: function () {
-      let check
-      console.log('Qii => ' + 5 * this.focus + ' : ' + parseFloat(this.enterQii))
-      check = 5 * this.focus === parseFloat(this.enterQii) ? 'correct' : 'not-correct'
-      return check
+      this.errorQii = this.errorRelative('qii => ', 5 * this.focus, parseFloat(this.enterQii))
+      return this.errorQii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedQiii: function () {
-      let check
-      console.log('Qiii => ' + (-2 * this.focus) + ' : ' + this.enterQiii)
-      check = (-2 * this.focus) === this.enterQiii ? 'correct' : 'not-correct'
-      return check
+      this.errorQiii = this.errorRelative('qiii => ', -2 * this.focus, parseFloat(this.enterQiii))
+      return this.errorQiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedQiiii: function () {
-      let check
-      console.log('Qiiii => ' + (-5 * this.focus) + ' : ' + this.enterQiiii)
-      check = (-5 * this.focus) === this.enterQiiii ? 'correct' : 'not-correct'
-      return check
+      this.errorQiiii = this.errorRelative('qiiii => ', -5 * this.focus, parseFloat(this.enterQiiii))
+      return this.errorQiiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedMi: function () {
-      let check
-      console.log('Mi: ' + this.Mi + ' : ' + parseFloat(this.Mi))
-      check = this.Mi === parseFloat(this.enterMi) ? 'correct' : 'not-correct'
-      return check
+      this.errorMi = this.errorRelative('Mi => ', this.Mi, parseFloat(this.enterMi))
+      return this.errorMi < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedMii: function () {
-      let check
-      console.log('Mii: ' + this.Mii + ' : ' + parseFloat(this.Mii))
-      check = this.Mii === parseFloat(this.enterMii) ? 'correct' : 'not-correct'
-      return check
+      this.errorMii = this.errorRelative('Mii => ', this.Mii, parseFloat(this.enterMii))
+      return this.errorMii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedMiii: function () {
-      let check
-      console.log('Miii: ' + this.Miii + ' : ' + parseFloat(this.Miii))
-      check = this.Miii === parseFloat(this.enterMiii) ? 'correct' : 'not-correct'
-      return check
+      this.errorMiii = this.errorRelative('Miii => ', this.Miii, parseFloat(this.enterMiii))
+      return this.errorMiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedMiiii: function () {
-      let check
-      console.log('Miiii: ' + this.Miiii + ' : ' + parseFloat(this.Miiii))
-      check = this.Miiii === parseFloat(this.enterMiiii) ? 'correct' : 'not-correct'
-      return check
+      this.errorMiiii = this.errorRelative('Miiii => ', this.Miiii, parseFloat(this.enterMiiii))
+      return this.errorMiiii < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedRVi: function () {
       let check
@@ -261,8 +278,11 @@ export default {
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -270,22 +290,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -293,25 +297,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

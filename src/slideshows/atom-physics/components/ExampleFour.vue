@@ -2,26 +2,30 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem Suppose the electron in the simply ionized helium atom is spinning in the ground state. Calculate:
-    p.problem a) The necessary energy that must be supplied to the atom to bring it to n = 2, since the electron is spinning at n = 1.
-    p.problem b) The additional energy that must be supplied to the atom to bring the electron into orbit n = 4.
-    p.problem c) For that orbit (n = 4), the energy that must be given to the atom to release its electron.
-    p.problem d) Suppose that by carrying the electron in n = 4, it remains in that state for a time of 1x10^8 sec. Before returning to the ground state, calculate how many laps it will make in that state.
+    p(style="margin-top: 7px;").problem a) The necessary energy that must be supplied to the atom to bring it to n = {{ n1 }}, since the electron is spinning at n = 1.
+    p(style="margin-top: 7px;").problem b) The additional energy that must be supplied to the atom to bring the electron into orbit n = {{ n2 }}.
+    p(style="margin-top: 7px;").problem c) For that orbit (n = {{ n2 }}), the energy that must be given to the atom to release its electron.
+    p(style="margin-top: 7px;").problem d) Suppose that by carrying the electron in n = {{ n2 }}, it remains in that state for a time of {{ t }}x10^-8 seconds before returning to the ground state, calculate how many laps it will make in that state.
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data f<sub>Th</sub> (Hz)
-        input.center.data(:class="checkedFTh" v-model.number='enterFTh')
-      p.inline.data  φ (J)
-        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
-      p.inline.data f<sub>photon</sub> (Hz)
-        input.center.data(:class="checkedF" v-model.number='enterF')
-      p.inline.data E<sub>photon</sub> (J)
-        input.center.data(:class="checkedE" v-model='enterE')
-      p.inline.data K<sub>max</sub>
-        input.center.data(:class="checkedK" v-model='enterK')
-      p.inline.data V<sub>0</sub> (volts)
-        input.center.data(:class="checkedV0" v-model='enterV0')
-      p.inline.data  v<sub>max</sub> (m/s)
-        input.center.data(:class="checkedVmax" v-model.number='enterVmax')
+      p.inline.data E<sub>1-{{ n1 }}</sub> (eV)
+        input.center.data(:class="checkedEn1" v-model.number='enterEn1')
+        <span class="error" v-if="errorEn1">[e: {{ errorEn1.toPrecision(3) }}%]</span>
+      p.inline.data  E<sub>{{ n1 }}-{{ n2 }}</sub> (eV)
+        input.center.data(:class="checkedEn2" v-model.number='enterEn2')
+        <span class="error" v-if="errorEn2">[e: {{ errorEn2.toPrecision(3) }}%]</span>
+      p.inline.data E<sub>n:{{ n2 }}- release</sub> (eV)
+        input.center.data(:class="checkedErel" v-model.number='enterErel')
+        <span class="error" v-if="errorErel">[e: {{ errorErel.toPrecision(3) }}%]</span>
+      p.inline.data f<sub>n={{ n2 }}</sub> (Hz)
+        input.center.data(:class="checkedFn2" v-model='enterFn2')
+        <span class="error" v-if="errorFn2">[e: {{ errorFn2.toPrecision(3) }}%]</span>
+      p.inline.data t(s)
+        input.center.data(:class="checkedT" v-model='enterT')
+        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+      p.inline.data Laps <sub>in n={{ n2 }}</sub>
+        input.center.data(:class="checkedLaps" v-model='enterLaps')
+        <span class="error" v-if="errorLaps">[e: {{ errorLaps.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -29,13 +33,18 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterFTh: '',
-      enterPhi: '',
-      enterF: '',
-      enterE: '',
-      enterK: '',
-      enterV0: '',
-      enterVmax: '',
+      enterEn1: '',
+      errorEn1: 0,
+      enterEn2: '',
+      errorEn2: 0,
+      enterErel: '',
+      errorErel: 0,
+      enterFn2: '',
+      errorFn2: 0,
+      enterT: '',
+      errorT: 0,
+      enterLaps: '',
+      errorLaps: 0,
       h: 6.626e-34,
       e: 1.6e-19,
       c: 3e8,
@@ -44,71 +53,83 @@ export default {
     }
   },
   computed: {
-    thresholdF: function () {
-      let max = 200
-      let min = 100
-      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
+    n1: function () {
+      console.clear()
+      let max = 4
+      let min = 2
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    frequency: function () {
-      let max = 250
-      let min = (this.thresholdF / 1e15) * 10
-      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    n2: function () {
+      let max = 10
+      let min = this.n1 + 1
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    phi: function () {
-      return parseFloat((this.h * this.thresholdF).toPrecision(3))
+    t: function () {
+      let max = 9
+      let min = 1
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    eF: function () {
-      return parseFloat((this.h * this.frequency).toPrecision(4))
+    En1: function () {
+      return -13.6 * (1 / this.n1 ** 2 - 1)
     },
-    kMax: function () {
-      return parseFloat((this.h * (this.frequency - this.thresholdF)).toPrecision(4))
+    En2: function () {
+      return -13.6 * (1 / this.n2 ** 2 - 1 / this.n1 ** 1)
     },
-    v0: function () {
-      return parseFloat((this.eF / this.e).toPrecision(4))
+    Erel: function () {
+      return -13.6 * (0 - 1 / this.n2 ** 1)
     },
-    ve: function () {
-      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
+    fn2: function () {
+      return 13.606 * this.e / (this.n2 * this.h)
     },
-    checkedFTh: function () {
+    laps: function () {
+      return this.fn2 * this.t * 1e-8
+    },
+    checkedEn1: function () {
       let check
-      console.log('F threshold => ' + this.thresholdF + ' : ' + parseFloat(this.enterFTh))
-      check = this.thresholdF === parseFloat(this.enterFTh) ? 'correct' : 'not-correct'
+      console.log('E n1 => ' + this.En1 + ' : ' + parseFloat(this.enterEn1))
+      this.errorEn1 = 100 * Math.abs((this.En1 - parseFloat(this.enterEn1)) / (this.En1 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEn1 + ' %')
+      check = this.errorEn1 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedPhi: function () {
+    checkedEn2: function () {
       let check
-      console.log('Phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      console.log('E n2 => ' + this.En2 + ' : ' + parseFloat(this.enterEn2))
+      this.errorEn2 = 100 * Math.abs((this.En2 - parseFloat(this.enterEn2)) / (this.En2 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEn2 + ' %')
+      check = this.errorEn2 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedF: function () {
+    checkedErel: function () {
       let check
-      console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.enterF))
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      console.log('E release => ' + this.Erel + ' : ' + parseFloat(this.enterErel))
+      this.errorErel = 100 * Math.abs((this.Erel - parseFloat(this.enterErel)) / (this.Erel + Number.MIN_VALUE))
+      console.log('error  ' + this.errorErel + ' %')
+      check = this.errorErel < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedE: function () {
+    checkedFn2: function () {
       let check
-      console.log('Efoton => ' + this.eF + ' : ' + parseFloat(this.enterE))
-      check = this.eF === parseFloat(this.enterE) ? 'correct' : 'not-correct'
+      console.log('frequency => ' + this.fn2 + ' : ' + parseFloat(this.enterFn2))
+      this.errorFn2 = 100 * Math.abs((this.fn2 - parseFloat(this.enterFn2)) / (this.fn2 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorFn2 + ' %')
+      check = this.errorFn2 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedK: function () {
+    checkedT: function () {
       let check
-      console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterK))
-      check = this.kMax === parseFloat(this.enterK) ? 'correct' : 'not-correct'
+      console.log('t => ' + this.t * 1e-8 + ' : ' + parseFloat(this.enterT))
+      this.errorT = 100 * Math.abs((this.t * 1e-8 - parseFloat(this.enterT)) / (this.t * 1e-8 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorT + ' %')
+      check = this.errorT < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedV0: function () {
+    checkedLaps: function () {
       let check
-      console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
-      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedVmax: function () {
-      let check
-      console.log('vmax => ' + this.ve + ' : ' + this.enterVmax)
-      check = this.ve === this.enterVmax ? 'correct' : 'not-correct'
+      console.log('Laps => ' + this.laps + ' : ' + this.enterLaps)
+      this.errorLaps = 100 * Math.abs((this.laps - parseFloat(this.enterLaps)) / (this.laps + Number.MIN_VALUE))
+      console.log('error  ' + this.errorLaps + ' %')
+      check = this.errorLaps < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -132,8 +153,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -147,10 +168,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -165,5 +187,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

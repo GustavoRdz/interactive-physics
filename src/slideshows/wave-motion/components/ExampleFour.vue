@@ -1,25 +1,34 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the speed of sound in air at T = {{ temperature }}°C and find the range of wavelengths in air to which the human ear (which can hear frequencies in the range of 20–20,000 Hz) is sensitive. The mean molar, mass for air (a mixture of mostly nitrogen and oxygen) is M = 28.8 * 10<sup>-3</sup> kg/mol and the ratio of heat capacities is <span style="font-family: Times;">&gamma;</span> = {{ gamma }}.<br> R = 8.314472(15) J/mol·K
+    p.problem An {{ hikerMass }}-kg hiker is trapped on a mountain ledge following a storm. A helicopter rescues the hiker by hovering above him and lowering a cable to him. The mass of the cable is {{ cableMass }} kg, and its length is {{ length }} m. A sling of mass {{ slingMass }} kg is attached to the end of the cable. The hiker attaches himself to the sling, and the helicopter then accelerates upward. Terrified by hanging from the cable in midair, the hiker tries to signal the pilot by sending transverse pulses up the cable. A pulse takes {{ time }} s to travel the length of the cable. What is the acceleration of the helicopter? Assume the tension in the cable is uniform.
+
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Temperature (K) 
-        input.center.data(:class="checkedTemp" v-model.number='enterTemp')
-        <span class="error" v-if="errorTemp">[e: {{ errorTemp.toPrecision(3) }}%]</span>
-      p.inline.data  <span style="font-family: Times;">&gamma;</span>
-        input.center.data(:class="checkedGamma" v-model.number='enterGamma')
-      p.inline.data M (kg/mol)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-      p.inline.data v (m/s) 
+      p.inline.data Hiker mass (kg)
+        input.center.data(:class="checkedHikerMass" v-model.number='enterHikerMass')
+        <span class="error" v-if="errorHikerMass">[e: {{ errorHikerMass.toPrecision(3) }}%]</span>
+      p.inline.data Cable mass (kg)
+        input.center.data(:class="checkedCableMass" v-model.number='enterCableMass')
+        <span class="error" v-if="errorCableMass">[e: {{ errorCableMass.toPrecision(3) }}%]</span>
+      p.inline.data Length (m)
+        input.center.data(:class="checkedLength" v-model.number='enterLength')
+        <span class="error" v-if="errorLength">[e: {{ errorLength.toPrecision(3) }}%]</span>
+      p.inline.data Sling mass (kg)
+        input.center.data(:class="checkedSlingMass" v-model.number='enterSlingMass')
+        <span class="error" v-if="errorSlingMass">[e: {{ errorSlingMass.toPrecision(3) }}%]</span>
+      p.inline.data Pulse time travel (s)
+        input.center.data(:class="checkedTime" v-model='enterTime')
+        <span class="error" v-if="errorTime">[e: {{ errorTime.toPrecision(3) }}%]</span>
+      p.inline.data Speed (m/s)
         input.center.data(:class="checkedSpeed" v-model='enterSpeed')
         <span class="error" v-if="errorSpeed">[e: {{ errorSpeed.toPrecision(3) }}%]</span>
-      p.inline.data λ<sub>min</sub>(m)
-        input.center.data(:class="checkedLambdaMin" v-model.number='enterLambdaMin')
-        <span class="error" v-if="errorLambdaMin">[e: {{ errorLambdaMin.toPrecision(3) }}%]</span>
-      p.inline.data λ<sub>max</sub> (m) 
-        input.center.data(:class="checkedLambdaMax" v-model='enterLambdaMax')
-        <span class="error" v-if="errorLambdaMax">[e: {{ errorLambdaMax.toPrecision(3) }}%]</span>
+      p.inline.data Tension (N)
+        input.center.data(:class="checkedTension" v-model='enterTension')
+        <span class="error" v-if="errorTension">[e: {{ errorTension.toPrecision(3) }}%]</span>
+      p.inline.data Acceleration (m/s<sup>2</sup>)
+        input.center.data(:class="checkedAcceleration" v-model='enterAcceleration')
+        <span class="error" v-if="errorAcceleration">[e: {{ errorAcceleration.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -27,103 +36,106 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterTemp: '',
-      errorTemp: 0,
-      enterGamma: '',
-      errorGamma: '',
-      enterMass: '',
-      errorMass: 0,
+      enterHikerMass: '',
+      errorHikerMass: 0,
+      enterCableMass: '',
+      errorCableMass: 0,
+      enterLength: '',
+      errorLength: 0,
+      enterSlingMass: '',
+      errorSlingMass: 0,
+      enterTime: '',
+      errorTime: 0,
       enterSpeed: '',
       errorSpeed: 0,
-      enterLambdaMin: '',
-      errorLambdaMin: 0,
-      enterLambdaMax: '',
-      errorLambdaMax: 0,
-      fmin: 20,
-      fmax: 20000,
-      gamma: 1.4,
-      R: 8.314472,
-      M: 28.8e-3
+      enterTension: '',
+      errorTension: 0,
+      enterAcceleration: '',
+      errorAcceleration: 0
     }
   },
   computed: {
-    temperature: function () {
-      let max = 30
-      let min = 20
-      return Math.floor(Math.random() * (max - min + 1) + min)
+    hikerMass: function () {
+      console.clear()
+      let max = 90
+      let min = 70
+      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
+    },
+    cableMass: function () {
+      let max = 10
+      let min = 5
+      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
+    },
+    length: function () {
+      let max = 20
+      let min = 10
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
+    },
+    slingMass: function () {
+      let max = 70
+      let min = 50
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
+    },
+    time: function () {
+      let max = 300
+      let min = 200
+      return Math.round(1 * (Math.random() * (max - min + 1) + min)) / 1000
     },
     speed: function () {
-      return Math.sqrt(this.gamma * this.R * (this.temperature + 273.15) / this.M)
+      return this.length / this.time
     },
-    lambdaMin: function () {
-      return this.speed / this.fmax
+    density: function () {
+      return this.cableMass / this.length
     },
-    lambdaMax: function () {
-      return this.speed / this.fmin
+    tension: function () {
+      return this.density * this.speed ** 2
     },
-    checkedTemp: function () {
-      let check
-      console.log('T => ' + 1 * (this.temperature + 273.15) + ' : ' + parseFloat(this.enterTemp))
-      this.errorTemp = 100 * Math.abs(this.temperature + 273.15 - parseFloat(this.enterTemp)) / (this.temperature + 273.15)
-      console.log('error  ' + this.errorTemp + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorTemp < 1e-3 ? 'correct' : 'not-correct'
-      return check
+    acceleration: function () {
+      return (this.tension - (this.slingMass + this.hikerMass) * 9.81) / (this.slingMass + this.hikerMass)
     },
-    checkedGamma: function () {
-      let check
-      console.log('γ => ' + this.gamma + ' : ' + parseFloat(this.enterGamma))
-      this.errorGamma = 100 * Math.abs(this.gamma - parseFloat(this.enterGamma)) / this.gamma
-      console.log('error  ' + this.errorGamma + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorGamma < 1e0 ? 'correct' : 'not-correct'
-      return check
+    checkedHikerMass: function () {
+      this.errorHikerMass = this.errorRelative('Hiker mass => ', this.hikerMass, parseFloat(this.enterHikerMass))
+      return this.errorHikerMass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedMass: function () {
-      let check
-      console.log('Mass => ' + this.M + ' : ' + parseFloat(this.enterMass))
-      this.errorMass = 100 * Math.abs(this.M - parseFloat(this.enterMass)) / this.M
-      console.log('error  ' + this.errorMass + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorMass < 1e0 ? 'correct' : 'not-correct'
-      return check
+    checkedCableMass: function () {
+      this.errorCableMass = this.errorRelative('cable mass => ', this.cableMass, parseFloat(this.enterCableMass))
+      return this.errorCableMass < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedLength: function () {
+      this.errorLength = this.errorRelative('string length => ', this.length, parseFloat(this.enterLength))
+      return this.errorLength < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedSlingMass: function () {
+      this.errorSlingMass = this.errorRelative('Sling mass => ', this.slingMass, parseFloat(this.enterSlingMass))
+      return this.errorSlingMass < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedTime: function () {
+      this.errorTime = this.errorRelative('time => ', this.time, parseFloat(this.enterTime))
+      return this.errorTime < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedSpeed: function () {
-      let check
-      console.log('Speed => ' + this.speed + ' : ' + parseFloat(this.enterSpeed))
-      this.errorSpeed = 100 * Math.abs(this.speed - parseFloat(this.enterSpeed)) / this.speed
-      console.log('error  ' + this.errorSpeed + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorSpeed < 1e-2 ? 'correct' : 'not-correct'
-      return check
+      this.errorSpeed = this.errorRelative('speed => ', this.speed, parseFloat(this.enterSpeed))
+      return this.errorSpeed < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedLambdaMin: function () {
-      let check
-      console.log('λ min => ' + this.lambdaMin + ' : ' + parseFloat(this.enterLambdaMin))
-      this.errorLambdaMin = 100 * Math.abs(this.lambdaMin - parseFloat(this.enterLambdaMin)) / this.lambdaMin
-      console.log('error  ' + this.errorLambdaMin + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorLambdaMin < 1e-1 ? 'correct' : 'not-correct'
-      return check
+    checkedTension: function () {
+      this.errorTension = this.errorRelative('tension => ', this.tension, parseFloat(this.enterTension))
+      return this.errorTension < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedLambdaMax: function () {
-      let check
-      console.log('λ max => ' + this.lambdaMax + ' : ' + parseFloat(this.enterLambdaMax))
-      this.errorLambdaMax = 100 * Math.abs(this.lambdaMax - parseFloat(this.enterLambdaMax)) / this.lambdaMax
-      console.log('error  ' + this.errorLambdaMax + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorLambdaMax < 1e-1 ? 'correct' : 'not-correct'
-      return check
+    checkedAcceleration: function () {
+      this.errorAcceleration = this.errorRelative('a => ', this.acceleration, parseFloat(this.enterAcceleration))
+      return this.errorAcceleration < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
 }
-
 </script>
 
 <style lang='scss' scoped>
@@ -131,20 +143,8 @@ export default {
   .eg-slide-content {
     width: 100%;
     max-width: 100%;
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 100%;
-      margin-left: 10%;
-    }
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -152,22 +152,24 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
   margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }

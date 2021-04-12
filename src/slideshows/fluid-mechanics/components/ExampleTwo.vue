@@ -6,17 +6,23 @@
       .center
         p.solution Please do calculations and introduce your results
         p.inline.data Width (m)
-          input.center.data(:class="checkedRoomWidth" v-model.number='roomWidth')
+          input.center.data(:class="checkedWidth" v-model.number='enterWidth')
+          <span class="error" v-if="errorWidth">[e: {{ errorWidth.toPrecision(2) }}%]</span>
         p.inline.data Depth (m)
-          input.center.data(:class="checkedRoomLarge" v-model.number='roomLarge')
+          input.center.data(:class="checkedLarge" v-model.number='enterLarge')
+          <span class="error" v-if="errorLarge">[e: {{ errorLarge.toPrecision(2) }}%]</span>
         p.inline.data Height (m)
-          input.center.data(:class="checkedRoomHeight" v-model.number='roomHeight')
+          input.center.data(:class="checkedHeight" v-model.number='enterHeight')
+          <span class="error" v-if="errorHeight">[e: {{ errorHeight.toPrecision(2) }}%]</span>
         p.inline.data Pressure (S.I.)
-          input.center.data(:class="checked" v-model='fluidPressure')
+          input.center.data(:class="checkedPressure" v-model='enterPressure')
+          <span class="error" v-if="errorPressure">[e: {{ errorPressure.toPrecision(2) }}%]</span>
         p.inline.data Floor area (m<sup>2</sup>)
-          input.center.data(:class="checkedFloorArea" v-model='floorArea')
-        p.inline.data Pressure force (N)
-          input.center.data(:class="checkedPressureForce" v-model='pressureForce')
+          input.center.data(:class="checkedArea" v-model='enterArea')
+          <span class="error" v-if="errorArea">[e: {{ errorArea.toPrecision(2) }}%]</span>
+        p.inline.data Force (N)
+          input.center.data(:class="checkedForce" v-model='enterForce')
+          <span class="error" v-if="errorForce">[e: {{ errorForce.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -24,17 +30,23 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      roomHeight: '',
-      roomWidth: '',
-      roomLarge: '',
-      fluidDensity: '',
-      fluidPressure: '',
-      floorArea: '',
-      pressureForce: ''
+      enterHeight: '',
+      errorHeight: 0,
+      enterWidth: '',
+      errorWidth: 0,
+      enterLarge: '',
+      errorLarge: 0,
+      enterPressure: '',
+      errorPressure: 0,
+      enterArea: '',
+      errorArea: 0,
+      enterForce: '',
+      errorForce: 0
     }
   },
   computed: {
     height: function () {
+      console.clear()
       let max = 10
       let min = 3
       return Math.floor(Math.random() * (max - min + 1)) + min
@@ -50,57 +62,42 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
     area: function () {
-      return Math.round(this.width * this.large * 1000) / 1000
+      return this.width * this.large
     },
     force: function () {
-      return Math.round(this.fluidPressure * this.area * 1000) / 1000
+      return 101300 * this.area
     },
-    checkedRoomWidth: function () {
-      let check
-      console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
-      check = this.width === parseFloat(this.roomWidth) ? 'correct' : 'not-correct'
-      return check
+    checkedWidth: function () {
+      this.errorWidth = this.errorRelative('Width => ', this.width, parseFloat(this.enterWidth))
+      return this.errorWidth < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedRoomLarge: function () {
-      let check
-      console.log('depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
-      check = this.large === parseFloat(this.roomLarge) ? 'correct' : 'not-correct'
-      return check
+    checkedLarge: function () {
+      this.errorLarge = this.errorRelative('Large => ', this.large, parseFloat(this.enterLarge))
+      return this.errorLarge < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedRoomHeight: function () {
-      let check
-      console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
-      check = this.height === parseFloat(this.roomHeight) ? 'correct' : 'not-correct'
-      return check
+    checkedHeight: function () {
+      this.errorHeight = this.errorRelative('Height => ', this.height, parseFloat(this.enterHeight))
+      return this.errorHeight < 1e-1 ? 'correct' : 'not-correct'
     },
-    checked: function () {
-      let check
-      console.log('fluidPressure => ' + 101300 + ' : ' + parseFloat(this.fluidPressure))
-      check = parseFloat(this.fluidPressure) === 101300 ? 'correct' : 'not-correct'
-      return check
+    checkedPressure: function () {
+      this.errorPressure = this.errorRelative('Atmospheric pressure => ', 101300, parseFloat(this.enterPressure))
+      return this.errorPressure < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFloorArea: function () {
-      let check
-      console.log('area => ' + this.area + ' : ' + parseFloat(this.floorArea))
-      check = this.area === parseFloat(this.floorArea) ? 'correct' : 'not-correct'
-      return check
+    checkedArea: function () {
+      this.errorArea = this.errorRelative('Floor area => ', this.area, parseFloat(this.enterArea))
+      return this.errorArea < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedWeight: function () {
-      let check
-      console.log('weight => ' + this.weight + ' : ' + parseFloat(this.roomWidth))
-      check = this.weight === parseFloat(this.fluidWeight) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedPressureForce: function () {
-      let check
-      console.log('force => ' + this.force + ' : ' + parseFloat(this.pressureForce))
-      check = this.force === parseFloat(this.pressureForce) ? 'correct' : 'not-correct'
-      return check
+    checkedForce: function () {
+      this.errorForce = this.errorRelative('Force => ', this.force, parseFloat(this.enterForce))
+      return this.errorForce < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -110,46 +107,42 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
-
 }
-
 .problem {
-  margin: 5px 5px 5px 5px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
-  margin: 5px 5px 5px 5px;
+  margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
+  width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

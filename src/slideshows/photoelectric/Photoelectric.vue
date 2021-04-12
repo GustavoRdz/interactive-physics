@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }} </sup>
 
-    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
@@ -25,13 +25,13 @@
           p(v-if="step >= 1")
             <b>Black body radiation</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
-          p(v-if="step >= 2")
+          p(v-if="step >= 1")
             <b>Planck hypotesis</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
-          p(v-if="step>=3")
+          p(v-if="step>=1")
             <b>Photoelectric effect</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
-          p(v-if="step>=4")
+          p(v-if="step>=1")
             <b>X Rays</b>
 
     slide(:steps=1, enter='bounceInDown')

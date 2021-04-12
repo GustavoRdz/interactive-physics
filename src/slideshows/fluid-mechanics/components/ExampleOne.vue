@@ -5,42 +5,63 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data width (m)
-        input.center.data(:class="checkedRoomWidth" v-model.number='roomWidth')
+        input.center.data(:class="checkedWidth" v-model.number='enterWidth')
+        <span class="error" v-if="errorWidth">[e: {{ errorWidth.toPrecision(2) }}%]</span>
       p.inline.data Depth (m)
-        input.center.data(:class="checkedRoomLarge" v-model.number='roomLarge')
+        input.center.data(:class="checkedLarge" v-model.number='enterLarge')
+        <span class="error" v-if="errorLarge">[e: {{ errorLarge.toPrecision(2) }}%]</span>
       p.inline.data Height (m)
-        input.center.data(:class="checkedRoomHeight" v-model.number='roomHeight')
-      p.inline.data Fluid Volume (m<sup>3</sup>)
-        input.center.data(:class="checked" v-model='fluidVolume')
-      p.inline.data Fluid density (kg/m<sup>3</sup>)
-        input.center.data(:class="checkedFluidDensity" v-model='fluidDensity')
-      p.inline.data Fluid mass (kg)
-        input.center.data(:class="checkedMass" v-model='fluidMass')
-      p.inline.data Fluid weight (N)
-        input.center.data(:class="checkedWeight" v-model='fluidWeight')
+        input.center.data(:class="checkedHeight" v-model.number='enterHeight')
+        <span class="error" v-if="errorHeight">[e: {{ errorHeight.toPrecision(2) }}%]</span>
+      <br>
+      p.inline.data Air Vol. (m<sup>3</sup>)
+        input.center.data(:class="checkedVolume" v-model='enterVolume')
+        <span class="error" v-if="errorVolume">[e: {{ errorVolume.toPrecision(2) }}%]</span>
+      p.inline.data Air density (kg/m<sup>3</sup>)
+        input.center.data(:class="checkedAirDensity" v-model='enterAirDensity')
+        <span class="error" v-if="errorAirDensity">[e: {{ errorAirDensity.toPrecision(2) }}%]</span>
+      p.inline.data Air mass (kg)
+        input.center.data(:class="checkedAirMass" v-model='enterAirMass')
+        <span class="error" v-if="errorAirMass">[e: {{ errorAirMass.toPrecision(2) }}%]</span>
+      p.inline.data Air weight (N)
+        input.center.data(:class="checkedAirWeight" v-model='enterAirWeight')
+        <span class="error" v-if="errorAirWeight">[e: {{ errorAirWeight.toPrecision(2) }}%]</span>
+      <br>
       p.inline.data Water mass (kg)
-        input.center.data(:class="checkedWaterMass" v-model='waterFluidMass')
+        input.center.data(:class="checkedWaterMass" v-model='enterWaterMass')
+        <span class="error" v-if="errorWaterMass">[e: {{ errorWaterMass.toPrecision(2) }}%]</span>
       p.inline.data Water weight (N)
-        input.center.data(:class="checkedWaterWeight" v-model='waterFluidWeight')
+        input.center.data(:class="checkedWaterWeight" v-model='enterWaterWeight')
+        <span class="error" v-if="errorWaterWeight">[e: {{ errorWaterWeight.toPrecision(2) }}%]</span>
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      roomHeight: '',
-      roomWidth: '',
-      roomLarge: '',
-      fluidDensity: '',
-      fluidVolume: '',
-      fluidMass: '',
-      fluidWeight: '',
-      waterFluidMass: '',
-      waterFluidWeight: ''
+      enterHeight: '',
+      errorHeight: 0,
+      enterWidth: '',
+      errorWidth: 0,
+      enterLarge: '',
+      errorLarge: 0,
+      enterAirDensity: '',
+      errorAirDensity: 0,
+      enterVolume: '',
+      errorVolume: 0,
+      enterAirMass: '',
+      errorAirMass: 0,
+      enterAirWeight: '',
+      errorAirWeight: 0,
+      enterWaterMass: '',
+      errorWaterMass: 0,
+      enterWaterWeight: '',
+      errorWaterWeight: 0
     }
   },
   computed: {
     height: function () {
+      console.clear()
       let max = 1000
       let min = 300
       return Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
@@ -56,79 +77,63 @@ export default {
       return Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
     },
     volume: function () {
-      return Math.round(this.roomHeight * this.roomWidth * this.roomLarge * 1000) / 1000
+      return this.height * this.width * this.large
     },
     mass: function () {
-      return Math.round(this.fluidDensity * this.volume * 1000) / 1000
+      return 1.2 * this.volume
     },
     weight: function () {
-      return Math.round(this.mass * 9.81 * 1000) / 1000
+      return this.mass * 9.81
     },
     waterMass: function () {
-      return Math.round(1000 * this.volume * 1000) / 1000
+      return 1000 * this.volume
     },
     waterWeight: function () {
-      return Math.round(this.waterMass * 9.81 * 1000) / 1000
+      return this.waterMass * 9.81
     },
-    checkedRoomWidth: function () {
-      let check
-      console.log('width => ' + this.width + ' : ' + parseFloat(this.roomWidth))
-      check = this.width === parseFloat(this.roomWidth) ? 'correct' : 'not-correct'
-      return check
+    checkedWidth: function () {
+      this.errorWidth = this.errorRelative('Width => ', this.width, parseFloat(this.enterWidth))
+      return this.errorWidth < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedRoomLarge: function () {
-      let check
-      console.log('Depth => ' + this.large + ' : ' + parseFloat(this.roomLarge))
-      check = this.large === parseFloat(this.roomLarge) ? 'correct' : 'not-correct'
-      return check
+    checkedLarge: function () {
+      this.errorLarge = this.errorRelative('Depth => ', this.large, parseFloat(this.enterLarge))
+      return this.errorLarge < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedRoomHeight: function () {
-      let check
-      console.log('height => ' + this.height + ' : ' + parseFloat(this.roomHeight))
-      check = this.height === parseFloat(this.roomHeight) ? 'correct' : 'not-correct'
-      return check
+    checkedHeight: function () {
+      this.errorHeight = this.errorRelative('height => ', this.height, parseFloat(this.enterHeight))
+      return this.errorHeight < 1e-1 ? 'correct' : 'not-correct'
     },
-    checked: function () {
-      let check
-      console.log('volume => ' + this.volume + ' : ' + parseFloat(this.fluidVolume))
-      check = this.volume === parseFloat(this.fluidVolume) ? 'correct' : 'not-correct'
-      return check
+    checkedVolume: function () {
+      this.errorVolume = this.errorRelative('Volume => ', this.volume, parseFloat(this.enterVolume))
+      return this.errorVolume < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFluidDensity: function () {
-      let check
-      console.log('fluidDensity => ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
-      check = parseFloat(this.fluidDensity) === 1.2 ? 'correct' : 'not-correct'
-      return check
+    checkedAirDensity: function () {
+      this.errorAirDensity = this.errorRelative('Air density => ', 1.2, parseFloat(this.enterAirDensity))
+      return this.errorAirDensity < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedMass: function () {
-      let check
-      console.log('airMass => ' + this.mass + ' : ' + parseFloat(this.fluidMass))
-      check = this.mass === parseFloat(this.fluidMass) ? 'correct' : 'not-correct'
-      return check
+    checkedAirMass: function () {
+      this.errorAirMass = this.errorRelative('Air mass => ', this.mass, parseFloat(this.enterAirMass))
+      return this.errorAirMass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedWeight: function () {
-      let check
-      console.log('airWeight => ' + this.weight + ' : ' + parseFloat(this.fluidWeight))
-      check = this.weight === parseFloat(this.fluidWeight) ? 'correct' : 'not-correct'
-      return check
+    checkedAirWeight: function () {
+      this.errorAirWeight = this.errorRelative('Weight => ', this.weight, parseFloat(this.enterAirWeight))
+      return this.errorAirWeight < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWaterMass: function () {
-      let check
-      console.log('waterMass => ' + this.waterMass + ' : ' + parseFloat(this.waterFluidMass))
-      check = this.waterMass === parseFloat(this.waterFluidMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorWaterMass = this.errorRelative('Water mass => ', this.waterMass, parseFloat(this.enterWaterMass))
+      return this.errorWaterMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWaterWeight: function () {
-      let check
-      console.log('waterWeight => ' + this.waterWeight + ' : ' + parseFloat(this.waterFluidWeight))
-      this.correct = true
-      check = this.waterWeight === parseFloat(this.waterFluidWeight) ? 'correct' : 'not-correct'
-      return check
+      this.errorWaterWeight = this.errorRelative('Water weight => ', this.waterWeight, parseFloat(this.enterWaterWeight))
+      return this.errorWaterWeight < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -138,20 +143,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -159,25 +154,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

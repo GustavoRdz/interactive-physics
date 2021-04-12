@@ -19,10 +19,13 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data A
         input.center.data(:class="checkedA" v-model='enterA')
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
       p.inline.data a (m)
         input.center.data(:class="checkeda" v-model='entera')
+        <span class="error" v-if="errora">[e: {{ errora.toPrecision(3) }}%]</span>
       p.inline.data r  (m)
         input.center.data(:class="checkedR" v-model='enterR')
+        <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -33,8 +36,11 @@ export default {
   data: function () {
     return {
       enterA: '',
+      errorA: 0,
       entera: '',
+      errora: 0,
       enterR: '',
+      errorR: 0,
       iso: iso,
       a: 1.2e-15
     }
@@ -64,24 +70,30 @@ export default {
       return this.iso[this.elements[this.element]].z
     },
     radius: function () {
-      return parseFloat((this.a * Math.pow(this.masic, 1 / 3)).toPrecision(4))
+      return this.a * Math.pow(this.masic, 1 / 3)
     },
     checkedA: function () {
       let check
       console.log('A: => ' + this.masic + ' : ' + parseFloat(this.enterA))
-      check = this.masic === parseFloat(this.enterA) ? 'correct' : 'not-correct'
+      this.errorA = 100 * Math.abs((this.masic - parseFloat(this.enterA)) / (this.masic + Number.MIN_VALUE))
+      console.log('error  ' + this.errorA + ' %')
+      check = this.errorA < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkeda: function () {
       let check
       console.log('a: => ' + this.a + ' : ' + parseFloat(this.entera))
-      check = this.a === parseFloat(this.entera) ? 'correct' : 'not-correct'
+      this.errora = 100 * Math.abs((this.a - parseFloat(this.entera)) / (this.a + Number.MIN_VALUE))
+      console.log('error  ' + this.errora + ' %')
+      check = this.errora < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedR: function () {
       let check
       console.log('r: => ' + this.radius + ' : ' + parseFloat(this.enterR))
-      check = this.radius === parseFloat(this.enterR) ? 'correct' : 'not-correct'
+      this.errorR = 100 * Math.abs((this.radius - parseFloat(this.enterR)) / (this.radius + Number.MIN_VALUE))
+      console.log('error  ' + this.errorR + ' %')
+      check = this.errorR < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -105,26 +117,26 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
 
 .data {
   display: inline-block;
-  width: 130px;
+  width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
-  font-family: arial;
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -139,5 +151,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

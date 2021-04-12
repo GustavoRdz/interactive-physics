@@ -5,13 +5,17 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Gauge measurement (Pa)
-        input.center.data(:class="checkedGaugeMeasurement" v-model.number='gaugeMeasurement')
+        input.center.data(:class="checkedGauge" v-model.number='enterGauge')
+        <span class="error" v-if="errorGauge">[e: {{ errorGauge.toPrecision(2) }}%]</span>
       p.inline.data Surface area (m<sup>2</sup>)
-        input.center.data(:class="checkedSurfaceArea" v-model.number='surfaceArea')
+        input.center.data(:class="checkedArea" v-model.number='enterArea')
+        <span class="error" v-if="errorArea">[e: {{ errorArea.toPrecision(2) }}%]</span>
       p.inline.data Force (N)
-        input.center.data(:class="checkedCarWeight" v-model.number='carWeight')
+        input.center.data(:class="checkedWeight" v-model.number='enterWeight')
+        <span class="error" v-if="errorWeight">[e: {{ errorWeight.toPrecision(2) }}%]</span>
       p.inline.data Car mass (kg)
-        input.center.data(:class="checkedCarMass" v-model.number='carMass')
+        input.center.data(:class="checkedMass" v-model.number='enterMass')
+        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -19,14 +23,20 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      gaugeMeasurement: '',
-      surfaceArea: '',
-      carWeight: '',
-      carMass: ''
+      enterGauge: '',
+      errorGauge: 0,
+      enterArea: '',
+      errorArea: 0,
+      enterWeight: '',
+      errorWeight: 0,
+      enterMass: '',
+      errorMass: 0,
+      g: 9.81
     }
   },
   computed: {
     tirePressure: function () {
+      console.clear()
       let max = 180
       let min = 250
       return Math.floor(Math.random() * (max - min + 1)) + min
@@ -37,41 +47,34 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
     force: function () {
-      // pressure of the small column of air
-      console.log('Weight final: ' + Math.round(this.tirePressure * this.tireContactArea * 4 / 10000) / 1)
-      return Math.round(this.tirePressure * 1000 * this.tireContactArea * 4 / 10) / 1000
+      return 4 * this.tirePressure * 1e3 * this.tireContactArea * 1e-4
     },
     mass: function () {
-      return Math.round(1000 * this.force / 9.81) / 1000
+      return this.force / this.g
     },
-    checkedGaugeMeasurement: function () {
-      let check
-      console.log('Pressure: ' + this.tirePressure * 1000 + ' : ' + parseFloat(this.gaugeMeasurement))
-      check = this.tirePressure * 1000 === parseFloat(this.gaugeMeasurement) ? 'correct' : 'not-correct'
-      return check
+    checkedGauge: function () {
+      this.errorGauge = this.errorRelative('Tire pressure => ', this.tirePressure * 1000, parseFloat(this.enterGauge))
+      return this.errorGauge < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedSurfaceArea: function () {
-      let check
-      console.log('Area: ' + 4 * this.tireContactArea / 10000 + ' : ' + parseFloat(this.surfaceArea))
-      check = 4 * this.tireContactArea / 10000 === parseFloat(this.surfaceArea) ? 'correct' : 'not-correct'
-      return check
+    checkedArea: function () {
+      this.errorArea = this.errorRelative('Tire contact area => ', 4 * this.tireContactArea * 1e-4, parseFloat(this.enterArea))
+      return this.errorArea < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedCarWeight: function () {
-      let check
-      console.log('Weight final: ' + this.force + ' : ' + parseFloat(this.carWeight))
-      check = this.force === parseFloat(this.carWeight) ? 'correct' : 'not-correct'
-      return check
+    checkedWeight: function () {
+      this.errorWeight = this.errorRelative('Car weight => ', this.force, parseFloat(this.enterWeight))
+      return this.errorWeight < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedCarMass: function () {
-      let check
-      console.log('Mass: ' + this.mass + ' : ' + parseFloat(this.carMass))
-      check = this.mass === parseFloat(this.carMass) ? 'correct' : 'not-correct'
-      return check
+    checkedMass: function () {
+      this.errorMass = this.errorRelative('Car mass => ', this.mass, parseFloat(this.enterMass))
+      return this.errorMass < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -81,20 +84,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -102,25 +95,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

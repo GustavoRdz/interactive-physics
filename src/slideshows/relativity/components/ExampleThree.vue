@@ -6,16 +6,22 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Velocity of A from the Earth (in c)
         input.center.data(:class="checkedAMoon" v-model.number='enterAMoon')
+        <span class="error" v-if="errorAMoon">[e: {{ errorAMoon.toPrecision(3) }}%]</span>
       p.inline.data Velocity of B from the Earth (in c)
         input.center.data(:class="checkedBMoon" v-model.number='enterBMoon')
+        <span class="error" v-if="errorBMoon">[e: {{ errorBMoon.toPrecision(3) }}%]</span>
       p.inline.data Velocity of B from A (in c)
         input.center.data(:class="checkedBA" v-model.number='enterBA')
+        <span class="error" v-if="errorBA">[e: {{ errorBA.toPrecision(3) }}%]</span>
       p.inline.data Velocity of A from B (in c)
         input.center.data(:class="checkedAB" v-model='enterAB')
+        <span class="error" v-if="errorAB">[e: {{ errorAB.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the Earth from A (in c)
         input.center.data(:class="checkedMoonA" v-model='enterMoonA')
+        <span class="error" v-if="errorMoonA">[e: {{ errorMoonA.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the Earth from B (in c)
         input.center.data(:class="checkedMoonB" v-model='enterMoonB')
+        <span class="error" v-if="errorMoonB">[e: {{ errorMoonB.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -24,69 +30,94 @@ export default {
   data: function () {
     return {
       enterAMoon: '',
+      errorAMoon: 0,
       enterBMoon: '',
+      errorBMoon: 0,
       enterBA: '',
+      errorBA: 0,
       enterAB: '',
+      errorAB: 0,
       enterMoonA: '',
+      errorMoonA: 0,
       enterMoonB: '',
+      errorMoonB: 0,
       direction: '',
       side: ''
     }
   },
   computed: {
     speedA: function () {
+      console.clear()
       let max = 100
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
       this.side = this.direction === 1 ? 'rigth' : 'left'
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction * 3e8
+      return Math.round(Math.random() * (max - min + 1) + min) * this.direction * 3e8 / 100
     },
     speedB: function () {
       let max = 50
       let min = 20
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction * 3e8
+      return Math.round(Math.random() * (max - min + 1) + min) * this.direction * 3e8 / 100
     },
     speedAB: function () {
-      return this.speedB - this.speedA
+      return this.speedA - this.speedB
     },
     speedBA: function () {
       // v2 = v1 -v
-      return this.speedA - this.speedB
+      return this.speedB - this.speedA
     },
     checkedAMoon: function () {
       let check
-      console.log('A from M => ' + (this.speedA / 3e8) + ' : ' + parseFloat(this.enterAMoon))
-      check = (this.speedA / 3e8) === parseFloat(this.enterAMoon) ? 'correct' : 'not-correct'
+      let elem = this.speedA / 3e8
+      console.log('A from M => ' + elem + ' : ' + parseFloat(this.enterAMoon))
+      this.errorAMoon = 100 * Math.abs((elem - parseFloat(this.enterAMoon)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorAMoon + ' %')
+      check = this.errorAMoon < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedBMoon: function () {
       let check
-      console.log('B from M => ' + (this.speedB / 3e8) + ' : ' + parseFloat(this.enterBMoon))
-      check = (this.speedB / 3e8) === parseFloat(this.enterBMoon) ? 'correct' : 'not-correct'
+      let elem = this.speedB / 3e8
+      console.log('B from M => ' + elem + ' : ' + parseFloat(this.enterBMoon))
+      this.errorBMoon = 100 * Math.abs((elem - parseFloat(this.enterBMoon)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorBMoon + ' %')
+      check = this.errorBMoon < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedBA: function () {
       let check
-      console.log('B from A => ' + (this.speedBA / 3e8) + ' : ' + parseFloat(this.enterBA))
-      check = (this.speedBA / 3e8) === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
+      let elem = this.speedBA / 3e8
+      console.log('B from A => ' + elem + ' : ' + parseFloat(this.enterBA))
+      this.errorBA = 100 * Math.abs((elem - parseFloat(this.enterBA)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorBA + ' %')
+      check = this.errorBA < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedAB: function () {
       let check
-      console.log('A from B => ' + (this.speedAB / 3e8) + ' : ' + parseFloat(this.enterAB))
-      check = (this.speedAB / 3e8) === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
+      let elem = this.speedAB / 3e8
+      console.log('A from B => ' + elem + ' : ' + parseFloat(this.enterAB))
+      this.errorAB = 100 * Math.abs((elem - parseFloat(this.enterAB)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorAB + ' %')
+      check = this.errorAB < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedMoonA: function () {
       let check
-      console.log('M from A => ' + (this.speedA * -this.direction / 3e8) + ' : ' + parseFloat(this.enterMoonA))
-      check = (this.speedA * -this.direction / 3e8) === parseFloat(this.enterMoonA) ? 'correct' : 'not-correct'
+      let elem = -this.speedA / 3e8
+      console.log('M from A => ' + elem + ' : ' + parseFloat(this.enterMoonA))
+      this.errorMoonA = 100 * Math.abs((elem - parseFloat(this.enterMoonA)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorMoonA + ' %')
+      check = this.errorMoonA < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedMoonB: function () {
       let check
-      console.log('M from B => ' + (this.speedB * -this.direction / 3e8) + ' : ' + parseFloat(this.enterMoonB))
-      check = (this.speedB * -this.direction / 3e8) === parseFloat(this.enterMoonB) ? 'correct' : 'not-correct'
+      let elem = -this.speedB / 3e8
+      console.log('M from B => ' + elem + ' : ' + parseFloat(this.enterMoonB))
+      this.errorMoonB = 100 * Math.abs((elem - parseFloat(this.enterMoonB)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorMoonB + ' %')
+      check = this.errorMoonB < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -110,8 +141,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -125,10 +156,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -143,5 +175,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

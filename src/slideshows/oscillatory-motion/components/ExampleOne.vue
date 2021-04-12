@@ -1,15 +1,18 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ frequency / 1e6 }} MHz. How long does each oscillation take, and what is the angular frequency?
+    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Frequency: f (Hz)
-        input.center.data(:class="checkedFrequency" v-model.number='freq')
+        input.center.data(:class="checkedF" v-model.number='enterF')
+        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
       p.inline.data Period:T (s)
-        input.center.data(:class="checkedPeriod" v-model.number='peri')
+        input.center.data(:class="checkedT" v-model.number='enterT')
+        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
       p.inline.data Angular frequency: &omega; (rad/s)
-        input.center.data(:class="checkedAngularFreq" v-model.number='angular')
+        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
+        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -17,53 +20,49 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      freq: '',
-      peri: '',
-      angular: ''
+      enterF: '',
+      errorF: 0,
+      enterT: '',
+      errorT: 0,
+      enterOmega: '',
+      errorOmega: 0
     }
   },
   computed: {
     frequency: function () {
+      console.clear()
       let max = 8
       let min = 5
-      // return Math.round(1000 * ((Math.random() * (max - min + 1)) + min)) / 1000
-      return 1e6 * parseFloat(((Math.random() * (max - min + 1)) + min).toPrecision(4))
+      return 1e6 * (Math.random() * (max - min + 1) + min)
     },
     period: function () {
-      return parseFloat((1 / this.frequency).toPrecision(4))
+      return 1 / this.frequency
     },
-    angularFrequency: function () {
-      // return Math.round(2 * Math.PI * (this.frequency * 1e6) * 1000) / 1000
-      return parseFloat((2 * Math.PI * this.frequency).toPrecision(4))
+    omega: function () {
+      return 2 * Math.PI * this.frequency
     },
     errorAngular: function () {
       return Math.abs(this.angular - this.angularFrequency) / this.angularFrequency
     },
-    checkedFrequency: function () {
-      let check
-      console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.freq))
-      // check = this.frequency === parseFloat(this.freq) ? 'correct' : 'not-correct'
-      check = Math.abs(this.frequency - parseFloat(this.freq)) / this.frequency < 0.01 ? 'correct' : 'not-correct'
-      return check
+    checkedF: function () {
+      this.errorF = this.errorRelative('frequency => ', this.frequency, parseFloat(this.enterF))
+      return this.errorF < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPeriod: function () {
-      let check
-      console.log('Period => ' + this.period + ' : ' + parseFloat(this.peri))
-      console.log('error => ' + 1 * (Math.abs(this.period - parseFloat(this.peri)) / this.period) + ':' + this.period * 0.01)
-      check = Math.abs(this.period - parseFloat(this.peri)) / this.period < 0.005 ? 'correct' : 'not-correct'
-      return check
+    checkedT: function () {
+      this.errorT = this.errorRelative('Period => ', this.period, parseFloat(this.enterT))
+      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedAngularFreq: function () {
-      let check
-      console.log('Angular frequency => ' + this.angularFrequency + ' : ' + parseFloat(this.angular))
-      console.log('error  ' + 1 * (this.angularFrequency - parseFloat(this.angular)) / this.angularFrequency + ' : ' + 0.01 * this.angularFrequency)
-      check = Math.abs(this.angularFrequency - parseFloat(this.angular)) / this.angularFrequency < 1e-9 ? 'correct' : 'not-correct'
-      return check
+    checkedOmega: function () {
+      this.errorOmega = this.errorRelative('Angular freq => ', this.omega, parseFloat(this.enterOmega))
+      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -71,22 +70,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -94,25 +77,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

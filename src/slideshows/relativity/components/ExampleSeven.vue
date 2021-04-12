@@ -6,22 +6,32 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data L<sub>1</sub> (m)
         input.center.data(:class="checkedL1" v-model.number='enterL1')
+        <span class="error" v-if="errorL1">[e: {{ errorL1.toPrecision(3) }}%]</span>
       p.inline.data &#x03B8;<sub>1</sub> (degrees)
         input.center.data(:class="checkedT1" v-model.number='enterT1')
+        <span class="error" v-if="errorT1">[e: {{ errorT1.toPrecision(3) }}%]</span>
       p.inline.data L<sub>1x</sub> (m)
         input.center.data(:class="checkedL1x" v-model.number='enterL1x')
+        <span class="error" v-if="errorL1x">[e: {{ errorL1x.toPrecision(3) }}%]</span>
       p.inline.data L<sub>1y</sub> (m)
         input.center.data(:class="checkedL1y" v-model.number='enterL1y')
+        <span class="error" v-if="errorL1y">[e: {{ errorL1y.toPrecision(3) }}%]</span>
+      <br>
       p.inline.data v (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
+        <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(3) }}%]</span>
       p.inline.data L<sub>2x</sub> (m)
         input.center.data(:class="checkedL2x" v-model.number='enterL2x')
+        <span class="error" v-if="errorL2x">[e: {{ errorL2x.toPrecision(3) }}%]</span>
       p.inline.data L<sub>2y</sub> (m)
         input.center.data(:class="checkedL2y" v-model.number='enterL2y')
+        <span class="error" v-if="errorL2y">[e: {{ errorL2y.toPrecision(3) }}%]</span>
       p.inline.data L<sub>2</sub> (m)
         input.center.data(:class="checkedL2" v-model.number='enterL2')
+        <span class="error" v-if="errorL2">[e: {{ errorL2.toPrecision(3) }}%]</span>
       p.inline.data &#x03B8;<sub>2</sub> (degrees)
         input.center.data(:class="checkedT2" v-model.number='enterT2')
+        <span class="error" v-if="errorT2">[e: {{ errorT2.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -30,20 +40,30 @@ export default {
   data: function () {
     return {
       enterL1: '',
+      errorL1: 0,
       enterL1x: '',
+      errorL1x: 0,
       enterL1y: '',
+      errorL1y: 0,
       enterT1: '',
+      errorT1: 0,
       enterL2: '',
+      errorL2: 0,
       enterL2x: '',
+      errorL2x: 0,
       enterL2y: '',
+      errorL2y: 0,
       enterT2: '',
+      errorT2: 0,
       enterV: '',
+      errorV: 0,
       direction: '',
       side: ''
     }
   },
   computed: {
     l1: function () {
+      console.clear()
       let max = 20
       let min = 10
       return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1
@@ -79,63 +99,51 @@ export default {
       return Math.round(1000 * 180 * Math.atan2(this.l2y, this.l2x) / Math.PI) / 1000
     },
     checkedL1: function () {
-      let check
-      console.log('L1 => ' + this.l1 + ' : ' + parseFloat(this.enterL1))
-      check = this.l1 === parseFloat(this.enterL1) ? 'correct' : 'not-correct'
-      return check
+      this.errorL1 = this.errorRelative('length 1 => ', this.l1, parseFloat(this.enterL1))
+      return this.errorL1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedT1: function () {
-      let check
-      console.log('Theta1 => ' + this.T1 + ' : ' + parseFloat(this.enterT1))
-      check = this.T1 === parseFloat(this.enterT1) ? 'correct' : 'not-correct'
-      return check
+      this.errorT1 = this.errorRelative('theta 1 => ', this.T1, parseFloat(this.enterT1))
+      return this.errorT1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL1x: function () {
-      let check
-      console.log('L1x => ' + this.l1x + ' : ' + parseFloat(this.enterL1x))
-      check = this.l1x === parseFloat(this.enterL1x) ? 'correct' : 'not-correct'
-      return check
+      this.errorL1x = this.errorRelative('length 1x => ', this.l1x, parseFloat(this.enterL1x))
+      return this.errorL1x < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL1y: function () {
-      let check
-      console.log('L1y => ' + this.l1y + ' : ' + parseFloat(this.enterL1y))
-      check = this.l1y === parseFloat(this.enterL1y) ? 'correct' : 'not-correct'
-      return check
+      this.errorL1y = this.errorRelative('length 1y => ', this.l1y, parseFloat(this.enterL1y))
+      return this.errorL1y < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV: function () {
-      let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
-      return check
+      this.errorV = this.errorRelative('speed => ', this.speed, parseFloat(this.enterV))
+      return this.errorV < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL2x: function () {
-      let check
-      console.log('L2x => ' + this.l2x + ' : ' + parseFloat(this.enterL2x))
-      check = this.l2x === parseFloat(this.enterL2x) ? 'correct' : 'not-correct'
-      return check
+      this.errorL2x = this.errorRelative('length 2x => ', this.l2x, parseFloat(this.enterL2x))
+      return this.errorL2x < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL2y: function () {
-      let check
-      console.log('L2y => ' + this.l2y + ' : ' + parseFloat(this.enterL2y))
-      check = this.l2y === parseFloat(this.enterL2y) ? 'correct' : 'not-correct'
-      return check
+      this.errorL2y = this.errorRelative('length 2y => ', this.l2y, parseFloat(this.enterL2y))
+      return this.errorL2y < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL2: function () {
-      let check
-      console.log('L2 => ' + this.l2 + ' : ' + parseFloat(this.enterL2))
-      check = this.l2 === parseFloat(this.enterL2) ? 'correct' : 'not-correct'
-      return check
+      this.errorL2 = this.errorRelative('length 2 => ', this.l2, parseFloat(this.enterL2))
+      return this.errorL2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedT2: function () {
-      let check
-      console.log('Theta2 => ' + this.T2 + ' : ' + parseFloat(this.enterT2))
-      check = this.T2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      return check
+      this.errorT2 = this.errorRelative('Theta 2 => ', this.T2, parseFloat(this.enterT2))
+      return this.errorT2 < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
     message: function (name) {
       return
+    },
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -153,8 +161,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -168,10 +176,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -186,5 +195,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

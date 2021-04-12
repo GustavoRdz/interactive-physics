@@ -6,18 +6,25 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data f<sub>Th</sub> (Hz)
         input.center.data(:class="checkedFTh" v-model.number='enterFTh')
+        <span class="error" v-if="errorFTh">[e: {{ errorFTh.toPrecision(3) }}%]</span>
       p.inline.data  φ (J)
         input.center.data(:class="checkedPhi" v-model.number='enterPhi')
+        <span class="error" v-if="errorPhi">[e: {{ errorPhi.toPrecision(3) }}%]</span>
       p.inline.data f<sub>photon</sub> (Hz)
         input.center.data(:class="checkedF" v-model.number='enterF')
+        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
       p.inline.data E<sub>photon</sub> (J)
         input.center.data(:class="checkedE" v-model='enterE')
+        <span class="error" v-if="errorE">[e: {{ errorE.toPrecision(3) }}%]</span>
       p.inline.data K<sub>max</sub>
         input.center.data(:class="checkedK" v-model='enterK')
+        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
       p.inline.data V<sub>0</sub> (volts)
         input.center.data(:class="checkedV0" v-model='enterV0')
+        <span class="error" v-if="errorV0">[e: {{ errorV0.toPrecision(3) }}%]</span>
       p.inline.data  v<sub>max</sub> (m/s)
         input.center.data(:class="checkedVmax" v-model.number='enterVmax')
+        <span class="error" v-if="errorVmax">[e: {{ errorVmax.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -26,12 +33,19 @@ export default {
   data: function () {
     return {
       enterFTh: '',
+      errorFTh: 0,
       enterPhi: '',
+      errorPhi: 0,
       enterF: '',
+      errorF: 0,
       enterE: '',
+      errorE: 0,
       enterK: '',
+      errorK: 0,
       enterV0: '',
+      errorV0: 0,
       enterVmax: '',
+      errorVmax: 0,
       h: 6.626e-34,
       e: 1.6e-19,
       c: 3e8,
@@ -48,63 +62,79 @@ export default {
     frequency: function () {
       let max = 250
       let min = (this.thresholdF / 1e15) * 10
-      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+      return 1e15 * Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
     phi: function () {
-      return parseFloat((this.h * this.thresholdF).toPrecision(3))
+      return this.h * this.thresholdF
     },
     eF: function () {
-      return parseFloat((this.h * this.frequency).toPrecision(4))
+      return this.h * this.frequency
     },
     kMax: function () {
-      return parseFloat((this.h * (this.frequency - this.thresholdF)).toPrecision(4))
+      return this.h * (this.frequency - this.thresholdF)
     },
     v0: function () {
-      return parseFloat((this.eF / this.e).toPrecision(4))
+      let v = this.kMax / this.e
+      return v > 0 ? v : 0
     },
     ve: function () {
-      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
+      let v = Math.sqrt(2 * this.kMax / this.me)
+      return v > 0 ? v : 0
     },
     checkedFTh: function () {
       let check
       console.log('F threshold => ' + this.thresholdF + ' : ' + parseFloat(this.enterFTh))
-      check = this.thresholdF === parseFloat(this.enterFTh) ? 'correct' : 'not-correct'
+      this.errorFTh = 100 * Math.abs(this.thresholdF - parseFloat(this.enterFTh)) / this.thresholdF
+      console.log('error  ' + this.errorFTh + ' %')
+      check = this.errorFTh < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedPhi: function () {
       let check
       console.log('Phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      this.errorPhi = 100 * Math.abs(this.phi - parseFloat(this.enterPhi)) / this.phi
+      console.log('error  ' + this.errorPhi + ' %')
+      check = this.errorPhi < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedF: function () {
       let check
       console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.enterF))
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      this.errorF = 100 * Math.abs(this.frequency - parseFloat(this.enterF)) / this.frequency
+      console.log('error  ' + this.errorF + ' %')
+      check = this.errorF < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedE: function () {
       let check
       console.log('Efoton => ' + this.eF + ' : ' + parseFloat(this.enterE))
-      check = this.eF === parseFloat(this.enterE) ? 'correct' : 'not-correct'
+      this.errorE = 100 * Math.abs(this.eF - parseFloat(this.enterE)) / this.eF
+      console.log('error  ' + this.errorE + ' %')
+      check = this.errorE < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedK: function () {
       let check
       console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterK))
-      check = this.kMax === parseFloat(this.enterK) ? 'correct' : 'not-correct'
+      this.errorK = 100 * Math.abs((this.kMax - parseFloat(this.enterK)) / (this.kMax + Number.MIN_VALUE))
+      console.log('error  ' + this.errorK + ' %')
+      check = this.errorK < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedV0: function () {
       let check
       console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
-      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
+      this.errorV0 = 100 * Math.abs((this.v0 - parseFloat(this.enterV0)) / (this.v0 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorV0 + ' %')
+      check = this.errorV0 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedVmax: function () {
       let check
       console.log('vmax => ' + this.ve + ' : ' + this.enterVmax)
-      check = this.ve === this.enterVmax ? 'correct' : 'not-correct'
+      this.errorVmax = 100 * Math.abs((this.ve - parseFloat(this.enterVmax)) / (this.ve + Number.MIN_VALUE))
+      console.log('error  ' + this.errorVmax + ' %')
+      check = this.errorVmax < 1e-2 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -143,10 +173,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -161,5 +192,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

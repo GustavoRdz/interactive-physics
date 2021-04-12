@@ -6,10 +6,13 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data L<sub>1</sub> (m)
         input.center.data(:class="checkedL1" v-model.number='enterL1')
+        <span class="error" v-if="errorL1">[e: {{ errorL1.toPrecision(3) }}%]</span>
       p.inline.data L<sub>2</sub> (m)
         input.center.data(:class="checkedL2" v-model.number='enterL2')
+        <span class="error" v-if="errorL2">[e: {{ errorL2.toPrecision(3) }}%]</span>
       p.inline.data v (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
+        <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -18,14 +21,18 @@ export default {
   data: function () {
     return {
       enterL1: '',
+      errorL1: 0,
       enterL2: '',
+      errorL2: 0,
       enterV: '',
+      errorV: 0,
       direction: '',
       side: ''
     }
   },
   computed: {
     l2: function () {
+      console.clear()
       let max = 30
       let min = 20
       return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 10
@@ -41,27 +48,27 @@ export default {
       return parseFloat((this.l2 * Math.sqrt(1 - Math.pow(this.speed, 2))).toPrecision(3))
     },
     checkedL1: function () {
-      let check
-      console.log('L1 => ' + this.l1 + ' : ' + parseFloat(this.enterL1))
-      check = this.l1 === parseFloat(this.enterL1) ? 'correct' : 'not-correct'
-      return check
+      this.errorL1 = this.errorRelative('Length 1 => ', this.l1, parseFloat(this.enterL1))
+      return this.errorL1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedL2: function () {
-      let check
-      console.log('L2 => ' + this.l2 + ' : ' + parseFloat(this.enterL2))
-      check = this.l2 === parseFloat(this.enterL2) ? 'correct' : 'not-correct'
-      return check
+      this.errorL2 = this.errorRelative('Length 2 => ', this.l2, parseFloat(this.enterL2))
+      return this.errorL2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV: function () {
-      let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
-      return check
+      this.errorV = this.errorRelative('speed => ', this.speed, parseFloat(this.enterV))
+      return this.errorV < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
     message: function (name) {
       return
+    },
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -79,8 +86,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -94,10 +101,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -112,5 +120,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

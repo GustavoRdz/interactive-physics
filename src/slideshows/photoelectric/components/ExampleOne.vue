@@ -1,24 +1,30 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (A) Find the peak wavelength of the blackbody radiation emitted by the human body when the skin temperature is {{ tempA - 273 }}°C.
+    p.problem (A) Find the peak wavelength of the blackbody radiation emitted by the human body when the skin temperature is {{ tempA - 273.15 }}°C.
     p.problem (B) Find the peak wavelength of the blackbody radiation emitted by the tungsten filament of a lightbulb, which operates at {{ tempB }} K.
     p.problem (C) Find the peak wavelength of the blackbody radiation emitted by the Sun, which has a surface temperature of approximately {{ tempC }} K.
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data A) T (K)
+      p.inline.data a) T (K)
         input.center.data(:class="checkedTA" v-model='enterTA')
-      p.inline.data A) λ (m)
+        <span class="error" v-if="errorTA">[e: {{ errorTA.toPrecision(3) }}%]</span>
+      p.inline.data a) λ (m)
         input.center.data(:class="checkedA" v-model='enterA')
-      p.inline.data B) T (K)
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data b) T (K)
         input.center.data(:class="checkedTB" v-model='enterTB')
-      p.inline.data B) λ (m)
+        <span class="error" v-if="errorTB">[e: {{ errorTB.toPrecision(3) }}%]</span>
+      p.inline.data b) λ (m)
         input.center.data(:class="checkedB" v-model='enterB')
-      p.inline.data C) T (K)
+        <span class="error" v-if="errorB">[e: {{ errorB.toPrecision(3) }}%]</span>
+      p.inline.data c) T (K)
         input.center.data(:class="checkedTC" v-model='enterTC')
-      p.inline.data C) λ (m)
+        <span class="error" v-if="errorTC">[e: {{ errorTC.toPrecision(3) }}%]</span>
+      p.inline.data c) λ (m)
         input.center.data(:class="checkedC" v-model.number='enterC')
+        <span class="error" v-if="errorC">[e: {{ errorC.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -27,23 +33,29 @@ export default {
   data: function () {
     return {
       enterTA: '',
+      errorTA: 0,
       enterTB: '',
+      errorTB: 0,
       enterTC: '',
+      errorTC: 0,
       enterA: '',
+      errorA: 0,
       enterB: '',
-      enterC: ''
+      errorB: 0,
+      enterC: '',
+      errorC: 0
     }
   },
   computed: {
     tempA: function () {
-      let max = 39 + 273
-      let min = 34 + 273
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+      let max = 39
+      let min = 34
+      return Math.round(Math.random() * (max - min + 1) + min) + 273.15
     },
     tempB: function () {
       let max = 2500
       let min = 1500
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1)
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     tempC: function () {
       let max = 59
@@ -51,48 +63,60 @@ export default {
       return 100 * (Math.floor(Math.random() * (max - min + 1)) + min)
     },
     lamA: function () {
-      return parseFloat((2.898e-3 / this.tempA).toPrecision(4))
+      return 2.898e-3 / this.tempA
     },
     lamB: function () {
-      return parseFloat((2.898e-3 / this.tempB).toPrecision(4))
+      return 2.898e-3 / this.tempB
     },
     lamC: function () {
-      return parseFloat((2.898e-3 / this.tempC).toPrecision(4))
+      return 2.898e-3 / this.tempC
     },
     checkedTA: function () {
       let check
       console.log('a) Temperature (K): => ' + this.tempA + ' : ' + parseFloat(this.enterTA))
-      check = this.tempA === parseFloat(this.enterTA) ? 'correct' : 'not-correct'
+      this.errorTA = 100 * Math.abs(this.tempA - parseFloat(this.enterTA)) / (this.tempA)
+      console.log('error  ' + this.errorTA + ' %')
+      check = this.errorTA < 1e-2 ? 'correct' : 'not-correct'
       return check
     },
     checkedA: function () {
       let check
-      console.log('A) lambda: => ' + this.lamA + ' : ' + parseFloat(this.enterA))
-      check = this.lamA === parseFloat(this.enterA) ? 'correct' : 'not-correct'
+      console.log('a) lambda: => ' + this.lamA + ' : ' + parseFloat(this.enterA))
+      this.errorA = 100 * Math.abs(this.lamA - parseFloat(this.enterA)) / (this.lamA)
+      console.log('error  ' + this.errorA + ' %')
+      check = this.errorA < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedTB: function () {
       let check
-      console.log('a) Temperature (K): => ' + this.tempB + ' : ' + parseFloat(this.enterTB))
-      check = this.tempB === parseFloat(this.enterTB) ? 'correct' : 'not-correct'
+      console.log('b) Temperature (K): => ' + this.tempB + ' : ' + parseFloat(this.enterTB))
+      this.errorTB = 100 * Math.abs(this.tempB - parseFloat(this.enterTB)) / (this.tempB)
+      console.log('error  ' + this.errorTB + ' %')
+      check = this.errorTB < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedB: function () {
       let check
-      console.log('B) lambda: => ' + this.lamB + ' : ' + parseFloat(this.enterB))
-      check = this.lamB === parseFloat(this.enterB) ? 'correct' : 'not-correct'
+      console.log('b) lambda: => ' + this.lamB + ' : ' + parseFloat(this.enterB))
+      this.errorB = 100 * Math.abs(this.lamB - parseFloat(this.enterB)) / this.lamB
+      console.log('error  ' + this.errorB + ' %')
+      check = this.errorB < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedTC: function () {
       let check
-      console.log('a) Temperature (K): => ' + this.tempC + ' : ' + parseFloat(this.enterTC))
-      check = this.tempC === parseFloat(this.enterTC) ? 'correct' : 'not-correct'
+      console.log('c) Temperature (K): => ' + this.tempC + ' : ' + parseFloat(this.enterTC))
+      this.errorTC = 100 * Math.abs(this.tempC - parseFloat(this.enterTC)) / (this.tempC)
+      console.log('error  ' + this.errorTC + ' %')
+      check = this.errorTC < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedC: function () {
       let check
-      console.log('C) lambda: => ' + this.lamC + ' : ' + parseFloat(this.enterC))
-      check = this.lamC === parseFloat(this.enterC) ? 'correct' : 'not-correct'
+      console.log('b) lambda: => ' + this.lamC + ' : ' + parseFloat(this.enterC))
+      this.errorC = 100 * Math.abs(this.lamC - parseFloat(this.enterC)) / this.lamC
+      console.log('error  ' + this.errorC + ' %')
+      check = this.errorC < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -131,10 +155,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -149,5 +174,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

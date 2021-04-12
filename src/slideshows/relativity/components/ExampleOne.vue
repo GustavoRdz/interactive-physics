@@ -6,12 +6,16 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Velocity of the particle from lab (in c)
         input.center.data(:class="checkedLabAlpha" v-model.number='enterLabAlpha')
+        <span class="error" v-if="errorLabAlpha">[e: {{ errorLabAlpha.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the electron from lab (in c)
         input.center.data(:class="checkedLabE" v-model.number='enterLabE')
+        <span class="error" v-if="errorLabE">[e: {{ errorLabE.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the particle from the electron (in c)
         input.center.data(:class="checkedElectronAlpha" v-model.number='enterElectronAlpha')
+        <span class="error" v-if="errorElectronAlpha">[e: {{ errorElectronAlpha.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the electron from the particle (in c)
         input.center.data(:class="checkedAlphaElectron" v-model='enterAlphaElectron')
+        <span class="error" v-if="errorAlphaElectron">[e: {{ errorAlphaElectron.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -20,14 +24,19 @@ export default {
   data: function () {
     return {
       enterLabAlpha: '',
+      errorLabAlpha: 0,
       enterLabE: '',
+      errorLabE: 0,
       enterElectronAlpha: '',
+      errorElectronAlpha: 0,
       enterAlphaElectron: '',
+      errorAlphaElectron: 0,
       direction: ''
     }
   },
   computed: {
     particleDirection: function () {
+      console.clear()
       let valor = (Math.round(Math.random()) - 0.5) * 2
       this.direction = valor
       console.log('Direction: ', this.direction)
@@ -54,26 +63,38 @@ export default {
     },
     checkedLabAlpha: function () {
       let check
-      console.log('alphaLAbSpeed => ' + this.alphaLabSpeed + ' : ' + parseFloat(this.enterLabAlpha))
-      check = this.alphaLabSpeed === parseFloat(this.enterLabAlpha) ? 'correct' : 'not-correct'
+      let elem = this.alphaLabSpeed
+      console.log('alphaLAbSpeed => ' + elem + ' : ' + parseFloat(this.enterLabAlpha))
+      this.errorLabAlpha = 100 * Math.abs((elem - parseFloat(this.enterLabAlpha)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorLabAlpha + ' %')
+      check = this.errorLabAlpha < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedLabE: function () {
       let check
-      console.log('electronLabSpeed => ' + this.electronLabSpeed + ' : ' + parseFloat(this.enterLabE))
-      check = this.electronLabSpeed === parseFloat(this.enterLabE) ? 'correct' : 'not-correct'
+      let elem = this.electronLabSpeed
+      console.log('electronLabSpeed => ' + elem + ' : ' + parseFloat(this.enterLabE))
+      this.errorLabE = 100 * Math.abs((elem - parseFloat(this.enterLabE)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorLabE + ' %')
+      check = this.errorLabE < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedElectronAlpha: function () {
       let check
-      console.log('ElectronAlpha => ' + this.electronAlpha + ' : ' + parseFloat(this.enterElectronAlpha))
-      check = this.electronAlpha === parseFloat(this.enterElectronAlpha) ? 'correct' : 'not-correct'
+      let elem = this.electronAlpha
+      console.log('ElectronAlpha => ' + elem + ' : ' + parseFloat(this.enterElectronAlpha))
+      this.errorElectronAlpha = 100 * Math.abs((elem - parseFloat(this.enterElectronAlpha)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorElectronAlpha + ' %')
+      check = this.errorElectronAlpha < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedAlphaElectron: function () {
       let check
-      console.log('AlphaElectron => ' + this.alphaElectron + ' : ' + parseFloat(this.enterAlphaElectron))
-      check = this.alphaElectron === parseFloat(this.enterAlphaElectron) ? 'correct' : 'not-correct'
+      let elem = this.alphaElectron
+      console.log('AlphaElectron => ' + elem + ' : ' + parseFloat(this.enterAlphaElectron))
+      this.errorAlphaElectron = 100 * Math.abs((elem - parseFloat(this.enterAlphaElectron)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorAlphaElectron + ' %')
+      check = this.errorAlphaElectron < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -97,8 +118,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -112,10 +133,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -130,5 +152,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

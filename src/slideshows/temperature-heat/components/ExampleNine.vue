@@ -7,18 +7,25 @@
       p.solution Please do calculations and introduce your results
       p.inline.data Water <b>mass</b> (kg)
         input.center.data(:class="checkedWM" v-model.number='enterWM')
+        <span class="error" v-if="errorWM">[e: {{ errorWM.toPrecision(2) }}%]</span>
       p.inline.data Water <b>Temp</b> (&#x00B0;C)
         input.center.data(:class="checkedWT" v-model.number='enterWT')
+        <span class="error" v-if="errorWT">[e: {{ errorWT.toPrecision(2) }}%]</span>
       p.inline.data Ice <b>Temp</b> (&#x00B0;C)
         input.center.data(:class="checkedIT" v-model.number='enterIT')
+        <span class="error" v-if="errorIT">[e: {{ errorIT.toPrecision(2) }}%]</span>
       p.inline.data water <b>c</b> (J/kgºC)
         input.center.data(:class="checkedWc" v-model.number='enterWc')
+        <span class="error" v-if="errorWc">[e: {{ errorWc.toPrecision(2) }}%]</span>
       p.inline.data ice <b>c</b> (J/kgºC)
         input.center.data(:class="checkedIc" v-model.number='enterIc')
+        <span class="error" v-if="errorIc">[e: {{ errorIc.toPrecision(2) }}%]</span>
       p.inline.data Water <b>L<sub>f</sub></b> (J/kg)
         input.center.data(:class="checkedLf" v-model.number='enterLf')
+        <span class="error" v-if="errorLf">[e: {{ errorLf.toPrecision(2) }}%]</span>
       p.inline.data Ice <b>mass</b>(kg)
         input.center.data(:class="checkedIM" v-model.number='enterIM')
+        <span class="error" v-if="errorIM">[e: {{ errorIM.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -28,12 +35,19 @@ export default {
   data: function () {
     return {
       enterWM: '',
+      errorWM: 0,
       enterWT: '',
+      errorWT: 0,
       enterIT: '',
+      errorIT: 0,
       enterWc: '',
+      errorWc: 0,
       enterIc: '',
+      errorIc: 0,
       enterLf: '',
+      errorLf: 0,
       enterIM: '',
+      errorIM: 0,
       wC: 4190,
       iC: 2100,
       lF: 334000
@@ -41,70 +55,63 @@ export default {
   },
   computed: {
     wMass: function () {
+      console.clear()
       let max = 400
       let min = 200
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.floor(Math.random() * (max - min + 1) + min) / 1000
     },
     wTemp: function () {
       let max = 40
       let min = 20
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     iTemp: function () {
       let max = 30
       let min = 15
-      return -Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return -Math.floor(Math.random() * (max - min + 1) + min)
     },
     fTemp: function () {
       return 0
     },
     iMass: function () {
-      return -parseFloat((this.wMass * this.wC * (this.fTemp - this.wTemp) / (this.iC * (this.fTemp - this.iTemp) + this.lF)).toPrecision(3))
+      return -this.wMass * this.wC * (this.fTemp - this.wTemp) / (this.iC * (this.fTemp - this.iTemp) + this.lF)
     },
     checkedWM: function () {
-      let check
-      console.log('water mass : ' + this.wMass + ' : ' + parseFloat(this.enterWM))
-      check = this.wMass === parseFloat(this.enterWM) ? 'correct' : 'not-correct'
-      return check
+      this.errorWM = this.errorRelative('Water mass => ', this.wMass, parseFloat(this.enterWM))
+      return this.errorWM < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWT: function () {
-      let check
-      console.log('water temp : ' + this.wTemp + ' : ' + parseFloat(this.enterWT))
-      check = this.wTemp === parseFloat(this.enterWT) ? 'correct' : 'not-correct'
-      return check
+      this.errorWT = this.errorRelative('Water temp. => ', this.wTemp, parseFloat(this.enterWT))
+      return this.errorWT < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedIT: function () {
-      let check
-      console.log('ice temp : ' + this.iTemp + ' : ' + parseFloat(this.enterIT))
-      check = this.iTemp === parseFloat(this.enterIT) ? 'correct' : 'not-correct'
-      return check
+      this.errorIT = this.errorRelative('Ice temp. => ', this.iTemp, parseFloat(this.enterIT))
+      return this.errorIT < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWc: function () {
-      let check
-      console.log('c water : ' + this.wC + ' : ' + parseFloat(this.enterWc))
-      check = this.wC === parseFloat(this.enterWc) ? 'correct' : 'not-correct'
-      return check
+      this.errorWc = this.errorRelative('Water c => ', this.wC, parseFloat(this.enterWc))
+      return this.errorWc < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedIc: function () {
-      let check
-      console.log('c ice : ' + this.iC + ' : ' + parseFloat(this.enterIc))
-      check = this.iC === parseFloat(this.enterIc) ? 'correct' : 'not-correct'
-      return check
+      this.errorIc = this.errorRelative('Ice c => ', this.iC, parseFloat(this.enterIc))
+      return this.errorIc < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedLf: function () {
-      let check
-      console.log('Lf : ' + this.lF + ' : ' + parseFloat(this.enterLf))
-      check = this.lF === parseFloat(this.enterLf) ? 'correct' : 'not-correct'
-      return check
+      this.errorLf = this.errorRelative('water Lf => ', this.lF, parseFloat(this.enterLf))
+      return this.errorLf < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedIM: function () {
-      let check
-      console.log('Ice mass : ' + this.iMass + ' : ' + parseFloat(this.enterIM))
-      check = this.iMass === parseFloat(this.enterIM) ? 'correct' : 'not-correct'
-      return check
+      this.errorIM = this.errorRelative('Ice mass => ', this.iMass, parseFloat(this.enterIM))
+      return this.errorIM < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
+    }
   },
   watch: {
   },
@@ -114,100 +121,44 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
-
-
-.svg-display {
-        font-family:'Space Mono', monospace;
-        text-transform: "none";
-      }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #3f3;
+.eg-slide {
+  .eg-slide-content {
+    width: 100%;
+    max-width: 100%;
+  }
 }
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: #000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 0px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-button {
-  width: 200px;
-  height:40px;
-}
-
 .data {
   display: inline-block;
-  text-transform: none;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
 }
-
+.error {
+  font-size: 14px;
+}
 </style>

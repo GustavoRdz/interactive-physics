@@ -10,34 +10,11 @@ eg-transition(:enter='enter', :leave='leave')
         <line fill="none" stroke="#000" stroke-width="5" x1="50" y1="0" x2="50" y2="400" stroke-linecap="round"/>
 
         <!-- x scale -->
-        <line fill="none" stroke="#000" stroke-width="1" x1="88" y1="10" x2="88" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="126" y1="10" x2="126" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="164" y1="10" x2="164" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="3" x1="202" y1="10" x2="202" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="240" y1="10" x2="240" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="278" y1="10" x2="278" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="316" y1="10" x2="316" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="3" x1="354" y1="10" x2="354" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="392" y1="10" x2="392" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="430" y1="10" x2="430" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="468" y1="10" x2="468" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="3" x1="506" y1="10" x2="506" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="544" y1="10" x2="544" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="582" y1="10" x2="582" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="620" y1="10" x2="620" y2="390" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="3" x1="658" y1="10" x2="658" y2="390" stroke-linecap="round"/>
-
+        <line v-for="x in [88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658]" fill="none" stroke="#000" stroke-width="1" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
+        <!-- x scale bold -->
+        <line v-for="x in [202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
         <!-- y scale -->
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="10" x2="660" y2="10" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="48" x2="660" y2="48" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="86" x2="660" y2="86" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="124" x2="660" y2="124" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="162" x2="660" y2="162" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="238" x2="660" y2="238" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="276" x2="660" y2="276" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="314" x2="660" y2="314" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="352" x2="660" y2="352" stroke-linecap="round"/>
-        <line fill="none" stroke="#000" stroke-width="1" x1="50" y1="390" x2="660" y2="390" stroke-linecap="round"/>
+        <line v-for="y in [10, 48, 86, 124, 162, 238, 276, 314, 352, 390]" fill="none" stroke="#000" stroke-width="1" x1="50" :y1="y" x2="660" :y2="y" stroke-linecap="round"/>
 
         <!-- graph -->
         <path :d="chord" stroke="#f00" fill="none" stroke-opacity="1" stroke-width="5" ></path>
@@ -62,18 +39,25 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Elastic constant (N/m)
         input.center.data(:class="checkedElastic" v-model.number='enterElastic')
+        <span class="error" v-if="errorElastic">[e: {{ errorElastic.toPrecision(3) }}%]</span>
       p.inline.data Period (s)
         input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
       p.inline.data Angular frequency (rad/s)
         input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+        <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
       p.inline.data (a) Glider's mass (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
+        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
       p.inline.data Maximum acceleration (m/s<sup>2</sup>)
         input.center.data(:class="checkedAccel" v-model='enterAccel')
+        <span class="error" v-if="errorAccel">[e: {{ errorAccel.toPrecision(3) }}%]</span>
       p.inline.data (b) Amplitude (m)
         input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
+        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
       p.inline.data (c) Maximum force (N)
         input.center.data(:class="checkedForce" v-model='enterForce')
+        <span class="error" v-if="errorForce">[e: {{ errorForce.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -82,12 +66,19 @@ export default {
   data: function () {
     return {
       enterElastic: '',
+      errorElastic: 0,
       enterPeriod: '',
+      errorPeriod: 0,
       enterAngular: '',
+      errorAngular: 0,
       enterMass: '',
+      errorMass: 0,
       enterAccel: '',
+      errorAccel: 0,
       enterAmplitude: '',
-      enterForce: ''
+      errorAmplitude: 0,
+      enterForce: '',
+      errorForce: 0
     }
   },
   computed: {
@@ -95,6 +86,7 @@ export default {
       return calcChord(this.initialX, this.frequency, this.amplitudeAccel, this.phase)
     },
     initialX: function () {
+      console.clear()
       let max = this.amplitudeAccel
       let min = -this.amplitudeAccel
       return Math.round(Math.random() * (max - min + 1) + min)
@@ -118,69 +110,58 @@ export default {
     elastic: function () {
       let max = 10
       let min = 2
-      return Math.round((100 * Math.floor(Math.random() * (max - min + 1)) + min)) / 100
+      return Math.round(100 * Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
     angular: function () {
-      return Math.round(2000 * Math.PI / this.period) / 1000
+      return 2 * Math.PI / this.period
     },
     mass: function () {
-      return Math.round(1000 * this.elastic / Math.pow(this.angular, 2)) / 1000
+      return this.elastic / Math.pow(this.angular, 2)
     },
-    accel: function () {
-      return Math.round(1.2 * 9.81 * (1 - this.rise / 100) * 1000) / 1000
-    },
+    // accel: function () {
+    //   return Math.round(1.2 * 9.81 * (1 - this.rise / 100) * 1000) / 1000
+    // },
     amplitude: function () {
-      return Math.round(1000 * (this.amplitudeAccel / Math.pow(this.angular, 2))) / 1000
+      return this.amplitudeAccel / Math.pow(this.angular, 2)
     },
     force: function () {
-      return Math.round(1000 * (this.elastic * this.amplitude)) / 1000
+      return this.elastic * this.amplitude
     },
     checkedElastic: function () {
-      let check
-      console.log('Elastic Constant : ' + this.elastic + ' : ' + parseFloat(this.enterElastic))
-      check = this.elastic === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
-      return check
+      this.errorElastic = this.errorRelative('K => ', this.elastic, parseFloat(this.enterElastic))
+      return this.errorElastic < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPeriod: function () {
-      let check
-      console.log('Period : ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
-      return check
+      this.errorPeriod = this.errorRelative('T => ', this.period, parseFloat(this.enterPeriod))
+      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngular: function () {
-      let check
-      console.log('&omega;: ' + this.angular + ' : ' + parseFloat(this.enterAngular))
-      check = this.angular === parseFloat(this.enterAngular) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngular = this.errorRelative('Ω => ', this.angular, parseFloat(this.enterAngular))
+      return this.errorAngular < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedMass: function () {
-      let check
-      console.log('Glider`s mass: ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorMass = this.errorRelative('m => ', this.mass, parseFloat(this.enterMass))
+      return this.errorMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAccel: function () {
-      let check
-      console.log('Maximum aceleration : ' + this.amplitudeAccel + ' : ' + parseFloat(this.enterAccel))
-      check = this.amplitudeAccel === parseFloat(this.enterAccel) ? 'correct' : 'not-correct'
-      return check
+      this.errorAccel = this.errorRelative('a => ', this.amplitudeAccel, parseFloat(this.enterAccel))
+      return this.errorAccel < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAmplitude: function () {
-      let check
-      console.log('Amplitude : ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
-      return check
+      this.errorAmplitude = this.errorRelative('A => ', this.amplitude, parseFloat(this.enterAmplitude))
+      return this.errorAmplitude < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedForce: function () {
-      let check
-      console.log('Force : ' + this.force + ' : ' + parseFloat(this.enterForce))
-      check = this.force === parseFloat(this.enterForce) ? 'correct' : 'not-correct'
-      return check
+      this.errorForce = this.errorRelative('F => ', this.force, parseFloat(this.enterForce))
+      return this.errorForce < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -201,22 +182,6 @@ function calcChord (initialX, frequency, amplitudeAccel, phase) {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -224,25 +189,26 @@ function calcChord (initialX, frequency, amplitudeAccel, phase) {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

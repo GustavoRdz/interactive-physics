@@ -5,18 +5,24 @@ eg-transition(:enter='enter', :leave='leave')
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data mass (kg)
+      p.inline.data m (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
+        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
       p.inline.data k (N/m)
         input.center.data(:class="checkedK" v-model.number='enterK')
-      p.inline.data Amplitude (m)
+        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
+      p.inline.data A (m)
         input.center.data(:class="checkedA" v-model.number='enterA')
-      p.inline.data A) Classical energy (J)
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data a) E<sub>Classical</sub> (J)
         input.center.data(:class="checkedEc" v-model='enterEc')
-      p.inline.data frequency (Hz)
+        <span class="error" v-if="errorEc">[e: {{ errorEc.toPrecision(3) }}%]</span>
+      p.inline.data f (Hz)
         input.center.data(:class="checkedF" v-model='enterF')
-      p.inline.data B) n
+        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+      p.inline.data b) n
         input.center.data(:class="checkedN" v-model='enterN')
+        <span class="error" v-if="errorN">[e: {{ errorN.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -25,11 +31,17 @@ export default {
   data: function () {
     return {
       enterMass: '',
+      errorMass: 0,
       enterK: '',
+      errorK: 0,
       enterA: '',
+      errorA: 0,
       enterEc: '',
+      errorEc: 0,
       enterF: '',
-      enterN: ''
+      errorF: 0,
+      enterN: '',
+      errorN: 0
     }
   },
   computed: {
@@ -49,48 +61,60 @@ export default {
       return Math.round(Math.floor(Math.random() * (max - min + 1) + min)) / 100
     },
     energy: function () {
-      return Math.floor(1000 * (this.elasticK * this.amplitude ** 2 / 2)) / 1000
+      return this.elasticK * this.amplitude ** 2 / 2
     },
     frequency: function () {
-      return Math.floor(1000 * (Math.sqrt(this.elasticK / this.mass) / (2 * Math.PI))) / 1000
+      return Math.sqrt(this.elasticK / this.mass) / (2 * Math.PI)
     },
     level: function () {
-      return parseFloat((this.energy / (6.626e-34 * this.frequency)).toPrecision(4))
+      return this.energy / (6.626e-34 * this.frequency)
     },
     checkedMass: function () {
       let check
       console.log('Mass => ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
+      this.errorMass = 100 * Math.abs(this.mass - parseFloat(this.enterMass)) / this.mass
+      console.log('error  ' + this.errorMass + ' %')
+      check = this.errorMass < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedK: function () {
       let check
       console.log('K => ' + this.elasticK + ' : ' + parseFloat(this.enterK))
-      check = this.elasticK === parseFloat(this.enterK) ? 'correct' : 'not-correct'
+      this.errorK = 100 * Math.abs(this.elasticK - parseFloat(this.enterK)) / this.elasticK
+      console.log('error  ' + this.errorK + ' %')
+      check = this.errorK < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedA: function () {
       let check
       console.log('Amplitude => ' + this.amplitude + ' : ' + parseFloat(this.enterA))
-      check = this.amplitude === parseFloat(this.enterA) ? 'correct' : 'not-correct'
+      this.errorA = 100 * Math.abs(this.amplitude - parseFloat(this.enterA)) / this.amplitude
+      console.log('error  ' + this.errorA + ' %')
+      check = this.errorA < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedEc: function () {
       let check
       console.log('classical energy => ' + this.energy + ' : ' + parseFloat(this.enterEc))
-      check = this.energy === parseFloat(this.enterEc) ? 'correct' : 'not-correct'
+      this.errorEc = 100 * Math.abs(this.energy - parseFloat(this.enterEc)) / this.energy
+      console.log('error  ' + this.errorEc + ' %')
+      check = this.errorEc < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedF: function () {
       let check
       console.log('Frequency => ' + this.frequency + ' : ' + this.enterF)
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      this.errorF = 100 * Math.abs(this.frequency - parseFloat(this.enterF)) / this.frequency
+      console.log('error  ' + this.errorF + ' %')
+      check = this.errorF < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedN: function () {
       let check
       console.log('Level => ' + this.level + ' : ' + this.enterN)
-      check = this.level === parseFloat(this.enterN) ? 'correct' : 'not-correct'
+      this.errorN = 100 * Math.abs(this.level - parseFloat(this.enterN)) / this.level
+      console.log('error  ' + this.errorN + ' %')
+      check = this.errorN < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -129,10 +153,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -147,5 +172,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

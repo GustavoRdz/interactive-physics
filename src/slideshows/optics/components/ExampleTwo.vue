@@ -1,22 +1,27 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A ray of light travels from air into another medium, making an angle of &theta;<sub>1</sub> = {{ incident }}° with the normal. <br>Find the angle of refraction &theta;<sub>2</sub> if the second medium is {{ transmitted }}
+    p.problem A ray of light travels from air into another medium, making an angle of &theta;<sub>1</sub> = {{ incident }}° with the normal. Find the angle of refraction &theta;<sub>2</sub> if the second medium is
     p.problem (a) {{ materials[materialIndex[0]].material }},  n = {{ materials[materialIndex[0]].index }}<br>(b) {{ materials[materialIndex[1]].material}},  n = {{ materials[materialIndex[1]].index }}<br>(c){{ materials[materialIndex[2]].material}},  n = {{ materials[materialIndex[2]].index }}
     .center
-      img(src='../assets/example2.png' width="200px" style="margin: -100px 0 50px 200px;")
+      img(src='../assets/example2.png' width="200px" style="margin: -80px 0 50px 200px;")
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Incidence angle (degrees)
         input.center.data(:class="checkedIncident" v-model.number='enterIncident')
+        <span class="error" v-if="errorIncident">[e: {{ errorIncident.toPrecision(2) }}%]</span>
       p.inline.data a) angle (degrees)
         input.center.data(:class="checkedAngleA" v-model.number='enterAngleA')
+        <span class="error" v-if="errorAngleA">[e: {{ errorAngleA.toPrecision(2) }}%]</span>
       p.inline.data b) angle (degrees)
         input.center.data(:class="checkedAngleB" v-model.number='enterAngleB')
+        <span class="error" v-if="errorAngleB">[e: {{ errorAngleB.toPrecision(2) }}%]</span>
       p.inline.data c) angle (degrees)
         input.center.data(:class="checkedAngleC" v-model='enterAngleC')
+        <span class="error" v-if="errorAngleC">[e: {{ errorAngleC.toPrecision(2) }}%]</span>
       p.inline.data Max. deviation: a, b or c?
         input.center.data(:class="checkedDev" v-model='enterDev')
+        <span class="error" v-if="errorDev">[e: {{ errorDev.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -25,10 +30,15 @@ export default {
   data: function () {
     return {
       enterIncident: '',
+      errorIncident: 0,
       enterAngleA: '',
+      errorAngleA: 0,
       enterAngleB: '',
+      errorAngleB: 0,
       enterAngleC: '',
+      errorAngleC: 0,
       enterDev: '',
+      errorDev: 0,
       materials: [
         {material: 'Cubic zirconia', index: 2.20},
         {material: 'Benzene', index: 1.501},
@@ -55,6 +65,7 @@ export default {
   },
   computed: {
     incident: function () {
+      console.clear()
       let max = 70
       let min = 20
       return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
@@ -91,28 +102,20 @@ export default {
       return op[dev]
     },
     checkedIncident: function () {
-      let check
-      console.log('Incident => ' + this.incident + ' : ' + parseFloat(this.enterIncident))
-      check = this.incident === parseFloat(this.enterIncident) ? 'correct' : 'not-correct'
-      return check
+      this.errorIncident = this.errorRelative('Angle Incident=> ', this.incident, parseFloat(this.enterIncident))
+      return this.errorIncident < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngleA: function () {
-      let check
-      console.log('AngleA => ' + this.transmitted[0] + ' : ' + parseFloat(this.enterAngleA))
-      check = this.transmitted[0] === parseFloat(this.enterAngleA) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngleA = this.errorRelative('Angle A=> ', this.transmitted[0], parseFloat(this.enterAngleA))
+      return this.errorAngleA < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngleB: function () {
-      let check
-      console.log('AngelB=> ' + this.transmitted[1] + ' : ' + parseFloat(this.enterAngleB))
-      check = this.transmitted[1] === parseFloat(this.enterAngleB) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngleB = this.errorRelative('Angle B=> ', this.transmitted[1], parseFloat(this.enterAngleB))
+      return this.errorAngleB < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngleC: function () {
-      let check
-      console.log('AngleC => ' + this.transmitted[2] + ' : ' + parseFloat(this.enterAngleC))
-      check = this.transmitted[2] === parseFloat(this.enterAngleC) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngleC = this.errorRelative('Angle C=> ', this.transmitted[2], parseFloat(this.enterAngleC))
+      return this.errorAngleC < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedDev: function () {
       let check
@@ -122,8 +125,11 @@ export default {
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -131,22 +137,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -154,25 +144,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

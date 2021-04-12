@@ -31,16 +31,22 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data <sup>{{ masic }}</sup>{{ iso[elements[element]].symbol }} (u)
         input.center.data(:class="checkedE1" v-model.number='enterE1')
+        <span class="error" v-if="errorE1">[e: {{ errorE1.toPrecision(3) }}%]</span>
       p.inline.data {{ part[particles[particle]].symbol}} (u)
         input.center.data(:class="checkedP1" v-model.number='enterP1')
+        <span class="error" v-if="errorP1">[e: {{ errorP1.toPrecision(3) }}%]</span>
       p.inline.data {{ part[particles[particle2]].symbol}} (u)
         input.center.data(:class="checkedP2" v-model.number='enterP2')
+        <span class="error" v-if="errorP2">[e: {{ errorP2.toPrecision(3) }}%]</span>
       p.inline.data <sup>{{ productA }}</sup>{{ iso[elements[productZ]].symbol }} (u)
         input.center.data(:class="checkedE2" v-model.number='enterE2')
+        <span class="error" v-if="errorE2">[e: {{ errorE2.toPrecision(3) }}%]</span>
       p.inline.data mass defect (u)
         input.center.data(:class="checkedM" v-model.number='enterM')
+        <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
       p.inline.data exotermic or endotermic
         input.center.data(:class="checkedExo" v-model.number='enterExo')
+        <span class="error" v-if="errorExo">[e: {{ errorExo.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -52,11 +58,17 @@ export default {
   data: function () {
     return {
       enterE1: '',
+      errorE1: 0,
       enterE2: '',
+      errorE2: 0,
       enterP1: '',
+      errorP1: 0,
       enterP2: '',
+      errorP2: 0,
       enterM: '',
+      errorM: 0,
       enterExo: '',
+      errorExo: 0,
       iso: iso,
       a: 1.2e-15,
       part: part
@@ -64,6 +76,7 @@ export default {
   },
   computed: {
     element: function () {
+      console.clear()
       let max = 100
       let min = 1
       return Math.floor(Math.random() * (max - min + 1)) + min
@@ -122,41 +135,59 @@ export default {
     },
     checkedE1: function () {
       let check
-      console.log('Iso mass: => ' + this.iso[this.elements[this.element]].mass[this.isotope] + ' : ' + parseFloat(this.enterE1))
-      check = this.iso[this.elements[this.element]].mass[this.isotope] === parseFloat(this.enterE1) ? 'correct' : 'not-correct'
+      let elem = this.iso[this.elements[this.element]].mass[this.isotope]
+      console.log('Iso mass: => ' + elem + ' : ' + parseFloat(this.enterE1))
+      // check = this.iso[this.elements[this.element]].mass[this.isotope] === parseFloat(this.enterE1) ? 'correct' : 'not-correct'
+      this.errorE1 = 100 * Math.abs((elem - parseFloat(this.enterE1)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE1 + ' %')
+      check = this.errorE1 < 1e-6 ? 'correct' : 'not-correct'
       return check
     },
     checkedP1: function () {
       let check
+      let elem = this.part[this.particles[this.particle]].mass
       console.log('P1 mass: => ' + this.part[this.particles[this.particle]].mass + ' : ' + parseFloat(this.enterP1))
-      check = this.part[this.particles[this.particle]].mass === parseFloat(this.enterP1) ? 'correct' : 'not-correct'
+      this.errorP1 = 100 * Math.abs((elem - parseFloat(this.enterP1)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorP1 + ' %')
+      check = this.errorP1 < 1e-6 ? 'correct' : 'not-correct'
       return check
     },
     checkedP2: function () {
       let check
-      console.log('P2 mass: => ' + this.part[this.particles[this.particle2]].mass + ' : ' + parseFloat(this.enterP2))
-      check = this.part[this.particles[this.particle2]].mass === parseFloat(this.enterP2) ? 'correct' : 'not-correct'
+      let elem = this.part[this.particles[this.particle2]].mass
+      console.log('P2 mass: => ' + elem + ' : ' + parseFloat(this.enterP2))
+      this.errorP2 = 100 * Math.abs((elem - parseFloat(this.enterP2)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorP2 + ' %')
+      check = this.errorP2 < 1e-6 ? 'correct' : 'not-correct'
       return check
     },
     checkedE2: function () {
       let check
-      console.log('P2 mass: => ' + this.iso[this.elements[this.productZ]].mass[this.isotope2] + ' : ' + parseFloat(this.enterE2))
-      check = this.iso[this.elements[this.productZ]].mass[this.isotope2] === parseFloat(this.enterE2) ? 'correct' : 'not-correct'
+      let elem = this.iso[this.elements[this.productZ]].mass[this.isotope2]
+      console.log('P2 mass: => ' + elem + ' : ' + parseFloat(this.enterE2))
+      this.errorE2 = 100 * Math.abs((elem - parseFloat(this.enterE2)) / (elem + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE2 + ' %')
+      check = this.errorE2 < 1e-6 ? 'correct' : 'not-correct'
       return check
     },
     checkedM: function () {
       let check
       console.log('mass defect: => ' + this.massDefect + ' : ' + parseFloat(this.enterM))
-      check = this.massDefect === parseFloat(this.enterM) ? 'correct' : 'not-correct'
+      this.errorM = 100 * Math.abs((this.massDefect - parseFloat(this.enterM)) / (this.massDefect + Number.MIN_VALUE))
+      console.log('error  ' + this.errorM + ' %')
+      check = this.errorM < 1e-6 ? 'correct' : 'not-correct'
       return check
     },
     checkedExo: function () {
       let check
-      console.log('Exo : => ' + this.exo + ' : ' + this.enterExo)
-      console.log(this.exo === this.enterExo)
-      console.log(typeof this.exo)
-      console.log(typeof this.enterExo)
+      // console.log('Exo : => ' + this.exo + ' : ' + this.enterExo)
+      // console.log(this.exo === this.enterExo)
+      // console.log(typeof this.exo)
+      // console.log(typeof this.enterExo)
       check = this.exo === this.enterExo ? 'correct' : 'not-correct'
+      // this.errorExo = 100 * Math.abs((this.time - parseFloat(this.enterTime)) / (this.time + Number.MIN_VALUE))
+      // console.log('error  ' + this.errorTime + ' %')
+      // check = this.errorTime < 1e-2 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -180,26 +211,26 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
 
 .data {
   display: inline-block;
-  width: 130px;
+  width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
-  font-family: Courier;
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -214,5 +245,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

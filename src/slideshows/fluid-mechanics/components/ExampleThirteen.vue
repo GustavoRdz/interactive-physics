@@ -1,27 +1,35 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A plastic ball has a radius of {{ radius }} cm and floats in water, the submerged volume represents {{ volumePartial }}% of the total volume of the ball.
+    p.problem A plastic ball has a radius of {{ radius }} cm and floats in water, the submerged volume represents {{ volumeSubmergedPercent }}% of the total volume of the ball.
     p.problem a) What force should we apply to the ball to hold it at rest completely below the surface of the water?
     p.problem b) If the ball is released, what acceleration will it have at the moment it is released?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>fluid</sub> (kg/m<sup>3</sup>)
-        input.center.data(:class="checkedUserRhoFluid" v-model.number='userRhoFluid')
+        input.center.data(:class="checkedRhoFluid" v-model.number='enterRhoFluid')
+        <span class="error" v-if="errorRhoFluid">[e: {{ errorRhoFluid.toPrecision(2) }}%]</span>
       p.inline.data V<sub>100%</sub> (m<sup>3</sup>)
-        input.center.data(:class="checkedUserTotalVolume" v-model.number='userTotalVolume')
-      p.inline.data V<sub>{{ volumePartial }}%</sub> (m<sup>3</sup>)
-        input.center.data(:class="checkedUserPartialVolume" v-model.number='userPartialVolume')
-      p.inline.data B<sub>{{ volumePartial }}%</sub> (N)
-        input.center.data(:class="checkedUserPartialSubmergedBoyant" v-model.number='userPartialSubmergedBoyant')
+        input.center.data(:class="checkedTotalVolume" v-model.number='enterTotalVolume')
+        <span class="error" v-if="errorTotalVolume">[e: {{ errorTotalVolume.toPrecision(2) }}%]</span>
+      p.inline.data V<sub>{{ volumeSubmergedPercent }}%</sub> (m<sup>3</sup>)
+        input.center.data(:class="checkedPartialVolume" v-model.number='enterPartialVolume')
+        <span class="error" v-if="errorPartialVolume">[e: {{ errorPartialVolume.toPrecision(2) }}%]</span>
+      p.inline.data B<sub>{{ volumeSubmergedPercent }}%</sub> (N)
+        input.center.data(:class="checkedPartialSubmergedBoyant" v-model.number='enterPartialSubmergedBoyant')
+        <span class="error" v-if="errorPartialSubmergedBoyant">[e: {{ errorPartialSubmergedBoyant.toPrecision(2) }}%]</span>
       p.inline.data B<sub>100%</sub> (N)
-        input.center.data(:class="checkedUserTotalSubmergedBoyant" v-model.number='userTotalSubmergedBoyant')
+        input.center.data(:class="checkedTotalSubmergedBoyant" v-model.number='enterTotalSubmergedBoyant')
+        <span class="error" v-if="errorTotalSubmergedBoyant">[e: {{ errorTotalSubmergedBoyant.toPrecision(2) }}%]</span>
       p.inline.data a) Force (N)
-        input.center.data(:class="checkedUserForce" v-model.number='userForce')
+        input.center.data(:class="checkedForce" v-model.number='enterForce')
+        <span class="error" v-if="errorForce">[e: {{ errorForce.toPrecision(2) }}%]</span>
       p.inline.data m<sub>ball</sub> (kg)
-        input.center.data(:class="checkedUserMass" v-model.number='userMass')
+        input.center.data(:class="checkedMass" v-model.number='enterMass')
+        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(2) }}%]</span>
       p.inline.data b) a<sub>ball</sub> (m/s<sup>2</sup>)
-        input.center.data(:class="checkedUserAcceleration" v-model.number='userAcceleration')
+        input.center.data(:class="checkedAcceleration" v-model.number='enterAcceleration')
+        <span class="error" v-if="errorAcceleration">[e: {{ errorAcceleration.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -29,97 +37,95 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      userRhoFluid: '',
-      userTotalVolume: '',
-      userPartialVolume: '',
-      userPartialSubmergedBoyant: '',
-      userTotalSubmergedBoyant: '',
-      userForce: '',
-      userMass: '',
-      userAcceleration: ''
+      enterRhoFluid: '',
+      errorRhoFluid: 0,
+      enterTotalVolume: '',
+      errorTotalVolume: 0,
+      enterPartialVolume: '',
+      errorPartialVolume: 0,
+      enterPartialSubmergedBoyant: '',
+      errorPartialSubmergedBoyant: 0,
+      enterTotalSubmergedBoyant: '',
+      errorTotalSubmergedBoyant: 0,
+      enterForce: '',
+      errorForce: 0,
+      enterMass: '',
+      errorMass: 0,
+      enterAcceleration: '',
+      errorAcceleration: 0,
+      g: 9.81,
+      rho: 1000
     }
   },
   computed: {
-    volumePartial: function () {
+    volumeSubmergedPercent: function () {
+      console.clear()
       let max = 25
       let min = 10
-      return Number((Math.floor(Math.random() * (max - min + 1)) + min)).toPrecision(3)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     radius: function () {
       let max = 20
       let min = 10
-      return Number((Math.floor(Math.random() * (max - min + 1)) + min)).toPrecision(3)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     volumeTotal: function () {
-      return Number(4 * Math.PI * Math.pow(this.radius / 100, 3) / 3).toPrecision(3)
+      return 4 * Math.PI * Math.pow(this.radius / 100, 3) / 3
     },
     partialSubmergedBoyant: function () {
-      return Math.round(1000 * 1000 * 9.81 * this.volumeTotal * this.volumePartial / 100) / 1000
+      return this.rho * this.g * (this.volumeTotal * this.volumeSubmergedPercent / 100)
     },
     totalSubmergedBoyant: function () {
-      return Math.round(1000 * 1000 * 9.81 * this.volumeTotal) / 1000
+      return this.rho * this.g * this.volumeTotal
     },
     force: function () {
-      return Math.round(1000 * (this.totalSubmergedBoyant - this.partialSubmergedBoyant)) / 1000
+      return this.totalSubmergedBoyant - this.partialSubmergedBoyant
     },
     mass: function () {
-      return Number(this.partialSubmergedBoyant / 9.81).toPrecision(3)
+      return this.partialSubmergedBoyant / this.g
     },
     acceleration: function () {
-      return Number(9.81 * (100 - this.volumePartial) / this.volumePartial).toPrecision(3)
+      return 9.81 * (100 - this.volumeSubmergedPercent) / this.volumeSubmergedPercent
     },
-    checkedUserRhoFluid: function () {
-      let check
-      console.log(1000 + ' : ' + parseFloat(this.userRhoFluid))
-      check = parseFloat(this.userRhoFluid) === 1000 ? 'correct' : 'not-correct'
-      return check
+    checkedRhoFluid: function () {
+      this.errorRhoFluid = this.errorRelative('Fluid density => ', this.rho, parseFloat(this.enterRhoFluid))
+      return this.errorRhoFluid < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserTotalVolume: function () {
-      let check
-      console.log(this.volumeTotal + ' : ' + parseFloat(this.userTotalVolume))
-      check = parseFloat(this.volumeTotal) === parseFloat(this.userTotalVolume) ? 'correct' : 'not-correct'
-      return check
+    checkedTotalVolume: function () {
+      this.errorTotalVolume = this.errorRelative('Ball volume => ', this.volumeTotal, parseFloat(this.enterTotalVolume))
+      return this.errorTotalVolume < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserPartialVolume: function () {
-      let check
-      console.log((this.volumeTotal * this.volumePartial / 100).toPrecision(3) + ' : ' + parseFloat(this.userPartialVolume))
-      check = parseFloat((this.volumeTotal * this.volumePartial / 100).toPrecision(3)) === parseFloat(this.userPartialVolume) ? 'correct' : 'not-correct'
-      return check
+    checkedPartialVolume: function () {
+      this.errorPartialVolume = this.errorRelative('Submerged volume => ', this.volumeTotal * this.volumeSubmergedPercent / 100, parseFloat(this.enterPartialVolume))
+      return this.errorPartialVolume < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserPartialSubmergedBoyant: function () {
-      let check
-      console.log(this.partialSubmergedBoyant + ' : ' + parseFloat(this.userPartialSubmergedBoyant))
-      check = parseFloat(this.partialSubmergedBoyant) === parseFloat(this.userPartialSubmergedBoyant) ? 'correct' : 'not-correct'
-      return check
+    checkedPartialSubmergedBoyant: function () {
+      this.errorPartialSubmergedBoyant = this.errorRelative('Boyant force floating ball => ', this.partialSubmergedBoyant, parseFloat(this.enterPartialSubmergedBoyant))
+      return this.errorPartialSubmergedBoyant < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserTotalSubmergedBoyant: function () {
-      let check
-      console.log(this.totalSubmergedBoyant + ' : ' + parseFloat(this.userTotalSubmergedBoyant))
-      check = parseFloat(this.totalSubmergedBoyant) === parseFloat(this.userTotalSubmergedBoyant) ? 'correct' : 'not-correct'
-      return check
+    checkedTotalSubmergedBoyant: function () {
+      this.errorTotalSubmergedBoyant = this.errorRelative('Boyant force submerged ball => ', this.totalSubmergedBoyant, parseFloat(this.enterTotalSubmergedBoyant))
+      return this.errorTotalSubmergedBoyant < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserForce: function () {
-      let check
-      console.log(this.force + ' : ' + parseFloat(this.userForce))
-      check = parseFloat(this.force) === parseFloat(this.userForce) ? 'correct' : 'not-correct'
-      return check
+    checkedForce: function () {
+      this.errorForce = this.errorRelative('Applied force => ', this.force, parseFloat(this.enterForce))
+      return this.errorForce < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserMass: function () {
-      let check
-      console.log(this.mass + ' : ' + parseFloat(this.userMass))
-      check = parseFloat(this.mass) === parseFloat(this.userMass) ? 'correct' : 'not-correct'
-      return check
+    checkedMass: function () {
+      this.errorMass = this.errorRelative('Ball mass => ', this.mass, parseFloat(this.enterMass))
+      return this.errorMass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserAcceleration: function () {
-      let check
-      console.log(this.acceleration + ' : ' + parseFloat(this.userAcceleration))
-      check = parseFloat(this.acceleration) === parseFloat(this.userAcceleration) ? 'correct' : 'not-correct'
-      return check
+    checkedAcceleration: function () {
+      this.errorAcceleration = this.errorRelative('Ball acceleration => ', this.acceleration, parseFloat(this.enterAcceleration))
+      return this.errorAcceleration < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -129,20 +135,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -150,25 +146,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

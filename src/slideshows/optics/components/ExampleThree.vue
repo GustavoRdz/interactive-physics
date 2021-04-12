@@ -8,10 +8,13 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Incidence angle (degrees)
         input.center.data(:class="checkedIncident" v-model.number='enterIncident')
+        <span class="error" v-if="errorIncident">[e: {{ errorIncident.toPrecision(2) }}%]</span>
       p.inline.data Transmitted angle (degrees)
         input.center.data(:class="checkedTransmitted" v-model.number='enterTransmitted')
+        <span class="error" v-if="errorTransmitted">[e: {{ errorTransmitted.toPrecision(2) }}%]</span>
       p.inline.data Refractive index
         input.center.data(:class="checkedIndex" v-model.number='enterIndex')
+        <span class="error" v-if="errorIndex">[e: {{ errorIndex.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -20,15 +23,19 @@ export default {
   data: function () {
     return {
       enterIncident: '',
+      errorIncident: 0,
       enterTransmitted: '',
-      enterIndex: ''
+      errorTransmitted: 0,
+      enterIndex: '',
+      errorIndex: 0
     }
   },
   computed: {
     angle: function () {
+      console.clear()
       let max = 30
       let min = 10
-      return (Math.round(100 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
+      return (Math.round(100 * Math.random() * (max - min + 1) + min) / 100)
     },
     incident: function () {
       return 45
@@ -37,30 +44,27 @@ export default {
       return this.incident + this.angle
     },
     index: function () {
-      return Math.round(1000 * Math.sin(Math.PI * this.transmitted / 180) / Math.sin(Math.PI * this.incident / 180)) / 1000
+      return Math.sin(Math.PI * this.transmitted / 180) / Math.sin(Math.PI * this.incident / 180)
     },
     checkedIncident: function () {
-      let check
-      console.log('Incident => ' + this.incident + ' : ' + parseFloat(this.enterIncident))
-      check = this.incident === parseFloat(this.enterIncident) ? 'correct' : 'not-correct'
-      return check
+      this.errorIncident = this.errorRelative('Incident => ', this.incident, parseFloat(this.enterIncident))
+      return this.errorIncident < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedTransmitted: function () {
-      let check
-      console.log('Transmitted => ' + this.transmitted + ' : ' + parseFloat(this.enterTransmitted))
-      check = this.transmitted === parseFloat(this.enterTransmitted) ? 'correct' : 'not-correct'
-      return check
+      this.errorTransmitted = this.errorRelative('Transmitted => ', this.transmitted, parseFloat(this.enterTransmitted))
+      return this.errorTransmitted < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedIndex: function () {
-      let check
-      console.log('Index => ' + this.index + ' : ' + parseFloat(this.enterIndex))
-      check = this.index === parseFloat(this.enterIndex) ? 'correct' : 'not-correct'
-      return check
+      this.errorIndex = this.errorRelative('Index => ', this.index, parseFloat(this.enterIndex))
+      return this.errorIndex < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -68,22 +72,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -91,25 +79,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

@@ -6,22 +6,32 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Speed measured from S<sub>1</sub> (in c)
         input.center.data(:class="checkedV1" v-model.number='enterV1')
+        <span class="error" v-if="errorV1">[e: {{ errorV1.toPrecision(3) }}%]</span>
       p.inline.data Speed between frames (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
+        <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(3) }}%]</span>
       p.inline.data Angle from S<sub>1</sub> (in degrees)
         input.center.data(:class="checkedTheta1" v-model.number='enterTheta1')
+        <span class="error" v-if="errorTheta1">[e: {{ errorTheta1.toPrecision(3) }}%]</span>
+      <br>
       p.inline.data Speed S<sub>1x</sub> (in c)
         input.center.data(:class="checkedV1x" v-model.number='enterV1x')
+        <span class="error" v-if="errorV1x">[e: {{ errorV1x.toPrecision(3) }}%]</span>
       p.inline.data Speed S<sub>1y</sub> (in c)
         input.center.data(:class="checkedV1y" v-model.number='enterV1y')
+        <span class="error" v-if="errorV1y">[e: {{ errorV1y.toPrecision(3) }}%]</span>
       p.inline.data Speed S<sub>2x</sub> (in c)
         input.center.data(:class="checkedV2x" v-model.number='enterV2x')
+        <span class="error" v-if="errorV2x">[e: {{ errorV2x.toPrecision(3) }}%]</span>
       p.inline.data Speed S<sub>2y</sub> (in c)
         input.center.data(:class="checkedV2y" v-model.number='enterV2y')
+        <span class="error" v-if="errorV2y">[e: {{ errorV2y.toPrecision(3) }}%]</span>
       p.inline.data Speed from S<sub>2</sub> (in c)
         input.center.data(:class="checkedV2" v-model.number='enterV2')
+        <span class="error" v-if="errorV2">[e: {{ errorV2.toPrecision(3) }}%]</span>
       p.inline.data Angle from S<sub>2</sub> (in degrees)
         input.center.data(:class="checkedTheta2" v-model='enterTheta2')
+        <span class="error" v-if="errorTheta2">[e: {{ errorTheta2.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -30,112 +40,110 @@ export default {
   data: function () {
     return {
       enterV1: '',
+      errorV1: 0,
       enterTheta1: '',
+      errorTheta1: 0,
       enterV1x: '',
+      errorV1x: 0,
       enterV1y: '',
+      errorV1y: 0,
       enterV2x: '',
+      errorV2x: 0,
       enterV2y: '',
+      errorV2y: 0,
       enterV: '',
+      errorV: 0,
       enterV2: '',
+      errorV2: 0,
       enterTheta2: '',
+      errorTheta2: 0,
       direction: '',
       side: ''
     }
   },
   computed: {
     speed1: function () {
+      console.clear()
       let max = 80
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
       this.side = this.direction === 1 ? 'rigth' : 'left'
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100)
+      return (Math.round(Math.random() * (max - min + 1) + min) / 100)
     },
     angle: function () {
       let max = 70
       let min = 20
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 1
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     speed: function () {
       let max = 80
       let min = 50
-      return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction
+      return (Math.round(Math.random() * (max - min + 1) + min) / 100) * this.direction
     },
     speed1x: function () {
-      return Math.round(this.speed1 * Math.cos(this.angle * Math.PI / 180) * 1000) / 1000
+      return this.speed1 * Math.cos(this.angle * Math.PI / 180)
     },
     speed1y: function () {
-      return Math.round(this.speed1 * Math.sin(this.angle * Math.PI / 180) * 1000) / 1000
+      return this.speed1 * Math.sin(this.angle * Math.PI / 180)
     },
     speed2x: function () {
-      return Math.round(((this.speed1x - this.speed) / (1 - this.speed1x * this.speed)) * 1000) / 1000
+      return (this.speed1x - this.speed) / (1 - this.speed1x * this.speed)
     },
     speed2y: function () {
-      return Math.round((this.speed1y * Math.sqrt(1 - this.speed * this.speed) / (1 - this.speed1x * this.speed)) * 1000) / 1000
+      return this.speed1y * Math.sqrt(1 - this.speed * this.speed) / (1 - this.speed1x * this.speed)
     },
     speed2: function () {
-      return Math.round(Math.sqrt(Math.pow(this.speed2x, 2) + Math.pow(this.speed2y, 2)) * 1000) / 1000
+      return Math.sqrt(Math.pow(this.speed2x, 2) + Math.pow(this.speed2y, 2))
     },
     angle2: function () {
-      return Math.round((Math.atan2(this.speed2y, this.speed2x) * 180 / (Math.PI)) * 1000) / 1000
+      return Math.atan2(this.speed2y, this.speed2x) * 180 / (Math.PI)
     },
     checkedV1: function () {
-      let check
-      console.log('V1 => ' + this.speed1 + ' : ' + parseFloat(this.enterV1))
-      check = this.speed1 === parseFloat(this.enterV1) ? 'correct' : 'not-correct'
-      return check
+      this.errorV1 = this.errorRelative('V1 => ', this.speed1, parseFloat(this.enterV1))
+      return this.errorV1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedTheta1: function () {
-      let check
-      console.log('Theta1 => ' + this.angle + ' : ' + parseFloat(this.enterTheta1))
-      check = this.angle === parseFloat(this.enterTheta1) ? 'correct' : 'not-correct'
-      return check
+      this.errorTheta1 = this.errorRelative('Theta1 => ', this.angle, parseFloat(this.enterTheta1))
+      return this.errorTheta1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV1x: function () {
-      let check
-      console.log('V1x => ' + this.speed1x + ' : ' + parseFloat(this.enterV1x))
-      check = this.speed1x === parseFloat(this.enterV1x) ? 'correct' : 'not-correct'
-      return check
+      this.errorV1x = this.errorRelative('V1x => ', this.speed1x, parseFloat(this.enterV1x))
+      return this.errorV1x < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV1y: function () {
-      let check
-      console.log('V1y => ' + this.speed1y + ' : ' + parseFloat(this.enterV1y))
-      check = this.speed1y === parseFloat(this.enterV1y) ? 'correct' : 'not-correct'
-      return check
+      this.errorV1y = this.errorRelative('V1y => ', this.speed1y, parseFloat(this.enterV1y))
+      return this.errorV1y < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV2x: function () {
-      let check
-      console.log('V2x => ' + this.speed2x + ' : ' + parseFloat(this.enterV2x))
-      check = this.speed2x === parseFloat(this.enterV2x) ? 'correct' : 'not-correct'
-      return check
+      this.errorV2x = this.errorRelative('V2x => ', this.speed2x, parseFloat(this.enterV2x))
+      return this.errorV2x < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV2y: function () {
-      let check
-      console.log('V2y => ' + this.speed2y + ' : ' + parseFloat(this.enterV2y))
-      check = this.speed2y === parseFloat(this.enterV2y) ? 'correct' : 'not-correct'
-      return check
+      this.errorV2y = this.errorRelative('V2y => ', this.speed2y, parseFloat(this.enterV2y))
+      return this.errorV2y < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV: function () {
-      let check
-      console.log('V => ' + this.speed + ' : ' + parseFloat(this.enterV))
-      check = this.speed === parseFloat(this.enterV) ? 'correct' : 'not-correct'
-      return check
+      this.errorV = this.errorRelative('V => ', this.speed, parseFloat(this.enterV))
+      return this.errorV < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedV2: function () {
-      let check
-      console.log('V2  => ' + this.speed2 + ' : ' + parseFloat(this.enterV2))
-      check = this.speed2 === parseFloat(this.enterV2) ? 'correct' : 'not-correct'
-      return check
+      this.errorV2 = this.errorRelative('V2 => ', this.speed2, parseFloat(this.enterV2))
+      return this.errorV2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedTheta2: function () {
-      let check
-      console.log('Theta2  => ' + this.angle2 + ' : ' + parseFloat(this.enterTheta2))
-      check = this.angle2 === parseFloat(this.enterTheta2) ? 'correct' : 'not-correct'
-      return check
+      this.errorTheta2 = this.errorRelative('Theta2 => ', this.angle2, parseFloat(this.enterTheta2))
+      return this.errorTheta2 < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
     message: function (name) {
       return
+    },
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -153,8 +161,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -168,10 +176,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -186,5 +195,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

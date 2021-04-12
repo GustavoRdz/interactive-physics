@@ -7,16 +7,22 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Initial displacement (m)
         input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
+        <span class="error" v-if="errorInitDisp">[e: {{ errorInitDisp.toPrecision(3) }}%]</span>
       p.inline.data Initial speed (m/s)
         input.center.data(:class="checkedInitSpeed" v-model.number='enterInitSpeed')
+        <span class="error" v-if="errorInitSpeed">[e: {{ errorInitSpeed.toPrecision(3) }}%]</span>
       p.inline.data Angular frequency (rad/s)
         input.center.data(:class="checkedAngularFreq" v-model.number='enterAngularFreq')
+        <span class="error" v-if="errorAngularFreq">[e: {{ errorAngularFreq.toPrecision(3) }}%]</span>
       p.inline.data Period (s)
         input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
       p.inline.data Amplitude (m)
         input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
+        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
       p.inline.data Phase angle (rad)
         input.center.data(:class="checkedPhase" v-model='enterPhase')
+        <span class="error" v-if="errorPhase">[e: {{ errorPhase.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -25,78 +31,76 @@ export default {
   data: function () {
     return {
       enterInitDisp: '',
+      errorInitDisp: 0,
       enterInitSpeed: '',
+      errorInitSpeed: 0,
       enterAngularFreq: '',
+      errorAngularFreq: 0,
       enterPeriod: '',
+      errorPeriod: 0,
       enterAmplitude: '',
-      enterPhase: ''
+      errorAmplitude: 0,
+      enterPhase: '',
+      errorPhase: 0
     }
   },
   computed: {
     initialDisplacement: function () {
+      console.clear()
       let max = 5
       let min = 1
-      return Math.round(10 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.round(10 * Math.random() * (max - min + 1) + min) / 1000
     },
     initialSpeed: function () {
       let max = 5
       let min = 1
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
+      return Math.round(Math.random() * (max - min + 1) + min) / 10
     },
     angular: function () {
       let max = 50
       let min = 20
-      return Math.round(1000 * Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.round(1000 * (Math.random() * (max - min + 1) + min)) / 1000
     },
     period: function () {
-      return Math.round(1000 * 2 * Math.PI / this.angular) / 1000
+      return 2 * Math.PI / this.angular
     },
     amplitude: function () {
-      return Math.round(1000 * Math.sqrt(Math.pow(this.initialDisplacement, 2) + Math.pow(this.initialSpeed / this.angular, 2))) / 1000
+      return Math.sqrt(Math.pow(this.initialDisplacement, 2) + Math.pow(this.initialSpeed / this.angular, 2))
     },
     phase: function () {
-      return Math.round(1000 * Math.atan2(-this.initialSpeed, this.angular * this.initialDisplacement)) / 1000
+      return Math.atan2(-this.initialSpeed, this.angular * this.initialDisplacement)
     },
     checkedInitDisp: function () {
-      let check
-      console.log('Initial displacement => ' + this.initialDisplacement + ' : ' + parseFloat(this.enterInitDisp))
-      check = this.initialDisplacement === parseFloat(this.enterInitDisp) ? 'correct' : 'not-correct'
-      return check
+      this.errorInitDisp = this.errorRelative('Init displacement => ', this.initialDisplacement, parseFloat(this.enterInitDisp))
+      return this.errorInitDisp < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedInitSpeed: function () {
-      let check
-      console.log('Initial speed => ' + this.initialSpeed + ' : ' + parseFloat(this.enterInitSpeed))
-      check = this.initialSpeed === parseFloat(this.enterInitSpeed) ? 'correct' : 'not-correct'
-      return check
+      this.errorInitSpeed = this.errorRelative('Init speed => ', this.initialSpeed, parseFloat(this.enterInitSpeed))
+      return this.errorInitSpeed < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAngularFreq: function () {
-      let check
-      console.log('Angular frequency => ' + this.angular + ' : ' + parseFloat(this.enterAngularFreq))
-      check = this.angular === parseFloat(this.enterAngularFreq) ? 'correct' : 'not-correct'
-      return check
+      this.errorAngularFreq = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterAngularFreq))
+      return this.errorAngularFreq < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPeriod: function () {
-      let check
-      console.log('Period => ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
-      return check
+      this.errorPeriod = this.errorRelative('Period => ', this.period, parseFloat(this.enterPeriod))
+      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAmplitude: function () {
-      let check
-      console.log('Amplitude => ' + this.amplitude + ' : ' + parseFloat(this.enterAmplitude))
-      check = this.amplitude === parseFloat(this.enterAmplitude) ? 'correct' : 'not-correct'
-      return check
+      this.errorAmplitude = this.errorRelative('Amplitud => ', this.amplitude, parseFloat(this.enterAmplitude))
+      return this.errorAmplitude < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPhase: function () {
-      let check
-      console.log('Phase angle => ' + this.phase + ' : ' + parseFloat(this.enterPhase))
-      check = this.phase === parseFloat(this.enterPhase) ? 'correct' : 'not-correct'
-      return check
+      this.errorPhase = this.errorRelative('Phase => ', this.phase, parseFloat(this.enterPhase))
+      return this.errorPhase < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -104,22 +108,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -127,25 +115,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

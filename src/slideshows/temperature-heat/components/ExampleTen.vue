@@ -7,16 +7,22 @@
       p.solution Please do calculations and introduce your results
       p.inline.data Pot mass (kg)
         input.center.data(:class="checkedPotMass" v-model.number='enterPotMass')
+        <span class="error" v-if="errorPotMass">[e: {{ errorPotMass.toPrecision(2) }}%]</span>
       p.inline.data Water mass (kg)
         input.center.data(:class="checkedWaterMass" v-model.number='enterWaterMass')
+        <span class="error" v-if="errorWaterMass">[e: {{ errorWaterMass.toPrecision(2) }}%]</span>
       p.inline.data Pot temp. (&#x00B0;C)
         input.center.data(:class="checkedPotTemp" v-model.number='enterPotTemp')
+        <span class="error" v-if="errorPotTemp">[e: {{ errorPotTemp.toPrecision(2) }}%]</span>
       p.inline.data Water temp. (&#x00B0;C)
         input.center.data(:class="checkedWaterTemp" v-model.number='enterWaterTemp')
+        <span class="error" v-if="errorWaterTemp">[e: {{ errorWaterTemp.toPrecision(2) }}%]</span>
       p.inline.data Equilibrium temp. (&#x00B0;C)
         input.center.data(:class="checkedEqTemp" v-model.number='enterEqTemp')
+        <span class="error" v-if="errorEqTemp">[e: {{ errorEqTemp.toPrecision(2) }}%]</span>
       p.inline.data final steam mass (kg)
         input.center.data(:class="checkedSteam" v-model.number='enterSteam')
+        <span class="error" v-if="errorSteam">[e: {{ errorSteam.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -26,11 +32,17 @@ export default {
   data: function () {
     return {
       enterPotMass: '',
+      errorPotMass: 0,
       enterWaterMass: '',
+      errorWaterMass: 0,
       enterPotTemp: '',
+      errorPotTemp: 0,
       enterWaterTemp: '',
+      errorWaterTemp: 0,
       enterEqTemp: '',
+      errorEqTemp: 0,
       enterSteam: '',
+      errorSteam: 0,
       lV: 2256000,
       cC: 390,
       cW: 4190,
@@ -39,69 +51,64 @@ export default {
   },
   computed: {
     copperMass: function () {
+      console.clear()
       let max = 250
       let min = 200
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+      return Math.floor(Math.random() * (max - min + 1) + min) / 100
     },
     copperTemp: function () {
       let max = 200
       let min = 150
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     waterMass: function () {
       let max = 100
       let min = 50
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 1000
+      return Math.floor(Math.random() * (max - min + 1) + min) / 1000
     },
     waterTemp: function () {
       let max = 25
       let min = 20
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min)
     },
     finalTemp: function () {
       return 100
     },
     steamMass: function () {
-      return parseFloat(((-this.copperMass * this.cC * (this.finalTemp - this.copperTemp) - this.waterMass * this.cW * (this.finalTemp - this.waterTemp)) / this.lV).toPrecision(3))
+      return (-this.copperMass * this.cC * (this.finalTemp - this.copperTemp) - this.waterMass * this.cW * (this.finalTemp - this.waterTemp)) / this.lV
     },
     checkedPotMass: function () {
-      let check
-      console.log('Pot mass : ' + this.copperMass + ' : ' + parseFloat(this.enterPotMass))
-      check = this.copperMass === parseFloat(this.enterPotMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorPotMass = this.errorRelative('Copper mass => ', this.copperMass, parseFloat(this.enterPotMass))
+      return this.errorPotMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWaterMass: function () {
-      let check
-      console.log('Water mass : ' + this.waterMass + ' : ' + parseFloat(this.enterWaterMass))
-      check = this.waterMass === parseFloat(this.enterWaterMass) ? 'correct' : 'not-correct'
-      return check
+      this.errorWaterMass = this.errorRelative('Water mass => ', this.waterMass, parseFloat(this.enterWaterMass))
+      return this.errorWaterMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedPotTemp: function () {
-      let check
-      console.log('Pot temp : ' + this.copperTemp + ' : ' + parseFloat(this.enterPotTemp))
-      check = this.copperTemp === parseFloat(this.enterPotTemp) ? 'correct' : 'not-correct'
-      return check
+      this.errorPotTemp = this.errorRelative('Copper temp => ', this.copperTemp, parseFloat(this.enterPotTemp))
+      return this.errorPotTemp < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedWaterTemp: function () {
-      let check
-      console.log('Water temp : ' + this.waterTemp + ' : ' + parseFloat(this.enterWaterTemp))
-      check = this.waterTemp === parseFloat(this.enterWaterTemp) ? 'correct' : 'not-correct'
-      return check
+      this.errorWaterTemp = this.errorRelative('Water temp => ', this.waterTemp, parseFloat(this.enterWaterTemp))
+      return this.errorWaterTemp < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedEqTemp: function () {
-      let check
-      console.log('final Temp : ' + this.finalTemp + ' : ' + parseFloat(this.enterEqTemp))
-      check = this.finalTemp === parseFloat(this.enterEqTemp) ? 'correct' : 'not-correct'
-      return check
+      this.errorEqTemp = this.errorRelative('Final temp => ', this.finalTemp, parseFloat(this.enterEqTemp))
+      return this.errorEqTemp < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedSteam: function () {
-      let check
-      console.log('Steam mass : ' + this.steamMass + ' : ' + this.enterSteam)
-      check = this.steamMass === this.enterSteam ? 'correct' : 'not-correct'
-      return check
+      this.errorSteam = this.errorRelative('Steam mass => ', this.steamMass, parseFloat(this.enterSteam))
+      return this.errorSteam < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
+    }
   },
   watch: {
   },
@@ -111,100 +118,44 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
-
-
-.svg-display {
-        font-family:'Space Mono', monospace;
-        text-transform: "none";
-      }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #3f3;
+.eg-slide {
+  .eg-slide-content {
+    width: 100%;
+    max-width: 100%;
+  }
 }
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: #000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 0px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-button {
-  width: 200px;
-  height:40px;
-}
-
 .data {
   display: inline-block;
-  text-transform: none;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
 }
-
+.error {
+  font-size: 14px;
+}
 </style>

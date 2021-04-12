@@ -6,16 +6,22 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data Velocity of A from the radar (in c)
         input.center.data(:class="checkedARadar" v-model.number='enterARadar')
+        <span class="error" v-if="errorARadar">[e: {{ errorARadar.toPrecision(3) }}%]</span>
       p.inline.data Velocity of B from the radar (in c)
         input.center.data(:class="checkedBRadar" v-model.number='enterBRadar')
+        <span class="error" v-if="errorBRadar">[e: {{ errorBRadar.toPrecision(3) }}%]</span>
       p.inline.data Velocity of B from A (in c)
         input.center.data(:class="checkedBA" v-model.number='enterBA')
+        <span class="error" v-if="errorBA">[e: {{ errorBA.toPrecision(3) }}%]</span>
       p.inline.data Velocity of A from B (in c)
         input.center.data(:class="checkedAB" v-model='enterAB')
+        <span class="error" v-if="errorAB">[e: {{ errorAB.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the radar from A (in c)
         input.center.data(:class="checkedRadarA" v-model='enterRadarA')
+        <span class="error" v-if="errorRadarA">[e: {{ errorRadarA.toPrecision(3) }}%]</span>
       p.inline.data Velocity of the radar from B (in c)
         input.center.data(:class="checkedRadarB" v-model='enterRadarB')
+        <span class="error" v-if="errorRadarB">[e: {{ errorRadarB.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -24,17 +30,24 @@ export default {
   data: function () {
     return {
       enterARadar: '',
+      errorARadar: 0,
       enterBRadar: '',
+      errorBRadar: 0,
       enterBA: '',
+      errorBA: 0,
       enterAB: '',
+      errorAB: 0,
       enterRadarA: '',
+      errorRadarA: 0,
       enterRadarB: '',
+      errorRadarB: 0,
       direction: '',
       side: ''
     }
   },
   computed: {
     speedA: function () {
+      console.clear()
       let max = 95
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
@@ -47,51 +60,45 @@ export default {
       return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * -this.direction
     },
     speedAB: function () {
-      return Math.floor(((this.speedA - this.speedB) / (1 - (this.speedA * this.speedB))) * 100) / 100
+      return (this.speedA - this.speedB) / (1 - (this.speedA * this.speedB))
     },
     speedBA: function () {
       return -this.speedAB
     },
     checkedARadar: function () {
-      let check
-      console.log('A from M => ' + this.speedA + ' : ' + parseFloat(this.enterARadar))
-      check = this.speedA === parseFloat(this.enterARadar) ? 'correct' : 'not-correct'
-      return check
+      this.errorARadar = this.errorRelative('A from R => ', this.speedA, parseFloat(this.enterARadar))
+      return this.errorARadar < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedBRadar: function () {
-      let check
-      console.log('B from M => ' + this.speedB + ' : ' + parseFloat(this.enterBRadar))
-      check = this.speedB === parseFloat(this.enterBRadar) ? 'correct' : 'not-correct'
-      return check
+      this.errorBRadar = this.errorRelative('B from R => ', this.speedB, parseFloat(this.enterBRadar))
+      return this.errorBRadar < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedBA: function () {
-      let check
-      console.log('B from A => ' + this.speedBA + ' : ' + parseFloat(this.enterBA))
-      check = this.speedBA === parseFloat(this.enterBA) ? 'correct' : 'not-correct'
-      return check
+      this.errorBA = this.errorRelative('B from A => ', this.speedBA, parseFloat(this.enterBA))
+      return this.errorBA < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAB: function () {
-      let check
-      console.log('A from B => ' + this.speedAB + ' : ' + parseFloat(this.enterAB))
-      check = this.speedAB === parseFloat(this.enterAB) ? 'correct' : 'not-correct'
-      return check
+      this.errorAB = this.errorRelative('A from B => ', this.speedAB, parseFloat(this.enterAB))
+      return this.errorAB < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedRadarA: function () {
-      let check
-      console.log('M from A => ' + this.speedA * -this.direction + ' : ' + parseFloat(this.enterRadarA))
-      check = this.speedA * -this.direction === parseFloat(this.enterRadarA) ? 'correct' : 'not-correct'
-      return check
+      this.errorRadarA = this.errorRelative('R from A => ', -this.speedA, parseFloat(this.enterRadarA))
+      return this.errorRadarA < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedRadarB: function () {
-      let check
-      console.log('M from B => ' + this.speedB * -this.direction + ' : ' + parseFloat(this.enterRadarB))
-      check = this.speedB * -this.direction === parseFloat(this.enterRadarB) ? 'correct' : 'not-correct'
-      return check
+      this.errorRadarB = this.errorRelative('R from B => ', -this.speedB, parseFloat(this.enterRadarB))
+      return this.errorRadarB < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
     message: function (name) {
       return
+    },
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -109,8 +116,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -124,10 +131,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -142,5 +150,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

@@ -360,7 +360,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Other systems of SHM
       p(style="margin-top: -30px;").center Angular SHM
-      torsion-pendulum
+      //- torsion-pendulum
       .center
         img(src='./assets/angularSHM.png' height="300px")
       .center
@@ -667,6 +667,11 @@ export default {
     font-style: italic;
   }
 }
+.eg-slide-content {
+    width: 30em;
+    max-width: 95%;
+    margin: 0 100 0 50;
+  }
 
 
 </style>

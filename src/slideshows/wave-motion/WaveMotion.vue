@@ -111,7 +111,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 2
-      example-nine
+      example-two
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -135,7 +135,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 3
-      example-two
+      example-three
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -149,7 +149,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 4
       .center
-      example-three(style="width: 100%;")
+      example-four
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -247,7 +247,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 5
-      example-twelve
+      example-five
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -260,7 +260,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 6
-      example-thirteen
+      example-six
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -307,7 +307,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 7
-      example-four
+      example-seven
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -336,7 +336,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 8
-      example-five
+      example-eight
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -349,7 +349,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 9
-      example-seven
+      example-nine
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -371,7 +371,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3 Exercise 10
-      example-eight
+      example-ten
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br
@@ -536,15 +536,6 @@ export default {
     'example-nine': require('./components/ExampleNine'),
     'example-ten': require('./components/ExampleTen'),
     'example-eleven': require('./components/ExampleEleven'),
-    'example-twelve': require('./components/ExampleTwelve'),
-    'example-thirteen': require('./components/ExampleThirteen'),
-    'example-fourteen': require('./components/ExampleFourteen'),
-    'example-fifteen': require('./components/ExampleFifteen'),
-    'example-sixteen': require('./components/ExampleSixteen'),
-    'example-seventeen': require('./components/ExampleSeventeen'),
-    'example-eighteen': require('./components/ExampleEighteen'),
-    'example-nineteen': require('./components/ExampleNineteen'),
-    'example-twenty': require('./components/ExampleTwenty'),
     'wave-interference': require('./components/waveInterference'),
     'standing-waves': require('./components/standingWaves'),
     'doppler-simulator': require('./components/dopplerSimulator')

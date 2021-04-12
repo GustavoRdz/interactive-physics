@@ -6,14 +6,19 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data λ<sub>1</sub> (m)
         input.center.data(:class="checkedLambda1" v-model.number='enterLambda1')
+        <span class="error" v-if="errorLambda1">[e: {{ errorLambda1.toPrecision(3) }}%]</span>
       p.inline.data θ (º)
         input.center.data(:class="checkedTheta" v-model.number='enterTheta')
+        <span class="error" v-if="errorTheta">[e: {{ errorTheta.toPrecision(3) }}%]</span>
       p.inline.data λ<sub>2</sub> (m)
         input.center.data(:class="checkedLambda2" v-model.number='enterLambda2')
+        <span class="error" v-if="errorLambda2">[e: {{ errorLambda2.toPrecision(3) }}%]</span>
       p.inline.data φ (º)
         input.center.data(:class="checkedPhi" v-model.number='enterPhi')
+        <span class="error" v-if="errorPhi">[e: {{ errorPhi.toPrecision(3) }}%]</span>
       p.inline.data K<sub>e</sub> (J)
         input.center.data(:class="checkedKe" v-model.number='enterKe')
+        <span class="error" v-if="errorKe">[e: {{ errorKe.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -22,10 +27,15 @@ export default {
   data: function () {
     return {
       enterLambda1: '',
+      errorLambda1: 0,
       enterTheta: '',
+      errorTheta: 0,
       enterLambda2: '',
+      errorLambda2: 0,
       enterPhi: '',
+      errorPhi: 0,
       enterKe: '',
+      errorKe: 0,
       h: 6.626e-34,
       m: 9.1e-31,
       c: 3e8
@@ -54,31 +64,41 @@ export default {
     checkedLambda1: function () {
       let check
       console.log('Lambda1 => ' + this.lambda1 + ' : ' + parseFloat(this.enterLambda1))
-      check = this.lambda1 === parseFloat(this.enterLambda1) ? 'correct' : 'not-correct'
+      this.errorLambda1 = 100 * Math.abs((this.lambda1 - parseFloat(this.enterLambda1)) / this.lambda1)
+      console.log('error  ' + this.errorLambda1 + ' %')
+      check = this.errorLambda1 < 1e-0 ? 'correct' : 'not-correct'
       return check
     },
     checkedTheta: function () {
       let check
       console.log('Theta => ' + this.theta + ' : ' + parseFloat(this.enterTheta))
-      check = this.theta === parseFloat(this.enterTheta) ? 'correct' : 'not-correct'
+      this.errorTheta = 100 * Math.abs((this.theta - parseFloat(this.enterTheta)) / this.theta)
+      console.log('error  ' + this.errorTheta + ' %')
+      check = this.errorTheta < 1e-0 ? 'correct' : 'not-correct'
       return check
     },
     checkedLambda2: function () {
       let check
       console.log('Lambda2 => ' + this.lambda2 + ' : ' + parseFloat(this.enterLambda2))
-      check = this.lambda2 === parseFloat(this.enterLambda2) ? 'correct' : 'not-correct'
+      this.errorLambda2 = 100 * Math.abs((this.lambda2 - parseFloat(this.enterLambda2)) / this.lambda2)
+      console.log('error  ' + this.errorLambda2 + ' %')
+      check = this.errorLambda2 < 1e-0 ? 'correct' : 'not-correct'
       return check
     },
     checkedPhi: function () {
       let check
       console.log('Phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      this.errorPhi = 100 * Math.abs((this.phi - parseFloat(this.enterPhi)) / (this.phi + Number.MIN_VALUE))
+      console.log('error  ' + this.errorPhi + ' %')
+      check = this.errorPhi < 1e-0 ? 'correct' : 'not-correct'
       return check
     },
     checkedKe: function () {
       let check
       console.log('Ke => ' + this.Ke + ' : ' + parseFloat(this.enterKe))
-      check = this.Ke === parseFloat(this.enterKe) ? 'correct' : 'not-correct'
+      this.errorKe = 100 * Math.abs((this.Ke - parseFloat(this.enterKe)) / (this.Ke + Number.MIN_VALUE))
+      console.log('error  ' + this.errorKe + ' %')
+      check = this.errorKe < 1e-0 ? 'correct' : 'not-correct'
       return check
     }
   },

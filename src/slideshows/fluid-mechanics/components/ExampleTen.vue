@@ -5,21 +5,29 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Weight in air (N)
-        input.center.data(:class="checkedUserAir" v-model.number='userAir')
+        input.center.data(:class="checkedWAir" v-model.number='enterWAir')
+        <span class="error" v-if="errorWAir">[e: {{ errorWAir.toPrecision(2) }}%]</span>
       p.inline.data  Weight in water (N)
-        input.center.data(:class="checkedUserWater" v-model.number='userWater')
+        input.center.data(:class="checkedWWater" v-model.number='enterWWater')
+        <span class="error" v-if="errorWWater">[e: {{ errorWWater.toPrecision(2) }}%]</span>
       p.inline.data Bouyant force (N)
-        input.center.data(:class="checkedUserBouyant" v-model.number='userBouyant')
+        input.center.data(:class="checkedBouyant" v-model.number='enterBouyant')
+        <span class="error" v-if="errorBouyant">[e: {{ errorBouyant.toPrecision(2) }}%]</span>
       p.inline.data Crown mass (kg)
-        input.center.data(:class="checkedUserCrownMass" v-model.number='userCrownMass')
+        input.center.data(:class="checkedCrownMass" v-model.number='enterCrownMass')
+        <span class="error" v-if="errorCrownMass">[e: {{ errorCrownMass.toPrecision(2) }}%]</span>
       p.inline.data Crown volume (m<sup>3</sup>)
-        input.center.data(:class="checkedUserVolume" v-model.number='userVolume')
+        input.center.data(:class="checkedVolume" v-model.number='enterVolume')
+        <span class="error" v-if="errorVolume">[e: {{ errorVolume.toPrecision(2) }}%]</span>
       p.inline.data Crown density (kg/m<sup>3</sup>)
-        input.center.data(:class="checkedUserCrownDensity" v-model.number='userCrownDensity')
+        input.center.data(:class="checkedCrownDensity" v-model.number='enterCrownDensity')
+        <span class="error" v-if="errorCrownDensity">[e: {{ errorCrownDensity.toPrecision(2) }}%]</span>
       p.inline.data Gold density (kg/m<sup>3</sup>)
-        input.center.data(:class="checkedUserGoldDensity" v-model.number='userGoldDensity')
+        input.center.data(:class="checkedGoldDensity" v-model.number='enterGoldDensity')
+        <span class="error" v-if="errorGoldDensity">[e: {{ errorGoldDensity.toPrecision(2) }}%]</span>
       p.inline.data Cheat (true/false)
-        input.center.data(:class="checkedUserCheat" v-model='userCheat')
+        input.center.data(:class="checkedCheat" v-model='enterCheat')
+        <span class="error" v-if="errorCheat">[e: {{ errorCheat.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -27,110 +35,102 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      userAir: '',
-      userWater: '',
-      userBouyant: '',
-      userCrownMass: '',
-      userVolume: '',
-      userCrownDensity: '',
-      userGoldDensity: '',
-      userCheat: ''
+      enterWAir: '',
+      errorWAir: 0,
+      enterWWater: '',
+      errorWWater: 0,
+      enterBouyant: '',
+      errorBouyant: 0,
+      enterCrownMass: '',
+      errorCrownMass: 0,
+      enterVolume: '',
+      errorVolume: 0,
+      enterCrownDensity: '',
+      errorCrownDensity: 0,
+      enterGoldDensity: '',
+      errorGoldDensity: 0,
+      enterCheat: '',
+      errorCheat: 0,
+      g: 9.81,
+      rho: 1000,
+      goldRho: 19300
     }
   },
   computed: {
     airWeight: function () {
+      console.clear()
       let max = 1000
       let min = 500
-      return (Math.floor(Math.random() * (max - min + 1)) + min) / 100
-    },
-    crownMass: function () {
-      return Math.round(1000 * this.airWeight / 9.81) / 1000
-    },
-    realGoldBouyant: function () {
-      return (1000 * 9.81 * this.goldVolume).toPrecision(3)
-    },
-    goldVolume: function () {
-      return Number(this.crownMass / 19300).toPrecision(3)
+      return Math.floor(Math.random() * (max - min + 1) + min) / 100
     },
     waterWeight: function () {
-      console.log('mass: ' + this.crownMass)
-      // console.log('volume: ' + this.crownVolume)
-      console.log('volumegold: ' + this.goldVolume)
-      console.log('realGoldB: ' + this.realGoldBouyant)
       let max = this.airWeight - this.realGoldBouyant
       let min = this.airWeight - 5 * this.realGoldBouyant
-      console.log('max : ' + max + '  min: ' + min)
-      return (Math.floor(Math.random() * (max - min + 1)) + min).toPrecision(3)
+      return Math.floor(100 * Math.random() * (max - min + 1) + min) / 100
+    },
+    crownMass: function () {
+      return this.airWeight / this.g
+    },
+    realGoldBouyant: function () {
+      return this.rho * this.g * this.goldVolume
+    },
+    goldVolume: function () {
+      return this.crownMass / this.gordRho
     },
     bouyant: function () {
-      return (this.airWeight - this.waterWeight) > 0 ? (this.airWeight - this.waterWeight).toPrecision(4) : (this.airWeight - this.waterWeight).toPrecision(3)
+      return this.airWeight
     },
     crownVolume: function () {
-      return Number(this.bouyant / (9.81 * 1000)).toPrecision(3)
+      return this.bouyant / (this.g * this.rho)
     },
     crownDensity: function () {
-      // return (this.airWeight * 1000 / this.bouyant).toPrecision(3)
-      return (this.crownMass / this.crownVolume).toPrecision(3)
+      return this.crownMass / this.crownVolume
     },
     cheat: function () {
       return this.bouyant === this.realGoldBouyant
     },
-    checkedUserAir: function () {
-      let check
-      console.log(this.airWeight + ' : ' + parseFloat(this.userAir))
-      check = this.airWeight === parseFloat(this.userAir) ? 'correct' : 'not-correct'
-      return check
+    checkedWAir: function () {
+      this.errorWAir = this.errorRelative('Weight in air => ', this.airWeight, parseFloat(this.enterWAir))
+      return this.errorWAir < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserWater: function () {
-      let check
-      console.log(this.waterWeight + ' : ' + parseFloat(this.userWater))
-      check = parseFloat(this.waterWeight) === parseFloat(this.userWater) ? 'correct' : 'not-correct'
-      return check
+    checkedWWater: function () {
+      this.errorWWater = this.errorRelative('Weight in water => ', this.waterWeight, parseFloat(this.enterWWater))
+      return this.errorWWater < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserBouyant: function () {
-      let check
-      console.log(this.bouyant + ' : ' + parseFloat(this.userBouyant))
-      check = parseFloat(this.bouyant) === parseFloat(this.userBouyant) ? 'correct' : 'not-correct'
-      return check
+    checkedBouyant: function () {
+      this.errorBouyant = this.errorRelative('Bouyant force => ', this.bouyant, parseFloat(this.enterBouyant))
+      return this.errorBouyant < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserCrownMass: function () {
-      let check
-      console.log(this.crownMass + ' : ' + parseFloat(this.userCrownMass))
-      check = parseFloat(this.crownMass) === parseFloat(this.userCrownMass) ? 'correct' : 'not-correct'
-      return check
+    checkedCrownMass: function () {
+      this.errorCrownMass = this.errorRelative('Crown mass => ', this.crownMass, parseFloat(this.enterCrownMass))
+      return this.errorCrownMass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserVolume: function () {
-      let check
-      console.log(this.crownVolume + ' : ' + parseFloat(this.userVolume))
-      check = parseFloat(this.crownVolume) === parseFloat(this.userVolume) ? 'correct' : 'not-correct'
-      return check
+    checkedVolume: function () {
+      this.errorVolume = this.errorRelative('Crown volume => ', this.crownVolume, parseFloat(this.enterVolume))
+      return this.errorVolume < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserCrownDensity: function () {
-      let check
-      console.log(this.crownDensity + ' : ' + parseFloat(this.userCrownDensity))
-      check = parseFloat(this.crownDensity) === parseFloat(this.userCrownDensity) ? 'correct' : 'not-correct'
-      return check
+    checkedCrownDensity: function () {
+      this.errorCrownDensity = this.errorRelative('Crown density => ', this.crownDensity, parseFloat(this.enterCrownDensity))
+      return this.errorCrownDensity < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserGoldDensity: function () {
-      let check
-      console.log(19300 + ' : ' + parseFloat(this.userGoldDensity))
-      check = this.userGoldDensity === 19300 ? 'correct' : 'not-correct'
-      return check
+    checkedGoldDensity: function () {
+      this.errorGoldDensity = this.errorRelative('Gold density => ', this.goldRho, parseFloat(this.enterGoldDensity))
+      return this.errorGoldDensity < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserCheat: function () {
+    checkedCheat: function () {
       let check
       let cheat = this.cheat ? 'false' : 'true'
-      console.log(this.cheat + ' : ' + this.userCheat)
-      console.log(cheat)
-      console.log(this.userCheat)
-      console.log('Bouyant: ' + this.bouyant + ' : ' + this.realGoldBouyant)
-      check = cheat === this.userCheat ? 'correct' : 'not-correct'
+      console.log('Cheat : ' + cheat + ' : ' + this.enterCheat)
+      check = cheat === this.enterCheat ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -140,20 +140,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -161,25 +151,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

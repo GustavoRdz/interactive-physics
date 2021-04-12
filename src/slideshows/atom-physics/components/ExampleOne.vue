@@ -9,8 +9,10 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data a) E<sub>n = {{ levelA1 }} to {{ levelA2 }}</sub> (eV)
         input.center.data(:class="checkedEa" v-model='enterEa')
+        <span class="error" v-if="errorEa">[e: {{ errorEa.toPrecision(3) }}%]</span>
       p.inline.data A) E<sub>n = {{ levelB1 }} to {{ levelB2 }} </sub> (eV)
         input.center.data(:class="checkedEb" v-model='enterEb')
+        <span class="error" v-if="errorEb">[e: {{ errorEb.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -19,46 +21,52 @@ export default {
   data: function () {
     return {
       enterEa: '',
-      enterEb: ''
+      errorEa: 0,
+      enterEb: '',
+      errorEb: 0
     }
   },
   computed: {
     levelA1: function () {
       let max = 3
       let min = 1
-      return Math.floor(Math.random() * (max - min + 1)) + min
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     levelA2: function () {
       let max = 8
       let min = 4
-      return Math.floor(Math.random() * (max - min + 1)) + min
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     levelB1: function () {
       let max = 6
       let min = 3
-      return Math.floor(Math.random() * (max - min + 1)) + min
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     levelB2: function () {
       let max = 10
       let min = 7
-      return Math.floor(Math.random() * (max - min + 1)) + min
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     eA: function () {
-      return parseFloat((-13.606 * (1 / Math.pow(this.levelA2, 2) - 1 / Math.pow(this.levelA1, 2))).toFixed(3))
+      return -13.606 * (1 / Math.pow(this.levelA2, 2) - 1 / Math.pow(this.levelA1, 2))
     },
     eB: function () {
-      return parseFloat((-13.606 * (1 / Math.pow(this.levelB2, 2) - 1 / Math.pow(this.levelB1, 2))).toFixed(3))
+      return -13.606 * (1 / Math.pow(this.levelB2, 2) - 1 / Math.pow(this.levelB1, 2))
     },
     checkedEa: function () {
       let check
       console.log('a) E: => ' + this.eA + ' : ' + parseFloat(this.enterEa))
-      check = this.eA === parseFloat(this.enterEa) ? 'correct' : 'not-correct'
+      this.errorEa = 100 * Math.abs((this.eA - parseFloat(this.enterEa)) / (this.eA + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEa + ' %')
+      check = this.errorEa < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedEb: function () {
       let check
       console.log('b) E: => ' + this.eB + ' : ' + parseFloat(this.enterEb))
-      check = this.eB === parseFloat(this.enterEb) ? 'correct' : 'not-correct'
+      this.errorEb = 100 * Math.abs((this.eB - parseFloat(this.enterEb)) / (this.eB + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEb + ' %')
+      check = this.errorEb < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -90,17 +98,18 @@ export default {
 
 .data {
   display: inline-block;
-  width: 130px;
+  width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -115,5 +124,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

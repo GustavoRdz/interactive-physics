@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem A photon is emitted when a hydrogen atom undergoes a transition from the n = {{ levelUp }} state to the n = {{ levelDown }} state. Calculate
-    p.problem (a) the energy (in electron volts),
+    p.problem (a) the energy in electron volts and Joules,
     p.problem (b) the wavelength, and
     p.problem (c) the frequency of the emitted photon.
 
@@ -10,12 +10,16 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data a) E  (eV)
         input.center.data(:class="checkedE" v-model.number='enterE')
+        <span class="error" v-if="errorE">[e: {{ errorE.toPrecision(3) }}%]</span>
       p.inline.data E (J)
         input.center.data(:class="checkedEj" v-model.number='enterEj')
+        <span class="error" v-if="errorEj">[e: {{ errorEj.toPrecision(3) }}%]</span>
       p.inline.data b) λ (m)
         input.center.data(:class="checkedL" v-model.number='enterL')
+        <span class="error" v-if="errorL">[e: {{ errorL.toPrecision(3) }}%]</span>
       p.inline.data c) f (Hz)
         input.center.data(:class="checkedF" v-model='enterF')
+        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -24,9 +28,13 @@ export default {
   data: function () {
     return {
       enterE: '',
+      errorE: 0,
       enterEj: '',
+      errorEj: 0,
       enterL: '',
+      errorL: 0,
       enterF: '',
+      errorF: 0,
       e: 1.6e-19,
       h: 6.626e-34,
       c: 3e8
@@ -44,39 +52,47 @@ export default {
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
     energyEv: function () {
-      return Math.round(1000 * -13.606 * (1 / Math.pow(this.levelUp, 2) - 1 / Math.pow(this.levelDown, 2))) / 1000
+      return -13.606 * (1 / Math.pow(this.levelUp, 2) - 1 / Math.pow(this.levelDown, 2))
     },
     energyJ: function () {
-      return parseFloat((this.energyEv * this.e).toPrecision(4))
+      return this.energyEv * this.e
     },
     lambda: function () {
-      return parseFloat((this.h * this.c / this.energyJ).toPrecision(4))
+      return this.h * this.c / this.energyJ
     },
     frequency: function () {
-      return parseFloat((this.energyJ / this.h).toPrecision(4))
+      return this.energyJ / this.h
     },
     checkedE: function () {
       let check
       console.log('E (eV) => ' + this.energyEv + ' : ' + parseFloat(this.enterE))
-      check = this.energyEv === parseFloat(this.enterE) ? 'correct' : 'not-correct'
+      this.errorE = 100 * Math.abs((this.energyEv - parseFloat(this.enterE)) / (this.energyEv + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE + ' %')
+      check = this.errorE < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedEj: function () {
       let check
       console.log('E (J) => ' + this.energyJ + ' : ' + parseFloat(this.enterEj))
-      check = this.energyJ === parseFloat(this.enterEj) ? 'correct' : 'not-correct'
+      this.errorEj = 100 * Math.abs((this.energyJ - parseFloat(this.enterEj)) / (this.energyJ + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEj + ' %')
+      check = this.errorEj < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedL: function () {
       let check
       console.log('λ => ' + this.lambda + ' : ' + parseFloat(this.enterL))
-      check = this.lambda === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      this.errorL = 100 * Math.abs((this.lambda - parseFloat(this.enterL)) / (this.lambda + Number.MIN_VALUE))
+      console.log('error  ' + this.errorL + ' %')
+      check = this.errorL < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedF: function () {
       let check
       console.log('Frequency => ' + this.frequency + ' : ' + this.enterF)
-      check = this.frequency === parseFloat(this.enterF) ? 'correct' : 'not-correct'
+      this.errorF = 100 * Math.abs((this.frequency - parseFloat(this.enterF)) / (this.frequency + Number.MIN_VALUE))
+      console.log('error  ' + this.errorF + ' %')
+      check = this.errorF < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -115,10 +131,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -133,5 +150,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

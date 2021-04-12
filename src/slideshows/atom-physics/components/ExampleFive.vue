@@ -1,21 +1,70 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (a) Construct an energy-level diagram for the He<sup>+</sup> ion, for which Z = 2, using the Bohr model.
-    p.problem (b) What is the ionization energy for He<sup>+</sup>?
+    p.problem (a) Construct an energy-level diagram for the {{ elements[z-1] }}<span  v-if="z!=1"><sup>{{z-1}}+</sup> ion</span><span v-if="z==1"> atom</span>, for which Z = {{ z }}, using the Bohr model.
+    p.problem (b) What is the ionization energy for {{ elements[z-1] }}<span  v-if="z!=1"><sup>{{z-1}}+</sup> ion</span><span v-if="z==1"> atom</span>?
+
+    p.center
+      <svg xmlns="http://www.w3.org/2000/svg" height="200px" width="300px" version="1.1" viewBox="0 0 300 200">
+      <g transform="translate(0 0)">
+        <text x="10" y="15" fill="black" style="font-size: 25px; font-family: Times;">n</text>
+        <text x="35" y="200" fill="blue" style="font-size: 15px; font-family: Times;">1</text>
+        <text x="35" y="120" fill="blue" style="font-size: 15px; font-family: Times;">2</text>
+        <text x="35" y="70" fill="blue" style="font-size: 15px; font-family: Times;">3</text>
+        <text x="35" y="42" fill="blue" style="font-size: 15px; font-family: Times;">4</text>
+        <text x="35" y="30" fill="blue" style="font-size: 13px; font-family: Times;">5</text>
+        <text x="35" y="19" fill="blue" style="font-size: 13px; font-family: Times;">6</text>
+        <text x="32" y="10" fill="blue" style="font-size: 20px; font-family: Times;">∞</text>
+
+        <line x1="50" :y1="195" x2="200" :y2="195" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="2.3*scaleFactor*3.4015" x2="200" :y2="2.3*scaleFactor*3.4015" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="3*scaleFactor*1.51177" x2="200" :y2="3*scaleFactor*1.51177" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="3*scaleFactor*0.85037" x2="200" :y2="3*scaleFactor*0.85037" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="3*scaleFactor*0.54424" x2="200" :y2="3*scaleFactor*0.54424" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="3*scaleFactor*0.37794" x2="200" :y2="3*scaleFactor*0.37794" style="stroke:rgb(0,0,0);stroke-width:2" />
+        <line x1="50" :y1="2" x2="200" :y2="2" style="stroke:rgb(0,0,0);stroke-width:2" />
+        
+        <text x="120" y="14" fill="black" style="font-size: 30px;">·</text>
+        <text x="120" y="18" fill="black" style="font-size: 30px;">·</text>
+        <text x="120" y="22" fill="black" style="font-size: 30px;">·</text>
+
+        <text x="250" y="15" fill="black" style="font-size: 20px; font-family: Times;">E(eV)</text>
+        <text x="205" y="199" fill="green" style="font-size: 15px; font-family: Times;">{{ enterE1 }}</text>
+        <text x="205" y="118" fill="green" style="font-size: 15px; font-family: Times;">{{ enterE2 }}</text>
+        <text x="205" y="70" fill="green" style="font-size: 15px; font-family: Times;">{{ enterE3 }}</text>
+        <text x="205" y="41" fill="green" style="font-size: 13px; font-family: Times;">{{ enterE4 }}</text>
+        <text x="205" y="26" fill="green" style="font-size: 10px; font-family: Times;">{{ enterE5 }}</text>
+        <text x="205" y="18" fill="green" style="font-size: 10px; font-family: Times;">{{ enterE6 }}</text>
+        <text x="205" y="7" fill="green" style="font-size: 10px; font-family: Times;">{{ enterEinf }}</text>
+      </g>
+      </svg>
 
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data φ (J)
-        input.center.data(:class="checkedPhi" v-model.number='enterPhi')
-      p.inline.data  λ (m)
-        input.center.data(:class="checkedL" v-model.number='enterL')
-      p.inline.data K<sub>max</sub> (J)
-        input.center.data(:class="checkedKmax" v-model.number='enterKmax')
-      p.inline.data v<sub>max</sub> (m/s)
-        input.center.data(:class="checkedVmax" v-model='enterVmax')
-      p.inline.data V<sub>0</sub> (volts)
-        input.center.data(:class="checkedV0" v-model='enterV0')
+      p.data Z
+        input.center.data(:class="checkedZ" v-model.number='enterZ')
+        <span class="error" v-if="errorZ">[e: {{ errorZ.toPrecision(3) }}%]</span>
+      p.data E<sub>1</sub> (eV)
+        input.center.data(:class="checkedE1" v-model.number='enterE1')
+        <span class="error" v-if="errorE1">[e: {{ errorE1.toPrecision(3) }}%]</span>
+      p.data E<sub>2</sub>(eV)
+        input.center.data(:class="checkedE2" v-model.number='enterE2')
+        <span class="error" v-if="errorE2">[e: {{ errorE2.toPrecision(3) }}%]</span>
+      p.data E<sub>3</sub> (eV)
+        input.center.data(:class="checkedE3" v-model.number='enterE3')
+        <span class="error" v-if="errorE3">[e: {{ errorE3.toPrecision(3) }}%]</span>
+      p.data E<sub>4</sub> (eV)
+        input.center.data(:class="checkedE4" v-model='enterE4')
+        <span class="error" v-if="errorE4">[e: {{ errorE4.toPrecision(3) }}%]</span>
+      p.data E<sub>5</sub> (eV)
+        input.center.data(:class="checkedE5" v-model='enterE5')
+        <span class="error" v-if="errorE5">[e: {{ errorE5.toPrecision(3) }}%]</span>
+      p.data E<sub>6</sub> (eV)
+        input.center.data(:class="checkedE6" v-model='enterE6')
+        <span class="error" v-if="errorE6">[e: {{ errorE6.toPrecision(3) }}%]</span>
+      p.data E<sub>∞</sub> (eV)
+        input.center.data(:class="checkedEinf" v-model='enterEinf')
+        <span class="error" v-if="errorEinf">[e: {{ errorEinf.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -23,68 +72,118 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterPhi: '',
-      enterL: '',
-      enterKmax: '',
-      enterVmax: '',
-      enterV0: '',
-      h: 6.626e-34,
-      e: 1.6e-19,
-      c: 3e8,
-      me: 9.1e-31
+      enterZ: '',
+      errorZ: 0,
+      enterE1: '',
+      errorE1: 0,
+      enterE2: '',
+      errorE2: 0,
+      enterE3: '',
+      errorE3: 0,
+      enterE4: '',
+      errorE4: 0,
+      enterE5: '',
+      errorE5: 0,
+      enterE6: '',
+      errorE6: 0,
+      enterEinf: '',
+      errorEinf: 0,
+      factor: -13.606,
+      scaleFactor: 14.7,
+      elements: ['H', 'He', 'Li', 'Be', 'B', 'C', 'N', 'O', 'F']
     }
   },
   computed: {
-    work: function () {
-      let max = 500
-      let min = 400
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 100
+    z: function () {
+      console.clear()
+      let max = 9
+      let min = 1
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    wavelength: function () {
-      let max = 3000
-      let min = 2000
-      return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
+    e1: function () {
+      console.clear()
+      return this.factor * this.z ** 2
     },
-    phi: function () {
-      return parseFloat((this.work * this.e).toPrecision(4))
+    e2: function () {
+      return this.factor * this.z ** 2 / 4
     },
-    kMax: function () {
-      return parseFloat((this.h * this.c / (this.wavelength * 1e-10) - this.phi).toPrecision(4))
+    e3: function () {
+      return this.factor * this.z ** 2 / 9
     },
-    vMax: function () {
-      return parseFloat((Math.sqrt(2 * this.kMax / this.me)).toPrecision(4))
+    e4: function () {
+      return this.factor * this.z ** 2 / 16
     },
-    v0: function () {
-      return parseFloat((this.kMax / this.e).toPrecision(4))
+    e5: function () {
+      return this.factor * this.z ** 2 / 25
     },
-    checkedPhi: function () {
+    e6: function () {
+      return this.factor * this.z ** 2 / 36
+    },
+    eInf: function () {
+      return 0
+    },
+    checkedZ: function () {
       let check
-      console.log('phi => ' + this.phi + ' : ' + parseFloat(this.enterPhi))
-      check = this.phi === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      console.log('Z1 => ' + this.z + ' : ' + parseFloat(this.enterZ))
+      this.errorZ = 100 * Math.abs((this.z - parseFloat(this.enterZ)) / (this.z + Number.MIN_VALUE))
+      console.log('error  ' + this.errorZ + ' %')
+      check = this.errorZ < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedL: function () {
+    checkedE1: function () {
       let check
-      console.log('λ => ' + this.wavelength * 1e-10 + ' : ' + parseFloat(this.enterL))
-      check = this.wavelength * 1e-10 === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      console.log('E1 => ' + this.e1 + ' : ' + parseFloat(this.enterE1))
+      this.errorE1 = 100 * Math.abs((this.e1 - parseFloat(this.enterE1)) / (this.e1 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE1 + ' %')
+      check = this.errorE1 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedKmax: function () {
+    checkedE2: function () {
       let check
-      console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterKmax))
-      check = this.kMax === parseFloat(this.enterKmax) ? 'correct' : 'not-correct'
+      console.log('E2 => ' + this.e2 + ' : ' + parseFloat(this.enterE2))
+      this.errorE2 = 100 * Math.abs((this.e2 - parseFloat(this.enterE2)) / (this.e2 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE2 + ' %')
+      check = this.errorE2 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedVmax: function () {
+    checkedE3: function () {
       let check
-      console.log('vmax => ' + this.vMax + ' : ' + parseFloat(this.enterVmax))
-      check = this.vMax === parseFloat(this.enterVmax) ? 'correct' : 'not-correct'
+      console.log('E3 => ' + this.e3 + ' : ' + parseFloat(this.enterE3))
+      this.errorE3 = 100 * Math.abs((this.e3 - parseFloat(this.enterE3)) / (this.e3 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE3 + ' %')
+      check = this.errorE3 < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
-    checkedV0: function () {
+    checkedE4: function () {
       let check
-      console.log('V0 => ' + this.v0 + ' : ' + parseFloat(this.enterV0))
-      check = this.v0 === parseFloat(this.enterV0) ? 'correct' : 'not-correct'
+      console.log('E4 => ' + this.e4 + ' : ' + parseFloat(this.enterE4))
+      this.errorE4 = 100 * Math.abs((this.e4 - parseFloat(this.enterE4)) / (this.e4 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE4 + ' %')
+      check = this.errorE4 < 1e-1 ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedE5: function () {
+      let check
+      console.log('E5 => ' + this.e5 + ' : ' + parseFloat(this.enterE5))
+      this.errorE5 = 100 * Math.abs((this.e5 - parseFloat(this.enterE5)) / (this.e5 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE5 + ' %')
+      check = this.errorE5 < 1e-1 ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedE6: function () {
+      let check
+      console.log('E6 => ' + this.e6 + ' : ' + parseFloat(this.enterE6))
+      this.errorE6 = 100 * Math.abs((this.e6 - parseFloat(this.enterE6)) / (this.e6 + Number.MIN_VALUE))
+      console.log('error  ' + this.errorE6 + ' %')
+      check = this.errorE6 < 1e-1 ? 'correct' : 'not-correct'
+      return check
+    },
+    checkedEinf: function () {
+      let check
+      console.log('Einf => ' + this.eInf + ' : ' + parseFloat(this.enterEinf))
+      this.errorEinf = 100 * Math.abs((this.eInf - parseFloat(this.enterEinf)) / (this.eInf + Number.MIN_VALUE))
+      console.log('error  ' + this.errorEinf + ' %')
+      check = this.errorEinf < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -108,8 +207,8 @@ export default {
         margin-bottom: 0;
         color: #555;
       }
-      width: 80%;
-      margin-left: 10%;
+      width: 100%;
+      margin-left: 0%;
     }
   }
 }
@@ -123,10 +222,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -141,5 +241,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

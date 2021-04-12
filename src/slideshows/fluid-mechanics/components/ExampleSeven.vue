@@ -4,18 +4,24 @@ eg-transition(:enter='enter', :leave='leave')
     p.problem A child tries to drink water through a straw that is {{ strawHeight }} cm long, but notes that the water only rises {{ rise }} cm. How much did he reduce the pressure in his mouth with respect to that of the atmosphere?
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data water rise (m)
-        input.center.data(:class="checkedWaterRise" v-model.number='waterRise')
+      p.inline.data Water rise (m)
+        input.center.data(:class="checkedRise" v-model.number='enterRise')
+        <span class="error" v-if="errorRise">[e: {{ errorRise.toPrecision(2) }}%]</span>
       p.inline.data Atm pressure (Pa)
-        input.center.data(:class="checkedAtmPressure" v-model.number='atmPressure')
-      p.inline.data Fluid density (kg/m<sup>2</sup>)
-        input.center.data(:class="checkedFluidDensity" v-model.number='fluidDensity')
-      p.inline.data Pressure before(Pa)
-        input.center.data(:class="checkedPressureBefore" v-model.number='pressureBefore')
-      p.inline.data Pressure after (Pa)
-        input.center.data(:class="checkedPressureAfter" v-model='pressureAfter')
-      p.inline.data Pressure diference (Pa)
-        input.center.data(:class="checkedPressureDifference" v-model='pressureDifference')
+        input.center.data(:class="checkedAtmPressure" v-model.number='enterAtmPressure')
+        <span class="error" v-if="errorAtmPressure">[e: {{ errorAtmPressure.toPrecision(2) }}%]</span>
+      p.inline.data Density (kg/m<sup>2</sup>)
+        input.center.data(:class="checkedDensity" v-model.number='enterDensity')
+        <span class="error" v-if="errorDensity">[e: {{ errorDensity.toPrecision(2) }}%]</span>
+      p.inline.data P. before(Pa)
+        input.center.data(:class="checkedPrssBefore" v-model.number='enterPrssBefore')
+        <span class="error" v-if="errorPrssBefore">[e: {{ errorPrssBefore.toPrecision(2) }}%]</span>
+      p.inline.data P. after (Pa)
+        input.center.data(:class="checkedPrssAfter" v-model='enterPrssAfter')
+        <span class="error" v-if="errorPrssAfter">[e: {{ errorPrssAfter.toPrecision(2) }}%]</span>
+      p.inline.data P. difference (Pa)
+        input.center.data(:class="checkedPrssDifference" v-model='enterPrssDifference')
+        <span class="error" v-if="errorPrssDifference">[e: {{ errorPrssDifference.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -23,17 +29,26 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      waterRise: '',
-      atmPressure: '',
-      fluidDensity: '',
-      waterPressure: '',
-      pressureBefore: '',
-      pressureAfter: '',
-      pressureDifference: ''
+      enterRise: '',
+      errorRise: 0,
+      enterAtmPressure: '',
+      errorAtmPressure: 0,
+      enterDensity: '',
+      errorDensity: 0,
+      enterPrssBefore: '',
+      errorPrssBefore: 0,
+      enterPrssAfter: '',
+      errorPrssAfter: 0,
+      enterPrssDifference: '',
+      errorPrssDifference: 0,
+      rho: 1.2,
+      g: 9.81,
+      atm: 101300
     }
   },
   computed: {
     strawHeight: function () {
+      console.clear()
       let max = 110
       let min = 90
       return Math.floor(Math.random() * (max - min + 1)) + min
@@ -45,55 +60,46 @@ export default {
     },
     initialPressure: function () {
       // pressure of the column of air
-      return Math.round(1000 * 1.2 * 9.81 * this.strawHeight / 100) / 1000
+      return this.rho * this.g * this.strawHeight / 100
     },
     finalPressure: function () {
       // pressure of the small column of air
-      return Math.round(1.2 * 9.81 * (1 - this.rise / 100) * 1000) / 1000
+      return this.rho * this.g * (1 - this.rise / 100)
     },
     pressureDecrease: function () {
-      return Math.round(1000 * (this.finalPressure - this.initialPressure)) / 1000
+      return this.finalPressure - this.initialPressure
     },
-    checkedWaterRise: function () {
-      let check
-      console.log('rise : ' + this.rise / 100 + ' : ' + parseFloat(this.waterRise))
-      check = this.rise / 100 === parseFloat(this.waterRise) ? 'correct' : 'not-correct'
-      return check
+    checkedRise: function () {
+      this.errorRise = this.errorRelative('Water rise => ', this.rise / 100, parseFloat(this.enterRise))
+      return this.errorRise < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAtmPressure: function () {
-      let check
-      console.log('atmPressure : ' + 101300 + ' : ' + parseFloat(this.atmPressure))
-      check = parseFloat(this.atmPressure) === 101300 ? 'correct' : 'not-correct'
-      return check
+      this.errorAtmPressure = this.errorRelative('Atmospheric pressure => ', this.atm, parseFloat(this.enterAtmPressure))
+      return this.errorAtmPressure < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFluidDensity: function () {
-      let check
-      console.log('fluidDensity : ' + 1.2 + ' : ' + parseFloat(this.fluidDensity))
-      check = parseFloat(this.fluidDensity) === 1.2 ? 'correct' : 'not-correct'
-      return check
+    checkedDensity: function () {
+      this.errorDensity = this.errorRelative('Fluid density => ', this.rho, parseFloat(this.enterDensity))
+      return this.errorDensity < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPressureBefore: function () {
-      let check
-      console.log('initialPressure : ' + this.initialPressure + ' : ' + parseFloat(this.pressureBefore))
-      check = this.initialPressure === parseFloat(this.pressureBefore) ? 'correct' : 'not-correct'
-      return check
+    checkedPrssBefore: function () {
+      this.errorPrssBefore = this.errorRelative('Pressure before => ', this.initialPressure, parseFloat(this.enterPrssBefore))
+      return this.errorPrssBefore < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPressureAfter: function () {
-      let check
-      console.log('finalPressure : ' + this.finalPressure + ' : ' + parseFloat(this.pressureAfter))
-      check = this.finalPressure === parseFloat(this.pressureAfter) ? 'correct' : 'not-correct'
-      return check
+    checkedPrssAfter: function () {
+      this.errorPrssAfter = this.errorRelative('Final pressure => ', this.finalPressure, parseFloat(this.enterPrssAfter))
+      return this.errorPrssAfter < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPressureDifference: function () {
-      let check
-      console.log('pressureDecrease : ' + this.pressureDecrease + ' : ' + parseFloat(this.pressureDifference))
-      check = this.pressureDecrease === parseFloat(this.pressureDifference) ? 'correct' : 'not-correct'
-      return check
+    checkedPrssDifference: function () {
+      this.errorPrssDifference = this.errorRelative('Presssure difference => ', this.pressureDecrease, parseFloat(this.enterPrssDifference))
+      return this.errorPrssDifference < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -103,20 +109,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -124,25 +120,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

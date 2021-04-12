@@ -5,21 +5,29 @@
       .center
         p.solution Please do calculations and introduce your results
         p.inline.data Force (N)
-          input.center.data(:class="checkedForce" v-model.number='enterForce')
+          input.center.data(:class="checkedF" v-model.number='enterF')
+          <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
         p.inline.data Displacement (m)
-          input.center.data(:class="checkedDispl" v-model.number='enterDisp')
+          input.center.data(:class="checkedD" v-model.number='enterD')
+          <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
         p.inline.data Mass (Kg)
-          input.center.data(:class="checkedMass" v-model.number='enterMass')
+          input.center.data(:class="checkedM" v-model.number='enterM')
+          <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
         p.inline.data Pull distance (m)
-          input.center.data(:class="checkedPullDist" v-model='enterPull')
+          input.center.data(:class="checkedPullD" v-model='enterPullD')
+          <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
         p.inline.data Elastic constant (N/m)
-          input.center.data(:class="checkedElasticConst" v-model='enterElastic')
+          input.center.data(:class="checkedK" v-model='enterK')
+          <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
         p.inline.data Angular frequency (rad/s)
-          input.center.data(:class="checkedAngularFreq" v-model='enterAngular')
+          input.center.data(:class="checkedOmega" v-model='enterOmega')
+          <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
         p.inline.data Frequency (Hz)
-          input.center.data(:class="checkedFrequency" v-model='enterFreq')
+          input.center.data(:class="checkedFr" v-model='enterFr')
+          <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
         p.inline.data Period (s)
-          input.center.data(:class="checkedPeriod" v-model='enterPeriod')
+          input.center.data(:class="checkedT" v-model='enterT')
+          <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -27,21 +35,30 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterForce: '',
-      enterDisp: '',
-      enterMass: '',
-      enterPull: '',
-      enterElastic: '',
-      enterAngular: '',
-      enterFreq: '',
-      enterPeriod: ''
+      enterF: '',
+      errorF: 0,
+      enterD: '',
+      errorD: 0,
+      enterM: '',
+      errorM: 0,
+      enterPullD: '',
+      errorPullD: 0,
+      enterK: '',
+      errorK: 0,
+      enterOmega: '',
+      errorOmega: 0,
+      enterFr: '',
+      errorFr: 0,
+      enterT: '',
+      errorT: 0
     }
   },
   computed: {
     force: function () {
+      console.clear()
       let max = 10
       let min = 5
-      return Math.floor(1000 * (Math.random() * (max - min + 1) + min)) / 1000
+      return Math.floor(100 * (Math.random() * (max - min + 1) + min)) / 100
     },
     displacement: function () {
       let max = 10
@@ -59,70 +76,56 @@ export default {
       return Math.floor(10 * Math.random() * (max - min + 1) + min) / 1000
     },
     elastic: function () {
-      return Math.round(1000 * (this.force / this.displacement)) / 1000
+      return this.force / this.displacement
     },
     frequency: function () {
-      return Math.round(1000 * (this.angular / (2 * Math.PI))) / 1000
+      return this.angular / (2 * Math.PI)
     },
     angular: function () {
-      return Math.round(1000 * Math.sqrt(this.elastic / this.mass)) / 1000
+      return Math.sqrt(this.elastic / this.mass)
     },
     period: function () {
-      return Math.round(1000 * (1 / this.frequency)) / 1000
+      return 1 / this.frequency
     },
-    checkedForce: function () {
-      let check
-      console.log('Force => ' + this.force + ' : ' + parseFloat(this.enterForce))
-      console.log('error => ' + Math.abs(this.force - parseFloat(this.enterForce)) / this.force + ' : ' + parseFloat(this.enterForce))
-      check = Math.abs(this.force - parseFloat(this.enterForce)) / this.force < 0.0005 ? 'correct' : 'not-correct'
-      return check
+    checkedF: function () {
+      this.errorF = this.errorRelative('Force => ', this.force, parseFloat(this.enterF))
+      return this.errorF < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedDispl: function () {
-      let check
-      console.log('Displacement => ' + this.displacement + ' : ' + parseFloat(this.enterDisp))
-      check = this.displacement === parseFloat(this.enterDisp) ? 'correct' : 'not-correct'
-      return check
+    checkedD: function () {
+      this.errorD = this.errorRelative('Displacement => ', this.displacement, parseFloat(this.enterD))
+      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedMass: function () {
-      let check
-      console.log('Mass => ' + this.mass + ' : ' + parseFloat(this.enterMass))
-      check = this.mass === parseFloat(this.enterMass) ? 'correct' : 'not-correct'
-      return check
+    checkedM: function () {
+      this.errorM = this.errorRelative('Mass => ', this.mass, parseFloat(this.enterM))
+      return this.errorM < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPullDist: function () {
-      let check
-      console.log('Pull Distance => ' + this.pullDistance + ' : ' + parseFloat(this.enterPull))
-      check = parseFloat(this.enterPull) === this.pullDistance ? 'correct' : 'not-correct'
-      return check
+    checkedPullD: function () {
+      this.errorPullD = this.errorRelative('Pull distance => ', this.pullDistance, parseFloat(this.enterPullD))
+      return this.errorPullD < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedElasticConst: function () {
-      let check
-      console.log('Elastic constant => ' + this.elastic + ' : ' + parseFloat(this.enterElastic))
-      check = this.elastic === parseFloat(this.enterElastic) ? 'correct' : 'not-correct'
-      return check
+    checkedK: function () {
+      this.errorK = this.errorRelative('elastic K => ', this.elastic, parseFloat(this.enterK))
+      return this.errorK < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedAngularFreq: function () {
-      let check
-      console.log('Angular Frequency => ' + this.angular + ' : ' + parseFloat(this.enterAngular))
-      check = this.angular === parseFloat(this.enterAngular) ? 'correct' : 'not-correct'
-      return check
+    checkedOmega: function () {
+      this.errorOmega = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterOmega))
+      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFrequency: function () {
-      let check
-      console.log('frequency => ' + this.frequency + ' : ' + parseFloat(this.enterFreq))
-      check = this.frequency === parseFloat(this.enterFreq) ? 'correct' : 'not-correct'
-      return check
+    checkedFr: function () {
+      this.errorFr = this.errorRelative('frequency => ', this.frequency, parseFloat(this.enterFr))
+      return this.errorFr < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPeriod: function () {
-      let check
-      console.log('Period => ' + this.period + ' : ' + parseFloat(this.enterPeriod))
-      check = this.period === parseFloat(this.enterPeriod) ? 'correct' : 'not-correct'
-      return check
+    checkedT: function () {
+      this.errorT = this.errorRelative('Period => ', this.period, parseFloat(this.enterT))
+      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -130,48 +133,33 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
-
 }
-
 .problem {
-  margin: 5px 5px 5px 5px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
 .solution {
-  margin: 5px 5px 5px 5px;
+  margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
+  width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

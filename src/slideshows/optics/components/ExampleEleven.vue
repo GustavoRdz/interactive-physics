@@ -24,35 +24,29 @@ export default {
   },
   computed: {
     angle: function () {
+      console.clear()
       let max = 80
       let min = 10
-      return Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min)
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     fraction: function () {
       return Math.pow(Math.cos(this.angle * Math.PI / 180), 2)
     },
     checkedAngle: function () {
-      let check
-      console.log('Angle => ' + this.angle + ' : ' + parseFloat(this.enterAngle))
-      this.errorAngle = 100 * Math.abs(this.angle - parseFloat(this.enterAngle)) / (this.angle)
-      console.log('error  ' + this.errorAngle + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorAngle < 1e-3 ? 'correct' : 'not-correct'
-      return check
+      this.errorAngle = this.errorRelative('θ => ', this.angle, parseFloat(this.enterAngle))
+      return this.errorAngle < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedFraction: function () {
-      let check
-      console.log('Fraction => ' + this.fraction * 100 + ' : ' + parseFloat(this.enterFraction))
-      this.errorFraction = 100 * Math.abs(this.fraction * 100 - parseFloat(this.enterFraction)) / (this.fraction * 100)
-      console.log('error  ' + this.errorFraction + ' %')
-      // check = this.t2 === parseFloat(this.enterT2) ? 'correct' : 'not-correct'
-      check = this.errorFraction < 1e-1 ? 'correct' : 'not-correct'
-      return check
+      this.errorFraction = this.errorRelative('fraction => ', this.fraction * 100, parseFloat(this.enterFraction))
+      return this.errorFraction < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -60,22 +54,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
-}
-
 .data {
   display: inline-block;
   width: 100px;
@@ -83,7 +61,6 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
   margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -91,14 +68,12 @@ export default {
   color: blue;
   width: 100%;
 }
-
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }

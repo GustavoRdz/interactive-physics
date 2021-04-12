@@ -1,114 +1,129 @@
 <template lang="pug">
-  eg-transition(:enter='enter', :leave='leave')
-    .eg-slide-content
-      p.problem A uniform string has a mass of {{ stringMass }} kg and a length of {{ length }} m. The string passes over a pulley and supports a {{ blockMass }}-kg object. Find the speed of a pulse traveling along this string.
-      .center
-        img(src='../assets/problem2.png' height="200px")
-        p.solution Please do calculations and introduce your results
-        p.inline.data String mass (kg)
-          input.center.data(:class="checkedStringMass" v-model.number='enterStringMass')
-        p.inline.data Length (m)
-          input.center.data(:class="checkedLength" v-model.number='enterLength')
-        p.inline.data Block mass (Kg)
-          input.center.data(:class="checkedBlockMass" v-model.number='enterBlockMass')
-        p.inline.data linear density (kg/m)
-          input.center.data(:class="checkedDensity" v-model='enterDensity')
-        p.inline.data String tension (N/m)
-          input.center.data(:class="checkedTension" v-model='enterTension')
-        p.inline.data Speed (m/s)
-          input.center.data(:class="checkedSpeed" v-model='enterSpeed')
-
+eg-transition(:enter='enter', :leave='leave')
+  .eg-slide-content
+    p.problem A certain transverse wave is described by 
+      .center.problem <span class="mate">y</span>(<span class="mate">x</span>, <span class="mate">t</span>) = ({{ (amplitude * 100).toFixed(1) }}cm)cos2<span class="mate">&pi;</span>(<span class="mate">x</span>/{{ (wavelength * 100).toFixed(1)}}cm {{ sign }} <span class="mate">t</span>/{{ period.toFixed(1) }}s)
+    p.problem Determine the wave’s (a) amplitude; (b) wavelength; (c) frequency; (d) speed of propagation; (e) direction of propagation.
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data A (m)
+        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
+        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
+      p.inline.data λ (m)
+        input.center.data(:class="checkedWavelength" v-model.number='enterWavelength')
+        <span class="error" v-if="errorWavelength">[e: {{ errorWavelength.toPrecision(3) }}%]</span>
+      p.inline.data T (s)
+        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
+      p.inline.data ω (rad/s)
+        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
+        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+      p.inline.data f (Hz)
+        input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
+        <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
+      p.inline.data v (m/s)
+        input.center.data(:class="checkedVelocity" v-model.number='enterVelocity')
+        <span class="error" v-if="errorVelocity">[e: {{ errorVelocity.toPrecision(3) }}%]</span>
+      p.inline.data direction (+x/-x)
+        input.center.data(:class="checkedDirection" v-model.number='enterDirection')
+        <span class="error" v-if="errorDirection">[e: {{ errorDirection.toPrecision(3) }}%]</span>
+      
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterStringMass: '',
-      enterLength: '',
-      enterBlockMass: '',
-      enterDensity: '',
-      enterTension: '',
-      enterSpeed: ''
+      enterAmplitude: '',
+      errorAmplitude: 0,
+      enterWavelength: '',
+      errorWavelength: 0,
+      enterPeriod: '',
+      errorPeriod: 0,
+      enterOmega: '',
+      errorOmega: 0,
+      enterFrequency: '',
+      errorFrequency: 0,
+      enterVelocity: '',
+      errorVelocity: 0,
+      enterDirection: '',
+      errorDirection: 0
     }
   },
   computed: {
-    stringMass: function () {
-      let max = 5
-      let min = 1
-      return Math.floor(10 * (Math.random() * (max - min + 1) + min)) / 100
+    amplitude: function () {
+      console.clear()
+      let max = 20
+      let min = 5
+      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 1000
     },
-    length: function () {
-      let max = 2
-      let min = 1
-      return Math.floor(100 * (Math.random() * (max - min + 1) + min)) / 100
+    wavelength: function () {
+      let max = 20
+      let min = 5
+      return Math.round(10 * (Math.random() * (max - min + 1)) + min) / 1000
     },
-    blockMass: function () {
-      let max = 10
-      let min = 2
-      return Math.floor(100 * Math.random() * (max - min + 1) + min) / 100
+    period: function () {
+      let max = 20
+      let min = 5
+      return Math.round(10 * (Math.random() * (max - min + 1)) + min) / 10
     },
-    density: function () {
-      return Math.round(1000 * this.stringMass / this.length) / 1000
+    omega: function () {
+      return 2 * Math.PI / this.period
     },
-    tension: function () {
-      return Math.round(1000 * this.blockMass * 9.81) / 1000
+    frequency: function () {
+      return 1 / this.period
     },
-    speed: function () {
-      return Math.round(1000 * Math.sqrt(this.tension / this.density)) / 1000
+    velocity: function () {
+      return 1 * this.wavelength * this.frequency
     },
-    checkedForce: function () {
+    directionTo: function () {
+      let max = 1
+      let min = 0
+      return Math.round(((Math.random() * (max - min + 1)) + min))
+    },
+    sign: function () {
+      return this.directionTo === 1 ? '-' : '+'
+    },
+    checkedAmplitude: function () {
+      this.errorAmplitude = this.errorRelative('A => ', this.amplitude, parseFloat(this.enterAmplitude))
+      return this.errorAmplitude < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedWavelength: function () {
+      this.errorWavelength = this.errorRelative('λ => ', this.wavelength, parseFloat(this.enterWavelength))
+      return this.errorWavelength < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedPeriod: function () {
+      this.errorPeriod = this.errorRelative('T => ', this.period, parseFloat(this.enterPeriod))
+      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedOmega: function () {
+      this.errorOmega = this.errorRelative('ω => ', this.omega, parseFloat(this.enterOmega))
+      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedFrequency: function () {
+      this.errorFrequency = this.errorRelative('f => ', this.frequency, parseFloat(this.enterFrequency))
+      return this.errorFrequency < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedVelocity: function () {
+      this.errorVelocity = this.errorRelative('v => ', this.velocity, parseFloat(this.enterVelocity))
+      return this.errorVelocity < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedDirection: function () {
       let check
-      console.log('Force => ' + this.force + ' : ' + parseFloat(this.enterForce))
-      check = this.force === parseFloat(this.enterForce) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedDis: function () {
-      let check
-      console.log('Displacement => ' + this.displacement + ' : ' + parseFloat(this.enterDisp))
-      check = this.displacement === parseFloat(this.enterDisp) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedStringMass: function () {
-      let check
-      console.log('String mass => ' + this.stringMass + ' : ' + parseFloat(this.enterStringMass))
-      check = this.stringMass === parseFloat(this.enterStringMass) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedLength: function () {
-      let check
-      console.log('String length => ' + this.length + ' : ' + parseFloat(this.enterLength))
-      check = this.length === parseFloat(this.enterLength) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedBlockMass: function () {
-      let check
-      console.log('Block mass => ' + this.blockMass + ' : ' + parseFloat(this.enterBlockMass))
-      check = this.blockMass === parseFloat(this.enterBlockMass) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedDensity: function () {
-      let check
-      console.log('Density => ' + this.density + ' : ' + parseFloat(this.enterDensity))
-      check = this.density === parseFloat(this.enterDensity) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedTension: function () {
-      let check
-      console.log('Tension => ' + this.tension + ' : ' + parseFloat(this.enterTension))
-      check = this.tension === parseFloat(this.enterTension) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedSpeed: function () {
-      let check
-      console.log('Speed => ' + this.speed + ' : ' + parseFloat(this.enterSpeed))
-      check = this.speed === parseFloat(this.enterSpeed) ? 'correct' : 'not-correct'
+      let a
+      a = this.sign === '+' ? '-x' : '+x'
+      console.log('Direction: ' + this.directionTo)
+      console.log('Direction: sign ' + this.sign + ' => ' + a + ' : ' + this.enterDirection)
+      check = a === this.enterDirection ? 'correct' : 'not-correct'
       return check
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -118,46 +133,42 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 100%;
-      margin-left: 0;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
-
 }
-
 .problem {
-  margin: 5px 5px 5px 5px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
-  margin: 5px 5px 5px 5px;
+  margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
+  width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

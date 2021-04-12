@@ -1,26 +1,28 @@
 <template lang="pug">
-eg-transition(:enter='enter', :leave='leave')
-  .eg-slide-content
-    p.problem An {{ hikerMass }}-kg hiker is trapped on a mountain ledge following a storm. A helicopter rescues the hiker by hovering above him and lowering a cable to him. The mass of the cable is {{ cableMass }} kg, and its length is {{ length }} m. A sling of mass {{ slingMass }} kg is attached to the end of the cable. The hiker attaches himself to the sling, and the helicopter then accelerates upward. Terrified by hanging from the cable in midair, the hiker tries to signal the pilot by sending transverse pulses up the cable. A pulse takes {{ time }} s to travel the length of the cable. What is the acceleration of the helicopter? Assume the tension in the cable is uniform.
-
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Hiker mass (kg)
-        input.center.data(:class="checkedHikerMass" v-model.number='enterHikerMass')
-      p.inline.data Cable mass (kg)
-        input.center.data(:class="checkedCableMass" v-model.number='enterCableMass')
-      p.inline.data Length (m)
-        input.center.data(:class="checkedLength" v-model.number='enterLength')
-      p.inline.data Sling mass (kg)
-        input.center.data(:class="checkedSlingMass" v-model.number='enterSlingMass')
-      p.inline.data Pulse time travel (s)
-        input.center.data(:class="checkedTime" v-model='enterTime')
-      p.inline.data Speed (m/s)
-        input.center.data(:class="checkedSpeed" v-model='enterSpeed')
-      p.inline.data Tension (N)
-        input.center.data(:class="checkedTension" v-model='enterTension')
-      p.inline.data Acceleration (m/s<sup>2</sup>)
-        input.center.data(:class="checkedAcceleration" v-model='enterAcceleration')
+  eg-transition(:enter='enter', :leave='leave')
+    .eg-slide-content
+      p.problem A uniform string has a mass of {{ stringMass }} kg and a length of {{ length }} m. The string passes over a pulley and supports a {{ blockMass }}-kg object. Find the speed of a pulse traveling along this string.
+      .center
+        img(src='../assets/problem2.png' height="200px")
+        p.solution Please do calculations and introduce your results
+        p.inline.data String mass (kg)
+          input.center.data(:class="checkedStringMass" v-model.number='enterStringMass')
+          <span class="error" v-if="errorStringMass">[e: {{ errorStringMass.toPrecision(3) }}%]</span>
+        p.inline.data Length (m)
+          input.center.data(:class="checkedLength" v-model.number='enterLength')
+          <span class="error" v-if="errorLength">[e: {{ errorLength.toPrecision(3) }}%]</span>
+        p.inline.data Block mass (Kg)
+          input.center.data(:class="checkedBlockMass" v-model.number='enterBlockMass')
+          <span class="error" v-if="errorBlockMass">[e: {{ errorBlockMass.toPrecision(3) }}%]</span>
+        p.inline.data linear density (kg/m)
+          input.center.data(:class="checkedDensity" v-model='enterDensity')
+          <span class="error" v-if="errorDensity">[e: {{ errorDensity.toPrecision(3) }}%]</span>
+        p.inline.data String tension (N/m)
+          input.center.data(:class="checkedTension" v-model='enterTension')
+          <span class="error" v-if="errorTension">[e: {{ errorTension.toPrecision(3) }}%]</span>
+        p.inline.data Speed (m/s)
+          input.center.data(:class="checkedSpeed" v-model='enterSpeed')
+          <span class="error" v-if="errorSpeed">[e: {{ errorSpeed.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -28,106 +30,77 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterHikerMass: '',
-      enterCableMass: '',
+      enterStringMass: '',
+      errorStringMass: 0,
       enterLength: '',
-      enterSlingMass: '',
-      enterTime: '',
-      enterSpeed: '',
+      errorLength: 0,
+      enterBlockMass: '',
+      errorBlockMass: 0,
+      enterDensity: '',
+      errorDensity: 0,
       enterTension: '',
-      enterAcceleration: ''
+      errorTension: 0,
+      enterSpeed: '',
+      errorSpeed: 0
     }
   },
   computed: {
-    hikerMass: function () {
-      let max = 90
-      let min = 70
-      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
-    },
-    cableMass: function () {
-      let max = 10
-      let min = 5
-      return Math.round(100 * (Math.random() * (max - min + 1) + min)) / 100
+    stringMass: function () {
+      console.clear()
+      let max = 5
+      let min = 1
+      return Math.floor(10 * (Math.random() * (max - min + 1) + min)) / 100
     },
     length: function () {
-      let max = 20
-      let min = 10
-      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
+      let max = 2
+      let min = 1
+      return Math.floor(100 * (Math.random() * (max - min + 1) + min)) / 100
     },
-    slingMass: function () {
-      let max = 70
-      let min = 50
-      return Math.round(10 * (Math.random() * (max - min + 1) + min)) / 10
-    },
-    time: function () {
-      let max = 300
-      let min = 200
-      return Math.round(1 * (Math.random() * (max - min + 1) + min)) / 1000
-    },
-    speed: function () {
-      return Math.round(1000 * this.length / this.time) / 1000
+    blockMass: function () {
+      let max = 10
+      let min = 2
+      return Math.floor(100 * Math.random() * (max - min + 1) + min) / 100
     },
     density: function () {
-      return Math.round(1000 * this.cableMass / this.length) / 1000
+      return this.stringMass / this.length
     },
     tension: function () {
-      return Math.round(1000 * this.density * this.speed ** 2) / 1000
+      return this.blockMass * 9.81
     },
-    acceleration: function () {
-      return Math.round(1000 * (this.tension - (this.slingMass + this.hikerMass) * 9.81) / (this.slingMass + this.hikerMass)) / 1000
+    speed: function () {
+      return Math.sqrt(this.tension / this.density)
     },
-    checkedHikerMass: function () {
-      let check
-      console.log('Hiker mass => ' + this.hikerMass + ' : ' + parseFloat(this.enterHikerMass))
-      check = this.hikerMass === parseFloat(this.enterHikerMass) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedCableMass: function () {
-      let check
-      console.log('Cable mass => ' + this.cableMass + ' : ' + parseFloat(this.enterCableMass))
-      check = this.cableMass === parseFloat(this.enterCableMass) ? 'correct' : 'not-correct'
-      return check
+    checkedStringMass: function () {
+      this.errorStringMass = this.errorRelative('m string => ', this.stringMass, parseFloat(this.enterStringMass))
+      return this.errorStringMass < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedLength: function () {
-      let check
-      console.log('Cable length => ' + this.length + ' : ' + parseFloat(this.enterLength))
-      check = this.length === parseFloat(this.enterLength) ? 'correct' : 'not-correct'
-      return check
+      this.errorLength = this.errorRelative('Length => ', this.length, parseFloat(this.enterLength))
+      return this.errorLength < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedSlingMass: function () {
-      let check
-      console.log('Sling mass => ' + this.slingMass + ' : ' + parseFloat(this.enterSlingMass))
-      check = this.slingMass === parseFloat(this.enterSlingMass) ? 'correct' : 'not-correct'
-      return check
+    checkedBlockMass: function () {
+      this.errorBlockMass = this.errorRelative('m block => ', this.blockMass, parseFloat(this.enterBlockMass))
+      return this.errorBlockMass < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedTime: function () {
-      let check
-      console.log('Pulse time travel => ' + this.time + ' : ' + parseFloat(this.enterTime))
-      check = this.time === parseFloat(this.enterTime) ? 'correct' : 'not-correct'
-      return check
-    },
-    checkedSpeed: function () {
-      let check
-      console.log('Speed => ' + this.speed + ' : ' + parseFloat(this.enterSpeed))
-      check = this.speed === parseFloat(this.enterSpeed) ? 'correct' : 'not-correct'
-      return check
+    checkedDensity: function () {
+      this.errorDensity = this.errorRelative('μ => ', this.density, parseFloat(this.enterDensity))
+      return this.errorDensity < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedTension: function () {
-      let check
-      console.log('Tension => ' + this.tension + ' : ' + parseFloat(this.enterTension))
-      check = this.tension === parseFloat(this.enterTension) ? 'correct' : 'not-correct'
-      return check
+      this.errorTension = this.errorRelative('Tension => ', this.tension, parseFloat(this.enterTension))
+      return this.errorTension < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedAcceleration: function () {
-      let check
-      console.log('Acceleration => ' + this.acceleration + ' : ' + parseFloat(this.enterAcceleration))
-      check = this.acceleration === parseFloat(this.enterAcceleration) ? 'correct' : 'not-correct'
-      return check
+    checkedSpeed: function () {
+      this.errorSpeed = this.errorRelative('v => ', this.speed, parseFloat(this.enterSpeed))
+      return this.errorSpeed < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -137,20 +110,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 0;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 100%;
-      margin-left: 0;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -158,25 +121,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: auto;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

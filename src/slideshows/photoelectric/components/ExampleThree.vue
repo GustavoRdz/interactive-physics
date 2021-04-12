@@ -8,12 +8,16 @@ eg-transition(:enter='enter', :leave='leave')
       p.solution Please do calculations and introduce your results
       p.inline.data φ (J)
         input.center.data(:class="checkedPhi" v-model.number='enterPhi')
+        <span class="error" v-if="errorPhi">[e: {{ errorPhi.toPrecision(3) }}%]</span>
       p.inline.data λ (m)
         input.center.data(:class="checkedL" v-model.number='enterL')
+        <span class="error" v-if="errorL">[e: {{ errorL.toPrecision(3) }}%]</span>
       p.inline.data Kmax (J)
         input.center.data(:class="checkedKmax" v-model.number='enterKmax')
+        <span class="error" v-if="errorKmax">[e: {{ errorKmax.toPrecision(3) }}%]</span>
       p.inline.data λ<sub>c</sub> (m)
         input.center.data(:class="checkedLc" v-model='enterLc')
+        <span class="error" v-if="errorLc">[e: {{ errorLc.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -22,9 +26,13 @@ export default {
   data: function () {
     return {
       enterPhi: '',
+      errorPhi: 0,
       enterL: '',
+      errorL: 0,
       enterKmax: '',
+      errorKmax: 0,
       enterLc: '',
+      errorLc: 0,
       materials: [
         {material: 'Ag', name: 'Silver', phi: 4.730},
         {material: 'Al', name: 'Aluminum', phi: 4.090},
@@ -99,25 +107,33 @@ export default {
     checkedPhi: function () {
       let check
       console.log('Phi J => ' + this.phiJ + ' : ' + parseFloat(this.enterPhi))
-      check = this.phiJ === parseFloat(this.enterPhi) ? 'correct' : 'not-correct'
+      this.errorPhi = 100 * Math.abs(this.phiJ - parseFloat(this.enterPhi)) / this.phiJ
+      console.log('error  ' + this.errorPhi + ' %')
+      check = this.errorPhi < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedL: function () {
       let check
       console.log('λ => ' + this.wavelength + ' : ' + parseFloat(this.enterL))
-      check = this.wavelength === parseFloat(this.enterL) ? 'correct' : 'not-correct'
+      this.errorL = 100 * Math.abs(this.wavelength - parseFloat(this.enterL)) / this.wavelength
+      console.log('error  ' + this.errorL + ' %')
+      check = this.errorL < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedKmax: function () {
       let check
       console.log('Kmax => ' + this.kMax + ' : ' + parseFloat(this.enterKmax))
-      check = this.kMax === parseFloat(this.enterKmax) ? 'correct' : 'not-correct'
+      this.errorKmax = 100 * Math.abs(this.kMax - parseFloat(this.enterKmax)) / this.kMax
+      console.log('error  ' + this.errorKmax + ' %')
+      check = this.errorKmax < 1e-1 ? 'correct' : 'not-correct'
       return check
     },
     checkedLc: function () {
       let check
       console.log('λc => ' + this.wavelengthC + ' : ' + parseFloat(this.enterLc))
-      check = this.wavelengthC === parseFloat(this.enterLc) ? 'correct' : 'not-correct'
+      this.errorLc = 100 * Math.abs(this.wavelengthC - parseFloat(this.enterLc)) / this.wavelengthC
+      console.log('error  ' + this.errorLc + ' %')
+      check = this.errorLc < 1e-1 ? 'correct' : 'not-correct'
       return check
     }
   },
@@ -156,10 +172,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
 
 .solution {
@@ -174,5 +191,8 @@ export default {
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>

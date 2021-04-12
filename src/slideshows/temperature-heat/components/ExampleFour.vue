@@ -81,11 +81,14 @@
       .center
         p.solution Please do calculations and introduce your results
         p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
+          input.center.data(:class="checkedAlphaBr" v-model.number='enterAlphaBr')
+          <span class="error" v-if="errorAlphaBr">[e: {{ errorAlphaBr.toPrecision(2) }}%]</span>
         p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
+          input.center.data(:class="checkedAlphaSt" v-model.number='enterAlphaSt')
+          <span class="error" v-if="errorAlphaSt">[e: {{ errorAlphaSt.toPrecision(2) }}%]</span>
         p.inline.data Touch T (&#x00B0;C)
-          input.center.data(:class="checkedUserT" v-model.number='userT')
+          input.center.data(:class="checkedT" v-model.number='enterT')
+          <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -100,105 +103,19 @@ export default {
       opacity: 1,
       mat1: 0,
       mat2: 0,
-      userT: '',
-      userAlphaBr: '',
-      userAlphaSt: '',
-      materials: [
-        {
-          name: 'Aluminium',
-          density: 2700,
-          calorific: 910,
-          fusion: 660,
-          vapor: 2450,
-          conductivity: 238,
-          color: '#D7D7D9'
-        },
-        {
-          name: 'Cooper',
-          density: 8920,
-          calorific: 390,
-          fusion: 1083,
-          vapor: 1187,
-          conductivity: 397,
-          color: '#B87333'
-        },
-        {
-          name: 'Iron',
-          density: 7800,
-          calorific: 470,
-          fusion: 1538,
-          vapor: 2750,
-          conductivity: 79.5,
-          color: '#cBcDcD'
-        },
-        {
-          name: 'Steel',
-          density: 7800,
-          calorific: 448,
-          fusion: 1375,
-          vapor: 2320,
-          conductivity: 50.2,
-          color: '#43464B'
-        },
-        {
-          name: 'Brass',
-          density: 8600,
-          calorific: 380,
-          fusion: 910,
-          vapor: 2300,
-          conductivity: 150,
-          color: '#B5A642'
-        },
-        {
-          name: 'Silver',
-          density: 10500,
-          calorific: 234,
-          fusion: 960,
-          vapor: 2193,
-          conductivity: 406,
-          color: '#c0c0c0'
-        },
-        {
-          name: 'Lead',
-          density: 11300,
-          calorific: 128,
-          fusion: 327,
-          vapor: 1750,
-          conductivity: 34.7,
-          color: '#485048'
-        },
-        {
-          name: 'Gold',
-          density: 19300,
-          calorific: 129,
-          fusion: 1063,
-          vapor: 2660,
-          conductivity: 314,
-          color: '#FFD700'
-        },
-        {
-          name: 'Wood',
-          density: 700,
-          calorific: 1700,
-          fusion: 0,
-          vapor: 0,
-          conductivity: 0.8 + 1,
-          color: '#855E42'
-        },
-        {
-          name: 'Glass',
-          density: 2800,
-          calorific: 837,
-          fusion: 1040,
-          vapor: 1300,
-          conductivity: 0.8 + 1,
-          color: '#c6e2e3'
-        }
-      ]
+      enterT: '',
+      errorT: 0,
+      enterAlphaBr: '',
+      errorAlphaBr: 0,
+      enterAlphaSt: '',
+      errorAlphaSt: 0,
+      alphaSt: 11e-6,
+      alphaBr: 19e-6
     }
   },
   computed: {
     boltLengthOne: function () {
+      console.clear()
       let max = 188
       let min = 12
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min)
@@ -264,45 +181,27 @@ export default {
     temperatureFinal: function () {
       let boltSteel = Math.round(100 * (0.025 * this.coteLine1 - 1)) / 100
       let boltBrass = Math.round(100 * (6 - 0.025 * this.coteLine1)) / 100
-      return Math.round(100 * (this.initialTemperature + ((this.gapSize * 1e-6) / ((19e-6 * boltBrass / 100) + (11e-6 * boltSteel / 100))))) / 100
+      return this.initialTemperature + ((this.gapSize * 1e-6) / ((19e-6 * boltBrass / 100) + (11e-6 * boltSteel / 100)))
     },
-    checkedUserAlphaBr: function () {
-      let check
-      console.log(19e-6 + ' : ' + parseFloat(this.userAlphaBr))
-      check = parseFloat(19e-6) === parseFloat(this.userAlphaBr) ? 'correct' : 'not-correct'
-      return check
+    checkedAlphaBr: function () {
+      this.errorAlphaBr = this.errorRelative('α Brass => ', this.alphaBr, parseFloat(this.enterAlphaBr))
+      return this.errorAlphaBr < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserAlphaSt: function () {
-      let check
-      console.log(11e-6 + ' : ' + parseFloat(this.userAlphaSt))
-      check = parseFloat(11e-6) === parseFloat(this.userAlphaSt) ? 'correct' : 'not-correct'
-      return check
+    checkedAlphaSt: function () {
+      this.errorAlphaSt = this.errorRelative('α Steel => ', this.alphaSt, parseFloat(this.enterAlphaSt))
+      return this.errorAlphaSt < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedUserT: function () {
-      let check
-      console.log(this.temperatureFinal + ' : ' + parseFloat(this.userT))
-      check = parseFloat(this.temperatureFinal) === parseFloat(this.userT) ? 'correct' : 'not-correct'
-      return check
+    checkedT: function () {
+      this.errorT = this.errorRelative('T final => ', this.temperatureFinal, parseFloat(this.enterT))
+      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    material1: function (index) {
-      this.mat1 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
-    },
-    material2: function (index) {
-      this.mat2 = index
-      if (this.isStarted === false) {
-        this.stop()
-      } else {
-        this.stop()
-        this.start()
-      }
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   watch: {
@@ -323,100 +222,44 @@ function calcChord () {
 </script>
 
 <style lang='scss' scoped>
-@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
-@import url('https://fonts.googleapis.com/css?family=Space+Mono');
-
-
-.svg-display {
-        font-family:'Space Mono', monospace;
-        text-transform: "none";
-      }
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #3f3;
+.eg-slide {
+  .eg-slide-content {
+    width: 100%;
+    max-width: 100%;
+  }
 }
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: #000;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 0px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-button {
-  width: 200px;
-  height:40px;
-}
-
 .data {
   display: inline-block;
-  text-transform: none;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
   width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
 }
-
+.error {
+  font-size: 14px;
+}
 </style>

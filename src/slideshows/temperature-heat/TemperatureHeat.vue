@@ -224,7 +224,7 @@
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 4
-      example-four
+      example-four(style="margin:-30px 0 0 0;")
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
         br

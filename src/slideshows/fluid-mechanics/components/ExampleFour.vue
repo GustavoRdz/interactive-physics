@@ -5,19 +5,26 @@ eg-transition(:enter='enter', :leave='leave')
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Small radius (m)
-        input.center.data(:class="checkedSmallRadius" v-model.number='smallRadius')
+        input.center.data(:class="checkedSmallRadius" v-model.number='enterSmallRadius')
+        <span class="error" v-if="errorSmallRadius">[e: {{ errorSmallRadius.toPrecision(2) }}%]</span>
       p.inline.data Big Radius (m)
-        input.center.data(:class="checkedBigRadius" v-model.number='bigRadius')
+        input.center.data(:class="checkedBigRadius" v-model.number='enterBigRadius')
+        <span class="error" v-if="errorBigRadius">[e: {{ errorBigRadius.toPrecision(2) }}%]</span>
       p.inline.data Small area (m<sup>2</sup>)
-        input.center.data(:class="checkedsmallArea" v-model.number='smallArea')
+        input.center.data(:class="checkedSmallArea" v-model.number='enterSmallArea')
+        <span class="error" v-if="errorSmallArea">[e: {{ errorSmallArea.toPrecision(2) }}%]</span>
       p.inline.data Big area (m<sup>2</sup>)
-        input.center.data(:class="checkedBigArea" v-model='bigArea')
+        input.center.data(:class="checkedBigArea" v-model='enterBigArea')
+        <span class="error" v-if="errorBigArea">[e: {{ errorBigArea.toPrecision(2) }}%]</span>
       p.inline.data Car weigth (N)
-        input.center.data(:class="checkedCarWeigth" v-model='carWeigth')
+        input.center.data(:class="checkedCarWeigth" v-model='enterCarWeigth')
+        <span class="error" v-if="errorCarWeigth">[e: {{ errorCarWeigth.toPrecision(2) }}%]</span>
       p.inline.data Air force (N)
-        input.center.data(:class="checkedAirForce" v-model='airForce')
+        input.center.data(:class="checkedAirForce" v-model='enterAirForce')
+        <span class="error" v-if="errorAirForce">[e: {{ errorAirForce.toPrecision(2) }}%]</span>
       p.inline.data Air pressure (Pa)
-        input.center.data(:class="checkedAirPressure" v-model='airPressure')
+        input.center.data(:class="checkedAirPressure" v-model='enterAirPressure')
+        <span class="error" v-if="errorAirPressure">[e: {{ errorAirPressure.toPrecision(2) }}%]</span>
 
 </template>
 <script>
@@ -25,18 +32,26 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      smallRadius: '',
-      bigRadius: '',
-      smallArea: '',
-      bigArea: '',
-      carWeigth: '',
-      airForce: '',
-      airPressure: '',
+      enterSmallRadius: '',
+      errorSmallRadius: 0,
+      enterBigRadius: '',
+      errorBigRadius: 0,
+      enterSmallArea: '',
+      errorSmallArea: 0,
+      enterBigArea: '',
+      errorBigArea: 0,
+      enterCarWeigth: '',
+      errorCarWeigth: 0,
+      enterAirForce: '',
+      errorAirForce: 0,
+      enterAirPressure: '',
+      errorAirPressure: 0,
       correct: false
     }
   },
   computed: {
     radiusA: function () {
+      console.clear()
       let max = 7
       let min = 2
       return Math.floor(Math.random() * (max - min + 1)) + min
@@ -47,10 +62,10 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
     areaA: function () {
-      return parseInt(Math.PI * this.radiusA * this.radiusA / 10) / 1000
+      return Math.PI * Math.pow(this.radiusA / 100, 2)
     },
     areaB: function () {
-      return parseInt(Math.PI * this.radiusB * this.radiusB / 10) / 1000
+      return Math.PI * Math.pow(this.radiusB / 100, 2)
     },
     weigth: function () {
       let max = 20000
@@ -58,57 +73,46 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
     force: function () {
-      return parseInt(1000 * this.weigth * this.areaA / this.areaB) / 1000
+      return this.weigth * this.areaA / this.areaB
     },
     pressure: function () {
-      return parseInt(1000 * this.force / this.areaA) / 1000
+      return this.force / this.areaA
     },
     checkedSmallRadius: function () {
-      let check
-      console.log('radiusA : ' + this.radiusA / 100 + ' : ' + parseFloat(this.smallRadius))
-      check = this.radiusA / 100 === parseFloat(this.smallRadius) ? 'correct' : 'not-correct'
-      return check
+      this.errorSmallRadius = this.errorRelative('Small radius => ', this.radiusA / 100, parseFloat(this.enterSmallRadius))
+      return this.errorSmallRadius < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedBigRadius: function () {
-      let check
-      console.log('radiusB : ' + this.radiusB / 100 + ' : ' + parseFloat(this.bigRadius))
-      check = this.radiusB / 100 === parseFloat(this.bigRadius) ? 'correct' : 'not-correct'
-      return check
+      this.errorBigRadius = this.errorRelative('Big radius => ', this.radiusB / 100, parseFloat(this.enterBigRadius))
+      return this.errorBigRadius < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedsmallArea: function () {
-      let check
-      console.log('areaA : ' + this.areaA + ' : ' + parseFloat(this.smallArea))
-      check = this.areaA === parseFloat(this.smallArea) ? 'correct' : 'not-correct'
-      return check
+    checkedSmallArea: function () {
+      this.errorSmallArea = this.errorRelative('Small area => ', this.areaA, parseFloat(this.enterSmallArea))
+      return this.errorSmallArea < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedBigArea: function () {
-      let check
-      console.log('areaB : ' + this.areaB + ' : ' + parseFloat(this.bigArea))
-      check = this.areaB === parseFloat(this.bigArea) ? 'correct' : 'not-correct'
-      return check
+      this.errorBigArea = this.errorRelative('Big Area => ', this.areaB, parseFloat(this.enterBigArea))
+      return this.errorBigArea < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedCarWeigth: function () {
-      let check
-      console.log('weigth : ' + this.weigth + ' : ' + parseFloat(this.carWeigth))
-      check = this.weigth === parseFloat(this.carWeigth) ? 'correct' : 'not-correct'
-      return check
+      this.errorCarWeigth = this.errorRelative('Car weigth => ', this.weigth, parseFloat(this.enterCarWeigth))
+      return this.errorCarWeigth < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAirForce: function () {
-      let check
-      console.log('force : ' + this.force + ' : ' + parseFloat(this.airForce))
-      check = this.force === parseFloat(this.airForce) ? 'correct' : 'not-correct'
-      return check
+      this.errorAirForce = this.errorRelative('Force => ', this.force, parseFloat(this.enterAirForce))
+      return this.errorAirForce < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedAirPressure: function () {
-      let check
-      console.log('pressure : ' + this.pressure + ' : ' + parseFloat(this.airPressure))
-      check = this.pressure === parseFloat(this.airPressure) ? 'correct' : 'not-correct'
-      return check
+      this.errorAirPressure = this.errorRelative('Air pressure => ', this.pressure, parseFloat(this.enterAirPressure))
+      return this.errorAirPressure < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
-    message: function (name) {
-      return
+    errorRelative: function (comment, A, x) {
+      let relativeError
+      relativeError = 100 * Math.abs((A - x) / (A + Number.MIN_VALUE))
+      console.log(comment + A + ' : ' + x + ' ==> ' + 'error  ' + relativeError + ' %')
+      return relativeError
     }
   },
   mixins: [eagle.slide]
@@ -118,20 +122,10 @@ export default {
 <style lang='scss' scoped>
 .eg-slide {
   .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
-      }
-      width: 80%;
-      margin-left: 10%;
-    }
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 .data {
   display: inline-block;
   width: 100px;
@@ -139,25 +133,31 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 22px;
   color: blue;
-  width: 95%;
+  width: 100%;
 }
-
+.mate {
+  font-family: 'New Times Roman';
+  font-style: italic;
+  font-size: 30px;
+}
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
+}
+.error {
+  font-size: 14px;
 }
 </style>
