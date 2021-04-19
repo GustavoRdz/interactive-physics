@@ -64,7 +64,7 @@ export default {
     },
     finalPressure: function () {
       // pressure of the small column of air
-      return this.rho * this.g * (1 - this.rise / 100)
+      return this.rho * this.g * (this.strawHeight - this.rise) / 100
     },
     pressureDecrease: function () {
       return this.finalPressure - this.initialPressure

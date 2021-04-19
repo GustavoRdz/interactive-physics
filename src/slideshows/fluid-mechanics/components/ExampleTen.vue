@@ -75,7 +75,7 @@ export default {
       return this.rho * this.g * this.goldVolume
     },
     goldVolume: function () {
-      return this.crownMass / this.gordRho
+      return this.crownMass / this.goldRho
     },
     bouyant: function () {
       return this.airWeight
