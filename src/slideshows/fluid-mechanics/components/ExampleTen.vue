@@ -65,7 +65,7 @@ export default {
     },
     waterWeight: function () {
       let max = this.airWeight - this.realGoldBouyant
-      let min = this.airWeight - 5 * this.realGoldBouyant
+      let min = this.airWeight - 3 * this.realGoldBouyant
       return Math.floor(100 * Math.random() * (max - min + 1) + min) / 100
     },
     crownMass: function () {
@@ -78,7 +78,7 @@ export default {
       return this.crownMass / this.goldRho
     },
     bouyant: function () {
-      return this.airWeight
+      return this.airWeight - this.waterWeight
     },
     crownVolume: function () {
       return this.bouyant / (this.g * this.rho)
