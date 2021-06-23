@@ -1,5 +1,5 @@
 <template lang="pug">
-#Relativity.eg-theme-agrume
+#Relativity.eg-theme-gourmet
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
@@ -14,44 +14,44 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
+    slide(enter='bounceInUp' leave='bounceOutDown')
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
       .center
-        h6(v-if="step >= 2" style="color: #aa0000; margin: -10px;")
+        h6(style="color: #aa0000; margin: -10px;")
           <b>Galilean relativity</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
-          p(v-if="step >= 2" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInDown')
+          p(style="margin-bottom: -30px;")
             <b>Galilean principle of relativity</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInRight')
+          p(style="margin-bottom: -30px;")
             <b>Galilean transformations</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInUp')
+          p(style="margin-bottom: -30px;")
             <b>Michelson-Morley experiment</b>
 
-        h6(v-if="step>=3"  style="color: #aa0000; margin-bottom: -20px;")
+        h6(style="color: #aa0000; margin-bottom: -20px;")
           <b>Einstein relativity</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInRight')
+          p(style="margin-bottom: -30px;")
             <b>Einstein relativity principle</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInUp')
+          p(style="margin-bottom: -30px;")
             <b>Simultainety</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 4" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInRight')
+          p(style="margin-bottom: -30px;")
             <b>Time dilation</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 5" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInDown')
+          p(style="margin-bottom: -30px;")
             <b>Length contraction</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5" style="margin-bottom: -30px;")
+        eg-transition(enter='bounceInRight')
+          p(style="margin-bottom: -30px;")
             <b>Lorentz transformations</b>
 
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
-      h3 The principle of Galilean relativity
+      h4(style="text-transform: uppercase;").center The principle of Galilean relativity
       p The laws of mechanics must be the same in all inertial frames of reference.
       .center
         img(src='./assets/inertialFrame.svg')
@@ -397,7 +397,8 @@ export default {
 </script>
 
 <style lang='scss'>
-@import 'node_modules/eagle.js/dist/themes/agrume/agrume';
+// @import 'node_modules/eagle.js/dist/themes/agrume/agrume';
+@import 'node_modules/eagle.js/dist/themes/gourmet/gourmet';
 #Relativity {
   .frontpage {
     img {

@@ -25,7 +25,7 @@ eg-transition(:enter='enter', :leave='leave')
       p.inline.data %<sub>inmmersed</sub>
         input.center.data(:class="checkedInmmersedRatio" v-model.number='enterInmmersedRatio')
         <span class="error" v-if="errorInmmersedRatio">[e: {{ errorInmmersedRatio.toPrecision(2) }}%]</span>
-      p.inline.data 100 x (<span style="font-family: times new roman; font-style: italic; font-size: 20px">&#x03c1;</span><sub style="font-size: 15px">f</sub>/<span style="font-family: times new roman; font-style: italic; font-size: 20px;">&#x03c1;</span><sub style="font-size: 15px">s</sub>)
+      p.inline.data 100 x (<span style="font-family: times new roman; font-style: italic; font-size: 20px">&#x03c1;</span><sub style="font-size: 15px">solid</sub>/<span style="font-family: times new roman; font-style: italic; font-size: 20px;">&#x03c1;</span><sub style="font-size: 15px">fluid</sub>)
         input.center.data(:class="checkedRatio" v-model.number='enterRatio')
         <span class="error" v-if="errorRatio">[e: {{ errorRatio.toPrecision(2) }}%]</span>
 
