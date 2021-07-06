@@ -1,7 +1,7 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
         h1 Vision Systems
         img(src='./assets/U.svg')
@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
       h6(style="margin-top: -20px;")
         | Topics on Morphological Filters
@@ -35,7 +35,7 @@
           p(v-if="step >= 6")
             <b>Grayscale Morphology</b><br><span style="font-size: 0.7em;">Structuring Elements, Dilation and Erosion, Grayscale Opening and Closing</span>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h2(style="margin: -20px 0 0 0; ").center Morphological filters
       p Remember the median filter?, we noticed that this type of filter can somehow alter 2D image structures.
@@ -45,7 +45,7 @@
       p  The median filter thus responds selectively to the local shape of image structures.
       p Altering the local structure in a predictable way is exactly what “morphological” filters can do.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h4(style="margin: -0px 0 0 0").center Morphological filters
       p In their original form, morphological filters are aimed at binary images, images with only two possible pixel values, <b>0</b> and <b>1</b> or <b>black</b> and <b>white</b>, respectively.
@@ -54,7 +54,7 @@
       p We denote binary pixels with values <b>1</b> and <b>0</b> as <b>foreground</b> and <b>background</b> pixels, respectively. In most of the following examples, the foreground pixels are shown in black and background pixels are shown in white, as is common in printing.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5(style="margin: -0px 0 0 0").center Size-dependent removal
       p Our starting point was the observation that a simple 3×3 pixel median filter can round off larger image structures and remove smaller structures, such as points and thin lines, in a binary image.
@@ -63,7 +63,7 @@
         img(src='./assets/chap10/p174-fig10-2.png' height="300px")
       p But how can we control the size and possibly the shape of the structures affected by such an operation?
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Shrink and let go
       p All we need for this are two types of operations.
@@ -74,7 +74,7 @@
       .center
         img(src='./assets/chap10/p175-fig10-4.png' height="150px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5(style="margin-top: -30px;").center Neighborhood of Pixels
       p For both operations, we must define the meaning of two pixels being adjacent.
@@ -86,13 +86,13 @@
         img(src='./assets/chap10/p176-fig10-5.png' height="200px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Basic Morphological Operations
       p Shrinking and growing are indeed the two most basic morphological operations, which are referred to as “erosion” and “dilation”, respectively.
       p These morphological operations go well beyond removing or attaching single pixel layers and—in combination—can perform much more complex operations.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") The Structuring Element
       p Similar to the coefficient matrix of a linear filter, the properties of a morphological filter are specified by elements in a matrix called a “structuring element”.
@@ -104,7 +104,7 @@
         img(src='./assets/chap10/p176-fig10-6.png' height="100px")
       p Notice that the hot spot is not necessarily located at the center of the structuring element, nor must its value be 1.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Point Sets
       p For the formal specification of morphological operations, it is sometimes helpful to describe binary images as sets of 2D coordinate points.
@@ -113,21 +113,20 @@
         img(src='./assets/chap10/p176-eqn10-1.png' height="50px" style="margin-top: -20px;")
       p Of course, not only a binary image <span class="math">I</span> but also a structuring element <span class="math">H</span> can be described as a point set.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Point Sets
       .center
-        img(src='./assets/chap10/p177-fig10-7.png' height="200px" style="margin-top: -30px;")
-      p With the description as point sets, fundamental operations on binary images can also be expressed as simple set operations. For example, inverting a binary image <span class="math">I → &Imacr;</span> is equivalent to building the complementary set
+        img(src='./assets/chap10/p177-fig10-7.png' height="200px" style="margin-top: -50px;")
+      p(style="margin-top: 30px;") Fundamental operations can be expressed as simple set operations. For example, inverting a binary image <span class="math">I → &Imacr;</span> is equivalent to building the complementary set
       .center
         img(src='./assets/chap10/p176-eqn10-2.png' height="60px" style="margin-top: -20px;")
-      p Combining two binary images <span class="math">I<sub>1</sub></span> and <span class="math">I<sub>2</sub></span> by an OR operation between corresponding pixels, the result is the union of the individual point sets <span class="math">Q<sub>I<sub>1</sub></sub></span> and <span class="math">Q<sub>I<sub>2</sub></sub></span>; that is,
+      p(style="margin-top: 30px;") Combining two binary images <span class="math">I<sub>1</sub></span> and <span class="math">I<sub>2</sub></span> by an OR operation results in the union of the individual point sets <span class="math">Q<sub>I<sub>1</sub></sub></span> and <span class="math">Q<sub>I<sub>2</sub></sub></span>; that is,
       .center
         img(src='./assets/chap10/p176-eqn10-3.png' height="60px" style="margin-top: -20px;")
-      p Combining two binary images I1 and I2 by an OR operation between corresponding pixels, is the union of the individual
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Point sets
       p <b>Translating</b> (shifting) a binary image <span class="math">I</span> by some coordinate vector <span class="math">d</span> creates a new image with the content
@@ -137,17 +136,18 @@
       .center
         img(src='./assets/chap10/p177-eqn10-5.png' height="50px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Dilation
-      p A dilation is the morphological operation that corresponds to our intuitive concept of “growing” as discussed already. As a set operation, it is defined as
+      p A dilation is the morphological operation that corresponds to our intuitive concept of “<b>growing</b>”.
+      p As a set operation, it is defined as
       .center
         img(src='./assets/chap10/p177-eqn10-6.png' height="50px" style="margin-top: -20px;")
       p Thus the point set produced by a dilation is the (vector) sum of all possible pairs of coordinate points from the original sets <span class="math">I</span> and <span class="math">H</span>.
       .center
         img(src='./assets/chap10/p178-fig10-8.png' height="350px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Dilation
       p Alternatively, one could view the dilation as the structuring element <span class="math">H</span> being replicated at each foreground pixel of the image <span class="math">I</span> or, conversely, the image <span class="math">I</span> being replicated at each foreground element of <span class="math">H</span>.
@@ -155,7 +155,7 @@
         img(src='./assets/chap10/p177-eqn10-7.png' height="80px" style="margin-top: -20px;")
       p with <span class="math">H<sub>p</sub></span>, <span class="math">I<sub>q</sub></span> denoting the sets <span class="math">H</span>, <span class="math">I</span> shifted by <span class="math">p</span> and <span class="math">q</span>, respectively
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide.boredYet(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Erosion
       p The quasi-inverse of dilation is the erosion operation, again defined in set notation as
@@ -167,7 +167,16 @@
       .center
         img(src='./assets/chap10/p179-fig10-9.png' height="300px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Formal Properties of Dilation and Erosion
       p The dilation operation is commutative,
@@ -183,7 +192,7 @@
       .center
         img(src='./assets/chap10/p179-eqn10-13.png' height="50px" style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Formal Properties of Dilation and Erosion
       p The erosion operation is not commutative,
@@ -201,20 +210,20 @@
 
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Formal Properties of Dilation and Erosion
       .center
         img(src='./assets/chap10/p180-fig10-10.png' height="600px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Dilation erosion algorithms
       .center
         img(src='./assets/chap10/p180-alg10-1.png' height="600px" style="margin-top: -30px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Designing Morphological Filters
       p A morphological filter is unambiguously specified by
@@ -225,7 +234,7 @@
         img(src='./assets/chap10/p181-fig10-11.png' height="250px" style="margin-top: 30px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Designing Morphological Filters
       .center
@@ -233,38 +242,38 @@
       .center
         img(src='./assets/chap10/p182-fig10-13.png' height="600px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Designing Morphological Filters
       .center
         img(src='./assets/chap10/p183-fig10-14.png' height="700px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h4.center(style="margin-top: -10px;") Application Example: Outline
       p A typical application of morphological operations is to extract the boundary pixels of the foreground structures.
       p The process is very simple. First, we apply an erosion on the original image I to remove the boundary pixels of the foreground,
       .center
-        img(src='./assets/chap10/p181-math-a.png' height="50px")
+        img(src='./assets/chap10/p181-math-a.png' height="50px" :mouseNavigation='false')
       p The actual boundary pixels B are those contained in the original image but not in the eroded image, that is,
       .center
         img(src='./assets/chap10/p182-eqn10-18.png' height="50px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center Application Example: Outline
       p Structuring elements
       .center
         img(src='./assets/chap10/p184-fig10-16.png' height="500px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center Application Example: Outline
       p Result
       .center
         img(src='./assets/chap10/p185-fig10-17.png' height="500px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center Composite Morphological Operations
       p Due to their semiduality, dilation and erosion are often used together in composite operations, two of which are so important that they even carry their own names and symbols: “opening” and “closing”.
@@ -275,7 +284,7 @@
         img(src='./assets/chap10/p185-eqn10-20.png' height="50px")
       p The main effect of an opening is that all foreground structures that are smaller than the structuring element are eliminated in the first step (erosion).
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 0px;") Composite Morphological Operations
       p When the sequence of erosion and dilation is reversed, the resulting operation is called a closing and denoted I • H,
@@ -283,14 +292,14 @@
         img(src='./assets/chap10/p185-eqn10-21.png' height="70px")
       p A closing removes (closes) holes and fissures in the foreground structures that are smaller than the structuring element H.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: 0px;") Composite Morphological Operations
       .center
         img(src='./assets/chap10/p186-fig10-18.png' height="700px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: 20px;") Properties of Opening and Closing
       p Both operations, opening as well as closing, are idempotent, meaning that their results are “final” in the sense that any subsequent application of the same operation no longer changes the result, that is,
@@ -300,7 +309,7 @@
       .center
         img(src='./assets/chap10/p186-eqn10-23.png' height="50px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5(style="margin-top: -0px;").center Thinning (Skeletonization)
       p Thinning is a common morphological technique which aims at shrinking binary structures down to a maximum thickness of one pixel without splitting them into multiple parts.
@@ -309,7 +318,7 @@
       P A frequent application of thinning is to calculate the “skeleton” of a binary region.
       p Thinning is also known by the terms center line detection and medial axis transform.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 0px;") Thinning Algorithm by Zhang and Suen
       p The input to this algorithm is a binary image I, with foreground pixels as 1 and background pixels as 0.
@@ -324,7 +333,7 @@
         img(src='./assets/chap10/3x3Filters.png' height="80px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 0px;") Thinning Algorithm by Zhang and Suen
       p Based on the above functions, we finally define two Boolean predicates R1,R2 on the neighborhood N,
@@ -333,7 +342,7 @@
       p Depending on the outcome of R1(N) and R2(N), the foreground pixel at the center position of N is either deleted or marked as non-removable.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 0px;") Thinning Algorithm by Zhang and Suen
       .center
@@ -341,7 +350,7 @@
       .center
         img(src='./assets/chap10/rhino.png' height="450px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Fast Thinning Algorithm
       p In a binary image, only 2<sup>8</sup> = 256 different combinations of zeros and ones are possible inside any 8-neighborhood.
@@ -354,19 +363,19 @@
       p where the two bits correspond to the predicates R1 and R2, respectively.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 20px;") Fast Thinning Algorithm
       .center
         img(src='./assets/chap10/table1.png' height="600px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: 20px;") Fast Thinning Algorithm
       .center
         img(src='./assets/chap10/table2.png' height="600px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Grayscale Morphology
       p Morphological operations are not confined to binary images but are also for intensity (grayscale) images.
@@ -374,7 +383,7 @@
       p As a consequence, procedures designed for grayscale morphology can also perform binary morphology.
       p In the case of color images, the grayscale operations are usually applied individually to each color channel.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Morphology
       p Unlike in the binary scheme, the structuring elements for grayscale morphology are not defined as point sets but as real-valued 2D functions, that is,
@@ -384,7 +393,7 @@
       .center
           img(src='./assets/chap10/p187-eqn10-24.png' )
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Dilation and Erosion
       p The result of grayscale dilation I ⊕ H is defined as the maximum of the values in H added to the values of the current subimage of I, that is,
@@ -397,38 +406,38 @@
           img(src='./assets/chap10/p188-fig10-19.png' height="300px" style="margin-right: 40px;")
           img(src='./assets/chap10/p188-fig10-20.png' height="300px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Dilation and Erosion
       p(style="margin-top: -30px;")
       .center
           img(src='./assets/chap10/p189-fig10-21.png' height="700px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Opening and Closing
       p Opening and closing on grayscale images are defined, identical to the binary case, as operations composed of dilation and erosion with the same structuring element.
       p Notice that interesting effects can be obtained, particularly from structuring elements resembling the shape of brush or other stroke patterns.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Opening and Closing
       .center
           img(src='./assets/chap10/p191-fig10-23.png' height="700px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Opening and Closing
       .center
           img(src='./assets/chap10/p190-fig10-22.png' height="700px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Morphological filters</sup>
       h5.center Grayscale Opening and Closing
       .center
           img(src='./assets/chap10/p192-fig10-24.png' height="700px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: </sup>
         h3 References
         ul

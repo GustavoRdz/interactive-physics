@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
 
     slide(:steps=8, enter='bounceInRight' leave='bounceOutDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
