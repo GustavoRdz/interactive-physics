@@ -1,7 +1,7 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
         h1 Vision Systems
         img(src='./assets/U.svg')
@@ -41,7 +41,7 @@
           p(v-if="step >= 6")
             <b>Projections</b><br><span style="font-size: 0.7em;">Topological Region Properties</span>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h2(style="margin: -20px 0 0 0; ").center Regions in Binary Images
       p Now we study connected regions in images and how to isolate  and describe such structures.
@@ -50,7 +50,7 @@
         img(src='./assets/chap11/p199-fig11-1.png' height="200px" style="margin-right: 50px;")
       p As long as we continue to consider each pixel in isolation, we will not be able to determine how many objects there are overall in the image, where they are located, and which pixels belong to which objects.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h4(style="margin: -0px 0 0 0").center Finding Connected Image Regions
       p In the search for binary regions, the most important tasks are to find out which pixels belong to which regions, how many regions are in the image, and where these regions are located.
@@ -58,7 +58,7 @@
       p During this process, neighboring pixels are pieced together in a stepwise manner to build regions in which all pixels within that region are assigned a unique number (“label”) for identification.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5(style="margin: -0px 0 0 0").center Finding Connected Image Regions
       p Independent of which of the method we use, we must first settle on either the 4- or 8-connected definition of neighboring for determining when two pixels are “connected” to each other, since under each definition we can end up with different results.
@@ -66,7 +66,7 @@
       .center
         img(src='./assets/chap11/p200-math-a.png' height="100px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Region Labeling by Flood Filling
       p The underlying algorithm for region marking by flood filling is simple:
@@ -77,7 +77,7 @@
       p There are various methods for carrying out the fill operation that ultimately differ in how to select the coordinates of the next pixel to be visited during the fill.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5(style="margin-top: -30px;").center Region Labeling by Flood Filling
       p A. Recursive Flood Filling:
@@ -87,7 +87,7 @@
       p Within each region, a tree structure, rooted at the starting point, is defined by the neighborhood relation between pixels.
       p Unfortunately, since the maximum depth of the recursion—and thus the size of the required stack memory—is proportional to the size of the region.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Region Labeling by Flood Filling
       p B. Iterative Flood Filling (depth-first):
@@ -98,7 +98,7 @@
       p As in the recursive version (A), the corresponding tree of pixels is traversed in depth-first order.
       p By making use of its own dedicated stack (which is created in the much larger heap memory), the depth of the tree is no longer limited to the size of the call stack.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Region Labeling by Flood Filling
       p C. Iterative Flood Filling (breadth-first):
@@ -107,13 +107,13 @@
       p In this version, pixels are traversed in a way that resembles an expanding wave front propagating out from the starting point.
       p The data structure used to hold the as yet unvisited pixel coordinates is in this case a queue instead of a stack, but otherwise it is identical to version B.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Region Labeling by Flood Filling
       .center
         img(src='./assets/chap11/p205-fig11-2.png' height="600px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Sequential Region Labeling
       p Sequential region marking is a classical, nonrecursive technique that is known in the literature as “region labeling”.
@@ -121,7 +121,7 @@
       p Even though this algorithm is relatively complex, especially its second stage, its moderate memory requirements make it a good choice under limited memory conditions.
       p However, this is not a major issue on modern computers and thus, in terms of overall efficiency, sequential labeling offers no clear advantage over the simpler methods described earlier.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Sequential Region Labeling
       p The sequential technique is nevertheless interesting (not only from a historic perspective) and inspiring. The complete process is summarized with the following main steps:
@@ -130,7 +130,7 @@
       p Depending on the definition of neighborhood (either 4- or 8-connected) used, the following neighbors in the direct vicinity of each pixel must be examined (× marks the current pixelat the position (u, v)).
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Sequential Region Labeling
       h5.center Step 1: Initial labeling
@@ -140,7 +140,7 @@
       .center
         img(src='./assets/chap11/p208-fig11-3b.png' height="300px" style="margin-top: 50px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;")  Sequential Region Labeling
       h5.center Step 1: Initial labeling
@@ -149,7 +149,7 @@
       .center
         img(src='./assets/chap11/p208-fig11-3d.png' height="250px" style="margin-top: 50px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Sequential Region Labeling
       h5.center Step 1: Initial labeling
@@ -158,7 +158,7 @@
         img(src='./assets/chap11/p209-fig11-4.png' height="250px" style="margin-top: 50px;")
 
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Sequential Region Labeling
       p Step 2: Resolving label collisions
@@ -167,7 +167,7 @@
       .center
         img(src='./assets/chap11/p209-fig11-5.png' height="250px" style="margin-top: 50px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Sequential Region Labeling
       .center
@@ -175,13 +175,13 @@
       .center
         img(src='./assets/chap11/p210-fig11-6b.png' height="300px" style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Sequential Region Labeling
       .center
         img(src='./assets/chap11/sequentialLabelling.png' height="700px" style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Sequential Region Labeling
       .center
@@ -189,14 +189,14 @@
       .center
         img(src='./assets/chap11/relabel.png' height="240px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Region Contours
       p Once the regions in a binary image have been found, the next step is often to find the contours (that is, the outlines) of the regions.
       p Like so many other tasks in image processing, at first glance this appears to be an easy one: simply follow along the edge of the region.
       p We will see that, in actuality, describing this apparently simple process algorithmically requires careful thought, which has made contour finding one of the classic problems in image analysis.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Region Contours
       p In this section, we will develop an algorithm for obtaining an ordered sequence of border pixel coordinates for describing a region’s contour.
@@ -207,7 +207,7 @@
 
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Region Contours
       p An additional complication arises when regions are connected by parts that taper down to the width of a single pixel.
@@ -216,20 +216,20 @@
         img(src='./assets/chap11/p211-fig11-8.png' height="300px" style="margin-top: -20px;")
       p Other factors, such as the current direction along which contour points are being traversed, must be taken into account.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Combining Region Labeling and Contour Finding
       p This method, based on , combines the concepts of sequential region labeling and traditional contour tracing into a single algorithm able to perform both tasks simultaneously during a single pass through the image.
       p It identifies and labels regions and at the same time traces both their inner and outer contours.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4.center(style="margin-top: -10px;") Combining Region Labeling and Contour Finding
       p step 1. As in the sequential region labeling, the binary image I is traversed from the top left to the bottom right. Such a traversal ensures that all pixels in the image are eventually examined and assigned an appropriate label.
       .center
         img(src='./assets/chap11/contourFindingAB.png' height="350px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center Combining Region Labeling and Contour Finding
       .center
@@ -237,7 +237,7 @@
       .center
         img(src='./assets/chap11/contourFindingEF.png' height="300px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center Combining Region Labeling and Contour Finding
       .center
@@ -245,7 +245,7 @@
       .center
         img(src='./assets/chap11/p217-fig11-11.png' height="350px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h4(style="margin-top: 0px;").center Representing Image Regions
       h5.center Matrix Representation
@@ -256,7 +256,7 @@
       .center
         img(src='./assets/chap11/p218-fig11-12.png' height="150px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 0px;") Representing Image Regions
       h6 Run Length Encoding
@@ -266,7 +266,7 @@
       .center
         img(src='./assets/chap11/p218-fig11-13.png' height="250px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: 0px;") Representing Image Regions
       h6 Chain Codes
@@ -277,7 +277,7 @@
         img(src='./assets/chap11/p219-fig11-14.png' height="250px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Regions in Binary Images</sup>
       h5.center(style="margin-top: 20px;") Representing Image Regions
       h6 Differential chain code
@@ -289,7 +289,7 @@
       .center
         img(src='./assets/chap11/p220-math-a.png' height="70px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5(style="margin-top: -0px;").center Properties of Binary Regions
       p Imagine that you have to describe the contents of a digital image to another person over the telephone.
@@ -298,7 +298,7 @@
       p For computers, it is of course simpler to calculate the mathematical properties of an image or region and to use these as the basis for further  classification.
       p Using features to classify, be they images or other items, is a fundamental part of the field of pattern recognition.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 0px;") Shape Features
       p The comparison and classification of binary regions is widely used, for example, in optical character recognition (OCR) and for automating processes.
@@ -306,7 +306,7 @@
       p By a feature of a region, we mean a specific numerical or qualitative measure that is computable from the values and coordinates of the pixels that make up the region.
       p The best features are those that are simple to calculate and are not easily influenced (robust) by irrelevant changes,  particularly translation, rotation, and scaling.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 0px;") Shape Features
       h6 Geometric Features
@@ -316,7 +316,7 @@
       p Most geometric properties are defined in such a way that a region is considered to be a set of pixels that, in contrast to the definition, does not necessarily have to be connected.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 0px;") Shape Features : Geometric Features
       h6 Perimeter
@@ -326,7 +326,7 @@
         img(src='./assets/chap11/p223-eqn11-7.png' height="200px")
       p With this conventional method of calculation, the real perimeter P(R) is systematically overestimated. As a simple remedy, an empirical correction factor of 0.95 works satisfactorily even for relatively small regions.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Shape Features : Geometric Features
       h6 Area
@@ -340,7 +340,7 @@
 
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 20px;") Shape Features : Geometric Features
       h6 Compactness and roundness
@@ -351,7 +351,7 @@
       .center
         img(src='./assets/chap11/p225-fig11-15.png' height="200px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: 20px;") Shape Features : Geometric Features
       h6 Bounding box
@@ -362,7 +362,7 @@
       .center
         img(src='./assets/chap11/p225-fig11-16.png' height="200px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center(style="margin-top: -10px;") Shape Features : Geometric Features
       h6 Convex hull
@@ -372,14 +372,14 @@
       p <b>Density</b> is then defined as the ratio between the area of the region and the area of its convex hull.
       p The <b>diameter</b>, on the other hand, is the maximal distance between any two nodes on the convex hull.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Statistical Shape Properties
       p When computing statistical shape properties, we consider a region R to be a collection of coordinate points distributed within a twodimensional space.
       p Since statistical properties can be computed for point distributions that do not form a connected region, they can be applied before segmentation.
       p An important concept in this context are the central moments of the region’s point distribution, which measure characteristic properties with respect to its midpoint or centroid.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Statistical Shape Properties : Centroid
       p The centroid or center of gravity of a connected region can be easily visualized.
@@ -389,7 +389,7 @@
       .center
           img(src='./assets/chap11/p226-eqn11-14.png' height="100px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Statistical Shape Properties : Moments
       h6 Moments
@@ -398,7 +398,7 @@
           img(src='./assets/chap11/p226-eqn11-15.png' height="70px")
       p describes the (ordinary) moment of order p, q for a discrete (image) function I(u, v) ∈ R; for example, a grayscale image.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Statistical Shape Properties : Central Moments
       p To compute position-independent (translation-invariant) region features, the region’s centroid, which can be determined precisely in any situation, can be used as a reference point.
@@ -406,7 +406,7 @@
       .center
           img(src='./assets/chap11/p227-eqn11-20.png' height="70px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Statistical Shape Properties : Normalized Central Moments
       p Central moment values of course depend on the absolute size of the region since the value depends directly on the distance of all region points to its centroid. So, if a 2D shape is scaled uniformly by some factor <b>s ∈ R</b>, its central moments multiply by the factor
@@ -417,7 +417,7 @@
           img(src='./assets/chap11/p228-eqn11-23.png' height="70px")
       p for (p + q) ≥ 2.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geometric Properties
       p While normalized moments can be directly applied for classifying regions, further interesting and geometrically relevant features can be derived from statistical region moments.
@@ -427,7 +427,7 @@
           img(src='./assets/chap11/p230-fig11-17.png' height="250px")
           img(src='./assets/chap11/p230-fig11-18.png' height="250px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geometric Properties : Orientation
       p As long as a region exhibits an orientation at all, the direction θ<sub>R</sub> of the major axis can be found directly from the central moments μpq as
@@ -438,7 +438,7 @@
           img(src='./assets/chap11/p228-eqn11-25.png' height="100px")
       p The angle θ<sub>R</sub> is in the range [−π/2, π/2 ].<br> Orientation measurements based on region moments are very accurate in general.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geom. Prop. : Calculating orientation vectors
       p When visualizing region properties, a frequent task is to plot the region’s orientation as a line or arrow, usually anchored at the center of gravity ¯x = (¯x, ¯y); for example, by a parametric line of the form
@@ -449,7 +449,7 @@
           img(src='./assets/chap11/p230-eqn11-27.png' height="100px")
       p we get (by Pythagora’s theorem)
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geom. Prop. : Calculating orientation vectors
       p As long as a region exhibits an orientation at all, the direction θ<sub>R</sub> of the major axis can be found directly from the central moments μpq as
@@ -461,7 +461,7 @@
       .center
           img(src='./assets/chap11/p231-eqn11-29.png' height="100px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geom. Prop. : Eccentricity
       p Similar to the region orientation, moments can also be used to determine the “elongatedness” or eccentricity of a region.
@@ -473,7 +473,7 @@
           img(src='./assets/chap11/p231-math-a.png' height="50px")
       p with the region’s central moments μ<sub>11</sub>, μ<sub>20</sub>, μ<sub>02</sub>. The values of Ecc are in the range [1,∞), where Ecc = 1 corresponds to a circular disk and elongated regions have values > 1.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geom. Prop. : Eccentricity
       p The value returned by Ecc(R) is invariant to the region’s orientation and size.
@@ -486,20 +486,20 @@
       .center
           img(src='./assets/chap11/p232-eqn11-33.png' height="130px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Moment-Based Geom. Prop. : Eccentricity
       .center
           img(src='./assets/chap11/p232-fig11-19.png' height="500px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Regions in Binary Images</sup>
       h5.center Bounding Box Aligned to the Major Axis
       p While the ordinary, x/y axis-aligned bounding box is of little practical use, it useful to find a region’s bounding box that is aligned with its major axis.
       .center
           img(src='./assets/chap11/boxParallelMajorAxis.png' height="500px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: </sup>
         h3 References
         ul

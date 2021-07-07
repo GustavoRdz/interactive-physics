@@ -1,7 +1,7 @@
 <template lang="pug">
 #FluidMechanics.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
         h1 Fluid Mechanics
         img(src='./assets/U.svg')
@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=3, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=3, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
@@ -41,7 +41,7 @@
           p(v-if="step >= 3")
             <b>Bernoulli's Equation</b>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Fluid
 
@@ -50,14 +50,14 @@
       .center
           img.shadowbox(src='https://secondcropcreative.com/cinemagraphs/images/beer-bubbles.gif')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Density
       p Force exerted by a fluid depends on the mass that the volumen of fluid has, then if different fluids has different mass it is important to use a quantity that involves the mass per volume unit: <b>Density</b>.
       .center
           img.pressureFormula(src='./assets/equations/density.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Density
       .centered
@@ -144,7 +144,7 @@
         span.small Ctrl + right
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure
       p If <em><span style="font-family: times;">F</span></em> is the magnitude of the force excerted normal to a surface of area <em><span style="font-family: times;">A</span></em>, the pressure in the surface is
@@ -170,14 +170,14 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure and depth
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
       .center
           img(src='./assets/equations/pressureDepth.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure in depth
       p Consider a liquid of density <span style="font-family:Times new roman; font-style: italic;">&#x03c1;</span> at rest
@@ -197,7 +197,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pascal principle
       p A change in the pressure applied to a fluid is transmitted undiminished to every point of the fluid and to the walls of the container
@@ -217,7 +217,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Absolute and gauge pressure
       p <span><em><strong>Absolute pressure</strong></em></span>: is zero-referenced against a perfect vacuum, using an absolute scale, it is equal to gauge presure plus atmospheric pressure
@@ -236,14 +236,14 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure measurements
       .center
         h4 Open-tube manometer
         img(src='./assets/equations/openTubeManometer.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Pressure measurements
       .center
@@ -255,7 +255,7 @@
       h3 Pressure measurements
       .center
         h4 Bourdon's pressure gauge
-        img(src='./assets/equations/bourdonGauge.svg')
+        img(src='./assets/equations/bourdonGauge.svg' :mouseNavigation='false')
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -309,7 +309,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyancy
       p.center <span style="color: blue;">Bouyancy is a familiar phenomenon</span>:
@@ -318,14 +318,14 @@
       h3 Archimedes's Principle
       p When a body is completely or partially immersed in a fluid, the fluid exerts an upward force on the body equal to the weight of the fluid displaced by the body.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyant force
       .center
         h4 Bouyancy
         img(src='./assets/equations/bouyantForce.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bouyant force
       .center
@@ -384,7 +384,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 fluid flow
       .center
@@ -394,25 +394,25 @@
         p Single particle trajectory is called <em><strong>flow line</strong></em>
         p A <em><strong>current line</strong></em> is curve whose tangent in every point has the direction of the velocity of the fluid
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Flow pipe
         .center
         img(src='./assets/equations/fluxPipe.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
         img(src='./assets/equations/continuityFlowPipe.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
         img(src='./assets/equations/continuityEquation.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Continuity equation
         .center
@@ -444,28 +444,28 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Work
         img(src='./assets/equations/bernoulliEquation.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Kinetic energy
         img(src='./assets/equations/bernoulliEquationK.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
         p(style="font-size: 25px; color: #ff0000;") Potential energy
         img(src='./assets/equations/bernoulliEquationU.svg')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Bernoulli's equation
         .center
@@ -537,7 +537,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       .center
         h3 References
