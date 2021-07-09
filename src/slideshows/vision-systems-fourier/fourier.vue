@@ -1,7 +1,7 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
         h1 Vision Systems
         img(src='./assets/U.svg')
@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
         p.right <sup style="font-size: 10px;"> {{ slides.length }}</sup>
-    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
       h6(style="margin-top: 20px;")
         | Topics on Regions in Fourier analysis
@@ -30,7 +30,7 @@
             <b>The Discrete Fourier Transform in 2D</b><br><span style="font-size: 0.7em;">Definition of the 2D DFT, 2D Basis Functions, Visualizing the 2D Fourier Transform, Range of Spectral Values, Linear Filter Operations in Frequency Space, Linear Convolution and Correlation, Inverse Filters</span>
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h2(style="margin: -20px 0 0 0; ").center Spectral analysis
       h5.center The Fourier Transform
@@ -39,7 +39,7 @@
       .center
         img(src='./assets/clips-13/p300-fig13-1.png' height="200px" style="margin-right: 50px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -0px 0 0 0").center Fourier Series Representation of Periodic Functions
       p Sinusoidal functions of arbitrary frequency, amplitude, and phase can be described as the sum of suitably weighted cosine and sine functions.
@@ -49,7 +49,7 @@
 
       p This is called a Fourier series, and the constant factors <span class="it">A<sub>k</sub>, B<sub>k</sub></span> are the Fourier coefficients of the function g(x).
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h5(style="margin: -0px 0 0 0").center Fourier coeficients
       p Every coefficient <span class="it">A<sub>k</sub></span> and <span class="it">B<sub>k</sub></span> specifies the amplitude of the corresponding cosine or sine function, respectively.
@@ -62,7 +62,7 @@
 
       p The corresponding coefficients A(ω) and B(ω) hold the continuous distribution of frequency components contained in the original signal, which is called a “spectrum”.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Properties of the Fourier transform
       .center
@@ -74,7 +74,7 @@
       .center
         img(src='./assets/chap13/p322-fig13-3d.png' height="200px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h5(style="margin-top: -30px;").center Properties of the Fourier transform
       .center
@@ -86,7 +86,7 @@
       .center
         img(src='./assets/chap13/p322-fig13-4d.png' height="200px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Properties of the Fourier transform
       h6(style="margin-top: 30px; margin-bottom: 0;") Linearity
@@ -106,7 +106,7 @@
       .center
         img(src='./assets/chap13/p324-eqn13-28.png' height="50px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Aliasing
       .center
@@ -120,7 +120,7 @@
       .center
         img(src='./assets/chap13/p335-fig13-11d.png' height="180px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Aliasing
       .center
@@ -134,7 +134,7 @@
       .center
         img(src='./assets/chap13/p336-fig13-12d.png' height="180px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Aliasing
       .center
@@ -146,7 +146,7 @@
       .center
         img(src='./assets/chap13/p337-fig13-13c.png' height="180px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Discrete Fourier transform
       p.center Transform
@@ -156,7 +156,7 @@
       .center
         img(src='./assets/chap14/p343-eqn14-2.png' height="180px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Fourier transform
       .center
@@ -171,20 +171,20 @@
         img(src='./assets/chap14/p346-fig14-1d.png' height="180px" style="margin-top: -20px;")
 
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;")  Visualizing the 2d Fourier Transform
       .center
         img(src='./assets/chap14/p349-fig14-3.png' height="550px" style="margin-top: -20px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Visualizing the 2d Fourier Transform
       .center
         img(src='./assets/chap14/p349-fig14-4.png' height="400px" style="margin-top: 50px;")
 
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Frequencies and Orientation in 2D
       h6 Effective Frequency
@@ -192,69 +192,69 @@
       .center
         img(src='./assets/chap14/p350-fig14-5.png' style="margin-top: -10px;")
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Frequency Limits and Aliasing in 2D
       .center
         img(src='./assets/chap14/p351-fig14-6.png'  style="margin-top: 0px;")
 
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p360-fig14-12.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p360-fig14-13.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p361-fig14-14.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p361-fig14-15.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p362-fig14-16.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p362-fig14-17.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center(style="margin-top: -10px;") Examples of FFT
       .center
         img(src='./assets/chap14/p363-fig14-18.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: 0px;").center Convolution
       p
       .center
         img(src='./assets/chap14/p363-eqn14-16.png' height="150px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Lineal filter operation in frequency space
       .center
         img(src='./assets/chap14/p365-fig14-19.png' height="600px" style="margin-top: 0px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: </sup>
         h3 References
         ul

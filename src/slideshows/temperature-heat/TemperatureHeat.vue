@@ -4,7 +4,7 @@
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
         h1 Temperature and heat
-        img(src='./assets/U.svg')
+        img(src='./assets/U.svg' :mouseNavigation='false')
         h4 Temperature, Heat, Calorimetry and Heat Transfer
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
@@ -14,7 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=8, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=8, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3
         | Topics
@@ -42,7 +42,7 @@
           p(v-if="step >= 8")
             <b>Mechanisms of Heat Transfer</b>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Temperature and Heat
       p What is <em><strong>temperature</strong></em> ?
@@ -57,7 +57,7 @@
         .center
           equilibrio-termico
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermometer
       p If a physical quantity varies with heat, it can be used to measure temperature
@@ -66,28 +66,28 @@
 
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center The zeroth law of thermodynamics
       p If <em><strong>C</strong></em> is initially in thermal equilibrium with both <em><strong>A</strong></em> and <em><strong>B</strong></em>, then <em><strong>A</strong></em> and <em><strong>B</strong></em> are also in thermal equilibrium with each other.
       .center
         img(src='./assets/equations/zerothLaw.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Celsius temperature scale.</strong></em>  Celsius takes the melting (as T = 0&#x00B0; C) and boiling (T = 100&#x00B0; C) point of water as the reference points and then added one hundred equally spaced marks (degrees) between the reference points.
         .center
           img(src='./assets/equations/celsiusScale.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Fahrenheit temperature scale.</strong></em>  The melting point of water is at 32&#x00B0;F and the boling point at 212&#x00B0; F. Then we have 180 degrees between the reference points
         .center
           img(src='./assets/equations/fahrenheitScale.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Conversion between Celsius and Fahrenheit
       .center
@@ -95,7 +95,7 @@
       .center
           img(src='./assets/equations/fahrenheitToCelsius.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Kelvin temperature scale</strong></em> and the gas thermometer
@@ -115,7 +115,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Thermal expansion
       p Most materials expand when their temperatures increase
@@ -123,7 +123,7 @@
       .center
           img(src='./assets/equations/linearExpansion.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Linear expansion
       p.center(style="font-family: serif;") &#x394;<em>L</em> = &#x03B1;<em>L</em><sub>0</sub>&#x394;<em>T</em>
@@ -159,7 +159,7 @@
                 td Steel
                 td 1.1 x 10<sup>-5</sup>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Volume expansion
       p.center(style="font-family: serif;") &#x394;<em>V</em> = <em>&#x03B2;</em><em>V</em><sub>0</sub>&#x394;<em>T</em>
@@ -260,7 +260,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Quantity of heat
       //- quantity-of-heat
@@ -284,7 +284,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       p The quantity of heat <strong><em>Q</em></strong> required to increase the temperature of a mass <strong><em>m</em></strong> of a certain material from <strong><em>T<sub>1</sub></em></strong> to <strong><em>T<sub>2</sub></em></strong> is proportional to the temperature change &#x394;<strong><em>T</em></strong> = <strong><em>T<sub>2</sub></em></strong> - <strong><em>T<sub>1</sub></em></strong>. It is also proportional to the mass <strong><em>m</em></strong> of the material
@@ -292,7 +292,7 @@
       p(style="color: peru;").center Heat required for temperature change &#x394;<strong><em>T</em></strong> of mass <strong><em>m</em></strong>
       p where <strong><em>c</em></strong> is a quantity, different for different materials, called the <strong>specifc heat</strong> of the material.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       .centered
@@ -342,13 +342,13 @@
                 td Water (liquid)
                 td 4190
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p One technique for measuring specific heat involves heating a sample to some known temperature <strong><em>T<sub>x</sub></em></strong>, placing it in a vessel containing water of known mass and temperature <strong><em>T<sub>w</sub></em></strong><<strong><em>T<sub>x</sub></em></strong>, and measuring the temperature of the water after equilibrium has been reached.
       p This technique is called <strong><em>calorimetry</em></strong>, and devices in which this energy trasfer occurs are called <strong><em>calorimeters</em></strong>.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p.center <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;" >cold</sub> + <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;">hot</sub> = 0
@@ -381,7 +381,7 @@
         span.small Ctrl + right
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       p <strong><em>Phase</em></strong> refers to the materia state: solid, liquid and gas
@@ -390,7 +390,7 @@
       p.center <strong><em>Q = &#x00B1; mL</em></strong>
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase changes of water
       .center
@@ -434,7 +434,7 @@
           </g>
         </svg>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       .centered
@@ -658,7 +658,7 @@
           </g>
         </svg>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h4.center Heat current in conduction
       .center
@@ -749,7 +749,7 @@
                 td Diamond
                 td 2300
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermal resistance: <strong>R</strong>
       .center
@@ -821,7 +821,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Convection
       p <strong>Convection</strong> is the transfer of heat by mass motion of a fluid from one region of space to another.
@@ -832,7 +832,7 @@
         li The heat current due to convection is found to be approximately proportional to the 5 power of the temperature difference between the surface and the main body of fluid.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Radiation
       p <strong>Radiation</strong> is the transfer of heat by electromagnetic waves such as visible light, infrared, and ultraviolet radiation.
@@ -840,7 +840,7 @@
       p.center <strong>H = Ae&#x03c3;T<sup>4</sup></strong>
       p where <strong>&#x03C3; = 5.6704x10<sup>-8</sup> W/m<sup>2</sup> · K<sup>4</sup></strong>,  is the Stefan–Boltzmann constant.
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
@@ -850,7 +850,7 @@
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Fun soon!
 </template>
