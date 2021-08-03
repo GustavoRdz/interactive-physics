@@ -1,9 +1,9 @@
 <template lang="pug">
-#TemperatureHeat.eg-theme-agrume
+#TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
-        h1 Mecatronica Computacional
+        h2 Mecatronica Computacional
         img(src='./assets/U.svg')
         h4 Modelado
         eg-triggered-message(:trigger='slideTimer >= 2',
@@ -14,438 +14,433 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Topics</sup>
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Temas</sup>
       h6(style="margin-top: -20px;")
-        | Topics on Space Domain Filters
+        | Elementos de Modelado en Ingeniería
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>What is a Filter?</b>
+          p(v-if="step >= 1")
+            <b>Contexto de sistemas en ingeniería</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Linear Filters</b><br><span style="font-size: 0.7em;">The Filter Kernel, Applying the Filter, Integer Coefficients, Filters of Arbitrary Size, Types of Linear Filters</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Formal Properties of Linear Filters</b><br><span style="font-size: 0.7em;">Linear Convolution, Formal Properties of Linear Convolution, Separability of Linear Filters, Impulse Response of a Filter</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 5")
-            <b>Nonlinear Filters</b><br><span style="font-size: 0.7em;">Minimum and Maximum Filters, Median Filter, Weighted Median Filter, Other Nonlinear Filters</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
-            <b>Implementing Filters</b><br><span style="font-size: 0.7em;">Efficiency of Filter Programs, Handling Image Borders, Debugging Filter Programs</span>
+          p(v-if="step >= 1")
+            <b>Modelado de sistemas con análisis estructurado</b><br><span style="font-size: 0.8em;">Principios de ordenado. <br>Elementos de modelado para un análisis estructurado. <br>Ejemplo la cámara con autoenfoque. Modelos alternativos de modelado.</span>
+        //- eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+        //-   p(v-if="step >= 1")
+        //-     <b>Paradigmas del modelado en sistemas mecatrónicos</b><br><span style="font-size: 0.7em;">Potencia y energía generalizados. Modelado basado en energía: formalismo de Lagrange. Modelado basado en energía: ecuaciones de Hamilton. Modelado multipuerto: redes de Kirchhoff. Modelado multipuerto: gráficas de enlace. Modelado Energía/multipuerto: sistema puerto-Hamiltoniano.</span>
+        //- eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+        //-   p(v-if="step >= 1")
+        //-     <b>Sistemas de ecuaciones diferenciales </b><br><span style="font-size: 0.7em;"></span>
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Introduction</sup>
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Introduction</sup>
       h4(style="margin: -20px 0 0 0; ").center Mechatronics
-      p(style="border: 1px solid black; fonst") Mechatronics describes an interdisciplinary design methodology which solves primarily mechanically oriented product functions through the synergistic spatial and functional integration of mechanical, electronic, and information processing subsystems.<br><span style="font-size: 18px;"> VDI/VDE Gesellschaft für Mess- und Automatisierungstechnik (GMA) - Society for Measurement and Automatic Control (VDI/VDE GMA ), Technical Committee 4.15 “Mechatronics”</span>
+      p(style="border: 1px solid black; padding: 15px; margin: 1px; line-height: 1.5em;") <b>Mechatronics</b> describes an interdisciplinary design methodology which solves primarily mechanically oriented product functions through the synergistic spatial and functional integration of mechanical, electronic, and information processing subsystems.<br><span style="font-size: 16px; font-weight: bold;"> VDI/VDE Gesellschaft für Mess- und Automatisierungstechnik (GMA) - Society for Measurement and Automatic Control (VDI/VDE GMA ), Technical Committee 4.15 “Mechatronics”</span>
       .center
-      p(style="border: 1px solid black; fonst") Mechatronics is the synergistic combination of precision mechanical engineering, electronic control and systems thinking in the design of products and manufacturing processes. It covers the integrated design of mechanical parts with an embedded control system and information processing. <span style="font-size: 18px;">International Federation of Automatic Control (IFAC) – Technical Committee on Mechatronic Systems</span>
+      p(style="border: 1px solid black; padding: 15px; margin-top: 20px; line-height: 1.5em;") <b>Mechatronics</b> is the synergistic combination of precision mechanical engineering, electronic control and systems thinking in the design of products and manufacturing processes. It covers the integrated design of mechanical parts with an embedded control system and information processing.<br><span style="font-size: 16px; font-weight: bold;">International Federation of Automatic Control (IFAC) – Technical Committee on Mechatronic Systems</span>
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Introduction</sup>
-      h3.center What is a Filter?
-      p The main difference between filters and point operations is that filters generally use more than one pixel from the source image for computing each new pixel value.
-      p Let us first take a closer look at the task of smoothing an image. Images look sharp primarily at places where the local intensity rises or drops sharply. On the other hand, we perceive an image as blurred or fuzzy where the local intensity function is smooth.
-      p A first idea for smoothing an image could thus be to simply replace every pixel by the average of its neighboring pixels.
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center System Engineering context
+      p(style="line-height: 1.8em; margin-top: 50px;") <b style="font-size: 1.5em;">System models.</b> <br>Abstract, mathematical models of a mechatronic system as a depiction of the real world play a central role in systems design.
+      p(style="line-height: 1.8em;") As a rule, these models are developed and manipulated long before the actual components of the system are available.
+      p(style="line-height: 1.8em;") It is on the basis of such abstract models that robust predictions of the capabilities of the (possibly yet to be produced) real system must already be made.
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center What is a Filter?
-      p To determine the new pixel value in the smoothed image <b>I(u, v)</b>, we use the original pixel <b>I(u, v) = p<sub style="font-size:0.5em;">0</sub></b> at the same position plus its eight neighboring pixels <b>p<sub style="font-size:0.5em;">1</sub>, p<sub style="font-size:0.5em;">2</sub>, . . . , p<sub style="font-size:0.5em;">8</sub></b> to compute the arithmetic mean of these nine values,
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h5.center Experimenting with models: simulation
+      p(style="line-height: 1.8em;") In this context, the construction of these models —<b>the modeling task</b>— is a key task of systems design which should be carried out with the greatest degree of diligence and care.
+      p(style="line-height: 1.8em;") Ultimately, product capabilities of interest are always stated in terms of statistics concerning system performance at a specified time or over a defined time interval (e.g. the nominal operating period).
+      p(style="line-height: 1.8em;") Such time-based performance properties can be determined via simulation, that is, through experiments on available models.
+      p(style="line-height: 1.8em;") As a part of this process, each experiment should be set up in a clearly verifiable manner with an experiment frame <em>ε</em> (the experimental conditions) and assessable system responses y(t).
+
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h5(style="margin-top: -30px;").center Experimenting with models: simulation
+      p Such experiments can be performed on the real system <span style="font-family: Times; font-weight: bold">(ε<sub>S</sub>, y<sub>S</sub>)</span> or a model of the real system <span style="font-family: Times; font-weight: bold">(ε<sub>M</sub>, y<sub>M</sub>)</span> via simulation.
       .center
-        img(src='./assets/clips-06/p090-eqn6-1.png' style="margin-right: 50px;")
-      p(style="margin: -0px 0 0 0;") Expressed in relative image coordinates this is
+        img(src='./assets/cap2/fig2_1.png' height="350px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h5(style="margin-top: -30px;").center Experimenting with models: simulation
+      p To perform a simulation experiment, the mathematical model must be “animated” in such a way that it becomes possible to calculate the time history of all outputs that are of interest
       .center
-        img(src='./assets/clips-06/p090-eqn6-2.png')
-      p(style="margin: 0px 0 0 0;") or compactly.
+        img(src='./assets/cap2/fig2_2.png' height="250px")
+      p In general, this proceeds via the solution of a system of differential equations using appropriate numerical methods (numerical integration algorithms) which are implemented on a computational platform. The methods used to implement simulation models inside of simulators are termed simulation techniques.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
+      h6 Simulation experiments
+      p(style="line-height: 1.5em;") With a simulation experiment, its possible to predict the behavior <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.5em;">S</sub>(t)</span> of the real system for one specific experiment <span style="font-family: Times; font-weight: bold; font-style: italic;">ε<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.5em;">S</sub></span>, using the simulation solution <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.6em;">M</sub>(t)</span> as the result of one equivalent simulation experiment <span style="font-family: Times; font-weight: bold; font-style: italic;">ε<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.6em;">M</sub></span>.
+      p(style="line-height: 1.5em;") Kepping in mind in this context: <br> the comparability of <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.6em;">S</sub>(t)</span> and <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup style="font-size: 0.6em;">i</sup><sub style="font-size: 0.6em;">M</sub>(t)</span> depends on the model accuracy and on the concrete computational implementation of the mathematical model.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;")  The predictive capability of the simulation results should thus always be critically scrutinized:
+      p(style="line-height: 1.7em;") <b>“Does my model consider all properties important to me?”,<br> “How are my model equations actually implemented in the simulator?”,<br> “Which method-dependent approximation errors are entailed by the solution algorithms employed?”,<br> “What numerical errors result from the concrete implementation on the chosen computational platform?”.</b>
+      p(style="line-height: 1.5em;") All of these questions predictably influence the accuracy of the simulation, i.e. the best possible equivalence <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup>i</sup><sub>S</sub>(t)</span> &#x2248; <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup>i</sup><sub>M</sub>(t)</span> under the chosen simulation boundary conditions.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
+      p In confirming the correctness of models, a distinction is made—depending on the types of the models—between the terms <b>verification</b> and <b>validation</b>.
+      p(style="border: 1px solid black; padding: 10px; line-height: 1.2em;") <b>VALIDATION</b> – (IEEE 1997) “Validation is the process of determining the degree to which a simulation is an accurate representation of the real world from the perspective of the intended use(s) as defined by the requirements.”
+      p(style="border: 1px solid black; padding: 10px; line-height: 1.2em;") <b>VERIFICATION</b> – (IEEE 1997) “Verification is the process of determining that an implementation of a simulation accurately represents the developers conceptual description and specifications.” 
+      p(style="line-height: 1.5em;") In summary, the definitions can be expressed as follows:<br> <b>validation</b>=“Have I reated the correct model?” <br> <b>verification</b>=“Have I correctly created (implemented) the model?”
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
+      p(style="line-height: 25px;") <b>Experimental model validation.</b> If sufficiently meaningful results regarding the output <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup>i</sup><sub>S</sub>(t)</span> of the real system are available for comparison, experimental validation of mathematical models is possible based on simulation. 
       .center
-        img(src='./assets/clips-06/p090-eqn6-3.png')
+        img(src='./assets/cap2/fig2_3.png' height="450px")
 
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5(style="margin-top: -30px;").center What is a Filter?
-      p This simple local averaging already exhibits all the important elements of a typical filter. In particular, it is a so-called linear filter, which is a very important class of filters.
-      p But how are filters defined in general? First they differ from point operations mainly by using not a single source pixel but a set of them for computing each resulting pixel.
-      p The coordinates of the source pixels are fixed relative to the current image position (u, v) and usually form a contiguous region
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
       .center
-        img(src='./assets/filter01.png' height="250px")
+        img(src='./assets/cap2/fig2_3.png' height="400px")
+      p Non-trivial questions in this context include: <br>“<b>Where do the comparison results come from, given an as yet non-existent system?</b>”, <br>“<b>How many simulation experiments are really sufficient for validation?</b>”
+      
 
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Linear Filters
-      p Linear filters are denoted that way because they combine the pixel values in the support region in a linear fashion, that is, as a weighted summation.
-      p The local averaging process discussed in the beginning is a special example, where all nine pixels in the 3 × 3 support region are added with identical weights (1/9).
-      p With the same mechanism, a multitude of filters with different properties can be defined by simply modifying the distribution of the individual weights.
-
-      p Note that in this case no clamping is required at all because the function always maps to the original range of values.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h3.center(style="margin-top: -10px;") The Filter Kernel
-      p For any linear filter, the size and shape of the support region, as well as the individual pixel weights, are specified by the “filter kernel” or “filter matrix” H(i, j). Every element H(i, j) specifies the weight of the corresponding pixel in the summation.
-      p For the 3×3 smoothing filter the kernel is
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -10px;") Experimenting with models: simulation
+      p(style="line-height: 30px;") <b>Verification of simulation models.</b> For model validation, an implied premise is that the mathematical models, including the accompanying experiment frame, have been correctly implemented in the employed simulation model.
+      p(style="line-height: 30px;") Assessing the correctness of the implementation is termed <b>verification of the simulation model</b>. 
       .center
-        img(src='./assets/clips-06/p091-eqn6-4.png' style="margin-top: 0px;")
-      p In principle, the filter kernel H(i, j) is, just like the image itself, a discrete, 2D, real-valued function, H: Z × Z → R.
-      p The filter coordinates are generally positive and negative.
+        img(src='./assets/cap2/fig2_3.png' height="400px")
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Applying the Filter
-      p For a linear filter, the result is unambiguously and completely specified by the coefficients of the filter matrix. Applying the filter to an image is a simple process
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="margin-top: -50px;") <b>Verification of simulation models.</b>
+      //- .center
+      //-   img(src='./assets/cap2/fig2_3.png' height="350px")
+      p(style="line-height: 30px;") Verification proceeds by comparing simulation results <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup>i</sup><sub>M</sub>(t)</span> with significant reference data <span style="font-family: Times; font-weight: bold; font-style: italic;">y<sup>i</sup><sub>S</sub>(t)</span>. 
+      p(style="line-height: 40px;") Predictions of system behavior obtained through analytical consideration of the mathematical models are particularly well-suited to this purpose, <br>e.g.<br> * steady-state values from limiting values of a LAPLACE transform,<br>* oscillatory dynamics under harmonic excitation from the frequency response,
+      // p(style="line-height: 30px;") For any such analytical prediction, appropriate test cases (experimental frames) should be created. 
+      p(style="line-height: 30px;") <b>The deeper the theoretical understanding of the system</b> incorporated at this point, <b>the greater the chance</b> of generating an accurate simulation model.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;") <b>Analytical model validation.</b> Analytical predictions of system behavior bring forth the possibility of analytical validation of mathematical system models, i.e. a direct comparison with real system data.
+      p(style="line-height: 1.7em;") Properties with general validity can be derived for a large class of experiment frames.
+      // p(style="line-height: 1.7em;") A good example is provided by stability predictions for mechatronic systems.
+      p(style="line-height: 1.7em;") Experimental confirmation of system linearity and time-invariance within a few characteristic experiment frames permits general predictions for arbitrary inputs in terms of bounded-input bounded-output (BIBO) stability within a particular operational regime.
+      p(style="line-height: 1.7em;") Using analytical predictions can reduce the costs and complexity of verification and validation (directly affecting design time and cost).
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="margin-top: -50px;") Model hierarchy: 
       .center
-        img(src='./assets/applyFilter.png' height="300px")
+        img(src='./assets/cap2/fig2_4.png' height="600px")
+      
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;") <b>Model hierarchy</b> In the domain of systems design, a variety of types of models are employed, representing differing perspectives on the mechatronic system under consideration.
+      p(style="line-height: 1.7em;") Each perspective describes certain differing properties of the same mechatronic system.
+      p(style="line-height: 1.7em;") <b>Qualitative system model.</b> At the most abstract level, a system can be described using purely qualitative attributes, resulting in a qualitative system model.
+      p(style="line-height: 1.7em;") In a mechatronic system, important aspects of the model include defining the behavior of the system with respect to the environment (user) and assigning product tasks to realizing “functions”.
+      p(style="line-height: 1.7em;") At the same time, a preliminary functional system structure and important functional interfaces should be defined.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h4.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;") <b>Quantitative models.</b> For quantitative predictions of system behavior, mathematical models suitable for computation must be generated.
+      p(style="line-height: 1.7em;") To accomplish this, attention should be paid to energy flow, signal flow, and the dynamics within and between the functions defined in the qualitative model.
+      p(style="line-height: 1.7em;") The challenge in mechatronic systems lies in the variety of physical domains involved. A broad technical understanding of the different domains must be present to form a firm basis for modeling.
+      p(style="line-height: 1.7em;") When creating a model, attention must be paid to the fact that interactions between system elements from different physical domains always take place via energy flows with power back-effects.      
 
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Applying the Filter
-      p  The following steps are performed at each image position <b>(u, v)</b>:
-      p <b>1.</b> The filter kernel <b>H</b> is moved over the original image, its origin <b>H(0, 0)</b> coincides with the current image position <b>(u, v)</b>.
-      p <b>2.</b> All filter coefficients <b>H(i, j)</b> are multiplied with the corresponding image element <b>I(u+i, v+j)</b>, and the results are added up.
-      p <b>3</b>. Finally, the resulting sum is stored at the current position in the new image <b>I(u,v)</b>.
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h5.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;") <b>Mathematical system model.</b> The end results of the various modeling methodologies are so-called differential-algebraic equations (DAE).
+      p(style="line-height: 1.7em;") They are the final, actual mathematical model formulation—a DAE system presents a domain-independent mathematical model in which all physical phenomena are represented.
+      p(style="line-height: 1.7em;") Predictions of system behavior are obtained via appropriate experimentation on the DAE system model.
+      // p(style="line-height: 1.7em;") Solving such DAE systems in the general case is, however, (very) difficult, so that a DAE system model must generally be manipulated so as to enable computations based on it (e.g. converting it to state-space representation, possibly linearization).
+      p(style="line-height: 1.7em;") Note that certain special phenomena—such as switching operations, mechanical contact problems, stiction, and discrete-time and discrete-event phenomena—should be modeled by extending the model into a hybrid system.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Engineering context</sup>
+      h5.center(style="margin-top: -20px;") Experimenting with models: simulation
+      p(style="line-height: 1.7em;") <b>Model purpose, model accuracy.</b> One significant task in systems design is to incorporate the “correct” abstraction and simplification of the real physical behavior of a system under examination into a mathematical model.
+      p(style="line-height: 1.7em;") <b>Low-fidelity models.</b> For controller design, stochastic performance predictions, or a rough design (feasibility studies), simplified or low-fidelity models are typically employed. This type of model is generally a linear time-invariant model (LTI system) of low order.
+      p(style="line-height: 1.7em;") <b>High-fidelity models.</b> On the other hand, for design verification and validation  detailed, high-fidelity models with the smallest possible modeling errors should be used to the greatest extent possible. Such models generally take into account all relevant nonlinearities, broadband dynamic system behavior, and, in particular, high-frequency structural modes.
 
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Applying the Filter
-      p Described formally, the pixel values of the new image I(u, v) are computed by the operation
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: -10px;") System Modeling with Structured Analysis
+      p(style="line-height: 1.7em;") <b>Qualitative system models</b> Due to the complexity of some systems, developing a system model is generally a non-trivial task with an uncertain outcome.
+      p(style="line-height: 1.7em;") Though qualitative system models do not allow for numerical computation, they do enable—in addition to the recognition of fundamental system relations (causality loops, dynamics)—the preliminary establish- ment of a foundation for quantitative (mathematical) models by setting up clearly-delineated and manageable subsystems.
+      p(style="line-height: 1.7em;") <b>Top-down modeling</b> The workflow described above belongs to the so-called top-down system modeling paradigm, and always takes place at the beginning of the product design process. During the definition of requirements, the description of properties of the product under development is made more and more detailed following to the above procedure.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: -10px;") System Modeling with Structured Analysis
+      p(style="line-height: 1.7em;") <b>Function-oriented models</b> Function-oriented modeling methods offer a natural approach for the design of mechatronic systems, as they are centered on workflows and input/output relations in a conventional way.
+      p(style="line-height: 1.7em;") Thus, following a few fundamental definitions, several elements of modeling via structured analysis (SA)—which are practical for qualitative modeling due to their intuitive simplicity—are presented below.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: -10px;") System Modeling with Structured Analysis
+      p(style="line-height: 1.7em;") Definition. <b>System</b> – (Cellier 1991) “A system is characterized by the fact that we can say what belongs to it and what does not, and by the fact that we can specify how it interacts with its environment. System definitions can furthermore be hierarchical. We can take the piece from before, cut out a yet smaller part of it, and we have a new ‘system’.”
       .center
-        img(src='./assets/clips-06/p093-eqn6-5.png')
-      p where RH denotes the set of coordinates covered by the filter H. For a typical 3 × 3 filter with centered origin, this is
+        img(src='./assets/cap2/fig2_5.png' height="300px")
+
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: -10px;") System Modeling with Structured Analysis
+      p(style="line-height: 1.7em;") Definition. <b>System – (Schnieder 1999)</b> “A system is marked by the presence of certain properties and is characterized by the following four axioms:
+      p(style="line-height: 1.5em;") <b>Principle of Structure</b> The system consists of a quantity of parts, which have mutual relationships to each other and the (system) environment. The system has reciprocal influences with its environment via physical quanti- ties describing the energy, mass and information state of the system.
+      p(style="line-height: 1.5em;") <b>Principle of Decomposition</b> The system consists of a quantity of parts, which can further be decomposed into a number of mutually influencing sub-parts. When examined in detail, the sub-parts in turn exhibit a certain complexity or general system characteristics.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: -10px;") System Modeling with Structured Analysis
+      p(style="line-height: 1.5em;") <b>Principle of Causality</b> The system consist of a quantity of parts, whose mutual relationships and own variations are clearly defined in themselves. Following a causal interrelationship, later states can only depend on previous ones. Causality is understood as the logic of events.
+      p(style="line-height: 1.5em;") <b>Principle of Temporality</b> The system consists of a quantity of parts, whose structure and state to a greater or lesser extent determine changes occurring over time. Temporality is the sequence of events and variations over time.”
+      p(style="line-height: 1.7em;") These two definitions are, in the end, equivalent, though the second definition also brings into play the temporal aspect important for physical systems.
+
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 20px;") Ordering principles
+      p(style="line-height: 1.5em;") <b>Complex systems</b> One significant task of system modeling is the ordering of the various components of a system. <br>Complex systems are understood to be those consisting of a great number of components. <br>Experience shows that humans are limited in the number of elements (graphic symbols) they are capable of simultaneously recognizing and understanding the contents (the semantics) of in a depiction. <br>The important design principles of structuring, decomposition, aggregation, and hierarchy allow the designer to limit the number of system components under consideration at any time in the face of increasing model detail; these principles are
+      p(style="line-height: 1.7em;") <b>Structuring</b>
+        ul 
+          li establishing the relationships between entities in a system according to given criteria,
+          li deconstructing a given system according to given criteria so that its relationships become recognizable.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 20px;") Ordering principles
+      p(style="line-height: 1.7em;") <b>Decomposition</b>
+        ul
+          li “breaking into fundamental elements”,
+          li systems are decomposed into subsystems,
+          li more details are revealed in an existing model,
+          li refinement of a structure.
+      p(style="line-height: 1.7em;") <b>Aggregation</b>
+        ul
+          li “layering together of individual elements”,
+          li subsystems are aggregated into a system.
+      p(style="line-height: 1.7em;") <b>Hierarchy</b>
+        ul
+          li “(pyramidal)ranking”,
+          li system hierarchy: system definitions are hierarchical, i.e. one piece of the system can be extracted from the whole and be considered as a new system,
+          li hierarchical level: a particular level of consideration of a system, generally representing a subsystem,
+          li top level: a global view of the system
+          li lower level: a detailed view of the system (view of the interior).
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") The method of <b>structured analysis</b> (SA) known from the field of software development offers a very natural approach for system modeling for the design of mechatronic systems.
+      p(style="line-height: 1.7em;") <b>Function-oriented modeling</b> Using structured analysis results in a primarily function-oriented model as it takes as a starting point product functions and then considers their logically causal interconnectedness via data and signals. <br>Note further, that for a complete system description, structured analysis additionally models temporally causal relationships using state machines.
+      
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") Model elements
+      p(style="line-height: 1.7em;") The most important elements of function-oriented modeling are 
       .center
-        img(src='./assets/clips-06/p093-eqn6-6.png')
-      p for all image coordinates (u, v). Not quite for all coordinates, to be exact.
+        img(src='./assets/cap2/table2_1.png' height="400px")
 
-    slide(:steps=1, enter='bounceInDown' )
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Implementing the Filter Operation
-      p Now that we understand the principal operation of a filter and know that the borders need special attention, we go ahead and program a simple linear filter.
-      p But before we do this, we may want to consider one more detail.
-      p In a point operation, each new pixel value depends only on the corresponding pixel value in the original image, and it was thus no problem simply to store the results back to the same.
-      p In-place computation is generally not possible for a filter since any original pixel contributes to more than one resulting pixel.
 
-    slide(:steps=1, enter='bounceInDown' )
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Implementing the Filter Operation
-      p Thus the complete filter operation can be implemented in two different ways:
-      p <b>A</b>. The result of the filter computation is initially stored in a new image whose content is eventually copied back to the original image.
-      p <b>B</b>. The original image is first copied to an intermediate image that serves as the source for the actual filter operation. The result replaces the pixels in the original image.
-      p The same amount of storage is required for both versions, and thus none of them offers a particular advantage.
-
-    slide(:steps=1, enter='bounceInDown' )
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Filter Examples
-      p The following examples demonstrate the implementation of two very basic filters.
-      p Simple 3 × 3 averaging filter (“box” filter)
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p <b>Data context diagram (DCD)</b> Context diagrams describe the system under development from the point of view of a user. The purpose of the system is summarized as a single system process.<br> This process converts inputs from terminators/end users into outputs to terminators/end users. <br>The context diagram describes the interaction of the system with its environment.
       .center
-        img(src='./assets/clips-06/p091-eqn6-4.png' style="margin-top: 0px;")
-      p Another 3 × 3 smoothing filter
+        img(src='./assets/cap2/fig2_7.png' height="300px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b>Data flow diagram (DFD)</b> Data flow diagrams are the primary tool for determining the functional properties of a system. They make structures of the system concrete by defining component functions (processes) which are tied together with data flows. A DFD contains processes, data flows and data storage locations, but no terminators.
       .center
-        img(src='./assets/clips-06/p094-eqn6-7.png' style="margin-top: 0px;")
+        img(src='./assets/cap2/fig2_8.png' height="400px")
 
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Integer Coefficients
-      p(style="margin-top: -50px;") Instead of using floating-point coefficients, it is often simpler and usually more efficient to work with integer coefficients in combination with some common scale factor s, that is,
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Process.</b> A process (also called a function, activity, or task) creates an output from an input by performing an operation. Processes have names and numbers.
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Data flow.</b> Data flows represent all possible types of generalized information (signals, action flows) and can be further decomposed.
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Leveling.</b> The decomposition of a parent DFD into child DFDs with an in- creased level of detail. The decomposition levels can have various depths.
       .center
-        img(src='./assets/clips-06/p095-eqn6-8.png' style="margin-top: -50px;")
-      p If all filter coefficients are positive, then s is usually taken
+        img(src='./assets/cap2/fig2_8.png' height="270px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Balancing.</b> A test for inconsistent data flows. Input and output data flows from parent and child processes must match up in a consistent manner. Data flows without a source or sink create inconsistencies which can be tested for with automated or manual procedures.
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Process specification (PSPEC).</b> A process is continuously decomposed until a short and unambiguous component description becomes possible. Possible methods for describing the process include anything elucidating its content, e.g. tables, prose description, equations, control theory transfer functions. PSPECs can appear at all levels of refinement.
       .center
-        img(src='./assets/clips-06/p096-eqn6-9.png' style="margin-top: 0px;")
-      p to obtain a normalized filter matrix. For example,
+        img(src='./assets/cap2/fig2_9.png' height="150px")
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;"> Control specification</b>
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">State transition diagram (STD)</b> Control specifications describe the processing of control flows. Usually, these flows trigger state transitions or are combined with other signals to form new control signals. Typical means of description include state transition diagrams, decision tables, or prose descriptions. In general, each process has its own control specification. When State 1 is active, fulfillment of Condition A results in the activation of State 2 (with simultaneous deactivation of State 1) and the carrying out of Action A’.
       .center
-        img(src='./assets/clips-06/p096-eqn6-10.png' style="margin-top: 0px;")
+        img(src='./assets/cap2/fig2_10.png' height="200px")
+      
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") Types of Linear Filters
-      p Since the effects of a linear filter are solely specified by the filter matrix (which can take on arbitrary values), an infinite number of different linear filters exists, at least in principle.
-      h5.center Smoothing filters
-      p In fact, any linear filter with positive-only coefficients is a smoothing filter in a sense, because such a filter computes merely a weighted average of the image pixels within a certain image region.
-      h6.center Box filter
-      p(style="margin-top: -50px;") This simplest of all smoothing filters, whose 3D shape resembles a box, is a well-known friend already.
-      p Unfortunately, the box filter is far from an optimal smoothing filter due to its wild behavior in frequency space, which is caused by the sharp cutoff around its sides.
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Data handling</b>
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Data dictionary (DD).</b> Every data and control flow—as well as all storage locations—must be defined in a data dictionary. 
+      // p Flows are either primitives or non-primitives, the latter consist of groupings of primitives. 
+      p A dictionary is usually laid out in a computer-readable format, and can be for- mulated in written form, table form, or as a database.
+      
 
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") Types of Linear Filters : Gaussian filter
-      p The filter matrix (Fig. 5.8(b)) of this smoothing filter corresponds to a 2D Gaussian function,
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Architecture diagram</b>
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Implementation structure.</b> An architecture diagram describes an implementation structure which realizes the functional relationships indicated in a DFD. <br>In addition, the distribution of functions among device elements and the distribution of data flows among device interfaces are documented. This gives a semantic description of devices, i.e. “which task(s) should the device fulfill”. <br>Further, clear justification for the existence of any particular device in the system becomes evident within a device architecture.
       .center
-        img(src='./assets/clips-06/p100-eqn6-12b.png' style="margin-top: 0px;")
-      p where σ denotes the width (standard deviation) of the bell-shaped function and r is the distance (radius) from the center. The pixel at the center receives the maximum weight (1.0, which is scaled to the integer value 9 in the matrix) , and the remaining coefficients drop off smoothly with increasing distance from the center.
+        img(src='./assets/cap2/fig2_11.png' height="200px")
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 0px;") Modeling elements of structured analysis
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;"> System model.</b> <br>In a concise, semi-formal form, this model describes different views of the system (logically causal = functional vs. temporally causal = dynamic), possesses different hierarchical levels (context, DFD level 1, DFD level 2...), and contains one or more possible device architectures (design variants) along with the assignment of device elements to their functions.
       .center
-        img(src='./assets/clips-06/p099-fig6-8.png' height="300px")
+        img(src='./assets/cap2/fig2_12.png' height="430px")
 
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 30px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Task definition.</b><br>The goal is a qualitative design model for a simple autofocus camera.
+      p(style="line-height: 1.7em;") In particular, the mechatronic aspects which enable optimal picture taking should be made evident.
+      p(style="line-height: 1.7em;") In addition, the assignment of functions to proposed device elements in possible physical realizations (design variants) should be highlighted. 
+      p(style="line-height: 1.7em;") This example thus represents the typical first steps in the design of a new product.
+      
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") Types of Linear Filters :Difference filters
-      p If some of the filter coefficients are negative, the filter calculation can be interpreted as the difference of two sums: the weighted sum of all pixels with associated positive coefficients minus the weighted sum of pixels with negative coefficients in the filter region RH, that is,
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 30px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Written product specification.</b> <br>“The autofocus camera should be very user-friendly and have as few operational and display functions as possible.<br> Sharp pictures should be produced without special manual intervention. <br>The camera should work with standard rolls of film (black-and- white, color). <br>It should be possible to use standard rechargeable batteries. <br>The camera should fit into the low-cost market, preferably be light weight, and enable as long an operational time as possible for every full battery charge.”
+      p(style="line-height: 1.7em;") Typically, user requirements (e.g. from marketing) are given in purely verbal form, it allow for great freedom in the design. <br>To begin the design process, this freedom should—in cooperation with the customer—be further constrained using formal qualitative system models.
+      
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;"> Context diagram.</b> Here, the most significant outside view of the product, i.e. how the user sees the camera, should already be recognizable.
+      p(style="line-height: 1.7em;") Basically, the available data flows and a PSPEC of the Primary Function F0 can already be used to write a first draft of the user manual. <br>The data flows are coded alphanumerically, in order to simplify later reference (D0.x = Level 0).
       .center
-        img(src='./assets/clips-06/p100-eqn6-13.png')
+        img(src='./assets/cap2/fig2_13.png' height="330px")
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;"> Data flow diagrams.</b> Already at Level a—the first below the context diagram—the first candidate mechatronic functions (F1, F2, F5, i.e. those in which it is obvious that masses must be made to move in a precise manner) become evident.
       .center
-        img(src='./assets/clips-06/p099-fig6-8.png' height="300px")
+        img(src='./assets/cap2/fig2_14.png' height="550px")
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h4.center(style="margin-top: -10px;") Formal Properties of Linear Filters
-      p We have approached the concept of filters in a rather casual manner to quickly get a grasp of how filters are defined and used. While such a level of treatment may be sufficient for most practical purposes, the power of linear filters may not really be apparent yet considering the limited range of (simple) applications seen so far.
-      p The real importance of linear filters (and perhaps their formal elegance) only becomes visible when taking a closer look at some of the underlying theoretical details. At this point, it may be surprising to the experienced reader that we have not mentioned the term “convolution” in this context yet. We make up for this in the remaining parts of this section.
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center Linear Convolution
-      p The operation associated with a linear filter, as described in the previous section, is not an invention of digital image processing but has been known in mathematics for a long time.
-      p It is called linear convolution and in general combines two functions of the same dimensionality, either continuous or discrete. For discrete, 2D functions I and H, the convolution operation is defined as
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p Function F7 <b>focus_lens</b> is further decomposed at the second level, Level b. The presence of a closed functional chain is already clearly discernable here.
       .center
-        img(src='./assets/clips-06/p101-eqn6-14.png' height="70px" style="margin-top: -20px;")
-      p(style="margin-top: -20px;") or, expressed with the designated convolution operator (∗) in the
+        img(src='./assets/cap2/fig2_15.png' height="550px")
+      
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;"> PSPECs</b> Though the functional descriptions of the DFD elements are al- ready readily interpretable in clear text, it is advisable to further specify the contents of the functions.
       .center
-        img(src='./assets/clips-06/p101-eqn6-15.png' height="50px" style="margin-top: -20px;")
-
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center Linear Convolution
-      p To resolve the coordinate issue, we replace the summation variables i, j to
+        img(src='./assets/cap2/fig2_16.png' height="150px")
+      p(style="line-height: 1.7em;") In the present case, Function F2 focus_lens has a detailed written specification, which is supplemented with important numerical performance parameters. <br>However, at this point, concrete values for the parameters are unknown, indicated by <b>TBD = to be defined</b>. Such concrete values must then be specified in subsequent steps of the design process.
+      
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") State transition diagram In this diagram, a model of the flow between operational modes becomes visible.
+      p(style="line-height: 1.7em;") Note that the transition conditions of the state machine must involve only available control flow signals.
       .center
-        img(src='./assets/clips-06/p101-eqn6-16.png')
+        img(src='./assets/cap2/fig2_17.png' height="400px")
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}  : Filters</sup>
-      h5.center(style="margin-top: 0px;") Formal Properties of Linear Convolution
-      p The importance of linear convolution is based on its simple mathematical properties as well as its multitude of manifestations and applications.
-      p Linear convolution is a suitable model for many types of natural phenomena, including mechanical, acoustic, and optical systems.
-      p In particular, there are strong formal links to the Fourier representation of signals in the frequency domain that are extremely valuable for understanding complex phenomena, such as sampling and aliasing.
-      p In the following, however, we first look at some important properties of linear convolution in the accustomed “signal” or image space.
-
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: 20px;") Commutativity
-      p Linear convolution is commutative; that is, for any image I and filter kernel H,
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Data dictionary.</b> <br>In this concise representation, all data flows are described in more detail <br>(D = data flow, C = control flow).
       .center
-        img(src='./assets/clips-06/p102-eqn6-17.png')
-      p Thus the result is the same if the image and filter kernel are interchanged, and it makes no difference if we convolve the image I with the kernel H or the other way around. The two functions I and H are interchangeable and may assume either role.
+        img(src='./assets/cap2/fig2_18.png' height="450px")
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: 0px;") Linearity
-      p Linear filters are so called because of the linearity properties of the convolution operation. For example, if an image is multiplied by a scalar constant s ∈ R, then the result of the convolution multiplies by the same factor, that is,
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Design variants</b> <br>Two different design variants for Function F2 <b>focus_lens</b>. <br>In the two cases, the same functional characteristics are realized using different technologies. <br>This fact can be used to justify, for example, the design decision to use two microcontrollers.
       .center
-        img(src='./assets/clips-06/p103-eqn6-18.png')
-      p if we add two images I1, I2
-      .center
-        img(src='./assets/clips-06/p103-eqn6-19.png')
-      p adding a constant (scalar) value b to the image,
-      .center
-        img(src='./assets/clips-06/p103-eqn6-20.png')
-      p and is thus not part of the linearity property. thus “linear” filters are often only partially linear
+        img(src='./assets/cap2/fig2_19.png' height="310px" style="margin-right: 30px;")
+        img(src='./assets/cap2/fig2_20.png' height="310px" style="margin-right: 30px;")
+      
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: 0px;") Associativity
-      p Linear convolution is associative, meaning that the order of successive filter operations is irrelevant, that is,
-      .center
-        img(src='./assets/clips-06/p103-eqn6-21.png')
-      p (I ∗ H1) ∗ H2 = I ∗ (H1 ∗ H2). (5.25) Thus multiple successive filters can be applied in any order, and multiple filters can be arbitrarily combined into new filters.
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Example product: autofocus camera
+      p The important aspect here is the assignment of functions and data flows of the DFD to device elements. This makes clear which tasks are fulfilled by these elements. 
+      p Additionally, this directly specifies the hardware interfaces along with their data contents. Note that it is only at this point that physical modeling can begin as it is here that candidates for concrete device technologies—e.g. a DC motor or piezoelectric motor—become known. 
+      p The specification of particular device elements in this example is clearly based on the defined functions as a concretization of user requirements.
+    
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Alternative modeling methods
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Object-oriented system modeling with UML</b>
+      p(style="line-height: 1.7em;") Unified Modeling Language (UML) In addition to the above-mentioned structured analysis with real-time extensions (SA/RT), the only real alternative—due to its engineering-oriented approach and wide international acceptance—for comprehensive system modeling in the object-oriented paradigm is the Unified Modeling Language (UML).
+      
+    
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Alternative modeling methods
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">UML model elements.</b> The semi-formal modeling elements of UML offer the possibility of depicting structural and dynamic system layers in the following diagram types:
+        ul 
+          li <b>Structure Diagrams:</b> Class Diagram, Object Diagram, Profile Diagram, Package Diagram,
+          li <b>Architecture Diagrams</b> (derived subgroup of structure diagrams): Composite Structure Diagram, Component Diagram, Subsystem Diagram, Deployment Diagram,
+          li <b>Behavior Diagrams</b>: Activity Diagram, Use Case Diagram, State Machine Diagram (a special type of State Machine Diagram is the so-called Protocol State Machine),
+          li <b>Interaction Diagrams</b> (derived from Behavior Diagrams): Sequence Diagram, Communication Diagram, Timing Diagram, Interaction Overview Diagram.
+      p(style="line-height: 1.7em;") UML is particularly well-suited to modeling and specification of complex systems and is primarily employed in software development. <br>Since 1997, UML has been an international standard and is supported with an excellent selection of computer-aided tools (primarily for software design, though equally suited to general systems design).
+    
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Alternative modeling methods
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Model-based systems design</b><br>An alternative approach—which is increasingly experiencing great popularity among mechatronics users (particularly in the automotive industry)—is so-called model-based systems design. 
+      p In general, this approach does not encompass qualitative system modeling in the above sense, but rather quantitative hybrid system models, with mixed discrete event and continuous dynamics. 
+      p For the modeling of flow-oriented properties, generalized state machines are used in combination with descriptive languages employing block diagrams (e.g. STATEFLOW / SIMULINK). <br>As a result of the hierarchical structure of these tools, structural characteristics can be depicted with hierarchical subsystems (SIMULINK) and can be coupled with flow-oriented model components (STATEFLOW).
+    
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : System Modeling with Structured Analysis</sup>
+      h5.center(style="margin-top: 10px;") Alternative modeling methods
+      p(style="line-height: 1.7em;") <b style="font-size: 1.5em;">Model-based systems design</b><br>Given consistent modeling, the descriptive elements of structured analysis (the data flow diagram and the state transition diagram) can, to a certain extent, be transformed into executable models. 
+      p They thus result in executable specifications, which can be continually refined throughout the design process. 
+      p For example, purely written PSPECs can be used in the form of text comments in SIMULINK blocks, and can be replaced step by step with mathematical functions (transfer functions, state machines, etc.) during the course of the design process in an evolution of system models.
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: 0px;") Separability of Linear Filters
-      p A direct consequence of associativity is the separability of linear filters. If a convolution kernel H can be expressed as the convolution of multiple kernels Hi in the form
-      .center
-        img(src='./assets/clips-06/p103-math-a.png')
-      p then the filter operation I*H may be performed as a sequence of convolutions with the constituting kernels Hi,
-      .center
-        img(src='./assets/clips-06/p103-eqn6-22.png')
-      p Depending upon the type of decomposition, this may result in significant computational savings.
-
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") x/y separability
-      p The possibility of separating a 2D kernel H into a pair of 1D kernels hx, hy is of particular relevance and is used in many practical applications. Let us assume, as a simple example, that the filter is composed of the 1D kernels hx and hy, with
-      .center
-        img(src='./assets/clips-06/p104-eqn6-23a.png' style="margin: 0 30px -15px 0")
-        | and
-        img(src='./assets/clips-06/p104-eqn6-23b.png' style="margin: 0 0 -40px 30px")
-      p respectively. If these filters are applied sequentially to the image I,
-      .center
-        img(src='./assets/clips-06/p104-eqn6-24.png')
-      p then this is equivalent to applying the composite filter
-      .center
-        img(src='./assets/clips-06/p104-eqn6-25.png')
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") Separable Gaussian filters
-      p In general, a 2D filter is x/y-separable if (as in the earlier example) the filter function H(i, j) can be expressed as the outer product (⊗) of two 1D functions,
-      .center
-        img(src='./assets/clips-06/p104-math-a.png')
-      p because in this case the resulting function also corresponds to the convolution product H = Hx ∗ Hy. A prominent example is the widely employed 2D Gaussian function Gσ(x, y), which can be expressed as the product
-      .center
-        img(src='./assets/clips-06/p104-eqn6-26.png')
-      p  Thus a 2D Gaussian filter can be implemented by a pair of 1D Gaussian filters
-      .center
-        img(src='./assets/clips-06/p105-math-a.png')
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center(style="margin-top: -10px;") Impulse Response of a Filter
-      p Linear convolution is a binary operation involving two functions as its operands; it also has a “neutral element”, which of course is a function, too. The impulse or Dirac function δ() is neutral under convolution, that is,
-      .center
-        img(src='./assets/clips-06/p105-eqn6-27.png')
-      p In the 2D, discrete case, the impulse function is defined as
-      .center
-        img(src='./assets/clips-06/p105-eqn6-28.png')
-      .center
-        img(src='./assets/clips-06/p105-fig6-10.png')
-
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
-      h5.center Impulse Response of a Filter
-      p
-      .center
-          img(src='./assets/clips-06/p106-fig6-11.png' height="300px")
-      .center
-          img(src='./assets/clips-06/p106-fig6-12.png' height="300px")
-
-
-
-
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h3.center Nonlinear Filters
-      h5.center Minimum and Maximum Filters
-      p Nonlinear filters calculate the result at a given image position <b>(u, v)</b> from the pixels inside the moving region <b>R<sub>u,v</sub></b> of the original image.
-      p The filters are called “nonlinear” because the source pixel values are combined by some nonlinear function.
-      p The simplest of all nonlinear filters are the minimum and maximum filters, defined as
-      .center
-          img(src='./assets/clips-06/p107-eqn6-30.png')
-      .center
-          img(src='./assets/clips-06/p107-eqn6-31.png')
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Minimum and Maximum Filters
-      p The effects of a 1D minimum filter on various local signal structures.
-      .center
-          img(src='./assets/chap06/p105-fig6-14.png')
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Minimum and Maximum Filters
-      p The effects of a 1D minimum filter on various local signal structures.
-      .center
-          img(src='./assets/chap06/p106-fig6-15.png')
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Median Filter
-      p It is impossible of course to design a filter that removes any noise but keeps all the important image structures intact, because no filter can discriminate which image content is important to the viewer and which is not.
-      p The popular median filter is at least a good step in this direction.
-      p The median filter replaces every image pixel by the median of the pixels in the current filter region R, that is,
-      .center
-          img(src='./assets/chap06/p107-fig6-33.png')
-      .center
-          img(src='./assets/chap06/p107-fig6-16.png')
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Median Filter
-      p
-      .center
-          img(src='./assets/chap06/p108-fig6-18.png'  height="400px")
-      .center
-          img(src='./assets/chap06/p108-fig6-17.png' height="200px")
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Weighted Median Filter
-      p In an ordinary median filter, each pixel in the filter region has the same influence, regardless of its distance from the center.
-      p The weighted median filter assigns individual weights to the positions in the filter region, which can be interpreted as the “number of votes” for the corresponding pixel values.
-      p Similar to the coefficient matrix H of a linear filter, the distribution of weights is specified by a weight matrix <b>W</b>, with <b>W(i, j) ∈ N</b>.
-      p To compute the result of the modified filter, each pixel value <b>I(u + i, v + j)</b> involved is inserted <b>W(i, j)</b> times into the extended pixel vector
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Weighted Median Filter
-      .center
-          img(src='./assets/medianVsWeighted.png', height="500px")
-      .center
-          img(src='./assets/chap06/p110-eqn6-36.png', height="100px")
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Other Nonlinear Filters
-      p Median and weighted median filters are two examples of nonlinear filters that are easy to describe and frequently used.
-      p Since “nonlinear” refers to anything that is not linear, there are a multitude of filters that fall into this category, including the morphological filters for binary and grayscale images.
-      p Other types of nonlinear filters, such as the corner detector described, are often described algorithmically and thus defy a simple, compact description.
-      p In contrast to the linear case, there is usually no “strong theory” for nonlinear filters that could, for example, describe the relationship between the sum of two images and the results of a median filter, as for linear convolution.
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Efficiency of Filter Programs
-      p Computing the results of filters is computationally expensive in most cases, especially with large images, large filter kernels, or both.
-      p Given an image of size <b>M×N</b> and a filter kernel of size <b>(2K+1)×(2L+1)</b>, a direct implementation requires
-      p.center <b>2K·2L·M·N = 4KLMN</b>
-      p operations, namely multiplications and additions (in the case of a linear filter).
-      p Thus if both the image and the filter are simply assumed to be of size <b>N×N</b>, the time complexity of direct filtering is <b>O(N<sup>4</sup>)</b>.
-      p Substantial savings are possible when large, 2D filters can be decomposed into smaller, possibly 1D filters.
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h4.center Handling Image Borders
-      p The image borders require special attention in most filter implementations.
-      p We have argued that theoretically no filter results can be computed at positions where the filter matrix is not fully contained in the image array.
-      p Thus any filter operation would reduce the size of the resulting image, which is not acceptable in most applications.
-      p While no formally correct remedy exists, there are several more or less practical methods for handling the remaining border regions
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Handling Image Borders
-      p <b>Method 1</b>:
-      p.center Set the unprocessed pixels at the borders to some constant value (e.g., “black”).
-      p This is certainly the simplest method, but not acceptable in many situations because the image size is incrementally reduced by every filter operation.
-      p <b>Method 2</b>:
-      p.center Set the unprocessed pixels to the original (unfiltered) image values.
-      p Usually the results are unacceptable, too, due to the noticeable difference between filtered and unprocessed image parts.
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Handling Image Borders
-      p <b>Method 3</b>:
-      p Expand the image by “padding” additional pixels around it and apply the filter to the border regions as well.
-      p <b>A</b>. The pixels outside the image have a constant value.<br> <span style="font-size: 0.7em;">This may produce strong artifacts at the image borders, particularly when large filters are used.</span>
-      p <b>B</b>. The border pixels extend beyond the image boundaries.<br> <span style="font-size: 0.7em;">Only minor artifacts can be expected at the borders. The method is also simple to compute and is thus often considered the method of choice.</span>
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Handling Image Borders
-      p <b>Method 3</b>:
-      p Expand the image by “padding” additional pixels around it and apply the filter to the border regions as well.
-      p <b>C</b>. The image is mirrored at each of its four boundaries.<br> <span style="font-size: 0.7em;"> The results will be similar to those of the previous method unless very large filters are used.</span>
-      p D. The image repeats periodically in the horizontal and vertical directions.<br> <span style="font-size: 0.7em;"> This may seem strange at first, and the results are generally not satisfactory.</span>
-
-    slide.boredYet(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
-      h5.center Handling Image Borders
-      .center
-          img(src='./assets/chap06/p113-fig6-20.png')
-
-    slide(enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References: {{ slides.length }}</sup>
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
-          li <b>Digital Image Processing</b><br> <span class="small">An Algorithmic Introduction Using Java</span> <br>Wilhelm Burger and Mark J. Burge<br> Springer
+          li <b>Mechatronic System Design.</b> <span class="small">Methods, Models, Concepts</span> <br>Author: Klaus Janschek<br> Springer
         p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
 
 </template>
@@ -487,6 +482,7 @@ export default {
 
 <style lang='scss'>
 @import 'node_modules/eagle.js/dist/themes/agrume/agrume';
+@import 'node_modules/eagle.js/dist/themes/gourmet/gourmet';
 #TemperatureHeat {
   .frontpage {
     img {

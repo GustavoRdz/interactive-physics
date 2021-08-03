@@ -139,7 +139,4 @@ a {
   height:300px;
   vertical-align: top;
 }
-.eg-slide-content{
-  max-width:100%;
-} 
 </style>
