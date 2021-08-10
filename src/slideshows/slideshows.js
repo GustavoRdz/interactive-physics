@@ -13,7 +13,8 @@ export default {
     require('./nuclear-physics/Nuclear-physics'),
     require('./introduction/Introduction'),
     require('./exercises-waves/ExercisesWaves'),
-    require('./mecatronica-computacional-modelado/Modelado')
+    require('./mecatronica-computacional-modelado/Modelado'),
+    require('./mecatronica-computacional-paradigmas/Paradigmas')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),
