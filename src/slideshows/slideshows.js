@@ -14,7 +14,8 @@ export default {
     require('./introduction/Introduction'),
     require('./exercises-waves/ExercisesWaves'),
     require('./mecatronica-computacional-modelado/Modelado'),
-    require('./mecatronica-computacional-paradigmas/Paradigmas')
+    require('./mecatronica-computacional-paradigmas/Paradigmas'),
+    require('./mecatronica-computacional-dae-systems/Dae-systems')
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),
