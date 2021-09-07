@@ -11,11 +11,14 @@ export default {
     require('./photoelectric/photoelectric'),
     require('./atom-physics/Atom-physics'),
     require('./nuclear-physics/Nuclear-physics'),
-    require('./introduction/Introduction'),
+    require('./lab-f4/LaboratoryModernPhysics'),
     require('./exercises-waves/ExercisesWaves'),
     require('./mecatronica-computacional-modelado/Modelado'),
     require('./mecatronica-computacional-paradigmas/Paradigmas'),
-    require('./mecatronica-computacional-dae-systems/Dae-systems')
+    require('./mecatronica-computacional-dae-systems/Dae-systems'),
+    require('./open-modelica-intro/OpenModelicaIntro'),
+    require('./om-intro-circuits/OMIntroCircuits')
+    // require('./introduction/Introduction'),
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     // require('./vision-systems-point/pointoperations'),

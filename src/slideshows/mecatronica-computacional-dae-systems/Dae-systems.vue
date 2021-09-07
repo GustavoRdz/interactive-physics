@@ -510,7 +510,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'DAE systems',
-    description: 'Differenciar algebraic equation systems',
+    description: 'Differencial algebraic equation systems',
     path: 'mecatronica-computacional-dae-systems'
   },
   components: {

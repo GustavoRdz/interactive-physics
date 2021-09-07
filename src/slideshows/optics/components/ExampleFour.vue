@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A concave spherical mirror has a focus distance radius of curvature of magnitude {{ (2 * focus).toPrecision(2) }} cm. (a) Find the location of the image for object distances of (i) {{ (4 * focus).toPrecision(2) }} cm, (ii) {{ (2 * focus).toPrecision(2) }} cm, and (iii) {{ focus.toPrecision(2) }} cm. For each case, state whether the image is (b) real or virtual and (c) upright or inverted. (d) Find the magnification in each case.
+    p.problem A concave spherical mirror has a focus distance radius of curvature of magnitude {{ (2 * focus).toPrecision(4) }} cm. (a) Find the location of the image for object distances of (i) {{ (4 * focus).toPrecision(4) }} cm, (ii) {{ (2 * focus).toPrecision(4) }} cm, and (iii) {{ focus.toPrecision(4) }} cm. For each case, state whether the image is (b) real or virtual and (c) upright or inverted. (d) Find the magnification in each case.
     .center
       p.solution Please do calculations and introduce your results <span style="font-size: 14px; color: black;">some other options:infinite,none</span>
       p.inline.data Focus (cm)
