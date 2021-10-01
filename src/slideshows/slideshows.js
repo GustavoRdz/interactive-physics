@@ -2,6 +2,7 @@
 // website, don't forget to register your new slideshows in the list:
 export default {
   list: [
+    require('./laser-cooling/laser-cooling'),
     require('./oscillatory-motion/OscillatoryMotion'),
     require('./wave-motion/WaveMotion'),
     require('./fluid-mechanics/FluidMechanics'),
@@ -11,13 +12,13 @@ export default {
     require('./photoelectric/photoelectric'),
     require('./atom-physics/Atom-physics'),
     require('./nuclear-physics/Nuclear-physics'),
-    require('./lab-f4/LaboratoryModernPhysics'),
     require('./exercises-waves/ExercisesWaves'),
     require('./mecatronica-computacional-modelado/Modelado'),
     require('./mecatronica-computacional-paradigmas/Paradigmas'),
     require('./mecatronica-computacional-dae-systems/Dae-systems'),
     require('./open-modelica-intro/OpenModelicaIntro'),
     require('./om-intro-circuits/OMIntroCircuits')
+    // require('./lab-f4/LaboratoryModernPhysics'),
     // require('./introduction/Introduction'),
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
