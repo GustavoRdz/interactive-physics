@@ -47,6 +47,20 @@
           p(style="margin-bottom: -30px;")
             <b>9.- Estudio de espectros atómicos</b>
     
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="text-transform: uppercase; margin-top: -20px;").center Fenomeno de difracción de la luz
+      h6(style="text-transform: uppercase; margin-top: -20px;").center Difracción por una rendija
+      .center
+        diffraction-slit
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="text-transform: uppercase; margin-top: -20px;").center Fenomeno de difracción de la luz
+      h6(style="text-transform: uppercase; margin-top: -20px;").center Rejilla de difracción
+      .center
+        diffraction-grating
+
     slide(:steps=1, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Introducción
@@ -370,6 +384,8 @@ export default {
     path: 'lab-f4'
   },
   components: {
+    'diffraction-slit': require('./components/DiffractionSlit'),
+    'diffraction-grating': require('./components/DiffractionGrating'),
     'spring-mass': require('./components/SpringMass'),
     'reflection': require('./components/reflection'),
     'example-one': require('./components/ExampleOne'),

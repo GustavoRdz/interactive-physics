@@ -78,7 +78,7 @@ export default {
       return Math.sqrt(2 * this.ke / this.m)
     },
     phi: function () {
-      return 180 * Math.atan(this.lambda1 * Math.sin(this.theta * Math.PI / 180) / (this.lambda2 - this.lambda1 * Math.cos(this.lambda1 * Math.PI / 180))) / Math.PI
+      return 180 * Math.atan(this.lambda1 * Math.sin(this.theta * Math.PI / 180) / (this.lambda2 - this.lambda1 * Math.cos(this.theta * Math.PI / 180))) / Math.PI
     },
     checkedE1: function () {
       let check

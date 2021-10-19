@@ -19,7 +19,8 @@ export default {
     require('./mecatronica-computacional-dae-systems/Dae-systems'),
     require('./open-modelica-intro/OpenModelicaIntro'),
     require('./om-intro-circuits/OMIntroCircuits'),
-    require('./mecatronica-computacional-AFM/AtomicForceMicroscope')
+    require('./mecatronica-computacional-AFM/AtomicForceMicroscope'),
+    require('./mc-optom-functional-units/functional-units')
     // require('./introduction/Introduction'),
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
