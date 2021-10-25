@@ -49,7 +49,8 @@ export default {
       e: 1.6e-19,
       c: 3e8,
       me: 9.1e-31,
-      z: 2
+      z: 2,
+      Ry: 1.0974e7
 
     }
   },
@@ -80,7 +81,8 @@ export default {
       return -13.606 * (0 - 1 / this.n2 ** 2) * this.z ** 2
     },
     fn2: function () {
-      return 13.606 * this.e * this.z ** 2 / (this.n2 * this.h)
+      // return 13.606 * this.e * this.z ** 2 / (this.n2 * this.h)
+      return 2 * this.Ry * this.c / this.n2 ** 3
     },
     laps: function () {
       return this.fn2 * this.t * 1e-8
