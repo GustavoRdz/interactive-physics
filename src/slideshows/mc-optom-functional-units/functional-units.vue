@@ -334,6 +334,112 @@
       .center
         img(src='./assets/fig6-13.png' height="400px")
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optomechatronic Sensing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Sensing is a basic functionality that optomechatronic systems possess. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Depending upon whether optical or mechatronic elements participate in providing sensing function or not, optomechatronic sensors are classified into the following two groups.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The first group represents optical sensors whose sensing function is enabled by incorporating with mechatronic units. Most of the optical sensors belong to this class. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The second group represents non-optical sensors integrated with optical units or elements belonging to the reverse case of the above example.<br> In this case, sensors have optical units within their body to constitute a sensing element.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") As an illustration of an optical sensor, consider an <b>optical encoder</b> which measures angular or linear motion of mechatronic systems in an optical way by adopting the optical photoelectric principle.
+      .center
+        img(src='./assets/fig6-14.png' height="450px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The interferometric <b>dilatometer</b> is a variation of Michelson type that is based upon opto-mechatronic interaction between the optical and mechatronic units.
+      .center
+        img(src='./assets/fig6-15.png' height="450px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon has a variety of different fringe characteristics controlled by varying one of the mirror separations, the index of refraction, the incident angle. Due to this changeability of its parameters, and its special characteristics, the device has numerous applications in various fields.
+      .center
+        img(src='./assets/fig6-16.png' height="450px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
+      .center
+        img(src='./assets/fig6-16-1.png' height="250px")
+      .center
+        img(src='./assets/fig6-16-2.png' height="350px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
+      .center
+        img(src='./assets/fig6-16-1.png' height="250px")
+      .center
+        img(src='./assets/fig6-16-2.png' height="350px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Can enable us to calculate the unknown wavelength by moving the plates of the device and counting the number of interference fringes. 
+      .center
+        img(src='./assets/eq6-18-1.png' height="100px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When two wavelength components &lambda;<sub>0</sub> and &lambda;<sub>1</sub> = &lambda;<sub>0</sub> + &Delta;&lambda;, are contained in the source, superposition of two fringe systems would result.  
+      .center
+        img(src='./assets/fig6-17.png' height="300px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Can enable us to calculate the unknown wavelength by moving the plates of the device and counting the number of interference fringes. 
+      .center
+        img(src='./assets/eq6-18-1.png' height="100px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When two wavelength components &lambda;<sub>0</sub> and &lambda;<sub>1</sub> = &lambda;<sub>0</sub> + &Delta;&lambda;, are contained in the source, superposition of two fringe systems would result.  
+      .center
+        img(src='./assets/fig6-17.png' height="300px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The characteristic of fiber optic sensors as distinct from other optical sensors is that they can easily interact with the mechanical elements in detecting motion. 
+      .center
+        img(src='./assets/table6-2.png' height="400px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The characteristic of fiber optic sensors as distinct from other optical sensors is that they can easily interact with the mechanical elements in detecting motion. 
+      .center
+        img(src='./assets/fig6-18.png' height="400px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Intensity modulation optical sensors. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig6-19.png' height="300px")
+      .center
+        img(src='./assets/eq6-20.png' height="50px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Wavelength modulation-based optical sensor.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig6-20.png' height="400px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") An optical fiber Fabry-Perot interferometer.
+
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References

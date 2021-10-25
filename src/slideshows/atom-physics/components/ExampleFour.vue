@@ -48,7 +48,8 @@ export default {
       h: 6.626e-34,
       e: 1.6e-19,
       c: 3e8,
-      me: 9.1e-31
+      me: 9.1e-31,
+      z: 2
 
     }
   },
@@ -70,16 +71,16 @@ export default {
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     En1: function () {
-      return -13.6 * (1 / this.n1 ** 2 - 1)
+      return -13.606 * (1 / this.n1 ** 2 - 1) * this.z ** 2
     },
     En2: function () {
-      return -13.6 * (1 / this.n2 ** 2 - 1 / this.n1 ** 1)
+      return -13.606 * (1 / this.n2 ** 2 - 1 / this.n1 ** 2) * this.z ** 2
     },
     Erel: function () {
-      return -13.6 * (0 - 1 / this.n2 ** 1)
+      return -13.606 * (0 - 1 / this.n2 ** 2) * this.z ** 2
     },
     fn2: function () {
-      return 13.606 * this.e / (this.n2 * this.h)
+      return 13.606 * this.e * this.z ** 2 / (this.n2 * this.h)
     },
     laps: function () {
       return this.fn2 * this.t * 1e-8
