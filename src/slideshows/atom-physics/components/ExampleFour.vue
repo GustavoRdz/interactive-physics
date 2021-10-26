@@ -82,7 +82,7 @@ export default {
     },
     fn2: function () {
       // return 13.606 * this.e * this.z ** 2 / (this.n2 * this.h)
-      return 2 * this.Ry * this.c / this.n2 ** 3
+      return 2 * this.Ry * this.z ** 2 * this.c / this.n2 ** 3
     },
     laps: function () {
       return this.fn2 * this.t * 1e-8

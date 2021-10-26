@@ -439,6 +439,275 @@
       .center
         img(src='./assets/fig6-20.png' height="400px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") An optical fiber Fabry-Perot interferometer.
+      .center
+        img(src='./assets/eq6-22.png' height="100px" style="margin: 0 50px 0 0;")
+        img(src='./assets/eq6-23.png' height="100px" style="margin: 0 0 0 50px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig6-21.png' height="300px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Piezoelectric bimorph optical fiber sensor.
+      .center
+        img(src='./assets/eq6-24.png' height="100px" style="margin: 0 0px 0 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig6-22.png' height="300px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fibre-optic vision sensor.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Autofocusing that automatically locates the focal position is a desirable attribute and an important concept in a number of optical systems.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") It produces clear, sharp images of objects by avoiding blurring of local imaging. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For instance, in some types of microscopes, autofocusing makes possible the detection and identification of atoms. For example, a confocal microscope employs the confocal principle in which a point of light source is always in focus with a point inside the sample, using a pinhole placed in front of the object.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This confocal system can effectively see a clear image inside thick samples due to this arrangement in which its autofocusing adopts a single point illumination. In this way, it produces a clear image of objects by locally imaging one point at a time.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In optical hard disks, it enables the optical head to accurately read and write the data by optical means. And in a laser printer, it also helps print better quality images.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical System Configuration
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In confocal microscope systems there is a point source of light, a point focus of light inside or at the surface of the object, and a pinhole detector, all three are confocal with each other. 
+      .center
+        img(src='./assets/fig6-23.png' height="400px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Basic configuration of the autofocusing system.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") <em>The f-number</em>
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The brightness of the imaged spot partially depends on the amount of light gathered in by the objective lens of the autofocusing system. To describe this, the f-number is a useful parameter, when the object is located some distance away.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") <em>The Numerical Aperture (NA)</em>
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") However, when both the object and detector are located at a finite distance, as in the case of the confocal system, the numerical aperture denoted by NA is more useful. 
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") NA is expressed by
+      .center
+        img(src='./assets/eq6-25.png' height="50px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>n<sub>t</sub></b> is the refractive index of the immersing medium adjacent to the objective lens of the confocal system, and <b>θ<sub>a</sub></b> is the half-angle of the maximum light cone picked up by the lens, depending upon the aperture of the lens.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A large value of <b>NA</b> implies a large lens aperture. This is true when the object lens pupil is uniformly filled with light.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical Resolution
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Lateral resolution is defined by that in the plane of focus. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Diffraction of light by an object and by an objective lens determines image resolution.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")  The lateral resolution is governed by diffraction, rather than limited by chromatic aberration, a spherical aberration. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The image resolution for a given numerical aperture of the objective lens of an optical system is given by
+      .center
+        img(src='./assets/eq6-26.png' height="70px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>&Delta;<sub>x</sub></b> is the minimum resolvable distance that the diffraction images of two adjacent points in the object can approach each other laterally before they merge.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The above equation implies that the larger the numerical aperture, the higher the resolution.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Axial Resolution 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Axial resolution is defined by the minimum resolvable distance that the diffraction image of two points in the object can approach each other along the optical axis before they merge.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") As derived for the lateral resolution, the wave optics can be used to obtain the minimum resolvable length <b>&Delta;<sub>z</sub></b> in the optical axis (objective lens) direction. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The minimum resolvable length along the axis of the objective lens is approximately twice as large as that in the plane of focus.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The axial resolution is given by
+      .center
+        img(src='./assets/eq6-27.png' height="70px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The depth of field. A practical rule is that the beam spot is “in focus” if it is located in a region on either side of the focal (image) plane bounded by the depth of focus. <br>The bound is given by &pm;10% of the beam spot diameter, <b>D<sub>w</sub></b> at beam waist.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A typical autofocusing system controls the motion of the objective lens in the direction of optical axis so that it always places a focal point at the image plane.
+      .center
+        img(src='./assets/fig6-24.png' height="400px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") It consists of an actuator, a half mirror plate, a laser diode, and a quadrant photo sensor.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
+      .center
+        img(src='./assets/fig6-25.png' height="200px")
+      .center
+        img(src='./assets/table6-3.png' height="200px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") PZT is desirable in terms of accuracy and response time, but not for moving range.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The actuator needs to be chosen depending on specifications of the application.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For autofocusing applications, voice coil motors and piezo-electric transducers are popularly used due to relatively simple structure, fast response, light weight and high precision.
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") In general, the actuator structure should satisfy the following mechanical requirements:
+      ol(style="margin: 10px 0 0px 0; line-height: 1.2em;")
+        li should be as small and light as possible.
+        li should maintain thedirection of laser beam during actuator motion.
+        li should have high natural frequency of the moving bobbin.
+      .center
+        img(src='./assets/fig6-26.png' height="450px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;").center A configuration of the confocal system.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
+      .center
+        img(src='./assets/fig6-26.png' height="300px")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The force is given by 
+      .center
+        img(src='./assets/eq6-28.png' height="60px")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") <b>n</b> is the number of coil turns, <b>B</b> is the magnetic flux density in tesla, <b>i</b> is the current in amperes, flowing in the direction perpendicular to the image plane and <b>l<sub>c</sub></b> is the coil effective length in meter.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The electrical circuit of the VCM is written by
+      .center
+        img(src='./assets/eq6-29.png' height="70px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>V</b> is the electrical voltage applied to the coil and <b>V<sub>bL</sub></b> and <b>V<sub>bR</sub></b> are the back <em>emf</em> of the left and right hand side of the bobbin, respectively.      
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") <b>L</b> and <b>R</b> are the inductance and resistance of the coil, respectively
+      .center
+        img(src='./assets/eq6-29-1.png' height="70px" style="margin: 0px 50px 0px 0;")
+        img(src='./assets/eq6-29-2.png' height="70px" style="margin: 0px 0 0px 50px;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>A<sub>c</sub></b> is the cross-sectional area of the coil, <b>μ</b> is the permeability, <b>ρ</b> is the resistivity of the conductor. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The back emf is given by
+      .center
+        img(src='./assets/eq6-30.png' height="70px" style="margin: 0px 50px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>dz/dt</b> is the velocity of the bobbin. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Then
+      .center
+        img(src='./assets/eq6-29.png' height="70px" style="margin: -10px 50px 0px 0;")
+        | &rightarrow;
+        img(src='./assets/eq6-31.png' height="70px" style="margin: 0px 0px 0px 50px;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The dynamic equation governing the vertical motion of the bobbin can be written by
+      .center
+        img(src='./assets/eq6-32.png' height="70px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>m</b> is the total mass of the bobbin and lens unit, and <b>b</b> and <b>k</b> are the damping coefficient and the stiffness of the bobbin, respectively.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Laplace transforming we can obtain the transfer function between vertical motion of the bobbin and electric input voltage to the coil.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The transfer function is given by 
+      .center
+        img(src='./assets/eq6-33.png' height="60px" style="margin: 0px 50px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      .center
+        img(src='./assets/fig6-25.png' height="150px" style="margin: 0px 50px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The objective of this control is to maintain a vertical displacement of the objective lens at the focal length.
+      //- p(style="margin: 10px 0 20px 0; line-height: 1.2em;") If the focal length is denoted by <b>z<sub>f</sub></b>, then the controller should bring the system response always within some required specifications.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For simplicity assume D(s) = 0, and G<sub>u</sub>(s) = 1 and G<sub>s</sub>(s) = 1 or constant.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") If we use a PI controller, the controller transfer function is given by
+      .center
+        img(src='./assets/eq6-33-1.png' height="70px")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") From the block diagram, the overall closed loop transfer function is determined by
+      .center
+        img(src='./assets/eq6-34.png' height="120px" style="margin: 0px 0px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      .center
+        img(src='./assets/table6-4.png' height="300px" style="margin: 0px 50px 0px 0;")
+      .center
+        img(src='./assets/fig6-27.png' height="450px" style="margin: 0px 50px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Let us consider the stability of the system, and determine the range of stability for various gain parameters. The characteristic equation of the
+      .center
+        img(src='./assets/eq6-34-1.png' height="50px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")  Using the parameters in the table, the above equation can be written as
+      .center
+        img(src='./assets/eq6-35.png' height="40px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") According to the Routh stability criterion, we can determine the stability condition for the gains kp and ki in the following manner:
+      p(style="margin: 100px 0 20px 0; line-height: 1.2em;") (1) All the coefficients of the characteristic equation should be greater than zero,
+      .center
+        img(src='./assets/eq6-35-1.png' height="40px" style="margin: 0px 0px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (2) Arranging the coefficients of the polynomial in rows and columns according to the following pattern yields
+      .center
+        img(src='./assets/eq6-35-2.png' height="200px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We have the following parameter condition for stability
+      .center
+        img(src='./assets/eq6-35-3.png' height="350px" style="margin: 0px 0px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To satisfy all of the above conditions, kp and ki should meet the following condition for stability
+      .center
+        img(src='./assets/eq6-35-4.png' height="70px" style="margin: 0px 50px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Using this condition, the range of the stability limit (shaded area) is shown in figure.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We see that kp is bounded for all values of ki, while ki is not for small kp value.
+      .center
+        img(src='./assets/fig6-28.png' height="400px" style="margin: 0px 50px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The effect of external disturbance caused by thermal dilation or mechanical vibration that may cause unwanted position deviation.
+      .center
+        img(src='./assets/fig6-25.png' height="150px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") When disturbance, D(s), comes into the VCR, the overall output displacement of the VCR becomes
+      .center
+        img(src='./assets/eq6-36.png' height="80px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The displacement deviation <b>&Delta;Z(s)</b> due to the external disturbance is given as
+      .center
+        img(src='./assets/eq6-37.png' height="65px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The deviation can be remarkably diminished by a factor of |1/1+Gp(s)Gc(s)| compared to the case without feedback. This observation implies that the open loop transfer function should be sufficiently larger than unity in order to minimize the displacement deviation. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To investigate the effect of the feedback, let us assume that the disturbance D(s) is a step input type, i.e., D(s) =  0.1/s then
+      .center
+        img(src='./assets/eq6-37-1.png' height="80px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") For proportional controller, Gc(s) = kp; we have
+      .center
+        img(src='./assets/eq6-37-2.png' height="80px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") From the final value theorem, the steady state error becomes
+      .center
+        img(src='./assets/eq6-37-3.png' height="65px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The results show that in order to reduce the steady state error, kp should be increased as large as possible, but the overshoot and stability must also be taken into account.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The case of using PI control yields
+      .center
+        img(src='./assets/eq6-37-4.png' height="65px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") Appling the final value theorem again to the above equation, we have
+      .center
+        img(src='./assets/eq6-37-5.png' height="50px" style="margin: 20px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") which indicates that the integral control action eliminates the steady state error due to the step disturbance.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
+      h4(style="margin: -20px 0 20px 0; ").center Focus Measurement
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The astigmatism method,
+      .center
+        img(src='./assets/fig6-29.png' height="350px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") When <b>i<sub>a</sub></b>, <b>i<sub>b</sub></b>, <b>i<sub>c</sub></b>, and <b>i<sub>d</sub></b> represent the output of the four quadrants, respectively, the out-of-focus displacement of the lens &Delta;z can be computed by
+      .center
+        img(src='./assets/eq6-38.png' height="50px" style="margin: 20px 0px 0px 0;")
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") This &Delta;z represents the error between the desired z(t), and actual values of the focal length, zf, and is measured at every instant of time.
+
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
