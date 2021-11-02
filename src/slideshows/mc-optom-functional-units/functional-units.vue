@@ -30,9 +30,9 @@
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
             <b>Acoustic-Opto Modulator</b><br><span style="font-size: 0.8em;">Deflector. Frequency Shifter. Tunable Wavelength Filtering. Efficiency of Modulation and Speed.</span>
-        //- eg-transition(enter='bounceInRight' leave='bounceOutRight')
-        //-   p(v-if="step >= 1")
-        //-     <b>Optical Scanning</b><br><span style="font-size: 0.8em;">Galvanometer. Feedback Control of Galvanometer. Polygonal Scanner. Correcting Scan Errors.</span>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Optical Scanning</b><br><span style="font-size: 0.8em;">Galvanometer. Feedback Control of Galvanometer. Polygonal Scanner. Correcting Scan Errors.</span>
 
     //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Temas</sup>
@@ -328,8 +328,8 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Deformable Mirror</sup>
-      h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
-      p(style="margin: 20px 0 20px 0; line-height: 1.2em;") Deformable Mirror
+      h4(style="margin: -20px 0 20px 0; ").center Deformable Mirror
+      //- p(style="margin: 20px 0 20px 0; line-height: 1.2em;") Deformable Mirror
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Deformable mirror concept for controlling the phase of light wave. The first one shown in (a) is a monolithic deformable mirror actuated by a PZT ceramic bulk with two-dimensionally-arrayed electrodes.<br> Applying suitable electrical voltage on these electrodes forms a locally deformable mirror surface.<br> Deformable mirrors based on MEMS technology shown in (b) are to correct the distorted wave front, which utilize a great member of a tiny lenslet.
       .center
         img(src='./assets/fig6-13.png' height="400px")
@@ -708,6 +708,400 @@
         img(src='./assets/eq6-38.png' height="50px" style="margin: 20px 0px 0px 0;")
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") This &Delta;z represents the error between the desired z(t), and actual values of the focal length, zf, and is measured at every instant of time.
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      h4(style="margin: 50px 0 20px 0; ").center Acustic-Opto Modulator
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When an acoustic wave propagates in a transparent solid block of a medium such as fused quartz, it produces a periodic modulation of the index of refraction via the elasto-optical effect.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") All acousto-optic (AO) devices utilize the interaction of acoustic and optical waves within the medium.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The devices are connected to various laser systems for information handing, optical signal processing, display and spatial and temporal modulation of coherent light.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The AO interaction provides four basic properties that are frequently used in various devices. They are classified as follows:
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (1) Deflection: angular deviation of the light beam which is proportional to the acoustic frequency.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (2) Frequency shifting: frequency shift of the deflected beam which is equal to plus or minus the acoustic frequency.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (3) Tunable wavelength filtering: wavelength selection from a large spectral band source of the beam by changing the acoustic wave frequency.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (4) Amplitude modulation: modulation of deflected beam intensity by varying acoustic power.
+      .center
+        img(src='./assets/fig6-30.png' height="300px" style="margin: -40px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Acustic-Opto Modulator
+      .center
+        img(src='./assets/table6-5.png' height="300px" style="margin: 50px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Acousto-optical deflection utilizes an acousto-optic effect in which acousto-optic interaction provides a means of modifying the spatial position of an optical beam.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This effect occurs when a variation in refractive index arises due to the propagation of an acoustic wave in a modulator medium.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a collimated beam with wavelength &lambda; is incident to a collective lens whose focal length is <b>f<sub>c</sub></b>, the collected beam encounters an acoustic wave having a wavelength, &Lambda;. 
+      .center
+        img(src='./assets/fig6-32.png' height="250px" style="margin: 0px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In the acousto-optic interaction a harmonic acoustic wave accompanies variation in the refractive index, which causes the input beam to deflect through a medium of alternating refractive index by the Bragg effect.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") By altering the amplitude and frequency of the acoustic wave, the spatial position, intensity, or frequency of an optical beam propagating through the acousto-optic medium can be varied.
+      .center
+        img(src='./assets/fig6-33.png' height="400px" style="margin: 0px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To derive the deflection angle, let us consider that a light beam of a single frequency is incident at an angle &theta;, to the plane of grating, which is the acoustic wave front.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For acoustic waves of frequency <b>f<sub>a</sub></b>, the wavelength &Lambda;; and traveling at the speed of sound in a medium, <b>v<sub>a</sub></b>, the spacing between the planes of index of refraction variation is given by the relation.
+      .center
+        img(src='./assets/eq6-39.png' height="40px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When the light beam interacts with this acoustically driven medium, it will be deflected to angle given by
+      .center
+        img(src='./assets/eq6-40.png' height="60px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>m</b> is the diffraction order, and &lambda; is the wavelength of the light in air.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The angle between a first-order diffracted beam and the undiffracted beam is given by
+      .center
+        img(src='./assets/eq6-41.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") If &alpha; is assumed to be very small, the value is expressed by
+      .center
+        img(src='./assets/eq6-41-1.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This indicates that a light beam can be diffracted by simply varying the frequency of acoustic wave.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Acoustic-optical scanners use this relationship, in that the angle of deflection is in proportion to the sound frequency <b>f<sub>a</sub></b>.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For example, we consider lithium niobate (LiNbO3) material as an AO medium.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Suppose a 250 MHz acoustic waves on the substrate with velocity in the medium is 6.57km/sec and refractive index is about 2.2.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") As a modulating light beam, a red-laser beam from He–Ne laser with &lambda; = 632.8 nm.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Let´s calculate the Bragg deflection angle, &theta;, with respect to the plane of grating.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The sound wavelength becomes
+      .center
+        img(src='./assets/eq6-41-2.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: -10px 0 20px 0; line-height: 1.2em;") The Bragg deflection angle then becomes
+      .center
+        img(src='./assets/eq6-41-3.png' height="80px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: -10px 0 20px 0; line-height: 1.2em;") This gives
+      .center
+        img(src='./assets/eq6-41-4.png' height="40px" style="margin: -50px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We can also compute the range of scan, if the maximum and minimum frequencies are known for scanning, respectively, <b>max(f<sub>a</sub>)</b> and <b>min(f<sub>a</sub>)</b>.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The swept angle range is obtained by the relation
+      .center
+        img(src='./assets/eq6-42.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: -10px 0 20px 0; line-height: 1.2em;") where &Delta;<b>f<sub>a</sub></b> denotes the acoustic frequency bandwidth. 
+      p(style="margin: -10px 0 20px 0; line-height: 1.2em;") In acousto-optical deflectors, resolution and speed of the deflection are the most important parameters.
+      //- p(style="margin: -10px 0 20px 0; line-height: 1.2em;") The resolution is dependent on the beam divergence, and again, the given diffraction limited optics.
+      p(style="margin: -10px 0 20px 0; line-height: 1.2em;") It can be expressed by the number of resolvable spots, which is the scan angle range divided by the angular diffraction spread
+      .center
+        img(src='./assets/eq6-42-1.png' height="80px" style="margin: 0px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When multiples of AO deflectors are combined, several applications can be considered for scanning. The scanning area is limited by the scan angle, which is usually very small.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a helium–neon laser passes through a glass (tellurium oxide) interacting with acoustic wave having its velocity 0.62 km/sec and frequency 70 MHz, the scan range is roughly within 1.8 mm.
+      .center
+        img(src='./assets/fig6-34.png' height="350px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The acousto-optical device can also be used as a frequency shifter by modifying the frequency of the deflected light.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The frequency of the diffracted beam is shifted as a result of the Doppler effect.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When an observer and a light source have a relative velocity v, according to relativity theory, the observed frequency is given by
+      .center
+        img(src='./assets/eq6-43.png' height="80px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>f<sub>0</sub></b> is the frequency if observer and source are at rest relative to each other. When <b>v << c</b>, the above equation may be simplified as
+      .center
+        img(src='./assets/eq6-44.png' height="80px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In this equation, the relative velocity is positive for relative motion in the same direction as each other, and negative for motion away from each other.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In the acousto-optical modulator, we can easily show that the above equation can be rewritten as
+      .center
+        img(src='./assets/eq6-45.png' height="80px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>f<sub>0</sub></b> in this case is the frequency of the incident beam. In a simplified form, this can be written by
+      .center
+        img(src='./assets/eq6-46.png' height="50px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>f<sub>0</sub></b> As a consequence, the frequency of the diffracted light can be obtained by
+      .center
+        img(src='./assets/eq6-47.png' height="50px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>f<sub>d</sub></b> is the frequency of the deflected beam.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
+      .center
+        img(src='./assets/fig6-35.png' height="250px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;").center Multiple AOM
+      .center
+        img(src='./assets/fig6-36.png' height="250px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical scanning is a method of changing the direction of a light beam in a scheduled manner.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A variety of applications can be found from laser printers to materials processing.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In terms of scanning geometry, there are three categories.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Objective scanning, pre-objective scanning, and post-objective scanning.
+      .center
+        img(src='./assets/fig6-37.png' height="400px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") There are several scanning devices that direct light onto objects with a preplanned rotation speed.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") There are three frequently used methods: (1) galvanometric scanning (2) acoustic-optical deflection method (3) spinning (polygon) mirror method.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Galvanometric scanners use an electromagnetically-driven motor to steer a beam in a particular pattern over a certain angular range.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") AO scanners, change the direction of the light by an acousto-optic effect — which occurs when a small variation in refractive index.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Spinning mirrors have a number of plane-mirror facets parallel to and facing away from a rotation axis of a motor. They provide wide angular range, as much as 360º. 
+
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Galvanometric scanners use coated-plane mirrors to improve the reflex activity to deflect a laser beam. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The scan head is operated via an optomechatronic principle, in that the optical device “mirror” configured with other optics is actuated by an electromagnetically driven motor.
+      .center
+        img(src='./assets/fig6-38.png' height="400px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Post-objective scan uses a toroidal and a cylindrical lenses 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") 
+      .center
+        img(src='./assets/fig6-39.png' height="400px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Pre-objective scan distortion
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") 
+      .center
+        img(src='./assets/fig6-40.png' height="400px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The post-objective scan system has two types of scanning:
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") · Fixed-focus objective lens system
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") · Dynamic-focus objective lens system.
+      .center
+        img(src='./assets/fig6-41.png' height="350px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") · Fixed-focus objective lens
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In Gaussian beam optics, the beam spreading can be described by
+      .center
+        img(src='./assets/eq6-50.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>z</b> is the distance propagated, &lambda; is the wavelength, <b>r<sub>0</sub></b> is the beam radius.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") If we choose the tolerance of the beam spot size in the scan fixed to be within 5% of <b>r<sub>0</sub></b>, that is, <b>r(z) = 1.05r<sub>0</sub></b>. Then <b>&Delta;z</b> satisfying <b>r(z) = 1.05r<sub>0</sub></b> is given by
+      .center
+        img(src='./assets/eq6-50-1.png' height="70px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In order to keep the scan range in focus, it is necessary to keep it within the depth of focus defined by <b>2&Delta;z</b>.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 20px 0; line-height: 1.2em;") · Dynamic-focus objective lens system.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When the scan field exceeds the depth of focus a dynamic focus system called a lens translator, needs to be employed to achieve a flat-field focus.
+      .center
+        img(src='./assets/fig6-42.png' height="250px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In this dynamic focus objective system, an objective lens is placed on a slider and translated dynamically in order to relay and focus the beam on to the scan field at any instant. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") There are several configurations for achieving this objective. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A basic, three thin-lens system for post-objective scanning. 
+      .center
+        img(src='./assets/fig6-43.png' height="300px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The small lens located far left is a translating lens.
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Elements 2 and 3 can be either plano-convex or best-form signets oriented to minimize spherical aberrations.
+      //- p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a collimated beam enters a translating lens the beam is expanded by a beam expander composed of elements 1 and 2 to fill the aperture of the scanning head.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;")  The focal length of element 3 is designed by considering the optical path length from the element to the target object scanned.
+      .center
+        img(src='./assets/fig6-43.png' height="200px" style="margin: 0px 20px 0px 0;")
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") The focal length of element 2 needs to be determined as the combined focal length of elements 2 and 3, <b>f<sub>23</sub></b>.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The position of the translator <b>z</b> is not linear with the image focus <b>z<sub>c</sub></b>. 
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The translator position, focus change, and focal lengths of the three lenses are related by the two lens equations
+      .center
+        img(src='./assets/eq6-52.png' height="60px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 0px 0; line-height: 1.2em;") When the maximum range of <b>z<sub>c</sub></b> and <b>z</b> are known, we can determine the focal length <b>f<sub>2</sub></b> from the above design considerations.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The focal lengths of elements 1 and 2 can be determined by the following equations
+      .center
+        img(src='./assets/eq6-53.png' height="60px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Feedback Control of Galvanometer
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") Galvanometric scanners utilize an electromagnetically driven motor to steer a beam.
+      .center
+        img(src='./assets/fig6-45.png' height="360px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") The galvanometer is essentially an electromechanical transducer containing an optical unit.
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") It consists of an armateur (a moving coil assembly), a position transducer, a driving electronics composed of amplifier power supply and logics, a permanent magnet, and a rotating mirror.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 30px 0 0px 0; line-height: 1.2em;") There are three types of armatures: <em>moving coil</em>, <em>moving iron</em>, and <em>moving magnet</em>.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Here, the assembly of a moving coil is mounted in a magnetic field on a pivoted shaft and its rotation is usually constrained.
+      p(style="margin: 30px 0 0px 0; line-height: 1.2em;") In general, the driver (armateur) needs to have the following ideal properties:
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") (1) a high torque to inertia ratio
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (2) a linear relationship between torque, current, and angular position
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (3) a dynamically balanced armateur
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (4) immunity to all internal, external dynamic disturbances
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (5) capability of low power consumption and good heat dissipation.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The galvanometric scanner is a feedback control system that controls its rotation angle in a desired fashion, based on the information of a position sensor.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The role of the transducer is to convert the angular position of the rotor into an electrical signal needed for a control electronic part to generate a control command signal.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") To be ideal, a sensor needs to have the following characteristics;
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") (1) high resolution.
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (2) a high bandwidth.
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (3) a high signal to noise ratio.
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (4) decoupled from the electromagnetic driver.
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (5) insensitive to radial motions of the rotor.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Galvanometers can position beams over a wide range of angular displacement (0, 80º) at speeds ranging from 1 to 100 msec.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The positioning accuracy can be achieved up to micro radians. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Dynamic properties
+      .center
+        img(src='./assets/fig6-45.png' height="350px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The dynamic equations are composed of two governing equations, one for an electrical part and one for a mechanical part.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The differential equation for the electrical field due to an input voltage is given by
+      .center
+        img(src='./assets/eq6-56.png' height="70px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      .center
+        img(src='./assets/fig6-45.png' height="350px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The mechanical part consists of a mass (mirror and coils) whose motion is constrained by a tensional spring and built-in damping, either due to the reversed electromagnet effect alone, or combined with damping from enclosed viscous fluid.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Then, the dynamics of the moving optical mirror is governed by
+      .center
+        img(src='./assets/eq6-57.png' height="70px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") If we neglect the effect of inductance within a certain operating frequency range of the galvanometer, we can easily have the resulting simplified equation expressed by
+      .center
+        img(src='./assets/eq6-58.png' height="70px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") where <b>K</b> is the constant, <b>&omega;<sub>n</sub></b> is the natural frequency and <b>&zeta;</b> is the damping coefficient. They are given by
+      .center
+        img(src='./assets/eq6-58-1.png' height="70px" style="margin: 20px 20px 0px 0;")
+      .center
+        img(src='./assets/eq6-58-2.png' height="80px" style="margin: 20px 20px 0px 0;")
+      .center
+        img(src='./assets/eq6-58-3.png' height="80px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") where <b>R<sub>f</sub></b> is the resistance of the coil frame.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The response of the galvanometer has three different solutions, depending on &zeta; these are: underdamped (<b>&zeta; < 1</b>), critical damped (<b>&zeta; = 1</b>) and overdamped (<b>&zeta; > 1</b>)
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The dynamic response of the galvanometer is characterized by peak overshoot (<b>M<sub>p</sub></b>), rise time (<b>t<sub>r</sub></b>) and settling time (<b>t<sub>s</sub></b>)
+      .center
+        img(src='./assets/fig6-46.png' height="350px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The damping ratio should be designed in order that, within the permitted overshoot, the response be kept to a minimum. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") For example, if the accuracy required in a transient period is within &pm;5%, a damping ratio is chosen such that the percentages overshoot gives 1.05.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The response curve is tangent to the upper accuracy limit at point Pt.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") In this case, time required to 95% of the desired galvanometer rotation is given by 0.454(&omega;<sub>n</sub>t/2&pi;)
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") The damping ratio that meets this requirement is shown to be 0.690.
+      .center
+        img(src='./assets/fig6-47.png' height="350px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") When a galvanometer scans over a certain region in repeated fashion, a sinusoidal voltage must be given to it.
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") In this case, ideally, the motion of the galvanometer needs to follow the input signal without distorting its amplitude and introducing phase shift.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") In reality, however, changes in amplitude and phase of the galvanometer motion will occur and will be a function of input frequency.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The frequency response of the system is given for the magnitude ratio between the input and output
+      .center
+        img(src='./assets/eq6-59a.png' height="80px" style="margin: 20px 20px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") and for the phase of G(&omega;) which is the phase difference between the input and output
+      .center
+        img(src='./assets/eq6-59b.png' height="80px" style="margin: 20px 20px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      //- p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The ratio <b>&Theta;(&omega;)/KV<sub>g</sub>(&omega;)</b> is a measure of the optical mirror dynamic response.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The amplitude ratio is reasonably constant over a frequency range from DC to approximately 40% of the undamped natural frequency, <b>&omega;<sub>n</sub></b> of the galvanometer.
+      .center
+        img(src='./assets/fig6-48-1.png' height="280px" style="margin: 20px 0px 0px 0;")
+        img(src='./assets/fig6-48-2.png' height="280px" style="margin: 20px 0px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") the damping ratio in the range of about 50 to 90% should be used to have reasonable bandwidth.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Usually, the frequency response characteristics shown here do not yield a satisfactory response if any modification or correction is not made.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") To obtain satisfactory results, we normally extend the range of acceptable frequency responses by feedback control gain adjustment.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Control
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") To improve positioning accuracy and speed, a feedback control system can be considered
+      .center
+        img(src='./assets/fig6-49.png' height="280px" style="margin: 0px 0px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The control system is composed of a controller, power amp, a sensor and a mirror.
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") We will consider time-domain response of the galvanometer response
+      //-  , but will not treat that of frequency domain.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 30px 0 0px 0; line-height: 1.2em;") In order to simulate its controlled responses, we will use a PI controller and the parameters
+      .center
+        img(src='./assets/table6-7.png' height="400px" style="margin: 30px 0px 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 50px 0 0px 0; line-height: 1.2em;") The galvanometer response gets faster, but becomes oscillatory as <b>k<sub>p</sub></b> increases. 
+      .center
+        img(src='./assets/fig6-50.png' height="300px" style="margin: 30px 0px 0px 0;")
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") With inclusion of an integral gain, the response becomes faster, with large overshoot, but has no steady state error.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
+      p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") To see the effect of external disturbance such as noise, a step noise of magnitude 0.01/s was included. The responses of the P control alone to this input noise show a large error at steady state. However, the PI controller shows such error is eliminated due to the integral action at steady state.
+      .center
+        img(src='./assets/fig6-51-1.png' height="200px" style="margin: 30px 0px 0px 0;")
+        img(src='./assets/fig6-51-2.png' height="350px" style="margin: 0px 0px 0px 0;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
