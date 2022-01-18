@@ -13,7 +13,6 @@ eg-transition(:enter='enter', :leave='leave')
         div(style="width: 110px;")
           p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[element]].symbol }}
 
-
       div(style="width: 270px; height: 200px;display: flex; align-items: center; justify-content: flex-start;")
         div(style="width: 150px;")
           p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  (<em>{{ part[particles[particle]].symbol}}</em>,<em>{{ part[particles[particle2]].symbol}}</em>)
@@ -26,6 +25,7 @@ eg-transition(:enter='enter', :leave='leave')
             p(style="margin: 10px 0 0 0; font-size: 50px; font-family: Courier; display: flex; justify-content: flex-end;")  {{ productZ }}
         div(style="width: 1500px;")
           p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;")  {{ iso[elements[productZ]].symbol }}
+    p.problem.center <span style="font-family: Courier;">{{ iso[elements[element]].symbol }}: {{ elements[element] }}, {{ iso[elements[productZ]].symbol }}: {{ elements[productZ] }}</span>
 
     .center
       p.solution Please do calculations and introduce your results

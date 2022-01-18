@@ -6,6 +6,9 @@ eg-transition(:enter='enter', :leave='leave')
       div(style="display: flex; flex-direction: row; justify-content: space-around;")
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" height="500" width="1000" >
           <rect x="0" y="0" width="1000" height="500" fill="blue" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
+          <line v-for="x in gridX"  :x1="x" y1="0" :x2="x" y2="500" stroke="gray" stroke-width="0.3" opacity="0.3"/>
+          <line v-for="y in gridY"  x1="0" :y1="y" x2="1000" :y2="y" stroke="gray" stroke-width="0.3" opacity="0.3"/>
+          
           // turning table
           <g>
             <circle cx="500" cy="250" r="170" fill="#000000" fill-opacity="0.6" stroke="#000000"  stroke-width="0.1"/>
@@ -15,6 +18,11 @@ eg-transition(:enter='enter', :leave='leave')
             <path :d="angleScale" stroke="black"  fill="none"/>
 
           </g>
+          // circle limiting the mirror
+          //- <rect x="350" y="100" width="300" height="300" fill="blue" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
+          //- <circle cx="500" cy="250" r="130" fill="red" fill-opacity="0.3" stroke="#000000"  stroke-width="0.1"/>
+          //- <rect :x="xRect" :y="yRect" :width="wRect" :height="hRect" fill="green" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
+
           <rect x="10" y="150" width="90" height="200" fill="#000000" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
           <ellipse cx="100" cy="170" rx="2" ry="10" fill="#ff0000" fill-opacity="0.6" stroke="#000000"  stroke-width="0.1"/>
           <ellipse cx="100" cy="210" rx="2" ry="10" fill="#ff0000" fill-opacity="0.6" stroke="#000000"  stroke-width="0.1"/>
@@ -27,100 +35,19 @@ eg-transition(:enter='enter', :leave='leave')
           <line x1="100" y1="250" x2="1000" y2="250" stroke="#000000" opacity="0.1"/>
           <line x1="100" y1="290" x2="1000" y2="290" stroke="#000000" opacity="0.1"/>
           <line x1="100" y1="330" x2="1000" y2="330" stroke="#000000" opacity="0.1"/>
+
           //- laser rays
-          <path :d="laserCenter" stroke="#ff0000"  stroke-width="3" fill="none"/>
+          //- <path :d="laserCenter" stroke="#ff0000"  stroke-width="3" fill="none"/>
+
+          //- mirror
+          <path :d="mirror()" stroke="#0000ff"  stroke-width="10" fill="none"/>
+
+          <path v-for="y in [170,190,210,230,250,270,290,310,330]" :d="laserLine(100,y)" stroke="green"  stroke-width="3" fill="none"/>
+          //- <path v-for="y in [170]" :d="laserLine(100,y)" stroke="green"  stroke-width="3" fill="none"/>
           
           // old project
-          <rect x="0" y="0" width="600" height="300" fill="blue" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
-          <g transform="translate(150,0)">
-          
-          //- reference
-          <text x="350" y="20" font-size="15px" fill="#000"><tspan font-family="New Times Roman" font-style="italic">&omega; = {{ Math.round(1000 * omega / prod)/1000 }} rad/s</tspan></text>
-          <text x="350" y="40" font-size="15px" fill="#000"><tspan font-family="New Times Roman" font-style="italic">f = {{ Math.round(1000 * omega / prod / (2 * Math.PI)) / 1000 }} Hz</tspan></text>
-          <text x="350" y="60" font-size="15px" fill="#000"><tspan font-family="New Times Roman" font-style="italic">T = {{ Math.round(1000 * 2 * Math.PI *prod / omega) / 1000 }} s</tspan></text>
-          </g>
-          <g transform="translate(50,100)">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" :dur="period" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" :dur="period" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
-          </defs>
-          <use xlink:href="#r1"/>
+          //- <rect x="0" y="0" width="600" height="300" fill="blue" fill-opacity="0.2" stroke="#000000"  stroke-width="0.1"/>
 
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" :dur="period" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="130" x2="300" y2="170" stroke="red" opacity="1"/>
-          <line x1="450" y1="130" x2="450" y2="170" stroke="red" opacity="1"/>
-          <line x1="150" y1="130" x2="150" y2="170" stroke="red" opacity="1"/>
-          <line v-if="showVectors" x1="300" y1="-30" x2="300" y2="170" stroke="red" opacity="0.2"/>
-          <line v-if="showVectors" x1="450" y1="-30" x2="450" y2="170" stroke="red" opacity="0.2"/>
-          <line v-if="showVectors" x1="150" y1="-30" x2="150" y2="170" stroke="red" opacity="0.2"/>
-          <line v-if="showVectors" x1="300" y1="-50" x2="300" y2="170" stroke="red" opacity="0.5">
-            <animate attributeName="x1" :values="displacement" :dur="period" repeatCount="indefinite" begin="p1.begin"/>
-            <animate attributeName="x2" :values="displacement" :dur="period" repeatCount="indefinite" begin="p1.begin"/>
-          </line>
-
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-          <g transform="translate(0,-90)" v-if="showVectors">
-            <text x="250" y="117" font-size="20px" fill="#00f"><tspan font-family="New Times Roman" font-style="italic" font-weight="bold">Displacement</tspan></text>
-            //- displacement arrow
-            <line x1="300" y1="100" x2="300" y2="100" stroke="#00f" stroke-width="2">
-              <animate attributeName="x2" :values="displacement" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            //- displacement tip
-            <line x1="300" y1="100" x2="300" y2="97" stroke="#00f" stroke-width="2">
-              <animate attributeName="x1" :values="displacement" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="displacementUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            <line x1="250" y1="100" x2="250" y2="103" stroke="#00f" stroke-width="2">
-              <animate attributeName="x1" :values="displacement" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="displacementUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-          </g>
-          <g transform="translate(0,-70)" v-if="showVectors">
-          <text x="270" y="70" font-size="20px" fill="#070"><tspan font-family="New Times Roman" font-style="italic" font-weight="bold">Velocity</tspan>
-            <animate attributeName="x" :values="textVelocity" :dur="period" repeatCount="indefinite" begin="0s"/>
-          </text>
-            //- velocity arrow
-            <line x1="300" y1="50" x2="300" y2="50" stroke="#070" stroke-width="2">
-              <animate attributeName="x1" :values="velocityTip" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="velocityTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            //- velocity tip
-            <line x1="300" y1="50" x2="300" y2="47" stroke="#070" stroke-width="2">
-              <animate attributeName="x1" :values="velocityTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="velocityUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            <line x1="250" y1="50" x2="250" y2="53" stroke="#070" stroke-width="2">
-              <animate attributeName="x1" :values="velocityTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="velocityUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-          </g>
-          <g transform="translate(0,-70)" v-if="showVectors">
-            <text x="250" y="40" font-size="20px" fill="#f00"><tspan font-family="New Times Roman" font-style="italic" font-weight="bold">Acceleration</tspan>
-              <animate attributeName="x" :values="textAcceleration" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </text>
-            //- acceleration arrow
-            <line x1="300" y1="20" x2="300" y2="20" stroke="red" stroke-width="2">
-              <animate attributeName="x1" :values="accelerationTip" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="accelerationTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            //- acceleration tip
-            <line x1="300" y1="20" x2="300" y2="17" stroke="red" stroke-width="2">
-              <animate attributeName="x1" :values="accelerationTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="accelerationUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-            <line x1="250" y1="20" x2="250" y2="23" stroke="red" stroke-width="2">
-              <animate attributeName="x1" :values="accelerationTail" :dur="period" repeatCount="indefinite" begin="0s"/>
-              <animate attributeName="x2" :values="accelerationUp" :dur="period" repeatCount="indefinite" begin="0s"/>
-            </line>
-          </g>
-
-          </g>
             //- <text x="100" y="30">
             //- <tspan style="font-style:normal; font-family: Times New Roman; font-size:1em;">Amplitude (<tspan style="font-style:italic; font-family: Times New Roman; font-size:1em;">A</tspan>)</tspan>
             //- </text>
@@ -128,33 +55,60 @@ eg-transition(:enter='enter', :leave='leave')
             //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
             //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
         </svg>
-
-      div(style="display: flex; flex-direction: column; justify-content: flex-start;")
-        div(style="border: solid 1px; border-radius: 5%; height: 80px;")
-          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black; margin: 3px 0 10px 0;").center K = <span style="font-style: normal;">{{ elasticK }}</span> N/m<br>
-            button(@click="increaseK(1, 0)") +1
-            button(@click="increaseK(-1, 0)") -1
+          
+    div.time-control
+      div(style="display: flex; justify-content: space-around; border: solid 1px; border-radius: 10px; height: 130px; width: 90%; margin: auto")
+        div
+          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold; color: black; ").center numero de haces <br> n = <span style="font-style: normal;">{{ n }}</span><br>
+            button(@click="n > 3 ? n -=2 : n;").time-btn -2
+            button(@click="n < 7 ? n +=2 : n;").time-btn +2
+            //- <br>
+            //- button(@click="lambda > 300.9e-9 ? lambda -=1e-9 : lambda;").time-btn -1
+            //- button(@click="lambda < 799.1e-9 ? lambda +=1e-9 : lambda;").time-btn +1
+            //- <br>
+            //- button(@click="lambda >300.09e-9 ? lambda -=0.1e-9 : lambda; maximos()").time-btn -0.1
+            //- button(@click="lambda < 799.91e-9 ? lambda +=0.1e-9 : lambda; maximos()").time-btn +0.1
+        div
+          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center θ = <span style="font-style: normal;">{{ angle }} </span><br>
+            button(@click="angle > 10 ? angle -=10 : angle;").time-btn -10
+            button(@click="angle < 80 ? angle +=10 : angle;").time-btn +10
             <br>
-            button(@click="increaseK(5, 0)") +5
-            button(@click="increaseK(-5, 0)") -5
-        div(style="border: solid 1px; border-radius: 5%; height: 80px;")
-          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black; margin: 3px 0 10px 0;").center m = <span style="font-style: normal;">{{ parseFloat(mass).toPrecision(2) }}</span> kg
-            button(@click="increaseMass(0.1, 0)") +0.1
-            button(@click="increaseMass(-0.1, 0)") -0.1
+            button(@click="angle > 1 ? angle -=1 : angle;").time-btn -1
+            button(@click="angle < 99? angle +=1 : angle;").time-btn +1
             <br>
-            button(@click="increaseMass(1, 0)") +1.0
-            button(@click="increaseMass(-1, 0)") -1.0
-        div(style="border: solid 1px; border-radius: 5%; height: 70px;")
-          p(style="font-family: Times; font-size:20px; font-weight: bold;color: black; margin: 3px 0 10px 0;").center <span style="font-style: normal;">Vectors</span>
-            <!-- Rounded switch -->
-            <label class="switch">
-              <input type="checkbox" v-model="showVectors">
-              <span class="slider round"></span>
-            </label>
-        div(style="border: solid 1px; border-radius: 5%; height: 62px;")
-          p(style="font-family: Times; font-size:13px; font-weight: bold;color: black; margin: 10px 0 10px 0;").center Time scale:<br> {{ parseInt((prod * 10))/10 }} <br>
-            button(@click="increaseMass(0, 0.1)") +0.1
-            button(@click="increaseMass(0, -0.1)") -0.1
+            button(@click="angle > 0.1 ? angle -=0.1 : angle;").time-btn -0.1
+            button(@click="angle < 99.9 ? angle +=0.1 : angle;").time-btn +0.1
+        //- div
+        //-   p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center L = <span style="font-style: normal;">{{ Number.parseFloat(L).toPrecision(4) }} m</span><br>
+        //-     button(@click="L > 0.499 ? L -=0.1 : L; maximos()").time-btn -0.1
+        //-     button(@click="L < 2.919 ? L +=0.1 : L; maximos()").time-btn +0.1
+        //-     <br>
+        //-     button(@click="L > 0.4099 ? L -=0.01 : L; maximos()").time-btn -0.01
+        //-     button(@click="L < 2.991 ? L +=0.01 : L; maximos()").time-btn +0.01
+        //-     <br>
+        //-     button(@click="L > 0.40099 ? L -=0.001 : L; maximos()").time-btn -0.001
+        //-     button(@click="L < 2.9991 ? L +=0.001 : L; maximos()").time-btn +0.001
+        //- div
+        //-   p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center y = <span style="font-style: normal;">{{ y < 0.0001 ? 0 : Number.parseFloat(y / 1e-3).toPrecision(4) }} mm</span><br>
+        //-     button(@click="y > 0.019 ? y -=0.01 : y; theta()").time-btn -10
+        //-     button(@click="y < 0.3901 ? y +=0.01 : y").time-btn +10
+        //-     <br>
+        //-     button(@click="y > 0.0019 ? y -=0.001 : y").time-btn -1
+        //-     button(@click="y < 0.3991 ? y +=0.001 : y").time-btn +1
+        //-     <br>
+        //-     button(@click="y > 0.00009 ? y -=0.0001 : y").time-btn -0.1
+        //-     button(@click="y < 0.39991 ? y +=0.0001 : y").time-btn +0.1
+        //- div
+        //-   p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center zoom : <span style="font-style: normal;">{{  Number.parseFloat(scale).toPrecision(3) }}X </span><br>
+        //-     button(@click="scale >= 1.1 ? scale -=1 : scale; maximos()").time-btn -1
+        //-     button(@click="scale <= 3.01 ? scale +=1 : scale; maximos()").time-btn +1
+        //-     <br>
+        //-     button(@click="scale >= 0.11 ? scale -=0.1 : scale; maximos()").time-btn -0.1
+        //-     button(@click="scale <= 3.9 ? scale +=0.1 : scale; maximos()").time-btn +0.1
+        //-     <br>
+        //-     button(@click="scale >= 0.011 ? scale -=0.01 : scale; maximos()").time-btn -0.01
+        //-     button(@click="scale <= 3.991 ? scale +=0.01 : scale; maximos()").time-btn +0.01
+      //- p.center.small {{ laserLine(100,100) }}
 
 </template>
 <script>
@@ -162,6 +116,15 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
+      gridX: this.range(0, 1000, 25),
+      gridY: this.range(0, 400, 25),
+      angle: 10,
+      xRect: 350,
+      yRect: 100,
+      wRect: 300,
+      hRect: 300,
+      n: 1,
+      haces: [250, 230, 270, 210, 290, 310, 190, 330, 170],
       period: 3,
       omega: 2.557,
       prod: 1,
@@ -195,12 +158,12 @@ export default {
       return d
     },
     laserCenter () {
-      let angle = 5 * Math.PI / 180
-      let m = Math.tan(2 * angle)
-      let mE = Math.tan(angle)
+      // let angle = 5 * Math.PI / 180
+      let m = Math.tan(2 * this.angle * Math.PI / 180)
+      let mE = Math.tan(this.angle * Math.PI / 180)
       console.log(m)
       console.log(mE)
-      let y = angle >= 0 ? 0 : 500
+      let y = this.angle >= 0 ? 0 : 500
       let d = `M100,250 500,250 ${500 + (y - 250) / m} ${y}`
       d = d + `M100,210 ${500 - mE * (210 - 250)},210 ${500 - mE * (210 - 250) + (y - 210) / m} ${y}`
       d = d + `M100,170 ${500 - mE * (170 - 250)},170 ${500 - mE * (170 - 250) + (y - 170) / m} ${y}`
@@ -210,126 +173,52 @@ export default {
       d = d + `M500,250 ${500 + (y - 250) / (-1 / mE)} ${y}`
       d = d + `M500,250 ${500 - (y - 250) / (-1 / mE)} ${500 - y}`
       return d
-    },
-    resorte () {
-      let d = ''
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      let ranges = [350, 335, 294, 233, 167, 106, 65, 50, 65, 106, 167, 233, 294, 335, 350]
-      let points = 102
-      for (var i = 0; i < ranges.length; i++) {
-        let d1 = 'M10,90 30,90 '
-        let delta = ranges[i] / (points + 0)
-        let period = ranges[i] / 7
-        for (var j = 0; j < points - 1; j++) {
-          d1 = d1 + `${delta * j + 30},${90 + 20 * Math.sin(2 * Math.PI * delta * j / period)} `
-        }
-        d1 = d1 + ` ${ranges[i] + 30},90 ${ranges[i] + 50},90;`
-        d = d + d1
-      }
-      return d
-    },
-    blockPositions () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(250 + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    displacement () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    displacementUp () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 + 130 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    velocityTip () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    velocityTail () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = (2 * i * Math.PI / (points - 1))
-        positions = positions + `${Math.round(300 - 100 * Math.sin(angle) + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    velocityUp () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 - 80 * Math.sin(angle) + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    accelerationTip () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    accelerationTail () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = (2 * i * Math.PI / (points - 1))
-        positions = positions + `${Math.round(300 - 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    accelerationUp () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(300 - 130 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    textVelocity () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(270 + 150 * Math.cos(angle))};`
-      }
-      return positions
-    },
-    textAcceleration () {
-      let positions = ''
-      let points = 15
-      for (var i = 0; i < points; i++) {
-        let angle = 2 * i * Math.PI / (points - 1)
-        positions = positions + `${Math.round(250 + 150 * Math.cos(angle))};`
-      }
-      return positions
     }
   },
   methods: {
+    numeroHaces: function () {
+    },
+    mirror: function () {
+      let radius = 130
+      let xComponent1 = 500 + 5 * Math.cos(this.angle * Math.PI / 180) - radius * Math.sin(this.angle * Math.PI / 180)
+      let yComponent1 = 250 + 5 * Math.sin(this.angle * Math.PI / 180) + radius * Math.cos(this.angle * Math.PI / 180)
+      let xComponent2 = 500 + 5 * Math.cos(this.angle * Math.PI / 180) + radius * Math.sin(this.angle * Math.PI / 180)
+      let yComponent2 = 250 + 5 * Math.sin(this.angle * Math.PI / 180) - radius * Math.cos(this.angle * Math.PI / 180)
+      // let d = `M ${xComponent1},${yComponent1} ${xComponent2},${yComponent2}`
+      // console.log(d)
+      return `M ${xComponent1},${yComponent1} ${xComponent2},${yComponent2}`
+    },
+    mirrorSph: function () {
+      let radius = 130
+      let xComponent1 = 500 + 5 * Math.cos(this.angle * Math.PI / 180) - radius * Math.sin(this.angle * Math.PI / 180)
+      let yComponent1 = 250 + 5 * Math.sin(this.angle * Math.PI / 180) + radius * Math.cos(this.angle * Math.PI / 180)
+      let xComponent2 = 500 + 5 * Math.cos(this.angle * Math.PI / 180) + radius * Math.sin(this.angle * Math.PI / 180)
+      let yComponent2 = 250 + 5 * Math.sin(this.angle * Math.PI / 180) - radius * Math.cos(this.angle * Math.PI / 180)
+      // let d = `M ${xComponent1},${yComponent1} ${xComponent2},${yComponent2}`
+      // console.log(d)
+      return `M ${xComponent1},${yComponent1} ${xComponent2},${yComponent2}`
+    },
+    laserLine: function (xi, yi) {
+      // let angle = 5 * Math.PI / 180
+      // console.log(xi)
+      // console.log(yi)
+      let m = Math.tan(2 * this.angle * Math.PI / 180)
+      let mE = Math.tan(this.angle * Math.PI / 180)
+      // console.log(m)
+      // console.log(mE)
+      let y = this.angle >= 0 ? 0 : 500
+      let radius = Math.sqrt(((500 - (500 - mE * (yi - 250))) ** 2) + ((250 - yi) ** 2))
+      let d
+      d = radius > 130 ? `M${xi},${yi} 1000,${yi}` : `M${xi},${yi} ${500 - mE * (yi - 250)},${yi} ${500 - mE * (yi - 250) + (y - yi) / m} ${y}`
+      // d = this.angle > 90 ? `M${xi},${yi} ${500 - mE * (yi - 250)},${yi}` : `M${xi},${yi} ${500 - mE * (yi - 250)},${yi} ${500 - mE * (yi - 250) + (y - yi) / m} ${y}`
+      // console.log(xi, yi)
+      // console.log(500 - (500 - mE * (yi - 250)), 250 - yi)
+      // console.log('radius: ', Math.sqrt(((500 - (500 - mE * (yi - 250))) ** 2) + ((250 - yi) ** 2)))
+      // console.log(m * 350)
+      // d += ` ${200},${250} ${500 - mE * (yi - 250)},${yi}`
+      // console.log(d)
+      return d
+    },
     factor (f) {
       this.prod = this.prod + f
     },
@@ -360,6 +249,13 @@ export default {
       }
       this.omega = this.prod * Math.sqrt(this.elasticK / this.mass)
       this.period = 1 * 2 * Math.PI / this.omega
+    },
+    range: function (start, end, step) {
+      var ans = []
+      for (let i = start; i <= end; i += step) {
+        ans.push(i)
+      }
+      return ans
     }
   },
   mixins: [eagle.slide]

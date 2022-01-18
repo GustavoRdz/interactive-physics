@@ -47,7 +47,7 @@ export default {
       return 25000
     },
     lambda: function () {
-      return 0.693 / this.halfLife
+      return Math.log(2) / this.halfLife
     },
     finalSample: function () {
       return this.initialSample * Math.exp(-this.lambda * this.time)

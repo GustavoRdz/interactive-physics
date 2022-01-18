@@ -24,7 +24,7 @@
         // slit
         <rect x="145" y="150" width="5" height="100" stroke="gray" fill="black" stroke-width="1" opacity="1"/>
         <rect x="145" y="195" width="5" height="10" stroke="gray" :fill="laserColor()" stroke-width="1" opacity="1"/>
-        <text x="155" y="215" font-size="12px" stroke="none" fill="black">a = {{ Number.parseFloat(a / 1e-6).toPrecision(3) }} μm</text>
+        <text x="155" y="215" font-size="12px" stroke="none" fill="black">d = {{ Number.parseFloat(1 / N).toPrecision(3) }} m</text>
         // L
         <path d="M150,230 L160,225 M150,230 L160,235 M150,230 L390,230 M485,230 L700,230" stroke="black" stroke-width="1" opacity="1" />
         <text x="400" y="235" font-size="12px" stroke="none" fill="black">L = {{ Number.parseFloat(L).toPrecision(4) }} mm</text>
@@ -36,42 +36,64 @@
           <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
 
-            <stop :offset="(200 - 350 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 325 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.9" />
-            <stop :offset="(200 - 300 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 275 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.8" />
-            <stop :offset="(200 - 250 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 225 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.7" />
-            <stop :offset="(200 - 200 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 175 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.6" />
-            <stop :offset="(200 - 150 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 125 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.3" />
-            <stop :offset="(200 - 100 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 - 75 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.1" />
-            <stop :offset="(200 - 50 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 325 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 300 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.9" />
+            <stop :offset="(200 - 275 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 250 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.8" />
+            <stop :offset="(200 - 225 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 200 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.7" />
+            <stop :offset="(200 - 175 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 150 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.6" />
+            <stop :offset="(200 - 125 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 100 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.3" />
+            <stop :offset="(200 - 75 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 - 50 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.1" />
+            <stop :offset="(200 - 25 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
 
             <stop offset="50%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
             
-            <stop :offset="(200 + 50 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 75 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.1" />
-            <stop :offset="(200 + 100 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 125 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.3" />
-            <stop :offset="(200 + 150 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 175 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.6" />
-            <stop :offset="(200 + 200 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 225 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.7" />
-            <stop :offset="(200 + 250 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 275 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.8" />
-            <stop :offset="(200 + 300 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
-            <stop :offset="(200 + 325 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.9" />
-            <stop :offset="(200 + 350 * zeroes * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 50 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 75 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.1" />
+            <stop :offset="(200 + 100 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 125 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.3" />
+            <stop :offset="(200 + 150 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 175 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.6" />
+            <stop :offset="(200 + 200 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 225 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.7" />
+            <stop :offset="(200 + 250 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 275 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.8" />
+            <stop :offset="(200 + 300 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
+            <stop :offset="(200 + 325 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:0.9" />
+            <stop :offset="(200 + 350 * maxims * scale) / 400 " style="stop-color:rgb(0,0,0);stop-opacity:1" />
       
             <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:1" />
           </linearGradient>
         </defs>
         // observation picture zone
-        <rect x="700" y="0" width="100" height="400" stroke="red" :fill="laserColor()" stroke-width="1"/>
-        <rect x="700" y="0" width="100" height="400" stroke="red" fill="url(#grad1)" stroke-width="1"/>
+        //- <rect x="700" y="0" width="100" height="400" stroke="red" :fill="laserColor()" stroke-width="1"/>
+        //- <rect x="700" y="0" width="100" height="400" stroke="red" fill="url(#grad1)" stroke-width="1"/>
+
+        <defs>
+          <radialGradient id="grad2">
+          <stop offset="0%" style="stop-color:rgb(0,0,0);stop-opacity:0" />
+          <stop offset="100%" style="stop-color:rgb(0,0,0);stop-opacity:0.3" />
+          </radialGradient>
+        </defs>
+        // observation picture zone
+        <rect x="710" y="0" width="100" height="400" stroke="red" fill="black" stroke-width="1"/>
+        //- <rect x="700" y="0" width="100" height="400" stroke="red" fill="url(#grad2)" stroke-width="1"/>
+        //- <circle cx="750" cy="100" r="30" fill="url(#grad2)" stroke-width="1"/>
+
+        //- <defs>
+        //-   <pattern id="pattern1" x="50" y="190" width="100" :height="(200 - 25 * maxims * scale) / 2" patternUnits="userSpaceOnUse" >
+        //-       <circle cx="10" cy="10" r="10" fill="url(#grad2)" />
+        //-   </pattern>
+        //- </defs>
+        //- <rect x="700" y="0" width="100" height="400" style="stroke: #000000; fill: url(#pattern1);" />   
+        <circle v-for="cir in maximos()" cx="750" :cy="cir" r="9" :fill="laserColor()" />
+        <circle v-for="cir in maximos()" cx="750" :cy="cir" r="10" fill="url(#grad2)" stroke-width="1"/>
+        <circle v-for="cir in maximos()" cx="750" :cy="cir" r="2" fill="white" opacity="0.1"/>
+
         // observation screen
         <rect x="700" y="0" width="5" height="400" stroke="red" fill="white" stroke-width="1" opacity="1"/>
 
@@ -104,34 +126,34 @@
       div(style="display: flex; justify-content: space-around; border: solid 1px; border-radius: 10px; height: 130px; width: 90%; margin: auto")
         div
           p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold; color: black; ").center λ = <span style="font-style: normal;">{{ Number.parseFloat(lambda / 1e-9).toPrecision(4) }} nm</span><br>
-            button(@click="lambda > 309.9e-9 ? lambda -=10e-9 : lambda; ceros()").time-btn -10
-            button(@click="lambda < 791e-9 ? lambda +=10e-9 : lambda; ceros()").time-btn +10
+            button(@click="lambda > 309.9e-9 ? lambda -=10e-9 : lambda; maximos()").time-btn -10
+            button(@click="lambda < 791e-9 ? lambda +=10e-9 : lambda; maximos()").time-btn +10
             <br>
-            button(@click="lambda > 300.9e-9 ? lambda -=1e-9 : lambda; ceros()").time-btn -1
-            button(@click="lambda < 799.1e-9 ? lambda +=1e-9 : lambda; ceros()").time-btn +1
+            button(@click="lambda > 300.9e-9 ? lambda -=1e-9 : lambda; maximos()").time-btn -1
+            button(@click="lambda < 799.1e-9 ? lambda +=1e-9 : lambda; maximos()").time-btn +1
             <br>
-            button(@click="lambda >300.09e-9 ? lambda -=0.1e-9 : lambda; ceros()").time-btn -0.1
-            button(@click="lambda < 799.91e-9 ? lambda +=0.1e-9 : lambda; ceros()").time-btn +0.1
+            button(@click="lambda >300.09e-9 ? lambda -=0.1e-9 : lambda; maximos()").time-btn -0.1
+            button(@click="lambda < 799.91e-9 ? lambda +=0.1e-9 : lambda; maximos()").time-btn +0.1
         div
-          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center a = <span style="font-style: normal;">{{ Number.parseFloat(a / 1e-6).toPrecision(3) }} μm</span><br>
-            button(@click="a > 119.9e-6 ? a -=1e-4 : a; ceros()").time-btn -100
-            button(@click="a < 899e-6 ? a +=1e-4 : a; ceros()").time-btn +100
+          p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center N = <span style="font-style: normal;">{{ Number.parseFloat(N) }} </span><br>
+            button(@click="N > 1000 ? N -=1e3 : N; maximos()").time-btn -1000
+            button(@click="N < 1.5e4 ? N +=1e3 : N; maximos()").time-btn +1000
             <br>
-            button(@click="a > 29.9e-6 ? a -=1e-5 : a; ceros()").time-btn -10
-            button(@click="a < 989e-6 ? a +=1e-5 : a; ceros()").time-btn +10
+            button(@click="N > 100 ? N -=1e2 : N; maximos()").time-btn -100
+            button(@click="N < 1.5e4 ? N +=1e2 : N; maximos()").time-btn +100
             <br>
-            button(@click="a > 20.9e-6 ? a -=1e-6 : a; ceros()").time-btn -1
-            button(@click="a < 998e-6 ? a +=1e-6 : a; ceros()").time-btn +1
+            button(@click="N > 10 ? N -=10 : N; maximos()").time-btn -10
+            button(@click="N < 1.5e4 ? N +=10 : N; maximos()").time-btn +10
         div
           p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center L = <span style="font-style: normal;">{{ Number.parseFloat(L).toPrecision(4) }} m</span><br>
-            button(@click="L > 0.499 ? L -=0.1 : L; ceros()").time-btn -0.1
-            button(@click="L < 2.919 ? L +=0.1 : L; ceros()").time-btn +0.1
+            button(@click="L > 0.499 ? L -=0.1 : L; maximos()").time-btn -0.1
+            button(@click="L < 2.919 ? L +=0.1 : L; maximos()").time-btn +0.1
             <br>
-            button(@click="L > 0.4099 ? L -=0.01 : L; ceros()").time-btn -0.01
-            button(@click="L < 2.991 ? L +=0.01 : L; ceros()").time-btn +0.01
+            button(@click="L > 0.4099 ? L -=0.01 : L; maximos()").time-btn -0.01
+            button(@click="L < 2.991 ? L +=0.01 : L; maximos()").time-btn +0.01
             <br>
-            button(@click="L > 0.40099 ? L -=0.001 : L; ceros()").time-btn -0.001
-            button(@click="L < 2.9991 ? L +=0.001 : L; ceros()").time-btn +0.001
+            button(@click="L > 0.40099 ? L -=0.001 : L; maximos()").time-btn -0.001
+            button(@click="L < 2.9991 ? L +=0.001 : L; maximos()").time-btn +0.001
         div
           p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center y = <span style="font-style: normal;">{{ y < 0.0001 ? 0 : Number.parseFloat(y / 1e-3).toPrecision(4) }} mm</span><br>
             button(@click="y > 0.019 ? y -=0.01 : y; theta()").time-btn -10
@@ -144,14 +166,14 @@
             button(@click="y < 0.39991 ? y +=0.0001 : y").time-btn +0.1
         div
           p(style="font-family: Times; font-style: italic; font-size:20px; font-weight: bold;color: black;").center zoom : <span style="font-style: normal;">{{  Number.parseFloat(scale).toPrecision(3) }}X </span><br>
-            button(@click="scale >= 1.1 ? scale -=1 : scale").time-btn -1
-            button(@click="scale <= 3.01 ? scale +=1 : scale").time-btn +1
+            button(@click="scale >= 1.1 ? scale -=1 : scale; maximos()").time-btn -1
+            button(@click="scale <= 3.01 ? scale +=1 : scale; maximos()").time-btn +1
             <br>
-            button(@click="scale >= 0.11 ? scale -=0.1 : scale").time-btn -0.1
-            button(@click="scale <= 3.9 ? scale +=0.1 : scale").time-btn +0.1
+            button(@click="scale >= 0.11 ? scale -=0.1 : scale; maximos()").time-btn -0.1
+            button(@click="scale <= 3.9 ? scale +=0.1 : scale; maximos()").time-btn +0.1
             <br>
-            button(@click="scale >= 0.011 ? scale -=0.01 : scale").time-btn -0.01
-            button(@click="scale <= 3.991 ? scale +=0.01 : scale").time-btn +0.01
+            button(@click="scale >= 0.011 ? scale -=0.01 : scale; maximos()").time-btn -0.01
+            button(@click="scale <= 3.991 ? scale +=0.01 : scale; maximos()").time-btn +0.01
         div
 
 </template>
@@ -168,9 +190,9 @@ export default {
       L: 1,
       scale: 1,
       y: 1e-3,
-      N: 10000,
+      N: 900,
       d: 0.4e-3,
-      zeroes: 1,
+      maxims: [],
       scaleRule: this.range(-4, 4, 1),
       enterT1: '',
       enterT2: '',
@@ -195,22 +217,26 @@ export default {
     sinc: function () {
       // let T = 1
       let xLimit = 1
-      let delta = 0.01
+      let delta = 0.0001
       let scaleX = 200
       // let scaleY = 2
       let offsetX = 200
       let offsetY = 700
 
       let d = `M${offsetY},${0} L`
-      let y
       for (let i = -xLimit + delta; i <= xLimit; i += delta) {
         let x = scaleX * Math.round(100 * i) / 100
         // let arg = 0.00001 * 2 * this.scale * Math.PI * this.a * x / (this.lambda * this.L)
         // let argA = 0.00001 * 2 * Math.PI * this.a * x / (this.lambda * this.L * this.scale)
-        let argB = 0.00001 * 2 * Math.PI * this.d * x / (this.lambda * this.L * this.scale)
-        // console.log(this.scale)
+        // let argB = 0.00001 * 2 * Math.PI * this.d * x / (this.lambda * this.L * this.scale)
         // y = 1 * Math.pow(Math.sin(argA + 1e-10) / (argA + 1e-10), 2) * Math.pow(Math.sin(this.N * argB + 1e-10) / Math.sin((argB + 1e-10)), 2)
-        y = 0.01 * Math.pow(Math.sin(this.N * argB + 1e-10) / Math.sin((argB + 1e-10)), 2)
+        // y = 0.01 * Math.pow(Math.sin(this.N * argB + 1e-10) / Math.sin((argB + 1e-10)), 2)
+        let y = 0
+        for (let m = -15; m <= 15; m++) {
+          let argB = scaleX * this.scale * 250 * this.L * Math.tan(Math.asin(m * this.lambda * this.N))
+          // console.log(argB)
+          y += 100 * Math.exp(-1 * ((x - 1 * argB) / 5) ** 2)
+        }
         // console.log('(' + x + ', ' + y + ')')
         d += `${offsetY - y},${offsetX + x} `
       }
@@ -219,27 +245,50 @@ export default {
       return d
     },
     theta: function () {
-      console.log(this.y)
-      console.log(this.L)
+      // console.log(this.y)
+      // console.log(this.L)
       return Math.atan(this.y / this.L)
     },
     angle: function () {
       return `M290 200 A 200 200 0 0 0 290 ${(800 - 50000 * this.y * this.scale) / 4}`
     },
     intensity: function () {
-      let arg = 0.00001 * 2 * Math.PI * this.a * (5e4 * this.y) / (this.lambda * this.L)
+      // let arg = 0.00001 * 2 * Math.PI * this.a * (5e4 * this.y) / (this.lambda * this.L)
       // console.log('arg: ' + arg)
-      let y = 1 * Math.pow(Math.sin(arg + 1e-10) / (arg + 1e-10), 2)
+      // let y = 1 * Math.pow(Math.sin(arg + 1e-10) / (arg + 1e-10), 2)
       // console.log('I: ' + y)
+      // let argB = this.scale * 250 * this.L * Math.tan(Math.asin(m * this.lambda * this.N))
+      let y = 0
+      // console.log('start')
+      for (let m = 0; m <= 1; m++) {
+        let argB = 0.01 * this.L * Math.tan(Math.asin(m * this.lambda * this.N))
+        // console.log('argB: ', argB)
+        // console.log(this.y)
+        y += Math.exp(-1 * ((this.y - argB) / 5) ** 2)
+        // console.log('in: ', y)
+      }
+      // console.log('out: ', y)
+      // console.log('maxims: ', this.maxims)
+      // let y = 100 * Math.exp(-1 * ((this.y - 1 * argB) / 5) ** 2)
+      // this.maximos()
       return y
     },
-    ceros: function () {
-      let n = 0
-      console.log('zeros' + (n + 1 / 2) * this.L * this.lambda / this.a)
-      console.log('zeros' + 100000 * (n + 1 / 2) * this.L * this.lambda / (this.a * this.scale))
-      console.log('y' + this.y)
-      this.zeroes = 2000 * (n + 1 / 2) * this.L * this.lambda / this.a
+    maximos: function () {
+      // let m = 1
+      // console.log('zeros' + (n + 1 / 2) * this.L * this.lambda / this.a)
+      // console.log('zeros' + 100000 * (n + 1 / 2) * this.L * this.lambda / (this.a * this.scale))
+      // console.log('y' + this.y)
+      // this.maxims = 2000 * (n + 1 / 2) * this.scale * this.L * this.lambda / this.a
+      // console.log('N: ', this.L * Math.tan(Math.asin(m * this.lambda * this.N)))
+      let maxims = []
+      for (let m = -15; m <= 15; m++) {
+        maxims.push(200 + 1000 * 50 * this.scale * this.L * Math.tan(Math.asin(m * this.lambda * this.N)))
+      }
+      // console.log('maxims: ', maxims)
+      // console.log('scale: ', this.scale)
       // return 50000 * this.scale * (n + 1 / 2) * this.L * this.lambda / this.a
+      console.log('N: ', this.N)
+      return maxims
     },
     range: function (start, end, step) {
       var ans = []
@@ -262,7 +311,7 @@ export default {
 
       if (w >= 380) {
         let index = Math.round((w - 380) * ((1072 - 380) / 370))
-        console.log('index: ', index)
+        // console.log('index: ', index)
         R = rojo[index]
         G = verde[index]
         B = azul[index]

@@ -27,7 +27,7 @@ eg-transition(:enter='enter', :leave='leave')
         div(style="width: 1500px;")
           p(style="margin: 0; font-size: 110px; display: flex; justify-content: flex-start; font-family: Courier;") <span v-if="errorZ != 0">?</span><span v-else>{{ product.symbol }}</span>
     p.center <span v-if="errorZ != 0 || errorA !=0"></span><span v-else>Product: {{ Object.keys(iso)[productZ] }}-{{ productA }}</span>
-      
+    p.problem.center <span style="font-family: Courier;">{{ iso[elements[element]].symbol }}: {{ elements[element] }}</span>
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data <sup>{{ masic }}</sup>{{ iso[elements[element]].symbol }} (u)

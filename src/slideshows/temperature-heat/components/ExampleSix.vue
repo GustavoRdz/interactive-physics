@@ -10,7 +10,7 @@
         <span class="error" v-if="errorTemperature">[e: {{ errorTemperature.toPrecision(2) }}%]</span>
       p.inline.data <em>&#x03C6;</em><sub>sphere</sub> (cm)
         input.center.data(:class="checkedDiameter" v-model.number='enterDiameter')
-        <span class="error" v-if="errorDiameter">[e: {{ errorDiameter.toPrecision(2) }}%]</span>
+        <span class="error" v-if="errorDiameter">[e: {{ errorDiameter.toPrecision(4) }}%]</span>
 
 </template>
 <script>
