@@ -444,7 +444,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Introduction and digital images',
+    description: '1.- Introduction and digital images',
     path: 'vision-systems'
   },
   components: {

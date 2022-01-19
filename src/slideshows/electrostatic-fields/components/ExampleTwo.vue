@@ -7,49 +7,43 @@
         img(src='../assets/fig23-7.png' height="200px")
       .center
         p.solution Please do calculations and introduce your results
-        //- p.inline.data Force (N)
-        //-   input.center.data(:class="checkedF" v-model.number='enterF')
-        //-   <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-        //- p.inline.data Displacement (m)
-        //-   input.center.data(:class="checkedD" v-model.number='enterD')
-        //-   <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
-        //- p.inline.data Mass (Kg)
-        //-   input.center.data(:class="checkedM" v-model.number='enterM')
-        //-   <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
-        //- p.inline.data Pull distance (m)
-        //-   input.center.data(:class="checkedPullD" v-model='enterPullD')
-        //-   <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
-        //- p.inline.data Elastic constant (N/m)
-        //-   input.center.data(:class="checkedK" v-model='enterK')
-        //-   <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
-        //- p.inline.data Angular frequency (rad/s)
-        //-   input.center.data(:class="checkedOmega" v-model='enterOmega')
-        //-   <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
-        //- p.inline.data Frequency (Hz)
-        //-   input.center.data(:class="checkedFr" v-model='enterFr')
-        //-   <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
-        //- p.inline.data Period (s)
-        //-   input.center.data(:class="checkedT" v-model='enterT')
-        //-   <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-
+        p.inline.data q1 (C)
+          input.center.data(:class="checkedQ1" v-model.number='enterQ1')
+          <span class="error" v-if="errorQ1">[e: {{ errorQ1.toPrecision(3) }}%]</span>
+        p.inline.data q2 (C)
+          input.center.data(:class="checkedQ2" v-model.number='enterQ2')
+          <span class="error" v-if="errorQ2">[e: {{ errorQ2.toPrecision(3) }}%]</span>
+        p.inline.data q3 (C)
+          input.center.data(:class="checkedQ3" v-model.number='enterQ3')
+          <span class="error" v-if="errorQ3">[e: {{ errorQ3.toPrecision(3) }}%]</span>
+        p.inline.data F<sub>q1</sub> (N)
+          input.center.data(:class="checkedFq1" v-model='enterFq1')
+          <span class="error" v-if="errorFq1">[e: {{ errorFq1.toPrecision(3) }}%]</span>
+        p.inline.data F<sub>q2</sub> (N)
+          input.center.data(:class="checkedFq2" v-model='enterFq2')
+          <span class="error" v-if="errorFq2">[e: {{ errorFq2.toPrecision(3) }}%]</span>
+        p.inline.data F<sub>q3</sub> (N)
+          input.center.data(:class="checkedFq3" v-model='enterFq3')
+          <span class="error" v-if="errorFq3">[e: {{ errorFq3.toPrecision(3) }}%]</span>
+        
 </template>
 <script>
 import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterF: '',
-      errorF: 0,
-      enterD: '',
-      errorD: 0,
-      enterM: '',
-      errorM: 0,
-      enterPullD: '',
-      errorPullD: 0,
-      enterK: '',
-      errorK: 0,
-      enterOmega: '',
-      errorOmega: 0,
+      enterQ1: '',
+      errorQ1: 0,
+      enterQ2: '',
+      errorQ2: 0,
+      enterQ3: '',
+      errorQ3: 0,
+      enterFq1: '',
+      errorFq1: 0,
+      enterFq2: '',
+      errorFq2: 0,
+      enterFq3: '',
+      errorFq3: 0,
       enterFr: '',
       errorFr: 0,
       enterT: '',

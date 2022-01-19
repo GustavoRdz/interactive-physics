@@ -19,6 +19,7 @@ export default {
     require('./lab-f4/LaboratoryModernPhysics'),
     // require('./exercises-waves/ExercisesWaves'),
     require('./optomechatronics-intro/Introduction'),
+    require('./optomechatronics-optics/Optics'),
     // require('./mecatronica-computacional-modelado/Modelado'),
     // require('./mecatronica-computacional-paradigmas/Paradigmas'),
     // require('./mecatronica-computacional-dae-systems/Dae-systems'),
