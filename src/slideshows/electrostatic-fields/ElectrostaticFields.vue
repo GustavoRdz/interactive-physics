@@ -138,102 +138,60 @@
         br
         span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 4
-    //-   example-four
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") The electric field
+      p An electric field is said to exist in the region of space around a charged object, the <strong>source charge</strong>.<br> When another charged object (<strong>the test charge</strong>) enters this electric field, an electric force acts on it.
+      .center
+        img(src='./assets/fig23-10.png' height="200px")
+      p We define the electric field vector <strong>E</strong> at a point in space as the electric force <strong>F</strong> acting on a positive test charge q<sub>0</sub> placed at that point divided by the test charge
+      .center
+        img(src='./assets/eq23-7.png' height="100px")
+    
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 5
-    //-   example-five
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;") Electric field due to a finite number of point charges
+      p To calculate the electric field at a point P due to a group of point charges, we first calculate the electric field vectors at P individually using
+      .center
+        img(src='./assets/eq23-9.png' height="90px")
+      p and then add them vectorially. Therefore, the electric field at point P due to a group of source charges can be expressed as the vector sum
+      .center
+        img(src='./assets/eq23-10.png' height="100px")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 6
-    //-   example-six
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 6
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 7
-    //-   example-seven
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;") Electric Field of a Continuous Charge Distribution
+      p(style="margin: -0px 0 0 0;") That is, the system of closely spaced charges is equivalent to a total charge that is continuously distributed along some line, over some surface, or throughout some volume.
+      .center
+        img(src='./assets/fig23-14.png' height="200px")
+      p(style="margin: -0px 0 0 0;") The electric field at <em>P</em> due to one charge element carrying charge &Delta;<em>q</em> is
+      .center
+        img(src='./assets/eq23-10B.png' height="70px")
+      p(style="margin: -0px 0 0 0;") The total electric field at P due to all elements in the charge distribution is approximately 
+      .center
+        img(src='./assets/eq23-10C.png' height="70px")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center
-    //-     <svg height="250" width="600" viewbox="0 0 600 250">
-    //-       <defs>
-    //-         <path id="r1" fill="none" stroke="black">
-    //-           <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-    //-           <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-         </path>
-
-    //-       </defs>
-    //-       <use xlink:href="#r1"/>
-
-    //-       <path :d="base" stroke="black"  fill="none"/>
-    //-       <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-    //-         <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-       </rect>
-    //-       <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-    //-       <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-    //-       <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-    //-       <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-    //-       <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-    //-       <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-    //-         <text x="500" y="98">
-    //-           <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-    //-         </text>
-    //-         <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-    //-         //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-    //-         //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-    //-     </svg>
-    //-   p(style="margin: 0px 20px 0 0;") Energies
-    //-   .center
-    //-     img(src='./assets/kineticEnergy.png' height="50px"  style="margin: -20px 100px 0 0;")
-    //-     img(src='./assets/potentialEnergy.png' height="50px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") Mecanical energy
-    //-   .center
-    //-     img(src='./assets/totalEnergyA.png' height="50px"  style="margin: -50px 10px 0 0")
-    //-   p(style="margin: 0px 20px 0 0;") the constant
-    //-   .center
-    //-     img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: 10px;").center Electric Field of a Continuous Charge Distribution
+      p(style="margin: 0px 20px 0 0;") Because the charge distribution is modeled as continuous, the total field at <em>P</em> in the limit &Delta;q<sub>i</sub> &rightarrow; 0 is 
+      .center
+        img(src='./assets/eq23-11.png' height="100px")
+      p(style="margin: 0px 20px 0 0;") where the integration is over the entire charge distribution.
 
     //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

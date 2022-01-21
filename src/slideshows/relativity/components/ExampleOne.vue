@@ -56,7 +56,7 @@ export default {
       return this.electronAlphaSpeed
     },
     electronLabSpeed: function () {
-      return parseFloat((this.alphaLabSpeed - this.electronAlphaSpeed).toPrecision(3))
+      return parseFloat((this.alphaLabSpeed + this.electronAlphaSpeed).toPrecision(3))
     },
     electronAlpha: function () {
       return -this.electronAlphaSpeed

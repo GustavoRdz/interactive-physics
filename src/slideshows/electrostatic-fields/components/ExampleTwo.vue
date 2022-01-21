@@ -1,7 +1,7 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem Consider three point charges located at the corners of a right triangle as shown in the figure, where q<sub>1</sub> = {{ q1 }} μC, q<sub>2</sub> = {{ q2 }} μC, q<sub>3</sub> = {{ q3 }} μC,and a = {{ a }} m. Find the resultant force exerted on q<sub>3</sub>.
+      p.problem Consider three point charges located at the corners of a right triangle as shown in the figure, where q<sub>1</sub> = {{ q1 * 1e6 }} μC, q<sub>2</sub> = {{ q2 * 1e6}} μC, q<sub>3</sub> = {{ q3 *1e6 }} μC,and a = {{ a }} m. Find the resultant force exerted on q<sub>3</sub>.
 
       .center
         img(src='../assets/fig23-7.png' height="200px")
@@ -16,15 +16,18 @@
         p.inline.data q3 (C)
           input.center.data(:class="checkedQ3" v-model.number='enterQ3')
           <span class="error" v-if="errorQ3">[e: {{ errorQ3.toPrecision(3) }}%]</span>
-        p.inline.data F<sub>q1</sub> (N)
-          input.center.data(:class="checkedFq1" v-model='enterFq1')
-          <span class="error" v-if="errorFq1">[e: {{ errorFq1.toPrecision(3) }}%]</span>
-        p.inline.data F<sub>q2</sub> (N)
-          input.center.data(:class="checkedFq2" v-model='enterFq2')
-          <span class="error" v-if="errorFq2">[e: {{ errorFq2.toPrecision(3) }}%]</span>
-        p.inline.data F<sub>q3</sub> (N)
-          input.center.data(:class="checkedFq3" v-model='enterFq3')
-          <span class="error" v-if="errorFq3">[e: {{ errorFq3.toPrecision(3) }}%]</span>
+        p.inline.data r<sub>13</sub> (m)
+          input.center.data(:class="checkedR13" v-model='enterR13')
+          <span class="error" v-if="errorR13">[e: {{ errorR13.toPrecision(3) }}%]</span>
+        p.inline.data r<sub>23</sub> (m)
+          input.center.data(:class="checkedR23" v-model='enterR23')
+          <span class="error" v-if="errorR23">[e: {{ errorR23.toPrecision(3) }}%]</span>
+        p.inline.data F<sub>q3x</sub> (N)
+          input.center.data(:class="checkedFq3x" v-model='enterFq3x')
+          <span class="error" v-if="errorFq3x">[e: {{ errorFq3x.toPrecision(3) }}%]</span>
+        p.inline.data F<sub>q3y</sub> (N)
+          input.center.data(:class="checkedFq3y" v-model='enterFq3y')
+          <span class="error" v-if="errorFq3y">[e: {{ errorFq3y.toPrecision(3) }}%]</span>
         
 </template>
 <script>
@@ -38,16 +41,17 @@ export default {
       errorQ2: 0,
       enterQ3: '',
       errorQ3: 0,
-      enterFq1: '',
-      errorFq1: 0,
-      enterFq2: '',
-      errorFq2: 0,
+      enterR13: '',
+      errorR13: 0,
+      enterR23: '',
+      errorR23: 0,
+      enterFq3x: '',
+      errorFq3x: 0,
+      enterFq3y: '',
+      errorFq3y: 0,
       enterFq3: '',
       errorFq3: 0,
-      enterFr: '',
-      errorFr: 0,
-      enterT: '',
-      errorT: 0
+      ke: 8.9876e9
     }
   },
   computed: {
@@ -55,66 +59,67 @@ export default {
       console.clear()
       let max = 10
       let min = 5
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min) * 1e-6
     },
     q2: function () {
       let max = 5
       let min = 0
-      return -Math.floor(Math.random() * (max - min + 1) + min)
+      return -Math.floor(Math.random() * (max - min + 1) + min) * 1e-6
     },
     q3: function () {
       let max = 10
       let min = 2
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      return Math.floor(Math.random() * (max - min + 1) + min) * 1e-6
     },
     a: function () {
       let max = 10
       let min = 1
       return Math.floor(Math.random() * (max - min + 1) + min) / 10
     },
-    elastic: function () {
-      return this.force / this.displacement
+    r13: function () {
+      return this.a * Math.sqrt(2)
     },
-    frequency: function () {
-      return this.angular / (2 * Math.PI)
+    r23: function () {
+      return this.a
     },
-    angular: function () {
-      return Math.sqrt(this.elastic / this.mass)
+    fQ3x: function () {
+      let f13 = this.ke * this.q1 * this.q3 / this.r13 ** 2
+      let f23 = this.ke * this.q2 * this.q3 / this.r23 ** 2
+
+      return f13 * Math.cos(Math.PI / 4) - f23
     },
-    period: function () {
-      return 1 / this.frequency
+    fQ3y: function () {
+      let f13 = this.ke * this.q1 * this.q3 / this.r13 ** 2
+
+      return f13 * Math.sin(Math.PI / 4)
     },
-    checkedF: function () {
-      this.errorF = this.errorRelative('Force => ', this.force, parseFloat(this.enterF))
-      return this.errorF < 1e-1 ? 'correct' : 'not-correct'
+    checkedQ1: function () {
+      this.errorQ1 = this.errorRelative('q1 => ', this.q1, parseFloat(this.enterQ1))
+      return this.errorQ1 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedD: function () {
-      this.errorD = this.errorRelative('Displacement => ', this.displacement, parseFloat(this.enterD))
-      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
+    checkedQ2: function () {
+      this.errorQ2 = this.errorRelative('q2 => ', this.q2, parseFloat(this.enterQ2))
+      return this.errorQ2 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedM: function () {
-      this.errorM = this.errorRelative('Mass => ', this.mass, parseFloat(this.enterM))
-      return this.errorM < 1e-1 ? 'correct' : 'not-correct'
+    checkedQ3: function () {
+      this.errorQ3 = this.errorRelative('q3 => ', this.q3, parseFloat(this.enterQ3))
+      return this.errorQ3 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPullD: function () {
-      this.errorPullD = this.errorRelative('Pull distance => ', this.pullDistance, parseFloat(this.enterPullD))
-      return this.errorPullD < 1e-1 ? 'correct' : 'not-correct'
+    checkedR13: function () {
+      this.errorR13 = this.errorRelative('r13 => ', this.r13, parseFloat(this.enterR13))
+      return this.errorR13 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedK: function () {
-      this.errorK = this.errorRelative('elastic K => ', this.elastic, parseFloat(this.enterK))
-      return this.errorK < 1e-1 ? 'correct' : 'not-correct'
+    checkedR23: function () {
+      this.errorR23 = this.errorRelative('r23 => ', this.r23, parseFloat(this.enterR23))
+      return this.errorR23 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedOmega: function () {
-      this.errorOmega = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterOmega))
-      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
+    checkedFq3x: function () {
+      this.errorFq3x = this.errorRelative('Fq3x => ', this.fQ3x, parseFloat(this.enterFq3x))
+      return this.errorFq3x < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedFr: function () {
-      this.errorFr = this.errorRelative('frequency => ', this.frequency, parseFloat(this.enterFr))
-      return this.errorFr < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedT: function () {
-      this.errorT = this.errorRelative('Period => ', this.period, parseFloat(this.enterT))
-      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
+    checkedFq3y: function () {
+      this.errorFq3y = this.errorRelative('Fq3y => ', this.fQ3y, parseFloat(this.enterFq3y))
+      return this.errorFq3y < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {

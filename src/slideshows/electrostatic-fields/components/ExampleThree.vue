@@ -1,30 +1,24 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ q1 }} μC is at x = 2.00 m, the positive charge q<sub>2</sub> = 6.00 μC is at the origin, and the net force acting on q<sub>3</sub> is zero.
+    p.problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ q1 * 1e6 }} μC is at a = {{ a }} m, the positive charge q<sub>2</sub> = {{ q2 * 1e6 }} μC is at the origin, and the net force acting on q<sub>3</sub> is zero. What is the x coordinate of q3?
     .center
         img(src='../assets/fig23-8.png' height="200px")
 
     .center
       p.solution Please do calculations and introduce your results
-      //- p.inline.data Initial displacement (m)
-      //-   input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
-      //-   <span class="error" v-if="errorInitDisp">[e: {{ errorInitDisp.toPrecision(3) }}%]</span>
-      //- p.inline.data Initial speed (m/s)
-      //-   input.center.data(:class="checkedInitSpeed" v-model.number='enterInitSpeed')
-      //-   <span class="error" v-if="errorInitSpeed">[e: {{ errorInitSpeed.toPrecision(3) }}%]</span>
-      //- p.inline.data Angular frequency (rad/s)
-      //-   input.center.data(:class="checkedAngularFreq" v-model.number='enterAngularFreq')
-      //-   <span class="error" v-if="errorAngularFreq">[e: {{ errorAngularFreq.toPrecision(3) }}%]</span>
-      //- p.inline.data Period (s)
-      //-   input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      //-   <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
-      //- p.inline.data Amplitude (m)
-      //-   input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
-      //-   <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
-      //- p.inline.data Phase angle (rad)
-      //-   input.center.data(:class="checkedPhase" v-model='enterPhase')
-      //-   <span class="error" v-if="errorPhase">[e: {{ errorPhase.toPrecision(3) }}%]</span>
+      p.inline.data q<sub>1</sub> (C)
+        input.center.data(:class="checkedQ1" v-model.number='enterQ1')
+        <span class="error" v-if="errorQ1">[e: {{ errorQ1.toPrecision(3) }}%]</span>
+      p.inline.data q<sub>2</sub> (C)
+        input.center.data(:class="checkedQ2" v-model.number='enterQ2')
+        <span class="error" v-if="errorQ2">[e: {{ errorQ2.toPrecision(3) }}%]</span>
+      p.inline.data a (m)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data x (m)
+        input.center.data(:class="checkedX" v-model.number='enterX')
+        <span class="error" v-if="errorX">[e: {{ errorX.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -32,18 +26,14 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterInitDisp: '',
-      errorInitDisp: 0,
-      enterInitSpeed: '',
-      errorInitSpeed: 0,
-      enterAngularFreq: '',
-      errorAngularFreq: 0,
-      enterPeriod: '',
-      errorPeriod: 0,
-      enterAmplitude: '',
-      errorAmplitude: 0,
-      enterPhase: '',
-      errorPhase: 0
+      enterQ1: '',
+      errorQ1: 0,
+      enterQ2: '',
+      errorQ2: 0,
+      enterA: '',
+      errorA: 0,
+      enterX: '',
+      errorX: 0
     }
   },
   computed: {
@@ -51,50 +41,37 @@ export default {
       console.clear()
       let max = 15
       let min = 5
-      return Math.round(10 * Math.random() * (max - min + 1) + min) / 10
+      return 1e-6 * Math.round(10 * Math.random() * (max - min + 1) + min) / 10
     },
-    initialSpeed: function () {
-      let max = 5
-      let min = 1
+    q2: function () {
+      console.clear()
+      let max = 15
+      let min = 5
+      return 1e-6 * Math.round(10 * Math.random() * (max - min + 1) + min) / 10
+    },
+    a: function () {
+      let max = 3
+      let min = 2
       return Math.round(Math.random() * (max - min + 1) + min) / 10
     },
-    angular: function () {
-      let max = 50
-      let min = 20
-      return Math.round(1000 * (Math.random() * (max - min + 1) + min)) / 1000
+    x: function () {
+      return this.a * (-this.q2 + Math.sqrt(this.q1 * this.q2)) / (this.q1 - this.q2)
     },
-    period: function () {
-      return 2 * Math.PI / this.angular
+    checkedQ1: function () {
+      this.errorQ1 = this.errorRelative('q1 => ', this.q1, parseFloat(this.enterQ1))
+      return this.errorQ1 < 1e-1 ? 'correct' : 'not-correct'
     },
-    amplitude: function () {
-      return Math.sqrt(Math.pow(this.initialDisplacement, 2) + Math.pow(this.initialSpeed / this.angular, 2))
+    checkedQ2: function () {
+      this.errorQ2 = this.errorRelative('q2 => ', this.q2, parseFloat(this.enterQ2))
+      return this.errorQ2 < 1e-1 ? 'correct' : 'not-correct'
     },
-    phase: function () {
-      return Math.atan2(-this.initialSpeed, this.angular * this.initialDisplacement)
+    checkedA: function () {
+      this.errorA = this.errorRelative('a => ', this.a, parseFloat(this.enterA))
+      return this.errorA < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedInitDisp: function () {
-      this.errorInitDisp = this.errorRelative('Init displacement => ', this.initialDisplacement, parseFloat(this.enterInitDisp))
-      return this.errorInitDisp < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedInitSpeed: function () {
-      this.errorInitSpeed = this.errorRelative('Init speed => ', this.initialSpeed, parseFloat(this.enterInitSpeed))
-      return this.errorInitSpeed < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedAngularFreq: function () {
-      this.errorAngularFreq = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterAngularFreq))
-      return this.errorAngularFreq < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedPeriod: function () {
-      this.errorPeriod = this.errorRelative('Period => ', this.period, parseFloat(this.enterPeriod))
-      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedAmplitude: function () {
-      this.errorAmplitude = this.errorRelative('Amplitud => ', this.amplitude, parseFloat(this.enterAmplitude))
-      return this.errorAmplitude < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedPhase: function () {
-      this.errorPhase = this.errorRelative('Phase => ', this.phase, parseFloat(this.enterPhase))
-      return this.errorPhase < 1e-1 ? 'correct' : 'not-correct'
+    checkedX: function () {
+      this.errorX = this.errorRelative('x => ', this.x, parseFloat(this.enterX))
+      return this.errorX < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
