@@ -161,7 +161,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 6
+      h3(style="margin-top: -20px;") Exercise 4
       example-four
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -193,63 +193,57 @@
         img(src='./assets/eq23-11.png' height="100px")
       p(style="margin: 0px 20px 0 0;") where the integration is over the entire charge distribution.
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Electric Field of a Continuous Charge Distribution
+      p When performing such calculations, it is convenient to use the concept of a charge density along with the following notations:
+      .center
+        p volume charge density: &emsp; 
+          img(src='./assets/eq23-11B.png' height="70px"  style="margin: 0px 0 -20px 0px;")
+      .center
+        p surface charge density: &emsp; 
+          img(src='./assets/eq23-11C.png' height="70px"  style="margin: 0 0  -30px 0;")
+      .center
+        p linear charge density: &emsp; 
+          img(src='./assets/eq23-11D.png' height="70px"  style="margin: 0 0  -30px 0;")
+      p And the amount of charge for each case is
+      .center
+        img(src='./assets/eq23-11E.png' height="60px"  style="margin: -20px 0 0 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 8
-    //-   example-nine
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 5
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 9
-    //-   example-ten
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 6
+      example-six
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -30px;") Exercise 10
-    //-   example-thirteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Other systems of SHM
-    //-   p(style="margin-top: -30px;").center Angular SHM
-    //-   //- torsion-pendulum
-    //-   .center
-    //-     img(src='./assets/angularSHM.png' height="300px")
-    //-   .center
-    //-     img(src='./assets/angularTheta.png')
-    //-   .center
-    //-     img(src='./assets/angularWf.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Electric field lines
+      p(style="margin-top: -30px;") Electric field lines, that are related to the electric field in a region of space in the following manner:
+      p • The electric field vector is tangent to the electric field line at each point. The line has a direction, indicated by an arrowhead, that is the same as that of the electric field vector. The direction of the line is that of the force on a positive test charge placed in the field.
+      p • The number of lines per unit area through a surface perpendicular to the lines is proportional to the magnitude of the electric field in that region. Therefore, the field lines are close together where the electric field is strong and far apart where the field is weak.
+      .center
+        img(src='./assets/fig23-18.png' height="200px")
 
     //- slide(enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

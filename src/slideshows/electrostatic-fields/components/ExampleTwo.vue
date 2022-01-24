@@ -84,7 +84,7 @@ export default {
     },
     fQ3x: function () {
       let f13 = this.ke * this.q1 * this.q3 / this.r13 ** 2
-      let f23 = this.ke * this.q2 * this.q3 / this.r23 ** 2
+      let f23 = this.ke * Math.abs(this.q2) * this.q3 / this.r23 ** 2
 
       return f13 * Math.cos(Math.PI / 4) - f23
     },

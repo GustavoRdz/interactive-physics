@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ q1 * 1e6 }} μC is at a = {{ a }} m, the positive charge q<sub>2</sub> = {{ q2 * 1e6 }} μC is at the origin, and the net force acting on q<sub>3</sub> is zero. What is the x coordinate of q3?
+    p.problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ Math.round(100 * q1 * 1e6) / 100 }} μC is at a = {{ a }} m, the positive charge q<sub>2</sub> = {{ Math.round(100 * q2 * 1e6) /100 }} μC is at the origin, and the net force acting on q<sub>3</sub> is zero. What is the x coordinate of q3?
     .center
         img(src='../assets/fig23-8.png' height="200px")
 
@@ -55,6 +55,8 @@ export default {
       return Math.round(Math.random() * (max - min + 1) + min) / 10
     },
     x: function () {
+      console.log('x1+: ', this.a * (-this.q2 + Math.sqrt(this.q1 * this.q2)) / (this.q1 - this.q2))
+      console.log('x2-: ', this.a * (-this.q2 - Math.sqrt(this.q1 * this.q2)) / (this.q1 - this.q2))
       return this.a * (-this.q2 + Math.sqrt(this.q1 * this.q2)) / (this.q1 - this.q2)
     },
     checkedQ1: function () {
