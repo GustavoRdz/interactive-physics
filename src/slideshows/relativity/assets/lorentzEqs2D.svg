@@ -152,8 +152,8 @@
           <text x="415" y="33" stroke="none" fill="black" font-style="italic" font-size="13">y</text>
           <text x="430" y="30" stroke="none" fill="black" font-style="normal" font-size="25">=</text>
           <text x="450" y="30" stroke="none" fill="black" font-style="italic" font-size="25">v</text>
-          <text x="460" y="33" stroke="none" fill="black" font-style="normal" font-size="13">1</text>
-          <text x="465" y="33" stroke="none" fill="black" font-style="italic" font-size="13">x</text>
+          <text x="460" y="33" stroke="none" fill="black" font-style="normal" font-size="13">2</text>
+          <text x="465" y="33" stroke="none" fill="black" font-style="italic" font-size="13">y</text>
         </g>
         <g transform="translate(0,0)">
           <!-- <text x="190" y="460" stroke="none" fill="black" font-size="20" font-family="roboto">&#x221a;</text> -->
@@ -179,14 +179,17 @@
           <text x="539" y="36" stroke="none" fill="black" font-style="italic" font-size="13">2</text>
         </g>
       </g>
-      <g transform="translate(200, 160)">
+      <g transform="translate(210, 160)">
         <g transform="translate(-280,150)">
-          <text x="400" y="30" stroke="none" fill="black" font-style="italic" font-size="25">v</text>
-          <text x="410" y="33" stroke="none" fill="black" font-style="normal" font-size="13">2</text>
-          <text x="416" y="33" stroke="none" fill="black" font-style="italic" font-size="13">x</text>
-          <text x="430" y="30" stroke="none" fill="black" font-style="normal" font-size="25">=</text>
+          <text x="390" y="30" stroke="none" fill="black" font-style="italic" font-size="25">v</text>
+          <text x="400" y="33" stroke="none" fill="black" font-style="normal" font-size="13">2</text>
+          <text x="406" y="33" stroke="none" fill="black" font-style="italic" font-size="13">y</text>
+          <text x="415" y="30" stroke="none" fill="black" font-style="normal" font-size="25">=</text>
+          <text x="435" y="30" stroke="none" fill="black" font-style="italic" font-size="25">v</text>
+          <text x="445" y="33" stroke="none" fill="black" font-style="normal" font-size="13">1</text>
+          <text x="450" y="33" stroke="none" fill="black" font-style="italic" font-size="13">y</text>
         </g>
-        <g transform="translate(-20,0)">
+        <g transform="translate(-15,0)">
           <!-- <text x="190" y="460" stroke="none" fill="black" font-size="20" font-family="roboto">&#x221a;</text> -->
           <text x="190" y="170" stroke="none" fill="black" font-size="30" font-family="arial">&#x221a;</text>
           <text x="210" y="165" stroke="none" fill="black" font-style="normal" font-size="25">1</text>
@@ -198,8 +201,8 @@
           <text x="250" y="165" stroke="none" fill="black" font-style="italic" font-size="25">c</text>
           <text x="262" y="160" font-size="12" stroke="none" fill="black" font-style="normal">2</text>
         </g>
-        <line x1="175" x2="280" y1="173" y2="173" stroke="black" stroke-width="2"/>
-        <g transform="translate(-300,170)">
+        <line x1="180" x2="280" y1="173" y2="173" stroke="black" stroke-width="2"/>
+        <g transform="translate(-295,170)">
           <text x="475" y="30" stroke="none" fill="black" font-style="normal" font-size="25">1</text>
           <text x="497" y="30" stroke="none" fill="black" font-style="normal" font-size="25">-</text>
           <text x="520" y="20" stroke="none" fill="black" font-style="italic" font-size="25">v·</text>

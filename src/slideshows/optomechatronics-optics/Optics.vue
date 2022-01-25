@@ -107,52 +107,236 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -0px;").center Characteristics of Optomechatronic Technology 
+      h5(style="margin-top: -0px;").center Refraction at a spherical surface 
       .center
         img(src='./assets/fig2-7.png' height="500px" style="margin: -0px 0 0 0;")
-      p(style="padding: 1px; margin:  50px 0 20px 0px; line-height: 1.5em;") 
+      .center
+        img(src='./assets/eq2-8.png' height="80px" style="margin: -0px 0 0 0;")
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5(style="margin-top: -0px;").center Characteristics of Optomechatronic Technology 
-    //-   h6(style="margin-top: -0px;").center Integration type
-    //-   .center
-    //-     img(src='./assets/fig1-9.png' height="500px" style="margin: -0px 0 0 0;")
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -0px;").center Spherical lens
+      .center
+        img(src='./assets/fig2-8.png' height="500px" style="margin: -0px 0 0 0;")
+      .center
+        img(src='./assets/eq2-9.png' height="70px" style="margin: -0px 0 0 0;")
+      .center
+        img(src='./assets/eq2-10.png' height="70px" style="margin: -0px 0 0 0;")
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5(style="margin-top: -0px;").center Characteristics of Optomechatronic Technology 
-    //-   h6(style="margin-top: -0px;").center Interaction between three different dimensional worlds
-    //-   .center
-    //-     img(src='./assets/fig1-10.png' height="300px" style="margin: -0px 0 0 0;")
-    //-   p(style="padding: 1px; margin:  50px 0 20px 0px; line-height: 1.5em;") One important factor we need to consider in dealing with micro-systems is the so-called “size or scale effect” due to which the influence of the same physical phenomena becomes variable with the length scale of a system.
-    //-   //- p To take some examples: (1) Inertial (volume) force that influences a macro-scale system becomes less significant in micro-systems. Instead, surface effects (force) become rather dominant. This is because in general the inertial force is proportional to volume (L<sup>3</sup>), whereas the surface force is in proportion to surface area (L 2). (2) In optical and mechatronic interaction, deflections on the order of wavelengths of light do matter in a microsystem but not in a macrosystem. (3) Atomic attractive and repulsive forces become significant in microsystems. (4) The smaller geometrical size material gets stronger.
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -0px;").center Spherical lens
+      p Combinig the former equations we have
+      .center
+        img(src='./assets/eq2-12.png' height="70px" style="margin: -0px 0 0 0;")
+      p(style="padding: 1px; margin:  50px 0 20px 0px; line-height: 1.5em;") When a source is located at infinity, we can see that the image distance becomes the focal length f. In this case, we have
+      .center
+        img(src='./assets/eq2-13B.png' height="70px" style="margin: -0px 0 0 0;")
+      p(style="padding: 1px; margin:  50px 0 20px 0px; line-height: 1.5em;") This equation is referred to as the <strong>lens maker’s formula</strong>. When a surrounding medium is air, n<sub>1</sub> &approx; 1, the lens formula becomes &rArr;
+      .center
+        img(src='./assets/eq2-13.png' height="90px" style="margin: 0 50px -35px 0;")
+        | &rArr;
+        img(src='./assets/eq2-14.png' height="90px" style="margin: 0 0 -35px 50px;")
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5(style="margin-top: -0px;").center Fundamental Functions of Optomechatronic Systems
-    //-   .center
-    //-     img(src='./assets/fig1-11.png' height="400px" style="margin: -0px 0 0 0;")
-    //-   p(style="padding: 1px; margin:  30px 0 20px 0px; line-height: 1.5em;") These enabling technologies are integrated to form five engines that drive the technology.<br> These include: (1) actuator module, (2) sensor module, (3) control module, (4) signal/information processing module, and (5) decision making module.<br> It is noted that the integration of these gives a specified functionality with certain characteristics.
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -0px;").center Thin lenses - Spherical lenses
+      h6.center Gauss lens formula
+      .center
+        img(src='./assets/eq2-14.png' height="90px" style="margin: -50px 0 50px 0px;")
+      h6.center Focal point F
+      .center
+        img(src='./assets/fig2-9.png' height="280px" style="margin: -50px 0 0 0;")
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5(style="margin-top: -0px;").center Fundamental Functions
-    //-   p(style="padding: 1px; margin:  30px 0 20px 0px; line-height: 1.5em;") A number of fundamental functions can be generated by the fusion of optical mechatronic elements.
-    //-   p These include <br>(1) illumination control,&emsp;&emsp;&emsp;(2) sensing,&emsp;&emsp;&emsp;(3) actuating,<br> (4) optical scanning,&emsp;&emsp;&emsp;&emsp;(5) visual/optical information feedback control,<br> (6) data storage,&emsp;&emsp;&emsp;&emsp;&emsp;(7) data transmission/switching,<br> (8) data display,&emsp;&emsp;&emsp;&emsp;&emsp;(9) optical property variation,<br> (10) sensory feedback based optical system control,<br> (11) optical pattern recognition,&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;(12) remote monitoring/control,<br> and (13) material processing
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -0px;").center Thin lenses - Spherical lenses
+      .center
+        img(src='./assets/eq2-14.png' height="90px" style="margin: -0px 0 0px 0px;")
+      p The effect of location of point light source.
+      .center
+        img(src='./assets/fig2-10.png' height="400px" style="margin: -10px 0 0 0;")
+        img(src='./assets/gaussGraph2.png' height="320px" style="margin: -10px 0 50px 10px;")
     
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h6(style="margin-top: -0px;").center  Fundamental Functions
-    //-   .center
-    //-     img(src='./assets/fig1-12.png' height="1000px" style="margin: -200px 0 0 0;").rotateimg90
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Ray trace image formation
+      p 
+      .center
+        img(src='./assets/fig2-12A.png' height="200px" style="margin: -20px 0 10px 0;")
+      .center
+        img(src='./assets/fig2-12B.png' height="195px" style="margin: -10px 0 0 0;")
+      h6.center Magnification
+      .center
+        img(src='./assets/eq2-16.png' height="80px" style="margin: -40px 0 0 0;")
     
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h6(style="margin-top: -0px;").center  Fundamental Functions
-    //-   .center
-    //-     img(src='./assets/fig1-12b.png' height="1000px" style="margin: -200px 0 0 0;").rotateimg90
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Example
+      p Let us take some examples for thin lenses. When an object is located 6 cm in front of a convex lens having focal length 10 cm, the location and magnitude of the image to be formed can be calculated by using
+      .center
+        img(src='./assets/eq2-14.png' height="70px" style="margin: -20px 30px 0 0;")
+        img(src='./assets/eq2-16.png' height="70px" style="margin: -20px 0px 0 30px;")
+      p The image  location is obtained by (convex lens)
+      .center
+        img(src='./assets/eq2-16B.png' height="70px" style="margin: -20px 0 0 0;")
+        img(src='./assets/eq2-16C.png' height="70px" style="margin: -20px 0 0 30px;")
+      p (concave lens)
+      .center
+        img(src='./assets/eq2-16D.png' height="70px" style="margin: -20px 0 0 0;")
+        img(src='./assets/eq2-16E.png' height="70px" style="margin: -20px 0 0 30px;")
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Image characteristics
+      p 
+      .center
+        img(src='./assets/table2-2.png' height="250px" style="margin: -30px 0px 0 0;")
+      .center
+        img(src='./assets/fig2-13A.png' height="150px" style="margin: 30px 0px 0 40px;")
+        img(src='./assets/eq2-16F.png' height="50px" style="margin: 0px 0px 70px 10px;")
+        img(src='./assets/fig2-13B.png' height="170px" style="margin: -30px 160px 0 0;")
+        img(src='./assets/fig2-13C.png' height="145px" style="margin: -30px 0px 0 20px;")
+        img(src='./assets/eq2-16G.png' height="50px" style="margin: 0px 0px 50px 10px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple lenses
+      p 
+      .center
+        img(src='./assets/fig2-14.png' height="250px" style="margin: -30px 0px 0 0;")
+      .center
+        img(src='./assets/eq2-17.png' height="80px" style="margin: 30px 20px -30px 0px;")
+        | &rArr;
+        img(src='./assets/eq2-18.png' height="60px" style="margin: 0px 20px -20px 20px;")
+        | &rArr;
+        img(src='./assets/eq2-19.png' height="80px" style="margin: 0px 0px -30px 20px;")
+      .center
+        img(src='./assets/eq2-20.png' height="80px" style="margin: 100px 30px -30px 0px;")
+        | &rArr;
+        img(src='./assets/eq2-21.png' height="80px" style="margin: 100px 0px -30px 30px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple lenses
+      p 
+      .center
+        img(src='./assets/fig2-14.png' height="250px" style="margin: -30px 0px 0 0;")
+      h6 Consider a two convex lens compound system has f1 = 20 cm, f2 = 20 cm, and their separation d = 30 cm. We wish to compute the image of an object located 30 cm from the first lens L1. Applying the lens formula L1
+      .center
+        img(src='./assets/eq2-21B.png' height="80px" style="margin: -30px 20px -30px 0px;")
+        | &rArr;
+        img(src='./assets/eq2-21C.png' height="80px" style="margin: -30px 20px -30px 20px;")
+        | &rArr;
+      .center
+        img(src='./assets/eq2-21D.png' height="70px" style="margin: 20px 20px -30px 20px;")
+        | &rArr;
+        img(src='./assets/eq2-21E.png' height="80px" style="margin: 20px 0px -30px 20px;")
+      .center
+        img(src='./assets/eq2-21F.png' height="50px" style="margin: 40px 30px -30px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
+      p 
+      .center
+        img(src='./assets/fig2-15A.png' height="250px" style="margin: 30px 0px 0 0;")
+        img(src='./assets/fig2-15B.png' height="250px" style="margin: 30px 0px 0 0;")
+     
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
+      p 
+      .center
+        img(src='./assets/fig2-16A.png' height="200px" style="margin: -30px 0px 0 0;")
+        img(src='./assets/fig2-16B.png' height="200px" style="margin: -30px 0px 0 0;")
+        img(src='./assets/fig2-16C.png' height="200px" style="margin: -30px 0px 0 0;")
+      .center
+        img(src='./assets/eq2-22.png' height="80px" style="margin: 50px 20px -30px 0;")
+        | and
+        img(src='./assets/eq2-23.png' height="80px" style="margin: 50px 20px -30px 20px;")
+        | then
+        img(src='./assets/eq2-23B.png' height="50px" style="margin: 50px 0px -20px 20px;")
+      .center
+        img(src='./assets/eq2-24.png' height="50px" style="margin: 70px 20px -20px 0;")
+        | and
+        img(src='./assets/eq2-25.png' height="80px" style="margin: 70px 20px -30px 20px;")
+        | and
+        img(src='./assets/eq2-26.png' height="80px" style="margin: 70px 0px -30px 20px;")
+      .center
+        img(src='./assets/eq2-27.png' height="50px" style="margin: 70px 20px -20px 0;")
+        | or
+        img(src='./assets/eq2-28.png' height="80px" style="margin: 70px 20px -30px 20px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
+      h6 Example
+      p(style="padding: 15px; margin: 1px 1px -0px 1px; line-height: 1.2em;")  Let us take an example of determining the equivalent focal length of a two lens system. The front convex lens has focal length of 50 mm, and the rear concave lens a focal length of 25 mm. The lenses are separated in distance by 30 mm and then moved to another position, 40 mm. To determine the equivalent focal length, we use Equation 2.28,
+      .center
+        img(src='./assets/eq2-29B.png' height="70px" style="margin: 30px 0px 0 0;")
+      p for d = 40 mm the equivalent focal length becomes 83.3333
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
+      h6 Example
+      p(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") We consider another case when two positive lenses, L1 and L2, having an identical focal length, f are separated from each other with distance case (1) f/4 and pulled away from each other with distance case (2) f/2: We compute the feq, or the approximate power of the two cases and determine which one is the wider-angle lens.
+      .center
+        | if
+        img(src='./assets/eq2-29C.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        | then
+        img(src='./assets/eq2-29D.png' height="80px" style="margin: 50px 20px -30px 20px;")
+      .center
+        | if
+        img(src='./assets/eq2-29E.png' height="70px" style="margin: 70px 20px -20px 20px;")
+        | then
+        img(src='./assets/eq2-29F.png' height="80px" style="margin: 70px 20px -20px 20px;")
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.2em;") Because case (1) has shorter focal length, the system separated f/4 apart is the wider-angle lens.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  The system matrices
+      h6 Translation matrix
+      p(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig2-17A.png' height="300px" style="margin: 50px 20px -30px 20px;")
+      .center
+        img(src='./assets/eq2-30.png' height="100px" style="margin: 100px 20px -30px 20px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  The system matrices
+      h6 Refraction matrix: Convex surface 
+      .center
+        img(src='./assets/fig2-17B.png' height="300px" style="margin: -30px 20px -30px 20px;")
+      .center
+        img(src='./assets/eq2-31.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        img(src='./assets/eq2-32.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        img(src='./assets/eq2-33.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        img(src='./assets/eq2-34.png' height="100px" style="margin: 50px 20px -30px 20px;")
+      .center
+        img(src='./assets/eq2-35.png' height="100px" style="margin: 50px 20px -30px 20px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  The system matrices
+      h6 Refraction matrix: Concave surface 
+      .center
+        img(src='./assets/fig2-17C.png' height="300px" style="margin: -30px 20px -30px 20px;")
+      .center
+        img(src='./assets/eq2-31.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        img(src='./assets/eq2-35B.png' height="70px" style="margin: 50px 20px -30px 20px;")
+        img(src='./assets/eq2-35C.png' height="70px" style="margin: 50px 20px -30px 20px;")
+      .center
+        img(src='./assets/eq2-36.png' height="100px" style="margin: 50px 20px -30px 20px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Computer ray tracing
+      p Beam expanding via three-lens configuration
+      .center
+        img(src='./assets/fig2-18.png' height="400px" style="margin: 40px 20px -30px 20px;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
