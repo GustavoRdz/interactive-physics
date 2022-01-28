@@ -245,76 +245,152 @@
       .center
         img(src='./assets/fig23-18.png' height="200px")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Inertia moments
-    //-   p(style="margin-top: -30px;").center
-    //-   .center
-    //-     img(src='./assets/inertiaMomentsTable.png')
-    //-   p.center Parallel axis theorem
-    //-   .center
-    //-     img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Electric field lines
+      p(style="margin-top: -30px;") The electric field lines for a point charge.
+      .center
+        img(src='./assets/fig23-19.png')
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The simple pendulum
-    //-   .center
-    //-     img(src='./assets/simplePendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumW.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumF.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumT.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Electric field lines
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1em;") The rules for drawing electric field lines are as follows:
+      p(style="padding: 15px; margin: 1px 1px -0px 1px; line-height: 1.2em;") • The lines must begin on a positive charge and terminate on a negative charge. In the case of an excess of one type of charge, some lines will begin or end infinitely far away.<br> • The number of lines drawn leaving a positive charge or approaching a negative charge is proportional to the magnitude of the charge.<br> • No two field lines can cross
+      .center
+        img(src='./assets/fig23-20.png' height="300px")
+        img(src='./assets/fig23-21.png' height="200px")
+        img(src='./assets/fig23-22.png' height="290px")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 7
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 11
-    //-   example-fourteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 8
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3.center Electric Flux
+      .center
+        img(src='./assets/fig24-1.png' height="400px" style="margin: 50px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 12
-    //-   example-seventeen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3.center Electric Flux
+      p This product of the magnitude of the electric field E and surface area A perpendicular to the field is called the electric flux &Phi;<sub>E</sub>:
+      .center
+        img(src='./assets/eq24-1.png' height="50px" style="margin: 0px;")
+      .center
+        img(src='./assets/fig24-2.png' height="300px" style="margin: 20px;")
+      .center
+        img(src='./assets/eq24-2.png' height="50px" style="margin: 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 13
-    //-   example-eighteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Flux
+      p It is convenient to define a vector &Delta;<strong>A<sub>i</sub></strong> whose magnitude represents the area of the ith element of the large surface and whose direction is defined to be perpendicular to the surface element.
+      .center
+        img(src='./assets/fig24-3.png' height="200px" style="margin: -20px;")
+      p The electric field <strong>E<sub>i</sub></strong> at the location of this element makes an angle &theta;<sub>i</sub> with the vector &Delta;<strong>A<sub>i</sub></strong>. The electric flux &Phi;<sub>E,i</sub> through this element is
+      .center
+        img(src='./assets/eq24-2C.png' height="50px" style="margin: 0px 50px -15px 0px;")
+        | or 
+        img(src='./assets/eq24-3.png' height="100px" style="margin: 0px 0px -50px 50px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Flux
+      p A closed surface in an electric field.<br>The area vectors are, by convention, normal to the surface and point outward.
+      .center
+        img(src='./assets/fig24-4.png' height="550px" style="margin: 0px 0px -0px 50px;")
+        img(src='./assets/eq24-4.png' height="100px" style="margin: 0px 0px 250px 50px;")
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Gauss's Law
+      p(style="margin: -0px;").center Flux by a charge
+      .center
+        img(src='./assets/fig24-6.png', height="300px")
+      .center
+        img(src='./assets/eq24-4C.png' height="50px" style="margin: 0px 50px -10px 50px;")
+        | &rArr;
+        img(src='./assets/eq24-4D.png' height="80px" style="margin: 0px 0px -30px 50px;")
+      .center
+        img(src='./assets/eq24-4E.png' height="50px" style="margin: 50px 50px -10px 0px;")
+        | &rArr;
+        img(src='./assets/eq24-4F.png' height="50px" style="margin: 50px 0px -10px 50px;")
+
+      .center
+        img(src='./assets/eq24-5.png' height="80px")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Gauss's Law
+      h6 The net flux through any closed surface surrounding a point charge q is given by <strong>q/&epsilon;<sub>0</sub></strong> and is independent of the shape of that surface.
+      .center
+        img(src='./assets/fig24-7.png' height="250px" style="margin: 0px 20px 27px 0px;")
+        img(src='./assets/fig24-8.png' height="300px" style="margin: 0px 0px 0px 20px;")
+      .center
+        img(src='./assets/eq24-6.png' height="80px", style="margin: 50px;")
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 10
+      example-ten
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 11
+      example-eleven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide(enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

@@ -1,30 +1,30 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A cheerleader waves her pom-pom in SHM with an amplitude of {{ amplitude }} cm and a frequency of {{ frequency }} Hz. Find (a) the maximum magnitude of the acceleration and of the velocity; (b) the acceleration and speed when the pom-pom’s coordinate is x = {{ position }} cm (c) the time required to move from the equilibrium position directly to a point {{ position2 }} cm away.
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
-      p.inline.data  Frequency (Hz)
-        input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-        <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
-      p.inline.data Max Acceleration (m/s<sup>2</sup>)
-        input.center.data(:class="checkedMaxAcc" v-model.number='enterMaxAcc')
-        <span class="error" v-if="errorMaxAcc">[e: {{ errorMaxAcc.toPrecision(3) }}%]</span>
-      p.inline.data Max velocity (m/s)
-        input.center.data(:class="checkedMaxVel" v-model.number='enterMaxVel')
-        <span class="error" v-if="errorMaxVel">[e: {{ errorMaxVel.toPrecision(3) }}%]</span>
-      p.inline.data Acceleration (m/s<sup>2</sup>) at x = {{ position }} (m);
-        input.center.data(:class="checkedAcc" v-model.number='enterAcc')
-        <span class="error" v-if="errorAcc">[e: {{ errorAcc.toPrecision(3) }}%]</span>
-      p.inline.data Velocity (m/s)  at x = {{ position }} (m);
-        input.center.data(:class="checkedVel" v-model.number='enterVel')
-        <span class="error" v-if="errorVel">[e: {{ errorVel.toPrecision(3) }}%]</span>
-      p.inline.data Time (s)
-        input.center.data(:class="checkedTime" v-model.number='enterTime')
-        <span class="error" v-if="errorTime">[e: {{ errorTime.toPrecision(3) }}%]</span>
+    p.problem An insulating solid sphere of radius a has a uniform volume charge density r and carries a total positive charge Q (Fig. 24.10). (A) Calculate the magnitude of the electric field at a point outside the sphere.(B) Find the magnitude of the electric field at a point inside the sphere.
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Amplitude (m)
+    //-     input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
+    //-     <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
+    //-   p.inline.data  Frequency (Hz)
+    //-     input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
+    //-     <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
+    //-   p.inline.data Max Acceleration (m/s<sup>2</sup>)
+    //-     input.center.data(:class="checkedMaxAcc" v-model.number='enterMaxAcc')
+    //-     <span class="error" v-if="errorMaxAcc">[e: {{ errorMaxAcc.toPrecision(3) }}%]</span>
+    //-   p.inline.data Max velocity (m/s)
+    //-     input.center.data(:class="checkedMaxVel" v-model.number='enterMaxVel')
+    //-     <span class="error" v-if="errorMaxVel">[e: {{ errorMaxVel.toPrecision(3) }}%]</span>
+    //-   p.inline.data Acceleration (m/s<sup>2</sup>) at x = {{ position }} (m);
+    //-     input.center.data(:class="checkedAcc" v-model.number='enterAcc')
+    //-     <span class="error" v-if="errorAcc">[e: {{ errorAcc.toPrecision(3) }}%]</span>
+    //-   p.inline.data Velocity (m/s)  at x = {{ position }} (m);
+    //-     input.center.data(:class="checkedVel" v-model.number='enterVel')
+    //-     <span class="error" v-if="errorVel">[e: {{ errorVel.toPrecision(3) }}%]</span>
+    //-   p.inline.data Time (s)
+    //-     input.center.data(:class="checkedTime" v-model.number='enterTime')
+    //-     <span class="error" v-if="errorTime">[e: {{ errorTime.toPrecision(3) }}%]</span>
 
 </template>
 <script>

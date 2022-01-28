@@ -49,7 +49,7 @@
           p(style="margin-bottom: -30px;")
             <b>Lorentz transformations</b>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="text-transform: uppercase;").center The principle of Galilean relativity
       p The laws of mechanics must be the same in all inertial frames of reference.
@@ -57,14 +57,14 @@
         img(src='./assets/inertialFrame.svg')
       p If objects moves at constant speed with respect to any reference frame it is an <b>inertial frame</b>. It obey the first movement law
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Galilean transformations
       p Suppose two inertial frames and an event, we measure the speed of the event in one of the reference frames, howcan we calculate the speed of event with respect the other inertial frame?.
       .center
         img(src='./assets/galileoTransforms.svg')
 
-    slide(:steps=6, enter='bounceInDown')
+    slide(:steps=6, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4 Space-time Galilean Transformations
       p(v-if="step >= 2" style="margin-bottom: 0px;") From the figure we have that
@@ -168,7 +168,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 The speed of light
       //- p Physicst of the late 1800s thought light moves in a medium called <em>Ether</em> in order to justify the propagation of electromagnetic waves in the empty space.
@@ -178,13 +178,13 @@
       p.center Velocity of light resulting from different situations according to <b>Galilean relativity</b>
       p.center But light is so fast, how can we detect that changes is light velocity?
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Michelson-Morley Experiment
       .center
         img(src='./assets/michelsonInterferometer.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Einstein's Principle of Relativity
       p 1. The principle of relativity:
@@ -192,14 +192,14 @@
       p 2. The constancy of the speed of light:
       p.center <b>The speed of light in vacuum has the same value, c = 3.00 x 10<sup>8</sup> m/s, in all inertial frames, regardless of the velocity of the observer or the velocity of the source emitting the light</b>.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Simultaneity
       p.center Time measurement depends on the reference frame of the observer
       .center
         img(src='./assets/simultaneity.svg')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1,  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Relativity of time
       p.center Time measurement depends on the reference frame of the observer
@@ -208,7 +208,7 @@
       p.center
 
 
-    slide
+    slide(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations equations
       .center
@@ -216,7 +216,7 @@
       .center
         img(src='./assets/lorentzEqs.svg')
 
-    slide
+    slide(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations in two dimensions
       .center
@@ -248,7 +248,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Length contraction
       .center
@@ -282,7 +282,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Time dilation
       .center
@@ -316,7 +316,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Mass variation
       .center
@@ -350,7 +350,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown', :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

@@ -1,27 +1,29 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An harmonic oscillator has angular frequency and amplitude A. (a) What are the magnitudes of the displacement (in terms of A) and velocity (in terms of v<sub>max</sub>) when the elastic potential energy is equal to the kinetic energy? (Assume that U = 0 at equilibrium.) (b) How often does this occur in each cycle? What is the time between occurrences (in terms of T)? (c) At an instant when the displacement is equal to A/2, what fraction of the total energy of the system is kinetic and what fraction is potential?
+    p.problem Consider a uniform electric field <strong>E<span style="margin-left:0.15em; vertical-align : .2em;">&#8407;</span></strong> oriented in the x direction in empty space. A cube of edge length l, is placed in the field, oriented as shown in Figure. Find the net electric flux through the surface of the cube.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Displacement (in A)
-        input.center.data(:class="checkedDispl" v-model.number='enterDispl')
-        <span class="error" v-if="errorDispl">[e: {{ errorDispl.toPrecision(3) }}%]</span>
-      p.inline.data velocity ( in v<sub>max</sub>)
-        input.center.data(:class="checkedVelocity" v-model.number='enterVelocity')
-        <span class="error" v-if="errorVelocity">[e: {{ errorVelocity.toPrecision(3) }}%]</span>
-      p.inline.data Times in a period (times)
-        input.center.data(:class="checkedTimes" v-model.number='enterTimes')
-        <span class="error" v-if="errorTimes">[e: {{ errorTimes.toPrecision(3) }}%]</span>
-      p.inline.data Time between occurences (in T)
-        input.center.data(:class="checkedOccurrences" v-model.number='enterOccurrences')
-        <span class="error" v-if="errorOccurrences">[e: {{ errorOccurrences.toPrecision(3) }}%]</span>
-      p.inline.data Kinetic energy at A/2 (%)
-        input.center.data(:class="checkedKinetic" v-model.number='enterKinetic')
-        <span class="error" v-if="errorKinetic">[e: {{ errorKinetic.toPrecision(3) }}%]</span>
-      p.inline.data Potential energy at A/2 (%)
-        input.center.data(:class="checkedPotential" v-model.number='enterPotential')
-        <span class="error" v-if="errorPotential">[e: {{ errorPotential.toPrecision(3) }}%]</span>
+      img(src='../assets/fig24-5.png', height="300px")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Displacement (in A)
+    //-     input.center.data(:class="checkedDispl" v-model.number='enterDispl')
+    //-     <span class="error" v-if="errorDispl">[e: {{ errorDispl.toPrecision(3) }}%]</span>
+    //-   p.inline.data velocity ( in v<sub>max</sub>)
+    //-     input.center.data(:class="checkedVelocity" v-model.number='enterVelocity')
+    //-     <span class="error" v-if="errorVelocity">[e: {{ errorVelocity.toPrecision(3) }}%]</span>
+    //-   p.inline.data Times in a period (times)
+    //-     input.center.data(:class="checkedTimes" v-model.number='enterTimes')
+    //-     <span class="error" v-if="errorTimes">[e: {{ errorTimes.toPrecision(3) }}%]</span>
+    //-   p.inline.data Time between occurences (in T)
+    //-     input.center.data(:class="checkedOccurrences" v-model.number='enterOccurrences')
+    //-     <span class="error" v-if="errorOccurrences">[e: {{ errorOccurrences.toPrecision(3) }}%]</span>
+    //-   p.inline.data Kinetic energy at A/2 (%)
+    //-     input.center.data(:class="checkedKinetic" v-model.number='enterKinetic')
+    //-     <span class="error" v-if="errorKinetic">[e: {{ errorKinetic.toPrecision(3) }}%]</span>
+    //-   p.inline.data Potential energy at A/2 (%)
+    //-     input.center.data(:class="checkedPotential" v-model.number='enterPotential')
+    //-     <span class="error" v-if="errorPotential">[e: {{ errorPotential.toPrecision(3) }}%]</span>
 
 </template>
 <script>

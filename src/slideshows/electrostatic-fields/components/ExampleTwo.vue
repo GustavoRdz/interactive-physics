@@ -63,7 +63,7 @@ export default {
     },
     q2: function () {
       let max = 5
-      let min = 0
+      let min = 1
       return -Math.floor(Math.random() * (max - min + 1) + min) * 1e-6
     },
     q3: function () {
@@ -83,8 +83,8 @@ export default {
       return this.a
     },
     fQ3x: function () {
-      let f13 = this.ke * this.q1 * this.q3 / this.r13 ** 2
-      let f23 = this.ke * Math.abs(this.q2) * this.q3 / this.r23 ** 2
+      let f13 = this.ke * this.q1 * this.q3 / (this.r13 ** 2)
+      let f23 = this.ke * Math.abs(this.q2) * this.q3 / (this.r23 ** 2)
 
       return f13 * Math.cos(Math.PI / 4) - f23
     },

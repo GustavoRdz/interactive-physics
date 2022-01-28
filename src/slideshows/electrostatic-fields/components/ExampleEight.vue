@@ -1,20 +1,19 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem <strong>Weighing a Virus</strong>. In February 2004, scientists Purdue University used a highly sensitive technique to measure the mass of a vaccinia virus (the kind used in smallpox vaccine). The procedure involved measuring the frequency of oscillation of a tiny sliver of silicon (just 30 nm long) with a laser, first without the virus and then after the virus had attached itself to the silicon. The difference in mass caused a change in the frequency. We can model such a process as a mass on a spring. (a) Show that the ratio of the frequency with the virus attached (f<sub>s+v</sub>) to the frequency without the virus (f<sub>s</sub>) is given by the formula
+    p.problem An electron enters the region of a uniform electric field, with v<sub>i</sub> = 3.00&times;10<sup>6</sup> m/s and E = 200 N/C. The horizontal length of the plates is 0.100 m.<br> (A) Find the acceleration of the electron while it is in the electric field.<br>(B) Assuming the electron enters the field at time t = 0, find the time at which it leaves the field.<br> (C) Assuming the vertical position of the electron as it enters the field is yi = 0, what is its vertical position when it leaves the field?
     .center 
-      // img(src='../assets/equations/frequency.svg' width="200px" height="100px")
-    p.problem(style="margin-top: -10px;") where m<sub>v</sub> is the mass of the virus and m<sub>s</sub> is the mass of the silicon sliver. Notice that it is not necessary to know or measure the force constant of the spring. (b) In some data, the silicon sliver has a mass of {{ silverMass }} femtograms and a frequency of {{ sFrequency }} PetaHertz without the virus and {{ vFrequency }} PHz with the virus. What is the mass of the virus, in femtograms?
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Silicon silver mass (fg)
-        input.center.data(:class="checkedSilverMass" v-model.number='enterSilverMass')
-      p.inline.data Silicon silver frequency (PHz)
-        input.center.data(:class="checkedSilverFreq" v-model.number='enterSilverFreq')
-      p.inline.data Frequency with virus (PHz)
-        input.center.data(:class="checkedVirusFreq" v-model.number='enterVirusFreq')
-      p.inline.data Virus mass (fgr)
-        input.center.data(:class="checkedVirusMassF" v-model.number='enterVirusMassF')
+      img(src='../assets/fig23-24.png' height="300px")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Silicon silver mass (fg)
+    //-     input.center.data(:class="checkedSilverMass" v-model.number='enterSilverMass')
+    //-   p.inline.data Silicon silver frequency (PHz)
+    //-     input.center.data(:class="checkedSilverFreq" v-model.number='enterSilverFreq')
+    //-   p.inline.data Frequency with virus (PHz)
+    //-     input.center.data(:class="checkedVirusFreq" v-model.number='enterVirusFreq')
+    //-   p.inline.data Virus mass (fgr)
+    //-     input.center.data(:class="checkedVirusMassF" v-model.number='enterVirusMassF')
 
 </template>
 <script>
