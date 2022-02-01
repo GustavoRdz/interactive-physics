@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A uniformly charged insulating rod of length 14.0 cm is bent into the shape of a semicircle as shown. The rod has a total charge of 27.50 mC. Find (a) the magnitude and (b) the direction of the electric field at O, the center of the semicircle.
+    p.problem A uniformly charged insulating rod of length 14.0 cm is bent into the shape of a semicircle as shown. The rod has a total charge of -7.50 μC. Find (a) the magnitude and (b) the direction of the electric field at O, the center of the semicircle.
     .center
         img(src='../assets/fig23-35.png' height="200px"  style="margin: 0px 0 0 0px;")
 

@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rod of length , has a uniform positive charge per unit length l and a total charge Q. Calculate the electric field at a point P that is located along the long axis of the rod and a distance a from one end
+    p.problem A rod of length l, has a uniform positive charge per unit length λ and a total charge Q. Calculate the electric field at a point P that is located along the long axis of the rod and a distance a from one end
     .center
         img(src='../assets/fig23-15.png' height="200px"  style="margin: 0px 0 0 0px;")
     //- .center
