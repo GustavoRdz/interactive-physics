@@ -392,22 +392,77 @@
         br
         span.small Ctrl + right
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Damped oscillations
-    //-   .center
-    //-     img(src='./assets/dampedOscillationsX.png')
-    //-   .center
-    //-     img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
-    //-     img(src='./assets/struts.png' height="300px")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 11
+      example-twelve
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Forced oscillations
-    //-   .center
-    //-     img(src='./assets/forcedOscA.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/forcedOscillationsGraph.png' height="500px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric potential
+      p For an infinitesimal displacement 
+        | <svg height="20px" width="20px">
+        |    <rect x="0" y="0" width="17" height="20" stroke="white" fill="white"/>
+        |    <path d="M12,7 L20,7 17,4" stroke="black" fill="none"/>
+        |    <text x="0" y="18" style="font-family: Times; font-size: 20px; font-style: italic;">d</text>
+        |    <text x="10" y="18" style="font-family: Times; font-size: 20px; font-weight: bold; font-style: italic;">s</text>
+        |  </svg>
+        | of a point charge 
+        | <svg height="20px" width="20px">
+        |    <rect x="0" y="0" width="17" height="20" stroke="white" fill="white"/>
+        //- |    <path d="M12,7 L20,7 17,4" stroke="black" fill="none"/>
+        |    <text x="0" y="18" style="font-family: Times; font-size: 20px; font-style: italic;">q</text>
+        |    <text x="10" y="20" style="font-family: Times; font-size: 10px;">0</text>
+        |  </svg>
+        | immersed in an electric field, the work done within the charge-field system by the electric field on the charge is
+        img(src='./assets/eq25-0B-.png', height="30px" style="margin: 0 10px -8px 10px;")
+        | As this amount of work is done by the field, the potential energy of the charge-field system is changed by an amount 
+        img(src='./assets/eq25-0C-.png', height="30px" style="margin: 0 10px -0px 0;")
+        | For a finite displacement of the charge from point <span style="font-size: 22px;">&#9398;</span> to point <span style="font-size: 22px;">&#9399;</span>, the change in potential energy of the system
+        img(src='./assets/eq25-0D-.png' style="margin: 0 10px -10px 10px;")
+      img(src='./assets/fig25-1.png' height="300px" style="margin: 0 0px -250px 0px;")
+      .center
+        img(src='./assets/eq25-1.png' height="100px" style="margin: -50px 0 -10px 300px;")
+      .center
+        img(src='./assets/eq25-2.png' height="100px" style="margin: 0px 0 -10px 300px;")
+      .center
+        img(src='./assets/eq25-3.png' height="100px" style="margin: 0px 0 -10px 300px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric potential
+      p the work done by an external agent in moving a charge q through an electric field at constant velocity is immersed in an electric field, the work done within the charge-field system by the electric field on the charge is
+      .center
+        img(src='./assets/eq25-4.png' height="50px" style="margin: -20px 0px 10px 0px;")
+      p.center(style="margin: 0px 400px 0px 0px;") Volt (V)
+      .center
+        img(src='./assets/eq25-4B.png' height="50px" style="margin: 0 10px 10px 10px;")
+      p.center(style="margin: 0px 400px 0px 0px;") Electric field
+      .center
+        img(src='./assets/eq25-4C.png' height="50px" style="margin: 0 10px 10px 10px;")
+      p.center(style="margin: 0px 400px 0px 0px;") Electron-volt
+      .center
+        img(src='./assets/eq25-5.png' height="50px" style="margin: 0 10px 10px 10px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Potential Difference in a Uniform Electric Field
+      p Let’s calculate the potential difference between two points <span style="font-size: 22px;">&#9398;</span> and <span style="font-size: 22px;">&#9399;</span> separated by a distance d, where the displacement s points from <span style="font-size: 22px;">&#9398;</span> toward <span style="font-size: 22px;">&#9399;</span> and is parallel to the field lines.
+      .center
+        img(src='./assets/eq25-5B.png' height="90px" style="margin: -40px 0px 10px 0px;")
+      p(style="margin: 0px 0px 0px 0px;") Because E is constant, it can be removed from the integral 
+      .center
+        img(src='./assets/eq25-6.png' height="90px" style="margin: 0 0px 0px 0px;")
+      .center
+        img(src='./assets/fig25-2.png' height="320px" style="margin: -20px 0px 0px 0px;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

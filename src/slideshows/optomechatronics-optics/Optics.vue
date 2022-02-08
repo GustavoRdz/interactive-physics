@@ -770,15 +770,71 @@
       .center
         img(src='./assets/fig2-47.png' height="300px" style="margin: 20px 0px -0px 0px;")
       .center
-        img(src='./assets/eq2-84.png' height="60px" style="margin: -0px 0px -0px 0px;")
-      p(style="padding: 15px; margin: -10px 10px 0px 1px; line-height: 1.3em;") The limit condition is just resolvable and known as <strong>Rayleigh criterion</strong>.
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The limit of the resolvable angular separation of two point sources can be expressed as
+        img(src='./assets/eq2-87.png' height="70px" style="margin: 20px 0px -0px 0px;")
       .center
-        img(src='./assets/eq2-85.png' height="60px" style="margin: -30px 30px -0px 0px;")
-        img(src='./assets/eq2-86.png' height="60px" style="margin: -30px 0px -0px 30px;")
-      .center
-        img(src='./assets/fig2-46.png' height="300px" style="margin: -0px 0px -0px 0px;")
+        img(src='./assets/eq2-88.png' height="70px" style="margin: 20px 0px -0px 0px;")
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Diffraction
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Diffraction grating
+      p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em;") Spectra produced by white light
+      .center
+        img(src='./assets/fig2-48.png' height="300px" style="margin: 20px 0px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Optical Fiber Transmission
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Total internal reflection
+      p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em;") Snell law
+      .center
+        img(src='./assets/eq2-89.png' height="50px" style="margin: -40px 0px 0px 0px;")
+      .center
+        img(src='./assets/fig2-50.png' height="400px" style="margin: 20px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-89B.png' height="80px" style="margin: 0px 0px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Optical Fiber Transmission
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Total internal reflection
+      .center
+        img(src='./assets/eq2-90.png' height="50px" style="margin: -40px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq2-91.png' height="80px" style="margin: 20px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-91B.png' height="100px" style="margin: 20px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-92.png' height="70px" style="margin: 20px 0px -0px 0px;")
+      //- .center
+      //-   img(src='./assets/eq2-92B.png' height="80px" style="margin: 20px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-92C.png' height="70px" style="margin: 20px 0px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Optical Fiber Transmission
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Major refraction index configurations of optical fibers
+      .center
+        img(src='./assets/fig2-51.png' height="500px" style="margin: 40px 0px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Gaussian Beam Optics
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Laser Sources
+      .center
+        img(src='./assets/table2-4.png' height="300px" style="margin: 100px 0px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Gaussian Beam Optics
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Gaussian beam
+      .center
+        img(src='./assets/fig2-52.png' height="300px" style="margin: 10px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-94.png' height="100px" style="margin: 10px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq2-95.png' height="100px" style="margin: 10px 0px -0px 0px;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>

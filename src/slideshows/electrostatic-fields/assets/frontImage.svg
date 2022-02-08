@@ -13,8 +13,25 @@
     <rect x="0" y="0" width="200" height="600" stroke="red" fill="lightblue" stroke-width="0.2" opacity="0.1"/>
     <rect x="0" y="0" width="100" height="600" stroke="red" fill="lightblue" stroke-width="0.2" opacity="0.1"/>
     
+    <!-- Field lines positive charge
     <g>
-      <circle cx="300" cy="275" r="50" fill="orange"/>
+      <circle cx="300" cy="275" r="250" fill="orange" opacity="0.2"/>
+      <line x1="300" y1="275" x2="300" y2="25" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="175" y2="58.5" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="83.5" y2="150" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="50" y2="275" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="83.5" y2="400" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="175" y2="491.5" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="300" y2="525" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="425" y2="491.5" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="512" y2="150" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="175" y2="83" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="512" y2="450" style="stroke:rgb(255,100,0);stroke-width:7" />
+      <line x1="300" y1="275" x2="425" y2="58.5" style="stroke:rgb(255,100,0);stroke-width:7" />
+    </g> -->
+
+    <g>
+      <circle cx="300" cy="275" r="50" fill="orange" opacity="0.2"/>
       <line x1="265" y1="275" x2="335" y2="275" style="stroke:rgb(0,0,0);stroke-width:7" />
       <line x1="300" y1="240" x2="300" y2="310" style="stroke:rgb(0,0,0);stroke-width:7" />
     </g>

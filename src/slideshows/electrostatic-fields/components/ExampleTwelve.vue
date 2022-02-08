@@ -1,23 +1,25 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem On a horizontal, frictionless table, an open-topped {{ weight }}-kg box is attached to an ideal horizontal spring having force constant {{ elastic }} N/m. Inside the box is a {{ stone }}-kg stone. The system is oscillating with an amplitude of {{ amplitude }} cm. When the box has reached its maximum speed, the stone is suddenly plucked vertically out of the box without touching the box. Find (a) the period and (b) the amplitude of the resulting motion of the box. (c) Without doing any calculations, is the new period greater or smaller than the original period?
+    p.problem Find the electric field due to an infinite plane of positive charge with uniform surface charge density &sigma;.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Box mass (kg)
-        input.center.data(:class="checkedWeight" v-model.number='enterWeight')
-      p.inline.data Elastic constant (N/m)
-        input.center.data(:class="checkedElastic" v-model.number='enterElastic')
-      p.inline.data Stone mass (Kg)
-        input.center.data(:class="checkedStone" v-model.number='enterStone')
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-      p.inline.data Only box period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      p.inline.data Only box amplitude (m)
-        input.center.data(:class="checkedAmplitude2" v-model.number='enterAmplitude2')
-      p.inline.data greater or smaller?
-        input.center.data(:class="checkedGreat" v-model.number='enterGreat')
+      img(src='../assets/fig24-13.png', height="300px")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Box mass (kg)
+    //-     input.center.data(:class="checkedWeight" v-model.number='enterWeight')
+    //-   p.inline.data Elastic constant (N/m)
+    //-     input.center.data(:class="checkedElastic" v-model.number='enterElastic')
+    //-   p.inline.data Stone mass (Kg)
+    //-     input.center.data(:class="checkedStone" v-model.number='enterStone')
+    //-   p.inline.data Amplitude (m)
+    //-     input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
+    //-   p.inline.data Only box period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-   p.inline.data Only box amplitude (m)
+    //-     input.center.data(:class="checkedAmplitude2" v-model.number='enterAmplitude2')
+    //-   p.inline.data greater or smaller?
+    //-     input.center.data(:class="checkedGreat" v-model.number='enterGreat')
 
 </template>
 <script>

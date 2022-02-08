@@ -1,19 +1,21 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem You are watching an object that is moving in SHM. When the object is displaced {{ displacement }} m to the right of its equilibrium position, it has a velocity of {{ velocity }} (m/s) to the right and an acceleration of {{ acceleration }} (m/s<sup>2</sup>) to the left. How much farther from this point will the object move before it stops momentarily and then starts to  move back to the left?
+    p.problem Find the electric field a distance r from a line of positive charge of infinite length and constant charge per unit length &lambda;.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Displacement (m)
-        input.center.data(:class="checkedDispl" v-model.number='enterDispl')
-      p.inline.data  Velocity (m/s)
-        input.center.data(:class="checkedVel" v-model.number='enterVel')
-      p.inline.data Acceleration (m/s<sup>2</sup>)
-        input.center.data(:class="checkedAcc" v-model.number='enterAcc')
-      p.inline.data Amplitud (m)
-        input.center.data(:class="checkedAmpl" v-model.number='enterAmpl')
-      p.inline.data How farther? (m)
-        input.center.data(:class="checkedFarther" v-model.number='enterFarther')
+      img(src='../assets/fig24-12.png', height="300px")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Displacement (m)
+    //-     input.center.data(:class="checkedDispl" v-model.number='enterDispl')
+    //-   p.inline.data  Velocity (m/s)
+    //-     input.center.data(:class="checkedVel" v-model.number='enterVel')
+    //-   p.inline.data Acceleration (m/s<sup>2</sup>)
+    //-     input.center.data(:class="checkedAcc" v-model.number='enterAcc')
+    //-   p.inline.data Amplitud (m)
+    //-     input.center.data(:class="checkedAmpl" v-model.number='enterAmpl')
+    //-   p.inline.data How farther? (m)
+    //-     input.center.data(:class="checkedFarther" v-model.number='enterFarther')
 </template>
 <script>
 import eagle from 'eagle.js'

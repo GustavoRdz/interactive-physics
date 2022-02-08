@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An insulating solid sphere of radius a has a uniform volume charge density r and carries a total positive charge Q (Fig. 24.10). (A) Calculate the magnitude of the electric field at a point outside the sphere.(B) Find the magnitude of the electric field at a point inside the sphere.
+    p.problem An insulating solid sphere of radius a has a uniform volume charge density &rho; and carries a total positive charge Q.<br> (A) Calculate the magnitude of the electric field at a point outside the sphere.<br>(B) Find the magnitude of the electric field at a point inside the sphere.
+    .center
+      img(src='../assets/fig24-10.png', height="300px")
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Amplitude (m)
