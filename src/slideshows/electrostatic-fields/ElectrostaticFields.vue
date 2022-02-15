@@ -243,7 +243,7 @@
       p • The electric field vector is tangent to the electric field line at each point. The line has a direction, indicated by an arrowhead, that is the same as that of the electric field vector. The direction of the line is that of the force on a positive test charge placed in the field.
       p • The number of lines per unit area through a surface perpendicular to the lines is proportional to the magnitude of the electric field in that region. Therefore, the field lines are close together where the electric field is strong and far apart where the field is weak.
       .center
-        img(src='./assets/fig23-18.png' height="200px")
+        img(src='./assets/fig23-18.png' height="250px")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -394,7 +394,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 11
+      h3(style="margin-top: -20px;") Exercise 12
       example-twelve
       .button.prev(@click.stop='previousSlide')
         span &lt; Prev. slide
@@ -460,9 +460,192 @@
         img(src='./assets/eq25-5B.png' height="90px" style="margin: -40px 0px 10px 0px;")
       p(style="margin: 0px 0px 0px 0px;") Because E is constant, it can be removed from the integral 
       .center
-        img(src='./assets/eq25-6.png' height="90px" style="margin: 0 0px 0px 0px;")
+        img(src='./assets/eq25-6.png' height="90px" style="margin: 0 50px 0px 0px;")
+        | &rArr;
+        img(src='./assets/eq25-7.png' height="45px" style="margin: -0px 0px 20px 50px;")
       .center
-        img(src='./assets/fig25-2.png' height="320px" style="margin: -20px 0px 0px 0px;")
+        img(src='./assets/fig25-2.png' height="300px" style="margin: -0px 0px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Potential Difference in a Uniform Electric Field
+      .center
+      p(style="margin: 0px 0px 0px 0px;") Now consider the more general case of a charged particle that moves between <span style="font-size: 22px;">&#9398;</span> and <span style="font-size: 22px;">&#9399;</span> in a uniform electric field such that the vector <b>s</b> is not parallel to the field lines
+      .center
+        img(src='./assets/fig25-3.png' height="320px" style="margin: -10px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-8.png' height="90px" style="margin: -0px 0px 10px 0px;")
+      .center
+        img(src='./assets/eq25-9.png' height="70px" style="margin: -0px 0px 10px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 13
+      example-thirteen
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 14
+      example-fourteen
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Potential and Potential Energy Due to Point Charges
+      .center
+        img(src='./assets/fig25-7.png' height="350px" style="margin: -20px 30px 10px 0px;")
+        img(src='./assets/eq25-9B.png' height="80px" style="margin: 0px 50px 200px 30px;")
+        img(src='./assets/eq25-9C.png' height="70px" style="margin: -10px 0px 100px -300px;")
+      .center
+        img(src='./assets/eq25-10.png' height="150px" style="margin: -30px 0px 0px 0px;")
+      .center
+        p if&emsp;  r<sub><span style="font-size: 22px;">&#9398;</span></sub> &#10230; &#8734; &emsp; &rArr; &emsp;V=0
+        | 
+        img(src='./assets/eq25-11.png' height="90px" style="margin: -30px 0px 0px 0px;")
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Potential and Potential Energy Due to Point Charges
+      .center
+        img(src='./assets/eq25-12.png' height="80px" style="margin: 10px 0px 0px 0px;")
+      .center
+        img(src='./assets/fig25-9.png' height="200px" style="margin: 20px 0px 0px 0px;")
+        img(src='./assets/eq25-13.png' height="70px" style="margin: 20px 0px 50px 50px;")
+      .center
+        img(src='./assets/fig25-10.png' height="200px" style="margin: 20px 0px 0px 100px;")
+        img(src='./assets/eq25-14.png' height="70px" style="margin: 20px 0px 0px 100px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 15
+      example-fifteen
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Obtaining the Value of the Electric Field from the Electric Potential
+      .center
+        img(src='./assets/eq25-15.png' height="50px" style="margin: 10px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-16.png' height="70px" style="margin: 20px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-18.png' height="70px" style="margin: 20px 0px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 16
+      example-sixteen
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Potential Due to Continuous Charge Distribution
+      .center
+        img(src='./assets/fig25-14.png' height="200px" style="margin: 10px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-20.png' height="70px" style="margin: 20px 0px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 17
+      example-seventeen
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 18
+      example-eighteen
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Electric Potential Due to a Charged Conductor
+      .center
+        img(src='./assets/fig25-18.png' height="300px" style="margin: 10px 0px 0px 0px;")
+      //- .center
+      //-   img(src='./assets/fig25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-20B.png' height="70px" style="margin: 20px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq25-20C.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3.center Capacitance and dielectrics
+      p Consider two conductors. Such a combination of two conductors is called a capacitor. The conductors are called plates. If the conductors carry charges of equal magnitude and opposite sign, a potential difference DV exists between them.
+      .center
+        img(src='./assets/fig26-1.png' height="300px" style="margin: 10px 0px 0px 0px;")
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3.center Capacitance and dielectrics
+      p The capacitance C of a capacitor is defined as the ratio of the magnitude of the charge on either conductor to the magnitude of the potential difference between the conductors
+      .center
+        img(src='./assets/eq26-1.png' height="80px" style="margin: 0px 0px 0px 310px;")
+        img(src='./assets/fig26-2.png' height="350px" style="margin: 0px 0px -260px 140px;")
+      p.center Farad (F)
+      .center
+        img(src='./assets/eq26-1B.png' height="50px" style="margin: -30px 0px 0px 0px;")
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4.center Calculating Capacitance
+      p Capacitance of an isolated charged sphere
+      .center
+        img(src='./assets/eq26-2.png' height="80px" style="margin: 0px 0px 0px 0px;")
+      p.center Parallel-Plate Capacitors
+      .center
+        img(src='./assets/eq26-2C.png' height="80px" style="margin: -30px 0px 0px 150px;")
+        img(src='./assets/fig26-2.png' height="350px" style="margin: 0px 0px -260px 140px;")
+      .center
+        img(src='./assets/eq26-2D.png' height="80px" style="margin: -10px 140px 0px 0px;")
+      .center
+        img(src='./assets/eq26-3.png' height="80px" style="margin: -0px 140px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 19
+      example-nineteen
+    
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4.center Combinations of Capacitors
+      p Circuit symbols
+      .center
+        img(src='./assets/fig26-6.png' height="300px" style="margin: -30px 0px 0px 0px;")
+          
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4.center Combinations of Capacitors
+      p Equivalent diagrams
+      .center
+        img(src='./assets/fig26-7.png' height="300px" style="margin: -120px 0px -50px 100px;")
+      p Parallel combination
+      .center
+        img(src='./assets/eq26-6B.png' height="50px" style="margin: -100px 30px 0px 0px;")
+        img(src='./assets/eq26-7.png' height="50px" style="margin: -100px 30px 0px 30px;")
+        img(src='./assets/eq26-7B.png' height="50px" style="margin: -100px 30px 5px 0px;")
+      .center
+        img(src='./assets/eq26-7C.png' height="100px" style="margin: 20px 0px 0px 0px;")
+        img(src='./assets/eq26-8.png' height="40px" style="margin: 20px 0px 0px 0px;")
+ 
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4.center Combinations of Capacitors
+      p Equivalent diagrams
+      .center
+        img(src='./assets/fig26-8.png' height="300px" style="margin: -120px 0px -50px 200px;")
+      p Series combination
+      .center
+        img(src='./assets/eq26-8B.png' height="50px" style="margin: -100px 30px 0px 0px;")
+        img(src='./assets/eq26-9.png' height="50px" style="margin: -100px 30px 0px 30px;")
+        img(src='./assets/eq26-9B.png' height="70px" style="margin: -100px 0px -10px 20px;")
+      .center
+        img(src='./assets/eq26-9C.png' height="70px" style="margin: 20px 0px 0px 0px;")
+        img(src='./assets/eq26-9D.png' height="70px" style="margin: 20px 0px 0px 100px;")
+        img(src='./assets/eq26-10.png' height="60px" style="margin: 20px 0px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 20
+      example-twenty
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

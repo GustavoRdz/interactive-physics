@@ -1,21 +1,23 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem You pull a simple pendulum {{ length }} m long to the side through an angle of {{ angle }}º and release it. (a) How much time does it take the pendulum bob to reach its highest speed? (b) How much time does it take if the pendulum is released at an angle of {{ angle2 }}º instead of {{ angle }}º?
+    p.problem An electric dipole consists of two charges of equal magnitude and opposite sign separated by a distance 2a as shown in Figure. The dipole is along the x axis and is centered at the origin.<br>(A) Calculate the electric potential at point P on the y axis.<br>(B) Calculate the electric potential at point R on the positive x axis.<br>(C) Calculate V and Ex at a point on the x axis far from the dipole.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Length (m)
-        input.center.data(:class="checkedLength" v-model.number='enterLength')
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      p.inline.data Angle (º)
-        input.center.data(:class="checkedAngle" v-model.number='enterAngle')
-      p.inline.data Time to max speed (s)
-        input.center.data(:class="checkedTime" v-model.number='enterTime')
-      p.inline.data New angle (º)
-        input.center.data(:class="checkedAngle2" v-model.number='enterAngle2')
-      p.inline.data Time to max speed (s)
-        input.center.data(:class="checkedTime2" v-model.number='enterTime2')
+      img(src='../assets/fig25-13.png' height="200px" style="margin: -0px 0px 10px 0px;")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Length (m)
+    //-     input.center.data(:class="checkedLength" v-model.number='enterLength')
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-   p.inline.data Angle (º)
+    //-     input.center.data(:class="checkedAngle" v-model.number='enterAngle')
+    //-   p.inline.data Time to max speed (s)
+    //-     input.center.data(:class="checkedTime" v-model.number='enterTime')
+    //-   p.inline.data New angle (º)
+    //-     input.center.data(:class="checkedAngle2" v-model.number='enterAngle2')
+    //-   p.inline.data Time to max speed (s)
+    //-     input.center.data(:class="checkedTime2" v-model.number='enterTime2')
 
 </template>
 <script>

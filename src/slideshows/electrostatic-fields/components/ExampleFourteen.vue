@@ -1,29 +1,29 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A thin metal disk with mass {{ mass }} kg and radius {{ radius }} cm is attached at its center to a long fiber. The disk, when twisted and released, oscillates with a period of {{ period }} s. Find the torsion constant of the fiber.
+    p.problem A proton is released from rest at point <span style="font-size: 22px;">&#9398;</span> in a uniform electric field that has a magnitude of 8.0&times;10<sup>4</sup> V/m. The proton undergoes a displacement of magnitude d = 0.50 m to point <span style="font-size: 22px;">&#9399;</span> in the direction of <b>E</b> . Find the speed of the proton after completing the displacement.
     .center
-        // img(src='../assets/problem14.png' height="200px")
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Mass (kg)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-        <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
-      p.inline.data Radius (m)
-        input.center.data(:class="checkedRadius" v-model.number='enterRadius')
-        <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
-      p.inline.data Inertia moment (kgm<sup>2</sup>)
-        input.center.data(:class="checkedInertia" v-model.number='enterInertia')
-        <span class="error" v-if="errorI">[e: {{ errorI.toPrecision(3) }}%]</span>
-      p.inline.data Torsion constant (Nm/rad)
-        input.center.data(:class="checkedTorsion" v-model.number='enterTorsion')
-        <span class="error" v-if="errorTau">[e: {{ errorTau.toPrecision(3) }}%]</span>
+      img(src='../assets/fig25-6.png' height="200px" style="margin: 40px 0 0 0;")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Mass (kg)
+    //-     input.center.data(:class="checkedMass" v-model.number='enterMass')
+    //-     <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
+    //-   p.inline.data Radius (m)
+    //-     input.center.data(:class="checkedRadius" v-model.number='enterRadius')
+    //-     <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-     <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+    //-     <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+    //-   p.inline.data Inertia moment (kgm<sup>2</sup>)
+    //-     input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+    //-     <span class="error" v-if="errorI">[e: {{ errorI.toPrecision(3) }}%]</span>
+    //-   p.inline.data Torsion constant (Nm/rad)
+    //-     input.center.data(:class="checkedTorsion" v-model.number='enterTorsion')
+    //-     <span class="error" v-if="errorTau">[e: {{ errorTau.toPrecision(3) }}%]</span>
 
 </template>
 <script>

@@ -1,21 +1,23 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem You want to find the moment of inertia of a complicated machine part about an axis through its center of mass. You suspend it from a wire along this axis. The wire has a torsion constant of {{ torsion }} Nm/rad. You twist the part a small amount about this axis and let it go, timing {{ oscillations }} oscillations in {{ time }} s. What is the moment of inertia you want to find?
+    p.problem As shown in Figure (a), a charge q1 = 2.00 &mu;C is located at the origin and a charge q2 = 26.00 &mu;C is located at (0, 3.00) m.<br> (A) Find the total electric potential due to these charges at the point P, whose coordinates are (4.00, 0) m.<br> (B) Find the change in potential energy of the system of two charges plus a third charge q3 = 3.00 &mu;C as the latter charge moves from infinity to point P (Fig. b).
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Torsion constant (Nm/rad)
-        input.center.data(:class="checkedTorsion" v-model.number='enterTorsion')
-      p.inline.data Oscillations (oscillations)
-        input.center.data(:class="checkedOscillations" v-model.number='enterOscillations')
-      p.inline.data Time (s)
-        input.center.data(:class="checkedTime" v-model.number='enterTime')
-      p.inline.data frequency (Hz)
-        input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-      p.inline.data Moment of inertia (kgm<sup>2</sup>)
-        input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+      img(src='../assets/fig25-11.png' height="200px" style="margin: 40px 0 0 0;")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Torsion constant (Nm/rad)
+    //-     input.center.data(:class="checkedTorsion" v-model.number='enterTorsion')
+    //-   p.inline.data Oscillations (oscillations)
+    //-     input.center.data(:class="checkedOscillations" v-model.number='enterOscillations')
+    //-   p.inline.data Time (s)
+    //-     input.center.data(:class="checkedTime" v-model.number='enterTime')
+    //-   p.inline.data frequency (Hz)
+    //-     input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+    //-   p.inline.data Moment of inertia (kgm<sup>2</sup>)
+    //-     input.center.data(:class="checkedInertia" v-model.number='enterInertia')
 
 </template>
 <script>

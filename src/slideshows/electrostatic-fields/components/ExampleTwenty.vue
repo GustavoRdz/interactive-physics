@@ -1,24 +1,26 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A physics student, bored during a lesson in simple harmonic motion, takes a pencil (with {{ mass }}g mass, and {{ length }}cm length) by the tip with his fingers without friction, and swings it back and forth with small amplitude. If the pencil does {{ cycles }} complete cycles during class, how long did the class last?
-
+    p.problem Find the equivalent capacitance between a and b for the combination of capacitors. All capacitances are in microfarads.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Mass (kg)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-      p.inline.data Length (m)
-        input.center.data(:class="checkedLength" v-model.number='enterLength')
-      p.inline.data Moment of inertia (kgm<sup>2</sup>)
-        input.center.data(:class="checkedInertia" v-model.number='enterInertia')
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      p.inline.data Cycles (cycles)
-        input.center.data(:class="checkedCycles" v-model.number='enterCycles')
-      p.inline.data Class duration (s)
-        input.center.data(:class="checkedDuration" v-model.number='enterDuration')
-      p.inline.data class duration (hr)
-        input.center.data(:class="checkedDurationHr" v-model.number='enterDurationHr')
+      img(src='../assets/fig26-9.png' height="300px" style="margin: -0px 0px 10px 0px;")
+
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Mass (kg)
+    //-     input.center.data(:class="checkedMass" v-model.number='enterMass')
+    //-   p.inline.data Length (m)
+    //-     input.center.data(:class="checkedLength" v-model.number='enterLength')
+    //-   p.inline.data Moment of inertia (kgm<sup>2</sup>)
+    //-     input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-   p.inline.data Cycles (cycles)
+    //-     input.center.data(:class="checkedCycles" v-model.number='enterCycles')
+    //-   p.inline.data Class duration (s)
+    //-     input.center.data(:class="checkedDuration" v-model.number='enterDuration')
+    //-   p.inline.data class duration (hr)
+    //-     input.center.data(:class="checkedDurationHr" v-model.number='enterDurationHr')
 
 </template>
 <script>

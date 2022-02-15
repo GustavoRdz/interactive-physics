@@ -1,35 +1,33 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A holiday ornament in the shape of a hollow sphere with mass {{ mass }} kg and radius {{ radius }} m is hung from a tree limb by a small loop of wire attached to the surface of the sphere. If the ornament is displaced a small distance and released, it swings back and forth as a physical pendulum with negligible friction. Calculate its period. (Hint: Use the parallel-axis theorem to find the moment of inertia of the sphere about the pivot at the tree limb.)
-    //.center
-    //  img(src='../assets/equations/venturiPipeProblem.svg' width="200px")
-    //.center
-    //    img(src='../assets/equations/ex18Solutions.svg'  width="150px")
-    
+    p.problem A rod of length l, located along the x axis has a total charge Q and a uniform linear charge density &lambda;. Find the electric potential at a point P located on the y axis a distance a from the origin.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Mass (kg)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
-      p.inline.data Radius (m)
-        input.center.data(:class="checkedRadius" v-model.number='enterRadius')
-        <span class="error" v-if="errorRadius">[e: {{ errorRadius.toPrecision(3) }}%]</span>
-      p.inline.data Inertia of a hollow sphere (axis by center) (kgm<sup>2</sup>)
-        input.center.data(:class="checkedInertia" v-model.number='enterInertia')
-        <span class="error" v-if="errorInertia">[e: {{ errorInertia.toPrecision(3) }}%]</span>
-      p.inline.data Distance from pivot to center of gravity (m)
-        input.center.data(:class="checkedDistance" v-model.number='enterDistance')
-        <span class="error" v-if="errorDistance">[e: {{ errorDistance.toPrecision(3) }}%]</span>
-      p.inline.data Inertia of a hollow sphere (axis by surface)
-        input.center.data(:class="checkedInertia2" v-model.number='enterInertia2')
-        <span class="error" v-if="errorInertia2">[e: {{ errorInertia2.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-        <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
+      img(src='../assets/fig25-17.png' width="300px")
+    
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Mass (kg)
+    //-     input.center.data(:class="checkedMass" v-model.number='enterMass')
+    //-     <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
+    //-   p.inline.data Radius (m)
+    //-     input.center.data(:class="checkedRadius" v-model.number='enterRadius')
+    //-     <span class="error" v-if="errorRadius">[e: {{ errorRadius.toPrecision(3) }}%]</span>
+    //-   p.inline.data Inertia of a hollow sphere (axis by center) (kgm<sup>2</sup>)
+    //-     input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+    //-     <span class="error" v-if="errorInertia">[e: {{ errorInertia.toPrecision(3) }}%]</span>
+    //-   p.inline.data Distance from pivot to center of gravity (m)
+    //-     input.center.data(:class="checkedDistance" v-model.number='enterDistance')
+    //-     <span class="error" v-if="errorDistance">[e: {{ errorDistance.toPrecision(3) }}%]</span>
+    //-   p.inline.data Inertia of a hollow sphere (axis by surface)
+    //-     input.center.data(:class="checkedInertia2" v-model.number='enterInertia2')
+    //-     <span class="error" v-if="errorInertia2">[e: {{ errorInertia2.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+    //-     <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-     <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
 
 </template>
 <script>

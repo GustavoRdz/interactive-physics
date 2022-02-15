@@ -1,29 +1,29 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ mass }}-kg connecting rod from a car engine is pivoted about a horizontal knife edge as shown in Figure. The center of gravity of the rod was located by balancing and is {{ gravityCenter }} m from the pivot. When the rod is set into small-amplitude oscillation, it makes {{ oscillations }} complete swings in {{ time }} s. Calculate the moment of inertia of the rod about the rotation axis through the pivot.
+    p.problem (A) Find an expression for the electric potential at a point P located on the perpendicular central axis of a uniformly charged ring of radius a and total charge Q.<br>(B) Find an expression for the magnitude of the electric field at point P.
     .center
-        // img(src='../assets/problemConnectingRod.png' style=" width: 120px; height: 200px; object-fit: cover; object-position: 0% 10px;")
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Mass (kg)
-        input.center.data(:class="checkedMass" v-model.number='enterMass')
-        <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
-      p.inline.data Center of gravity (m)
-        input.center.data(:class="checkedCenter" v-model.number='enterCenter')
-        <span class="error" v-if="errorCenter">[e: {{ errorCenter.toPrecision(3) }}%]</span>
-      p.inline.data Oscillations (oscillations)
-        input.center.data(:class="checkedOscillations" v-model.number='enterOscillations')
-        <span class="error" v-if="errorOscillations">[e: {{ errorOscillations.toPrecision(3) }}%]</span>
-      p.inline.data Time (s)
-        input.center.data(:class="checkedTime" v-model.number='enterTime')
-        <span class="error" v-if="errorTime">[e: {{ errorTime.toPrecision(3) }}%]</span>
-      p.inline.data Frequency (Hz)
-        input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
-        <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
-      p.inline.data Inertia (kgm<sup>2</sup>)
-        input.center.data(:class="checkedInertia" v-model.number='enterInertia')
-        <span class="error" v-if="errorInertia">[e: {{ errorInertia.toPrecision(3) }}%]</span>
+        img(src='../assets/fig25-15.png' style="height: 200px;")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Mass (kg)
+    //-     input.center.data(:class="checkedMass" v-model.number='enterMass')
+    //-     <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
+    //-   p.inline.data Center of gravity (m)
+    //-     input.center.data(:class="checkedCenter" v-model.number='enterCenter')
+    //-     <span class="error" v-if="errorCenter">[e: {{ errorCenter.toPrecision(3) }}%]</span>
+    //-   p.inline.data Oscillations (oscillations)
+    //-     input.center.data(:class="checkedOscillations" v-model.number='enterOscillations')
+    //-     <span class="error" v-if="errorOscillations">[e: {{ errorOscillations.toPrecision(3) }}%]</span>
+    //-   p.inline.data Time (s)
+    //-     input.center.data(:class="checkedTime" v-model.number='enterTime')
+    //-     <span class="error" v-if="errorTime">[e: {{ errorTime.toPrecision(3) }}%]</span>
+    //-   p.inline.data Frequency (Hz)
+    //-     input.center.data(:class="checkedFrequency" v-model.number='enterFrequency')
+    //-     <span class="error" v-if="errorFrequency">[e: {{ errorFrequency.toPrecision(3) }}%]</span>
+    //-   p.inline.data Inertia (kgm<sup>2</sup>)
+    //-     input.center.data(:class="checkedInertia" v-model.number='enterInertia')
+    //-     <span class="error" v-if="errorInertia">[e: {{ errorInertia.toPrecision(3) }}%]</span>
 
 </template>
 <script>

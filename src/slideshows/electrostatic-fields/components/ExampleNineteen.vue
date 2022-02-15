@@ -1,28 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A very light (massless) rigid rod of length {{ length }} m extends straight out from one end of a larger rod of {{ 2*length }} m. The combination is suspended from a pivot at the upper end of the rod as shown in Figure. The combination is then pulled out by a small angle and released. (a) Determine the period of oscillation of the system. (b) By what percentage does the period differ from the period of a simple pendulum {{ 2*length }} m long?
-
+    p.problem A solid cylindrical conductor of radius a and charge Q is coaxial with a cylindrical shell of negligible thickness, radius b>a, and charge 2Q. Find the capacitance of this cylindrical capacitor if its length l.
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 800 500" height="200px" width="400px" >
+        img(src='../assets/fig26-4.png' style="height: 300px;")
 
-        <!-- Axis -->
-        <line fill="none" stroke="#000" stroke-width="5" x1="400" y1="0" x2="400" y2="200" stroke-linecap="round"/>
-        <!-- graph -->
-        <!-- <path :d="chord" stroke="#f00" fill="none" stroke-opacity="1" stroke-width="5" ></path> -->
-         <text x="400" y="210" font-size="35" fill="black" font-weight="bold" font-family="Times"> figure pend</text>
-
-      </svg>
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Length (m)
-        input.center.data(:class="checkedLength" v-model.number='enterLength')
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-      p.inline.data Percent (%)
-        input.center.data(:class="checkedPercent" v-model.number='enterPercent')
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Length (m)
+    //-     input.center.data(:class="checkedLength" v-model.number='enterLength')
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-   p.inline.data Percent (%)
+    //-     input.center.data(:class="checkedPercent" v-model.number='enterPercent')
 
 </template>
 <script>

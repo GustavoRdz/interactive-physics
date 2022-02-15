@@ -20,7 +20,7 @@ export default {
     // require('./exercises-waves/ExercisesWaves'),
     require('./optomechatronics-intro/Introduction'),
     require('./optomechatronics-optics/Optics'),
-    // require('./optomechatronics-machine-vision/MachineVision'),
+    require('./optomechatronics-machine-vision/MachineVision'),
     // require('./mecatronica-computacional-modelado/Modelado'),
     // require('./mecatronica-computacional-paradigmas/Paradigmas'),
     // require('./mecatronica-computacional-dae-systems/Dae-systems'),
@@ -29,7 +29,6 @@ export default {
     // require('./mecatronica-computacional-AFM/AtomicForceMicroscope'),
     // require('./mc-optom-functional-units/functional-units'),
     // require('./gms/gms'),
-    require('./introduction/Introduction'),
     require('./vision-systems/visionSystems'),
     require('./vision-systems-imagej/imagej'),
     require('./vision-systems-point/pointoperations'),
@@ -40,6 +39,7 @@ export default {
     require('./vision-systems-regions-binary/regionBinary'),
     require('./vision-systems-fourier/fourier'),
     // require('./vision-systems-lab/visionSystemsLab'),
+    require('./introduction/Introduction'),
     require('./comming-soon/CommingSoon')
   ]
 }
