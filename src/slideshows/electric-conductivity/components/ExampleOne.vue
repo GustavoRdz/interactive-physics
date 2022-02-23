@@ -1,18 +1,18 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Frequency: f (Hz)
-        input.center.data(:class="checkedF" v-model.number='enterF')
-        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-      p.inline.data Period:T (s)
-        input.center.data(:class="checkedT" v-model.number='enterT')
-        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency: &omega; (rad/s)
-        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
-        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+    p.problem The radius of 22-gauge Nichrome wire is 0.32 mm.<br>(A) Calculate the resistance per unit length of this wire.<br>(B) If a potential difference of 10 V is maintained across a 1.0-m length of the Nichrome wire, what is the current in the wire? (&rho; = 1&times; 10<sup>-6</sup>)
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Frequency: f (Hz)
+    //-     input.center.data(:class="checkedF" v-model.number='enterF')
+    //-     <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period:T (s)
+    //-     input.center.data(:class="checkedT" v-model.number='enterT')
+    //-     <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency: &omega; (rad/s)
+    //-     input.center.data(:class="checkedOmega" v-model.number='enterOmega')
+    //-     <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
 
 </template>
 <script>

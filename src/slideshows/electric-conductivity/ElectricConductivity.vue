@@ -5,7 +5,7 @@
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Electric conductivity
-        img(src='./assets/U.svg')
+        img(src='./assets/frontImage.svg')
 
         h4 Electric conductivity
         eg-triggered-message(:trigger='slideTimer >= 2',
@@ -30,124 +30,101 @@
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
             <b>Direct-Current Circuits</b><br><span style="font-size: 0.8em;">Electromotive Force, Resistors in Series and Parallel, Kirchhoff’s Rules, RC Circuits, Household Wiring and Electrical Safety.</span>
+    
+         
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3.center Current and resistance
+      p In this section, we study the flow of electric charges through a piece of material. The amount of flow depends on both the material through which the charges are passing and the potential difference across the material. Whenever there is a net flow of charge through some region, an electric current is said to exist.
+      .center
+        img(src='./assets/fig27-1.png' height="250px" style="margin: -0px 0px 0px 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Periodic motion
-    //-   p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
-    //-   .center
-    //-     img(height="400px" src='./assets/motor vocho.gif')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Electric current
+      p.center The <b>current</b> is defined as the rate at which charge flows through this surface. If &Delta;Q is the amount of charge that passes through this surface in a time interval &Delta;t, the <b>average current I<sub>avg</sub></b> is equal to the charge that passes through A per unit time
+      .center
+        img(src='./assets/eq27-1.png' height="70px")
+      p If the rate at which charge flows varies in time, the current varies in time; we define the instantaneous current I as the differential limit of average current as &Delta;t &#8594; 0
+      .center
+        img(src='./assets/eq27-2.png' height="70px")
+      p The SI unit of current is the ampere (A): 
+      .center
+        img(src='./assets/eq27-3.png' height="50px")
 
-    //- slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
-    //-   p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
-    //-   .button.prev(@click.stop='previousSlide' style="float: left; border: 0px;")
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide' style="float: right; border: 0px;")
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Resistance
+      p(style="margin: 0px 20px 0 0;") Consider a conductor of cross-sectional area A carrying a current I. The current density J in the conductor is defined as the current per unit area. Because the current I = nqvdA, the current density is
+      .center
+        img(src='./assets/eq27-5.png' height="70px" style="margin: 20px 0px 0 0;")
+      p(style="margin: 0px 20px 0 0;") A current density and an electric field are established in a conductor whenever a potential difference is maintained across the conductor. In some materials, the current density is proportional to the electric field:
+      .center
+        img(src='./assets/eq27-6.png' height="60px" style="margin: 20px 0px 0 0;")
+      p Ohm’s law states the following
+      p(style="margin: -30px 20px 0 0; padding: 5px; border: solid 1px;" ) For many materials (including most metals), the ratio of the current density to the electric field is a constant s that is independent of the electric field producing the current.
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -30px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Period</b></span>, is the time interval in which the sistem completes an oscillation
-    //-   p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
-    //-   p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Resistance
+      .center
+        img(src='./assets/fig27-5.png' height="300px" style="margin: -20px 0px 0 50px;")
+      .center
+        img(src='./assets/eq27-6C.png' height="60px")
+      .center
+        img(src='./assets/eq27-6D.png' height="70px" style="margin: -0px 50px -20px 0px;")
+        | with
+        img(src='./assets/eq27-6E.png' height="70px" style="margin: -0px 0px -20px 50px;")
+      .center
+        img(src='./assets/eq27-6F.png' height="70px" style="margin: 20px 0px 0 0px;")
+      .center
+        img(src='./assets/eq27-7.png' height="80px")
 
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p(style="margin: 50px 0 -0px 0;") Formulas: <b>frequency</b>, <b>period</b> and <b>angular frequency</b>
-    //-   .center
-    //-     img(src='./assets/equations/frequency.svg' height="150px")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Resistance
+      p One volt per ampere is defined to be one ohm (&Omega;):
+      .center
+        img(src='./assets/eq27-8.png' height="50px" style="margin: -20px 0px 0 0;")
+      .center
+        img(src='./assets/fig27-6.png' height="300px" style="margin: 70px 55px 0 0;")
+        img(src='./assets/table27-1.png' height="300px")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 1
-    //-   example-one
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Resistance
+      p(style="margin: -0px 0px -0px 0px; font-size: 1em;") The inverse of conductivity is the resistivity
+      .center
+        img(src='./assets/eq27-9.png' height="70px" style="margin: 30px 0px 0px 0px;")
+      p(style="margin: 30px 0px -0px 0px; font-size: 1em;") where &rho; has the units ohm·meters (V·m). Because R = l/&sigma;A, we can express the resistance of a uniform block of material along the length , as
+      .center
+        img(src='./assets/eq27-10.png' height="70px" style="margin: 50px 0px 0px 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Simple Harmonic Motion
-    //-   spring-mass
-    //-   p(style="margin: 0px 20px 0 0;") Hooke's law
-    //-   .center
-    //-     img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") with
-    //-   .center
-    //-     img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
-    //-   p(style="margin: -10px 20px 0 0;") we have
-    //-   .center
-    //-     img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
-    //-     img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 2
-    //-   example-two
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top: -40px;").center
-    //-   spring-mass
-    //-   p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
-    //-   displacement-plot
-    //-   .center
-    //-     img(src='./assets/displacementGraph.png' height="250px")
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
-    //-     img(src='./assets/displacementB.png' height="250px")
-    //-   .center
-    //-     img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
-    //-     img(src='./assets/displacementPhase.png' height="250px")
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass(style="margin-left: -70px;")
-    //-   p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   p
-    //-     img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
-    //-     img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
-
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 2
+      example-two
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
     //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
     //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
@@ -175,18 +152,6 @@
     //-     img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
 
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 3
-    //-   example-three
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
 
     //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -453,7 +418,6 @@ export default {
     path: 'electric-conductivity'
   },
   components: {
-    'pressure-machine': require('./PressureMachine'),
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),
@@ -473,16 +437,12 @@ export default {
     'example-seventeen': require('./components/ExampleSeventeen'),
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
-    'example-twenty': require('./components/ExampleTwenty'),
-    'simple-pendulum': require('./components/SimplePendulum'),
-    'spring-mass': require('./components/SpringMass'),
-    'displacement-plot': require('./components/DisplacementPlot'),
-    'torsion-pendulum': require('./components/TorsionPendulum')
+    'example-twenty': require('./components/ExampleTwenty')
   },
   data: function () {
     return {
       tiempo: '',
-      theme: 'Oscillatory motion'
+      theme: 'Electric conductivity'
     }
   },
   computed: {

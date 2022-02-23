@@ -1,9 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the equivalent capacitance between a and b for the combination of capacitors. All capacitances are in microfarads.
+    p.problem Find (a) the equivalent capacitance of the capacitors in Figure P26.18, (b) the charge on each capacitor, and (c) the potential difference across each capacitor.
     .center
-      img(src='../assets/fig26-9.png' height="300px" style="margin: -0px 0px 10px 0px;")
+      img(src='../assets/figP26-18.png' height="300px" style="margin: -0px 0px 10px 0px;")
 
     //- .center
     //-   p.solution Please do calculations and introduce your results
@@ -143,8 +143,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

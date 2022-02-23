@@ -649,6 +649,25 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 21
+      example-twenty-one
+  
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4.center Capacitors with dielectrics
+      .center
+        img(src='./assets/fig26-13.png' height="400px" style="margin: -20px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq26-14.png' height="50px" style="margin: 50px 0px 0px 0px;")
+  
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Capacitors with dielectrics
+      .center
+        img(src='./assets/fig26-14.png' height="400px" style="margin: 30px 0px 0px 0px;")
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
         p University Physics 13th Edition. Searzs and Zemanzky
@@ -690,6 +709,7 @@ export default {
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
     'example-twenty': require('./components/ExampleTwenty'),
+    'example-twenty-one': require('./components/ExampleTwentyOne'),
     'simple-pendulum': require('./components/SimplePendulum'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),

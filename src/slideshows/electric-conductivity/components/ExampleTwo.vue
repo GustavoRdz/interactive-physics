@@ -1,33 +1,36 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem A spring is mounted horizontally, with its left end fixed. A spring balance attached to the free end and pulled toward the right indicates that the stretching force is proportional to the displacement, and a force of {{ force }} N causes a displacement of {{ displacement }} m. We replace the spring balance with a {{ mass }}-kg glider, pull it {{ pullDistance }} m to the right along a frictionless air track, and release it from rest. (a) Find the force constant k of the spring. (b) Find the angular frequency &omega;, frequency <strong>f</strong>, and period <strong>T</strong> of the resulting oscillation.
+      p.problem A coaxial cable consists of two concentric cylindrical conductors. The region between the conductors is completely filled with polyethylene plastic. Current leakage through the plastic, in the radial direction, is unwanted. (The cable is designed to conduct current along its length, but that is not the current being considered here.) The radius of the inner conductor is a = 0.500 cm, the radius of the outer conductor is b = 1.75 cm, and the length is L = 15.0 cm. The resistivity of the plastic is 1.0&times;10<sup>13</sup> &Omega;m. Calculate the resistance of the plastic between the two conductors.
       .center
-        p.solution Please do calculations and introduce your results
-        p.inline.data Force (N)
-          input.center.data(:class="checkedF" v-model.number='enterF')
-          <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-        p.inline.data Displacement (m)
-          input.center.data(:class="checkedD" v-model.number='enterD')
-          <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
-        p.inline.data Mass (Kg)
-          input.center.data(:class="checkedM" v-model.number='enterM')
-          <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
-        p.inline.data Pull distance (m)
-          input.center.data(:class="checkedPullD" v-model='enterPullD')
-          <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
-        p.inline.data Elastic constant (N/m)
-          input.center.data(:class="checkedK" v-model='enterK')
-          <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
-        p.inline.data Angular frequency (rad/s)
-          input.center.data(:class="checkedOmega" v-model='enterOmega')
-          <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
-        p.inline.data Frequency (Hz)
-          input.center.data(:class="checkedFr" v-model='enterFr')
-          <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
-        p.inline.data Period (s)
-          input.center.data(:class="checkedT" v-model='enterT')
-          <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+        img(src='../assets/fig27-8.png' style="height: 400px;")
+
+      //- .center
+      //-   p.solution Please do calculations and introduce your results
+      //-   p.inline.data Force (N)
+      //-     input.center.data(:class="checkedF" v-model.number='enterF')
+      //-     <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+      //-   p.inline.data Displacement (m)
+      //-     input.center.data(:class="checkedD" v-model.number='enterD')
+      //-     <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
+      //-   p.inline.data Mass (Kg)
+      //-     input.center.data(:class="checkedM" v-model.number='enterM')
+      //-     <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
+      //-   p.inline.data Pull distance (m)
+      //-     input.center.data(:class="checkedPullD" v-model='enterPullD')
+      //-     <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
+      //-   p.inline.data Elastic constant (N/m)
+      //-     input.center.data(:class="checkedK" v-model='enterK')
+      //-     <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
+      //-   p.inline.data Angular frequency (rad/s)
+      //-     input.center.data(:class="checkedOmega" v-model='enterOmega')
+      //-     <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+      //-   p.inline.data Frequency (Hz)
+      //-     input.center.data(:class="checkedFr" v-model='enterFr')
+      //-     <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
+      //-   p.inline.data Period (s)
+      //-     input.center.data(:class="checkedT" v-model='enterT')
+      //-     <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
 
 </template>
 <script>
