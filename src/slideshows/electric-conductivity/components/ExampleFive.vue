@@ -1,24 +1,28 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An object is undergoing Simple Harmonic Motion (SHM) with period {{ period }} s and amplitude {{ amplitude }} cm. At t = 0s the object is at x = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from x = {{ amplitude }} cm to x = {{ amplitude / 2 }} cm and (b) from x = {{ amplitude / 2 }} cm to x = 0 cm.
+    p.problem Three resistors are connected in parallel as shown in Figure 28.11a. A potential difference of 18.0 V is maintained between points a and b.<br>(A) Calculate the equivalent resistance of the circuit.<br>(B) Find the current in each resistor.<br>(C) Calculate the power delivered to each resistor and the total power delivered to the combination of resistors
+
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-        <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
-      p.inline.data (a) time (s)
-        input.center.data(:class="checkedHalf" v-model.number='enterHalf')
-        <span class="error" v-if="errorHalf">[e: {{ errorHalf.toPrecision(3) }}%]</span>
-      p.inline.data (b) time (s)
-        input.center.data(:class="checkedSecondHalf" v-model='enterSecondHalf')
-        <span class="error" v-if="errorSecondHalf">[e: {{ errorSecondHalf.toPrecision(3) }}%]</span>
+      img(src='../assets/fig28-11.png' height=250)
+
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-     <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
+    //-   p.inline.data Amplitude (m)
+    //-     input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
+    //-     <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular" v-model.number='enterAngular')
+    //-     <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
+    //-   p.inline.data (a) time (s)
+    //-     input.center.data(:class="checkedHalf" v-model.number='enterHalf')
+    //-     <span class="error" v-if="errorHalf">[e: {{ errorHalf.toPrecision(3) }}%]</span>
+    //-   p.inline.data (b) time (s)
+    //-     input.center.data(:class="checkedSecondHalf" v-model='enterSecondHalf')
+    //-     <span class="error" v-if="errorSecondHalf">[e: {{ errorSecondHalf.toPrecision(3) }}%]</span>
 
 </template>
 <script>
