@@ -1,12 +1,15 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Oscillatory Motion
+        // img(src='./assets/frontImage.svg')
         img(src='./assets/U.svg')
-        //- SimplePendulum
+        
+        //- simple-pendulum
+        //- spring-mass
 
         h4 Simple Harmonic Motion Systems
         eg-triggered-message(:trigger='slideTimer >= 2',

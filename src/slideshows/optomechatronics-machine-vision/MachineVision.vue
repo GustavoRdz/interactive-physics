@@ -388,6 +388,127 @@
       .center
         img(src='./assets/fig3-34.png' height="600px" style="margin: 30px 20px -0px 0px;")
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Camera calibration
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
+      .center
+        img(src='./assets/fig3-35.png' height="400px" style="margin: 30px 0px 30px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") This is a camera perspective model. 
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Camera calibration
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
+      .center
+        img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 30px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A pinhole does not focus and, in fact, limits the entrance of incoming light, requiring long exposure time.
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In actual cameras, the pinhole is sufficiently opened by using a converging lens to avoid the disadvantage of the pinhole model.
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Camera calibration
+      .center
+        img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Let us consider the focus variation of the image plane. If an object is located at z = s from the lens as shown in the figure, the following Gaussian lens formula holds
+      .center
+        img(src='./assets/eq3-46.png' height="70px" style="margin: 10px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where f and f' are the focal length of the lens and the distance of the image plane from the center point of the lens, respectively.
+
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Camera calibration
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The objective of the image analysis is then how we map the image of an object acquired in the image plane into the world coordinate system. Referring to Appendix A1, the mapping conveniently can be described in the following form.
+    //-   .center
+    //-     img(src='./assets/eq3-47.png' height="50px" style="margin: 30px 0px 10px 0px;")
+
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A perspective transformation called the imaging transformation projects 3D points on to a plane.
+      .center
+        img(src='./assets/fig3-36.png' height="300px" style="margin: 30px 0px 40px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. 
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface.
+      .center
+        img(src='./assets/fig3-37.png' height="350px" style="margin: 0px 0px 30px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The first step to obtain the image interpretation is to obtain a relationship when a point (Xc, Yc, Zc) in the camera coordinate systems is projected onto the image coordinates (ui, vi) Under the assumption of the ideal projection, the transformation can be described by the projection equation
+      .center
+        img(src='./assets/eq3-48.png' height="60px" style="margin: 10px 0px 10px 0px;")
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Utilizing these coordinate systems, the whole imaging process can be described in the following sequence:
+      .center
+        img(src='./assets/eq3-49.png' height="150px" style="margin: 20px 0px 20px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. The image coordinates (ui; vi) are located at the center of the pixel coordinate system (u0; v0) As shown in the figure, the relationship between the pixel coordinate and image coordinate systems is, therefore, given by
+      .center
+        img(src='./assets/eq3-50.png' height="70px" style="margin: 10px 0px 10px 0px;")
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Then, the relationship called perspective matrix can be conveniently expressed in linear form,
+      .center
+        img(src='./assets/eq3-51.png' height="150px" style="margin: 20px 0px 20px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Using the rigid body transformation, Xc can be related to the world coordinates by the equation
+      .center
+        img(src='./assets/eq3-52.png' height="200px" style="margin: 10px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where R denotes the 3D rotation matrix, T denotes the 3D translational vector, and ri (i = 1,2,3) is a row vector.
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Finally, the relationship between the image and the pixel coordinates in the homogeneous coordinate spaceThen, the relationship called perspective matrix can be conveniently expressed in linear form,
+      .center
+        img(src='./assets/eq3-53.png' height="130px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Therefore, the overall imaging process is described by the relationship,
+      .center
+        img(src='./assets/eq3-54.png' height="160px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where [H] is the 3&times;4 camera projection matrix, which is denoted by
+      .center
+        img(src='./assets/eq3-55.png' height="120px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where &alpha;<sub>u</sub> = k<sub>u</sub>f and &alpha;<sub>v</sub> = k<sub>v</sub>f
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Rewriting the above equation as,
+      .center
+        img(src='./assets/eq3-56.png' height="130px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") When the above 12 elements are scaled by the value H<sub>34</sub>, we have 11 variables to determine. The resulting equation is obtained by
+      .center
+        img(src='./assets/eq3-57.png' height="160px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where s' is given by s/H<sub>34</sub> This yields the camera calibration equation from which the relationship between the pixel coordinates and the world coordinates can be established.
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") To illustrate the relationship in more detail, let us consider a point, say ith point, in the world coordinates {X} and the corresponding point imaged in the pixel coordinates {u<sub>p</sub>},
+      .center
+        img(src='./assets/eq3-58.png' height="400px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In deriving the above equation, we have used the following relationship
+      .center
+        img(src='./assets/eq3-58B.png' height="60px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") It needs to be pointed out that, at least, we need 12 equations like these that can be obtained by six calibration points.
+      
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Perspective projection
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The equation can be written in a more compact form
+      .center
+        img(src='./assets/eq3-59.png' height="50px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Solving for q yields
+      .center
+        img(src='./assets/eq3-60.png' height="50px" style="margin: 0px 0px 10px 0px;")
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where A+ is the pseudo inverse of A. Here, we have 11 unknowns for q<sub>s</sub> to be determined and, therefore, need at least six calibration points.
+
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>

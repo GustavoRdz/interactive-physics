@@ -22,6 +22,7 @@
         .caption
           //- h3(style="color:blue;") {{slideshow.infos.title}}
           p(style="color:green;").thumbnail-description {{slideshow.infos.description}}
+
 </template>
 
 <script>

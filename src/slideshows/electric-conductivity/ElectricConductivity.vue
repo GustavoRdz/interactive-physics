@@ -287,41 +287,50 @@
       .center
         img(src='./assets/fig28-17.png' height="350px" style="margin: 20px 0px 0px 0px;")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Discharging a capacitor
+      .center
+        img(src='./assets/fig28-16C.png' height="300px" style="margin: -40px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq28-17.png' height="60px" style="margin: 20px 20px -15px 0px;")
+        | &rArr;
+        img(src='./assets/eq28-17C.png' height="60px" style="margin: 20px 20px -15px 20px;")
+        | &rArr;
+        img(src='./assets/eq28-17D.png' height="60px" style="margin: 20px 0px -15px 20px;")
+      .center
+        img(src='./assets/eq28-17G.png' height="60px" style="margin: 30px 30px -15px 0px;")
+        | &rArr;      
+        img(src='./assets/eq28-17H.png' height="60px" style="margin: 30px 0px -15px 30px;")
+      .center
+        img(src='./assets/eq28-18.png' height="50px" style="margin: 40px 30px 0px 0px;")
+        img(src='./assets/eq28-19.png' height="60px" style="margin: 40px 0px -5px 30px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 11
-    //-   example-fourteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 8
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 12
-    //-   example-seventeen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

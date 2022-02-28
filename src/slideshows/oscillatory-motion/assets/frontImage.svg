@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg height="250" width="600" viewbox="0 0 600 250">
+          <defs>
+            <path id="r1" fill="none" stroke="black">
+              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+            </path>
+
+          </defs>
+          <use xlink:href="#r1"/>
+
+          <path :d="base" stroke="black"  fill="none"/>
+          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
+            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
+          </rect>
+          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
+          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
+          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+
+          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
+          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
+          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+
+            <text x="500" y="98">
+              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
+            </text>
+            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+
+            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
+            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
+        </svg>
