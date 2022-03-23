@@ -1,18 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
+    p.problem An electron in an old-style television picture tube moves toward the front of the tube with a speed of 8.0 &times; 10<sup>6</sup> m/s along the x axis. Surrounding the neck of the tube are coils of wire that create a magnetic field of magnitude 0.025 T, directed at an angle of 60º to the x axis and lying in the xy plane. Calculate the magnetic force on the electron.
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Frequency: f (Hz)
-        input.center.data(:class="checkedF" v-model.number='enterF')
-        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-      p.inline.data Period:T (s)
-        input.center.data(:class="checkedT" v-model.number='enterT')
-        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency: &omega; (rad/s)
-        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
-        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+      img(src="../assets/fig29-6.png" height="250" style="margin: 50px 0 0 0;")
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Frequency: f (Hz)
+    //-     input.center.data(:class="checkedF" v-model.number='enterF')
+    //-     <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period:T (s)
+    //-     input.center.data(:class="checkedT" v-model.number='enterT')
+    //-     <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency: &omega; (rad/s)
+    //-     input.center.data(:class="checkedOmega" v-model.number='enterOmega')
+    //-     <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
 
 </template>
 <script>

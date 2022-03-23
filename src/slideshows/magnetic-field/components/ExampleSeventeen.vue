@@ -3,7 +3,7 @@ eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem A {{ mass }}-kg connecting rod from a car engine is pivoted about a horizontal knife edge as shown in Figure. The center of gravity of the rod was located by balancing and is {{ gravityCenter }} m from the pivot. When the rod is set into small-amplitude oscillation, it makes {{ oscillations }} complete swings in {{ time }} s. Calculate the moment of inertia of the rod about the rotation axis through the pivot.
     .center
-        img(src='../assets/problemConnectingRod.png' style=" width: 120px; height: 200px; object-fit: cover; object-position: 0% 10px;")
+    //    img(src='../assets/problemConnectingRod.png' style=" width: 120px; height: 200px; object-fit: cover; object-position: 0% 10px;")
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Mass (kg)

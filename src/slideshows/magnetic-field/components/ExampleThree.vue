@@ -1,28 +1,30 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem We give the glider of the last Exercise an initial displacement x<sub>0</sub> = {{ initialDisplacement }} m and an initial velocity v<sub>0</sub> = {{ initialSpeed }} m/s. Find the period, amplitude, and phase angle of the resulting motion.<br><span style="font-size: 20px; color: green;">Use &omega; = {{ angular }} rad/s</span>
-
+    p.problem In an experiment designed to measure the magnitude of a uniform magnetic field, electrons are accelerated from rest through a potential difference of 350 V and then enter a uniform magnetic field that is perpendicular to the velocity vector of the electrons. The electrons travel along a curved path because of the magnetic force exerted on them, and the radius of the path is measured to be 7.5 cm. <br>(A) What is the magnitude of the magnetic field? <br>(B) What is the angular speed of the electrons?
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Initial displacement (m)
-        input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
-        <span class="error" v-if="errorInitDisp">[e: {{ errorInitDisp.toPrecision(3) }}%]</span>
-      p.inline.data Initial speed (m/s)
-        input.center.data(:class="checkedInitSpeed" v-model.number='enterInitSpeed')
-        <span class="error" v-if="errorInitSpeed">[e: {{ errorInitSpeed.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngularFreq" v-model.number='enterAngularFreq')
-        <span class="error" v-if="errorAngularFreq">[e: {{ errorAngularFreq.toPrecision(3) }}%]</span>
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
-        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
-      p.inline.data Phase angle (rad)
-        input.center.data(:class="checkedPhase" v-model='enterPhase')
-        <span class="error" v-if="errorPhase">[e: {{ errorPhase.toPrecision(3) }}%]</span>
+        img(src='../assets/fig29-10.png' height="250px" style="margin: -0px 0px -0px 0px;")
+
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Initial displacement (m)
+    //-     input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
+    //-     <span class="error" v-if="errorInitDisp">[e: {{ errorInitDisp.toPrecision(3) }}%]</span>
+    //-   p.inline.data Initial speed (m/s)
+    //-     input.center.data(:class="checkedInitSpeed" v-model.number='enterInitSpeed')
+    //-     <span class="error" v-if="errorInitSpeed">[e: {{ errorInitSpeed.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngularFreq" v-model.number='enterAngularFreq')
+    //-     <span class="error" v-if="errorAngularFreq">[e: {{ errorAngularFreq.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period (s)
+    //-     input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
+    //-     <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
+    //-   p.inline.data Amplitude (m)
+    //-     input.center.data(:class="checkedAmplitude" v-model='enterAmplitude')
+    //-     <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
+    //-   p.inline.data Phase angle (rad)
+    //-     input.center.data(:class="checkedPhase" v-model='enterPhase')
+    //-     <span class="error" v-if="errorPhase">[e: {{ errorPhase.toPrecision(3) }}%]</span>
 
 </template>
 <script>

@@ -32,213 +32,187 @@
     //-     span.small Ctrl + right
 
 
-    //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3
-    //-     | Topics
-    //-     .inline(class='animated infinite pulse heart')
-    //-   .center
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Motion of an Object Attached to a Spring</b>
-    //-     eg-transition(enter='bounceInRight' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Particle Model in Simple Harmonic Motion</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Energy of the Simple Harmonic Oscillator</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutTop')
-    //-       p(v-if="step >= 1")
-    //-         <b>The pendulum and other systems</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Damped oscillations</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Forced oscillations and resonance</b>
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3
+        | Topics
+        .inline(class='animated infinite pulse heart')
+      .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Magnetic Fields</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Sources of the Magnetic Field</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Faraday’s Law</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutTop')
+          p(v-if="step >= 1")
+            <b>Inductance</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Electromagnetic Waves</b>
 
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Periodic motion
-    //-   p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
-    //-   .center
-    //-     img(height="400px" src='./assets/motor vocho.gif')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Magnetic Fields and Forces
+      p 
+      .center
+        img(height="150px" src='./assets/fig29-1.png')
+      .center
+        img(height="250px" src='./assets/fig29-2.png')
+      .center
+        img(height="250px" src='./assets/fig29-3.png')
 
-    //- slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
-    //-   p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
-    //-   .button.prev(@click.stop='previousSlide' style="float: left; border: 0px;")
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide' style="float: right; border: 0px;")
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: 20px;").center Magnetic force on a charged particle moving in a magnetic field
+      .center
+        img(height="50px" src='./assets/eq29-1.png')
+      .center
+        img(height="50px" src='./assets/eq29-2.png' style="margin: 30px 0px 0px 0px;")
+      .center
+        img(height="300px" src='./assets/fig29-4.png' style="margin: 30px 0px 0px 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -30px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Period</b></span>, is the time interval in which the sistem completes an oscillation
-    //-   p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
-    //-   p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -0px;").center Right-hand rules
+      .center
+        img(height="400px" src='./assets/fig29-5.png' style="margin: 30px 0px 0px 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p(style="margin: 50px 0 -0px 0;") Formulas: <b>frequency</b>, <b>period</b> and <b>angular frequency</b>
-    //-   .center
-    //-     img(src='./assets/equations/frequency.svg' height="150px")
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;") The tesla
+      p(style="padding: 0px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") The SI unit of magnetic field is the newton per coulomb-meter per second, which is called the tesla (T)
+      .center
+        img(src='./assets/eq29-2B.png' height="90px" style="margin: 30px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq29-2C.png' height="90px" style="margin: 30px 0px 0px 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 1
-    //-   example-one
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Simple Harmonic Motion
-    //-   spring-mass
-    //-   p(style="margin: 0px 20px 0 0;") Hooke's law
-    //-   .center
-    //-     img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") with
-    //-   .center
-    //-     img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
-    //-   p(style="margin: -10px 20px 0 0;") we have
-    //-   .center
-    //-     img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
-    //-     img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Motion of a Charged Particle in a Uniform Magnetic Field
+      .center
+        img(src='./assets/fig29-7.png' height="500px" style="margin: 0px 0px 0 -150px;")
+        img(src='./assets/fig29-8.png' height="300px" style="margin: 0px 0px 200px 50px;")
+        img(src='./assets/eq29-2E.png' height="70px"  style="margin: 0px 0px 400px 50px;")
+        img(src='./assets/eq29-3.png' height="70px"  style="margin: 0px 0px 300px -170px;")
+        img(src='./assets/eq29-4.png' height="70px"  style="margin: 0px 0px 300px 50px;")
+        img(src='./assets/eq29-5.png' height="70px"  style="margin: 0px 0px 200px -290px;")
+        img(src='./assets/fig29-9.png' height="250px"  style="margin: 0px 0px -70px -450px;")
 
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 2
-    //-   example-two
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 2
+      example-two
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 3
+      example-three
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top: -40px;").center
-    //-   spring-mass
-    //-   p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
-    //-   displacement-plot
-    //-   .center
-    //-     img(src='./assets/displacementGraph.png' height="250px")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Magnetic Force Acting on a Current-Carrying Conductor
+      .center
+        img(src='./assets/fig29-17.png' height="400px" style="margin: -20px 50px 0 0px;")
+        img(src='./assets/fig29-18.png' height="300px" style="margin: -20px 0px 50px 50px;")
+      .center
+        img(src='./assets/eq29-10.png' height="50px" style="margin: 10px 50px 40px 0px;")
+        img(src='./assets/fig29-19.png' height="200px" style="margin: 10px 50px 0 50px;")
+        img(src='./assets/eq29-11.png' height="40px" style="margin: -10px 0px 120px 0px;")
+        img(src='./assets/eq29-12.png' height="80px" style="margin: -0px -150px 20px -170px;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
-    //-     img(src='./assets/displacementB.png' height="250px")
-    //-   .center
-    //-     img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
-    //-     img(src='./assets/displacementPhase.png' height="250px")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Torque on a Current Loop in a Uniform Magnetic Field 
+      .center
+        img(src='./assets/fig29-21.png' height="300px" style="margin: -50px 20px 0 0;")
+        img(src='./assets/fig29-21B.png' height="250px" style="margin: -50px 0px 0 20px;")
+        img(src='./assets/eq29-12B.png' height="40px" style="margin: -50px 0px 60px 20px;")
+      .center
+        img(src='./assets/eq29-12C.png' height="50px" style="margin: 30px 30px 0px 0;")
+        |
+        img(src='./assets/eq29-13.png' height="50px" style="margin: 30px 0px 10px 30px;")
+      .center
+        img(src='./assets/eq29-13B.png' height="150px" style="margin: 30px 0px 0 0;")
+      .center
+        img(src='./assets/eq29-14.png' height="70px" style="margin: 30px 0px 0 0;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass(style="margin-left: -70px;")
-    //-   p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   p
-    //-     img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
-    //-     img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Torque on a Current Loop in a Uniform Magnetic Field 
+      .center
+        img(src='./assets/fig29-22.png' height="250px" style="margin: -50px 20px 0 0;")
+        img(src='./assets/fig29-23.png' height="250px" style="margin: -50px 0px 0 20px;")
+      .center
+        img(src='./assets/eq29-14.png' height="60px" style="margin: -10px 0px 60px 20px;")
+      p(style="margin: -50px 0px 0px 0px;") Magnetic dipole moment of a current loop
+      .center
+        img(src='./assets/eq29-15.png' height="40px" style="margin: 0px 0px 50px 0;")
+      p(style="margin: -30px 0px 0px 0px;") Magnetic dipole moment of a N loop coil
+      .center
+        img(src='./assets/eq29-16.png' height="40px" style="margin: 0px 0px 50px 0px;")
+      p(style="margin: -30px 0px 0px 0px;") Torque on a magnetic moment in a magnetic field
+      .center
+        img(src='./assets/eq29-17.png' height="40px" style="margin: 0px 0px 0 0;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass
-    //-   p(style="margin: 40px 0px -40px 100px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   .center
-    //-     img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 4
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Phase constant and Amplitude
-    //-   p At t = 0
-    //-   .center
-    //-     img(src='./assets/displacementT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-     img(src='./assets/velocityT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") dividing
-    //-   .center
-    //-     img(src='./assets/velocityOverDisplacementT0.png' height="100px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") then
-    //-   .center
-    //-     img(src='./assets/phaseT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") and squaring the displacement and velocity we get
-    //-   .center
-    //-     img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 3
-    //-   example-three
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 4
-    //-   example-four
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 5
-    //-   example-five
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 5
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -508,7 +482,7 @@ export default {
   data: function () {
     return {
       tiempo: '',
-      theme: 'Oscillatory motion'
+      theme: 'Magnetic fields'
     }
   },
   computed: {
