@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Relativity theory
         img(src='./assets/microres4.jpg')
-        h4 Special theory of relativity
+        p Special theory of relativity
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(enter='bounceInUp' leave='bounceOutDown')
       h3

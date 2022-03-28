@@ -3,9 +3,9 @@
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
-        h1 Vision Systems
+        h2 Vision Systems
         img(src='./assets/U.svg')
-        h4 Edges and contours
+        p Edges and contours
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(:steps=7, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>

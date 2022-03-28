@@ -5,7 +5,7 @@
       .center.frontpage
         h3 Optomechatronics
         img(src='./assets/U.svg')
-        h4 Introduction
+        p Introduction
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

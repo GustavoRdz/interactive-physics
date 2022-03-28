@@ -3,9 +3,9 @@
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
-        h1 Vision Systems
+        h2 Vision Systems
         img(src='./assets/U.svg')
-        h4 Fourier analysis
+        p Fourier analysis
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -14,6 +14,7 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
         p.right <sup style="font-size: 10px;"> {{ slides.length }}</sup>
+
     slide(:steps=4, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
       h6(style="margin-top: 20px;")

@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')

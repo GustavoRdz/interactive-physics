@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -334,263 +335,344 @@
       .center
         img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Inverting Summing Amplifier
+      p 
+      .center
+        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 2% 47%;")
+      .center
+        img(src='./assets/eq4-16.png' height="60px" style="margin: 30px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-16B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-16C.png' height="70px" style="margin: 10px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Iterative Thresholding
-      p(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;")
+      h6(style="margin-top: -0px;").center Integrating Amplifier
       .center
-        img(src='./assets/fig3-22.png' height="500px" style="margin: 40px 20px -30px 20px;")
+        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 47%;")
+      .center
+        img(src='./assets/eq4-17.png' height="60px" style="margin: 30px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-17B.png' height="70px" style="margin: 10px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Region-Based Segmentation
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") Seven divided different image regions.
+      h6(style="margin-top: -0px;").center Differential Amplifier
       .center
-        img(src='./assets/fig3-23.png' height="300px" style="margin: 40px 20px -30px 20px;")
-        img(src='./assets/eq3-19.png' height="250px" style="margin: 40px 20px -30px 20px;")
+        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 610px; height: 210px; object-fit: none; object-position: 0% 98%;")
+      .center
+        img(src='./assets/eq4-18.png' height="60px" style="margin: 30px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-19.png' height="70px" style="margin: 10px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-19B.png' height="70px" style="margin: 10px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Region-Based Segmentation
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") 
+      h6(style="margin-top: -0px;").center Comparator
       .center
-        img(src='./assets/fig3-25.png' height="500px" style="margin: 0px 20px -0px 20px;")
+        img(src='./assets/fig4-17.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 100%;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Edge Detection
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") Edge detection is one such method for analyzing and identifying image contents, and presents the most common approach for detecting discontinuities in gray level. 
+      h6(style="margin-top: -0px;").center Signal Processing Elements
+      h6(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") Filters
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.2em;") Filters are used to inhibit the presence of a certain band of undesirable frequencies from a dynamic final signal, permitting others to be transmitted, as illustrated in Figure 4.18a.
       .center
-        img(src='./assets/fig3-26.png' height="400px" style="margin: 20px 20px -0px 20px;")
+        img(src='./assets/fig4-18.png' height="500px" style="margin: 40px 20px -30px 20px;")
+
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Wheatstone Bridge
+    //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The bridge circuit is the most common unit which can be used for obtaining the output of transducers.
+    //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") It converts a resistance change in response to a voltage change.
+    //-   .center
+    //-     img(src='./assets/fig4-24.png' height="250px" style="margin: 0px 20px -30px 20px;")
+    //-   p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.2em;") Due to a constant supply voltage this type is called a constant voltage Wheatstone bridge.
+    //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") When the bridge is balanced, i.e., V<sub>out</sub> is zero, no current may flow through the meter, which gives i<sub>out</sub> = 0.
+    //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") Then, the current i<sub>1</sub> must be equal to i<sub>2</sub>, whereas the current i<sub>3</sub> must be equal to i<sub>4</sub>.
+    //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") In addition, the potential difference across R<sub>1</sub> must be equal to that across R<sub>3</sub>, or i<sub>1</sub>R<sub>1</sub> = i<sub>3</sub>R<sub>3</sub> and similarly, for the potential difference across R<sub>2</sub> and R<sub>4</sub>, i<sub>2</sub>R<sub>2a</sub> = i<sub>4</sub>R<sub>4</sub>.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Edge Detection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Image Gradient
+      h6(style="margin-top: -0px;").center Actuators
+      h6(style="margin-top: -0px;").center Electric motors
+      p(style="padding: 15px; margin: -50px 1px -0px 1px; line-height: 1.5em;") In DC motor, depending upon what type of magnetic fields (permanent magnetic type or electromagnet wound field type) is used, these are divided into two; permanent magnetic DC motor and electromagnetic type or wound field DC motor. Stepper motors steps by a specified number of degrees according to each pulse the motor receives from its controller. 
       .center
-        img(src='./assets/eq3-24.png' height="100px" style="margin: 30px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq3-25.png' height="60px" style="margin: 30px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq3-27.png' height="70px" style="margin: 30px 20px -0px 20px;")
-      p numerically
-      .center
-        img(src='./assets/eq3-28.png' height="50px" style="margin: -50px 0px -0px 0px;")
+        img(src='./assets/fig4-29.png' height="300px" style="margin: 0px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Edge Detection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Roberts operator
+      h6(style="margin-top: -0px;").center Actuators: Electric motors
+      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.5em;") The rotor will receive the electromagnetic force called the “Lorentz force” which is given by
       .center
-        img(src='./assets/eq3-29.png' height="170px" style="margin: 30px 0px 0px 0px;")
-      p(style="padding: 15px; margin: 30px 1px -0px 1px; line-height: 1.3em;") Sobel operator
+        img(src='./assets/eq4-32.png' height="50px" style="margin: 20px 20px -15px 20px;")
+        | <span style="font-size: 20px;">in a generator</span> 
+        img(src='./assets/eq4-33.png' height="50px" style="margin: 20px 20px -15px 20px;")
       .center
-        img(src='./assets/eq3-31.png' height="200px" style="margin: 30px 0px 0px 0px;")
+        img(src='./assets/eq4-33B.png' height="50px" style="margin: 50px 20px -15px 20px;")
+        | <span style="font-size: 20px;">in a generator</span> 
+        img(src='./assets/eq4-34.png' height="50px" style="margin: 50px 20px -15px 20px;")
+      .center
+        | <span style="font-size: 20px;">electrical</span> 
+        img(src='./assets/eq4-35.png' height="50px" style="margin: 50px 20px -15px 20px;")
+        | <span style="font-size: 20px;">mechanical</span> 
+        img(src='./assets/eq4-36.png' height="50px" style="margin: 50px 20px -15px 20px;")
+      .center
+        img(src='./assets/fig4-30.png' height="200px" style="margin: 50px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Edge Detection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Sobel operation of a series of mosaic images
+      h6(style="margin-top: -0px;").center  Actuators: piezoelectric
+      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") A piezoelectric material deforms or produces a force when it is subject to an electrical field.
       .center
-        img(src='./assets/fig3-27.png' height="600px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig4-31.png' height="200px" style="margin: 20px 20px -0px 20px;")
+      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The electrical-mechanical relationship can be approximately described when piezoelectric materials are free of applied loads. It is given by 
+      .center
+        img(src='./assets/eq4-37.png' height="50px" style="margin: 20px 20px -0px 20px;")
+      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") where S is the strain in the piezo material, E is the electric field strength, and dij is the coupling coefficient between S and E, which is the piezoelectric charge constant. 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Edge Detection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Sobel operation of a series of mosaic images
+      h6(style="margin-top: -0px;").center Actuators: piezoelectric
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Generally, a single piezoelectric actuator employing the above configuration produces a very small deformation, and therefore a variety of structural configurations are available. 
+      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") Three such actuators which include stack, bimorph, and tube types. The stack type is composed of N axial piezo actuators and thus increases N times the deformation of single actuator.
       .center
-        img(src='./assets/fig3-27B.png' height="600px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig4-32.png' height="300px" style="margin: 30px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Edge Detection
+      h6(style="margin-top: -0px;").center  Actuators: piezoelectric
       .center
-        img(src='./assets/fig3-28.png' height="300px" style="margin: 20px 20px -0px 0px;")
-      p  Laplacian
-      //- .center
-      //-   img(src='./assets/eq3-33.png' height="70px" style="margin: 20px 20px -0px 0px;")
-      .center
-        img(src='./assets/eq3-34.png' height="100px" style="margin: 20px 20px -0px 0px;")
-      .center
-        img(src='./assets/eq3-35.png' height="100px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/table4-5.png' height="500px" style="margin: 30px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Laplacian 
+      h6(style="margin-top: -0px;").center  Actuators: piezoelectric
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
       .center
-        img(src='./assets/fig3-29.png' height="400px" style="margin: -10px 20px -0px 0px;")
+        img(src='./assets/fig4-33.png' height="250px" style="margin: 0px 0px -0px 0px;")
+      .center
+        img(src='./assets/eq4-38.png' height="50px" style="margin: 30px 40px -15px 0px;")
+        | <span style="font-size:20px;">with</span>
+        img(src='./assets/eq4-38B.png' height="70px" style="margin: 30px 0px -30px 40px;")
+      p The dynamics of the element can be written as
+      .center
+        img(src='./assets/eq4-39.png' height="70px" style="margin: -40px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-39B.png' height="50px" style="margin: 30px 20px -0px 20px;")
+      .center
+        img(src='./assets/eq4-40.png' height="70px" style="margin: 30px 20px -0px 20px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Laplacian of a Gaussian
+      h6(style="margin-top: -0px;").center   Actuators: Voice Coil Motor (VCM)
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
+      .center
+        img(src='./assets/fig4-34.png' height="500px" style="margin: 50px 20px -110px -20px;")
+        img(src='./assets/eq4-41.png'  height="40px"  style="margin: 0px -147px 341px 20px;")
+        img(src='./assets/eq4-42.png'  height="70px"  style="margin: 0px -267px 268px 20px;")
+        img(src='./assets/eq4-42B.png' height="70px"  style="margin: 0px -141px 194px 20px;")
+        img(src='./assets/eq4-42C.png' height="70px"  style="margin: 0px -115px 120px 20px;")
+        img(src='./assets/eq4-43.png'  height="70px"  style="margin: 0px -295px 47px 20px;")
+        img(src='./assets/eq4-44.png'  height="70px"  style="margin: 0px -245px -28px 20px;")
+        img(src='./assets/eq4-45.png'  height="70px"  style="margin: 0px -10px -102px 20px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center   Actuators: Voice Coil Motor (VCM)
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") VCM configurations
+      .center
+        img(src='./assets/fig4-35.png' height="400px" style="margin: 10px 0px -0px -0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Electrostatic Actuator
+      .center
+        img(src='./assets/fig4-36.png' height="500px" style="margin: 0px 30px -400px -150px;")
+        img(src='./assets/eq4-46.png' height="50px" style="margin: 0px 0px 55px 0px;")
+        img(src='./assets/eq4-47.png' height="50px" style="margin: 0px 0px 0px -95px;")
+        img(src='./assets/eq4-48.png' height="45px" style="margin: 0px 0px -55px -95px;")
+        img(src='./assets/eq4-49.png' height="50px" style="margin: 0px 0px -110px -115px;")
+        img(src='./assets/eq4-50.png' height="50px" style="margin: 0px 0px -165px -117px;")
+        img(src='./assets/eq4-51.png' height="50px" style="margin: 0px 0px -220px -150px;")
+        img(src='./assets/eq4-51B.png' height="30px" style="margin: 0px 0px -254px -255px;")
+        img(src='./assets/eq4-51C.png' height="50px" style="margin: 0px 0px -310px -117px;")
+        img(src='./assets/eq4-52.png' height="50px" style="margin: 0px 0px -365px -197px;")
+        img(src='./assets/eq4-53.png' height="50px" style="margin: 0px 0px -420px -145px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Microactuators
+      .center
+        img(src='./assets/table4-6.png' height="400px" style="margin: -10px 20px -0px 0px;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center  Microactuators: Shape Memory Alloy (SMA) Actuator
       p LoG
       .center
-        img(src='./assets/eq3-37.png' height="50px" style="margin: -10px 20px -0px 0px;")
+        img(src='./assets/fig4-37.png' height="300px" style="margin: -10px 20px -0px 0px;")
       .center
-        img(src='./assets/eq3-41.png' height="100px" style="margin: 10px 20px -0px 0px;")
-      p Th e edge detection using the LoG filter is summarized in the following three steps:
-        p 1) Smoothing operation by a Gaussian filter<br>2) Enhancing the edges using Laplacian<br>3) Detecting zero crossing.
+        img(src='./assets/fig4-38.png' height="300px" style="margin: 10px 20px -0px 0px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Hough transform
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Distortion with a stop
+      h6(style="margin-top: -0px;").center  Microactuators: Magnetostrictive Actuator
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Magnetostrictive materials found in 1970s transduce magnetic energy to mechanical energy when these are subjected to an electromagnetic field. 
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;")  These materials also generate electromagnetic fields when they are deformed by an external force.
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") Therefore, magnetostrictive materials can be used for both actuation and sensing due to this bidirectional coupling.
       .center
-        img(src='./assets/fig3-30.png' height="300px" style="margin: 10px 20px -0px 0px;")
-      p Discretization of parameter space (m, c)
-      .center
-        img(src='./assets/fig3-31.png' height="300px" style="margin: -30px 20px -0px 0px;")
+        img(src='./assets/fig4-39.png' height="300px" style="margin: 10px 20px -0px 0px;")
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") The advantage of this actuator is that it readily responds to significantly lower voltage as compared with piezoelectric actuators (200 to 300 V).
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Hough transform
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the following, the Hough algorithm for line detection is summarized:
-      p <b>Step 1</b>: Quantize the parameter space (m, c) within the range m<sub>min</sub> &leq; m &leq; m<sub>max</sub> and c<sub>min</sub> &leq; c &leq; c<sub>max</sub><br><b>Step 2</b>: Form an accumulator array A(m, c) and initialize it to some value. <br><b>Step 3</b>: Increment the value of an accumulator array A(m,c) in relation to the points composing lines in the image. 
+      h6(style="margin-top: -0px;").center  Microactuators:  Ionic Polymer Metal Composite (IPMC) Actuator
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The IPMC materials possess the susceptibility to interactions with externally applied electric fields and also to their own internal field structure. 
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") Due to this property, when an electrical field is applied, the hydrated cations in the materials move to negatively charged electrode side. 
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") As a result, the IPMC strip undergoes internal volume change and thus bends towards the anode, negatively charged side. 
+      .center
+        img(src='./assets/fig4-40.png' height="150px" style="margin: 30px 20px -0px 0px;")
+      p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") The advantages of this actuator are light weight, relatively large displacement, low input voltage (4 to 7 V) and fast response (msec to sec).
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Hough transform
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The Hough transform method suffers when the line approaches the vertical. One way to avoid this difficulty is to represent a line as
-      .center
-        img(src='./assets/eq3-45.png' height="50px" style="margin: 30px 20px -0px 0px;")
-      .center
-        img(src='./assets/fig3-32.png' height="400px" style="margin: 20px 20px -0px 0px;")
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Hough transform
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
+    //-   .center
+    //-     img(src='./assets/fig3-33.png' height="600px" style="margin: 30px 20px -0px 0px;")
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Hough transform
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
-      .center
-        img(src='./assets/fig3-33.png' height="600px" style="margin: 30px 20px -0px 0px;")
-
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Hough transform
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
-      .center
-        img(src='./assets/fig3-34.png' height="600px" style="margin: 30px 20px -0px 0px;")
-
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Camera calibration
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
-      .center
-        img(src='./assets/fig3-35.png' height="400px" style="margin: 30px 0px 30px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") This is a camera perspective model. 
-      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Camera calibration
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
-      .center
-        img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 30px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A pinhole does not focus and, in fact, limits the entrance of incoming light, requiring long exposure time.
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In actual cameras, the pinhole is sufficiently opened by using a converging lens to avoid the disadvantage of the pinhole model.
-      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Camera calibration
-      .center
-        img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Let us consider the focus variation of the image plane. If an object is located at z = s from the lens as shown in the figure, the following Gaussian lens formula holds
-      .center
-        img(src='./assets/eq3-46.png' height="70px" style="margin: 10px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where f and f' are the focal length of the lens and the distance of the image plane from the center point of the lens, respectively.
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Hough transform
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
+    //-   .center
+    //-     img(src='./assets/fig3-34.png' height="600px" style="margin: 30px 20px -0px 0px;")
 
     //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
     //-   h6(style="margin-top: -0px;").center Camera calibration
-    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The objective of the image analysis is then how we map the image of an object acquired in the image plane into the world coordinate system. Referring to Appendix A1, the mapping conveniently can be described in the following form.
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
     //-   .center
-    //-     img(src='./assets/eq3-47.png' height="50px" style="margin: 30px 0px 10px 0px;")
+    //-     img(src='./assets/fig3-35.png' height="400px" style="margin: 30px 0px 30px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") This is a camera perspective model. 
+      
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Camera calibration
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In the pinhole camera model, a small hole is punched at the optical lens center in the camera coordinate system, through which some of the rays of light reflected by the object pass to form an inverted image of the object on the image plane.
+    //-   .center
+    //-     img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 30px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A pinhole does not focus and, in fact, limits the entrance of incoming light, requiring long exposure time.
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In actual cameras, the pinhole is sufficiently opened by using a converging lens to avoid the disadvantage of the pinhole model.
+      
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Camera calibration
+    //-   .center
+    //-     img(src='./assets/fig3-35.png' height="350px" style="margin: 30px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Let us consider the focus variation of the image plane. If an object is located at z = s from the lens as shown in the figure, the following Gaussian lens formula holds
+    //-   .center
+    //-     img(src='./assets/eq3-46.png' height="70px" style="margin: 10px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where f and f' are the focal length of the lens and the distance of the image plane from the center point of the lens, respectively.
+
+    //- //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //- //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //- //-   h6(style="margin-top: -0px;").center Camera calibration
+    //- //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The objective of the image analysis is then how we map the image of an object acquired in the image plane into the world coordinate system. Referring to Appendix A1, the mapping conveniently can be described in the following form.
+    //- //-   .center
+    //- //-     img(src='./assets/eq3-47.png' height="50px" style="margin: 30px 0px 10px 0px;")
 
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A perspective transformation called the imaging transformation projects 3D points on to a plane.
-      .center
-        img(src='./assets/fig3-36.png' height="300px" style="margin: 30px 0px 40px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. 
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A perspective transformation called the imaging transformation projects 3D points on to a plane.
+    //-   .center
+    //-     img(src='./assets/fig3-36.png' height="300px" style="margin: 30px 0px 40px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface.
-      .center
-        img(src='./assets/fig3-37.png' height="350px" style="margin: 0px 0px 30px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The first step to obtain the image interpretation is to obtain a relationship when a point (Xc, Yc, Zc) in the camera coordinate systems is projected onto the image coordinates (ui, vi) Under the assumption of the ideal projection, the transformation can be described by the projection equation
-      .center
-        img(src='./assets/eq3-48.png' height="60px" style="margin: 10px 0px 10px 0px;")
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface.
+    //-   .center
+    //-     img(src='./assets/fig3-37.png' height="350px" style="margin: 0px 0px 30px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The first step to obtain the image interpretation is to obtain a relationship when a point (Xc, Yc, Zc) in the camera coordinate systems is projected onto the image coordinates (ui, vi) Under the assumption of the ideal projection, the transformation can be described by the projection equation
+    //-   .center
+    //-     img(src='./assets/eq3-48.png' height="60px" style="margin: 10px 0px 10px 0px;")
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Utilizing these coordinate systems, the whole imaging process can be described in the following sequence:
-      .center
-        img(src='./assets/eq3-49.png' height="150px" style="margin: 20px 0px 20px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. The image coordinates (ui; vi) are located at the center of the pixel coordinate system (u0; v0) As shown in the figure, the relationship between the pixel coordinate and image coordinate systems is, therefore, given by
-      .center
-        img(src='./assets/eq3-50.png' height="70px" style="margin: 10px 0px 10px 0px;")
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Utilizing these coordinate systems, the whole imaging process can be described in the following sequence:
+    //-   .center
+    //-     img(src='./assets/eq3-49.png' height="150px" style="margin: 20px 0px 20px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In other words, the transformation changes a 3D aggregate of the objects into a plane surface. The image coordinates (ui; vi) are located at the center of the pixel coordinate system (u0; v0) As shown in the figure, the relationship between the pixel coordinate and image coordinate systems is, therefore, given by
+    //-   .center
+    //-     img(src='./assets/eq3-50.png' height="70px" style="margin: 10px 0px 10px 0px;")
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Then, the relationship called perspective matrix can be conveniently expressed in linear form,
-      .center
-        img(src='./assets/eq3-51.png' height="150px" style="margin: 20px 0px 20px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Using the rigid body transformation, Xc can be related to the world coordinates by the equation
-      .center
-        img(src='./assets/eq3-52.png' height="200px" style="margin: 10px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where R denotes the 3D rotation matrix, T denotes the 3D translational vector, and ri (i = 1,2,3) is a row vector.
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Then, the relationship called perspective matrix can be conveniently expressed in linear form,
+    //-   .center
+    //-     img(src='./assets/eq3-51.png' height="150px" style="margin: 20px 0px 20px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Using the rigid body transformation, Xc can be related to the world coordinates by the equation
+    //-   .center
+    //-     img(src='./assets/eq3-52.png' height="200px" style="margin: 10px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where R denotes the 3D rotation matrix, T denotes the 3D translational vector, and ri (i = 1,2,3) is a row vector.
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Finally, the relationship between the image and the pixel coordinates in the homogeneous coordinate spaceThen, the relationship called perspective matrix can be conveniently expressed in linear form,
-      .center
-        img(src='./assets/eq3-53.png' height="130px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Therefore, the overall imaging process is described by the relationship,
-      .center
-        img(src='./assets/eq3-54.png' height="160px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where [H] is the 3&times;4 camera projection matrix, which is denoted by
-      .center
-        img(src='./assets/eq3-55.png' height="120px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where &alpha;<sub>u</sub> = k<sub>u</sub>f and &alpha;<sub>v</sub> = k<sub>v</sub>f
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Finally, the relationship between the image and the pixel coordinates in the homogeneous coordinate spaceThen, the relationship called perspective matrix can be conveniently expressed in linear form,
+    //-   .center
+    //-     img(src='./assets/eq3-53.png' height="130px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Therefore, the overall imaging process is described by the relationship,
+    //-   .center
+    //-     img(src='./assets/eq3-54.png' height="160px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where [H] is the 3&times;4 camera projection matrix, which is denoted by
+    //-   .center
+    //-     img(src='./assets/eq3-55.png' height="120px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where &alpha;<sub>u</sub> = k<sub>u</sub>f and &alpha;<sub>v</sub> = k<sub>v</sub>f
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Rewriting the above equation as,
-      .center
-        img(src='./assets/eq3-56.png' height="130px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") When the above 12 elements are scaled by the value H<sub>34</sub>, we have 11 variables to determine. The resulting equation is obtained by
-      .center
-        img(src='./assets/eq3-57.png' height="160px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where s' is given by s/H<sub>34</sub> This yields the camera calibration equation from which the relationship between the pixel coordinates and the world coordinates can be established.
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Rewriting the above equation as,
+    //-   .center
+    //-     img(src='./assets/eq3-56.png' height="130px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") When the above 12 elements are scaled by the value H<sub>34</sub>, we have 11 variables to determine. The resulting equation is obtained by
+    //-   .center
+    //-     img(src='./assets/eq3-57.png' height="160px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where s' is given by s/H<sub>34</sub> This yields the camera calibration equation from which the relationship between the pixel coordinates and the world coordinates can be established.
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") To illustrate the relationship in more detail, let us consider a point, say ith point, in the world coordinates {X} and the corresponding point imaged in the pixel coordinates {u<sub>p</sub>},
-      .center
-        img(src='./assets/eq3-58.png' height="400px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In deriving the above equation, we have used the following relationship
-      .center
-        img(src='./assets/eq3-58B.png' height="60px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") It needs to be pointed out that, at least, we need 12 equations like these that can be obtained by six calibration points.
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") To illustrate the relationship in more detail, let us consider a point, say ith point, in the world coordinates {X} and the corresponding point imaged in the pixel coordinates {u<sub>p</sub>},
+    //-   .center
+    //-     img(src='./assets/eq3-58.png' height="400px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") In deriving the above equation, we have used the following relationship
+    //-   .center
+    //-     img(src='./assets/eq3-58B.png' height="60px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") It needs to be pointed out that, at least, we need 12 equations like these that can be obtained by six calibration points.
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Perspective projection
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The equation can be written in a more compact form
-      .center
-        img(src='./assets/eq3-59.png' height="50px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Solving for q yields
-      .center
-        img(src='./assets/eq3-60.png' height="50px" style="margin: 0px 0px 10px 0px;")
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where A+ is the pseudo inverse of A. Here, we have 11 unknowns for q<sub>s</sub> to be determined and, therefore, need at least six calibration points.
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Perspective projection
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The equation can be written in a more compact form
+    //-   .center
+    //-     img(src='./assets/eq3-59.png' height="50px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Solving for q yields
+    //-   .center
+    //-     img(src='./assets/eq3-60.png' height="50px" style="margin: 0px 0px 10px 0px;")
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where A+ is the pseudo inverse of A. Here, we have 11 unknowns for q<sub>s</sub> to be determined and, therefore, need at least six calibration points.
 
 
     slide(enter='bounceInDown' :mouseNavigation='false')

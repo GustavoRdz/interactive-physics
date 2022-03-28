@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Wave Motion
         img(src='./assets/U.svg')
-        h4 Propagation of oscillations
+        p Propagation of oscillations
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
       h3

@@ -3,9 +3,9 @@
   .eg-slideshow
     slide(enter='fadeIn' leave='bounceOutLeft')
       .center.frontpage
-        h1 Vision Systems
+        h2 Vision Systems
         img(src='./assets/U.svg')
-        h4 Corner detection
+        p Corner detection
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -13,6 +13,7 @@
           img.control-schema(src='./assets/controlsNext.svg')
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
+        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
@@ -95,17 +96,62 @@
       p Within an image region that is uniform (that is, appears flat), M = 0 and therefore λ1 = λ2 = 0.
       p On an ideal ramp, however, the eigenvalues are λ1 > 0 and λ2 = 0, independent of the orientation of the edge.
 
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
+    //-   h4.center(style="margin-top: -10px;") Harris Corner Detector
+    //-   h5.center(style="margin-top: -50px;") Local structure matrix
+    //-   p The eigenvalues thus encode an edge’s strength, and their associated eigenvectors correspond to the local edge orientation.
+    //-   p A corner should have a strong edge in the main direction (corresponding to the larger of the two eigenvalues), another edge normal to the first (corresponding to the smaller eigenvalues), and both eigenvalues must be significant. Since 
+    //-     |
+    //-     img(src='./assets/chap08/p141-math-a.png' height="40px" style="margin: -30px 0 -15px 0;")
+
+    //-   p the two eigenvalues, λ2 = trace(M)/2 − . . . , is relevant when  determining a corner we can assume that trace(M) > 0 and thus |λ1| ≥ |λ2|. Therefore only the smalle
+
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
-      h5.center(style="margin-top: -50px;") Local structure matrix
-      p The eigenvalues thus encode an edge’s strength, and their associated eigenvectors correspond to the local edge orientation.
-      p A corner should have a strong edge in the main direction (corresponding to the larger of the two eigenvalues), another edge normal to the first (corresponding to the smaller eigenvalues), and both eigenvalues must be significant. Since 
-      p a
-        |
-        img(src='./assets/chap08/p141-math-a.png' height="50px" style="margin-top: -20px;")
+      h5.center(style="margin-top: -50px;") Corner Response Function (CRF)
+      p The difference between the two eigenvalues of the local structure matrix is
+      .center
+        img(src='./assets/chap08/p141-math-e.png' height="70px" style="margin: -30px 0 -15px 0;")
+      p At a good corner position, the difference between the two eigenvalues λ1, λ2 should be as small as possible and thus the expression under the root should be a minimum.
+      p To avoid the explicit calculation of the eigenvalues (and the square root) the Harris detector defines the function
+      .center
+        img(src='./assets/chap08/p141-eqn8-9.png' height="90px" style="margin: -30px 0 -15px 0;")
 
-      p the two eigenvalues, λ2 = trace(M)/2 − . . . , is relevant when  determining a corner we can assume that trace(M) > 0 and thus |λ1| ≥ |λ2|. Therefore only the smalle
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
+      h4.center(style="margin-top: -10px;") Harris Corner Detector
+      h5.center(style="margin-top: -50px;") Corner Response Function (CRF)
+      .center
+        img(src='./assets/chap08/p141-eqn8-9.png' height="90px" style="margin: -30px 0 -15px 0;")
+      p To avoid the explicit calculation of the eigenvalues (and the square root) the Harris detector defines the function as a measure of “corner strength”, where the parameter &alpha; determines the sensitivity of the detector. Q(u, v) is called the “corner response function” and returns maximum values at isolated corners.
+      p In practice, &alpha; is assigned a fixed value in the range of 0.04 to 0.06 (max. 0.25 = 1/4 ).
+      p The larger the value of α, the less sensitive the detector is and the fewer corners detected.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
+      h4.center(style="margin-top: -10px;") Harris Corner Detector
+      h5.center(style="margin-top: -50px;") Determining Corner Points
+      p(style="margin: 0px 0 -10px 0;") An image location (u, v) is selected as a potential candidate for a corner point if
+      .center
+        img(src='./assets/chap08/p142-math-a.png' height="50px" style="margin: -100px 0 0px 0;")
+      p where the threshold t<sub>H</sub> is selected based on image content and typically lies within the range of 10,000 to 1,000,000. Once selected, the corners c  <sub>i</sub> = &#x27E8;ui, vi, qi&#x27E9; are inserted into the sequence
+      .center
+        img(src='./assets/chap08/p142-math-b.png' height="50px" style="margin: -50px 0 0px 0;")
+      p which is then sorted in descending order (i.e., q<sub>i</sub> ≥ q<sub>i+1</sub>) according to corner strength q<sub>i</sub> = Q(u<sub>i</sub>, v<sub>i</sub>). To suppress the false corners that tend to arise in densely packed groups around true corners, all except the strongest corner in a specified vicinity are eliminated.
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
+      h4.center(style="margin-top: -10px;") Harris Corner Detector
+      .center
+        img(src='./assets/chap08/p145-fig8-2.png' height="700px" style="margin: -50px 0 0px 0;")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
+      h4.center(style="margin-top: -10px;") Harris Corner Detector
+      .center
+        img(src='./assets/chap08/p146-fig8-3.png' height="700px" style="margin: -50px 0 0px 0;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References: {{ slides.length }}</sup>

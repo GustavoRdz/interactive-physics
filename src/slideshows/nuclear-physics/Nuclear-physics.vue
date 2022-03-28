@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }} </sup>
 
-    slide(:steps=5, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=5, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
@@ -37,14 +37,14 @@
           p(v-if="step>=5")
             <b>Nuclear reactions</b>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h2 Nuclear physics
       .center
         img(src='./assets/nuclear01.png' width="400px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Begining of nuclear physics
       p In 1896 French physicist <b>Antoine-Henri Becquerel</b> (1852–1908) discovered radioactivity in uranium compounds.<b>Ernest Rutherford</b> showed that the radiation is of three types—<b>alpha</b>, <b>beta</b>, and <b>gamma rays</b>
@@ -53,7 +53,7 @@
       .center
         img(src='./assets/nuclear10.png' width="350px" style="margin-top: 30px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Nuclear physics
       p In 1911, <b>Rutherford</b>, <b>Hans Geiger</b>, and <b>Ernest Marsden</b> performed the alpha-particle scattering experiments.
@@ -61,7 +61,7 @@
           img(src='./assets/atomo07.png' width="600px")
       p These experiments established that the nucleus of an atom can be modeled as a point mass and point charge and that <b>most of the atomic mass is contained in the nucleus</b>.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Nuclear physics
       p Subsequent studies revealed the presence of a new type of force, the short-range nuclear force, which is predominant at particle separation distances less than approximately 10<sup>-14</sup> m and is zero for large distances.
@@ -69,7 +69,7 @@
         img(src='./assets/forces.png' width="540px")
       p(style="margin-left: 120px;") 1. Nuclear forces are effective only over short intervals (short distances).<br> 2. Nuclear forces are independent of charge. <br>3. Nuclear forces are the strongest known in nature.<br>4. Nuclear forces are quickly saturated by the surrounding nucleons.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Nuclei
       p All nuclei are composed of two types of particles: <b>protons</b> and <b>neutrons</b>. The only exception is the ordinary hydrogen nucleus, which is a single proton.
@@ -80,7 +80,7 @@
       p A nuclide is a specific combination of atomic number and mass number that represents a nucleus.
       //- In representing nuclides, it is convenient to use the symbol <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>A</b></sup><sub style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>Z</b></sub> <span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>X</b></span>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Nuclei
       p In representing nuclides, it is convenient to use the symbol <sup style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>A</b></sup><sub style="font-family: Times; font-style: italic; font-size: 20px; margin: 0px -22px 0px  10px"><b>Z</b></sub> <span style="font-family: Times; font-style: italic; margin: 0 0 0  15px"><b>X</b></span>
@@ -90,13 +90,13 @@
       p The nuclei of all atoms of a particular element contain the same number of protons but often contain different numbers of neutrons.
       p Nuclei related in this way are called <b>isotopes</b>. The isotopes of an element have the same <span style="font-family: Times; font-style: italic;"><b>Z</b></span> value but different <span style="font-family: Times; font-style: italic;"><b>A</b></span> and <span style="font-family: Times; font-style: italic;"><b>N</b></span> values.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center  Some particles's mass
       .center
         img(src='./assets/nuclear02.png' width="700px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Nuclear structure
       .center
@@ -109,7 +109,7 @@
         img(src='./assets/nuclear03.png' width="250px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Binding energy
       p The total mass of a nucleus is less than the sum of the masses of its individual nucleons.
@@ -158,14 +158,14 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Radioactivity
       p With the discovery of radiactivity scientist found three types of radiation
       .center
         img(src='./assets/nuclear10.png' width="500px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-bottom: 0px;").center Nuclear decay
       p(style="margin-top:20px;")
@@ -179,7 +179,7 @@
         img(src='./assets/nuclear11.png' width="400px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:0px;").center Half-life
       .center
@@ -192,7 +192,7 @@
         img(src='./assets/nuclear15.png' width="250px" style="margin-top: 20px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Activity
       .center
@@ -228,7 +228,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Alpha decay (<em>α</em>)
       .center
@@ -240,7 +240,7 @@
         img(src='./assets/nuclear25.png' width="250px" style="margin: 10px 30px 0 0;")
         img(src='./assets/nuclear29.png' width="250px" style="margin: 10px 0 0 30px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
       .center
@@ -249,7 +249,7 @@
         img(src='./assets/nuclear28.png' width="200px")
         img(src='./assets/nuclear29.png' width="200px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
       h5.center Neutrino properties
@@ -259,7 +259,7 @@
       p • It interacts very weakly with matter and is therefore very difficult to detect.
 
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Beta decay (<em>β</em>)
       .center
@@ -270,7 +270,7 @@
       .center
         img(src='./assets/nuclear32.png' width="500px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Gamma decay (<em>γ</em>)
       .center
@@ -280,7 +280,7 @@
       .center
         img(src='./assets/nuclear35.png' width="250px")
 
-    slide(:steps=3 enter='bounceInDown')
+    slide(:steps=3 enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -0px; margin-bottom: 40px").center Radiative decay series
       .center
@@ -303,7 +303,7 @@
         span.small Ctrl + right
 
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear reactions
       .center
@@ -340,7 +340,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear fision
       .center
@@ -352,7 +352,7 @@
       .center
         img(src='./assets/fision04.png' width="600px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear chain reaction
       .center
@@ -371,13 +371,13 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear reactor
       .center
         img(src='./assets/fision06.png' width="600px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Nuclear fusion
       p.center proton-proton cycle
@@ -386,13 +386,13 @@
       .center
         img(src='./assets/fusion02.png' width="500px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Fusion reactor
       .center
         img(src='./assets/fusion03.png' width="700px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Radiactivity applications
       .center
@@ -400,7 +400,7 @@
         img(src='./assets/application02.png' width="375px")
         img(src='./assets/application03.png' width="500px")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

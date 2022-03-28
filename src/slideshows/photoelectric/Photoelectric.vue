@@ -5,7 +5,7 @@
       .center.frontpage
         h1 Quantum physics
         img(src='./assets/microres4.jpg')
-        h4 Black body radiation<br> Photoelectric effect<br> X Rays
+        p Black body radiation<br> Photoelectric effect<br> X Rays
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -34,7 +34,7 @@
           p(v-if="step>=1")
             <b>X Rays</b>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h1 Black body radiation
       h3(style="margin-top:0px;") Thermal radiation
@@ -42,7 +42,7 @@
         img(src='./assets/filament.png' width="300px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Thermal radiation
       .center
@@ -54,7 +54,7 @@
       .center
         img(src='./assets/filament.png' width="150px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Black body radiation
       .center
@@ -63,7 +63,7 @@
       .center
         img(src='./assets/charcoal.png' width="250px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center  Black body radiation
       h6.center Stefan law
@@ -77,7 +77,7 @@
         img(src='./assets/rayleighJeans.png' width="300px" style="margin-top: -10px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Ultraviolet Catastrophe
       .center
@@ -87,7 +87,7 @@
         img(src='./assets/ultravioletCat.png' width="250px")
 
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Question
       p.center
@@ -110,14 +110,14 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Max Planck theory of black body
       p 1. Physical components:<br> Planck assumed the cavity radiation came from atomic oscillators in the cavity walls
       .center
         img(src='./assets/blackbody.png' width="200px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Max Planck theory of black body
       p 2. Behavior of the components:<br> (a) The energy of an oscillator can have only certain discrete values <b>E<sub>n</sub></b>:
@@ -127,7 +127,7 @@
       p When <b>n = 1</b>, its energy is <b>hf</b>; in <b>n = 2</b>, its energy is <b>2hf</b> ; and so on.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Max Planck theory of black body
 
@@ -138,7 +138,7 @@
       .center
         img(src='./assets/energyLevels.png' width="200px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Planck's distribution
       .center
@@ -163,13 +163,13 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Photoelectric effect
       .center
         img(src='./assets/photoelectricDevice.png' width="300px")
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Photoelectric effect
       p(style="color: blue;").center Features of the photoelectric effect
@@ -179,14 +179,14 @@
         img(src='./assets/photoelectricDevice.png' width="180px" v-if="step >=3" style="margin-right: 100px;")
         img(src='./assets/currentVsV.png' width="400px" v-if="step >= 3" style="margin-left: 100px;")
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Photoelectric effect
       p(style="color: blue;").center Features of the photoelectric effect
       p(v-if="step >= 1") 2. <span style="color: red;"><b>Classical prediction</b></span>: At low light intensities, a measurable time interval should pass between the instant the light is turned on and the time an electron is ejected from the metal.
       p(v-if="step >= 2") <span style="color: green;"><b>Experimental result</b></span>: Electrons are emitted from the surface of the metal almost instantaneously (less than 10<sup>-9</sup> s after the surface is illuminated), even at very low light intensities.
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Photoelectric effect
       p(style="color: blue;").center Features of the photoelectric effect
@@ -195,7 +195,7 @@
       .center
         img(src='./assets/energyGraph.png' width="300px" v-if="step >= 3" style="margin-left: 100px;")
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Photoelectric effect
       p(style="color: blue;").center Features of the photoelectric effect
@@ -204,7 +204,7 @@
       .center
         img(src='./assets/energyGraph.png' width="330px" v-if="step >= 3")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -10px;") Photoelectric effect
       h4.center Equation
@@ -216,7 +216,7 @@
         p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>f</b></span>: frequency of the photon
         p(style="padding-left: 200px;") <span style="font-style: italic; font-family: times;"><b>φ</b></span>: work function
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Photoelectric effect
       h5(style="margin-top: -40px;").center Quantum features
@@ -267,28 +267,28 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Photoelectric effect application
       .center
         img(src='./assets/photomultiplier.png' width="350px" style="margin-top: -30px;")
 
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h1(style="margin-top:-20px") X Rays
       .center
         img(src='./assets/firstXrayImage.jpg' width="500px" style="margin-top: -0px;")
       p.center X-rays were first discovered in 1895<br>German physicist Wilhelm Conrad Röntgen (1845 – 1923).
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h1(style="margin-top:-20px") X Rays
       h6.center themes
       p.center Bremsstrahlung, X-rays origins
       p.center Compton scattering
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center X-Rays
       h6.center Characteristics
@@ -298,7 +298,7 @@
         li Frequency range: f = 30 petaHertz - 30 exaHertz (30x10<sup>15</sup> - 30x10<sup>18</sup>Hz)
         li Energy: E = 100eV - 100keV
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: 40px;").center Crookes Tube
       .center
@@ -306,14 +306,14 @@
         img(src="./assets/crookesTubeTwo.jpg" width="300px")
         //- p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top:40px;").center X-ray tube
       .center
         img(src="./assets/coolidge_xray_tube.jpg")
         p(style="font-size: 20px;") By Daniel Frost Comstock - Downloaded from Daniel Frost Comstock &amp; Leonard T. Troland (1917)<br> The Nature of Matter and Electricity: An Outline of Modern Views, D. Van Nostrand Co., New York, p.190, Plate 5 on Google Books, Public Domain, https://commons.wikimedia.org/w/index.php?curid=3270127
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top:-30px;").center X-ray tube
       h6.center Modern X-ray tube
@@ -321,13 +321,13 @@
         img(src="./assets/modernXrayTube.png" width="800px;")
         p.center <span style="font-size: 20px;">Taken without permision from: Handbook of X-ray imaging.  PAolo Russo, editor. Fig 2.2</span>
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center X-Ray Spectrum
       .center
         img(src='./assets/xRaySpectrum.jpg' width="500px" style="margin-top:30px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Bremsstrahlung: Breaking radiation
       .center
@@ -335,7 +335,7 @@
         p(style="font-size: 20px;") Image from: X-ray imaging using 100 μm thick Gas Electron Multipliers operating in Kr-CO2 mixtures. Rita Roque, 2018
 
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Energy in breaking radiation
       p <span style="color: blue;"><b>Cases 1, 2</b></span>: The resulting photon has the diference of energy that the electron has after and before the interaction
@@ -347,14 +347,14 @@
       p(style="font-size: 50px; margin-top: -20px;").center <span style="font-size: 20px;">½</span>m<sub style="font-size: 25px;">e</sub>v<sup style="font-size: 20px;">2</sup> = eV
 
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -20px;") Compton scattering
       h5.center Scattering experiment
       .center
         img(src='./assets/comptonExperiment.png' width="700px" style="margin-top:-30px;")
 
-    slide.boredYet(:steps=4, enter='bounceInDown' style="background-color: white;")
+    slide.boredYet(:steps=4, enter='bounceInDown' style="background-color: white;" :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -20px;") Compton experiment
       h5(style="margin-top: -40px;").center Results
@@ -367,14 +367,14 @@
         img(v-if="step >= 3" src='./assets/comptonResult90.png' width="270px" style="margin-right: 0px; margin-left: 30px;")
         img(v-if="step >= 4" src='./assets/comptonResult135.png' width="300px" style="margin-left: 90px;")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -20px;") Compton scattering
       h5.center Compton effect
       .center
         img(src='./assets/comptonFig.png' width="500px" style="margin-top:-30px;")
 
-    slide.boredYet(:steps=4, enter='bounceInDown')
+    slide.boredYet(:steps=4, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="400px" style=" position: absolute; left: 50px; top: 30px;")
       h5(style="margin-top: 130px;").center Compton equation
@@ -389,7 +389,7 @@
       .center
         img(v-if="step >= 4" src='./assets/comptonEq04.png' width="400px" style="margin-top: -30px;")
 
-    slide.boredYet(:steps=4, enter='bounceInDown')
+    slide.boredYet(:steps=4, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
       h5(style="margin-top: 130px;").center Compton equation
@@ -409,7 +409,7 @@
       .center
         img(v-if="step >= 4" src='./assets/comptonEq09.png' width="600px" style="margin-right: 30px;")
 
-    slide.boredYet(:steps=3, enter='bounceInDown')
+    slide.boredYet(:steps=3, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
       h5(style="margin-top: 130px;").center Compton equation
@@ -424,7 +424,7 @@
       .center
         img(v-if="step >= 3" src='./assets/comptonEq10.png' width="500px" style="margin-right: 30px;")
 
-    slide.boredYet(:steps=3, enter='bounceInDown')
+    slide.boredYet(:steps=3, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
       h5(style="margin-top: 130px;").center Compton equation
@@ -443,7 +443,7 @@
       .center
         img(v-if="step >= 3" src='./assets/comptonEq14.png' width="600px" style="margin-top: -20px; border: orange solid;")
 
-    slide.boredYet(:steps=4, enter='bounceInDown')
+    slide.boredYet(:steps=4, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
       h5(style="margin-top: 40px;").center Compton equations
@@ -461,7 +461,7 @@
       .center
         img(v-if="step >= 4" src='./assets/pComponents4.png' width="300px" style="margin-top: -30px;")
 
-    slide.boredYet(:steps=2, enter='bounceInDown')
+    slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/comptonScattering.png' width="300px" style=" position: absolute; left: 100px; top: 70px;")
       h5(style="margin-top: 130px;").center Compton equations
@@ -480,7 +480,7 @@
       .center
         img(v-if="step >= 1" src='./assets/pComponents9.png' width="300px" style="margin-top: -0px; border: orange solid;")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: 20px;").center Compton effect equations
       .center
@@ -518,7 +518,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
