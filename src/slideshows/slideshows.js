@@ -24,7 +24,7 @@ export default {
     require('./optomechatronics-mechatronic-elements/MechatronicElements'),
     // require('./mecatronica-computacional-modelado/Modelado'),
     // require('./mecatronica-computacional-paradigmas/Paradigmas'),
-    // require('./mecatronica-computacional-dae-systems/Dae-systems'),
+    require('./mecatronica-computacional-dae-systems/Dae-systems'),
     require('./open-modelica-intro/OpenModelicaIntro'),
     require('./om-intro-circuits/OMIntroCircuits'),
     // require('./mecatronica-computacional-AFM/AtomicForceMicroscope'),
