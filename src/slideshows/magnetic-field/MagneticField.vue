@@ -266,53 +266,57 @@
         br
         span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 9
-    //-   example-ten
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center The Magnetic Force Between Two Parallel Conductors
+      .center
+        img(src='./assets/fig30-7.png' height="200px" style="margin: 30px 0 0 0px;")
+      .center
+        img(src='./assets/eq30-11.png' height="70px" style="margin: 30px 0 0 0px;")
+      .center
+        img(src='./assets/eq30-12.png' height="60px" style="margin: 40px 0 0 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -30px;") Exercise 10
-    //-   example-thirteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Ampere definition
+      p(style="margin: -30px 0 0 0px;") When the magnitude of the force per unit length between two long, parallel wires that carry identical currents and are separated by 1 m is 2 &times; 10<sup>-7</sup> N/m, the current in each wire is defined to be 1 A.
+      .center
+        img(src='./assets/fig30-7.png' height="200px" style="margin: 40px 0 0 0px;")
+      .center
+        img(src='./assets/eq30-12.png' height="60px" style="margin: 50px 0 0 0px;")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Other systems of SHM
-    //-   p(style="margin-top: -30px;").center Angular SHM
-    //-   //- torsion-pendulum
-    //-   .center
-    //-     img(src='./assets/angularSHM.png' height="300px")
-    //-   .center
-    //-     img(src='./assets/angularTheta.png')
-    //-   .center
-    //-     img(src='./assets/angularWf.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Ampere law
+      p(style="margin: -30px 0 0 0px;") The line integral of <b>B</b>·ds around any closed path equals &mu;<sub>0</sub>I, where I is the total steady current passing through any surface bounded by the closed path:
+      .center
+        img(src='./assets/eq30-13.png' height="70px" style="margin: 50px 0 0 0px;")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Inertia moments
-    //-   p(style="margin-top: -30px;").center
-    //-   .center
-    //-     img(src='./assets/inertiaMomentsTable.png')
-    //-   p.center Parallel axis theorem
-    //-   .center
-    //-     img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -30px;") Exercise 10
+      example-ten
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     //- slide(enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
