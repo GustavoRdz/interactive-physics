@@ -279,11 +279,11 @@
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Ampere definition
-      p(style="margin: -30px 0 0 0px;") When the magnitude of the force per unit length between two long, parallel wires that carry identical currents and are separated by 1 m is 2 &times; 10<sup>-7</sup> N/m, the current in each wire is defined to be 1 A.
+      p(style="margin: -50px 0 50px 0px;") When the magnitude of the force per unit length between two long, parallel wires that carry identical currents and are separated by 1 m is 2 &times; 10<sup>-7</sup> N/m, the current in each wire is defined to be 1 A.
+      h4(style="margin-top: -10px;").center Coulomb definition
+      p(style="margin: -50px 0 0 0px;") When a conductor carries a steady current of 1A, the quantity of charge that flows through a cross section of the conductor in 1s is 1C
       .center
         img(src='./assets/fig30-7.png' height="200px" style="margin: 40px 0 0 0px;")
-      .center
-        img(src='./assets/eq30-12.png' height="60px" style="margin: 50px 0 0 0px;")
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -318,40 +318,68 @@
         br
         span.small Ctrl + right
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The simple pendulum
-    //-   .center
-    //-     img(src='./assets/simplePendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumW.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumF.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumT.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center The Magnetic Field of a Solenoid
+      p(style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.2em;")  A solenoid is a long wire wound in the form of a helix. With this configuration, a reasonably uniform magnetic field can be produced in the space surrounded by the turns of wire when the solenoid carries a current.
+      .center
+        img(src='./assets/fig30-16.png' height="250px")
+        img(src='./assets/fig30-17.png' height="350px")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center The Magnetic Field of a Solenoid
+      p(style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig30-18.png' height="500px" style="margin: 0px 50px -300px 50px;")
+        img(src='./assets/eq30-16B.png' height="70px" style="margin: 0px -310px 0px 0px;")
+        img(src='./assets/eq30-16C.png' height="60px" style="margin: 0px -210px -100px 0px;")
+        img(src='./assets/eq30-17.png' height="60px" style="margin: 0px 0px -200px 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 11
-    //-   example-fourteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 11
+      example-eleven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Magnetic flux
+      p(style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.2em;")
+      .center
+        img(src='./assets/fig30-19.png' height="200px" style="margin: 0px 0px 0px 0px;")
+      .center
+        img(src='./assets/eq30-18.png' height="70px" style="margin: 50px 0px 0px 0px;")
+
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 12
+      example-twelve
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
+
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Gauss's law in magnetism
+      p(style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.2em;") the net magnetic flux through any closed surface is always zero:
+      .center
+        img(src='./assets/eq30-20.png' height="70px" style="margin: 50px 0px 50px 0px;")
+      .center
+        img(src='./assets/fig30-22.png' height="300px" style="margin: 0px 30px 0px 0px;")
+        img(src='./assets/fig30-23.png' height="300px" style="margin: 0px 0px 0px 30px;")
 
     //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -418,7 +446,6 @@ export default {
     path: 'magnetic-field'
   },
   components: {
-    'pressure-machine': require('./PressureMachine'),
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),

@@ -1,19 +1,19 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem You are watching an object that is moving in SHM. When the object is displaced {{ displacement }} m to the right of its equilibrium position, it has a velocity of {{ velocity }} (m/s) to the right and an acceleration of {{ acceleration }} (m/s<sup>2</sup>) to the left. How much farther from this point will the object move before it stops momentarily and then starts to  move back to the left?
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Displacement (m)
-        input.center.data(:class="checkedDispl" v-model.number='enterDispl')
-      p.inline.data  Velocity (m/s)
-        input.center.data(:class="checkedVel" v-model.number='enterVel')
-      p.inline.data Acceleration (m/s<sup>2</sup>)
-        input.center.data(:class="checkedAcc" v-model.number='enterAcc')
-      p.inline.data Amplitud (m)
-        input.center.data(:class="checkedAmpl" v-model.number='enterAmpl')
-      p.inline.data How farther? (m)
-        input.center.data(:class="checkedFarther" v-model.number='enterFarther')
+    p.problem A long solenoid that has 1 000 turns uniformly distributed over a length of 0.400 m produces a magnetic field of magnitude 1.00 &times; 10<sup>-4</sup> T at its center. What current is required in the windings for that to occur?
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Displacement (m)
+    //-     input.center.data(:class="checkedDispl" v-model.number='enterDispl')
+    //-   p.inline.data  Velocity (m/s)
+    //-     input.center.data(:class="checkedVel" v-model.number='enterVel')
+    //-   p.inline.data Acceleration (m/s<sup>2</sup>)
+    //-     input.center.data(:class="checkedAcc" v-model.number='enterAcc')
+    //-   p.inline.data Amplitud (m)
+    //-     input.center.data(:class="checkedAmpl" v-model.number='enterAmpl')
+    //-   p.inline.data How farther? (m)
+    //-     input.center.data(:class="checkedFarther" v-model.number='enterFarther')
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -148,9 +148,10 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
+  margin: 0;
+  font-family: Times;
   font-size: 30px;
-  color: blue;
+  color: black;
   width: 100%;
 }
 
