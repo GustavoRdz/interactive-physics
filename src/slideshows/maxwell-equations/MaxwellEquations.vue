@@ -17,454 +17,442 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3 Oscillatory motion
-    //-   h5.center Simple pendulum example
-    //-   simple-pendulum
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3
+        | Topics
+        .inline(class='animated infinite pulse heart')
+      .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Faraday law</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Inductance</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Circuitos RCL</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutTop')
+          p(v-if="step >= 1")
+            <b>Ecuaciones de Maxwell</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Ondas electromagneticas</b>
+
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin: 40px 0 0 0px;") Faraday's Law of Induction
+      p.center 
+      .center
+        img(height="350px" src='./assets/fig31-1.png' style="margin: 40px 20px 0 0px;")
+        img(height="300px" src='./assets/fig31-2.png' style="margin: 30px 0 20px 10px;")
+
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin: 0px 0 0 0px;") Faraday's Law of Induction
+      .center
+        img(height="70px" src='./assets/eq31-1.png' style="margin: 30px 0 0 0px;")
+      .center
+        img(height="70px" src='./assets/eq31-2.png' style="margin: 30px 0 0 0px;")
+      .center
+        img(height="70px" src='./assets/eq31-3.png' style="margin: 20px 0px 0 270px;")
+        img(height="200px" src='./assets/fig31-3.png' style="margin: -50px 0 -60px 50px;")
+      p(style="margin: 50px 0 0px 100px;") • The magnitude of <b>B</b> can change with time.<br> • The area enclosed by the loop can change with time.<br> • The angle &theta; between <b>B</b> and the normal to the loop can change with time.<br> • Any combination of the above can occur.
 
 
-    //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3
-    //-     | Topics
-    //-     .inline(class='animated infinite pulse heart')
-    //-   .center
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Motion of an Object Attached to a Spring</b>
-    //-     eg-transition(enter='bounceInRight' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Particle Model in Simple Harmonic Motion</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Energy of the Simple Harmonic Oscillator</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutTop')
-    //-       p(v-if="step >= 1")
-    //-         <b>The pendulum and other systems</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Damped oscillations</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Forced oscillations and resonance</b>
+    slide(:steps=0, enter='bounceInDown', :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;") Some Applications of Faraday's Law
+      .center
+      p The ground fault circuit interrupter (GFCI)
+      .center
+        img(height="300px" src='./assets/fig31-4.png' style="margin: 30px 0 0 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Periodic motion
-    //-   p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
-    //-   .center
-    //-     img(height="400px" src='./assets/motor vocho.gif')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -30px;")
+      p(style="margin: 0 0 -0px 0;").center Some Applications of Faraday’s Law
+      p Electric guitar
+      .center
+        img(height="300px" src='./assets/fig31-5.png' style="margin: 30px 0 0 0px;")
 
-    //- slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
-    //-   p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
-    //-   .button.prev(@click.stop='previousSlide' style="float: left; border: 0px;")
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide' style="float: right; border: 0px;")
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -30px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Period</b></span>, is the time interval in which the sistem completes an oscillation
-    //-   p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
-    //-   p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
-
-    //- slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p(style="margin: 50px 0 -0px 0;") Formulas: <b>frequency</b>, <b>period</b> and <b>angular frequency</b>
-    //-   .center
-    //-     img(src='./assets/equations/frequency.svg' height="150px")
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 1
-    //-   example-one
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Simple Harmonic Motion
-    //-   spring-mass
-    //-   p(style="margin: 0px 20px 0 0;") Hooke's law
-    //-   .center
-    //-     img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") with
-    //-   .center
-    //-     img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
-    //-   p(style="margin: -10px 20px 0 0;") we have
-    //-   .center
-    //-     img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
-    //-     img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 2
+      example-two
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 2
-    //-   example-two
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Non Motional emf
+      img(src='./assets/fig31-7.png' height="400px" style="margin: 0px 0px -350px 0px;")
+      p(style="margin: 0px 0px 30px 150px; ").center Equilibrium condition
+      img(src='./assets/eq31-3B.png' height="70px" style="margin: 0px 0px 0px 400px; ")
+      img(src='./assets/eq31-4.png' height="70px" style="margin: 0px 0px 30px 440px; ")
 
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Motional emf
+      p(style="margin: -40px 0px 0 0;") The emf induced in a conductor moving through a constant magnetic field.
+      img(src='./assets/fig31-8.png' height="400px" style="margin: 50px 20px -350px -50px;")
+      img(src='./assets/eq31-4B.png' height="50px" style="margin: 0px 0px 0px 30px;")
+      img(src='./assets/eq31-5.png' height="70px" style="margin: 0px 0px 0 535px;")
+      img(src='./assets/eq31-5B.png' height="50px" style="margin: 0px 0px 0 535px;")
+      img(src='./assets/eq31-6.png' height="70px" style="margin: 20px 0px 0 535px;")
+      img(src='./assets/eq31-7.png' height="70px" style="margin: 20px 0px 0 535px;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top: -40px;").center
-    //-   spring-mass
-    //-   p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
-    //-   displacement-plot
-    //-   .center
-    //-     img(src='./assets/displacementGraph.png' height="250px")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 3
+      example-three
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
-    //-     img(src='./assets/displacementB.png' height="250px")
-    //-   .center
-    //-     img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
-    //-     img(src='./assets/displacementPhase.png' height="250px")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Lenz's law
+      p(style="margin: 0px 0px 20px 0; padding: 10px; border: 1px solid black;")  The induced current in a loop is in the direction that creates a magnetic field that opposes the change in magnetic flux through the area enclosed by the loop.
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass(style="margin-left: -70px;")
-    //-   p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   p
-    //-     img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
-    //-     img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
+      p From Faraday's law sign
+      .center
+        img(src='./assets/eq31-1.png' height="70px" style="margin: 0px 20px 0 0;")
+      .center
+        img(src='./assets/fig31-11.png' height="350px"  style="margin: 20px 100px 0 0;")
+      
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 4
+      example-four
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass
-    //-   p(style="margin: 40px 0px -40px 100px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   .center
-    //-     img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 5
+      example-five
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Phase constant and Amplitude
-    //-   p At t = 0
-    //-   .center
-    //-     img(src='./assets/displacementT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-     img(src='./assets/velocityT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") dividing
-    //-   .center
-    //-     img(src='./assets/velocityOverDisplacementT0.png' height="100px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") then
-    //-   .center
-    //-     img(src='./assets/phaseT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") and squaring the displacement and velocity we get
-    //-   .center
-    //-     img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Induced emf and Electric Fields
+      p(style="margin: -50px 0 0 0px;") If the magnetic field changes with time, an emf is induced in the loop.
+      .center
+        img(src='./assets/fig31-15.png' height="250px"  style="margin: 0px;")
+      p(style="margin: 0px 0 0 0px;") The work done by the electric field in moving a test charge q once around the loop is equal to qξ.
+      .center
+        img(src='./assets/eq31-7B.png' height="50px"  style="margin: -10px 0 0 0px;")
+      p(style="margin: 0px 0 -20px 0px;")  the induced electric field can be expressed as 
+      .center
+        img(src='./assets/eq31-8.png' height="70px"  style="margin: -70px 0 0px 450px;")
+      p(style="margin: 40px 0 -20px 0px;") <b>Faraday's law in general form</b>:
+      .center
+        img(src='./assets/eq31-9.png' height="100px"  style="margin: -47px 0 0 70px;")
 
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 6
+      example-six
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 3
-    //-   example-three
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Generators and motors
+      p(style="margin-top: -30px;").center
+      //- torsion-pendulum
+      .center
+        img(src='./assets/fig31-17.png' height="250px" style="margin: -30px 10px 0 0px;")
+        img(src='./assets/fig31-19.png' height="250px" style="margin: -30px 0px 0 0px;")
+      .center
+        img(src='./assets/fig31-18.png' height="200px" style="margin: 0px 0 0 0px;")
+      .center
+        img(src='./assets/eq31-9B.png' height="50px" style="margin: 50px 0 0 0px;")
+      .center
+        img(src='./assets/eq31-10.png' height="70px" style="margin: 20px 0 0 0px;")
+      .center
+        img(src='./assets/eq31-11.png' height="50px" style="margin: 20px 0 0 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 4
-    //-   example-four
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 7
+      example-seven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 5
-    //-   example-five
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Self-Induction and Inductance
+      img(src='./assets/fig32-1.png' height="400px" style="margin: 0 50px -200px 0")
+      img(src='./assets/eq31-1.png' height="70px" style="margin: 0 0 100px 0px")
+      img(src='./assets/eq32-2.png' height="70px" style="margin: 0 0 0px -145px")
+      img(src='./assets/eq32-3.png' height="70px" style="margin: 0 0 -100px -123px")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 6
-    //-   example-six
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 8
+      example-eight
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 7
-    //-   example-seven
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center RL Circuits
+      p(style="margin-top: -30px;").center
+      img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 50px -200px 0;")
+      img(src='./assets/eq32-6.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+      img(src='./assets/eq32-6B.png' height="70px"  style="margin: 0 0px 100px -200px;")
+      img(src='./assets/eq32-6C.png' height="70px"  style="margin: 0 0 20px -160px;")
+      img(src='./assets/eq32-6D.png' height="70px"  style="margin: 0 0 -70px -180px;")
+      img(src='./assets/eq32-6E.png' height="50px"  style="margin: 0 0 -140px -160px;")
+      img(src='./assets/eq32-6F.png' height="60px"  style="margin: 0 0 200px 130px;")
+      img(src='./assets/eq32-6G.png' height="70px"  style="margin: 0 0 110px -180px;")
+      img(src='./assets/eq32-7.png'  height="70px"  style="margin: 0 0 30px -200px;")
+      img(src='./assets/eq32-8.png'  height="70px"  style="margin: 0 0 -50px -180px;")
+      img(src='./assets/fig32-3.png' height="300px" style="margin: 0px -300px -400px -150px;")
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center
-    //-     <svg height="250" width="600" viewbox="0 0 600 250">
-    //-       <defs>
-    //-         <path id="r1" fill="none" stroke="black">
-    //-           <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-    //-           <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-         </path>
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center RL Circuits
+      p(style="margin-top: -30px;") Con S<sub>2</sub> en b
+      img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 100px -200px 100px;")
+      img(src='./assets/eq32-9B.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+      img(src='./assets/eq32-10.png' height="70px"  style="margin: 0 0px 100px -200px;")
 
-    //-       </defs>
-    //-       <use xlink:href="#r1"/>
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 9
+      example-nine
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //-       <path :d="base" stroke="black"  fill="none"/>
-    //-       <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-    //-         <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-       </rect>
-    //-       <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-    //-       <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-    //-       <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Mutual Inductance
+      img(src='./assets/fig32-8.png' height="400px" style="margin: -30px 50px -100px 0;")
+      img(src='./assets/eq32-15.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+      img(src='./assets/eq32-16.png' height="70px"  style="margin: 0 0px 100px -150px;")
+      img(src='./assets/eq32-17.png' height="70px"  style="margin: 0 0 20px -500px;")
+      img(src='./assets/eq32-17B.png' height="70px"  style="margin: 0 0 -70px -180px;")
 
-    //-       <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-    //-       <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-    //-       <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -30px;") Exercise 10
+      example-ten
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //-         <text x="500" y="98">
-    //-           <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-    //-         </text>
-    //-         <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Oscillations in an LC Circuit
+      img(src='./assets/fig32-10.png' height="250px" style="margin: -30px 50px -100px 0;")
+      img(src='./assets/eq32-18.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+      img(src='./assets/eq32-19.png' height="70px"  style="margin: 0 0px 100px -280px;")
+      img(src='./assets/eq32-19B.png' height="70px"  style="margin: 0 0 20px -420px;")
+      img(src='./assets/eq32-20.png' height="70px"  style="margin: 0 0 -60px -170px;")
+      img(src='./assets/eq32-21.png' height="50px"  style="margin: 0 0 -120px -170px;")
+      img(src='./assets/eq32-22.png' height="70px"  style="margin: 0 0 -200px -200px;")
+      img(src='./assets/eq32-23.png' height="70px"  style="margin: 0 0 -280px -220px;")
 
-    //-         //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-    //-         //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-    //-     </svg>
-    //-   p(style="margin: 0px 20px 0 0;") Energies
-    //-   .center
-    //-     img(src='./assets/kineticEnergy.png' height="50px"  style="margin: -20px 100px 0 0;")
-    //-     img(src='./assets/potentialEnergy.png' height="50px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") Mecanical energy
-    //-   .center
-    //-     img(src='./assets/totalEnergyA.png' height="50px"  style="margin: -50px 10px 0 0")
-    //-   p(style="margin: 0px 20px 0 0;") the constant
-    //-   .center
-    //-     img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 11
+      example-eleven
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center The RLC Circuit
+      .center
+        img(src='./assets/fig32-15.png' height="350px" style="margin: -30px 50px -100px 0;")
+        img(src='./assets/eq32-27C.png'  height="60px"  style="margin: 0 0px 200px 0px;")
+        img(src='./assets/eq32-28.png' height="60px"  style="margin: 0 0px 130px -130px;")
+        img(src='./assets/eq32-28B.png' height="60px"  style="margin: 0 0 60px -210px;")
+        img(src='./assets/eq32-28C.png' height="60px"  style="margin: 0 0 -10px -210px;")
+        img(src='./assets/eq32-29.png' height="60px"  style="margin: 0 0 -80px -200px;")
+        img(src='./assets/eq32-31.png' height="40px"  style="margin: 0 0 -130px -210px;")
+        img(src='./assets/eq32-32.png' height="60px"  style="margin: 0 0 -200px -230px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 8
-    //-   example-nine
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center The RLC Circuit
+      .center
+        img(src='./assets/fig32-16.png' height="350px" style="margin: 0px 0px 0px 0;")
+      .center
+        img(src='./assets/eq32-31.png' height="50px"  style="margin: 50px 0 0px 0px;")
+      .center
+        img(src='./assets/eq32-32.png' height="60px"  style="margin: 30px 0 0px 0px;")
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 9
-    //-   example-ten
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Displacement Current and the General Form of Ampère's Law
+      p
+    
+      img(src='./assets/fig34-1.png' height="350px" style="margin: -30px 50px -100px 0;")
+      img(src='./assets/eq34-0.png'  height="60px"  style="margin: 0 0px 200px 0px;")
+      p(style="margin: -260px 0px 0px 500px;") Ampère's law
+      img(src='./assets/eq34-1.png' height="60px"  style="margin: 50px 0px 130px 300px;")
+      p(style="margin: -200px 0px 0px 500px;") Displacement current
+      img(src='./assets/eq34-2.png' height="60px"  style="margin: 70px 0 60px 250px;")
+      p(style="margin: -130px 0px 0px 650px;") Ampère-Maxwell law
 
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -30px;") Exercise 10
-    //-   example-thirteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5.center Displacement Current and the General Form of Ampère's Law
+      p
+      .center
+        img(src='./assets/fig34-2.png' height="350px" style="margin: 30px 50px 60px 0;")
+        img(src='./assets/eq34-2B.png'  height="60px"  style="margin: 0 0px 200px 0px;")
+        img(src='./assets/eq34-3.png' height="60px"  style="margin: 50px 0px 130px -160px;")
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Other systems of SHM
-    //-   p(style="margin-top: -30px;").center Angular SHM
-    //-   //- torsion-pendulum
-    //-   .center
-    //-     img(src='./assets/angularSHM.png' height="300px")
-    //-   .center
-    //-     img(src='./assets/angularTheta.png')
-    //-   .center
-    //-     img(src='./assets/angularWf.png' height="100px")
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 12
+      example-twelve
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Inertia moments
-    //-   p(style="margin-top: -30px;").center
-    //-   .center
-    //-     img(src='./assets/inertiaMomentsTable.png')
-    //-   p.center Parallel axis theorem
-    //-   .center
-    //-     img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Maxwell's Equations
+      .center
+        img(src='./assets/eq34-4.png' height="70px" style="margin: 0 0px -70px -100px;")
+        p(style="margin: 0px 0px 0px 300px;") Gauss's law
+        img(src='./assets/eq34-5.png' height="70px" style="margin: 0 0 -70px -83px;")
+        p(style="margin: 0 0 0 450px;") Gauss's law in magnetism
+        img(src='./assets/eq34-6.png' height="70px" style="margin: 0 0 -70px -143px;")
+        p(style="margin: 0 0 0 325px;") Faraday's law
+        img(src='./assets/eq34-7.png' height="70px" style="margin: 0 0 -70px -223px;")
+        p(style="margin: 0 0 0 440px;") Ampère-Maxwell's law
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The simple pendulum
-    //-   .center
-    //-     img(src='./assets/simplePendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumW.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumF.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumT.png' height="100px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Wave equation
+      .center
+        img(src='./assets/fig34-6.png' height="300px" style="margin: -50px 100px -100px 0px;")
+        img(src='./assets/eq34-15.png' height="70px" style="margin: 0 0 0px 0px;")
+      .center
+        img(src='./assets/fig34-7.png' height="300px" style="margin: 100px 100px -100px 0px;")
+        img(src='./assets/eq34-16.png' height="70px" style="margin: 0 0 0px 0px;")
+      .center
+        img(src='./assets/eq34-17.png' height="70px" style="margin: 100px 0 -70px 0px;")
+        p(style="margin: 0 0 0 300px;") Wave speed
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 11
-    //-   example-fourteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 12
-    //-   example-seventeen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 13
-    //-   example-eighteen
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Damped oscillations
-    //-   .center
-    //-     img(src='./assets/dampedOscillationsX.png')
-    //-   .center
-    //-     img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
-    //-     img(src='./assets/struts.png' height="300px")
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Forced oscillations
-    //-   .center
-    //-     img(src='./assets/forcedOscA.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/forcedOscillationsGraph.png' height="500px")
+    slide(enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;").center Wave equation
+      .center
+        img(src='./assets/eq34-17.png' height="70px" style="margin: 0px 0 -70px 0px;")
+        p(style="margin: 0 0 0 350px;") Wave speed
+      .center
+        img(src='./assets/eq34-17B.png' height="100px" style="margin: 100px 0 -70px 0px;")
+      .center
+        img(src='./assets/fig34-8.png' height="300px" style="margin: 100px 100px -70px 0px;")
+        img(src='./assets/eq34-21.png' height="80px" style="margin: 100px 0 0px 0px;")
+      
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 13
+      example-thirteen
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
-        p University Physics 13th Edition. Searzs and Zemanzky
         p Physics for scientist and engineers 8th Edition. Serway, Jewett
+        p University Physics 13th Edition. Searzs and Zemanzky
         p.small created by G. Rodríguez-Morales and spheroidGames
-        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com 
 
 </template>
 
@@ -479,7 +467,6 @@ export default {
     path: 'maxwell-equation'
   },
   components: {
-    'pressure-machine': require('./PressureMachine'),
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),
@@ -499,16 +486,12 @@ export default {
     'example-seventeen': require('./components/ExampleSeventeen'),
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
-    'example-twenty': require('./components/ExampleTwenty'),
-    'simple-pendulum': require('./components/SimplePendulum'),
-    'spring-mass': require('./components/SpringMass'),
-    'displacement-plot': require('./components/DisplacementPlot'),
-    'torsion-pendulum': require('./components/TorsionPendulum')
+    'example-twenty': require('./components/ExampleTwenty')
   },
   data: function () {
     return {
       tiempo: '',
-      theme: 'Oscillatory motion'
+      theme: 'Maxwell equations'
     }
   },
   computed: {

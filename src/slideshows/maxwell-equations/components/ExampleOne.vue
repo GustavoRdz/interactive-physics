@@ -1,18 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Frequency: f (Hz)
-        input.center.data(:class="checkedF" v-model.number='enterF')
-        <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-      p.inline.data Period:T (s)
-        input.center.data(:class="checkedT" v-model.number='enterT')
-        <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency: &omega; (rad/s)
-        input.center.data(:class="checkedOmega" v-model.number='enterOmega')
-        <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
+    p.problem A coil consists of 200 turns of wire. Each turn is a square of side d = 18 cm, and a uniform magnetic field directed perpendicular to the plane of the coil is turned on. If the field changes linearly from 0 to 0.50 T in 0.80 s, what is the magni- tude of the induced emf in the coil while the field is changing?
+    
+
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Frequency: f (Hz)
+    //-     input.center.data(:class="checkedF" v-model.number='enterF')
+    //-     <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+    //-   p.inline.data Period:T (s)
+    //-     input.center.data(:class="checkedT" v-model.number='enterT')
+    //-     <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+    //-   p.inline.data Angular frequency: &omega; (rad/s)
+    //-     input.center.data(:class="checkedOmega" v-model.number='enterOmega')
+    //-     <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
 
 </template>
 <script>

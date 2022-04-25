@@ -1,32 +1,35 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem <strong>Weighing Astronauts</strong>. This procedure has actually been used to “weigh” astronauts in space. A {{ chairMass }}-kg chair is attached to a spring and allowed to oscillate. When it is empty, the chair takes {{ emptyPeriod }} s to make one complete vibration. But with an astronaut sitting in it, with her feet off the floor, the chair takes {{ occupiedPeriod }} s for one cycle. What is the mass of the astronaut?
+    p.problem A long solenoid of radius R has n turns of wire per unit length and carries a time-varying current that varies sinusoidally as I = I<sub>max</sub> cos &omega;t, where I<sub>max</sub> is the maximum current and v is the angular frequency of the alternating current source.<br>(A) Determine the magnitude of the induced electric field outside the solenoid at a distance r &gt; R from its long central axis.<br>(B) What is the magnitude of the induced electric field inside the solenoid, a distance r from its axis?
 
     .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Chair mass (kg)
-        input.center.data(:class="checkedChairMass" v-model.number='enterChairMass')
-        <span class="error" v-if="errorChairMass">[e: {{ errorChairMass.toPrecision(3) }}%]</span>
-      p.inline.data Empty chair period (s)
-        input.center.data(:class="checkedEmptyPeriod" v-model.number='enterEmptyPeriod')
-        <span class="error" v-if="errorEmptyPeriod">[e: {{ errorEmptyPeriod.toPrecision(3) }}%]</span>
-      p.inline.data chair angular frequency (rad/s)
-        input.center.data(:class="checkedAngular1" v-model.number='enterAngular1')
-        <span class="error" v-if="errorAngular1">[e: {{ errorAngular1.toPrecision(3) }}%]</span>
-      p.inline.data Spring constant (N/m)
-        input.center.data(:class="checkedElastic" v-model.number='enterElastic')
-        <span class="error" v-if="errorElastic">[e: {{ errorElastic.toPrecision(3) }}%]</span>
-      <br>
-      p.inline.data Occupied chair period (s)
-        input.center.data(:class="checkedOccupiedPeriod" v-model.number='enterOccupiedPeriod')
-        <span class="error" v-if="errorOccupiedPeriod">[e: {{ errorOccupiedPeriod.toPrecision(3) }}%]</span>
-      p.inline.data chair + astronaut &omega; (rad/s)
-        input.center.data(:class="checkedAngular2" v-model.number='enterAngular2')
-        <span class="error" v-if="errorAngular2">[e: {{ errorAngular2.toPrecision(3) }}%]</span>
-      p.inline.data Astronaut mass (kg)
-        input.center.data(:class="checkedAstronautMass" v-model='enterAstronautMass')
-        <span class="error" v-if="errorAstronautMass">[e: {{ errorAstronautMass.toPrecision(3) }}%]</span>
+      img(src="../assets/fig31-16.png")
+
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Chair mass (kg)
+    //-     input.center.data(:class="checkedChairMass" v-model.number='enterChairMass')
+    //-     <span class="error" v-if="errorChairMass">[e: {{ errorChairMass.toPrecision(3) }}%]</span>
+    //-   p.inline.data Empty chair period (s)
+    //-     input.center.data(:class="checkedEmptyPeriod" v-model.number='enterEmptyPeriod')
+    //-     <span class="error" v-if="errorEmptyPeriod">[e: {{ errorEmptyPeriod.toPrecision(3) }}%]</span>
+    //-   p.inline.data chair angular frequency (rad/s)
+    //-     input.center.data(:class="checkedAngular1" v-model.number='enterAngular1')
+    //-     <span class="error" v-if="errorAngular1">[e: {{ errorAngular1.toPrecision(3) }}%]</span>
+    //-   p.inline.data Spring constant (N/m)
+    //-     input.center.data(:class="checkedElastic" v-model.number='enterElastic')
+    //-     <span class="error" v-if="errorElastic">[e: {{ errorElastic.toPrecision(3) }}%]</span>
+    //-   <br>
+    //-   p.inline.data Occupied chair period (s)
+    //-     input.center.data(:class="checkedOccupiedPeriod" v-model.number='enterOccupiedPeriod')
+    //-     <span class="error" v-if="errorOccupiedPeriod">[e: {{ errorOccupiedPeriod.toPrecision(3) }}%]</span>
+    //-   p.inline.data chair + astronaut &omega; (rad/s)
+    //-     input.center.data(:class="checkedAngular2" v-model.number='enterAngular2')
+    //-     <span class="error" v-if="errorAngular2">[e: {{ errorAngular2.toPrecision(3) }}%]</span>
+    //-   p.inline.data Astronaut mass (kg)
+    //-     input.center.data(:class="checkedAstronautMass" v-model='enterAstronautMass')
+    //-     <span class="error" v-if="errorAstronautMass">[e: {{ errorAstronautMass.toPrecision(3) }}%]</span>
 
 
 </template>

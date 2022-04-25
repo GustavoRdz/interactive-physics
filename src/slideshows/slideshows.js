@@ -22,6 +22,7 @@ export default {
     require('./optomechatronics-optics/Optics'),
     require('./optomechatronics-machine-vision/MachineVision'),
     require('./optomechatronics-mechatronic-elements/MechatronicElements'),
+    require('./optomechatronics-optomechartonic-integration/OptomechatronicIntegration'),
     // require('./mecatronica-computacional-modelado/Modelado'),
     // require('./mecatronica-computacional-paradigmas/Paradigmas'),
     require('./mecatronica-computacional-dae-systems/Dae-systems'),
