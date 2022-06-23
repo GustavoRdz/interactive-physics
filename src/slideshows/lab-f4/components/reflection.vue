@@ -40,9 +40,9 @@ eg-transition(:enter='enter', :leave='leave')
           //- <path :d="laserCenter" stroke="#ff0000"  stroke-width="3" fill="none"/>
 
           //- mirror
-          <path :d="mirror()" stroke="#0000ff"  stroke-width="10" fill="none"/>
+          <path :d="mirror()" stroke="#5555ff"  stroke-width="10" fill="none"/>
 
-          <path v-for="y in [170,190,210,230,250,270,290,310,330]" :d="laserLine(100,y)" stroke="green"  stroke-width="3" fill="none"/>
+          <path v-for="y in [170,190,210,230,250,270,290,310,330]" :d="laserLine(100,y)" stroke="#F72119"  stroke-width="3" fill="none"/>
           //- <path v-for="y in [170]" :d="laserLine(100,y)" stroke="green"  stroke-width="3" fill="none"/>
           
           // old project
