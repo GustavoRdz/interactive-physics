@@ -94,7 +94,7 @@
       p(style="margin-top: -30px;") A derivative of a multi-dimensional function taken along one of its coordinate axes is called a partial derivative
       .center
         img(src='./assets/chap07/p119-eqn7-3.png' height="70px" style="margin-top: -20px;")
-      p are the partial derivatives of the 2D image function I(u, v) along the u and v axes, respectively.1 The vector
+      p are the partial derivatives of the 2D image function I(u, v) along the u and v axes, respectively. The vector
       .center
         img(src='./assets/chap07/p119-eqn7-4.png' height="70px" style="margin-top: -20px;")
       p is called the gradient of the function I at position (u, v). The magnitude of the gradient,
@@ -106,11 +106,11 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center(style="margin-top: -10px;") Derivative Filters
       p The components of the gradient function are simply the first derivatives of the image lines and columns along the horizontal and vertical axes, respectively.
-      p The approximation of the first horizontal derivatives can be easily implemented by a linear filter with the 1D kernel
+      p The approximation of the first horizontal derivatives can be easily implemented by a linear filter with the <span style="font-family: Times; font-weight: bold;">1D</span> kernel
       .center
         img(src='./assets/chap07/p120-eqn7-6.png' height="50px")
-      p(style="margin-top: -10px;") where the coefficients <b>−0.5</b> and <b>+0.5</b> apply to the image elements <b>I(u−1, v)</b> and <b>I(u+1, v)</b>, respectively.
-      p Notice that the center pixel <b>I(u, v)</b> itself is weighted with the zero coefficient and is thus ignored. Analogously, the vertical component of the gradient is obtained with the linear filter
+      p(style="margin-top: -10px;") where the coefficients <span style="font-family: Times; font-weight: bold;">−0.5</span> and <span style="font-family: Times; font-weight: bold;">+0.5</span> apply to the image elements <span style="font-family: Times; font-weight: bold;">I(u−1, v)</span> and <span style="font-family: Times; font-weight: bold;">I(u+1, v)</span>, respectively.
+      p Notice that the center pixel <span style="font-family: Times; font-weight: bold;">I(u, v)</span> itself is weighted with the zero coefficient and is thus ignored. Analogously, the vertical component of the gradient is obtained with the linear filter
       .center
         img(src='./assets/chap07/p120-eqn7-7.png' height="100px" style="margin-top: -20px;")
 
@@ -163,18 +163,18 @@
       p With the scaled filter results as
       .center
         img(src='./assets/chap07/p122-math-a.png' height="50px" style="margin-top: 0px;")
-      p In both cases, the local edge strength <b>E(u, v)</b> is defined as the gradient magnitude
+      p In both cases, the local edge strength <span style="font-family: Times; font-weight: bold;">E(u, v)</span> is defined as the gradient magnitude
       .center
         img(src='./assets/chap07/p122-eqn7-13.png' height="70px" style="margin-top: 0px;")
-      p and the local edge orientation angle <b>Φ(u, v)</b> is
+      p and the local edge orientation angle <span style="font-family: Times; font-weight: bold;">Φ(u, v)</span> is
       .center
         img(src='./assets/chap07/p122-eqn7-14.png' height="70px" style="margin-top: 0px;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center(style="margin-top: -10px;") Edge strength and orientation
-      p The original image <b>I</b> is independently convolved with the two gradient filters <b>Hx</b> and <b>Hy</b>, and
-      p The edge strength <b>E</b> and orientation Φ are computed from the filter results.
+      p The original image <span style="font-family: Times; font-weight: bold;">I</span> is independently convolved with the two gradient filters <span style="font-family: Times; font-weight: bold;">H<sub>x</sub></span> and <span style="font-family: Times; font-weight: bold;">H<sub>y</sub></span>, and
+      p The edge strength <span style="font-family: Times; font-weight: bold;">E</span> and orientation <span style="font-family: Times; font-weight: bold;">Φ</span> are computed from the filter results.
       .center
         img(src='./assets/edgeDir.png' style="margin-top: 0px;")
 
@@ -204,7 +204,7 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center(style="margin-top: -10px;") Roberts Operator
-      p As one of the simplest and oldest edge finders, the Roberts operator [199] today is mainly of historic interest. It employs two extremely small filters of size 2×2 for estimating the directional gradient along the image diagonals:
+      p As one of the simplest and oldest edge finders, the Roberts operator today is mainly of historic interest. It employs two extremely small filters of size <span style="font-family: Times; font-weight: bold;">2×2</span> for estimating the directional gradient along the image diagonals:
       .center
         img(src='./assets/chap07/p123-eqn7-16.png' height="70px")
       p These filters naturally respond to diagonal edges but are not highly selective to orientation; that is, both filters show strong results over a relatively wide range of angles.
@@ -214,7 +214,7 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h4.center(style="margin-top: -10px;") Roberts Operator
-      p The local edge strength is calculated by measuring the length of the resulting 2D vector, similar to the gradient computation but with its components rotated 45º.
+      p The local edge strength is calculated by measuring the length of the resulting <span style="font-family: Times; font-weight: bold;">2D</span> vector, similar to the gradient computation but with its components rotated <span style="font-family: Times; font-weight: bold;">45º</span>.
       .center
         img(src='./assets/chap07/p124-fig7-7.png' height="300px" style="margin-top: 30px;")
 
@@ -229,24 +229,24 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center Extended Sobel operator
-      p Classic examples are the edge operator proposed by Kirsch and the “extended Sobel” or Robinson operator, which employs the following eight filters with orientations spaced at 45º :
+      p Classic examples are the edge operator proposed by Kirsch and the “extended Sobel” or Robinson operator, which employs the following eight filters with orientations spaced at <span style="font-family: Times; font-weight: bold;">45º</span> :
       .center
         img(src='./assets/compassOperatorMatrices.png')
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Edges</sup>
       h5.center(style="margin-top: 0px;") Extended Sobel operator
-      p Only the results of four of these eight filters (<b>H<sub>0</sub><sup>ES</sup></b>  ,<b>H<sub>1</sub><sup>ES</sup></b>, . . . , <b>H<sub>7</sub><sup>ES</sup></b>) must actually be computed since the remaining four are identical except for the reversed sign. The convolution being linear, it follows that
+      p Only the results of four of these eight filters <span style="font-family: Times; font-weight: bold;">(H<sub>0</sub><sup>ES</sup>  ,H<sub>1</sub><sup>ES</sup>, . . . , H<sub>7</sub><sup>ES</sup>)</span> must actually be computed since the remaining four are identical except for the reversed sign. The convolution being linear, it follows that
       .center
         img(src='./assets/chap07/p124-eqn7-21.png' height="50px")
-      p that is, the result for filter <b>H<sub>4</sub><sup>S</sup></b> is simply the negative result for filter <b>H<sub>0</sub><sup>S</sup></b> . The directional outputs <b>D<sub>0</sub></b>,<b>D<sub>1</sub></b>, . . . <b>D<sub>7</sub></b> for the eight Sobel filters can thus be computed as follows:
+      p that is, the result for filter <span style="font-family: Times; font-weight: bold;">H<sub>4</sub><sup>S</sup></span> is simply the negative result for filter <span style="font-family: Times; font-weight: bold;">H<sub>0</sub><sup>S</sup></span> . The directional outputs <span style="font-family: Times; font-weight: bold;">D<sub>0</sub>, D<sub>1</sub>, . . . D<sub>7</sub></span> for the eight Sobel filters can thus be computed as follows:
       .center
         img(src='./assets/chap07/p125-eqn7-22.png' height="70px")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Edges</sup>
       h5.center(style="margin-top: 0px;") Extended Sobel operator
-      p The edge strength ES at position (u, v) is defined as the maximum of the eight filter outputs; that is,
+      p The edge strength ES at position <span style="font-family: Times; font-weight: bold;">(u, v)</span> is defined as the maximum of the eight filter outputs; that is,
       .center
         img(src='./assets/chap07/p125-eqn7-23.png' height="100px")
       p and the strongest-responding filter also determines the local edge orientation as
@@ -274,9 +274,7 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center(style="margin-top: 0px;") Edge Detection Based on Second Derivatives
-      p Since second derivatives generally tend to amplify image noise, some sort of presmoothing is usually applied with suitable low-pass filters. A popular example is the “Laplacian-of-Gaussian” (LoG) operator.
-      .center
-        img(src='./assets/chap07/p129-fig7-10.png' height="600px")
+      p Since second derivatives generally tend to amplify image noise, some sort of presmoothing is usually applied with suitable low-pass filters. A popular example is the <span style="font-family: Times; font-weight: bold;">“Laplacian-of-Gaussian” (LoG)</span> operator.
 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
@@ -314,6 +312,12 @@
       p Fully implemented, the Canny detector uses a set of relatively large, oriented filters at multiple image resolutions and merges the individual results into a common edge map.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
+      h5.center(style="margin-top: -10px;") Canny Edge Operator
+      .center
+        img(src='./assets/chap07/p129-fig7-10.png' height="600px")
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Canny Edge Operator
       p In its basic form, the Canny operator performs the following steps:<br><br> 1. <b>Pre-processing</b>: Smooth the image with a Gaussian filter of width <span style="font-family: Times New Roman; font-size: 1em; font-style: italic;"><b>σ</b></span>, which specifies the scale level of the edge detector. Calculate the local gradient magnitude and orientation.<br><br> 2. <b>Edge localization</b>: Isolate local maxima of gradient magnitude by “non-maximum suppression” along the local gradient direction.<br><br> 3. <b>Edge tracing and hysteresis thresholding</b>: Collect sets of connected edge pixels from the local maxima by applying “hysteresis  thresholding”.
@@ -321,23 +325,23 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Filters</sup>
       h5.center Canny Edge Operator
-      p 1.- <b>Pre-processing</b> The original intensity image I is first smoothed with a Gaussian filter kernel HG,σ; its width σ specifies the spatial scale at which edges are to be detected.
-      p Subsequently, first-order difference filters are applied to the smoothed image <b>I</b> to calculate the components <b>I<sub>x</sub></b>, <b>I<sub>y</sub></b> of the local gradient vectors.
-      p Then the local magnitude <b>E<sub>mag</sub></b> is calculated as the norm of the corresponding gradient vector.
+      p 1.- <b>Pre-processing</b> The original intensity image I is first smoothed with a Gaussian filter kernel <span style="font-family: times; font-weight: bold;">H<sup>G,σ</sup></span>; its width <span style="font-family: times; font-weight: bold;">σ</span> specifies the spatial scale at which edges are to be detected.
+      p Subsequently, first-order difference filters are applied to the smoothed image <span style="font-family: times; font-weight: bold;">I</span> to calculate the components <span style="font-family: times; font-weight: bold;">I<sub>x</sub>, I<sub>y</sub></span> of the local gradient vectors.
+      p Then the local magnitude <span style="font-family: times; font-weight: bold;">E<sub>mag</sub></span> is calculated as the norm of the corresponding gradient vector.
 
     slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}: Point Operations and Histograms</sup>
       h3.center 2.- <b>Edge localization</b>
-      p Candidate edge pixels are isolated by local “non-maximum suppression” of the edge magnitude <b>E<sub>mag</sub></b>.
-      p In this step, only those pixels are preserved that represent a local maximum along the 1D profile in the direction of the gradient, that is, perpendicular to the edge tangent.
+      p Candidate edge pixels are isolated by local “non-maximum suppression” of the edge magnitude <span style="font-family: times; font-weight: bold;">E<sub>mag</sub></span>.
+      p In this step, only those pixels are preserved that represent a local maximum along the <span style="font-family: times; font-weight: bold;">1D</span> profile in the direction of the gradient, that is, perpendicular to the edge tangent.
       .center
           img(src='./assets/maximaSuppression.png' )
 
     slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}: Point Operations and Histograms</sup>
       h5.center <b>Edge localization</b>
-      p The problem of finding the discrete orientations <b>θ = 0, ...,3</b> for a given gradient vector q = (dx, dy). <br>θ = tan<sup>−1</sup>(dy/dx) is typically avoided for efficiency reasons.
-      p With signs of the components of the gradient, the octant is known, and the coordinate system and gradient vector q are rotated by π/8.
+      p The problem of finding the discrete orientations <span style="font-family: times; font-weight: bold;">θ = 0, ..., 3</span> for a given gradient vector <span style="font-family: times; font-weight: bold;">q = (dx, dy)</span>. <br><span style="font-family: times; font-weight: bold;">θ = tan<sup>−1</sup>(dy/dx)</span> is typically avoided for efficiency reasons.
+      p With signs of the components of the gradient, the octant is known, and the coordinate system and gradient vector <span style="font-family: times; font-weight: bold;">q</span> are rotated by <span style="font-family: times; font-weight: bold;">π/8</span>.
       .center
           img(src='./assets/octants.png')
 
@@ -345,11 +349,11 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}: Point Operations and Histograms</sup>
       h5.center 3.- <b>Edge tracing and hysteresis thresholding</b>
       p(style="margin-top: -30px;") In the final step, sets of connected edge points are collected from the magnitude values that remained unsuppressed in the previous operation.
-      p(style="margin-top: 20px;") This is done with a technique called “hysteresis thresholding” using two different threshold values , <b>t<sub>lo</sub></b> (with <b>t<sub>hi</sub></b> > <b>t<sub>lo</sub></b>).
-      p(style="margin: 20px 0 0 0;") The image is scanned for pixels with edge magnitude <b>E<sub>nms</sub>(u, v) ≥ t<sub>hi</sub></b>.
-      p(style="margin: 20px 0 0 0;") A new edge trace is started and all connected edge pixels <b>(u', v')</b> are added to it as long as <b>E<sub>nms</sub>(u', v') ≥ t<sub>lo</sub></b>.
-      p(style="margin: 20px 0 0 0;") Only those edge traces remain that contain at least one pixel with edge magnitude greater than <b>t<sub>hi</sub></b> and no pixels with edge magnitude less than <b>t<sub>lo</sub></b>.
-      p(style="margin: 20px 0 0 0;") Typical threshold values for 8-bit grayscale images are t<sub>hi</sub> = 20% and t<sub>lo</sub> = 5%.
+      p(style="margin-top: 20px;") This is done with a technique called “hysteresis thresholding” using two different threshold values , <span style="font-family: times; font-weight: bold;">t<sub>lo</sub> (with t<sub>hi</sub> > t<sub>lo</sub>)</span>.
+      p(style="margin: 20px 0 0 0;") The image is scanned for pixels with edge magnitude <span style="font-family: times; font-weight: bold;">E<sub>nms</sub>(u, v) ≥ t<sub>hi</sub></span>.
+      p(style="margin: 20px 0 0 0;") A new edge trace is started and all connected edge pixels <span style="font-family: times; font-weight: bold;">(u', v')</span> are added to it as long as <span style="font-family: times; font-weight: bold;">E<sub>nms</sub>(u', v') ≥ t<sub>lo</sub></span>.
+      p(style="margin: 20px 0 0 0;") Only those edge traces remain that contain at least one pixel with edge magnitude greater than <span style="font-family: times; font-weight: bold;">t<sub>hi</sub></span> and no pixels with edge magnitude less than <span style="font-family: times; font-weight: bold;">t<sub>lo</sub></span>.
+      p(style="margin: 20px 0 0 0;") Typical threshold values for 8-bit grayscale images are <span style="font-family: times; font-weight: bold;">t<sub>hi</sub> = 20%</span> and <span style="font-family: times; font-weight: bold;">t<sub>lo</sub> = 5%</span>.
 
 
     slide(enter='bounceInDown' :mouseNavigation='false')
@@ -368,7 +372,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: '4.- Edges and contours',
+    description: '5.- Edges and contours',
     path: 'vision-systems-edges-contours'
   },
   components: {
