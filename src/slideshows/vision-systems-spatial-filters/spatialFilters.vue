@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Topics</sup>
       h6(style="margin-top: -20px;")
         | Topics on Space Domain Filters
@@ -36,7 +36,7 @@
           p(v-if="step >= 6")
             <b>Implementing Filters</b><br><span style="font-size: 0.7em;">Efficiency of Filter Programs, Handling Image Borders, Debugging Filter Programs</span>
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h1(style="margin: -20px 0 0 0; ").center Filters
       p The essential property of point operations is that each new pixel value only depends on the original pixel at the same position. The capabilities of point operations are limited, however.
@@ -45,14 +45,14 @@
         img(src='./assets/clips-06/p089-fig6-1.png' height="250px")
       p This is what filters can do. They are similar to point operations in the sense that they also produce a 1:1 mapping of the image
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h3.center What is a Filter?
       p The main difference between filters and point operations is that filters generally use more than one pixel from the source image for computing each new pixel value.
       p Let us first take a closer look at the task of smoothing an image. Images look sharp primarily at places where the local intensity rises or drops sharply. On the other hand, we perceive an image as blurred or fuzzy where the local intensity function is smooth.
       p A first idea for smoothing an image could thus be to simply replace every pixel by the average of its neighboring pixels.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center What is a Filter?
       p To determine the new pixel value in the smoothed image <b>I(u, v)</b>, we use the original pixel <b>I(u, v) = p<sub style="font-size:0.5em;">0</sub></b> at the same position plus its eight neighboring pixels <b>p<sub style="font-size:0.5em;">1</sub>, p<sub style="font-size:0.5em;">2</sub>, . . . , p<sub style="font-size:0.5em;">8</sub></b> to compute the arithmetic mean of these nine values,
@@ -66,7 +66,7 @@
         img(src='./assets/clips-06/p090-eqn6-3.png')
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5(style="margin-top: -30px;").center What is a Filter?
       p This simple local averaging already exhibits all the important elements of a typical filter. In particular, it is a so-called linear filter, which is a very important class of filters.
@@ -76,7 +76,7 @@
         img(src='./assets/filter01.png' height="250px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Linear Filters
       p Linear filters are denoted that way because they combine the pixel values in the support region in a linear fashion, that is, as a weighted summation.
@@ -85,7 +85,7 @@
 
       p Note that in this case no clamping is required at all because the function always maps to the original range of values.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h3.center(style="margin-top: -10px;") The Filter Kernel
       p For any linear filter, the size and shape of the support region, as well as the individual pixel weights, are specified by the “filter kernel” or “filter matrix” H(i, j). Every element H(i, j) specifies the weight of the corresponding pixel in the summation.
@@ -95,7 +95,7 @@
       p In principle, the filter kernel H(i, j) is, just like the image itself, a discrete, 2D, real-valued function, H: Z × Z → R.
       p The filter coordinates are generally positive and negative.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Applying the Filter
       p For a linear filter, the result is unambiguously and completely specified by the coefficients of the filter matrix. Applying the filter to an image is a simple process
@@ -103,7 +103,7 @@
         img(src='./assets/applyFilter.png' height="300px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Applying the Filter
       p  The following steps are performed at each image position <b>(u, v)</b>:
@@ -112,7 +112,7 @@
       p <b>3</b>. Finally, the resulting sum is stored at the current position in the new image <b>I(u,v)</b>.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Applying the Filter
       p Described formally, the pixel values of the new image I(u, v) are computed by the operation
@@ -123,7 +123,7 @@
         img(src='./assets/clips-06/p093-eqn6-6.png')
       p for all image coordinates (u, v). Not quite for all coordinates, to be exact.
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Implementing the Filter Operation
       p Now that we understand the principal operation of a filter and know that the borders need special attention, we go ahead and program a simple linear filter.
@@ -131,7 +131,7 @@
       p In a point operation, each new pixel value depends only on the corresponding pixel value in the original image, and it was thus no problem simply to store the results back to the same.
       p In-place computation is generally not possible for a filter since any original pixel contributes to more than one resulting pixel.
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Implementing the Filter Operation
       p Thus the complete filter operation can be implemented in two different ways:
@@ -139,7 +139,7 @@
       p <b>B</b>. The original image is first copied to an intermediate image that serves as the source for the actual filter operation. The result replaces the pixels in the original image.
       p The same amount of storage is required for both versions, and thus none of them offers a particular advantage.
 
-    slide(:steps=1, enter='bounceInDown' )
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Filter Examples
       p The following examples demonstrate the implementation of two very basic filters.
@@ -151,7 +151,7 @@
         img(src='./assets/clips-06/p094-eqn6-7.png' style="margin-top: 0px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Integer Coefficients
       p(style="margin-top: -50px;") Instead of using floating-point coefficients, it is often simpler and usually more efficient to work with integer coefficients in combination with some common scale factor s, that is,
@@ -164,7 +164,7 @@
       .center
         img(src='./assets/clips-06/p096-eqn6-10.png' style="margin-top: 0px;")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Types of Linear Filters
       p Since the effects of a linear filter are solely specified by the filter matrix (which can take on arbitrary values), an infinite number of different linear filters exists, at least in principle.
@@ -175,7 +175,7 @@
       p Unfortunately, the box filter is far from an optimal smoothing filter due to its wild behavior in frequency space, which is caused by the sharp cutoff around its sides.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Types of Linear Filters : Gaussian filter
       p The filter matrix (Fig. 5.8(b)) of this smoothing filter corresponds to a 2D Gaussian function,
@@ -186,7 +186,7 @@
         img(src='./assets/clips-06/p099-fig6-8.png' height="300px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Types of Linear Filters :Difference filters
       p If some of the filter coefficients are negative, the filter calculation can be interpreted as the difference of two sums: the weighted sum of all pixels with associated positive coefficients minus the weighted sum of pixels with negative coefficients in the filter region RH, that is,
@@ -195,13 +195,13 @@
       .center
         img(src='./assets/clips-06/p099-fig6-8.png' height="300px")
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h4.center(style="margin-top: -10px;") Formal Properties of Linear Filters
       p We have approached the concept of filters in a rather casual manner to quickly get a grasp of how filters are defined and used. While such a level of treatment may be sufficient for most practical purposes, the power of linear filters may not really be apparent yet considering the limited range of (simple) applications seen so far.
       p The real importance of linear filters (and perhaps their formal elegance) only becomes visible when taking a closer look at some of the underlying theoretical details. At this point, it may be surprising to the experienced reader that we have not mentioned the term “convolution” in this context yet. We make up for this in the remaining parts of this section.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center Linear Convolution
       p The operation associated with a linear filter, as described in the previous section, is not an invention of digital image processing but has been known in mathematics for a long time.
@@ -213,14 +213,14 @@
         img(src='./assets/clips-06/p101-eqn6-15.png' height="50px" style="margin-top: -20px;")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center Linear Convolution
       p To resolve the coordinate issue, we replace the summation variables i, j to
       .center
         img(src='./assets/clips-06/p101-eqn6-16.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}  : Filters</sup>
       h5.center(style="margin-top: 0px;") Formal Properties of Linear Convolution
       p The importance of linear convolution is based on its simple mathematical properties as well as its multitude of manifestations and applications.
@@ -229,7 +229,7 @@
       p In the following, however, we first look at some important properties of linear convolution in the accustomed “signal” or image space.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: 20px;") Commutativity
       p Linear convolution is commutative; that is, for any image I and filter kernel H,
@@ -237,7 +237,7 @@
         img(src='./assets/clips-06/p102-eqn6-17.png')
       p Thus the result is the same if the image and filter kernel are interchanged, and it makes no difference if we convolve the image I with the kernel H or the other way around. The two functions I and H are interchangeable and may assume either role.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: 0px;") Linearity
       p Linear filters are so called because of the linearity properties of the convolution operation. For example, if an image is multiplied by a scalar constant s ∈ R, then the result of the convolution multiplies by the same factor, that is,
@@ -251,7 +251,7 @@
         img(src='./assets/clips-06/p103-eqn6-20.png')
       p and is thus not part of the linearity property. thus “linear” filters are often only partially linear
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: 0px;") Associativity
       p Linear convolution is associative, meaning that the order of successive filter operations is irrelevant, that is,
@@ -259,7 +259,7 @@
         img(src='./assets/clips-06/p103-eqn6-21.png')
       p (I ∗ H1) ∗ H2 = I ∗ (H1 ∗ H2). (5.25) Thus multiple successive filters can be applied in any order, and multiple filters can be arbitrarily combined into new filters.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: 0px;") Separability of Linear Filters
       p A direct consequence of associativity is the separability of linear filters. If a convolution kernel H can be expressed as the convolution of multiple kernels Hi in the form
@@ -271,7 +271,7 @@
       p Depending upon the type of decomposition, this may result in significant computational savings.
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") x/y separability
       p The possibility of separating a 2D kernel H into a pair of 1D kernels hx, hy is of particular relevance and is used in many practical applications. Let us assume, as a simple example, that the filter is composed of the 1D kernels hx and hy, with
@@ -286,7 +286,7 @@
       .center
         img(src='./assets/clips-06/p104-eqn6-25.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Separable Gaussian filters
       p In general, a 2D filter is x/y-separable if (as in the earlier example) the filter function H(i, j) can be expressed as the outer product (⊗) of two 1D functions,
@@ -299,7 +299,7 @@
       .center
         img(src='./assets/clips-06/p105-math-a.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center(style="margin-top: -10px;") Impulse Response of a Filter
       p Linear convolution is a binary operation involving two functions as its operands; it also has a “neutral element”, which of course is a function, too. The impulse or Dirac function δ() is neutral under convolution, that is,
@@ -311,7 +311,7 @@
       .center
         img(src='./assets/clips-06/p105-fig6-10.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }} : Filters</sup>
       h5.center Impulse Response of a Filter
       p
@@ -321,10 +321,7 @@
           img(src='./assets/clips-06/p106-fig6-12.png' height="300px")
 
 
-
-
-
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h3.center Nonlinear Filters
       h5.center Minimum and Maximum Filters
@@ -336,21 +333,21 @@
       .center
           img(src='./assets/clips-06/p107-eqn6-31.png')
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Minimum and Maximum Filters
       p The effects of a 1D minimum filter on various local signal structures.
       .center
           img(src='./assets/chap06/p105-fig6-14.png')
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Minimum and Maximum Filters
       p The effects of a 1D minimum filter on various local signal structures.
       .center
           img(src='./assets/chap06/p106-fig6-15.png')
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Median Filter
       p It is impossible of course to design a filter that removes any noise but keeps all the important image structures intact, because no filter can discriminate which image content is important to the viewer and which is not.
@@ -361,7 +358,7 @@
       .center
           img(src='./assets/chap06/p107-fig6-16.png')
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Median Filter
       p
@@ -370,7 +367,7 @@
       .center
           img(src='./assets/chap06/p108-fig6-17.png' height="200px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Weighted Median Filter
       p In an ordinary median filter, each pixel in the filter region has the same influence, regardless of its distance from the center.
@@ -378,7 +375,7 @@
       p Similar to the coefficient matrix H of a linear filter, the distribution of weights is specified by a weight matrix <b>W</b>, with <b>W(i, j) ∈ N</b>.
       p To compute the result of the modified filter, each pixel value <b>I(u + i, v + j)</b> involved is inserted <b>W(i, j)</b> times into the extended pixel vector
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Weighted Median Filter
       .center
@@ -386,7 +383,7 @@
       .center
           img(src='./assets/chap06/p110-eqn6-36.png', height="100px")
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Other Nonlinear Filters
       p Median and weighted median filters are two examples of nonlinear filters that are easy to describe and frequently used.
@@ -394,7 +391,7 @@
       p Other types of nonlinear filters, such as the corner detector described, are often described algorithmically and thus defy a simple, compact description.
       p In contrast to the linear case, there is usually no “strong theory” for nonlinear filters that could, for example, describe the relationship between the sum of two images and the results of a median filter, as for linear convolution.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Efficiency of Filter Programs
       p Computing the results of filters is computationally expensive in most cases, especially with large images, large filter kernels, or both.
@@ -404,7 +401,7 @@
       p Thus if both the image and the filter are simply assumed to be of size <b>N×N</b>, the time complexity of direct filtering is <b>O(N<sup>4</sup>)</b>.
       p Substantial savings are possible when large, 2D filters can be decomposed into smaller, possibly 1D filters.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h4.center Handling Image Borders
       p The image borders require special attention in most filter implementations.
@@ -412,7 +409,7 @@
       p Thus any filter operation would reduce the size of the resulting image, which is not acceptable in most applications.
       p While no formally correct remedy exists, there are several more or less practical methods for handling the remaining border regions
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Handling Image Borders
       p <b>Method 1</b>:
@@ -422,7 +419,7 @@
       p.center Set the unprocessed pixels to the original (unfiltered) image values.
       p Usually the results are unacceptable, too, due to the noticeable difference between filtered and unprocessed image parts.
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Handling Image Borders
       p <b>Method 3</b>:
@@ -430,7 +427,7 @@
       p <b>A</b>. The pixels outside the image have a constant value.<br> <span style="font-size: 0.7em;">This may produce strong artifacts at the image borders, particularly when large filters are used.</span>
       p <b>B</b>. The border pixels extend beyond the image boundaries.<br> <span style="font-size: 0.7em;">Only minor artifacts can be expected at the borders. The method is also simple to compute and is thus often considered the method of choice.</span>
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Handling Image Borders
       p <b>Method 3</b>:
@@ -438,13 +435,13 @@
       p <b>C</b>. The image is mirrored at each of its four boundaries.<br> <span style="font-size: 0.7em;"> The results will be similar to those of the previous method unless very large filters are used.</span>
       p D. The image repeats periodically in the horizontal and vertical directions.<br> <span style="font-size: 0.7em;"> This may seem strange at first, and the results are generally not satisfactory.</span>
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: Point Operations and Histograms</sup>
       h5.center Handling Image Borders
       .center
           img(src='./assets/chap06/p113-fig6-20.png')
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References: {{ slides.length }}</sup>
         h3 References
         ul
@@ -460,7 +457,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Space domain filters',
+    description: '4.- Space domain filters',
     path: 'vision-systems-spatial-filters'
   },
   components: {

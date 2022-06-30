@@ -43,8 +43,8 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges and Contours</sup>
       h2(style="margin: -20px 0 0 0; ").center Edges and Contours
       p Prominent image “events” originating from local changes in intensity or color, such as edges and contours, are of high importance for the visual perception and interpretation of images.
-      p The perceived amount of information in an image appears to be directly related to the distinctiveness of the contained structures and discontinuities.
-      p In fact, edge-like structures and contours seem to be so important for our hu man visual system that a few lines in a caricature or illustration are often sufficient to unambiguously describe an object or a scene.
+      //- p The perceived amount of information in an image appears to be directly related to the distinctiveness of the contained structures and discontinuities.
+      p In fact, edge-like structures and contours seem to be so important for our human visual system that a few lines in a caricature or illustration are often sufficient to unambiguously describe an object or a scene.
       p  It is thus no surprise that the enhancement and detection of edges has been a traditional and important topic in image processing as well.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
@@ -159,7 +159,7 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
-      h4.center(style="margin-top: -10px;") Edge operators: Prewitt and Sobel
+      h4.center(style="margin-top: -10px;") Edge strength and orientation
       p With the scaled filter results as
       .center
         img(src='./assets/chap07/p122-math-a.png' height="50px" style="margin-top: 0px;")
@@ -185,13 +185,6 @@
       .center
         img(src='./assets/edgeProcess.png' height="300px" style="margin-top: 50px;")
 
-    slide(:steps=1, enter='bounceInDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
-      h5.center(style="margin-top: -10px;") Edge strength and orientation
-      .center
-        img(src='./assets/edgeApplication.png' height="700px" style="margin-top: 0px;")
-
-
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
       h5.center(style="margin-top: -10px;") Edge strength and orientation
@@ -199,6 +192,13 @@
       .center
         img(src='./assets/chap07/p123-eqn7-15.png' height="150px")
       p These edge operators are frequently used because of their good results and simple implementation.
+
+    slide(:steps=1, enter='bounceInDown')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Edges</sup>
+      h5.center(style="margin-top: -10px;") Edge strength and orientation
+      .center
+        img(src='./assets/edgeApplication.png' height="700px" style="margin-top: 0px;")
+
 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
@@ -368,7 +368,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Edges and contours',
+    description: '4.- Edges and contours',
     path: 'vision-systems-edges-contours'
   },
   components: {

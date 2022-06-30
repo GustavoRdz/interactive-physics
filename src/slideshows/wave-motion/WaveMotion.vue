@@ -15,7 +15,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -39,18 +39,18 @@
           p(v-if="step >= 1")
             <b>Sound, Speed, Intensity and the Doppler Effect</b>
 
-    slide(:steps=0, enter='bounceInDown')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
       h3 Waves
       p Ripples on a pond, musical sounds, seismic tremors triggered by an earthquake—all these are wave phenomena. Waves can occur whenever a system is disturbed from equilibrium and when the disturbance can travel, or propagate, from one region of the system to another. As a wave propagates, it carries energy. The energy in light waves from the sun warms the surface of our planet; the energy in seismic waves can crack our planet’s crust.
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Types of waves
       .center
         img(src='./assets/waveTypes.png' height="400px")
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       .center
@@ -62,7 +62,7 @@
       .center
         img(src='./assets/oscillatoryVariable.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       p Traveling wave
@@ -78,7 +78,7 @@
       .center
         img(src='./assets/travelingWaveR3.png')
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Mathematical description of a wave
       p Traveling waves
@@ -122,7 +122,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h5.center(style="margin-top: 0px;") Waves on a string
       p Waves speed in materials depends on the material characteristics, that is
@@ -160,7 +160,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4(style="margin: 10px 0 0 0;").center Wave interference:  superposition principle
       p(style="margin: -10px 0 0px 0;").center
@@ -191,7 +191,7 @@
     //-       img(src='./assets/twoPulsesDifferentSign.png' style="margin: 20px 0 0 20px;")
     //-       img(src='./assets/twoPulsesEqualSign.png' height="440px" style="margin: 0px 0 50px 10px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4(style="margin: 10px 0 0 0;").center Wave interference
         h5(style="margin:20px 0 0 0;").center Boundary conditions
@@ -204,7 +204,7 @@
     //-     .center
     //-       img(src='./assets/waveInterferenceCases.png' style="margin: 20px 0 0 20px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4(style="margin: 10px 0 0 0;").center Superposition principle
         .center
@@ -226,13 +226,13 @@
       h4(style="margin: 10px 0 0 0;").center Wave interference
       standing-waves
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4.center Standing waves
         .center
           img(src='./assets/standingWavesFig.png' height="500px" style="margin: 30px 0 0 0;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h4.center Normal modes on a string
         .center
@@ -271,7 +271,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h2.center Sound waves
       ul
@@ -283,13 +283,13 @@
         li infrasound: <20Hz
         li ultrasound: >20000Hz
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h5(style="margin-top: -0px").center Sound waves
       .center
         img(src='./assets/ondaSonora.png' style="margin-top: -20px;")
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h5(style="margin-top: -0px").center Sound waves
       .center
@@ -325,7 +325,7 @@
       .center
         doppler-simulator
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3(style="margin-top: -0px").center Doppler effect
       p Is a change in perceived frequency due to relative motion
@@ -360,7 +360,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3(style="margin-top: -0px").center Shock waves
       p
@@ -383,7 +383,7 @@
         span.small Ctrl + right
 
     
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h1 Additional exercices
     
@@ -504,7 +504,7 @@
     //-     br
     //-     span.small Ctrl + right
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       .center
         h3 References
