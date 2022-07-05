@@ -33,31 +33,31 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h3(style="margin: -20px 0 0 0; ").center Hough Transform
-      p The Hough transform is a general approach to localizing any shape that can be defined parametrically within a distribution of points.
-      p For example, many geometrical shapes, such as lines, circles, and ellipses, can be readily described using simple equations with only a few parameters.
+      p(style="margin: 20px 0 10px 0; line-height: 1.4em;") The Hough transform is a general approach to localizing any shape that can be defined parametrically within a distribution of points.
+      p(style="margin: 20px 0 10px 0; line-height: 1.4em;") For example, many geometrical shapes, such as lines, circles, and ellipses, can be readily described using simple equations with only a few parameters.
       .center
-        img(src='./assets/chap09/fig9-2.png' height="300px" style="margin-top: -20px;") 
+        img(src='./assets/chap09/fig9-2.png' height="300px" style="margin-top: 20px;") 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -0px 0 0 0").center Hough transform
-      p The Hough transform is perhaps most often used for detecting straight line segments in edge maps.
-      p A line segment in 2D can be described with two real-valued parameters using the classic slope-intercept form
+      p(style="margin: 10px 0 10px 0; line-height: 1.4em;") The Hough transform is perhaps most often used for detecting straight line segments in edge maps.
+      p(style="margin: 20px 0 10px 0; line-height: 1.4em;") A line segment in <span style="font-family: Times; font-weight: bold;">2D</span> can be described with two real-valued parameters using the classic slope-intercept form
       .center
-        img(src='./assets/chap09/eq9-1.png' height="50px" style="margin-top: -10px;") 
+        img(src='./assets/chap09/eq9-1.png' height="50px" style="margin-top: 20px;") 
       .center
-        img(src='./assets/chap09/fig9-3.png' height="300px" style="margin-top: 0px;") 
+        img(src='./assets/chap09/fig9-3.png' height="300px" style="margin-top: 10px;") 
 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -0px 0 0 0").center Hough Transform
       h6 Parameter space
-      p The Hough transform examines all the possible line segments that run through a single given point in the image. Every line L<sub>j</sub> = &#x27E8;k<sub>j</sub>, d<sub>j</sub>&#x27E9; that runs through a point p<sub>0</sub> = (x<sub>0</sub>, y<sub>0</sub>) must satisfy the condition
+      p(style="margin: -30px 0 10px 0; line-height: 1.4em;") The Hough transform examines all the possible line segments that run through a single given point in the image. Every line <span style="font-family: Times; font-weight: bold;">L<sub>j</sub> = &#x27E8;k<sub>j</sub>, d<sub>j</sub>&#x27E9;</span> that runs through a point <span style="font-family: Times; font-weight: bold;">p<sub>0</sub> = (x<sub>0</sub>, y<sub>0</sub>)</span> must satisfy the condition
       .center
-        img(src='./assets/chap09/eq9-3.png' height="50px" style="margin-top: 0px;") 
+        img(src='./assets/chap09/eq9-3.png' height="50px" style="margin-top: 20px;") 
       .center
-        img(src='./assets/chap09/fig9-4.png' height="300px" style="margin-top: 0px;") 
+        img(src='./assets/chap09/fig9-4.png' height="300px" style="margin-top: 20px;") 
       
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
@@ -66,19 +66,21 @@
       p(style="margin: 30px 0 -40px 0px;") Parameter space
       .center
         img(src='./assets/chap09/eq9-3.png' height="70px" style="margin: 30px 0 0 0px;") 
-      p(style="margin: 0px 0 0 0px;") For a given k<sub>j</sub>, the solution for d<sub>j</sub> is
+      .center
+        img(src='./assets/chap09/fig9-4.png' height="200px" style="margin: -170px 0 0 700px;") 
+      p(style="margin: 0px 0 0 0px;") For a given <span style="font-family: Times; font-weight: bold;">k<sub>j</sub></span>, the solution for <span style="font-family: Times; font-weight: bold;">d<sub>j</sub></span> is
       .center
         img(src='./assets/chap09/eq9-4.png' height="70px" style="margin: -0px 0 0 0px;") 
-      p(style="margin: -10px 0 0 0px;") which is another equation for a line, where now k<sub>j</sub>, d<sub>j</sub> are the variables and x<sub>0</sub>, y<sub>0</sub> are the constant parameters of the equation.
-      p(style="margin: 30px 0 0 0px;") For an arbitrary image point p<sub>i</sub> = (x<sub>i</sub>, y<sub>i</sub>), the former equation describes the line
+      p(style="margin: 0px 0 10px 0; line-height: 1.4em;") which is another equation for a line, where now <span style="font-family: Times; font-weight: bold;">k<sub>j</sub>, d<sub>j</sub></span> are the variables and <span style="font-family: Times; font-weight: bold;">x<sub>0</sub>, y<sub>0</sub></span> are the constant parameters of the equation.
+      p(style="margin: 0px 0 10px 0; line-height: 1.4em;") For an arbitrary image point <span style="font-family: Times; font-weight: bold;">p<sub>i</sub> = (x<sub>i</sub>, y<sub>i</sub>)</span>, the former equation describes the line
       .center
         img(src='./assets/chap09/eq9-5.png' height="70px" style="margin: -50px 0 0 0px;")
-      p(style="margin: 30px 0 0 0px;") with the parameters -x<sub>i</sub>, y<sub>i</sub> in the so-called parameter or Hough space, spanned by the coordinates k, d.
+      p(style="margin: 30px 0 10px 0; line-height: 1.3em;") with the parameters <span style="font-family: Times; font-weight: bold;">-x<sub>i</sub>, y<sub>i</sub></span> in the so-called parameter or Hough space, spanned by the coordinates <span style="font-family: Times; font-weight: bold;">k, d</span>.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -30px 0 0 0;").center Hough transform
-      p(style="margin: 30px 0 0 0px;") The relationship between (x, y) image space and (k, d) parameter space can be summarized as follows:
+      p(style="margin: 30px 0 0 0px; line-height: 1.4em;") The relationship between <span style="font-family: Times; font-weight: bold;">(x, y)</span> image space and <span style="font-family: Times; font-weight: bold;">(k, d)</span> parameter space can be summarized as follows:
       .center
         img(src='./assets/chap09/table9-1.png' height="130px" style="margin: 20px 0 0 0px;") 
       p(style="padding: 20px; margin: 30px 0 0 0px; border: 1px solid; line-height: 1.3em; font-family: Times") If <em>N</em> lines intersect at position (<em>k'</em>, <em>d'</em>) in parameter space, then <em>N</em> image points lie on the corresponding line <em>y</em> = <em>k'x</em> + <em>d'</em> in <em>image space</em>.
@@ -89,8 +91,8 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -30px 0 0 0;").center Hough transform
       h6(style="margin: -30px 0 0 0;") Accumulator map   
-      p(style="margin: 30px 0 0 0px;") Finding the dominant lines in the image can now be reformulated as finding all the locations in parameter space where a significant number of lines intersect. 
-      p(style="margin: 10px 0 0 0px;") This is basically the goal of the HT. In order to compute the HT, we must first decide on a discrete representation of the continuous parameter space by selecting an appropriate step size for the k and d axes.
+      p(style="margin: 30px 0 0 0px; line-height: 1.4em;") Finding the dominant lines in the image can now be reformulated as finding all the locations in parameter space where a significant number of lines intersect. 
+      p(style="margin: 20px 0 0 0px; line-height: 1.4em;") This is basically the goal of the <span style="font-family: Times; font-weight: bold;">HT</span>. In order to compute the <span style="font-family: Times; font-weight: bold;">HT</span>, we must first decide on a discrete representation of the continuous parameter space by selecting an appropriate step size for the k and d axes.
       .center
         img(src='./assets/chap09/fig9-6.png' height="350px" style="margin: 20px 0 0 0px;") 
 
@@ -98,13 +100,13 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -30px 0 0 0;").center Hough transform
       h6(style="margin: -0px 0 0 0;") A Better Line Representation
-      p(style="margin: 30px 0 0 0px;") A more practical representation is the so-called Hessian normal form (HNF)1 for representing lines, 
+      p(style="margin: 30px 0 0 0px; line-height: 1.4em;") A more practical representation is the so-called Hessian normal form <span style="font-family: Times; font-weight: bold;">(HNF)</span> for representing lines, 
       .center
         img(src='./assets/chap09/eq9-6.png' height="50px" style="margin: 0px 0 0 0px;") 
-      p(style="margin: 0px 0 0 0px;") With the HNF representation, the parameter space is defined by the coordinates θ, r, and a point p = (x, y) in image space corresponds to the relation
+      p(style="margin: 10px 0 0 0px; line-height: 1.4em;") With the <span style="font-family: Times; font-weight: bold;">HNF</span> representation, the parameter space is defined by the coordinates <span style="font-family: Times; font-weight: bold;">θ, r</span>, and a point <span style="font-family: Times; font-weight: bold;">p = (x, y)</span> in image space corresponds to the relation
       .center
         img(src='./assets/chap09/eq9-7.png' height="50px" style="margin: -20px 0 0 0px;")
-      p(style="margin: 0px 0 0 0px;") for angles in the range 0 ≤ θ < π
+      p(style="margin: 10px 0 0 0px;") for angles in the range <span style="font-family: Times; font-weight: bold;">0 ≤ θ < π</span>
       .center
         img(src='./assets/chap09/fig9-7.png' height="250px" style="margin: 20px 0 0 0px;") 
 
@@ -112,10 +114,10 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h4(style="margin: -30px 0 0 0;").center Hough transform
       h6(style="margin: -0px 0 0 0;") A Better Line Representation
-      p(style="margin: 30px 0 0 0px;") Thus, for a given image point p, the associated radius r is simply a function of the angle θ. If we use the center of the image (of size M&times;N),
+      p(style="margin: 30px 0 0 0px; line-height: 1.4em;") Thus, for a given image point <span style="font-family: Times; font-weight: bold;">p</span>, the associated radius <span style="font-family: Times; font-weight: bold;">r</span> is simply a function of the angle <span style="font-family: Times; font-weight: bold;">θ</span>. If we use the center of the image (of size <span style="font-family: Times; font-weight: bold;">M&times;N</span>),
       .center
-        img(src='./assets/chap09/eq9-8.png' height="50px" style="margin: 20px 0 0 0px;") 
-      p(style="margin: 10px 0 0 0px;") With the HNF representation, the parameter space is defined by the coordinates θ, r, and a point p = (x, y) in image space corresponds to the relation
+        img(src='./assets/chap09/eq9-8.png' height="60px" style="margin: 30px 0 20px 0px;") 
+      p(style="margin: 10px 0 0 0px; line-height: 1.4em;") With the <span style="font-family: Times; font-weight: bold;">HNF</span> representation, the parameter space is defined by the coordinates <span style="font-family: Times; font-weight: bold;">θ, r</span>, and a point <span style="font-family: Times; font-weight: bold;">p = (x, y)</span> in image space corresponds to the relation
       .center
         img(src='./assets/chap09/fig9-8.png' height="300px" style="margin: 0px 0 0 0px;") 
 
@@ -123,12 +125,12 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h5(style="margin: -30px 0 0 0;").center Hough transform for circles and ellipses
       h6(style="margin: -0px 0 0 0;")  Circles and Arcs
-      p(style="margin: 30px 0 0 0px;") Since lines in 2D have two degrees of freedom, they could be completely specified using two real-valued parameters. In a similar fashion,  representing a circle in 2D requires three parameters, for example
+      p(style="margin: 30px 0 0 0px; line-height: 1.4em;") Since lines in <span style="font-family: Times; font-weight: bold;">2D</span> have two degrees of freedom, they could be completely specified using two real-valued parameters. In a similar fashion,  representing a circle in <span style="font-family: Times; font-weight: bold;">2D</span> requires three parameters, for example
       .center
         img(src='./assets/chap09/eq9-19B.png' height="50px" style="margin: 20px 0 0 0px;") 
       .center
         img(src='./assets/chap09/eq9-13.png' height="50px" style="margin: 20px 0 0 0px;") 
-      p(style="margin: 10px 0 0 0px;") where x, y are the coordinates of the center and &rho; is the radius of the circle
+      p(style="margin: 10px 0 0 0px; line-height: 1.4em;") where <span style="font-family: Times; font-weight: bold;">x, y</span> are the coordinates of the center and <span style="font-family: Times; font-weight: bold;">&rho;</span> is the radius of the circle
       .center
         img(src='./assets/chap09/fig9-12.png' height="300px" style="margin: 0px 0 0 0px;") 
 
@@ -143,7 +145,7 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : {{ theme }}</sup>
       h5(style="margin: -30px 0 0 0;").center Hough transform for circles and ellipses
-      h6(style="margin: -0px 0 0 0;") Ellipses
+      h6(style="margin: -0px 0 0 0;") Circles
       p(style="margin: 30px 0 0 0px;") 
       .center
         img(src='./assets/chap09/eq9-21.png' height="50px" style="margin: 20px 0 0 0px;")  
@@ -166,7 +168,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Hough Transform',
+    description: '7.- Hough Transform',
     path: 'vision-systems-hough-transform'
   },
   components: {

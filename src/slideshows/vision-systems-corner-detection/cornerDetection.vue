@@ -125,21 +125,22 @@
       h5.center(style="margin-top: -50px;") Corner Response Function (CRF)
       .center
         img(src='./assets/chap08/p141-eqn8-9.png' height="90px" style="margin: -30px 0 -15px 0;")
-      p To avoid the explicit calculation of the eigenvalues (and the square root) the Harris detector defines the function as a measure of “corner strength”, where the parameter &alpha; determines the sensitivity of the detector. Q(u, v) is called the “corner response function” and returns maximum values at isolated corners.
-      p In practice, &alpha; is assigned a fixed value in the range of 0.04 to 0.06 (max. 0.25 = 1/4 ).
+      p The Harris detector defines the function as a measure of “corner strength”, where the parameter &alpha; determines the sensitivity of the detector. 
+      p <b>Q(u, v)</b> is called the “<b>corner response function</b>” and returns maximum values at isolated corners.
+      p In practice, <b>&alpha;</b> is assigned a fixed value in the range of 0.04 to 0.06 (max. 0.25 = 1/4 ).
       p The larger the value of α, the less sensitive the detector is and the fewer corners detected.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
-      h5.center(style="margin-top: -50px;") Determining Corner Points
-      p(style="margin: 0px 0 -10px 0;") An image location (u, v) is selected as a potential candidate for a corner point if
+      h5.center(style="margin-top: -60px;") Determining Corner Points
+      p(style="margin: -30px 0 10px 0; line-height: 1.4em;") An image location (u, v) is selected as a potential candidate for a corner point if
       .center
         img(src='./assets/chap08/p142-math-a.png' height="50px" style="margin: -100px 0 0px 0;")
-      p where the threshold t<sub>H</sub> is selected based on image content and typically lies within the range of 10,000 to 1,000,000. Once selected, the corners c  <sub>i</sub> = &#x27E8;ui, vi, qi&#x27E9; are inserted into the sequence
+      p(style="margin: 0px 0 10px 0; line-height: 1.4em;") where the threshold t<sub>H</sub> is selected based on image content and typically lies within the range of 10,000 to 1,000,000. Once selected, the corners c  <sub>i</sub> = &#x27E8;ui, vi, qi&#x27E9; are inserted into the sequence
       .center
         img(src='./assets/chap08/p142-math-b.png' height="50px" style="margin: -50px 0 0px 0;")
-      p which is then sorted in descending order (i.e., q<sub>i</sub> ≥ q<sub>i+1</sub>) according to corner strength q<sub>i</sub> = Q(u<sub>i</sub>, v<sub>i</sub>). To suppress the false corners that tend to arise in densely packed groups around true corners, all except the strongest corner in a specified vicinity are eliminated.
+      p(style="margin: 0px 0 -10px 0; line-height: 1.4em;") which is then sorted in descending order (i.e., q<sub>i</sub> ≥ q<sub>i+1</sub>) according to corner strength q<sub>i</sub> = Q(u<sub>i</sub>, v<sub>i</sub>). To suppress the false corners that tend to arise in densely packed groups around true corners, all except the strongest corner in a specified vicinity are eliminated.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
@@ -169,7 +170,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Corner detection',
+    description: '6.- Corner detection',
     path: 'vision-systems-corner-detection'
   },
   components: {
