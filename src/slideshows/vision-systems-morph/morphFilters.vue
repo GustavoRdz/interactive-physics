@@ -217,11 +217,11 @@
       .center
         img(src='./assets/chap10/p180-fig10-10.png' height="600px")
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
-      h5.center(style="margin-top: -10px;") Dilation erosion algorithms
-      .center
-        img(src='./assets/chap10/p180-alg10-1.png' height="600px" style="margin-top: -30px;")
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
+    //-   h5.center(style="margin-top: -10px;") Dilation erosion algorithms
+    //-   .center
+    //-     img(src='./assets/chap10/p180-alg10-1.png' height="600px" style="margin-top: -30px;")
 
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
@@ -239,9 +239,9 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
       h5.center(style="margin-top: -10px;") Designing Morphological Filters
       .center
-        img(src='./assets/chap10/p181-fig10-12.png' height="150px")
+        img(src='./assets/chap10/p181-fig10-12.png' height="150px" style="margin: -20px 0 -20px 0;")
       .center
-        img(src='./assets/chap10/p182-fig10-13.png' height="600px")
+        img(src='./assets/chap10/p182-fig10-13.png' height="600px" style="margin: 20px 0 0px 0;")
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Morphological filters</sup>
