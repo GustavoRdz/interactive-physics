@@ -454,7 +454,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Morphological filters',
+    description: '8.- Morphological filters',
     path: 'vision-systems-morph'
   },
   components: {

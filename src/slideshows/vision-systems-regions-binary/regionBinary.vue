@@ -516,7 +516,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Regions in binary images',
+    description: '9.- Regions in binary images',
     path: 'vision-systems-regions-binary'
   },
   components: {

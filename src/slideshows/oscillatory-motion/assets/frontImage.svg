@@ -1,31 +1,103 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg height="250" width="600" viewbox="0 0 600 250">
-          <defs>
-            <path id="r1" fill="none" stroke="black">
-              <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-              <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-            </path>
+<!-- <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="100">
 
-          </defs>
-          <use xlink:href="#r1"/>
+  <style type="text/css"><![CDATA[
+    a.words:hover, a.words:focus {
+       text-decoration: underline; 
+       font-weight:bold;
+    }
+    a.shapes:hover, a.shapes:focus {
+       stroke: #66f; 
+       stroke-width: 2;
+       outline: none; /* over-ride default focus formatting */
+    }
+    ]]>
+  </style>
+  
+  <a class="words" xlink:href="cat.svg">
+    <text x="100" y="30" style="font-size: 12pt;">Cat</text>
+  </a>
 
-          <path :d="base" stroke="black"  fill="none"/>
-          <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-            <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-          </rect>
-          <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-          <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-          <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+  <a class="shapes" xlink:href="http://www.w3.org/SVG/">
+    <circle cx="50" cy="70" r="20" style="fill: red;"/>
+    <rect x="75" y="50" width="40" height="40" style="fill: green;"/>
+    <path d="M120 90, 140 50, 160 90 Z" style="fill: blue;"/>
+  </a>
+<div xmlns="" id="divScriptsUsed" style="display: none"/><script xmlns="" id="globalVarsDetection" src="chrome-extension://cmkdbmfndkfgebldhnkbfhlneefdaaip/js/wrs_env.js"/>
 
-          <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-          <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-          <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
+</svg> -->
 
-            <text x="500" y="98">
-              <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-            </text>
-            <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="250" viewBox="0 0 400 250" onload="init(evt)">
 
-            //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-            //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-</svg>
+  <defs>
+    <style type="text/css"> <![CDATA[
+      svg { /* default values */
+        stroke: black;
+        fill: white;
+      }
+      g.selected rect {
+        fill: #ffc; /* light yellow */
+      }
+      text {
+        stroke: none;
+        fill:black;
+        text-anchor: middle;
+      }
+    ]]></style>
+    <script type="application/ecmascript"><![CDATA[
+      var scaleChoice = 1;
+      var scaleFactor = [1.25, 1.5, 1.75];
+
+      function init(evt) {  
+        var obj;
+        for (var i = 0; i < 3; i++) {
+          obj = document.getElementById("scale" + i);
+          obj.addEventListener("click", clickButton, false);
+        }
+        transformShirt();
+      }
+
+      function clickButton(evt) {
+        var choice = evt.target.parentNode
+        var name = choice.getAttribute("id");
+        var old = document.getElementById("scale" + scaleChoice);
+        old.removeAttribute("class");
+        choice.setAttribute("class", "selected");
+      
+        scaleChoice = parseInt(name[name.length - 1]);
+        transformShirt();
+      }
+
+      function transformShirt() {    
+        var factor = scaleFactor[scaleChoice];
+        var obj = document.getElementById("shirt");
+        obj.setAttribute("transform",
+          "translate(150, 150) " +
+          "scale(" + factor + ")");
+        obj.setAttribute("stroke-width",
+          1 / factor);
+      }
+    ]]></script>
+
+    <path id="shirt-outline" d="M -6 -30 -32 -19 -25.5 -13 -22 -14 -22 30 23 30         23 -14 26.5 -13 33 -19 7 -30         A 6.5 6 0 0 1 -6 -30"/>
+  </defs>
+
+  <g id="shirt" transform="translate(150, 150) scale(1.75)" stroke-width="0.5714285714285714">
+    <use xlink:href="#shirt-outline" x="0" y="0"/>
+  </g>
+
+  <g id="scale0"> 
+    <rect x="100" y="10" width="30" height="30"/>
+    <text x="115" y="30">S</text>
+  </g>
+
+  <g id="scale1">
+    <rect x="140" y="10" width="30" height="30"/>
+    <text x="155" y="30">M</text>
+  </g>
+
+  <g id="scale2" class="selected">
+    <rect x="180" y="10" width="30" height="30"/>
+    <text x="195" y="30">L</text>
+  </g>
+<div xmlns="" id="divScriptsUsed" style="display: none"/><script xmlns="" id="globalVarsDetection" src="chrome-extension://cmkdbmfndkfgebldhnkbfhlneefdaaip/js/wrs_env.js"/></svg>

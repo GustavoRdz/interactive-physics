@@ -5,8 +5,9 @@
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Oscillatory Motion
-        // img(src='./assets/frontImage.svg')
-        img(src='./assets/U.svg')
+        img(src='./assets/frontImage.svg')
+        // img(src='./assets/U.svg')
+        // spring-mass
         
         //- simple-pendulum
         //- spring-mass
@@ -483,7 +484,6 @@ export default {
     path: 'oscillatory-motion'
   },
   components: {
-    'pressure-machine': require('./PressureMachine'),
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),

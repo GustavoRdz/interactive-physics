@@ -271,7 +271,7 @@ export default {
   mixins: [eagle.slideshow],
   infos: {
     title: 'Vision Systems',
-    description: 'Frequency domain analysis',
+    description: '10.- Frequency domain analysis',
     path: 'vision-systems-fourier'
   },
   components: {

@@ -1,11 +1,14 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
+    <button class="language" :class="{active:isActive}" @click="isActive = !isActive">{{ a = isActive ? languages[0]:languages[1] }} </button>
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
-        h2 Vision Systems
+        h2(v-if = '!isActive' ) Vision Systems
+        h2(v-if = 'isActive') Sistemas de visión
         img(src='./assets/U.svg')
-        p Digital image processing for vision systems
+        p(v-if = '!isActive') Digital image processing for vision systems
+        p(v-if = 'isActive') Procesado digital de imagenes
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -14,75 +17,71 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+        //- <button class="ui button toggle" @click="toggle">OFF</button>
+        //- .inline(v-for='category, name in slideCategories')
+        //-   eg-toggle(:key='name', v-model='category.show', :width='30',
+        //-             on-text='', off-text='', on-color='#ffeeaa',
+        //-             @change='category.show = !category.show') 
+        //-     p.label {{ category }}
+            //- eg-triggered-message(:trigger='!category.show',
+            //-                     :duration='3', position='top right',
+            //-                     enter='bounceInRight', leave='bounceOutRight')
+            //-   p(v-html="message(category)")
 
-    slide(:steps=5, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
-      h6
-        | Topics
+    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false' style="border: 1px solid black;")
+      .top <sup style="font-size: 10px; margin: -10px 0 0 -30px; ">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
+      h6(v-if = '!isActive' ) Course Topics
+      h6(v-if = 'isActive') Temas del curso
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Unidad temática 1</b>: Adquisición y manipulación de imágenes
+          p(v-if = '!isActive') <b>Unit 1</b>: Image adquisition and manipulation
+          p(v-if = 'isActive') <b>Unidad temática 1</b>: Adquisición y manipulación de imágenes
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Acquiring Images</b>
+          p(v-if = '!isActive') <b>Acquiring Images</b>
+          p(v-if = 'isActive') <b>Adquisición de imgenes</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 4")
-            <b>Printing and Storage</b>
+          p(v-if = '!isActive') <b>Printing and Storage</b>
+          p(v-if = 'isActive') <b>Impresion y almacenamiento</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 5")
-            <b>Correcting Imaging Defects</b>
+          p(v-if = '!isActive') <b>Correcting Imaging Defects</b>
+          p(v-if = 'isActive') <b>Corrigiendo defectos en imagenes</b>
 
-    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+
+    slide(:mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
-      h6
-        | Topics
+      h6(v-if = '!isActive') Course topics
+      h6(v-if = 'isActive') Temas del curso
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Unidad temática 2</b>: Mejoramiento de la imagen a través de transformaciones y filtrado
+          p(v-if = '!isActive') <b>Unit 2</b>: Image enhancement with transformations and filters
+          p(v-if = 'isActive') <b>Unidad temática 2</b>: Mejoramiento de la imagen con transformaciones y filtros
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Image Enhancement in the Spatial Domain</b>
+          p(v-if = '!isActive') <b>Image Enhancement in the Spatial Domain</b>
+          p(v-if = 'isActive') <b>Resaltado de imagen en el dominio espacial</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Processing Images in Frequency Space</b>
+          p(v-if = '!isActive') <b>Processing Images in Frequency Space</b>
+          p(v-if = 'isActive') <b>Procesado de imagenes en el dominio de la frecuencia</b>
 
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+    slide(:mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
-      h6
-        | Topics
+      h6(v-if = '!isActive') Course topics
+      h6(v-if = 'isActive') Temas del curso
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Unidad temática 3</b>: Aislamiento de objetos y cálculo de las características de una imagen
+          p(v-if = '!isActive') <b>Uniy 3</b>: Object extraction and characteristic calculus in images
+          p(v-if = 'isActive') <b>Unidad temática 3</b>: Aislamiento de objetos y cálculo de las características de una imagen
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Segmentation and Thresholding</b>
+          p(v-if = '!isActive') <b>Segmentation and Thresholding</b>
+          p(v-if = 'isActive') <b>Segmentación y umbral</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Processing Binary Images</b>
+          p(v-if = '!isActive') <b>Processing Binary Images</b>
+          p(v-if = 'isActive') <b>Procesado de imagenes binarias</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
-            <b>Global Image Measurements</b>
+          p(v-if = '!isActive') <b>Global Image Measurements</b>
+          p(v-if = 'isActive') <b>Mediciones globales en imagenes</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
-            <b>Feature-Specific Measurements</b>
-
-
-    //- slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Fundamental activities</sup>
-    //-   h3 Actividades fundamentales
-    //-   ol
-    //-     li (5%) Clasificación de imágenes con diferentes características
-    //-     li (5%) Identificar diferencias mediante histograma RGB y ByN
-    //-     li (5%) Fotografías con filtro de Laplace
-    //-     li (5%) Fotografías con filtro de Fourier
-    //-     li (5%) Obtener un Histograma de una imagen en ByN
-    //-     li (5%) Obtener la binarizacion de una imagen
-    //-     li (30%) Producto Integrador
-    //-     li (20%) Examen de Medio curso
-    //-     li (20%) Examen Ordinario
+          p(v-if = '!isActive') <b>Feature-Specific Measurements</b>
+          p(v-if = 'isActive') <b>Mediciones de caracteristics especificas</b>
 
 
     //- slide(enter='bounceInDown'  :mouseNavigation='false')
@@ -93,84 +92,128 @@
     //-     li(style="margin-bottom: 1em;") Visión Computacional. &emsp; L. Enrique Sucar. <br>Instituto Nacional de Astrofísica, Óptica y Electrónica Puebla, México.
     //-     li(style="margin-bottom: 1em;") Técnicas y algoritmos básicos de vision artificial. &emsp; Ana Gonzalez Marco. <br> Editorial: Universidad de la Rioja, servicios de publicaciones, 2006
     //-     li Digital Image Processing, An algorithmic Introduction using Java. &emsp; Wilhelm Burger, Mark J. Burge. <br> Springer-Verlag London 2008, 2006. &emsp; Second edition.
-
-    slide(:steps=6, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+   
+    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics on Digital Images</sup>
-      h6 Topics on Digital Images
+      h1(v-if = '!isActive').center Digital Images
+      h1(v-if = 'isActive').center Imagenes digitales
+
+    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics on Digital Images</sup>
+      h6(v-if = '!isActive') Digital Images
+      h6(v-if = 'isActive') Imagenes Digital
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Image processing vs. Image editing</b>
+          p(v-if = '!isActive') <b>Image processing vs. Image editing</b>
+          p(v-if = 'isActive') <b>Procesado vs. edicion de imagenes</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Image Analysis and Computer Vision</b>
+          p(v-if = '!isActive') <b>Image Analysis and Computer Vision</b>
+          p(v-if = 'isActive') <b>Analisis de imagenes y vision por computadora</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Types of Digital Images</b>
+          p(v-if = '!isActive') <b>Types of Digital Images</b>
+          p(v-if = 'isActive') <b>Tipos de imagenes digitales</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 5")
-            <b>Image Acquisition</b><br>The Pinhole Camera Model, The “Thin” Lens, Going Digital, Image Size and Resolution, Image Coordinate System,  Pixel Values
+          p(v-if = '!isActive') <b>Image Acquisition</b><br>The Pinhole Camera Model, The “Thin” Lens, Going Digital, Image Size and Resolution, Image Coordinate System,  Pixel Values
+          p(v-if = 'isActive') <b>Adquisición de imagenes</b><br>La camara de pinhole, La lente delgada, Volviendose digital, Tamaño de la imagen y la resolución, Sistema coordenado en imagenes,  Valores de pixel
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
-            <b>Image File Formats</b><br>Raster versus Vector Data, Tagged Image File Format (TIFF), Graphics Interchange Format (GIF), Portable Network Graphics (PNG), JPEG, Windows Bitmap (BMP), Portable Bitmap Format (PBM), Additional File Formats</b>
+          p(v-if = '!isActive') <b>Image File Formats</b><br>Raster versus Vector Data, Tagged Image File Format (TIFF), Graphics Interchange Format (GIF), Portable Network Graphics (PNG), JPEG, Windows Bitmap (BMP), Portable Bitmap Format (PBM), Additional File Formats</b>
+          p(v-if = 'isActive') <b>Formato de archivo de imagen</b><br>Raster vs. Vector, Tagged Image File Format (TIFF), Graphics Interchange Format (GIF), Portable Network Graphics (PNG), JPEG, Windows Bitmap (BMP), Portable Bitmap Format (PBM),Formatos de imagen adcionales</b>
 
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
-      h5.center Working with images
-      p.center <b>Image processing</b>  vs. <b>Image editing</b>
-      p <b>Digital image editing (digital imaging)</b>, is the manipulation of digital images using an existing software application such as Adobe Photoshop or Corel Paint.
-      p <b>Digital image processing</b>, is the conception, design, development, and enhancement of digital imaging programs.
+      h5(v-if = '!isActive').center Working with images
+      h5(v-if = 'isActive').center Trabajando con imagenes
+      p(v-if = '!isActive').center <b>Image processing</b>  vs. <b>Image editing</b>
+      p(v-if = 'isActive').center <b>Procesado de imagenes</b>  vs. <b>Edicion de imagenes</b>
+      p(v-if = '!isActive') <b>Digital image editing (digital imaging)</b>, is the manipulation of digital images using an existing software application such as Adobe Photoshop or Corel Paint.
+      p(v-if = 'isActive') <b>La edición de imágenes digitales </b>, es la manipulación de imágenes digitales utilizando una aplicación de software existente, como Adobe Photoshop o Corel Paint.
+      p(v-if = '!isActive') <b>Digital image processing</b>, is the conception, design, development, and enhancement of digital imaging programs.
+      p(v-if = 'isActive') <b>Procesado digital de imagenes</b>, es la concepción, diseño, desarrollo y mejora de programas de imágenes digitales.
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
-      h5.center Working with images
-      p <b>Computer graphics</b>, in contrast to digital image processing, concentrates on the synthesis of digital images from geometrical descriptions such as three-dimensional (3D) object models.
-      p Similarly, image processing makes use of a number of ideas that have their origin in computational geometry and computer graphics, such as volumetric models in medical image processing.
+      h5(v-if = '!isActive').center Working with images
+      h5(v-if = 'isActive').center Trabajando con imagenes
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") <b>Computer graphics</b>, in contrast to digital image processing, concentrates on the synthesis of digital images from geometrical descriptions such as three-dimensional (3D) object models.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Los <b>gráficos por computadora</b>, a diferencia del procesamiento de imágenes digitales, se concentran en la síntesis de imágenes digitales a partir de descripciones geométricas, como modelos de objetos tridimensionales (3D).
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Similarly, image processing makes use of a number of ideas that have their origin in computational geometry and computer graphics, such as volumetric models in medical image processing.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") De manera similar, el procesamiento de imágenes hace uso de una serie de ideas que tienen su origen en la geometría computacional y los gráficos por computadora, como los modelos volumétricos en el procesamiento de imágenes médicas.
 
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
-      h5.center Image Analysis and Computer Vision
-      p Often it appears at first glance that a given image-processing task will have a simple solution, especially when it is something that is easily accomplished by our own visual system.
-      p Yet in practice it turns out that developing reliable, robust, and timely solutions is difficult or simply impossible to extract meaningful information about its contents
-      ul
+      h5(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Image Analysis and Computer Vision
+      h5(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Análisis de imágenes y visión por computadora
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Often it appears at first glance that a given image-processing task will have a simple solution, especially when it is something that is easily accomplished by our own visual system.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") A menudo, a primera vista, parece que una determinada tarea de procesamiento de imágenes tendrá una solución simple, especialmente cuando es algo que nuestro propio sistema visual puede lograr fácilmente.
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Yet in practice it turns out that developing reliable, robust, and timely solutions is difficult or simply impossible to extract meaningful information about its contents
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Sin embargo, en la práctica resulta que desarrollar soluciones confiables, sólidas y oportunas es difícil o simplemente imposible de extraer información significativa sobre su contenido.
+      ul(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
         li distinguishing an object from its background
         li following a street on a map
         li finding the bar code on a milk carton
-      p tasks such as these often turn out to be much more difficult to accomplish than we would expect.
+      ul(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
+        li distinguir un objeto de su fondo
+        li siguiendo una calle en un mapa
+        li encontrar el código de barras en un cartón de leche
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") tasks such as these often turn out to be much more difficult to accomplish than we would expect.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Tareas como estas a menudo resultan mucho más difíciles de lograr de lo que cabría esperar.
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
-      h5.center Image Analysis and Computer Vision
-      p <b>Pattern recognition</b> is primarily a mathematical discipline that have been applied extensively to problems arising in computer vision and image analysis. A good example of their successful application is optical character recognition (OCR), where robust, highly accurate turnkey solutions are available for recognizing scanned text.
-      p Other applicacions
-      ul
+      h5(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Image Analysis and Computer Vision
+      h5(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Análisis de Imágenes y Visión por Computador
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") <b>Pattern recognition</b> is primarily a mathematical discipline that have been applied extensively to problems arising in computer vision and image analysis.
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") A good example of their successful application is optical character recognition (OCR), where robust, highly accurate turnkey solutions are available for recognizing scanned text.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") <b>El reconocimiento de patrones</b> es principalmente una disciplina matemática que se ha aplicado ampliamente a los problemas que surgen en la visión artificial y el análisis de imágenes.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Un buen ejemplo de su aplicación exitosa es el reconocimiento óptico de caracteres (OCR), donde se encuentran disponibles soluciones llave en mano sólidas y de alta precisión para reconocer el texto escaneado.
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Other applicacions
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Otras aplicaciones
+      ul(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
         li speech and audio signals
         li text documents
         li stock trades
         li finding trends in large databases
+      ul(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
+        li señales de voz y audio
+        li documentos de texto
+        li operaciones bursátiles
+        li encontrar tendencias en grandes bases de datos
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
-      h5.center Image Analysis and Computer Vision
-      p <b>Computer vision</b> tackles the problem of engineering artificial visual systems capable of somehow comprehending and interpreting our real, 3D world.
-      p Popular topics in this field include
-      ul
+      h5(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Image Analysis and Computer Vision
+      h5(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Image Analysis and Computer Vision
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") <b>Computer vision</b> tackles the problem of engineering artificial visual systems capable of somehow comprehending and interpreting our real, 3D world.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") <b>La visión artificial</b> aborda el problema de la ingeniería de sistemas visuales artificiales capaces de comprender e interpretar de alguna manera nuestro mundo real en 3D.
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Popular topics in this field include
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Los temas populares en este campo incluyen
+      ul(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
         li Scene understanding
         li Object recognition
         li Motion interpretation (tracking)
         li Autonomous navigation
         li Robotic manipulation of objects in a scene
-        p Since computer vision has its roots in artificial intelligence (AI), many AI methods were originally developed to either tackle or represent a problem in computer vision.
+      ul(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")
+        li Comprensión de la escena
+        li Reconocimiento de objetos
+        li Interpretación de movimiento (seguimiento)
+        li Navegación autónoma
+        li Manipulación robótica de objetos en una escena
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Since computer vision has its roots in artificial intelligence (AI), many AI methods were originally developed to either tackle or represent a problem in computer vision.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;") Dado que la visión por computadora tiene sus raíces en la inteligencia artificial (IA), muchos métodos de IA se desarrollaron originalmente para abordar o representar un problema en la visión por computadora.
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Digital Images</sup>
-      h3.center(style="margin-top: -20px;") Digital Images
-      p Every day, people work with a large variety of digital raster images.
+      h3(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Digital Images
+      h3(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;").center Imágenes digitales
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")  Every day, people work with a large variety of digital raster images.
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")  Todos los días, las personas trabajan con una gran variedad de imágenes rasterizadas digitales.
       .center
         img(src='./assets/chap02/p006-fig2-1.png' height="450px")
-      p They are all, as a rule, ultimately represented as rectangular ordered arrays of image elements. (pixel: image element)
+      p(v-if = '!isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")  They are all, as a rule, ultimately represented as rectangular ordered arrays of image elements. (pixel: image element)
+      p(v-if = 'isActive' style="padding: 0px 0 0 0px; margin: 0px 0px 30px 0px; line-height: 1.4em;")  Todos ellos, por regla general, se representan en última instancia como matrices rectangulares ordenadas de elementos de imagen. (píxel: elemento de imagen)
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Digital Images : Image acquisition</sup>
@@ -466,6 +509,8 @@ export default {
   },
   data: function () {
     return {
+      isActive: true,
+      languages: ['🇺🇸', '🇲🇽']
     }
   },
   methods: {
@@ -573,6 +618,13 @@ export default {
     background-color:slateblue;
     color: white;
   }
+}
+
+.language {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 0px 0px 0px;
 }
 
 </style>

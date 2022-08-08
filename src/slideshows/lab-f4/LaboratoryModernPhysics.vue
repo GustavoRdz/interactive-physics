@@ -100,6 +100,12 @@
       .center
         img(src='./assets/galileoTransforms.svg')
 
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="text-transform: uppercase; margin-top: -20px;").center Radiación de frenado
+      .center
+        radiacion-frenado
+        //- timer
 
     slide(enter='bounceInDown' :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -129,7 +135,8 @@ export default {
     'diffraction-grating': require('./components/DiffractionGrating'),
     'spring-mass': require('./components/SpringMass'),
     'reflection': require('./components/reflection'),
-    'example-one': require('./components/ExampleOne'),
+    'radiacionFrenado': require('./components/radiacionFrenado'),
+    'timer': require('./components/Timer'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),
     'example-four': require('./components/ExampleFour'),
