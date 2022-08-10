@@ -1,7 +1,7 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    slide(enter='fadeIn' leave='bounceOutLeft')
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Oscillatory Motion
@@ -22,7 +22,7 @@
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Oscillatory motion
       h5.center Simple pendulum example
@@ -37,7 +37,7 @@
         span.small Ctrl + right
 
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' )
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3
         | Topics
@@ -62,14 +62,14 @@
           p(v-if="step >= 1")
             <b>Forced oscillations and resonance</b>
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' )
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Periodic motion
       p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
       .center
         img(height="400px" src='./assets/motor vocho.gif')
 
-    slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px;") Oscillations
       p(style="margin: 0 0 -0px 0;").center Mass-spring system
@@ -85,7 +85,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -30px;") Oscillations
       p(style="margin: 0 0 -0px 0;").center Mass-spring system
@@ -94,7 +94,7 @@
       p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
       p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' )
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px;") Oscillations
       p(style="margin: 0 0 0px 0;").center Mass-spring system
@@ -103,7 +103,7 @@
       .center
         img(src='./assets/equations/frequency.svg' height="150px")
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 1
       example-one
@@ -116,7 +116,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Simple Harmonic Motion
       spring-mass
@@ -132,7 +132,7 @@
         img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
 
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 2
       example-two
@@ -146,7 +146,7 @@
         span.small Ctrl + right
 
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top: -40px;").center
@@ -158,7 +158,7 @@
       .center
         img(src='./assets/displacementGraph.png' height="250px")
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p <b>Displacement:</b>
@@ -169,7 +169,7 @@
         img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
         img(src='./assets/displacementPhase.png' height="250px")
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top:-60px;")
@@ -179,7 +179,7 @@
         img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
         img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top:-60px;")
@@ -188,7 +188,7 @@
       .center
         img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Phase constant and Amplitude
       p At t = 0
@@ -206,7 +206,7 @@
         img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
 
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 3
       example-three
@@ -219,7 +219,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 4
       example-four
@@ -232,7 +232,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 5
       example-five
@@ -245,7 +245,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 6
       example-six
@@ -258,7 +258,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 7
       example-seven
@@ -271,7 +271,7 @@
         br
         span.small Ctrl + right
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
       p.center
@@ -316,14 +316,14 @@
       .center
         img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
       p.center We can derivre formulas for velocity
       .center
         img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 8
       example-nine
@@ -336,7 +336,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 9
       example-ten
@@ -349,7 +349,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -30px;") Exercise 10
       example-thirteen
@@ -362,7 +362,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Other systems of SHM
       p(style="margin-top: -30px;").center Angular SHM
@@ -374,7 +374,7 @@
       .center
         img(src='./assets/angularWf.png' height="100px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Inertia moments
       p(style="margin-top: -30px;").center
@@ -384,7 +384,7 @@
       .center
         img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center The simple pendulum
       .center
@@ -396,7 +396,7 @@
       .center
         img(src='./assets/simplePendulumT.png' height="100px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center The physical pendulum
       p.center We can derivre formulas for velocity
@@ -406,7 +406,7 @@
         img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
         img(src='./assets/physicalPendulumT.png' height="100px")
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 11
       example-fourteen
@@ -419,7 +419,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 12
       example-seventeen
@@ -432,7 +432,7 @@
         br
         span.small Ctrl + right
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 13
       example-eighteen
@@ -445,7 +445,7 @@
         br
         span.small Ctrl + right
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Damped oscillations
       .center
@@ -454,7 +454,7 @@
         img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
         img(src='./assets/struts.png' height="300px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Forced oscillations
       .center
@@ -462,7 +462,7 @@
       .center
         img(src='./assets/forcedOscillationsGraph.png' height="500px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

@@ -28,7 +28,7 @@
             //-                     enter='bounceInRight', leave='bounceOutRight')
             //-   p(v-html="message(category)")
 
-    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false' style="border: 1px solid black;")
+    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px; margin: -10px 0 0 -30px; ">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
       h6(v-if = '!isActive' ) Course Topics
       h6(v-if = 'isActive') Temas del curso
@@ -621,7 +621,6 @@ export default {
 }
 
 .language {
-  position: relative;
   display: flex;
   justify-content: flex-end;
   margin: 0px 0px 0px 0px;
