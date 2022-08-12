@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rod of length l, located along the x axis has a total charge Q and a uniform linear charge density &lambda;. Find the electric potential at a point P located on the y axis a distance a from the origin.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A rod of length <span style="font-family: Times New Roman; font-style: italic;">l</span>, located along the <span style="font-family: Times New Roman; font-style: italic;">x</span> axis has a total charge <span style="font-family: Times New Roman; font-style: italic;">Q</span> and a uniform linear charge density <span style="font-family: Times New Roman;">&lambda;</span> . Find the electric potential at a point <span style="font-family: Times New Roman; font-style: italic;">P</span> P located on the <span style="font-family: Times New Roman; font-style: italic;">y</span> y axis a distance <span style="font-family: Times New Roman; font-style: italic;">a</span> from the origin.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una varilla de longitud <span style="font-family: Times New Roman; font-style: italic;">l</span>, ubicada a lo largo del eje <span style="font-family: Times New Roman; font-style: italic;">x</span>, tiene una carga total <span style="font-family: Times New Roman; font-style: italic;">Q</span> y una densidad de carga lineal uniforme <span style="font-family: Times New Roman;">&lambda;</span>. Encuentre el potencial eléctrico en un punto <span style="font-family: Times New Roman; font-style: italic;">P</span> ubicado en el eje <span style="font-family: Times New Roman; font-style: italic;">y</span> a una distancia <span style="font-family: Times New Roman; font-style: italic;">a</span> del origen.
     .center
       img(src='../assets/fig25-17.png' width="300px")
     
@@ -33,6 +34,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

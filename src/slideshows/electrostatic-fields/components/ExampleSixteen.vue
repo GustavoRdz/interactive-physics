@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An electric dipole consists of two charges of equal magnitude and opposite sign separated by a distance 2a as shown in Figure. The dipole is along the x axis and is centered at the origin.<br>(A) Calculate the electric potential at point P on the y axis.<br>(B) Calculate the electric potential at point R on the positive x axis.<br>(C) Calculate V and Ex at a point on the x axis far from the dipole.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An electric dipole consists of two charges of equal magnitude and opposite sign separated by a distance <span style="font-family: Times New Roman;">2</span><span style="font-family: Times New Roman; font-style: italic;">a</span> as shown in Figure. The dipole is along the <span style="font-family: Times New Roman; font-style: italic;">x</span> axis and is centered at the origin.<br>(A) Calculate the electric potential at point <span style="font-family: Times New Roman; font-style: italic;">P</span> on the <span style="font-family: Times New Roman; font-style: italic;">y</span> axis.<br>(B) Calculate the electric potential at point <span style="font-family: Times New Roman; font-style: italic;">R</span> on the positive <span style="font-family: Times New Roman; font-style: italic;">x</span> axis.<br>(C) Calculate <span style="font-family: Times New Roman;">V</span> and <span style="font-family: Times New Roman;">E</span><span style="font-family: Times New Roman; font-style: italic;"><sub>x</sub></span> at a point on the <span style="font-family: Times New Roman; font-style: italic;">x</span> axis far from the dipole.
+
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un dipolo eléctrico consta de dos cargas de igual magnitud y signo opuesto separadas por una distancia <span style="font-family: Times New Roman;">2</span><span style="font-family: Times New Roman; font-style: italic;">a</span> como se muestra en la figura. El dipolo está a lo largo del eje <span style="font-family: Times New Roman; font-style: italic;">x</span> y está centrado en el origen. <br>(A) Calcule el potencial eléctrico en el punto <span style="font-family: Times New Roman; font-style: italic;">P</span> sobre el eje <span style="font-family: Times New Roman; font-style: italic;">y</span>. <br>(B) Calcule el potencial eléctrico en el punto <span style="font-family: Times New Roman; font-style: italic;">R</span> en el eje <span style="font-family: Times New Roman; font-style: italic;">x</span> positivo. <br>(C) Calcule <span style="font-family: Times New Roman;">V</span> y <span style="font-family: Times New Roman;">E</span><span style="font-family: Times New Roman; font-style: italic;"><sub>x</sub></span> en un punto sobre el eje <span style="font-family: Times New Roman; font-style: italic;">x</span> lejos del dipolo.
     .center
       img(src='../assets/fig25-13.png' height="200px" style="margin: -0px 0px 10px 0px;")
     //- .center
@@ -23,6 +25,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterLength: '',
@@ -142,8 +147,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

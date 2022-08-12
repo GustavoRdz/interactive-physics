@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The displacement of an oscillating object as a function of time is shown. What are (a) the period; (b) the frequency; (c) the amplitude; (d) the angular frequency; (e) the phase of this motion?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem The displacement of an oscillating object as a function of time is shown. What are (a) the period; (b) the frequency; (c) the amplitude; (d) the angular frequency; (e) the phase of this motion?
+    p(v-if = 'language' style="margin: 25px 0px 30px 0px;").problem La gráfica muestra el desplazamiento de un objeto oscilante en función del tiempo. ¿Cuáles son (a) el período; (b) la frecuencia; (c) la amplitud; (d) la frecuencia angular; (e) la fase de este movimiento?
     .center
       //img(src='../assets/equations/graphProblem4.svg' width="200px")
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 800 500" height="200px" width="400px" >
@@ -34,7 +35,8 @@ eg-transition(:enter='enter', :leave='leave')
 
       </svg>
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Initial displacement (cm)
         input.center.data(:class="checkedInitialX" v-model.number='enterInitialX')
         <span class="error" v-if="errorInitialX">[e: {{ errorInitialX.toPrecision(3) }}%]</span>
@@ -58,6 +60,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterInitialX: '',

@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the electric field due to an infinite plane of positive charge with uniform surface charge density &sigma;.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Find the electric field due to an infinite plane of positive charge with uniform surface charge density <span style="font-family: Times New Roman; font-style: italic;">&sigma;</span>.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Encuentre el campo eléctrico debido a un plano infinito de carga positiva con densidad de carga superficial uniforme <span style="font-family: Times New Roman; font-style: italic;">&sigma;</span>.
     .center
       img(src='../assets/fig24-13.png', height="300px")
     //- .center
@@ -25,6 +26,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterWeight: '',
@@ -153,8 +157,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

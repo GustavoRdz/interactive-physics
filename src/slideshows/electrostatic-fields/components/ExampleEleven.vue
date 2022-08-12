@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the electric field a distance r from a line of positive charge of infinite length and constant charge per unit length &lambda;.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Find the electric field a distance <span style="font-family: Times New Roman; font-style: italic;">r</span> from a line of positive charge of infinite length and constant charge per unit length <span style="font-family: Times New Roman;">&lambda;</span>.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Encuentre el campo eléctrico a una distancia <span style="font-family: Times New Roman; font-style: italic;">r</span> de una línea de carga positiva de longitud infinita y carga constante por unidad de longitud <span style="font-family: Times New Roman;">&lambda;</span>.
     .center
       img(src='../assets/fig24-12.png', height="300px")
     //- .center
@@ -20,6 +21,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterDispl: '',
@@ -150,8 +154,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

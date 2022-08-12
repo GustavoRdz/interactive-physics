@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An ultrasonic transducer used for medical diagnosis oscillates at {{ (frequency / 1e6).toPrecision(4) }} MHz. How long does each oscillation take, and what is the angular frequency?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un transductor ultrasónico usado para diagnóstico médico oscila a {{ (frequency / 1e6).toPrecision(4) }} MHz. ¿Cuánto dura cada oscilación y cuál es la frecuencia angular?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Frequency: f (Hz)
         input.center.data(:class="checkedF" v-model.number='enterF')
         <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
@@ -18,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterF: '',

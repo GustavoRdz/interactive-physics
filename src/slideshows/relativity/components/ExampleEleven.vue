@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A photoelectric tube is weighed in a laboratory, and its mass is found to be {{ m2 }}g. After it is sent in a spaceship whose speed is {{ speed }} c and is analyzed again during the flight. What mass will determine ... <br>a) the people in the laboratory? <br>b) the occupants of the spaceship?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A photoelectric tube is weighed in a laboratory, and its mass is found to be {{ m2 }}g. After it is sent in a spaceship whose speed is {{ speed }} c and is analyzed again during the flight. What mass will determine ... <br><br>a) the people in the laboratory? <br>b) the occupants of the spaceship?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un tubo fotoeléctrico se pesa en un laboratorio y se encuentra que su masa es de {{ m2 }}g. Luego se envía en una nave espacial cuya velocidad es de {{ speed }}c y se analiza nuevamente durante el vuelo. ¿Qué masa determinará... <br><br>a) las personas en el laboratorio? <br>b) los ocupantes de la nave espacial?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data v (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
         <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(2) }}%]</span>
@@ -18,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMa: '',

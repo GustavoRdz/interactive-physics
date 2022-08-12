@@ -1,10 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem We give the glider of the last Exercise an initial displacement x<sub>0</sub> = {{ initialDisplacement }} m and an initial velocity v<sub>0</sub> = {{ initialSpeed }} m/s. Find the period, amplitude, and phase angle of the resulting motion.<br><span style="font-size: 20px; color: green;">Use &omega; = {{ angular }} rad/s</span>
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem We give the glider of the last Exercise an initial displacement <span style="font-family: times; font-style: italic; font-weight: bold;">x</span><span style="font-family: times; font-weight: bold;"><sub>0</sub></span> = {{ initialDisplacement }} m and an initial velocity <span style="font-family: times; font-style: italic; font-weight: bold;">v</span><span style="font-family: times; font-weight: bold;"><sub>0</sub></span> = {{ initialSpeed }} m/s. Find the period, amplitude, and phase angle of the resulting motion.<br><span style="font-size: 20px; color: green;">Use &omega; = {{ angular }} rad/s</span>
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Le damos al planeador del ejercicio anterior un desplazamiento inicial <span style="font-family: times; font-style: italic; font-weight: bold;">x</span><span style="font-family: times; font-weight: bold;"><sub>0</sub></span> = {{ initialDisplacement }} m y una velocidad inicial <span style="font-family: times; font-style: italic; font-weight: bold;">v</span><span style="font-family: times; font-weight: bold;"><sub>0</sub></span> = {{ initialSpeed }} m/s. Encuentre el período, la amplitud y el ángulo de fase del movimiento resultante. <br><span style="font-size: 20px; color: green;">Use &omega; = {{ angular }} rad/s</span>
 
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Initial displacement (m)
         input.center.data(:class="checkedInitDisp" v-model.number='enterInitDisp')
         <span class="error" v-if="errorInitDisp">[e: {{ errorInitDisp.toPrecision(3) }}%]</span>
@@ -28,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterInitDisp: '',

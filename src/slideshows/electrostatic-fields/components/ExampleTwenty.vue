@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find (a) the equivalent capacitance of the capacitors in Figure P26.18, (b) the charge on each capacitor, and (c) the potential difference across each capacitor.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Find <br>(a) the equivalent capacitance of the capacitors shown in figure, <br>(b) the charge on each capacitor, and <br>(c) the potential difference across each capacitor.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Encuentre <br>(a) la capacitancia equivalente de los capacitores de la figura, <br>(b) la carga en cada capacitor y <br>(c) la diferencia de potencial a través de cada capacitor.
     .center
       img(src='../assets/figP26-18.png' height="300px" style="margin: -0px 0px 10px 0px;")
 
@@ -26,6 +27,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

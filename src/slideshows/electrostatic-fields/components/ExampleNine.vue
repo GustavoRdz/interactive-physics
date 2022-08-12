@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider a uniform electric field <strong>E<span style="margin-left:0.15em; vertical-align : .2em;">&#8407;</span></strong> oriented in the x direction in empty space. A cube of edge length l, is placed in the field, oriented as shown in Figure. Find the net electric flux through the surface of the cube.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Consider a uniform electric field <span style="font-family: times; font-weight: bold;">E<span style="margin-left:0.15em; vertical-align : .2em;">&#8407;</span></span> oriented in the <span style="font-family: times; font-style: italic;">x</span> direction in empty space. A cube of edge length l, is placed in the field, oriented as shown in Figure. Find the net electric flux through the surface of the cube.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Considere un campo eléctrico uniforme <span style="font-family: times; font-weight: bold;">E<span style="margin-left:0.15em; vertical-align : .2em;">&#8407;</span></span> orientado en la dirección <span style="font-family: times; font-style: italic;">x</span> en el espacio vacío. Un cubo de longitud de arista l se coloca en el campo, orientado como se muestra en la figura. Encuentre el flujo eléctrico neto a través de la superficie del cubo.
     .center
       img(src='../assets/fig24-5.png', height="300px")
     //- .center
@@ -29,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterDispl: '',

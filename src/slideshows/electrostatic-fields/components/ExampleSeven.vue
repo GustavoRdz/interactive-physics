@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A uniform electric field <strong>E</strong> is directed along the x axis between parallel plates of charge separated by a distance d. A positive point charge q of mass m is released from rest at a point &#x24B6; next to the positive plate and accelerates to a point &#x24B7; next to the negative plate.<br> (A) Find the speed of the particle at &#x24B7; by modeling it as a particle under constant acceleration.<br>(B) Find the speed of the particle at &#x24B7; by modeling it as a nonisolated system.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A uniform electric field <span style="font-family: times; font-weight: bold;">E</span> is directed along the <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> axis between parallel plates of charge separated by a distance <span style="font-family: times; font-style: italic; font-weight: bold;">d</span>. A positive point charge <span style="font-family: times; font-style: italic; font-weight: bold;">q</span> of mass <span style="font-family: times; font-style: italic; font-weight: bold;">m</span> is released from rest at a point &#x24B6; next to the positive plate and accelerates to a point &#x24B7; next to the negative plate.<br> (A) Find the speed of the particle at &#x24B7; by modeling it as a particle under constant acceleration.<br>(B) Find the speed of the particle at &#x24B7; by modeling it as a nonisolated system.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un campo eléctrico uniforme <span style="font-family: font-style: italic; times; font-weight: bold;">E</span> se dirige a lo largo del eje <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> entre placas de carga paralelas separadas por una distancia <span style="font-family: times; font-style: italic; font-weight: bold;">d</span>. Una carga puntual positiva <span style="font-family: times; font-style: italic; font-weight: bold;">q</span> de masa <span style="font-family: times; font-style: italic; font-weight: bold;">m</span> se libera desde el reposo en un punto &#x24B6; junto a la placa positiva y acelera hasta un punto &#x24B7; junto a la placa negativa. (A) Encuentre la velocidad de la partícula en &#x24B7; modelándola como una partícula bajo aceleración constante. (B) Encuentre la velocidad de la partícula en &#x24B7; modelándola como un sistema no aislado.
     .center
       img(src='../assets/fig23-23.png' height="250px")
     //- .center
@@ -32,6 +33,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterElastic: '',

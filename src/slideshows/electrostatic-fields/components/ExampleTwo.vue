@@ -1,12 +1,14 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem Consider three point charges located at the corners of a right triangle as shown in the figure, where q<sub>1</sub> = {{ q1 * 1e6 }} μC, q<sub>2</sub> = {{ q2 * 1e6}} μC, q<sub>3</sub> = {{ q3 *1e6 }} μC,and a = {{ a }} m. Find the resultant force exerted on q<sub>3</sub>.
+      p(v-if = '!language' style="margin: 15px 0px 0px 0px;").problem Consider three point charges located at the corners of a right triangle as shown in the figure, where q<sub>1</sub> = {{ q1 * 1e6 }} μC, q<sub>2</sub> = {{ q2 * 1e6}} μC, q<sub>3</sub> = {{ q3 *1e6 }} μC,and a = {{ a }} m. Find the resultant force exerted on q<sub>3</sub>.
+      p(v-if = 'language' style="margin: 15px 0px 0px 0px;").problem Considere tres cargas puntuales ubicadas en las esquinas de un triángulo rectángulo como se muestra en la figura, donde q<sub>1</sub> = {{ q1 * 1e6 }} μC, q<sub>2</sub> = {{ q2 * 1e6}} μC, q<sub>3</sub> = {{ q3 *1e6 }} μC y a = {{ a }} m. Encuentre la fuerza resultante ejercida sobre q<sub>3</sub>.
 
       .center
         img(src='../assets/fig23-7.png' height="200px")
       .center
-        p.solution Please do calculations and introduce your results
+        p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+        p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
         p.inline.data q1 (C)
           input.center.data(:class="checkedQ1" v-model.number='enterQ1')
           <span class="error" v-if="errorQ1">[e: {{ errorQ1.toPrecision(3) }}%]</span>
@@ -33,6 +35,9 @@
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterQ1: '',

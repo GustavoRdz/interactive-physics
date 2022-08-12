@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An &alpha; particle is moving to the {{ particleDirection }} at an speeed of {{ Math.abs(alphaLabSpeed) }}c measured from the laboratory; from the particle emerges an electron that travels in the opposite direction at {{ Math.abs(electronAlphaSpeed) }}c measured from the &alpha; particle. What is the velocity of the electron measured by the person in the laboratory?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An <span style="font-family: times; font-style: italic; font-weight: bold;">&alpha;</span> particle is moving to the {{ particleDirection }} at an speeed of {{ Math.abs(alphaLabSpeed) }}c measured from the laboratory; from the particle emerges an electron that travels in the opposite direction at {{ Math.abs(electronAlphaSpeed) }}c measured from the <span style="font-family: times; font-style: italic; font-weight: bold;">&alpha;</span>  particle. What is the velocity of the electron measured by the person in the laboratory?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una partícula <span style="font-family: times; font-style: italic; font-weight: bold;">&alpha;</span> se mueve hacia la {{ particleDirection }} a una velocidad de {{ Math.abs(alphaLabSpeed) }} medida en el laboratorio; de la partícula emerge un electrón que viaja en dirección opuesta a  {{ Math.abs(electronAlphaSpeed) }}c medido desde la partícula <span style="font-family: times; font-style: italic; font-weight: bold;">&alpha;</span>. ¿Cuál es la velocidad del electrón medida por la persona en el laboratorio?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Velocity of the particle from lab (in c)
         input.center.data(:class="checkedLabAlpha" v-model.number='enterLabAlpha')
         <span class="error" v-if="errorLabAlpha">[e: {{ errorLabAlpha.toPrecision(3) }}%]</span>
@@ -21,6 +23,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterLabAlpha: '',
@@ -40,7 +45,11 @@ export default {
       let valor = (Math.round(Math.random()) - 0.5) * 2
       this.direction = valor
       console.log('Direction: ', this.direction)
-      return valor === 1 ? 'rigth' : 'left'
+      if (this.language) {
+        return valor === 1 ? 'derecha' : 'izquierda'
+      } else {
+        return valor === 1 ? 'rigth' : 'left'
+      }
     },
     alphaLabSpeed: function () {
       let max = 100

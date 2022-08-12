@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Suppose a {{ l2.toFixed(3) }}m javelin is thrown horizontally with a velocity of {{ speed.toFixed(3) }}c. What length will the thrower appreciate as the javelin goes through the air?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Suppose a {{ l2.toFixed(3) }}m javelin is thrown horizontally with a velocity of {{ speed.toFixed(3) }}c. What length will the thrower appreciate as the javelin goes through the air?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Suponga que una javalina de {{ l2.toFixed(3) }}m se lanza horizontalmente con una velocidad de {{ speed.toFixed(3) }}c. ¿Qué longitud apreciará el lanzador cuando la jabalina surca el aire?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data L<sub>1</sub> (m)
         input.center.data(:class="checkedL1" v-model.number='enterL1')
         <span class="error" v-if="errorL1">[e: {{ errorL1.toPrecision(3) }}%]</span>
@@ -18,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterL1: '',

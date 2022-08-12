@@ -1,14 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A holiday ornament in the shape of a hollow sphere with mass {{ mass }} kg and radius {{ radius }} m is hung from a tree limb by a small loop of wire attached to the surface of the sphere. If the ornament is displaced a small distance and released, it swings back and forth as a physical pendulum with negligible friction. Calculate its period. (Hint: Use the parallel-axis theorem to find the moment of inertia of the sphere about the pivot at the tree limb.)
-    //.center
-    //  img(src='../assets/equations/venturiPipeProblem.svg' width="200px")
-    //.center
-    //    img(src='../assets/equations/ex18Solutions.svg'  width="150px")
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A holiday ornament in the shape of a hollow sphere with mass {{ mass }} kg and radius {{ radius }} m is hung from a tree limb by a small loop of wire attached to the surface of the sphere. If the ornament is displaced a small distance and released, it swings back and forth as a physical pendulum with negligible friction. Calculate its period. (Hint: Use the parallel-axis theorem to find the moment of inertia of the sphere about the pivot at the tree limb.)
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un adorno navideño en forma de esfera hueca con masa de {{ mass }} kg y radio de {{ radius }} m cuelga de la rama de un árbol mediante un pequeño lazo de alambre unido a la superficie de la esfera. Si el adorno se desplaza una pequeña distancia y se suelta, se balancea hacia adelante y hacia atrás como un péndulo físico con una fricción insignificante. Calcula su periodo. (Sugerencia: use el teorema del eje paralelo para encontrar el momento de inercia de la esfera con respecto al pivote en la rama del árbol).   
     
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Mass (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
         <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
@@ -35,6 +33,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

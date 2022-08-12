@@ -1,10 +1,18 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Charges q1 and q2 are located on the x axis, at distances a and b, respectively, from the origin as shown in Figure
-    p.problem (A) Find the components of the net electric field at the point P, which is at position (0, y).<br>(B) Evaluate the electric field at point P in the special case that |q<sub>1</sub>| = |q<sub>2</sub>| and a = b.
+    p(v-if = '!language' style="margin: 15px 0px 0px 0px;").problem Charges <span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>1</sub></span> and <span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>2</sub></span> are located on the <span style="font-family: times; font-style: italic;">x</span> axis, at distances <span style="font-family: times; font-style: italic;">a</span> and <span style="font-family: times; font-style: italic;">b</span>, respectively, from the origin as shown in Figure
+    
+    p(v-if = 'language' style="margin: 15px 0px 0px 0px;").problem Las cargas <span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>1</sub></span> y <span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>2</sub></span> están ubicadas en el eje <span style="font-family: times; font-style: italic;">x</span>, a distancias <span style="font-family: times; font-style: italic;">a</span></span> y <span style="font-family: times; font-style: italic;">b</span>, respectivamente, desde el origen como se muestra en la figura
+    
+    p(v-if = '!language' style="margin: 15px 0px 0px 0px;").problem (A) Find the components of the net electric field at the point <span style="font-family: times; font-style: italic;">P</span>, which is at position <span style="font-family: times;">(0, <span style="font-style: italic;">y</span>)</span>.<br>(B) Evaluate the electric field at point <span style="font-family: times; font-style: italic;">P</span> in the special case that |<span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>1</sub></span>| = |<span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>2</sub></span>| and <span style="font-family: times; font-style: italic;">a</span> = <span style="font-family: times; font-style: italic;">b</span>.
+    
+    p(v-if = 'language' style="margin: 15px 0px 0px 0px;").problem (A) Encuentre los componentes del campo eléctrico neto en el punto <span style="font-family: times; font-style: italic;">P</span>, que está en la posición <span style="font-family: times;">(0, <span style="font-style: italic;">y</span>)</span>.<br> (B) Evalúe el campo eléctrico en el punto <span style="font-family: times; font-style: italic;">P</span> en el caso especial de que |<span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>1</sub></span>| = |<span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>2</sub></span>| y <span style="font-family: times; font-style: italic;">a</span> = <span style="font-family: times; font-style: italic;">b</span>.
     .center
       img(src='../assets/fig23-12.png' height="300px")
+
+    p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+    p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       
     //- .center
     //-   p.solution Please do calculations and introduce your results
@@ -31,6 +39,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterInitialX: '',

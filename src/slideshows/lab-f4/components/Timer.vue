@@ -9,7 +9,7 @@ export default {
   isWidget: true,
   name: 'eg-timer',
   props: {
-    key: {default: 'T'}
+    keyB: {default: 'T'}
   },
   data: function () {
     return {
@@ -30,7 +30,7 @@ export default {
       this.display = !this.display
     },
     keydown: function (evt) {
-      if (evt.key === this.key) {
+      if (evt.key === this.keyB) {
         this.active = !this.active
       }
     },

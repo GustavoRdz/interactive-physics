@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An harmonic oscillator has angular frequency and amplitude A. (a) What are the magnitudes of the displacement (in terms of A) and velocity (in terms of v<sub>max</sub>) when the elastic potential energy is equal to the kinetic energy? (Assume that U = 0 at equilibrium.) (b) How often does this occur in each cycle? What is the time between occurrences (in terms of T)? (c) At an instant when the displacement is equal to A/2, what fraction of the total energy of the system is kinetic and what fraction is potential?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An harmonic oscillator has angular frequency and amplitude <span style="font-family: times; font-style: italic; font-weight: bold;">A</span>. (a) What are the magnitudes of the displacement (in terms of <span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) and velocity (in terms of <span style="font-family: times; font-style: italic; font-weight: bold;">v</span><span style="font-family: times; font-weight: bold;"><sub>max</sub></span>) when the elastic potential energy is equal to the kinetic energy? (Assume that <span style="font-family: times; font-style: italic; font-weight: bold;">U</span> = 0 at equilibrium.) (b) How often does this occur in each cycle? What is the time between occurrences (in terms of <span style="font-family: times; font-style: italic; font-weight: bold;">T</span>)? (c) At an instant when the displacement is equal to <span style="font-family: times; font-style: italic; font-weight: bold;">A</span><span style="font-family: times; font-weight: bold;">/2</span>, what fraction of the total energy of the system is kinetic and what fraction is potential?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un oscilador armónico tiene frecuencia angular y amplitud <span style="font-family: times; font-style: italic; font-weight: bold;">A</span>. (a) ¿Cuáles son las magnitudes del desplazamiento (en términos de <span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) y la velocidad (en términos de <span style="font-family: times; font-style: italic; font-weight: bold;">v</span><span style="font-family: times; font-weight: bold;"><sub>max</sub></span>) cuando la energía potencial elástica es igual a la energía cinética? (Suponga que <span style="font-family: times; font-style: italic; font-weight: bold;">U</span> = 0 en el equilibrio.) (b) ¿Con qué frecuencia ocurre esto en cada ciclo? ¿Cuál es el tiempo entre ocurrencias (en términos de <span style="font-family: times; font-style: italic; font-weight: bold;">T</span>)? (c) En un instante cuando el desplazamiento es igual a <span style="font-family: times; font-style: italic; font-weight: bold;">A</span><span style="font-family: times; font-weight: bold;">/2</span>, ¿qué fracción de la energía total del sistema es cinética y qué fracción es potencial?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Displacement (in A)
         input.center.data(:class="checkedDispl" v-model.number='enterDispl')
         <span class="error" v-if="errorDispl">[e: {{ errorDispl.toPrecision(3) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterDispl: '',

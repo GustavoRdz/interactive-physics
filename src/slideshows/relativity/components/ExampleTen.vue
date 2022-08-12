@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem What speed must a proton have to increase {{ factor.toFixed(2) }} times its mass in rest?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem What speed must a proton have to increase {{ factor.toFixed(2) }} times its mass in rest?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem ¿Qué velocidad debe tener un protón para aumentar {{ factor.toFixed(2) }} veces su masa en reposo?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data v (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
         <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(2) }}%]</span>
@@ -12,6 +14,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterV: '',

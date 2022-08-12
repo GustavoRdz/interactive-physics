@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An insulating solid sphere of radius a has a uniform volume charge density &rho; and carries a total positive charge Q.<br> (A) Calculate the magnitude of the electric field at a point outside the sphere.<br>(B) Find the magnitude of the electric field at a point inside the sphere.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An insulating solid sphere of radius a has a uniform volume charge density <span style="font-family: Times New Roman; font-style: italic;">&rho;</span>  and carries a total positive charge <span style="font-family: Times New Roman; font-style: italic;">Q</span><br> (A) Calculate the magnitude of the electric field at a point outside the sphere.<br>(B) Find the magnitude of the electric field at a point inside the sphere.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una esfera sólida aislante de radio a tiene una densidad de carga de volumen uniforme <span style="font-family: Times New Roman; font-style: italic;">&rho;</span> y lleva una carga positiva total <span style="font-family: Times New Roman; font-style: italic;">Q</span>.<br>(A) Calcule la magnitud del campo eléctrico en un punto fuera de la esfera.<br>(B) Encuentre la magnitud del campo eléctrico en un punto dentro de la esfera.
     .center
       img(src='../assets/fig24-10.png', height="300px")
     //- .center
@@ -32,6 +33,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterAmplitude: '',

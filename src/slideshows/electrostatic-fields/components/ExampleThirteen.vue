@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A battery has a specified potential difference &Delta;V between its terminals and establishes that potential difference between conductors attached to the terminals. A 12-V battery is connected between two parallel plates. The separation between the plates is d = 0.30 cm, and we assume the electric field between the plates to be uniform. Find the magnitude of the electric field between the plates
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A battery has a specified potential difference <span style="font-family: Times New Roman;">&Delta;</span><span style="font-family: Times New Roman; font-style: italic;">V</span> between its terminals and establishes that potential difference between conductors attached to the terminals. <br>A <span style="font-family: Times New Roman;">12 V</span> battery is connected between two parallel plates. <br>The separation between the plates is <span style="font-family: Times New Roman; font-style: italic;">d</span><span style="font-family: Times New Roman;"> = 0.30 cm</span>, and we assume the electric field between the plates to be uniform. <br>Find the magnitude of the electric field between the plates
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una batería tiene una diferencia de potencial específica <span style="font-family: Times New Roman;">&Delta;</span><span style="font-family: Times New Roman; font-style: italic;">V</span> entre sus terminales y establece esa diferencia de potencial entre los conductores conectados a las terminales. <br>Una batería de <span style="font-family: Times New Roman;">12 V</span> está conectada entre dos placas paralelas. <br>La separación entre las placas es <span style="font-family: Times New Roman; font-style: italic;">d</span><span style="font-family: Times New Roman;"> = 0.30 cm</span> y suponemos que el campo eléctrico entre las placas es uniforme. <br>Encuentre la magnitud del campo eléctrico entre las placas.
     .center
       img(src='../assets/fig25-5.png' height="200px" style="margin: -0px 0px 10px 0px;")
 
@@ -26,6 +27,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterElastic: '',
@@ -180,8 +184,9 @@ function calcChord (initialX, frequency, amplitudeVel, phase) {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An observer on Earth sees that one spaceship (A) follow another (B) and acccording to him, their speeds are {{ Math.abs(speedA).toExponential() }}m/s  and {{ Math.abs(speedB).toExponential() }} m/s respectively suppose their motion is to the {{ side }}, determine:
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An observer on Earth sees that one spaceship (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) follow another (<span style="font-family: times; font-style: italic; font-weight: bold;">B</span>) and acccording to him, their speeds are {{ Math.abs(speedA).toExponential() }}m/s  and {{ Math.abs(speedB).toExponential() }} m/s respectively suppose their motion is to the {{ side }}, determine:
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un observador en la Tierra ve que una nave espacial (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) sigue a otra (<span style="font-family: times; font-style: italic; font-weight: bold;">B</span>) y, según él, sus velocidades son {{ Math.abs(speedA).toExponential() }} m/s y {{ Math.abs(speedB).toExponential() }} m/s respectivamente, suponga que su movimiento es hacia la {{ side }}, determine:
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Velocity of A from the Earth (in c)
         input.center.data(:class="checkedAMoon" v-model.number='enterAMoon')
         <span class="error" v-if="errorAMoon">[e: {{ errorAMoon.toPrecision(3) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterAMoon: '',
@@ -51,7 +56,12 @@ export default {
       let max = 100
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'rigth' : 'left'
+      // this.side = this.direction === 1 ? 'rigth' : 'left'
+      if (this.language) {
+        this.side = this.direction === 1 ? 'derecha' : 'izquierda'
+      } else {
+        this.side = this.direction === 1 ? 'right' : 'left'
+      }
       return Math.round(Math.random() * (max - min + 1) + min) * this.direction * 3e8 / 100
     },
     speedB: function () {

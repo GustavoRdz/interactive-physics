@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An observer passes a certain place with a velocity, along the horizontal axis, of {{ speed.toFixed(3) }}c, and note that the boom of a crane is {{ l1.toFixed(3) }}m long and forms an angle of {{ T1.toFixed(3) }}° with respect to to the earth. According to the crane operator: a) How long is the boom of the crane? b) at what angle it raised?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An observer passes a certain place with a velocity, along the horizontal axis, of {{ speed.toFixed(3) }}c, and note that the boom of a crane is {{ l1.toFixed(3) }}m long and forms an angle of {{ T1.toFixed(3) }}° with respect to to the earth. According to the crane operator: a) How long is the boom of the crane? b) at what angle it raised?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un observador pasa por cierto lugar con una velocidad de {{ speed.toFixed(3) }}c a lo largo del eje horizontal, y nota que el brazo de una grúa tiene {{ l1.toFixed(3) }}m de largo y forma un ángulo de {{ T1.toFixed(3) }}° con respecto a la tierra. Según el operador de la grúa: a) ¿Qué longitud tiene la pluma de la grúa? b) ¿en qué ángulo se elevó?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data L<sub>1</sub> (m)
         input.center.data(:class="checkedL1" v-model.number='enterL1')
         <span class="error" v-if="errorL1">[e: {{ errorL1.toPrecision(3) }}%]</span>
@@ -37,6 +39,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterL1: '',

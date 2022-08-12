@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the equivalent capacitance between points a and b in the combination of capacitors shown
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Find the equivalent capacitance between points <span style="font-family: Times New Roman; font-style: italic;">a</span> and <span style="font-family: Times New Roman; font-style: italic;">b</span> in the combination of capacitors shown
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Encuentre la capacitancia equivalente entre los puntos <span style="font-family: Times New Roman; font-style: italic;">a</span> y <span style="font-family: Times New Roman; font-style: italic;">b</span> en la combinación de capacitores que se muestra
     .center
       img(src='../assets/figP26-29.png' height="200px" style="margin: 50px 0px 10px 0px;")
 
@@ -26,6 +27,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

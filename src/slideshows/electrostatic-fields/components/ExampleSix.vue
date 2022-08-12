@@ -1,10 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A uniformly charged insulating rod of length 14.0 cm is bent into the shape of a semicircle as shown. The rod has a total charge of -7.50 μC. Find (a) the magnitude and (b) the direction of the electric field at O, the center of the semicircle.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A uniformly charged insulating rod of length 14.0 cm is bent into the shape of a semicircle as shown. The rod has a total charge of -7.50 μC. Find (a) the magnitude and (b) the direction of the electric field at O, the center of the semicircle.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una varilla aislante uniformemente cargada de 14,0 cm de longitud se dobla en forma de semicírculo como se muestra. La barra tiene una carga total de -7.50 μC. Encuentre (a) la magnitud y (b) la dirección del campo eléctrico en O, el centro del semicírculo.
     .center
         img(src='../assets/fig23-35.png' height="200px"  style="margin: 0px 0 0 0px;")
-
+    
+    p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+    p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Chair mass (kg)
@@ -35,6 +38,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterChairMass: '',

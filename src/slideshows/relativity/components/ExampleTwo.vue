@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A man on the moon observes two spaceships, A and B that are heading toward him in opposite directions (A from the {{ side }}) and at a respective speeds of {{ Math.abs(speedA) }}c and {{ Math.abs(speedB) }}c. Calculate the following velocities
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A man on the moon observes two spaceships, <span style="font-family: times; font-style: italic; font-weight: bold;">A</span> and <span style="font-family: times; font-style: italic; font-weight: bold;">B</span> that are heading toward him in opposite directions (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span> from the {{ side }}) and at a respective speeds of {{ Math.abs(speedA) }}c and {{ Math.abs(speedB) }}c. Calculate the following velocities
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un hombre en la luna observa dos naves espaciales, <span style="font-family: times; font-style: italic; font-weight: bold;">A</span> y <span style="font-family: times; font-style: italic; font-weight: bold;">B</span>, que se dirigen hacia él en direcciones opuestas (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span> desde la {{ side }}) y con velocidades respectivas de {{ Math.abs(speedA) }}c y {{ Math.abs(speedB) }}c. Calcula las siguientes velocidades
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Velocity of A from the moon (in c)
         input.center.data(:class="checkedAMoon" v-model.number='enterAMoon')
         <span class="error" v-if="errorAMoon">[e: {{ errorAMoon.toPrecision(3) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterAMoon: '',
@@ -51,7 +56,12 @@ export default {
       let max = 100
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'left' : 'rigth'
+      if (this.language) {
+        this.side = this.direction === 1 ? 'izquierda' : 'derecha'
+      } else {
+        this.side = this.direction === 1 ? 'left' : 'rigth'
+      }
+      // this.side = this.direction === 1 ? 'left' : 'rigth'
       console.log('direction: ' + this.direction)
       console.log('side: ' + this.side)
       return (Math.round(Math.random() * (max - min + 1) + min) / 100) * this.direction

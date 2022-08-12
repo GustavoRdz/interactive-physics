@@ -1,11 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A thin metal disk with mass {{ mass }} kg and radius {{ radius }} cm is attached at its center to a long fiber. The disk, when twisted and released, oscillates with a period of {{ period }} s. Find the torsion constant of the fiber.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A thin metal disk with mass {{ mass }} kg and radius {{ radius }} cm is attached at its center to a long fiber. The disk, when twisted and released, oscillates with a period of {{ period }} s. Find the torsion constant of the fiber.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un disco delgado de metal con masa de {{ mass }} kg y radio de {{ radius }} cm está unido en su centro a una fibra larga. El disco, cuando se tuerce y se suelta, oscila con un período de {{ period }} s. Encuentre la constante de torsión de la fibra.
     .center
         img(src='../assets/problem14.png' height="200px")
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Mass (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
         <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
@@ -29,6 +31,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

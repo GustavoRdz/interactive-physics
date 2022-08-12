@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem From a beach, a group of people observe that a sportsman kept skiing during {{ t1.toFixed(3) }}min at a speed of {{ speed.toFixed(3) }}c. How long does the pilot of the boat think he was helping you the skier?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem From a beach, a group of people observe that a sportsman kept skiing during {{ t1.toFixed(3) }}min at a speed of {{ speed.toFixed(3) }}c. How long does the pilot of the boat think he was helping you the skier?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Desde una playa, un grupo de personas observa que un deportista estuvo esquiando durante {{ t1.toFixed(3) }}min a una velocidad de {{ speed.toFixed(3) }}c. ¿Cuánto tiempo cree el piloto del bote que estuvo ayudándole al esquiador?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data v (in c)
         input.center.data(:class="checkedV" v-model.number='enterV')
         <span class="error" v-if="errorV">[e: {{ errorV.toPrecision(2) }}%]</span>
@@ -18,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterT1: '',

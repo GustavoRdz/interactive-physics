@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Two people carry out a test and find that, from the start of a fire until the alarm system was activated, {{ t2.toFixed(1) }} seconds elapsed, although an observer who was vigilant from a airship assures that the time was {{ t1.toFixed(1) }} sec. How fast was the observer airship moving?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Two people carry out a test and find that, from the start of a fire until the alarm system was activated, {{ t2.toFixed(1) }} seconds elapsed, although an observer who was vigilant from a airship assures that the time was {{ t1.toFixed(1) }} sec. How fast was the observer airship moving?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Dos personas realizan una prueba y encuentran que, desde que se inició un incendio hasta que se activó el sistema de alarma, transcurrieron {{ t2.toFixed(1) }} segundos, aunque un observador que vigilaba desde una aeronave en movimiento asegura que el tiempo fue de {{ t1.toFixed(1) }} segundos. ¿Qué tan rápido se movía la aeronave?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data T<sub>1</sub> (s)
         input.center.data(:class="checkedT1" v-model.number='enterT1')
         <span class="error" v-if="errorT1">[e: {{ errorT1.toPrecision(2) }}%]</span>
@@ -18,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterT1: '',

@@ -1,10 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem <strong>Weighing Astronauts</strong>. This procedure has actually been used to “weigh” astronauts in space. A {{ chairMass }}-kg chair is attached to a spring and allowed to oscillate. When it is empty, the chair takes {{ emptyPeriod }} s to make one complete vibration. But with an astronaut sitting in it, with her feet off the floor, the chair takes {{ occupiedPeriod }} s for one cycle. What is the mass of the astronaut?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem <strong>Weighing Astronauts</strong>. In the space, a {{ chairMass }}-kg chair is attached to a spring and allowed to oscillate. When it is empty, the chair takes {{ emptyPeriod }} s to make one complete vibration. But with an astronaut sitting in it, with her feet off the floor, the chair takes {{ occupiedPeriod }} s for one cycle. What is the mass of the astronaut?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem <strong>Pesaje de astronautas</strong>. En el espacio, una silla de {{ chairMass }} kg está unida a un resorte y se le permite oscilar. Cuando está vacía, la silla tarda {{ emptyPeriod }} s en hacer una vibración completa. Pero con un astronauta sentado en ella, con los pies fuera del suelo, la silla tarda {{ occupiedPeriod }} s en un ciclo. ¿Cuál es la masa del astronauta?
 
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Chair mass (kg)
         input.center.data(:class="checkedChairMass" v-model.number='enterChairMass')
         <span class="error" v-if="errorChairMass">[e: {{ errorChairMass.toPrecision(3) }}%]</span>
@@ -33,6 +35,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterChairMass: '',

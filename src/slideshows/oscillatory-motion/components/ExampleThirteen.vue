@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A mass m is attached to a spring of force constant {{ elastic }} N/m and allowed to oscillate. Figure shows a graph of its velocity as a function of time t. Find (a) the period, (b) the frequency, and (c) the angular frequency of this motion. (d) What is the amplitude (in cm), and at what times does the mass reach this position? (e) Find the maximum acceleration of the mass and the times at which it occurs. (f) What is the mass m?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A mass m is attached to a spring of force constant {{ elastic }} N/m and allowed to oscillate. Figure shows a graph of its velocity as a function of time. <br>Find (a) the period, (b) the frequency, and (c) the angular frequency of this motion. (d) What is the amplitude (in cm), and at what times does the mass reach this position? (e) Find the maximum acceleration of the mass and the times at which it occurs. (f) What is the mass m?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una masa m está unida a un resorte de constante de fuerza de {{ elastic }}N/m y se le permite oscilar. La figura muestra una gráfica de su velocidad en función del tiempo. <br>Encuentre (a) el período, (b) la frecuencia y (c) la frecuencia angular de este movimiento. (d) ¿Cuál es la amplitud (en cm) y en qué momento la masa alcanza esta posición? (e) Encuentre la aceleración máxima de la masa y los tiempos en los que ocurre. (f) ¿Cuál es la masa m?
     .center
        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -70 800 500" height="200px" width="400px" >
 
@@ -60,7 +61,8 @@ eg-transition(:enter='enter', :leave='leave')
 
     .center
       //- p.solution initial X: {{ initialX }}, amplitudeAcc: {{ amplitudeVel }}, frequency: {{ frequency }}, period: {{ period }}, phase: {{ phase }}:{{ Math.round(phase * 1800 / Math.PI) /10 }}º
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Elastic constant (N/m)
         input.center.data(:class="checkedElastic" v-model.number='enterElastic')
       p.inline.data Period (s)
@@ -81,6 +83,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterElastic: '',
@@ -235,8 +240,9 @@ function calcChord (initialX, frequency, amplitudeVel, phase) {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

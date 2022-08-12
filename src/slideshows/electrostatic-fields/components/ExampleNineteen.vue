@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A solid cylindrical conductor of radius a and charge Q is coaxial with a cylindrical shell of negligible thickness, radius b>a, and charge 2Q. Find the capacitance of this cylindrical capacitor if its length l.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A solid cylindrical conductor of radius <span style="font-family: Times New Roman; font-style: italic;">a</span> and charge <span style="font-family: Times New Roman; font-style: italic;">Q</span> is coaxial with a cylindrical shell of negligible thickness, radius <span style="font-family: Times New Roman; font-style: italic;">b </span>><span style="font-family: Times New Roman; font-style: italic;"> a</span>, and charge <span style="font-family: Times New Roman;">2</span><span style="font-family: Times New Roman; font-style: italic;">Q</span>. <br>Find the capacitance of this cylindrical capacitor if its length <span style="font-family: Times New Roman; font-style: italic;">l</span>.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un conductor cilíndrico sólido de radio <span style="font-family: Times New Roman; font-style: italic;">a</span> y carga <span style="font-family: Times New Roman; font-style: italic;">Q</span> es coaxial con una capa cilíndrica de espesor despreciable, radio <span style="font-family: Times New Roman; font-style: italic;">b </span>><span style="font-family: Times New Roman; font-style: italic;"> a</span> y carga <span style="font-family: Times New Roman;">2</span><span style="font-family: Times New Roman; font-style: italic;">Q</span>. <br>Encuentre la capacitancia de este capacitor cilíndrico si su longitud es <span style="font-family: Times New Roman; font-style: italic;">l</span>.
     .center
         img(src='../assets/fig26-4.png' style="height: 300px;")
 
@@ -20,6 +21,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterLength: '',
@@ -103,8 +107,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

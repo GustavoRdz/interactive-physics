@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An object is undergoing Simple Harmonic Motion (SHM) with period {{ period }} s and amplitude {{ amplitude }} cm. At t = 0s the object is at x = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from x = {{ amplitude }} cm to x = {{ amplitude / 2 }} cm and (b) from x = {{ amplitude / 2 }} cm to x = 0 cm.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An object is undergoing Simple Harmonic Motion (SHM) with period {{ period }} s and amplitude {{ amplitude }} cm. At <span style="font-family: times; font-style: italic; font-weight: bold;">t</span> = 0s the object is at <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm to <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm and (b) from <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm to <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = 0 cm.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un objeto experimenta un movimiento armónico simple (MAS) con un período de {{ period }} s y una amplitud de {{ amplitude }} cm. En <span style="font-family: times; font-style: italic; font-weight: bold;">t</span> = 0s el objeto está en <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm y está instantáneamente en reposo. Calcula el tiempo que tarda el objeto en ir (a) de <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> =  {{ amplitude }} cm a <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm y (b) de <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm a <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = 0 cm.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Period (s)
         input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
         <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
@@ -24,6 +26,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterPeriod: '',

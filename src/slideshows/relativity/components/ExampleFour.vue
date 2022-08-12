@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The pilot on a spaceship (A) that moves at a velocity of {{ Math.abs(speedA) }} c respect to a radar on Earth, the radar operators detects another spaceship (B) that moves toward the first spacecraft at a velocity of {{ Math.abs(speedB) }}  c. Suppose A moves is to the {{ side }} and B in opposite direction, Determine:
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem The pilot on a spaceship (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) that moves at a velocity of {{ Math.abs(speedA) }} c respect to a radar on Earth, the radar operators detects another spaceship (<span style="font-family: times; font-style: italic; font-weight: bold;">B</span>) that moves toward the first spacecraft at a velocity of {{ Math.abs(speedB) }}  c. Suppose <span style="font-family: times; font-style: italic; font-weight: bold;">A</span> moves is to the {{ side }} and <span style="font-family: times; font-style: italic; font-weight: bold;">B</span> in opposite direction, Determine:
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem El piloto de una nave espacial (<span style="font-family: times; font-style: italic; font-weight: bold;">A</span>) que se mueve a una velocidad de {{ Math.abs(speedA) }} c con respecto a un radar en la Tierra, los operadores de radar detectan otra nave espacial (<span style="font-family: times; font-style: italic; font-weight: bold;">B</span>) que se mueve hacia la primera nave espacial a una velocidad de {{ Math.abs(speedB) }} c. Suponga que <span style="font-family: times; font-style: italic; font-weight: bold;">A</span> se mueve hacia la {{ side }} y <span style="font-family: times; font-style: italic; font-weight: bold;">B</span> en dirección opuesta, determine:
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Velocity of A from the radar (in c)
         input.center.data(:class="checkedARadar" v-model.number='enterARadar')
         <span class="error" v-if="errorARadar">[e: {{ errorARadar.toPrecision(3) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterARadar: '',
@@ -51,7 +56,12 @@ export default {
       let max = 95
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'rigth' : 'left'
+      // this.side = this.direction === 1 ? 'rigth' : 'left'
+      if (this.language) {
+        this.side = this.direction === 1 ? 'derecha' : 'izquierda'
+      } else {
+        this.side = this.direction === 1 ? 'right' : 'left'
+      }
       return (Math.round(1 * Math.floor(Math.random() * (max - min + 1)) + min) / 100) * this.direction
     },
     speedB: function () {

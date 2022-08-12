@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A proton is released from rest at point <span style="font-size: 22px;">&#9398;</span> in a uniform electric field that has a magnitude of 8.0&times;10<sup>4</sup> V/m. The proton undergoes a displacement of magnitude d = 0.50 m to point <span style="font-size: 22px;">&#9399;</span> in the direction of <b>E</b> . Find the speed of the proton after completing the displacement.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A proton is released from rest at point <span style="font-family: Times New Roman;">&#9398;</span> in a uniform electric field that has a magnitude of <span style="font-family: Times New Roman;">8.0&times;10<sup>4</sup> V/m</span>. <br>The proton undergoes a displacement of magnitude <span style="font-family: Times New Roman; font-style: italic;">d</span><span style="font-family: Times New Roman;"> = 0.50 m</span> to point <span style="font-family: Times New Roman;">&#9399;</span> in the direction of <span style="font-family: Times New Roman; font-weight: bold;">E</span>. <br>Find the speed of the proton after completing the displacement.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un protón se libera desde el reposo en el punto <span style="font-family: Times New Roman;">&#9398;</span> en un campo eléctrico uniforme que tiene una magnitud de <span style="font-family: Times New Roman;">8.0&times;10<sup>4</sup> V/m</span>. <br>El protón sufre un desplazamiento de magnitud <span style="font-family: Times New Roman; font-style: italic;">d</span><span style="font-family: Times New Roman;"> = 0.50 m</span> hasta el punto <span style="font-family: Times New Roman;">&#9399;</span> en la dirección de <span style="font-family: Times New Roman; font-weight: bold;">E</span>. <br>Encuentre la velocidad del protón después de completar el desplazamiento.
     .center
       img(src='../assets/fig25-6.png' height="200px" style="margin: 40px 0 0 0;")
     //- .center
@@ -29,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

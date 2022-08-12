@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (A) Find an expression for the electric potential at a point P located on the perpendicular central axis of a uniformly charged ring of radius a and total charge Q.<br>(B) Find an expression for the magnitude of the electric field at point P.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem (A) Find an expression for the electric potential at a point <span style="font-family: Times New Roman; font-style: italic;">P</span> located on the perpendicular central axis of a uniformly charged ring of radius <span style="font-family: Times New Roman; font-style: italic;">a</span> and total charge <span style="font-family: Times New Roman; font-style: italic;">Q</span>.<br>(B) Find an expression for the magnitude of the electric field at point <span style="font-family: Times New Roman; font-style: italic;">P</span>.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem (A) Encuentre una expresión para el potencial eléctrico en un punto <span style="font-family: Times New Roman; font-style: italic;">P</span> ubicado en el eje central perpendicular de un anillo uniformemente cargado de radio <span style="font-family: Times New Roman; font-style: italic;">a</span> y carga total <span style="font-family: Times New Roman; font-style: italic;">Q</span>. (B) Encuentre una expresión para la magnitud del campo eléctrico en el punto <span style="font-family: Times New Roman; font-style: italic;">P</span>.
     .center
         img(src='../assets/fig25-15.png' style="height: 200px;")
     //- .center
@@ -29,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

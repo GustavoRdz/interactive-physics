@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem As shown in Figure (a), a charge q1 = 2.00 &mu;C is located at the origin and a charge q2 = 26.00 &mu;C is located at (0, 3.00) m.<br> (A) Find the total electric potential due to these charges at the point P, whose coordinates are (4.00, 0) m.<br> (B) Find the change in potential energy of the system of two charges plus a third charge q3 = 3.00 &mu;C as the latter charge moves from infinity to point P (Fig. b).
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem As shown in Figure (a), a charge <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"><sub>1</sub></span><span style="font-family: Times New Roman;"> = 2.00 &mu;C</span> is located at the origin and a charge <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"><sub>2</sub></span><span style="font-family: Times New Roman;"> = 26.00 &mu;C</span> is located at <span style="font-family: Times New Roman;">(0, 3.00) m</span>.<br> (A) Find the total electric potential due to these charges at the point <span style="font-family: Times New Roman; font-style: italic;">P</span>, whose coordinates are <span style="font-family: Times New Roman;">(4.00, 0) m</span>.<br> (B) Find the change in potential energy of the system of two charges plus a third charge <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"> = 3.00 &mu;C</span> as the latter charge moves from infinity to point <span style="font-family: Times New Roman; font-style: italic;">P</span> (Fig. b).
+
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Como se muestra en la Figura (a), una carga <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"><sub>1</sub></span><span style="font-family: Times New Roman;"> = 2.00 &mu;C</span> está ubicada en el origen y una carga <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"><sub>2</sub></span><span style="font-family: Times New Roman;"> = 26.00 &mu;C</span> está ubicada en <span style="font-family: Times New Roman;">(0, 3.00) m</span>. <br>(A) Encuentre el potencial eléctrico total debido a estas cargas en el punto <span style="font-family: Times New Roman; font-style: italic;">P</span>, cuyas coordenadas son <span style="font-family: Times New Roman;">(4.00, 0) m</span>. <br>(B) Encuentre el cambio en la energía potencial del sistema de dos cargas más una tercera carga <span style="font-family: Times New Roman; font-style: italic;">q</span><span style="font-family: Times New Roman;"> = 3.00 &mu;C</span> cuando la última carga se mueve desde el infinito hasta el punto <span style="font-family: Times New Roman; font-style: italic;">P</span> (Fig. b).
     .center
       img(src='../assets/fig25-11.png' height="200px" style="margin: 40px 0 0 0;")
     //- .center
@@ -23,6 +25,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterTorsion: '',
@@ -136,8 +141,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A particle moves at a speed of {{ Math.abs(speed1) }} c making an anlge of {{ angle }}º from the +x axis. What is the magnitud and direction of the particle for an observer moving horizontally to the {{ side }} with a speed of  {{ Math.abs(speed) }} c?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A particle moves at a speed of {{ Math.abs(speed1) }} c making an anlge of {{ angle }}º from the +x axis. What is the magnitud and direction of the particle for an observer moving horizontally to the {{ side }} with a speed of  {{ Math.abs(speed) }} c?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una partícula se mueve a una velocidad de {{ Math.abs(speed1) }} c formando un ángulo de {{ angle }}º desde el eje +x. ¿Cuál es la magnitud y la dirección de la partícula para un observador que se mueve horizontalmente hacia la {{ side }} con una rapidez de {{ Math.abs(speed) }} c?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Speed measured from S<sub>1</sub> (in c)
         input.center.data(:class="checkedV1" v-model.number='enterV1')
         <span class="error" v-if="errorV1">[e: {{ errorV1.toPrecision(3) }}%]</span>
@@ -37,6 +39,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterV1: '',
@@ -67,7 +72,12 @@ export default {
       let max = 80
       let min = 50
       this.direction = (Math.round(Math.random()) - 0.5) * 2
-      this.side = this.direction === 1 ? 'rigth' : 'left'
+      // this.side = this.direction === 1 ? 'rigth' : 'left'
+      if (this.language) {
+        this.side = this.direction === 1 ? 'derecha' : 'izquierda'
+      } else {
+        this.side = this.direction === 1 ? 'right' : 'left'
+      }
       return (Math.round(Math.random() * (max - min + 1) + min) / 100)
     },
     angle: function () {

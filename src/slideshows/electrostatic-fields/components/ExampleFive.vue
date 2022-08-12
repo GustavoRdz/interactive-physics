@@ -1,9 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rod of length l, has a uniform positive charge per unit length λ and a total charge Q. Calculate the electric field at a point P that is located along the long axis of the rod and a distance a from one end
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A rod of length <span style="font-family: times; font-style: italic;">l</span>, has a uniform positive charge per unit length <span style="font-family: times; font-style: italic;">&lambda;</span> and a total charge <span style="font-family: times; font-style: italic;">Q</span>. Calculate the electric field at a point <span style="font-family: times; font-style: italic;">P</span> that is located along the long axis of the rod and a distance <span style="font-family: times; font-style: italic;">a</span> from one end
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una varilla de longitud <span style="font-family: times; font-style: italic;">l</span>, tiene una carga positiva uniforme por unidad de longitud <span style="font-family: times; font-style: italic;">&lambda;</span> y una carga total <span style="font-family: times; font-style: italic;">Q</span>. Calcular el campo eléctrico en un punto P que se encuentra a lo largo del eje longitudinal de la varilla y a una distancia <span style="font-family: times; font-style: italic;">a</span> de un extremo
     .center
         img(src='../assets/fig23-15.png' height="200px"  style="margin: 0px 0 0 0px;")
+
+    p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+    p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Period (s)
@@ -26,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterPeriod: '',

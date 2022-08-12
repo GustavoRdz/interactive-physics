@@ -1,10 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The electron and proton of a hydrogen atom are separated (on the average) by a distance of approximately {{ distance }} m. Find the magnitudes of the electric force and the gravitational force between the two particles. 
-    p.small.center G = 6.67x10<sup>-11</sup> N·m<sup>2</sup>/kg<sup>2</sup>&emsp;m<sub>e</sub> = 9.109x10<sup>-31</sup>kg&emsp;m<sub>p</sub> = 1.672x10<sup>-27</sup>kg<br>e = 1.602x10<sup>-19</sup>C&emsp;k<sub>e</sub> = 8.9876x10<sup>9</sup>Nm<sup>2</sup>/C<sup>2</sup> 
+    p(v-if = '!language' style="margin: -20px 0px 30px 0px;").problem The electron and proton of a hydrogen atom are separated (on the average) by a distance of approximately {{ distance }} m. Find the magnitudes of the electric force and the gravitational force between the two particles. 
+    p(v-if = 'language' style="margin: -20px 0px 30px 0px;").problem El electrón y el protón de un átomo de hidrógeno están separados (en promedio) por una distancia de aproximadamente {{ distance }} m. Encuentre las magnitudes de la fuerza eléctrica y la fuerza gravitatoria entre las dos partículas. 
+    p.small.center G = 6.67x10<sup>-11</sup> N·m<sup>2</sup>/kg<sup>2</sup>&emsp;m<sub>e</sub> = 9.109x10<sup>-31</sup>kg&emsp;m<sub>p</sub> = 1.672x10<sup>-27</sup>kg<br>e = 1.602x10<sup>-19</sup>C&emsp;k<sub>e</sub> = 8.9876x10<sup>9</sup>Nm<sup>2</sup>/C<sup>2</sup>
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 0px 0px -20px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 0px 0px -20px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data r (m)
         input.center.data(:class="checkedR" v-model.number='enterR')
         <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
@@ -28,6 +30,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterR: '',

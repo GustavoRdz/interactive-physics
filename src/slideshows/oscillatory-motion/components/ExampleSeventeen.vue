@@ -1,11 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ mass }}-kg connecting rod from a car engine is pivoted about a horizontal knife edge as shown in Figure. The center of gravity of the rod was located by balancing and is {{ gravityCenter }} m from the pivot. When the rod is set into small-amplitude oscillation, it makes {{ oscillations }} complete swings in {{ time }} s. Calculate the moment of inertia of the rod about the rotation axis through the pivot.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A {{ mass }}-kg connecting rod from a car engine is pivoted about a horizontal knife edge as shown in Figure. The center of gravity of the rod was located by balancing and is {{ gravityCenter }} m from the pivot. When the rod is set into small-amplitude oscillation, it makes {{ oscillations }} complete swings in {{ time }} s. Calculate the moment of inertia of the rod about the rotation axis through the pivot.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una biela de {{ mass }} kg del motor de un automóvil gira alrededor de un filo de navaja horizontal como se muestra en la figura. El centro de gravedad de la varilla se ubicó por balanceo y se encuentra a {{ gravityCenter }}m del pivote. Cuando la varilla se pone en oscilación de pequeña amplitud, hace {{ oscillations }} oscilaciones completas en {{ time }}s. Calcule el momento de inercia de la barra con respecto al eje de rotación que pasa por el pivote.
     .center
         img(src='../assets/problemConnectingRod.png' style=" width: 120px; height: 200px; object-fit: cover; object-position: 0% 10px;")
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Mass (kg)
         input.center.data(:class="checkedMass" v-model.number='enterMass')
         <span class="error" v-if="errorMass">[e: {{ errorMass.toPrecision(3) }}%]</span>
@@ -29,6 +31,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterMass: '',

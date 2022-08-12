@@ -1,12 +1,14 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ Math.round(100 * q1 * 1e6) / 100 }} μC is at a = {{ a }} m, the positive charge q<sub>2</sub> = {{ Math.round(100 * q2 * 1e6) /100 }} μC is at the origin, and the net force acting on q<sub>3</sub> is zero. What is the x coordinate of q3?
+    p(v-if = '!language' style="margin: 15px 0px 0px 0px;").problem Three point charges lie along the x axis as shown below. The positive charge q<sub>1</sub> = {{ Math.round(100 * q1 * 1e6) / 100 }} μC is at a = {{ a }} m, the positive charge q<sub>2</sub> = {{ Math.round(100 * q2 * 1e6) /100 }} μC is at the origin, and the net force acting on q<sub>3</sub> is zero. What is the x coordinate of q3?
+    p(v-if = 'language' style="margin: 15px 0px 0px 0px;").problem Tres cargas puntuales se encuentran a lo largo del eje x como se muestra a continuación. La carga positiva q<sub>1</sub> = {{ Math.round(100 * q1 * 1e6) / 100 }} μC está en a = {{ a }} m, la carga positiva q<sub>2</sub> = {{ Math.round(100 * q2 * 1e6) /100 }} μC está en el origen y la fuerza neta que actúa sobre q<sub>3</sub> es cero. ¿Cuál es la coordenada x de q<sub>3</sub>?
     .center
         img(src='../assets/fig23-8.png' height="200px")
 
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data q<sub>1</sub> (C)
         input.center.data(:class="checkedQ1" v-model.number='enterQ1')
         <span class="error" v-if="errorQ1">[e: {{ errorQ1.toPrecision(3) }}%]</span>
@@ -24,6 +26,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterQ1: '',

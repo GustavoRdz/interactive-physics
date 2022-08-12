@@ -1,8 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An electron enters the region of a uniform electric field, with v<sub>i</sub> = 3.00&times;10<sup>6</sup> m/s and E = 200 N/C. The horizontal length of the plates is 0.100 m.<br> (A) Find the acceleration of the electron while it is in the electric field.<br>(B) Assuming the electron enters the field at time t = 0, find the time at which it leaves the field.<br> (C) Assuming the vertical position of the electron as it enters the field is yi = 0, what is its vertical position when it leaves the field?
-    .center 
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An electron enters the region of a uniform electric field, with <span style="font-family: times; font-style: italic; ">v</span><span style="font-family:times; font-style: italic;"><sub>i</sub></span><span style="font-family: times;">= 3.00&times;10<sup>6</sup></span> m/s and <span style="font-family: times; font-weight: bold;">E</span> = <span style="font-family: times;">200</span> N/C. The horizontal length of the plates is <span style="font-family: times;">0.100</span> m.<br> (A) Find the acceleration of the electron while it is in the electric field.<br>(B) Assuming the electron enters the field at time <span style="font-family: times; font-style: italic; ">t</span> = <span style="font-family: times;">0</span>, find the time at which it leaves the field.<br> (C) Assuming the vertical position of the electron as it enters the field is <span style="font-family: times;  font-style: italic;">y</span><span style="font-family: times; font-style: italic;  font-weight: bold;"><sub>i</sub></span> = <span style="font-family: times;">0</span>, what is its vertical position when it leaves the field?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un electrón entra en la región de un campo eléctrico uniforme, con <span style="font-family: times; font-style: italic; ">v</span><span style="font-family:times; font-style: italic;"><sub>i</sub></span><span style="font-family: times;"> = 3.00&times;10<sup>6</sup></span> m/s y <span style="font-family: times; font-weight: bold;">E</span><span style="font-family: times;"> = 200</span> N/C. La longitud horizontal de las placas es de <span style="font-family: times;">0.100</span> m. <br>(A) Encuentre la aceleración del electrón mientras está en el campo eléctrico. <br>(B) Suponiendo que el electrón entra en el campo en el tiempo <span style="font-family: times; font-style: italic; ">t</span><span style="font-family: times;"> = 0</span>, encuentre el tiempo en el que sale del campo. <br>(C) Suponiendo que la posición vertical del electrón cuando entra en el campo es <span style="font-family: times;  font-style: italic;">y</span><span style="font-family: times; font-style: italic;  font-weight: bold;"><sub>i</sub></span><span style="font-family: times;"> = 0</span>, ¿cuál es su posición vertical cuando sale del campo?
+    .center
       img(src='../assets/fig23-24.png' height="300px")
     //- .center
     //-   p.solution Please do calculations and introduce your results
@@ -19,6 +20,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterSilverMass: '',
@@ -118,8 +122,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

@@ -1,9 +1,11 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem A spring is mounted horizontally, with its left end fixed. A spring balance attached to the free end and pulled toward the right indicates that the stretching force is proportional to the displacement, and a force of {{ force }} N causes a displacement of {{ displacement }} m. We replace the spring balance with a {{ mass }}-kg glider, pull it {{ pullDistance }} m to the right along a frictionless air track, and release it from rest. (a) Find the force constant k of the spring. (b) Find the angular frequency &omega;, frequency <strong>f</strong>, and period <strong>T</strong> of the resulting oscillation.
+      p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A spring is mounted horizontally, with its left end fixed. A spring balance attached to the free end and pulled toward the right indicates that the stretching force is proportional to the displacement, and a force of {{ force }} N causes a displacement of {{ displacement }} m. We replace the spring balance with a {{ mass }}-kg glider, pull it {{ pullDistance }} m to the right along a frictionless air track, and release it from rest. (a) Find the force constant <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> of the spring. (b) Find the angular frequency <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, frequency <span style="font-family: times; font-style: italic; font-weight: bold;">f</span>, and period <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> of the resulting oscillation.
+      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un resorte está montado horizontalmente, con su extremo izquierdo fijo. Un dinamómetro de resorte unida al extremo libre y tirada hacia la derecha indica que la fuerza de estiramiento es proporcional al desplazamiento, y una fuerza de {{ force }} N provoca un desplazamiento de {{ displacement }} m. Reemplazamos el dinamómetro con un deslizador de {{ mass }} kg, lo tiramos {{ pullDistance }} m hacia la derecha a lo largo de una pista de aire sin fricción y lo soltamos desde el reposo. (a) Encuentre la constante de fuerza <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> del resorte. (b) Encuentre la frecuencia angular <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, la frecuencia <span style="font-family: times; font-style: italic; font-weight: bold;">f</span> y el período <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> de la oscilación resultante.
       .center
-        p.solution Please do calculations and introduce your results
+        p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+        p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
         p.inline.data Force (N)
           input.center.data(:class="checkedF" v-model.number='enterF')
           <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
@@ -33,6 +35,9 @@
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterF: '',
