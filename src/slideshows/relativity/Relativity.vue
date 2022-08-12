@@ -2,7 +2,7 @@
 #Relativity.eg-theme-agrume
   .eg-slideshow
     <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h2(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Relativity theory
         h2(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Teoría dela relatividad
@@ -22,7 +22,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInUp' leave='bounceOutDown' :mouseNavigation='false')
+    slide(enter='bounceInUp' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -64,7 +64,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="text-transform: uppercase;").center The principle of Galilean relativity
       p The laws of mechanics must be the same in all inertial frames of reference.
@@ -76,7 +76,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Galilean transformations
       p Suppose two inertial frames and an event, we measure the speed of the event in one of the reference frames, howcan we calculate the speed of event with respect the other inertial frame?.
@@ -87,7 +87,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=6, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=6, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4 Space-time Galilean Transformations
       p(v-if="step >= 2" style="margin-bottom: 0px;") From the figure we have that
@@ -157,7 +157,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 1
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 1
@@ -167,7 +167,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 2
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 2
@@ -177,7 +177,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 3
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 3
@@ -187,7 +187,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 The speed of light
       //- p Physicst of the late 1800s thought light moves in a medium called <em>Ether</em> in order to justify the propagation of electromagnetic waves in the empty space.
@@ -201,7 +201,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Michelson-Morley Experiment
       .center
@@ -211,7 +211,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Einstein's Principle of Relativity
       p 1. The principle of relativity:
@@ -223,7 +223,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Simultaneity
       p.center Time measurement depends on the reference frame of the observer
@@ -234,7 +234,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(:steps=1,  :mouseNavigation='false')
+    slide(:steps=1,  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Relativity of time
       p.center Time measurement depends on the reference frame of the observer
@@ -247,7 +247,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
 
-    slide(enter='bounceInDown', :mouseNavigation='false')
+    slide(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations equations
       .center
@@ -259,7 +259,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(enter='bounceInDown', :mouseNavigation='false')
+    slide(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Lorentz tranformations in two dimensions
       .center
@@ -269,7 +269,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 4
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 4
@@ -279,7 +279,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
        h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 5
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 5
@@ -289,7 +289,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Length contraction
       .center
@@ -301,7 +301,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 6
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 6
@@ -311,7 +311,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 7
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 7
@@ -321,7 +321,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Time dilation
       .center
@@ -333,7 +333,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 8
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 8
@@ -343,7 +343,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 9
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 9
@@ -353,7 +353,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Mass variation
       .center
@@ -365,7 +365,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 10
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 10
@@ -375,7 +375,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
        h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 11
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 11
@@ -385,7 +385,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt
 
-    slide(enter='bounceInDown', :mouseNavigation='false')
+    slide(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

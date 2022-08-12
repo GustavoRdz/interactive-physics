@@ -2,7 +2,7 @@
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
     <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Electrostatic fields
@@ -22,7 +22,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+    slide(enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -30px 0px 30px 0px;") Topics
       h3(v-if = 'isSpanish' style="margin: -30px 0px 30px 0px;") Temas
@@ -46,7 +46,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Electric Charges
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Carga eléctrica
@@ -59,7 +59,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Electric Charges
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Carga eléctrica
@@ -72,7 +72,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Charging by induction
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Cargando por inducción
@@ -91,7 +91,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Charging by induction
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Cargando por inducción
@@ -107,7 +107,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
         
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Coulomb's Law
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Ley de Coulomb
@@ -128,7 +128,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;") Exercise 1
       h3(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;") Ejercicio 1
@@ -138,7 +138,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: -20px 0px 30px 0px;").center Vector form of Coulomb's law
       h4(v-if = 'isSpanish' style="margin: -20px 0px 30px 0px;").center Forma vectorial de la ley de Coulomb
@@ -156,7 +156,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
      
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") Exercise 2
       h3(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Ejercicio 2
@@ -167,7 +167,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
        h3(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") Exercise 3
       h3(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Ejercicio 3
@@ -177,14 +177,14 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") The electric field
       h3(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") El campo eléctrico
       p(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") An electric field is said to exist in the region of space around a charged object, the <strong>source charge</strong>.<br> When another charged object (<strong>the test charge</strong>) enters this electric field, an electric force acts on it.
       p(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Se dice que existe un campo eléctrico en la región del espacio alrededor de un objeto cargado, la <strong>la carga fuente</strong>. Cuando otro objeto cargado (<strong>la carga de prueba</strong>) entra en este campo eléctrico, una fuerza eléctrica actúa sobre él.
       .center
-        img(src='./assets/fig23-10.png' height="200px")
+        img(src='./assets/fig23-10.png' height="200px" style="overflow: scroll;")
       p(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") We define the electric field vector <strong>E</strong> at a point in space as the electric force <strong>F</strong> acting on a positive test charge q<sub>0</sub> placed at that point divided by the test charge
       p(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Definimos el vector de campo eléctrico <span style="font-family: times;"><strong>E</strong></span> en un punto del espacio como la fuerza eléctrica <span style="font-family: times;"><strong>F</strong></span> que actúa sobre una carga de prueba positiva <span style="font-family: times; font-style: italic;">q</span><span style="font-family: times;"><sub>0</sub></span> colocada en ese punto dividida por la carga de prueba.
       .center
@@ -195,7 +195,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") Electric field due to a finite number of point charges
       h4(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Campo eléctrico debido a un número finito de cargas puntuales
@@ -212,7 +212,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") Exercise 4
       h3(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Ejercicio 4
@@ -222,7 +222,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;") Electric Field of a Continuous Charge Distribution
       h4(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;") Campo eléctrico de una distribución de carga continua
@@ -243,7 +243,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;").center Electric Field of a Continuous Charge Distribution
       h4(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;").center Campo eléctrico de una distribución de carga continua
@@ -258,7 +258,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: 15px 0px 0px 0px;").center Electric Field of a Continuous Charge Distribution
       h4(v-if = 'isSpanish' style="margin: 15px 0px 0px 0px;").center Campo eléctrico de una distribución de carga continua
@@ -288,7 +288,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 5
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 5
@@ -298,7 +298,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 6
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 6
@@ -308,7 +308,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Electric field lines
       p(style="margin-top: -30px;") Electric field lines, that are related to the electric field in a region of space in the following manner:
@@ -321,7 +321,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Electric field lines
       p(style="margin-top: -30px;") The electric field lines for a point charge.
@@ -332,7 +332,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Electric field lines
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1em;") The rules for drawing electric field lines are as follows:
@@ -346,7 +346,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 7
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 7
@@ -356,7 +356,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 8
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 8
@@ -366,7 +366,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Electric Flux
       .center
@@ -376,7 +376,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Electric Flux
       p This product of the magnitude of the electric field E and surface area A perpendicular to the field is called the electric flux &Phi;<sub>E</sub>:
@@ -391,7 +391,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Flux
       p It is convenient to define a vector &Delta;<strong>A<sub>i</sub></strong> whose magnitude represents the area of the ith element of the large surface and whose direction is defined to be perpendicular to the surface element.
@@ -407,7 +407,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Flux
       p A closed surface in an electric field.<br>The area vectors are, by convention, normal to the surface and point outward.
@@ -419,7 +419,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 9
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 9
@@ -429,7 +429,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Gauss's Law
       p(style="margin: -0px;").center Flux by a charge
@@ -450,7 +450,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Gauss's Law
       h6 The net flux through any closed surface surrounding a point charge q is given by <strong>q/&epsilon;<sub>0</sub></strong> and is independent of the shape of that surface.
@@ -464,7 +464,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 10
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 10
@@ -474,7 +474,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 11
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 11
@@ -484,7 +484,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 12
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 12
@@ -494,7 +494,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric potential
       p For an infinitesimal displacement 
@@ -529,7 +529,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric potential
       p the work done by an external agent in moving a charge q through an electric field at constant velocity is immersed in an electric field, the work done within the charge-field system by the electric field on the charge is
@@ -549,7 +549,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Potential Difference in a Uniform Electric Field
       p Let’s calculate the potential difference between two points <span style="font-size: 22px;">&#9398;</span> and <span style="font-size: 22px;">&#9399;</span> separated by a distance d, where the displacement s points from <span style="font-size: 22px;">&#9398;</span> toward <span style="font-size: 22px;">&#9399;</span> and is parallel to the field lines.
@@ -567,7 +567,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Potential Difference in a Uniform Electric Field
       .center
@@ -583,7 +583,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 13
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 13
@@ -593,7 +593,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 14
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 14
@@ -603,7 +603,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Potential and Potential Energy Due to Point Charges
       .center
@@ -621,7 +621,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Potential and Potential Energy Due to Point Charges
       .center
@@ -637,7 +637,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 15
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 15
@@ -647,7 +647,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Obtaining the Value of the Electric Field from the Electric Potential
       .center
@@ -661,7 +661,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 16
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 16
@@ -671,7 +671,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Potential Due to Continuous Charge Distribution
       .center
@@ -685,7 +685,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 17
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 17
@@ -695,7 +695,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 18
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 18
@@ -705,7 +705,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric Potential Due to a Charged Conductor
       .center
@@ -721,7 +721,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Capacitance and dielectrics
       p Consider two conductors. Such a combination of two conductors is called a capacitor. The conductors are called plates. If the conductors carry charges of equal magnitude and opposite sign, a potential difference DV exists between them.
@@ -732,7 +732,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Capacitance and dielectrics
       p The capacitance C of a capacitor is defined as the ratio of the magnitude of the charge on either conductor to the magnitude of the potential difference between the conductors
@@ -747,7 +747,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calculating Capacitance
       p Capacitance of an isolated charged sphere
@@ -766,7 +766,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 19
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 19
@@ -776,7 +776,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Combinations of Capacitors
       p Circuit symbols
@@ -787,7 +787,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
           
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Combinations of Capacitors
       p Equivalent diagrams
@@ -806,7 +806,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
  
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Combinations of Capacitors
       p Equivalent diagrams
@@ -826,7 +826,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 20
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 20
@@ -836,7 +836,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 21
       h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 21
@@ -846,7 +846,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
   
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Capacitors with dielectrics
       .center
@@ -858,7 +858,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
   
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Capacitors with dielectrics
       .center
@@ -868,7 +868,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

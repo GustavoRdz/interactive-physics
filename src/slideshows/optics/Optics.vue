@@ -14,6 +14,10 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')
       h3
@@ -667,7 +671,9 @@ export default {
 
   data: function () {
     return {
-      theme: 'Optics'
+      theme: 'Optics',
+      isSpanish: true,
+      languages: ['🇺🇸', '🇲🇽']
     }
   }
 }

@@ -2,7 +2,7 @@
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
     <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Oscillatory Motion
@@ -42,7 +42,7 @@
     //-     span.small Ctrl + right
 
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3
         | Topics
@@ -71,18 +71,18 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Periodic motion
       p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
       .center
-        img(height="400px" src='./assets/motor vocho.gif')
+        img(width="400px" src='./assets/motor vocho.gif')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px;") Oscillations
       p(style="margin: 0 0 -0px 0;").center Mass-spring system
@@ -94,7 +94,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -30px;") Oscillations
       p(style="margin: 0 0 -0px 0;").center Mass-spring system
@@ -107,7 +107,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px;") Oscillations
       p(style="margin: 0 0 0px 0;").center Mass-spring system
@@ -120,7 +120,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 1
       example-one(:language='isSpanish')
@@ -129,7 +129,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Simple Harmonic Motion
       spring-mass
@@ -149,7 +149,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
@@ -160,7 +160,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top: -40px;").center
@@ -176,7 +176,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p <b>Displacement:</b>
@@ -192,7 +192,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top:-60px;")
@@ -206,7 +206,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
       p(style="margin-top:-60px;")
@@ -219,7 +219,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Phase constant and Amplitude
       p At t = 0
@@ -241,7 +241,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
@@ -251,7 +251,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 4
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 4
@@ -261,7 +261,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 5
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 5
@@ -271,7 +271,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 6
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 6
@@ -281,7 +281,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 7
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 7
@@ -291,7 +291,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
       p.center
@@ -340,7 +340,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
       p.center We can derivre formulas for velocity
@@ -351,7 +351,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
@@ -361,7 +361,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
@@ -371,7 +371,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
@@ -381,7 +381,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Other systems of SHM
       p(style="margin-top: -30px;").center Angular SHM
@@ -397,7 +397,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Inertia moments
       p(style="margin-top: -30px;").center
@@ -411,7 +411,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center The simple pendulum
       .center
@@ -423,7 +423,7 @@
       .center
         img(src='./assets/simplePendulumT.png' height="100px")
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center The physical pendulum
       p.center We can derivre formulas for velocity
@@ -437,7 +437,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
@@ -447,7 +447,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
@@ -457,7 +457,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
@@ -467,7 +467,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Damped oscillations
       .center
@@ -480,7 +480,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Forced oscillations
       .center
@@ -492,7 +492,7 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References

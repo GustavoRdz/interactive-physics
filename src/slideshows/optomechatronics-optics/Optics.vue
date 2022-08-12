@@ -1,11 +1,15 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
-        h3 Optomechatronics
+        h2(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Optomechatronics
+        h2(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Optomecatrónica
         img(src='./assets/U.svg')
-        h4 Fundamentals of optics
+        h4(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Fundamentals of optics
+        h4(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Fundamentos de la óptica.
+        h4 
         eg-triggered-message(:trigger='slideTimer >= 2',
                             :duration='6', position='top right',
                             enter='bounceInRight', leave='bounceOutRight')
@@ -14,62 +18,73 @@
           p Previous:
           img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -20px;")
-        | Fundamentals of optics
+      h6(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") Fundamentals of optics
+      h6(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") Fundamentos de óptica
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -30px 0 0 0;")
-            <b>Reflection and Refraction</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Lenses:</b><span style="font-size: 0.7em;"> Refraction at a Spherical Surface</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Multiple Lenses and System Matrices:</b><span style="font-size: 0.7em;"> The System Matrices, Computer Ray Tracing</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Aperture Stops and Pupils</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Aberrations:</b><span style="font-size: 0.7em;"> Spherical Aberration, Coma Aberration, Field Curvature, Astigmatism, Distortion</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Polarization</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Coherence</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Interference:</b><span style="font-size: 0.8em;"> Young's Experiment, Fabry-Perot Interferometer, Michelson Interferometer</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Diffraction:</b><span style="font-size: 0.8em;"> Double Slits, Multiple Slits, Circular Aperture, Diffraction Grating</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Optical Fiber Transmission</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Gaussian Beam Optics</b>
+          div
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Reflection and Refraction</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Reflexión y Refracción</b>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Lenses:</b><span style="font-size: 0.7em;"> Refraction at a Spherical Surface</span>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Lentes:</b><span style="font-size: 0.7em;"> refracción en una superficie esférica</span>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Multiple Lenses and System Matrices:</b><span style="font-size: 0.7em;"> The System Matrices, Computer Ray Tracing</span>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Lentes Múltiples y Matrices de Sistema:</b><span style="font-size: 0.7em;"> Las Matrices de Sistema, Trazado de Rayos por Computadora</span>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Aperture Stops and Pupils</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Stops de apertura y pupilas</b>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Aberrations:</b><span style="font-size: 0.7em;"> Spherical Aberration, Coma Aberration, Field Curvature, Astigmatism, Distortion</span>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Aberraciones:</b><span style="font-size: 0.7em;">  aberración esférica, aberración de coma, curvatura de campo, astigmatismo, distorsión</span>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Polarization</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Polarización</b>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Coherence</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Coherencia</b>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Interference:</b><span style="font-size: 0.8em;"> Young's Experiment, Fabry-Perot Interferometer, Michelson Interferometer</span>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Interferencia:</b><span style="font-size: 0.8em;">  Experimento de Young, interferómetro de Fabry-Perot, interferómetro de Michelson</span>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Diffraction:</b><span style="font-size: 0.8em;"> Double Slits, Multiple Slits, Circular Aperture, Diffraction Grating</span>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Difracción:</b><span style="font-size: 0.8em;">  rendijas dobles, rendijas múltiples, apertura circular, rejilla de difracción</span>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Fiber optics transmission</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Transmisión de Fibra Óptica</b>
+            p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") <b>Gaussian Beam Optics</b>
+            p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") <b>Óptica del haz gaussiano</b>
+        .prev(@click.stop='previousSlide' style="float: left;")
+          span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+        .next(@click.stop='nextSlide' style="float: right;")
+          span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h4(style="margin: -20px 0 0 0; ").center Spectrum
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") Optics concerns with the radiation within this range visible to the human eye but often extends to the region of spectrum near visible region.<br> Visible radiation ranges from 0.35 to 0.75 μm, depending upon types of color of the light their wave length varies. The ultraviolet region extends from 0.01 to 0.35 μm, while infrared radiation extends from the lower end of the visible spectrum to nearly 300 μm.
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Electromagnetic spectrum
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Espectro electromagnético
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Optics concerns with the radiation within this range visible to the human eye but often extends to the region of spectrum near visible region.<br> Visible radiation ranges from <span style="font-family: Times New Roman;">0.35</span> to <span style="font-family: Times New Roman;">0.75 μm</span>, depending upon types of color of the light their wave length varies. The ultraviolet region extends from <span style="font-family: Times New Roman;">0.01</span>  to <span style="font-family: Times New Roman;">0.35 μm</span> , while infrared radiation extends from the lower end of the visible spectrum to nearly <span style="font-family: Times New Roman;">300 μm</span> .
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La óptica se ocupa de la radiación dentro de este rango visible para el ojo humano, pero a menudo se extiende a la región del espectro cercana a la región visible. <br<La radiación visible varía de <span style="font-family: Times New Roman;">0.35</span> a <span style="font-family: Times New Roman;">0.75 μm</span>, dependiendo de los tipos de color de la luz, su longitud de onda varía. <br>La región ultravioleta se extiende desde <span style="font-family: Times New Roman;">0.01</span>  a <span style="font-family: Times New Roman;">0.35 μm</span> , mientras que la radiación infrarroja se extiende desde el extremo inferior del espectro visible hasta casi <span style="font-family: Times New Roman;">300 μm</span> .
       .center
-        img(src='./assets/fig2-1.png' height="400px")
-        img(src='./assets/fig2-2.png' height="400px")
+        img(src='./assets/fig2-1.png' width="300px")
+        img(src='./assets/fig2-2.png' width="300px")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h4(style="margin: -20px 0 0 0; ").center Reflection and Refraction
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Reflection and Refraction
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Reflexión y Refracción
+      h4(style="margin: -20px 0 0 0; ").center 
       p(style="padding: 15px; margin: 1px; line-height: 1.5em;") A light wave transmitting through a lens or a prism is typical of wave refraction. A light wave reflecting from the surface of a mirror or a coated reflective surface is typical of wave reflection. To understand these phenomena we will review the laws of reflection and refraction.
       .center
-        img(src='./assets/fig2-3.png' height="400px")
+        img(src='./assets/fig2-3.png' width="400px")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h6(style="margin: 0px 0 0 0; ").center Reflection and Refraction
       h6(style="margin: 30px 0 0 0; ").center Wavefront and Rays
@@ -79,8 +94,12 @@
         img(src='./assets/eq2-1.png' height="70px" style="margin: 0px 0 -30px 0px;")
       p Refraction: &emsp;&emsp;
         img(src='./assets/eq2-2.png' height="70px" style="margin: 0px 0 -30px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h5(style="margin-top: 50px;").center Reflection and Refraction
       p(style="padding: 15px; margin: 1px 1px -0px 1px; line-height: 1.5em;")  Total internal reflection
@@ -88,33 +107,47 @@
         img(src='./assets/fig2-5.png' height="300px" style="margin: -0px 0 0 0;")
       p Critical angle: 
         img(src='./assets/eq2-3.png' height="70px" style="margin: 0px 0 -30px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Refraction
       p(style="padding: 1px; margin: -20px 0 0px 0px; line-height: 1.5em;") Refractive index
       p.center 
         img(src='./assets/table2-1.png' height="500px" style="margin: 0px 0 -30px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
   
-    
-
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Lenses
       h6.center image formation
       p.center 
         img(src='./assets/fig2-6.png' height="300px" style="margin: 0px 0 -30px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Refraction at a spherical surface 
       .center
         img(src='./assets/fig2-7.png' height="500px" style="margin: -0px 0 0 0;")
       .center
         img(src='./assets/eq2-8.png' height="80px" style="margin: -0px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Spherical lens
       .center
@@ -123,8 +156,12 @@
         img(src='./assets/eq2-9.png' height="70px" style="margin: -0px 0 0 0;")
       .center
         img(src='./assets/eq2-10.png' height="70px" style="margin: -0px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Spherical lens
       p Combinig the former equations we have
@@ -138,8 +175,12 @@
         img(src='./assets/eq2-13.png' height="90px" style="margin: 0 50px -35px 0;")
         | &rArr;
         img(src='./assets/eq2-14.png' height="90px" style="margin: 0 0 -35px 50px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Thin lenses - Spherical lenses
       h6.center Gauss lens formula
@@ -148,8 +189,12 @@
       h6.center Focal point F
       .center
         img(src='./assets/fig2-9.png' height="280px" style="margin: -50px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Thin lenses - Spherical lenses
       .center
@@ -158,8 +203,12 @@
       .center
         img(src='./assets/fig2-10.png' height="400px" style="margin: -10px 0 0 0;")
         img(src='./assets/gaussGraph2.png' height="320px" style="margin: -10px 0 50px 10px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Ray trace image formation
       p 
@@ -170,8 +219,12 @@
       h6.center Magnification
       .center
         img(src='./assets/eq2-16.png' height="80px" style="margin: -40px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Example
       p Let us take some examples for thin lenses. When an object is located 6 cm in front of a convex lens having focal length 10 cm, the location and magnitude of the image to be formed can be calculated by using
@@ -186,8 +239,12 @@
       .center
         img(src='./assets/eq2-16D.png' height="70px" style="margin: -20px 0 0 0;")
         img(src='./assets/eq2-16E.png' height="70px" style="margin: -20px 0 0 30px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Image characteristics
       p 
@@ -199,8 +256,12 @@
         img(src='./assets/fig2-13B.png' height="170px" style="margin: -30px 160px 0 0;")
         img(src='./assets/fig2-13C.png' height="145px" style="margin: -30px 0px 0 20px;")
         img(src='./assets/eq2-16G.png' height="50px" style="margin: 0px 0px 50px 10px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple lenses
       p 
@@ -216,8 +277,12 @@
         img(src='./assets/eq2-20.png' height="80px" style="margin: 100px 30px -30px 0px;")
         | &rArr;
         img(src='./assets/eq2-21.png' height="80px" style="margin: 100px 0px -30px 30px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple lenses
       p 
@@ -235,16 +300,24 @@
         img(src='./assets/eq2-21E.png' height="80px" style="margin: 20px 0px -30px 20px;")
       .center
         img(src='./assets/eq2-21F.png' height="50px" style="margin: 40px 30px -30px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
       p 
       .center
         img(src='./assets/fig2-15A.png' height="250px" style="margin: 30px 0px 0 0;")
         img(src='./assets/fig2-15B.png' height="250px" style="margin: 30px 0px 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
       p 
@@ -268,8 +341,12 @@
         img(src='./assets/eq2-27.png' height="50px" style="margin: 70px 20px -20px 0;")
         | or
         img(src='./assets/eq2-28.png' height="80px" style="margin: 70px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
       h6 Example
@@ -277,8 +354,12 @@
       .center
         img(src='./assets/eq2-29B.png' height="70px" style="margin: 30px 0px 0 0;")
       p for d = 40 mm the equivalent focal length becomes 83.3333
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Multiple Lenses and System Matrices
       h6 Example
@@ -294,8 +375,12 @@
         | then
         img(src='./assets/eq2-29F.png' height="80px" style="margin: 70px 20px -20px 20px;")
       p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.2em;") Because case (1) has shorter focal length, the system separated f/4 apart is the wider-angle lens.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  The system matrices
       h6 Translation matrix
@@ -304,8 +389,12 @@
         img(src='./assets/fig2-17A.png' height="300px" style="margin: 50px 20px -30px 20px;")
       .center
         img(src='./assets/eq2-30.png' height="100px" style="margin: 100px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  The system matrices
       h6 Refraction matrix: Convex surface 
@@ -318,8 +407,12 @@
         img(src='./assets/eq2-34.png' height="100px" style="margin: 50px 20px -30px 20px;")
       .center
         img(src='./assets/eq2-35.png' height="100px" style="margin: 50px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  The system matrices
       h6 Refraction matrix: Concave surface 
@@ -331,15 +424,23 @@
         img(src='./assets/eq2-35C.png' height="70px" style="margin: 50px 20px -30px 20px;")
       .center
         img(src='./assets/eq2-36.png' height="100px" style="margin: 50px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Computer ray tracing
       p Beam expanding via three-lens configuration
       .center
         img(src='./assets/fig2-18.png' height="400px" style="margin: 40px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Aperture stops and pupils
       p(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") The aperture stop is defined to be the aperture, which limits the maximum amount of light that can be collected.
@@ -347,16 +448,24 @@
       p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.2em;") The pupil that determines whether a given particular ray will pass through the entire optical system.
       p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.2em;") The entrance pupil is the image of the aperture stop as seen from object space. In other words, it is the image of the stop through which we look into the entire optical system from the object. 
       p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em;") The location and size of these three openings, the aperture stop, the entrance, and exit pupils have significant effect on the light collecting and also on certain types of aberrations. Therefore, it is often necessary to shift the stop along the optical axis in order to improve performance of optical systems.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Aperture stops and pupils
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") 
       .center
         img(src='./assets/fig2-19A.png' height="220px" style="margin: 40px 20px -30px 20px;")
         img(src='./assets/fig2-19B.png' height="250px" style="margin: 40px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Aperture stops and pupils
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The amount of light admitted through the aperture is very useful in defining two useful parameters, <strong>f-number f/#</strong>, and numerical aperture, <strong>NA</strong>. If aperture diameter is denoted by D and focal length of an imaging lens is denoted by f, then the light power per unit area (irradiance) at the image plane is proportional to
@@ -371,8 +480,12 @@
       .center
         img(src='./assets/eq2-36E.png' height="80px" style="margin: 40px 20px -30px 20px;")
         img(src='./assets/eq2-36F.png' height="80px" style="margin: 40px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Aberration
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") An exact ray tracing in actual case would cause departures from the predictions with the paraxial description. 
@@ -387,8 +500,12 @@
         li and distortion
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") that deteriorate the image quality.
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") Spherical aberration, astigmatism, and coma make the image unclear, while field curvature and distortion deform the image. 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Spherical Aberration
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Spherical aberration is one of the most common aberrations in lenses. If all rays emanating from a point source S, not exclusive of rays reflected by a larger lens aperture are assumed to impinge on a convex lens, the image formed can be represented as the point P due to paraxial rays and the point P' due to nonparaxial rays.
@@ -397,8 +514,12 @@
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The amount of spherical aberration for fixed focal length and aperture is influenced by both the object distance and the lens shape. 
       .center
         img(src='./assets/fig2-20.png' height="250px" style="margin: 30px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Coma Aberration
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Coma refers to the variation of magnification with aperture. When a bundle of rays is incident obliquely on a lens.
@@ -408,8 +529,12 @@
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") where h<sub>p</sub> The image has a form which is something like the shape of a comet with its tail, therefore this aberration is named comet. 
       .center
         img(src='./assets/fig2-21.png' height="300px" style="margin: 0px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Field curvature
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Curvature of field is the aberration of a lens that cannot transform a plane object into a precisely plane image.
@@ -418,8 +543,12 @@
       p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") This surface depends on the focal length of the individual lens components and on their refractive indices, as we might expect. 
       .center
         img(src='./assets/fig2-22.png' height="250px" style="margin: 20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Astigmatism
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Astigmatism occurs when an object point lies far distant from the optical axis and, therefore, the incident cone of rays strikes the lens asymmetrically. 
@@ -427,8 +556,12 @@
       p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") When an incident cone of rays strikes obliquely, there occur two distinct focal lengths: one in the meridional plane and the other in the sagittial plane. 
       .center
         img(src='./assets/fig2-23.png' height="300px" style="margin: 20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Distortion
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Distortion occurs because focal length and lateral magnification more or less vary with different distance from the optical axis. 
@@ -439,8 +572,12 @@
         img(src='./assets/fig2-24.png' height="200px" style="margin: 20px 20px -0px 0px;")
       .center
         img(src='./assets/fig2-25.png' height="200px" style="margin: 20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Distortion
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Distortion with a stop
@@ -448,8 +585,12 @@
         img(src='./assets/fig2-26.png' height="206px" style="margin: 10px 20px -0px 0px;")
       .center
         img(src='./assets/fig2-26B.png' height="200px" style="margin: 10px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Polarization
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A light wave is oscillating as a transverse electromagnetic wave.
@@ -459,8 +600,12 @@
       p Maximum amount of polarization at
       .center
         img(src='./assets/eq2-38.png' height="80px" style="margin: -20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Polarization
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Different states of polarization
@@ -468,8 +613,12 @@
         img(src='./assets/fig2-28A.png' height="250px" style="margin: 30px 20px -0px 0px;")
       .center
         img(src='./assets/fig2-28B.png' height="238px" style="margin: -20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Polarization
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Different states of polarization
@@ -480,8 +629,12 @@
         img(src='./assets/fig2-29C.png' height="250px" style="margin: 30px 20px -0px 0px;")
       .center
         img(src='./assets/eq2-40.png' height="50px" style="margin: 0px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Interference occurs when two or more monochromatic light sources are superimposed. 
@@ -497,8 +650,12 @@
         img(src='./assets/eq2-42.png' height="60px" style="margin: 30px 20px -0px 0px;")
       .center
         img(src='./assets/eq2-43.png' height="50px" style="margin: 0px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Taking the time average of the quantity in the bracket, we have
@@ -518,8 +675,12 @@
       p(style="padding: 15px; margin: 10px 1px -10px 200px; line-height: 1.3em;") then
       .center
         img(src='./assets/eq2-46.png' height="50px" style="margin: 0px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The above equation implies that the irradiance at an arbitrary point P in space is characterized by the path difference term, and the initial phase difference &phi;<sub>1</sub> - &phi;<sub>2</sub>.
@@ -530,8 +691,12 @@
         img(src='./assets/fig2-30A.png' height="220px" style="margin: 0px 20px -0px 0px;")
       .center
         img(src='./assets/fig2-30B.png' height="220px" style="margin: -10px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Young's experiment
@@ -547,8 +712,12 @@
         img(src='./assets/eq2-49.png' height="80px" style="margin: 30px 20px -10px 30px;")
       .center
         img(src='./assets/eq2-50.png' height="60px" style="margin: 20px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Fabry-Perot interferometer
@@ -559,8 +728,12 @@
         img(src='./assets/eq2-52.png' height="90px" style="margin: 0px 20px -20px 0px;")
       .center
         img(src='./assets/eq2-54.png' height="80px" style="margin: 30px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Fabry-Perot interferometer
@@ -574,8 +747,12 @@
         img(src='./assets/eq2-57.png' height="100px" style="margin: 30px 20px -0px 0px;")
       .center
         img(src='./assets/eq2-58.png' height="100px" style="margin: 30px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Fabry-Perot interferometer
@@ -586,8 +763,12 @@
       .center
         img(src='./assets/eq2-59.png' height="90px" style="margin: 30px 50px -0px 0px;")
         img(src='./assets/eq2-59B.png' height="90px" style="margin: 30px 0px -0px 50px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Interference
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Michelson interferometer
@@ -603,15 +784,23 @@
       .center
         img(src='./assets/eq2-60C.png' height="30px" style="margin: 0px 80px -0px 0px;")
         | dark fringes
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
       .center
         img(src='./assets/fig2-35.png' height="500px" style="margin: 0px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
@@ -624,8 +813,12 @@
         img(src='./assets/eq2-62.png' height="40px" style="margin: 0px 0px -0px 50px;")
       .center
         img(src='./assets/eq2-63.png' height="130px" style="margin: 30px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
@@ -642,8 +835,12 @@
       .center
         img(src='./assets/eq2-66.png' height="40px" style="margin: 30px 30px -10px 0px;")
         | in terms of wavelength
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
@@ -651,8 +848,12 @@
         img(src='./assets/fig2-38.png' height="350px" style="margin: 0px 0px -0px 0px;")
       .center
         img(src='./assets/table2-3.png' height="200px" style="margin: 30px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Double Slits
@@ -663,8 +864,12 @@
         img(src='./assets/eq2-69B.png' height="80px" style="margin: 30px 0px -0px 40px;")
       .center
         img(src='./assets/fig2-39.png' height="300px" style="margin: 0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Double Slits
@@ -672,8 +877,12 @@
         img(src='./assets/fig2-39.png' height="300px" style="margin: -20px 0px -0px 0px;")
       .center
         img(src='./assets/fig2-40.png' height="360px" style="margin: 0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Multiple Slits
@@ -685,8 +894,12 @@
         img(src='./assets/eq2-75.png' height="30px" style="margin: 40px 0px -0px 0px;")
       .center
         img(src='./assets/fig2-41A.png' height="300px" style="margin: -0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Multiple Slits
@@ -694,8 +907,12 @@
         img(src='./assets/fig2-41A.png' height="300px" style="margin: -0px 0px -0px 0px;")
       .center
         img(src='./assets/fig2-41B.png' height="277px" style="margin: 0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Circular Aperture
@@ -715,8 +932,12 @@
       .center
         img(src='./assets/eq2-83.png' height="80px" style="margin: 30px 50px -25px 0px;")
         | if the aperture is a lens
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Resolution
@@ -728,8 +949,12 @@
       .center
         img(src='./assets/eq2-83.png' height="80px" style="margin: 30px 50px -25px 0px;")
         | if the aperture is a lens
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Lens
@@ -737,9 +962,13 @@
         img(src='./assets/fig2-44.png' height="800px" style="margin: -180px 0px -70px 0px;").rotateimg90
       .center
         img(src='./assets/eq2-83.png' height="80px" style="margin: -30px 50px -25px 0px;")
-        | if the aperture is a lens
+        | if the aperture is a lensç
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Resolution
@@ -749,9 +978,13 @@
       .center
         img(src='./assets/eq2-84.png' height="60px" style="margin: -0px 0px -0px 0px;")
       p(style="padding: 15px; margin: -10px 10px 0px 1px; line-height: 1.3em;") The limit condition is just resolvable and known as <strong>Rayleigh criterion</strong>.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Resolution
@@ -762,8 +995,12 @@
         img(src='./assets/eq2-86.png' height="60px" style="margin: -0px 0px -0px 30px;")
       .center
         img(src='./assets/fig2-46.png' height="300px" style="margin: 20px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Diffraction grating
@@ -774,16 +1011,24 @@
         img(src='./assets/eq2-87.png' height="70px" style="margin: 20px 0px -0px 0px;")
       .center
         img(src='./assets/eq2-88.png' height="70px" style="margin: 20px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Diffraction
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Diffraction grating
       p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em;") Spectra produced by white light
       .center
         img(src='./assets/fig2-48.png' height="300px" style="margin: 20px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Optical Fiber Transmission
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Total internal reflection
@@ -794,8 +1039,12 @@
         img(src='./assets/fig2-50.png' height="400px" style="margin: 20px 0px -0px 0px;")
       .center
         img(src='./assets/eq2-89B.png' height="80px" style="margin: 0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Optical Fiber Transmission
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Total internal reflection
@@ -811,22 +1060,34 @@
       //-   img(src='./assets/eq2-92B.png' height="80px" style="margin: 20px 0px -0px 0px;")
       .center
         img(src='./assets/eq2-92C.png' height="70px" style="margin: 20px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Optical Fiber Transmission
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Major refraction index configurations of optical fibers
       .center
         img(src='./assets/fig2-51.png' height="500px" style="margin: 40px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Gaussian Beam Optics
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Laser Sources
       .center
         img(src='./assets/table2-4.png' height="300px" style="margin: 100px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Gaussian Beam Optics
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Gaussian beam
@@ -836,13 +1097,21 @@
         img(src='./assets/eq2-94.png' height="100px" style="margin: 10px 0px -0px 0px;")
       .center
         img(src='./assets/eq2-95.png' height="100px" style="margin: 10px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
           li <b>Optomechatronics</b> <span class="small"> Fusion of Optical and Mechatronic Engineering</span> <br>Author: Hyungsuck Cho<br> Taylor and Francis
         p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, gustavo@gusbits.com with use of images from the above referenced book
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 </template>
 
@@ -874,7 +1143,9 @@ export default {
   },
   data: function () {
     return {
-      theme: 'Optics'
+      theme: 'Optics',
+      isSpanish: true,
+      languages: ['🇺🇸', '🇲🇽']
     }
   },
   methods: {
@@ -991,4 +1262,5 @@ export default {
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
 }
+
 </style>
