@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Unpolarized light passes through two ideal Polaroid sheets. The axis of the first is vertical, and the axis of the second is at {{ angle }}º to the vertical. What fraction of the incident light is transmitted?
+    p(v-if = '!language' style="margin: 0px 0px 0px 0px;").problem Unpolarized light passes through two ideal Polaroid sheets. The axis of the first is vertical, and the axis of the second is at {{ angle }}º to the vertical. What fraction of the incident light is transmitted?
+    p(v-if = 'language' style="margin: 0px 0px 0px 0px;").problem La luz no polarizada pasa a través de dos láminas Polaroid ideales. El eje del primero es vertical, y el eje del segundo forma {{ angle }}º con la vertical. ¿Qué fracción de la luz incidente se transmite?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Angle (in c) 
         input.center.data(:class="checkedAngle" v-model.number='enterAngle')
         <span class="error" v-if="errorAngle">[e: {{ errorAngle.toPrecision(3) }}%]</span>
@@ -14,6 +16,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterAngle: '',

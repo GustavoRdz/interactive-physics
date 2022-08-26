@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Light of wavelength {{ lambda }} nm is incident on a slit having a width of {{ a }} mm. The viewing screen is {{ l }} m from the slit. Find the width of the central bright fringe.
+    p(v-if = '!language' style="margin: 0px 0px 0px 0px;").problem Light of wavelength {{ lambda }} nm is incident on a slit having a width of {{ a }} mm. The viewing screen is {{ l }} m from the slit. Find the width of the central bright fringe.
+    p(v-if = 'language' style="margin: 0px 0px 0px 0px;").problem Una luz de {{ lambda }} nm de longitud de onda incide sobre una rendija de {{ a }} mm de ancho. La pantalla de visualización está a {{ l }} m de la rendija. Encuentra el ancho de la franja brillante central.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data &lambda; (m)
         input.center.data(:class="checkedLambda" v-model.number='enterLambda')
         <span class="error" v-if="errorLambda">[e: {{ errorLambda.toPrecision(3) }}%]</span>
@@ -21,6 +23,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterLambda: '',

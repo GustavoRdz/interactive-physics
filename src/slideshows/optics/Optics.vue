@@ -1,48 +1,45 @@
 <template lang="pug">
 #Relativity.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h1 Optics
         img(src='./assets/microres4.jpg')
         p Nature of light, geometrical optics, interference, diffraction and polarization
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
-        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
+        //- .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
       //- .prev(@click.stop='previousSlide' style="float: left;")
       //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=4, enter='bounceInRight' leave='bounceOutDown')
+    slide(enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
       .center
-        h6(v-if="step >= 2" style="color: #aa0000; margin: -10px;")
-          <b>Nature of light</b>
+        h6(style="color: #aa0000; margin: -10px;") <b>Nature of light</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
-          p(v-if="step >= 2" style="margin-bottom: -30px;")
-            <b>Ray optics, Reflection, Refraction, Dispersion</b>
-
-        h6(v-if="step>=3"  style="color: #aa0000; margin-bottom: -20px;")
-          <b>Geometrical optics</b>
+          p(style="margin-bottom: -30px;") <b>Ray optics, Reflection, Refraction, Dispersion</b>
+        h6(style="color: #aa0000; margin-bottom: -20px;") <b>Geometrical optics</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3" style="margin-bottom: -30px;")
-            <b>Flat mirrors, Spherical mirrors, Thin lenses, Optical instruments</b>
-
-        h6(v-if="step>=4"  style="color: #aa0000; margin-bottom: -20px;")
-          <b>Wave optics</b>
+          p(style="margin-bottom: -30px;") <b>Flat mirrors, Spherical mirrors, Thin lenses, Optical instruments</b>
+        h6(style="color: #aa0000; margin-bottom: -20px;") <b>Wave optics</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 4" style="margin-bottom: -30px;")
-            <b>Interference, Difraction, Polarization</b>
+          p(style="margin-bottom: -30px;") <b>Interference, Difraction, Polarization</b>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Light
       p Light or visible light is the <b>electromagnetic radiation</b> that the <b>human eye can perceive</b>.
@@ -50,57 +47,78 @@
       p Frequency range of roughly: f = <b>430–750 THz</b>.
       p Speed in vacuum, <b>c = 299,792,458 m/s</b> ~ <b>3x10<sup>8</sup> m/s</b>, is a fundamental constants of nature.
       p The <b>study of light nature</b>, known as <b>optics</b>, is an important research area in modern physics.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top:-20px;") Electromagnetic spectrum
       .center
         img(src='./assets/espectro.png' width="600px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Ray optics
       .center
         img(src='./assets/rays.png' width="200px")
       .center
         img(src='./assets/rayApproximation.png' width="700px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Types of reflection
       .center
         img(src='./assets/typeReflection.png' width="700px")
       p
         p.center Specular reflection &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Difusse reflection
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Law of reflection
       .center
         p &theta;<sup>'</sup> = &theta;
         img(src='./assets/lawReflection.png' width="300px")
         p &theta;: incident ray; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &theta;<sup>'</sup>: reflected ray
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 1
-      example-one
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-one(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Reflection applications
       .center
         img(src='./assets/reflectionApplications.png' width="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Refraction
       .center
@@ -108,58 +126,66 @@
       .center
         img(src='./assets/refraction.png' width="200px" style="margin-right:50px;")
         img(src='./assets/tableIndex.png' width="600px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Law of refraction
       .center
         img(src='./assets/snellLaw.png' width="400px" style="margin-bottom:30px;")
       .center
         img(src='./assets/refractionLaw.png' width="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 2
-      example-two
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-two(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 3
-      example-three
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-three(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Dispersion
       p For a given material, the refractive index varies with the wavelength of the light passing through the material.
       .center
         img(v-if="step >= 1" src='./assets/dispersionGraph.png' width="300px")
         img(v-if="step >= 2" src='./assets/dispersionExample.png' width="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Dispersion
       .center
         img(v-if="step >= 1" src='./assets/dispersionDrop.png' width="300px")
         img(v-if="step >= 2" src='./assets/dispersionBow.png' width="300px")
         img(v-if="step >= 3" src='./assets/dispersionRainbow.png', width="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=4, enter='bounceInDown')
+    slide(:steps=4, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Total Internal Reflection
       .center
@@ -170,17 +196,25 @@
             img(v-if="step >= 2" src='./assets/snellLaw.png' width="500px" style="margin-bottom: 30px;")
             img(v-if="step >= 3" src='./assets/snellInterna1.png' width="500px" style="margin-bottom: 30px;")
             img(v-if="step >= 4" src='./assets/snellInterna2.png' width="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Total internal reflection
       .center
         img(v-if="step >= 1" src='./assets/piscinaOlimpica.jpg' width="334px" style="margin-right: 30px;")
         img(v-if="step >= 2" src='./assets/espejismoBarco.jpg' width="400px")
         img(v-if="step >= 3" src='./assets/espejismoCarretera.jpg' width="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Total internal reflection application
       p(style="margin-top:-50px;").center Optical fiber
@@ -188,14 +222,22 @@
         img(v-if="step >= 1" src='./assets/internaFibra.png' width="310px")
         img(v-if="step >= 2" src='./assets/esquemaFibra.png' width="240px" style="margin-left: 10px;")
         img(v-if="step >= 3" src='./assets/ejemplosFibras.png' width="500px" style="margin-left: 10px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h1(style="margin-top: -10px;") Image formation
       .center
         img(src='./assets/imageFormationFront.png' width="450px" style="margin-top: -10px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -40px;") Image formation
       h4(style="margin-top: -40px;").center Flat Mirror
@@ -204,8 +246,12 @@
         img(v-if="step >= 2" src='./assets/espejoPlano2.png' width="300px" style="margin-left: 30px;")
       .center
         img(v-if="step >= 3" src='./assets/magnification.png' width="300px" style="margin-top: 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -40px;") Image formation
       h4(style="margin-top: -40px;").center Spherical mirrors
@@ -213,8 +259,12 @@
         img(v-if="step >= 1" src='./assets/concaveMirror.png' width="300px" style="margin-right: 30px;")
       .center
         img(v-if="step >= 2" src='./assets/concaveSphericalMirror.png' width="400px" style="margin-right: 30px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=4, enter='bounceInDown')
+    slide(:steps=4, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Spherical mirrors
       .center
@@ -223,8 +273,12 @@
       .center
         img(v-if="step >= 3" src='./assets/parallelConvex1.png' width="300px;")
         img(v-if="step >= 4" src='./assets/parallelConvex2.png' width="270px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Sign conventions for mirrors
       .center
@@ -256,16 +310,24 @@
               td Magnification (<b>M</b>)
               td image is <b>upright</b>.
               td image is <b>inverted</b>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Sign conventions for mirrors
       .center
         img(v-if="step >= 1"  src='./assets/trazoRayosA.png' width="400px;" style="margin-bottom:50px;")
         img(v-if="step >= 2"  src='./assets/trazoRayosB.png' width="400px;" style="margin-bottom:50px;")
         img(v-if="step >= 3"  src='./assets/trazoRayosC.png' width="400px;" style="margin-bottom:50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Spherical mirrors equation
       .center
@@ -274,21 +336,21 @@
         img(v-if="step >= 2"  src='./assets/eqFR.png' width="150px;" style="margin-bottom:50px;")
       .center
         img(v-if="step >= 3"  src='./assets/eqMirror2.png' width="300px;" style="margin-bottom:50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(:steps=1 enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 4
-      example-four
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-four(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=4, enter='bounceInDown')
+    slide(:steps=4, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Thin lenses
       .center
@@ -299,8 +361,12 @@
         p(v-if="step >= 2" style="margin-top: -40px; color: blue;") Divergent
         img(v-if="step >= 2"  src='./assets/lensDivergent.png' width="300px;" style="margin-bottom:50px;")
         img(v-if="step >= 4"  src='./assets/lensDivergent2.png' width="350px;" style="margin-bottom:50px; margin-left:40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=3, enter='bounceInDown')
+    slide(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Ray tracing
       .center
@@ -308,16 +374,24 @@
         img(v-if="step >= 2"  src='./assets/lensRays3.png' width="280px;" style="margin-bottom:50px; margin-left:40px;")
       .center
         img(v-if="step >= 3"  src='./assets/lensRays4.png' width="300px;" style="margin-bottom:50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Thin lens equation
       .center
         img(v-if="step >= 1"  src='./assets/eqMirror1.png' width="300px;" style="margin-bottom:50px;")
       .center
         img(v-if="step >= 2"  src='./assets/lensMagnification.png' width="300px;" style="margin-bottom:50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -40px;").center Sign conventions for mirrors
       .center
@@ -349,57 +423,65 @@
               td Magnification (<b>M</b>)
               td image is <b>upright</b>.
               td image is <b>inverted</b>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -10px;") Exercise 5
-      example-five
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-five(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 6
-      example-six
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-six(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=2, enter='bounceInDown')
+    slide(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h1.center Physical Optics
       h3 Wave Optics
       h6.center Interference
       h6.center Difraction
       h6.center Polarization
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center Interference
       p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
       .center
         interference
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3.center Interference
       p When two or more waves overlap, the resultant displacement at any point and at any instant is found by adding the instantaneous displacements that would be produced at the point by the individual waves if each were present alone.
       .center
         interference2
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=5, enter='bounceInDown')
+    slide(:steps=5, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top:-30px;").center Young experiment
       .center
@@ -411,8 +493,12 @@
         img(v-if="step >= 4" src='./assets/fringeDark.png' width="600px" style="margin-top:30px;")
       .center
         img(v-if="step >= 5" src='./assets/yTan.png' width="150px" style="margin-top:30px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=6, enter='bounceInDown')
+    slide(:steps=6, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h5.center Young experiment
       .center
@@ -428,23 +514,23 @@
         img(v-if="step >= 6" src='./assets/yBright.png' width="500px" style="margin-top:30px;")
       .center
         img(v-if="step >= 6" src='./assets/yDark.png' width="500px" style="margin-top:30px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -20px;") Exercise 7
       .center
         img(src='./assets/youngA.png' width="200px" style="margin-top:-30px; object-fit: cover; width: 300px; height: 210px; object-position: -40% 0;")
-      example-seven(style="margin-top: -30px;")
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-seven(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=6, enter='bounceInDown')
+    slide.boredYet(:steps=6, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
       .center
@@ -466,8 +552,12 @@
       .center
         p(v-if="step >= 6" style="color: blue; margin-top: -5px; margin-bottom: 10px") and the intensity
         img(v-if="step >= 6" src='./assets/interf10.png' width="500px" style="margin-right: 15px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=5, enter='bounceInDown')
+    slide.boredYet(:steps=5, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h5(style="margin-top: -20px;").center Intensity Distribution of the Double-Slit Interference
       .center
@@ -484,27 +574,31 @@
         img(v-if="step >= 5" src='./assets/interf13.png' width="400px" style="margin-right: 0px;")
       .center
         img(v-if="step >= 5" src='./assets/interf14.png' width="250px" style="margin-top: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 8
-      example-eight
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-eight(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: 20px;").center Diffraction
       .center
         img(src='./assets/diffraction1.jpg' width="600px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=3 enter='bounceInDown')
+    slide.boredYet(:steps=3 enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: 20px;").center Diffraction
       .center
@@ -512,8 +606,12 @@
         img(v-if="step >= 2" src='./assets/difraccion3.png' width="200px" style="margin-top: 30px;")
       .center
         img(v-if="step >= 3" src='./assets/difraccion2.png' width="600px" style="margin-top: 30px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=7, enter='bounceInDown')
+    slide.boredYet(:steps=7, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h5(style="margin-top: -20px;").center Diffraction: Single slit
       .center
@@ -528,24 +626,36 @@
         img(v-if="step >= 6" src='./assets/difraccion9.png' width="250px" style="margin-top: 40px; margin-left: 30px;")
       .center
         img(v-if="step >= 7" src='./assets/difraccion10.png' width="700px" style="margin-top: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=2, enter='bounceInDown')
+    slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Diffraction: Single slit
       .center
         img(v-if="step >= 1" src='./assets/difraccion11.png' width="400px" style="margin-top: -40px;")
       .center
         img(v-if="step >= 2" src='./assets/difraccion16.png' width="500px" style="margin-top: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=2, enter='bounceInDown')
+    slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Diffraction: Double slit
       .center
         img(v-if="step >= 1" src='./assets/difraccion15.png' width="500px" style="margin-top: -40px;")
       .center
         img(v-if="step >= 2" src='./assets/difraccion17.png' width="600px" style="margin-top: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=3, enter='bounceInDown')
+    slide.boredYet(:steps=3, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Multiple slits: diffraction grating
       .center
@@ -554,16 +664,24 @@
         img(v-if="step >= 2" src='./assets/difraccion18.png' width="600px" style="margin-top: 50px;")
       .center
         img(v-if="step >= 3" src='./assets/difraccion20.png' width="400px" style="margin-top: 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=2, enter='bounceInDown')
+    slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Diffraction applications
       .center
         img(v-if="step >= 1" src='./assets/difraccion21.png' width="300px" style="margin-top: -40px;")
       .center
         img(v-if="step >= 2" src='./assets/difraccion22.png' width="600px" style="margin-top: 10px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(:steps=4, enter='bounceInDown')
+    slide.boredYet(:steps=4, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Diffraction applications
       .center
@@ -572,41 +690,41 @@
       .center
         img(v-if="step >= 3" src='./assets/difraccion25.png' width="200px" style="margin-top: 40px; margin-right: 40px;")
         img(v-if="step >= 4" src='./assets/difraccion26.png' width="400px" style="margin-top: 40px; margin-left: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 9
-      example-nine
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-nine(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown', :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 10
-      example-ten
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-ten(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -40px;") Polarization
       .center
         img(src='./assets/polarizacion1.png' width="500px" style="margin-top: 40px; margin-right: 20px;")
         img(src='./assets/polarizacion2.png' width="255px" style="margin-top: 40px; margin-left: 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center(style="margin-top: -20px;") Polarization: Malus Law
       .center
@@ -615,21 +733,21 @@
         img(src='./assets/polarizacion4.png' width="600px")
       .center
         img(src='./assets/polarizacion5.png' width="300px" style="margin-top: 40px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 11
-      example-eleven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      example-eleven(:language="isSpanish")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
@@ -637,6 +755,10 @@
         p.center Physics for Scientist and Engineers with Modern Physics <br>9th Edition<br> Serway, Jewett
         p.small created by G. Rodríguez-Morales and spheroidGames
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
 
@@ -779,5 +901,11 @@ export default {
   .pressureFormula{
       height: 5em;
   }
+}
+
+.language {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 0px 0px 0px;
 }
 </style>

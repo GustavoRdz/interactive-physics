@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Two slits spaced {{ d }} &mu;m apart are placed {{ l }} cm from a screen and illuminated by coherent light with a wavelength of {{ lambda }} nm. The intensity at the center of the central maximum is <span>I<sub>0</sub></span><br> (a) What is the distance on the screen from the center of the central maximum to the first minimum? <br>(b) What is the distance on the screen from the center of the central maximum to the point where the intensity has fallen to {{ factor }}% of I<sub>0</sub>?
+    p(v-if = '!language' style="margin: 0px 0px 0px 0px;").problem Two slits spaced {{ d }} &mu;m apart are placed {{ l }} cm from a screen and illuminated by coherent light with a wavelength of {{ lambda }} nm. The intensity at the center of the central maximum is <span>I<sub>0</sub></span><br> <br>(a) What is the distance on the screen from the center of the central maximum to the first minimum? <br><br>(b) What is the distance on the screen from the center of the central maximum to the point where the intensity has fallen to {{ factor }}% of I<sub>0</sub>?
+    p(v-if = 'language' style="margin: 0px 0px 0px 0px;").problem Dos rendijas separadas {{ d }} &mu;m se colocan a {{ l }} cm de una pantalla y se iluminan con luz coherente con una longitud de onda de {{ lambda }} nm. La intensidad en el centro del máximo central es I<sub>0</sub> <br><br>(a) ¿Cuál es la distancia en la pantalla desde el centro del máximo central hasta el primer mínimo? <br><br>(b) ¿Cuál es la distancia en la pantalla desde el centro del máximo central hasta el punto donde la intensidad ha caído al {{ factor }}% de <span>I<sub>0</sub></span>?
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data d (m)
         input.center.data(:class="checkedD" v-model.number='enterD')
         <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
@@ -24,6 +26,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterD: '',

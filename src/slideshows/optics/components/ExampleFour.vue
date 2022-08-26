@@ -1,9 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A concave spherical mirror has a focus distance radius of curvature of magnitude {{ (2 * focus).toPrecision(4) }} cm. (a) Find the location of the image for object distances of (i) {{ (4 * focus).toPrecision(4) }} cm, (ii) {{ (2 * focus).toPrecision(4) }} cm, and (iii) {{ focus.toPrecision(4) }} cm. For each case, state whether the image is (b) real or virtual and (c) upright or inverted. (d) Find the magnification in each case.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem  A concave spherical mirror has a focus distance radius of curvature of magnitude {{ (2 * focus).toPrecision(4) }} cm. <br><br>(a) Find the location of the image for object distances of <br> &emsp;(i) {{ (4 * focus).toPrecision(4) }} cm, <br>&emsp;(ii) {{ (2 * focus).toPrecision(4) }} cm, and <br>&emsp;(iii) {{ focus.toPrecision(4) }} cm. <br><br> For each case, state whether the image is <br>(b) real or virtual and <br>(c) upright or inverted <br>(d) Find the magnification
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un espejo esférico cóncavo tiene un radio de curvatura de distancia focal de magnitud {{ (2 * focus).toPrecision(4) }} cm. <br><br>(a) Encuentre la ubicación de la imagen para distancias de objetos de <br>&emsp;(i) {{ (4 * focus).toPrecision(4) }} cm, <br>&emsp;(ii) {{ (2 * focus).toPrecision(4) }} cm y <br>&emsp;(iii) {{ focus.toPrecision(4) }} cm. <br><br>Para cada caso, indique si la imagen es <br>(b) real o virtual y <br>(c) vertical o invertida. <br>(d) Encuentre la magnificación en cada caso.
     .center
-      p.solution Please do calculations and introduce your results <span style="font-size: 14px; color: black;">some other options:infinite,none</span>
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
+      p.solution <span style="font-size: 14px; color: black;">some other options:infinite,none</span>
       p.inline.data Focus (cm)
         input.center.data(:class="checkedFocus" v-model.number='enterFocus')
         <span class="error" v-if="errorFocus">[e: {{ errorFocus.toPrecision(2) }}%]</span>
@@ -59,6 +62,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterFocus: '',

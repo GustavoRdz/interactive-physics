@@ -1,12 +1,14 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A ray of light travels from air into another medium, making an angle of &theta;<sub>1</sub> = {{ incident }}° with the normal. Find the angle of refraction &theta;<sub>2</sub> if the second medium is
-    p.problem (a) {{ materials[materialIndex[0]].material }},  n = {{ materials[materialIndex[0]].index }}<br>(b) {{ materials[materialIndex[1]].material}},  n = {{ materials[materialIndex[1]].index }}<br>(c){{ materials[materialIndex[2]].material}},  n = {{ materials[materialIndex[2]].index }}
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A ray of light travels from air into another medium, making an angle of &theta;<sub>1</sub> = {{ incident }}° with the normal. Find the angle of refraction &theta;<sub>2</sub> if the second medium is
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un rayo de luz viaja del aire a otro medio, formando un ángulo de &theta;<sub>1</sub> = {{ incident }}° con la normal. Encuentre el ángulo de refracción &theta;<sub>2</sub> si el segundo medio es
+    p(style="margin: 25px 0px 0px 0px;").problem (a) {{ materials[materialIndex[0]].material }},  n = {{ materials[materialIndex[0]].index }}<br>(b) {{ materials[materialIndex[1]].material}},  n = {{ materials[materialIndex[1]].index }}<br>(c) {{ materials[materialIndex[2]].material}},  n = {{ materials[materialIndex[2]].index }}
     .center
-      img(src='../assets/example2.png' width="200px" style="margin: -80px 0 50px 200px;")
+      img(src='../assets/example2.png' width="200px" style="margin: 20px 0 20px 0px;")
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Incidence angle (degrees)
         input.center.data(:class="checkedIncident" v-model.number='enterIncident')
         <span class="error" v-if="errorIncident">[e: {{ errorIncident.toPrecision(2) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterIncident: '',
@@ -147,9 +152,9 @@ export default {
 .problem {
   margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  font-size: 30px;
   color: blue;
-  width: 100%;
+  width: 90%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

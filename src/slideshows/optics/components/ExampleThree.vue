@@ -1,11 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A laser beam is incident on a prism perpendicular to one of its faces as shown in figure. The transmitted beam that exits the hypotenuse of the prism makes an angle of {{ angle }}º with the direction of the incident beam. Find the index of refraction of the prism.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A laser beam is incident on a prism perpendicular to one of its faces as shown in figure. The transmitted beam that exits the hypotenuse of the prism makes an angle of {{ angle }}º with the direction of the incident beam. Find the index of refraction of the prism.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un rayo láser incide sobre un prisma perpendicular a una de sus caras como se muestra en la figura. El haz transmitido que sale de la hipotenusa del prisma forma un ángulo de {{ angle }}º con la dirección del haz incidente. Encuentre el índice de refracción del prisma.
     .center
       img(src='../assets/example3.png' width="200px")
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Incidence angle (degrees)
         input.center.data(:class="checkedIncident" v-model.number='enterIncident')
         <span class="error" v-if="errorIncident">[e: {{ errorIncident.toPrecision(2) }}%]</span>
@@ -20,6 +22,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterIncident: '',

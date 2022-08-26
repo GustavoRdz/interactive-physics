@@ -6,13 +6,13 @@
         h1 Wave Motion
         img(src='./assets/U.svg')
         p Propagation of oscillations
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
       //- .prev(@click.stop='previousSlide' style="float: left;")
       //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide

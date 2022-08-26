@@ -1,49 +1,50 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
-        h1 Temperature and heat
-        img(src='./assets/U.svg' :mouseNavigation='false')
-      p4 Temperature, Heat, Calorimetry and Heat Transfer
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
+        h2 Temperature and heat
+        img(src='./assets/U.svg')
+        p Temperature, Heat, Calorimetry and Heat Transfer
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+        //- .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 0px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=8, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 2")
-            <b>Thermal Equilibrium</b>
+          p <b>Thermal Equilibrium</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 3")
-            <b>Thermometers and Temperature Scales</b>
+          p <b>Thermometers and Temperature Scales</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 4")
-            <b>Gas Thermometers and the Kelvin Scale</b>
+          p <b>Gas Thermometers and the Kelvin Scale</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 5")
-            <b>Thermal Expansion</b>
+          p <b>Thermal Expansion</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 6")
-            <b>Quantity of Heat</b>
+          p <b>Quantity of Heat</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 7")
-            <b>Calorimetry and Phase Changes</b>
+          p <b>Calorimetry and Phase Changes</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 8")
-            <b>Mechanisms of Heat Transfer</b>
+          p <b>Mechanisms of Heat Transfer</b>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Temperature and Heat
       p What is <em><strong>temperature</strong></em> ?
@@ -51,80 +52,110 @@
       p When measuring tempetature usually hold two objects in thermal contact. One of these objects use to be a thermometer <em> <strong>termometer</strong></em>
       p It is common to wait a long period of time (minutes) before get the correct measutement because reaching the <em><strong>thermal equilibrium</strong></em> is a slow process
       p Once the thermal equilibrium is reached the thermometer has the same temperature as the object to measure and its calibration allows to get the temperature of the object in it's scale
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown', :mouseNavigation='false')
+    slide(enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Thermal equilibrium
         .center
           equilibrio-termico
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermometer
       p If a physical quantity varies with heat, it can be used to measure temperature
       .center
         img(src='./assets/equations/thermometers.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-
-
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center The zeroth law of thermodynamics
       p If <em><strong>C</strong></em> is initially in thermal equilibrium with both <em><strong>A</strong></em> and <em><strong>B</strong></em>, then <em><strong>A</strong></em> and <em><strong>B</strong></em> are also in thermal equilibrium with each other.
       .center
         img(src='./assets/equations/zerothLaw.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Celsius temperature scale.</strong></em>  Celsius takes the melting (as T = 0&#x00B0; C) and boiling (T = 100&#x00B0; C) point of water as the reference points and then added one hundred equally spaced marks (degrees) between the reference points.
         .center
           img(src='./assets/equations/celsiusScale.svg')
+        .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+          span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+        .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+          span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Fahrenheit temperature scale.</strong></em>  The melting point of water is at 32&#x00B0;F and the boling point at 212&#x00B0; F. Then we have 180 degrees between the reference points
         .center
           img(src='./assets/equations/fahrenheitScale.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Conversion between Celsius and Fahrenheit
       .center
           img(src='./assets/equations/celsiusToFahrenheit.svg')
       .center
           img(src='./assets/equations/fahrenheitToCelsius.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Thermometers and its scales
       p  <em><strong>Kelvin temperature scale</strong></em> and the gas thermometer
         .center
           img(src='./assets/equations/constantVolumeGasThermometer.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 1
       example-one
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Thermal expansion
       p Most materials expand when their temperatures increase
       h5.center Linear expansion
       .center
           img(src='./assets/equations/linearExpansion.svg')
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Linear expansion
       p.center(style="font-family: serif;") &#x394;<em>L</em> = &#x03B1;<em>L</em><sub>0</sub>&#x394;<em>T</em>
@@ -159,8 +190,12 @@
               tr
                 td Steel
                 td 1.1 x 10<sup>-5</sup>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Volume expansion
       p.center(style="font-family: serif;") &#x394;<em>V</em> = <em>&#x03B2;</em><em>V</em><sub>0</sub>&#x394;<em>T</em>
@@ -195,73 +230,57 @@
               tr
                 td Steel
                 td 3.3 x 10<sup>-5</sup>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 2
       example-two
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3 Exercise 3
       example-three
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 4
       example-four(style="margin:-30px 0 0 0;")
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 5
       example-five
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 6
       example-six
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Quantity of heat
       //- quantity-of-heat
@@ -271,29 +290,33 @@
       p.center <strong>1 cal = 4.186 J</strong>
       p.center <strong>1 kcal = 1000 cal = 4186 J</strong>
       p.center <strong>1 Btu = 778 ft·lb = 252 cal = 1055 J</strong>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 7
       example-seven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       p The quantity of heat <strong><em>Q</em></strong> required to increase the temperature of a mass <strong><em>m</em></strong> of a certain material from <strong><em>T<sub>1</sub></em></strong> to <strong><em>T<sub>2</sub></em></strong> is proportional to the temperature change &#x394;<strong><em>T</em></strong> = <strong><em>T<sub>2</sub></em></strong> - <strong><em>T<sub>1</sub></em></strong>. It is also proportional to the mass <strong><em>m</em></strong> of the material
       p.center <strong><em>Q</em></strong> = <strong><em>m</em></strong><strong><em>c</em></strong>&#x394;<strong><em>T</em></strong>
       p(style="color: peru;").center Heat required for temperature change &#x394;<strong><em>T</em></strong> of mass <strong><em>m</em></strong>
       p where <strong><em>c</em></strong> is a quantity, different for different materials, called the <strong>specifc heat</strong> of the material.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Specific heat
       .centered
@@ -342,14 +365,22 @@
               tr
                 td Water (liquid)
                 td 4190
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p One technique for measuring specific heat involves heating a sample to some known temperature <strong><em>T<sub>x</sub></em></strong>, placing it in a vessel containing water of known mass and temperature <strong><em>T<sub>w</sub></em></strong><<strong><em>T<sub>x</sub></em></strong>, and measuring the temperature of the water after equilibrium has been reached.
       p This technique is called <strong><em>calorimetry</em></strong>, and devices in which this energy trasfer occurs are called <strong><em>calorimeters</em></strong>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Calorimetry
       p.center <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;" >cold</sub> + <strong><em>Q</em></strong><sub style="font-size: 15px; font-weight: bold;">hot</sub> = 0
@@ -367,31 +398,35 @@
 
           </g>
         </svg>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 8
       example-eight
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       p <strong><em>Phase</em></strong> refers to the materia state: solid, liquid and gas
       p A transition between the materia states is called <strong><em>Phase change</em></strong>
       p Heat transfer in a phase change of a material is proportional to its mass
       p.center <strong><em>Q = &#x00B1; mL</em></strong>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase changes of water
       .center
@@ -434,8 +469,12 @@
 
           </g>
         </svg>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Phase change
       .centered
@@ -532,34 +571,30 @@
                 td 134 x 10<sup>3</sup>
                 td 1187
                 td 5069 x 10<sup>3</sup>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 9
       example-nine
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 10
       example-ten
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Mechanisms of heat transfer
       h5 Conduction, H: heat current
@@ -658,8 +693,12 @@
             <text x="260" y="30" font-family="times" font-size="30" font-style="italic">2L <tspan font-style="normal">&#x21D2;</tspan> H / 2 </text>
           </g>
         </svg>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}</sup>
       h4.center Heat current in conduction
       .center
@@ -749,8 +788,12 @@
                 td 1.6
                 td Diamond
                 td 2300
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Thermal resistance: <strong>R</strong>
       .center
@@ -782,47 +825,39 @@
             <text x="65" y="139" font-family="times" font-size="30" font-style="italic">k</text>
           </g>
         </svg>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 11
       example-eleven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 12
       example-twelve
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Exercise 13
       example-thirteen
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Convection
       p <strong>Convection</strong> is the transfer of heat by mass motion of a fluid from one region of space to another.
@@ -831,17 +866,25 @@
         li The heat current due to convection is directly proportional to the surface area.
         li The viscosity of fluids slows natural convection near a stationary surface, giving a surface film that on a vertical surface typically has about the same insulating value as 1.3 cm of plywood. Forced convection decreases the thickness of this film, increasing the rate of heat transfer.
         li The heat current due to convection is found to be approximately proportional to the 5 power of the temperature difference between the surface and the main body of fluid.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4.center Radiation
       p <strong>Radiation</strong> is the transfer of heat by electromagnetic waves such as visible light, infrared, and ultraviolet radiation.
       p The heat current <strong>H = dQ/dt</strong> due to radiation from a surface area <strong>A</strong> with emissivity <strong>e</strong> at absolute temperature <strong>T</strong> can be expressed as
       p.center <strong>H = Ae&#x03c3;T<sup>4</sup></strong>
       p where <strong>&#x03C3; = 5.6704x10<sup>-8</sup> W/m<sup>2</sup> · K<sup>4</sup></strong>,  is the Stefan–Boltzmann constant.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
@@ -849,11 +892,15 @@
         p Physics for scientist and engineers 8th Edition. Serway, Jewett
         p.small created by G. Rodríguez-Morales and spheroidGames
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4.center Fun soon!
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4.center Fun soon!
 </template>
 
 <script>

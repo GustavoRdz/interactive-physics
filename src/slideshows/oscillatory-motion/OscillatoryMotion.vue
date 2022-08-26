@@ -5,8 +5,8 @@
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
-        h2(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Oscillatory Motion
-        h2(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Movimiento oscilatorio
+        h2(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") Oscillatory Motion
+        h2(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") Movimiento oscilatorio
         // img(src='./assets/frontImage.svg')
         img(src='./assets/U.svg')
         // spring-mass
@@ -25,7 +25,7 @@
         //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
       .next(@click.stop='nextSlide' style="float: right;")
-          span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

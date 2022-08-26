@@ -1,24 +1,28 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
         h2 Electric conductivity
         img(src='./assets/frontImage.svg')
 
         h4 Electric conductivity
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3
         | Topics
@@ -30,16 +34,24 @@
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
             <b>Direct-Current Circuits</b><br><span style="font-size: 0.8em;">Electromotive Force, Resistors in Series and Parallel, Kirchhoff’s Rules, RC Circuits, Household Wiring and Electrical Safety.</span>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;      
     
          
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Current and resistance
       p In this section, we study the flow of electric charges through a piece of material. The amount of flow depends on both the material through which the charges are passing and the potential difference across the material. Whenever there is a net flow of charge through some region, an electric current is said to exist.
       .center
         img(src='./assets/fig27-1.png' height="250px" style="margin: -0px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false')
+    slide(enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Electric current
       p.center The <b>current</b> is defined as the rate at which charge flows through this surface. If &Delta;Q is the amount of charge that passes through this surface in a time interval &Delta;t, the <b>average current I<sub>avg</sub></b> is equal to the charge that passes through A per unit time
@@ -51,8 +63,12 @@
       p The SI unit of current is the ampere (A): 
       .center
         img(src='./assets/eq27-3.png' height="50px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistance
       p(style="margin: 0px 20px 0 0;") Consider a conductor of cross-sectional area A carrying a current I. The current density J in the conductor is defined as the current per unit area. Because the current I = nqvdA, the current density is
@@ -63,8 +79,12 @@
         img(src='./assets/eq27-6.png' height="60px" style="margin: 20px 0px 0 0;")
       p Ohm’s law states the following
       p(style="margin: -30px 20px 0 0; padding: 5px; border: solid 1px;" ) For many materials (including most metals), the ratio of the current density to the electric field is a constant s that is independent of the electric field producing the current.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistance
       .center
@@ -79,8 +99,12 @@
         img(src='./assets/eq27-6F.png' height="70px" style="margin: 20px 0px 0 0px;")
       .center
         img(src='./assets/eq27-7.png' height="80px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistance
       p One volt per ampere is defined to be one ohm (&Omega;):
@@ -89,8 +113,12 @@
       .center
         img(src='./assets/fig27-6.png' height="300px" style="margin: 70px 55px 0 0;")
         img(src='./assets/table27-1.png' height="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistance
       p(style="margin: -0px 0px -0px 0px; font-size: 1em;") The inverse of conductivity is the resistivity
@@ -99,34 +127,30 @@
       p(style="margin: 30px 0px -0px 0px; font-size: 1em;") where &rho; has the units ohm·meters (V·m). Because R = l/&sigma;A, we can express the resistance of a uniform block of material along the length , as
       .center
         img(src='./assets/eq27-10.png' height="70px" style="margin: 50px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 1
       example-one
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 2
       example-two
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistors in series and parallel
       p(style="margin: 0px 0px 0px 0px; font-size: 1.3em;") <b>Resistors in series</b>
@@ -142,8 +166,12 @@
         img(src='./assets/eq28-5.png' height="50px" style="margin: 0px 0px 0px 0px;")
       .center
         img(src='./assets/eq28-6.png' height="40px" style="margin: 0px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Resistors in parallel
       .center
@@ -158,47 +186,39 @@
         img(src='./assets/eq28-7.png' height="50px" style="margin: 10px 0px 0px 0px;")
       .center  
         img(src='./assets/eq28-8.png' height="50px" style="margin: 10px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 3
       example-three
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 4
       example-four
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 5
       example-five
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Kirchhoff's rules
       p(style="margin: 20px 0px 0 0;") <b>Junction rule</b>. At any junction, the sum of the currents must equal zero
@@ -207,41 +227,41 @@
       p(style="margin: 20px 0px 0 0;") <b>Loop rule</b>. The sum of the potential differences across all elements around any closed circuit loop must be zero:
       .center
         img(src='./assets/eq28-10.png' height="50px"  style="margin: 30px 0px 0 0")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       p(style="margin-top: -10px;").center Kirchhoff's rules
       p.center Rules for determining the potential differences across a resistor and a battery.
       .center
         img(src='./assets/fig28-13.png' height="550px"  style="margin-right: 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 6
       example-six
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 7
       example-seven
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center RC circuits
       p(style="margin-top: -30px;").center Charging a capacitor
@@ -256,8 +276,12 @@
         img(src='./assets/eq28-12.png' height="50px")
       .center
         img(src='./assets/eq28-13.png' height="40px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -10px;").center Analytical expressions for the time dependence of the charge
       p(style="margin-top: -30px;").center
@@ -274,8 +298,12 @@
         img(src='./assets/eq28-13H.png' height="70px" style="margin: 20px 0px 0px 0px;")
       .center
         img(src='./assets/eq28-14.png' height="50px" style="margin: 20px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Charging a capacitor
       .center
@@ -286,8 +314,12 @@
         img(src='./assets/eq28-16.png' height="40px" style="margin: 20px 0px 0px 0px;")
       .center
         img(src='./assets/fig28-17.png' height="350px" style="margin: 20px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center Discharging a capacitor
       .center
@@ -305,32 +337,28 @@
       .center
         img(src='./assets/eq28-18.png' height="50px" style="margin: 40px 30px 0px 0px;")
         img(src='./assets/eq28-19.png' height="60px" style="margin: 40px 0px -5px 30px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 8
       example-eight
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 9
       example-nine
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -368,8 +396,12 @@
         h3 References
         p University Physics 13th Edition. Searzs and Zemanzky
         p Physics for scientist and engineers 8th Edition. Serway, Jewett
-        p.small created by G. Rodríguez-Morales and spheroidGames
-        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+        p.small created by G. Rodríguez-Morales
+        p.small gustavo.rodriguezml@gmail.com
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 </template>
 

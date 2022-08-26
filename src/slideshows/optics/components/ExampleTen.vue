@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Monochromatic light with λ = {{ lambda }}nm is incident normally on a diffraction grating containing {{ N }} grooves per centimeter. Find the angles at which the first-, second- and third-order maxima are observed.
+    p(v-if = '!language' style="margin: 0px 0px 0px 0px;").problem Monochromatic light with λ = {{ lambda }}nm is incident normally on a diffraction grating containing {{ N }} grooves per centimeter. Find the angles at which the first-, second- and third-order maxima are observed.
+    p(v-if = 'language' style="margin: 0px 0px 0px 0px;").problem La luz monocromática con λ = {{ lambda }} nm incide normalmente en una rejilla de difracción que contiene {{ N }} surcos por centímetro. Encuentre los ángulos en los que se observan los máximos de primer, segundo y tercer orden.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data λ (m)
         input.center.data(:class="checkedLambda" v-model.number='enterLambda')
         <span class="error" v-if="errorLambda">[e: {{ errorLambda.toPrecision(3) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterLambda: '',

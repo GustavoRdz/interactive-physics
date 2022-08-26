@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A viewing screen is separated from a double slit by {{ L }} m. The distance between the two slits is {{ d }} &mu;m. Monochromatic light is directed toward the double slit and forms an interference pattern on the screen. The {{ order }} {{ kindLegend }} fringe is {{ y }} cm from the center line on the screen. <br>a) Determine the wavelength of the light <br>b) Calculate the distance between adjacent bright fringes.
+    p(v-if = '!language' style="margin: 50px 0px 0px 0px;").problem A viewing screen is separated from a double slit by {{ L }} m. The distance between the two slits is {{ d }} &mu;m. Monochromatic light is directed toward the double slit and forms an interference pattern on the screen. The {{ order }} {{ kindLegend }} fringe is {{ y }} cm from the center line on the screen. <br><br>a) Determine the wavelength of the light <br>b) Calculate the distance between adjacent bright fringes.
+    p(v-if = 'language' style="margin: 50px 0px 0px 0px;").problem Una pantalla de visualización está separada de una doble rendija por {{ L }} m. La distancia entre las dos rendijas es de {{ d }} &mu;m. La luz monocromática se dirige hacia la doble rendija y forma un patrón de interferencia en la pantalla. La franja {{ kindLeyenda }} de {{ orden }} orden está a {{ y }} cm de la línea central de la pantalla. <br><br>a) Determinar la longitud de onda de la luz <br>b) Calcular la distancia entre franjas brillantes adyacentes.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data L (m)
         input.center.data(:class="checkedL" v-model.number='enterL')
         <span class="error" v-if="errorL">[e: {{ errorL.toPrecision(2) }}%]</span>
@@ -27,6 +29,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterL: '',
@@ -42,7 +47,9 @@ export default {
       enterDy: '',
       errorDy: 0,
       orderList: ['first', 'second', 'third', 'fourth', 'fifth'],
-      kindList: ['bright', 'dark']
+      kindList: ['bright', 'dark'],
+      orderLista: ['primer', 'segundo', 'tercero', 'cuarto', 'quinto'],
+      kindLista: ['brillante', 'oscura']
     }
   },
   computed: {
@@ -70,11 +77,17 @@ export default {
     order: function () {
       return this.orderList[this.m - 1]
     },
+    orden: function () {
+      return this.orderLista[this.m - 1]
+    },
     kind: function () {
       return Math.floor(2 * Math.random())
     },
     kindLegend: function () {
       return this.kindList[this.kind]
+    },
+    kindLeyenda: function () {
+      return this.kindLista[this.kind]
     },
     lambda: function () {
       // console.log(parseFloat((this.y * this.d / ((this.m + this.kind * 0.5) * this.L)).toPrecision(3)))

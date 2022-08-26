@@ -531,7 +531,6 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(v-if = '!isSpanish' style="margin: -20px 0px 0px 0px;").center Aberration
       h5(v-if = 'isSpanish' style="margin: -20px 0px 0px 0px;").center Aberración 
-      h6(style="margin-top: -0px;").center  
       p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") An exact ray tracing in actual case would cause departures from the predictions with the paraxial description. 
       p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Un trazado de rayos exacto en el caso real provocaría desviaciones de las predicciones con la descripción paraxial. 
       p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") For example, it will no longer be generally true that all the rays leaving a point object will meet an image, as we shall see later. 
@@ -561,11 +560,16 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Spherical Aberration
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Spherical aberration is one of the most common aberrations in lenses. If all rays emanating from a point source S, not exclusive of rays reflected by a larger lens aperture are assumed to impinge on a convex lens, the image formed can be represented as the point P due to paraxial rays and the point P' due to nonparaxial rays.
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") The axial distance between points P and P', is known as the longitudinal spherical aberration. 
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The height above the axis PT is called the transverse spherical aberration.
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") The amount of spherical aberration for fixed focal length and aperture is influenced by both the object distance and the lens shape. 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Spherical Aberration
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Aberración esférica
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Spherical aberration is one of the most common aberrations in lenses. If all rays emanating from a point source S, not exclusive of rays reflected by a larger lens aperture are assumed to impinge on a convex lens, the image formed can be represented as the point P due to paraxial rays and the point P' due to nonparaxial rays.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La aberración esférica es una de las aberraciones más comunes en las lentes. Si se supone que todos los rayos que emanan de una fuente puntual S, sin excluir los rayos reflejados por una lente de mayor apertura, inciden en una lente convexa, la imagen formada puede representarse como el punto P debido a los rayos paraxiales y el punto P' debido a rayos no paraxiales.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") The axial distance between points P and P', is known as the longitudinal spherical aberration. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La distancia axial entre los puntos P y P', se conoce como aberración esférica longitudinal.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") The height above the axis PT is called the transverse spherical aberration.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La altura sobre el eje PT se denomina aberración esférica transversal.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") The amount of spherical aberration for fixed focal length and aperture is influenced by both the object distance and the lens shape. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La cantidad de aberración esférica para la distancia focal y la apertura fijas está influenciada tanto por la distancia del objeto como por la forma de la lente.
       .center
         img(src='./assets/fig2-20.png' width="450px" style="margin: 30px 20px -0px 20px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
@@ -575,14 +579,18 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Coma Aberration
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Coma refers to the variation of magnification with aperture. When a bundle of rays is incident obliquely on a lens.
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") The rays passing through the outer zones of the lens form a larger image than the rays through the center portion. The coma of the lens, h<sub>com</sub>, is defined by 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Coma Aberration
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Aberración de coma
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Coma refers to the variation of magnification with aperture. When a bundle of rays is incident obliquely on a lens.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Coma se refiere a la variación del aumento con la apertura. Cuando un haz de rayos incide oblicuamente sobre una lente.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") The rays passing through the outer zones of the lens form a larger image than the rays through the center portion. The coma of the lens, <span style="font-family: Times New Roman; font-style: italic;">h</span><span style="font-family: Times New Roman;"><sub>com</sub></span>, is defined by 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Los rayos que atraviesan las zonas exteriores de la lente forman una imagen más grande que los rayos que atraviesan la parte central. La coma de la lente, <span style="font-family: Times New Roman; font-style: italic;">h</span><span style="font-family: Times New Roman;"><sub>com</sub></span>, está definida por
       .center
         img(src='./assets/eq2-36G.png' height="50px" style="margin: -20px 20px 10px 0px;")
-      p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") where h<sub>p</sub> The image has a form which is something like the shape of a comet with its tail, therefore this aberration is named comet. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") where <span style="font-family: Times New Roman; font-style: italic;">h</span><span style="font-family: Times New Roman;"><sub>p</sub></span> The image has a form which is something like the shape of a comet with its tail, therefore this aberration is named comet. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") donde <span style="font-family: Times New Roman; font-style: italic;">h</span><span style="font-family: Times New Roman;"><sub>p</sub></span> La imagen tiene una forma que es algo así como la forma de un cometa con su cola, por lo tanto, esta aberración se llama cometa.
       .center
-        img(src='./assets/fig2-21.png' height="300px" style="margin: 0px 20px -0px 0px;")
+        img(src='./assets/fig2-21.png' width="500px" style="margin: 0px 20px -0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -590,13 +598,18 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Field curvature
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Curvature of field is the aberration of a lens that cannot transform a plane object into a precisely plane image.
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") In other words, object points lying in a plane are imaged onto a curved surface when field curvature is present. 
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") This curvature of field is known as Petzval field curvature. 
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") This surface depends on the focal length of the individual lens components and on their refractive indices, as we might expect. 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Field curvature
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Curvatura de campo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Curvature of field is the aberration of a lens that cannot transform a plane object into a precisely plane image.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La curvatura de campo es la aberración de una lente que no puede transformar un objeto plano en una imagen exactamente plana.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") In other words, object points lying in a plane are imaged onto a curved surface when field curvature is present. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") En otras palabras, los puntos del objeto que se encuentran en un plano se reflejan en una superficie curva cuando la curvatura del campo está presente.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") This curvature of field is known as Petzval field curvature. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Esta curvatura de campo se conoce como curvatura de campo de Petzval.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") This surface depends on the focal length of the individual lens components and on their refractive indices, as we might expect. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Esta superficie depende de la distancia focal de los componentes individuales de la lente y de sus índices de refracción, como cabría esperar.
       .center
-        img(src='./assets/fig2-22.png' height="250px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig2-22.png' width="500px" style="margin: 20px 20px -0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -604,12 +617,16 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Astigmatism
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Astigmatism occurs when an object point lies far distant from the optical axis and, therefore, the incident cone of rays strikes the lens asymmetrically. 
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") This aberration occurs mainly because off-axis object rays are in different axial sections of the lens, resulting in two slightly different focuses; tangential (meridional) and sagittal (radial). 
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") When an incident cone of rays strikes obliquely, there occur two distinct focal lengths: one in the meridional plane and the other in the sagittial plane. 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Astigmatism
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Astigmatismo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Astigmatism occurs when an object point lies far distant from the optical axis and, therefore, the incident cone of rays strikes the lens asymmetrically. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") El astigmatismo ocurre cuando el punto de un objeto se encuentra lejos del eje óptico y, por lo tanto, el cono de rayos incidente incide en la lente de forma asimétrica. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") This aberration occurs mainly because off-axis object rays are in different axial sections of the lens, resulting in two slightly different focuses; tangential (meridional) and sagittal (radial). 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Esta aberración ocurre principalmente porque los rayos del objeto fuera del eje se encuentran en diferentes secciones axiales de la lente, lo que da como resultado dos focos ligeramente diferentes; tangencial (meridional) y sagital (radial).
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") When an incident cone of rays strikes obliquely, there occur two distinct focal lengths: one in the meridional plane and the other in the sagittial plane. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Cuando un cono de rayos incidente incide oblicuamente, se producen dos distancias focales distintas: una en el plano meridional y la otra en el plano sagital. 
       .center
-        img(src='./assets/fig2-23.png' height="300px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig2-23.png' width="100%" style="margin: 0px 0px -0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -617,15 +634,18 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Distortion
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Distortion occurs because focal length and lateral magnification more or less vary with different distance from the optical axis. 
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") Te lateral magnification M<sub>t</sub> may be a function of the distance from the optical axis. 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Distortion
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Distorsión
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Distortion occurs because focal length and lateral magnification more or less vary with different distance from the optical axis. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La distorsión se produce porque la distancia focal y el aumento lateral varían más o menos con las diferentes distancias desde el eje óptico.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") The lateral magnification M<sub>t</sub> may be a function of the distance from the optical axis. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") El aumento lateral Mt puede ser una función de la distancia desde el eje óptico. 
       .center
-        img(src='./assets/eq2-37.png' height="60px" style="margin: -10px 20px -0px 0px;")
+        img(src='./assets/eq2-37.png' width="300px" style="margin: -10px 20px -0px 0px;")
       .center
-        img(src='./assets/fig2-24.png' height="200px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig2-24.png' width="500px" style="margin: 20px 20px -0px 0px;")
       .center
-        img(src='./assets/fig2-25.png' height="200px" style="margin: 20px 20px -0px 0px;")
+        img(src='./assets/fig2-25.png' width="500px" style="margin: 20px 20px -0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -633,12 +653,14 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Distortion
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Distortion with a stop
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Distortion
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Distorsión
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Distortion with a stop
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Distorsión con stop
       .center
-        img(src='./assets/fig2-26.png' height="206px" style="margin: 10px 20px -0px 0px;")
+        img(src='./assets/fig2-26.png' width="100%" style="margin: 10px 20px -0px 0px;")
       .center
-        img(src='./assets/fig2-26B.png' height="200px" style="margin: 10px 20px -0px 0px;")
+        img(src='./assets/fig2-26B.png' width="100%" style="margin: 10px 20px -0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -646,14 +668,18 @@
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center  Polarization
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") A light wave is oscillating as a transverse electromagnetic wave.
-      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") Polarization of the wave is a process of characterizing the orientation of such wave oscillation in both time and space. 
+      h5(v-if = '!isSpanish' style="margin: -20px 0px 20px 0px;").center Polarization
+      h5(v-if = 'isSpanish' style="margin: -20px 0px 20px 0px;").center Polarización
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") A light wave is oscillating as a transverse electromagnetic wave.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Una onda de luz oscila como una onda electromagnética transversal.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") Polarization of the wave is a process of characterizing the orientation of such wave oscillation in both time and space. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 20px 0px; line-height: 1.2em;") La polarización de la onda es un proceso de caracterización de la orientación de dicha oscilación de onda tanto en el tiempo como en el espacio.
       .center
-        img(src='./assets/fig2-27.png' height="300px" style="margin: -0px 20px -0px 0px;")
-      p Maximum amount of polarization at
+        img(src='./assets/fig2-27.png' width="100%" style="margin: 0px 0px 0px 0px;")
+      p(v-if = '!isSpanish' style="margin: 20px 0px 20px 0px; line-height: 1.2em;") Maximum amount of polarization at
+      p(v-if = 'isSpanish' style="margin: 20px 0px 20px 0px; line-height: 1.2em;") Cantidad máxima de polarización en
       .center
-        img(src='./assets/eq2-38.png' height="80px" style="margin: -20px 20px -0px 0px;")
+        img(src='./assets/eq2-38.png' width="180px" style="margin: 0px 0px 0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -1315,6 +1341,12 @@ export default {
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+.language {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0px 0px 0px 0px;
 }
 
 </style>

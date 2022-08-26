@@ -1,12 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The two mirrors meet at a right angle. The beam of light in the vertical plane indicated by the dashed lines strikes mirror at an angle {{ angle }}º and d = {{ d }}cm. (a) Determine the distance the reflected light beam travels before striking mirror 2. (b) In what direction does the light beam travel after being reflected from mirror 2?
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem The two mirrors meet at a right angle. The beam of light in the vertical plane indicated by the dashed lines strikes mirror at an angle {{ angle }}º and d = {{ d }} cm. (a) Determine the distance the reflected light beam travels before striking mirror 2. (b) In what direction does the light beam travel after being reflected from mirror 2?
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Los dos espejos se encuentran en un ángulo recto. El haz de luz en el plano vertical indicado por las líneas punteadas incide en el espejo con un ángulo de {{ angle }}º y d = {{ d }} cm. (a) Determine la distancia que viaja el haz de luz reflejado antes de golpear el espejo 2. (b) ¿En qué dirección viaja el haz de luz después de ser reflejado en el espejo 2?
     .center
       img(src='../assets/example1.png' width="200px")
-
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Incident angle 1 (degrees)
         input.center.data(:class="checkedAngle1" v-model='enterAngle1')
         <span class="error" v-if="errorAngle1">[e: {{ errorAngle1.toPrecision(2) }}%]</span>
@@ -24,6 +25,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterAngle1: '',

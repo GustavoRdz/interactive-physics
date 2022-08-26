@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ h1 }}-cm-tall object is {{ p1 }} cm to the left of a converging lens of focal length {{ f1 }} cm. A second converging lens, this one having a focal length of {{ f2 }} cm, is located {{ distance }} cm to the right of the first lens along the same optic axis. Find the location, height and magnification of the final image.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A {{ h1 }}-cm-tall object is {{ p1 }} cm to the left of a converging lens of focal length {{ f1 }} cm. <br>A second converging lens, this one having a focal length of {{ f2 }} cm, is located {{ distance }} cm to the right of the first lens along the same optic axis. <br>Find the location, height and magnification of the final image.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un objeto de {{ h1 }} cm de altura está {{ p1 }} cm a la izquierda de una lente convergente de {{ f1 }} cm de distancia focal. <br>Una segunda lente convergente, esta de {{ f2 }} cm de distancia focal, está situada {{ distance }} cm a la derecha de la primera lente a lo largo del mismo eje óptico. <br>Encuentre la ubicación, la altura y la ampliación de la imagen final.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 30px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 30px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data h<sub>1</sub> (cm)
         input.center.data(:class="checkedH1" v-model.number='enterH1')
         <span class="error" v-if="errorH1">[e: {{ errorH1.toPrecision(2) }}%]</span>
@@ -46,6 +48,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterH1: '',

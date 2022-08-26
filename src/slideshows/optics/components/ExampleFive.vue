@@ -1,9 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A converging lens has a focal length of {{ focus.toPrecision(4) }} cm. Locate the object if a real image is located at a distance from the lens of (a) {{ (2 * focus).toPrecision(4) }} cm and (b) {{ (5* focus).toPrecision(4) }} cm. What If? Redo the calculations if the images are virtual and located at a distance from the lens of (c) {{ (2 * focus).toPrecision(4) }} cm and (d) {{ (5 * focus).toPrecision(4) }} cm.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A converging lens has a focal length of {{ focus.toPrecision(4) }} cm. Locate the object if a real image is located at a distance from the lens of <br><br>(a) {{ (2 * focus).toPrecision(4) }} cm and <br>(b) {{ (5* focus).toPrecision(4) }} cm. <br><br>What If? Redo the calculations if the images are virtual and located at a distance from the lens of <br><br>(c) {{ (2 * focus).toPrecision(4) }} cm and <br>(d) {{ (5 * focus).toPrecision(4) }} cm.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Una lente convergente tiene una distancia focal de {{ focus.toPrecision(4) }} cm. Ubique el objeto si una imagen real se encuentra a una distancia de la lente de <br><br>(a) {{ (2 * focus).toPrecision(4) }} cm y <br>(b) {{ (5* focus).toPrecision(4) }} cm. <br><br>¿Y si? Rehaga los cálculos si las imágenes son virtuales y están ubicadas a una distancia de la lente de <br><br>(c) {{ (2 * focus).toPrecision(4) }} cm y <br>(d) {{ (5 * focus).toPrecision(4) }} cm.
     .center
-      p.solution Please do calculations and introduce your results
+      p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
+      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
       p.inline.data Focus (cm)
         input.center.data(:class="checkedFocus" v-model.number='enterFocus')
         <span class="error" v-if="errorFocus">[e: {{ errorFocus.toPrecision(2) }}%]</span>
@@ -75,6 +77,9 @@ eg-transition(:enter='enter', :leave='leave')
 <script>
 import eagle from 'eagle.js'
 export default {
+  props: {
+    language: Boolean
+  },
   data: function () {
     return {
       enterFocus: '',
