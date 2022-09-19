@@ -21,6 +21,7 @@ export default {
     require('./optomechatronics-intro/Introduction'),
     require('./optomechatronics-optics/Optics'),
     require('./optomechatronics-machine-vision/MachineVision'),
+    require('./optomechatronics-om-i/OpenModelica1'),
     require('./optomechatronics-mechatronic-elements/MechatronicElements'),
     require('./optomechatronics-optomechartonic-integration/OptomechatronicIntegration'),
     // require('./mecatronica-computacional-modelado/Modelado'),

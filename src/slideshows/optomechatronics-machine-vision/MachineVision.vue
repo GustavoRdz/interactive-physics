@@ -15,8 +15,8 @@
         //-   p Previous:
         //-   img.control-schema(src='./assets/controlsPrev.svg')
         //- .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      //- .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 

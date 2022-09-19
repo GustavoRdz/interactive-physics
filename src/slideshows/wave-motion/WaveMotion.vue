@@ -255,8 +255,9 @@
     
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}</sup>
-      h4(style="margin: 10px 0 0 0;").center Wave interference
-      standing-waves
+      h4(style="margin: 10px 0 30px 0;").center Standing waves
+      spring-mass
+      //- standing-waves
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -579,7 +580,8 @@ export default {
     'example-eleven': require('./components/ExampleEleven'),
     'wave-interference': require('./components/waveInterference'),
     'standing-waves': require('./components/standingWaves'),
-    'doppler-simulator': require('./components/dopplerSimulator')
+    'doppler-simulator': require('./components/dopplerSimulator'),
+    'spring-mass': require('./components/SpringMass')
   },
   data: function () {
     return {

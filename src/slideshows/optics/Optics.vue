@@ -645,6 +645,18 @@
 
     slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Diffraction: Single slit
+      .center
+        img(v-if="step >= 1" src='./assets/difraccion11.png' width="400px" style="margin: -30px 0 30px 0px;")
+      div(style="background: rgba(240, 245, 240, 0.9)")
+        slit-diffraction
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(:steps=2, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Diffraction: Double slit
       .center
         img(v-if="step >= 1" src='./assets/difraccion15.png' width="500px" style="margin-top: -40px;")
@@ -664,6 +676,18 @@
         img(v-if="step >= 2" src='./assets/difraccion18.png' width="600px" style="margin-top: 50px;")
       .center
         img(v-if="step >= 3" src='./assets/difraccion20.png' width="400px" style="margin-top: 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="margin-top: -20px;").center Multiple slits: diffraction grating
+      .center
+        img(src='./assets/difraccion18.png' width="600px" style="margin: -50px 0 30px 0;")
+      div(style="background: rgba(240, 245, 240, 0.9)")
+        grating-diffraction
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
@@ -788,6 +812,8 @@ export default {
     'example-eleven': require('./components/ExampleEleven'),
     'interference': require('./components/interference'),
     'interference2': require('./components/interference2'),
+    'slit-diffraction': require('./components/DiffractionSlit'),
+    'grating-diffraction': require('./components/DiffractionGrating'),
     'sodoku': require('./components/Sodoku')
   },
 

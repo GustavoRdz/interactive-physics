@@ -1,85 +1,121 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h3 Optomechatronics
         img(src='./assets/U.svg')
         h4 Mechatronic Elements<br>for Optomechatronic Interface
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -20px;")
         | Mechatronic elements for optomechatronic interface
       .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft') 
+          p(style="margin: -10px 0 0 0;") <b>Sensores</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Sensores</b>
+          p(style="margin: -10px 0 0 0;") <b>Acondicionamiento de la señal</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Acondicionamiento de la señal</b>
+          p(style="margin: -10px 0 0 0;") <b>Actuadores</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Actuadores</b>
+          p(style="margin: -10px 0 0 0;") <b>Microactuadores</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Microactuadores</b>
+          p(style="margin: -10px 0 0 0;") <b>Desplegado de la señal</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Desplegado de la señal</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1" style="margin: -10px 0 0 0;")
-            <b>Sistemas dinámicos y control </b>
+          p(style="margin: -10px 0 0 0;") <b>Sistemas dinámicos y control </b>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h4(style="margin: -20px 0 0 0; ").center Sensors
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") Sensing is the most fundamental technique that senses the physical variables being measured. The sensor is a physical element that does this, and contains one or more transducers within it.
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") The transducer converts or transforms one form of energy to another form in a detectable signal form: The energy includes various types of form-mechanical, electrical, optical, chemical, and so forth.
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;")  In view of this, the transducer is an essential element of a sensor which needs to be contained within it.
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Sensors
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sensores
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Sensing is the most fundamental technique that senses the physical variables being measured. The sensor is a physical element that does this, and contains one or more transducers within it.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La detección es la técnica más fundamental que detecta las variables físicas que se están midiendo. El sensor es un elemento físico que hace esto y contiene uno o más transductores en su interior.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") The transducer converts or transforms one form of energy to another form in a detectable signal form: The energy includes various types of form-mechanical, electrical, optical, chemical, and so forth.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El transductor convierte o transforma una forma de energía en otra forma en una forma de señal detectable: La energía incluye varios tipos de forma: mecánica, eléctrica, óptica, química, etc.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") In view of this, the transducer is an essential element of a sensor which needs to be contained within it.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En vista de esto, el transductor es un elemento esencial de un sensor que necesita estar contenido dentro de él.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h5(style="margin: -20px 0 0 0; ").center Capacitive Sensors
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") When two isolated conductive objects are connected to the poles of a battery, the plates will receive equal amounts of opposite charge.
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") If the plates are disconnected from the battery, they will remain charged as long as they are in a vacuum.
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") A pair of these plates called a capacitor has a capability of holding electrical charge whose capacitance depends on the magnitude of charge, q, and the potential difference between the plates, V. 
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") The capacitance of the parallel plate capacitor is given by
+      h5(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Capacitive Sensors
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sensores capacitivos
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") When two isolated conductive objects are connected to the poles of a battery, the plates will receive equal amounts of opposite charge.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Cuando dos objetos conductores aislados se conectan a los polos de una batería, las placas recibirán cantidades iguales de carga opuesta.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") If the plates are disconnected from the battery, they will remain charged as long as they are in a vacuum.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Si las placas se desconectan de la batería, permanecerán cargadas mientras estén en el vacío.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") A pair of these plates called a capacitor has a capability of holding electrical charge whose capacitance depends on the magnitude of charge, q, and the potential difference between the plates, V. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Un par de estas placas, llamado capacitor, tiene la capacidad de retener una carga eléctrica cuya capacitancia depende de la magnitud de la carga, q, y de la diferencia de potencial entre las placas, V.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") The capacitance of the parallel plate capacitor is given by
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La capacitancia del capacitor de placas paralelas viene dada por
       .center
         img(src='./assets/eq4-1.png' height="70px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h5(style="margin: -20px 0 0 0; ").center Capacitive Sensors 
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") The capacitance of the parallel plate capacitor is given by
+      h5(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Capacitive Sensors
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sensores capacitivos
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") The capacitance of the parallel plate capacitor is given by
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La capacitancia del capacitor de placas paralelas viene dada por
       .center
         img(src='./assets/eq4-1.png' height="70px" style="padding: 15px; margin: 0 50px 0 0;")
         img(src='./assets/eq4-2.png' height="70px" style="padding: 15px; margin: 0 0 0 50px;")
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") where &epsilon;<sub>0</sub> is the permittivity of free space, &epsilon;<sub>r</sub> is the relative permittivity of the dielectric material between two plates, A is the area of the plates, and d is the distance between the plates.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") where &epsilon;<sub>0</sub> is the permittivity of free space, &epsilon;<sub>r</sub> is the relative permittivity of the dielectric material between two plates, A is the area of the plates, and d is the distance between the plates.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") donde &epsilon;<sub>0</sub> es la permitividad del espacio libre, &epsilon;<sub>r</sub> es la permitividad relativa del material dieléctrico entre dos placas, A es el área de las placas y d es la distancia entre las placas.
       .center
         img(src='./assets/table4-1.png' height="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-      h6(style="margin: 0px 0 40px 0; ").center Capacitive sensor
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") There are three ways of achieving capacitance variation. 
+      h5(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Capacitive sensor
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sensores capacitivos
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") There are three ways of achieving capacitance variation. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Hay tres formas de lograr la variación de capacitancia
       .center
         img(src='./assets/fig4-1.png' height="250px")
-      p(style="padding: 15px; margin: 1px; line-height: 1.5em;") As one example of such changes, let us suppose that the plate separation d is changed by the amount &Delta;d, and then the resulting change in C will be given by
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") As one example of such changes, let us suppose that the plate separation d is changed by the amount &Delta;d, and then the resulting change in C will be given by
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como un ejemplo de tales cambios, supongamos que la separación de placas d cambia por la cantidad &Delta;d, y luego el cambio resultante en C estará dado por
       .center
         img(src='./assets/eq4-2B.png' height="60px" style=" margin: -30px 0 0px 0px;")
-      p(style="padding: 15px; margin: -20px 0 0 0px; line-height: 1.5em;") which indicates a nonlinear relationship between them. 
-      p(style="padding: 15px; margin: -20px 0 0 0px; line-height: 1.5em;") This type of sensor has several advantages: noncontact, high accuracy, and high resolution. In addition, stability is another advantage, because it is not influenced by pressure or temperature of the environment.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") which indicates a nonlinear relationship between them. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") lo que indica una relación no lineal entre ellos.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") This type of sensor has several advantages: noncontact, high accuracy, and high resolution. In addition, stability is another advantage, because it is not influenced by pressure or temperature of the environment.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Este tipo de sensor tiene varias ventajas: sin contacto, alta precisión y alta resolución. Además, la estabilidad es otra ventaja, ya que no se ve influenciada por la presión o la temperatura del ambiente.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h5(style="margin-top: 10px;").center Differential Transformer
       .center
@@ -91,9 +127,13 @@
         img(src='./assets/eq4-3C.png' height="35px" style="margin: 0px -128px 190px -22px;")
         img(src='./assets/eq4-3B.png' height="40px" style="margin: 0px -128px 130px -0px;")
         img(src='./assets/eq4-3D.png' height="40px" style="margin: 0px -0px 70px -335px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       p(style="padding: 1px; margin: -20px 0 0px 0px; line-height: 1.5em;") Certain materials become electrically polarized when they are subject to mechanical strain. This effect is known as the piezoelectric effect. 
@@ -102,9 +142,13 @@
         img(src='./assets/fig4-4.png' height="200px" style="margin: 0px 0 0px 0;")
       p.center 
         img(src='./assets/table4-2.png' height="250px" style="margin: 0px 0 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       p(style="padding: 1px; margin: -0px 0 0px 0px; line-height: 1.5em;") The charge developed is proportional to the applied force, F, and is expressed as
@@ -113,8 +157,12 @@
       p(style="padding: 1px; margin: -0px 0 0px 0px; line-height: 1.5em;") where Sq is the piezoelectric constant or charge sensitivity of the piezoelectric material. 
       .center
         img(src='./assets/table4-3.png' height="300px" style="margin: 30px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       p(style="padding: 1px; margin: -10px 0 0px 0px; line-height: 1.5em;") To pick up an accumulated electric charge, conductive electrodes are applied to the crystal at the opposite sides of the material cut surface. 
@@ -128,8 +176,12 @@
         img(src='./assets/eq4-1.png' height="60px" style="margin: 0 50px -20px 50px;")
         | then 
         img(src='./assets/eq4-6.png' height="80px" style="margin: 0px 0 -30px 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       h6(style="margin-top: -0px;").center Polyvinylidene fluoride (PVDF) film sensor
@@ -139,8 +191,12 @@
       p(style="padding: 1px; margin: -0px 0 10px 0px; line-height: 1.5em;") In general, the relationship between the behavior of the piezoelectric material and electrical behavior is known to exhibit a very complicated phenomenon. According to the property of the linear piezoelectric materials the following relationship holds
       .center
         img(src='./assets/eq4-7.png' height="40px" style="margin: 0px 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       h6(style="margin-top: -0px;").center Polyvinylidene fluoride (PVDF) film sensor
@@ -156,8 +212,12 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") induced due to a concentrated force, F(t), the charge developed for the PVDF configuration is obtained by
       .center
         img(src='./assets/eq4-8.png' height="70px" style="margin: -0px 0 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center Piezoelectric Sensors
       h6(style="margin-top: -0px;").center Polyvinylidene fluoride (PVDF) film sensor
@@ -173,8 +233,12 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") where Cp is the capacitance of the PVDF film given by Cp = &epsilon;<sub>33</sub>A/h and Kp is the constant given by
       .center
         img(src='./assets/eq4-9C.png' height="70px" style="margin: -0px 0 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Piezoresistive sensors
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Piezoresistive sensors utilize materials that exhibit a change in resistance large piezoresistive effect. 
@@ -183,16 +247,24 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") As shown, it does not use any flexible member in its configuration but uses a bulk material which has both structural strength and force detection function.
       .center
         img(src='./assets/fig4-7.png' height="200px" style="margin: 0px 30px 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Pyroelectric sensor
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The pyroelectric materials are crystalline materials capable of generating electric charge in response to heat flow. 
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") When polarized materials are exposed to a temperature change, its polarization, which is the electric charge developed across the material, varies with temperature of the material.
       .center
         img(src='./assets/fig4-8.png' height="450px" style="margin: -0px 0px 0 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Pyroelectric sensor
       .center
@@ -201,8 +273,12 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The reduction in polarization results in decrease in charge at the surface of material.
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") As a result, a surplus of charge occurs at the surfaces because there are more charges retained at surface before temperature changes.
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The pyroelectric materials therefore actas a capacitor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Pyroelectric sensor
       .center
@@ -213,8 +289,12 @@
       .center
         img(src='./assets/eq4-9D.png' height="40px" style="margin: 20px 0px 0 0px;")
       p(style="padding: 1px; margin: 0px 0 0px 0px; line-height: 1.5em;") where kq is called pyroelectric charge coefficient and exhibits a nonlinear function of temperature.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Semiconductor Sensors; Light Detectors
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Semiconductors are crystalline solid material and have several interesting properties:
@@ -223,8 +303,12 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") (3) In a pure state, they have very high resistance such that few electrons are available to carry electric current. Conductors that contain no impurities are called intrinsic semiconductors.
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") However, when impurities are introduced to the pure semiconductor materials, they are called extrinsic semiconductors.
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The most interesting property of these impure semiconductors is that their conductivity changes, the amount of the change being dependent on the property of the impurity to be added.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Semiconductor Sensors; Light Detectors
       p(style="padding: 1px; margin: -0px 0 0px 0px; line-height: 1.5em;") In extrinsic semiconductors, there is current flow within the materials under the action of an applied field. 
@@ -234,8 +318,12 @@
       .center
         img(src='./assets/fig4-9.png' height="200px" style="margin: 30px 0px 0 0;")
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The p-type semiconductors are created due to an excess of holes. In this case, the contribution to current flow is due to presence of holes.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center  Semiconductor Sensors; Light Detectors
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Most semiconductor devices involve a junction at which p-type and n-type doping meet. 
@@ -245,8 +333,12 @@
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") This process is known as diffusion process. 
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") In the case of the current flow from the n-type to p-type, there is much greater resistance. 
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") There are two types of connection when a voltage source is applied to the junction; forward biased when the p-type is connected to the positive side of the source, and reverse biased when n-type is connected to the positive side. 
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center  Semiconductor Sensors; Light Detectors
       h6(style="margin-top: -0px;").center  Diodo
@@ -256,8 +348,12 @@
       .center
         img(src='./assets/eq4-10.png' height="70px" style="margin: -40px 0px 0px 0px;")
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em; font-size: 16px;") <b>V</b>: applied voltage, <b>i</b><sub>0</sub>: saturation current, <b>q</b>: electron charge, <b>T</b>: temperature (K), k: Boltzman constant.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center  Photodiode
       p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Semiconductor junctions are sensitive to light as well as heat. 
@@ -269,14 +365,22 @@
         img(src='./assets/eq4-12.png' height="70px" style="margin: 0px 0px -20px 50px;")
       .center
         img(src='./assets/fig4-12.png' height="380px" style="margin: 30px 0px 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center  Photodiode detectors
       .center
         img(src='./assets/fig4-13.png' height="300px" style="margin: 30px 0px 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -0px;").center  Other photodetectors
       p(style="padding:15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") These are categorized into two groups: photon detectors and thermal detectors. 
@@ -285,8 +389,12 @@
       p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") These include the photoemissive, photoconductive, and photovoltaic.
       .center
         img(src='./assets/fig4-14.png' height="200px" style="margin: 50px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin: 0 0 -0px 0px;").center Signal conditioning
       h6(style="margin: 0 0 -0px 0px;;").center Operational amplifiers
@@ -296,16 +404,24 @@
         img(src='./assets/fig4-15.png' height="220px" style="margin: 0px 0px 0px 0px;")
       p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") We will limit our discussion here to the ideal op-amp which has the following characteristics; 
       p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") (1) high input impedance mega ohms to giga ohms,<br> (2) low output impedance (of the order of 100 &Omega;) considered to be negligible,<br>(3) extremely high gain (G = 10<sup>5</sup> (100 dB) typical value).
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Operational amplifiers
       h6 
       p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") Six different types of amplifier circuits frequently used in instrumentation and signal conditioning.
       .center
         img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Inverting Amplifier
       p 
@@ -319,8 +435,12 @@
         img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Inverting Amplifier
       p 
@@ -334,8 +454,12 @@
         img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Inverting Summing Amplifier
       p 
@@ -347,8 +471,12 @@
         img(src='./assets/eq4-16B.png' height="70px" style="margin: 10px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-16C.png' height="70px" style="margin: 10px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Integrating Amplifier
       .center
@@ -357,8 +485,12 @@
         img(src='./assets/eq4-17.png' height="60px" style="margin: 30px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-17B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Differential Amplifier
       .center
@@ -369,20 +501,32 @@
         img(src='./assets/eq4-19.png' height="70px" style="margin: 10px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-19B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Comparator
       .center
         img(src='./assets/fig4-17.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 100%;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Signal Processing Elements
       h6(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") Filters
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.2em;") Filters are used to inhibit the presence of a certain band of undesirable frequencies from a dynamic final signal, permitting others to be transmitted, as illustrated in Figure 4.18a.
       .center
         img(src='./assets/fig4-18.png' height="500px" style="margin: 40px 20px -30px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -396,15 +540,19 @@
     //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") Then, the current i<sub>1</sub> must be equal to i<sub>2</sub>, whereas the current i<sub>3</sub> must be equal to i<sub>4</sub>.
     //-   p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") In addition, the potential difference across R<sub>1</sub> must be equal to that across R<sub>3</sub>, or i<sub>1</sub>R<sub>1</sub> = i<sub>3</sub>R<sub>3</sub> and similarly, for the potential difference across R<sub>2</sub> and R<sub>4</sub>, i<sub>2</sub>R<sub>2a</sub> = i<sub>4</sub>R<sub>4</sub>.
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Actuators
       h6(style="margin-top: -0px;").center Electric motors
       p(style="padding: 15px; margin: -50px 1px -0px 1px; line-height: 1.5em;") In DC motor, depending upon what type of magnetic fields (permanent magnetic type or electromagnet wound field type) is used, these are divided into two; permanent magnetic DC motor and electromagnetic type or wound field DC motor. Stepper motors steps by a specified number of degrees according to each pulse the motor receives from its controller. 
       .center
         img(src='./assets/fig4-29.png' height="300px" style="margin: 0px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Actuators: Electric motors
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.5em;") The rotor will receive the electromagnetic force called the “Lorentz force” which is given by
@@ -423,8 +571,12 @@
         img(src='./assets/eq4-36.png' height="50px" style="margin: 50px 20px -15px 20px;")
       .center
         img(src='./assets/fig4-30.png' height="200px" style="margin: 50px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Actuators: piezoelectric
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") A piezoelectric material deforms or produces a force when it is subject to an electrical field.
@@ -434,22 +586,34 @@
       .center
         img(src='./assets/eq4-37.png' height="50px" style="margin: 20px 20px -0px 20px;")
       p(style="padding: 15px; margin: -20px 1px -0px 1px; line-height: 1.2em;") where S is the strain in the piezo material, E is the electric field strength, and dij is the coupling coefficient between S and E, which is the piezoelectric charge constant. 
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Actuators: piezoelectric
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Generally, a single piezoelectric actuator employing the above configuration produces a very small deformation, and therefore a variety of structural configurations are available. 
       p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em;") Three such actuators which include stack, bimorph, and tube types. The stack type is composed of N axial piezo actuators and thus increases N times the deformation of single actuator.
       .center
         img(src='./assets/fig4-32.png' height="300px" style="margin: 30px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Actuators: piezoelectric
       .center
         img(src='./assets/table4-5.png' height="500px" style="margin: 30px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Actuators: piezoelectric
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
@@ -466,8 +630,12 @@
         img(src='./assets/eq4-39B.png' height="50px" style="margin: 30px 20px -0px 20px;")
       .center
         img(src='./assets/eq4-40.png' height="70px" style="margin: 30px 20px -0px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center   Actuators: Voice Coil Motor (VCM)
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;")
@@ -480,15 +648,23 @@
         img(src='./assets/eq4-43.png'  height="70px"  style="margin: 0px -295px 47px 20px;")
         img(src='./assets/eq4-44.png'  height="70px"  style="margin: 0px -245px -28px 20px;")
         img(src='./assets/eq4-45.png'  height="70px"  style="margin: 0px -10px -102px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center   Actuators: Voice Coil Motor (VCM)
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") VCM configurations
       .center
         img(src='./assets/fig4-35.png' height="400px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Electrostatic Actuator
       .center
@@ -503,14 +679,22 @@
         img(src='./assets/eq4-51C.png' height="50px" style="margin: 0px 0px -310px -117px;")
         img(src='./assets/eq4-52.png' height="50px" style="margin: 0px 0px -365px -197px;")
         img(src='./assets/eq4-53.png' height="50px" style="margin: 0px 0px -420px -145px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Microactuators
       .center
         img(src='./assets/table4-6.png' height="400px" style="margin: -10px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Microactuators: Shape Memory Alloy (SMA) Actuator
       p LoG
@@ -518,8 +702,12 @@
         img(src='./assets/fig4-37.png' height="300px" style="margin: -10px 20px -0px 0px;")
       .center
         img(src='./assets/fig4-38.png' height="300px" style="margin: 10px 20px -0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Microactuators: Magnetostrictive Actuator
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") Magnetostrictive materials found in 1970s transduce magnetic energy to mechanical energy when these are subjected to an electromagnetic field. 
@@ -528,8 +716,12 @@
       .center
         img(src='./assets/fig4-39.png' height="300px" style="margin: 10px 20px -0px 0px;")
       p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") The advantage of this actuator is that it readily responds to significantly lower voltage as compared with piezoelectric actuators (200 to 300 V).
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Microactuators:  Ionic Polymer Metal Composite (IPMC) Actuator
       p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") The IPMC materials possess the susceptibility to interactions with externally applied electric fields and also to their own internal field structure. 
@@ -538,6 +730,10 @@
       .center
         img(src='./assets/fig4-40.png' height="150px" style="margin: 30px 20px -0px 0px;")
       p(style="padding: 15px; margin: 10px 1px -0px 1px; line-height: 1.3em;") The advantages of this actuator are light weight, relatively large displacement, low input voltage (4 to 7 V) and fast response (msec to sec).
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -675,12 +871,82 @@
     //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em;") where A+ is the pseudo inverse of A. Here, we have 11 unknowns for q<sub>s</sub> to be determined and, therefore, need at least six calibration points.
 
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
           li <b>Optomechatronics</b> <span class="small"> Fusion of Optical and Mechatronic Engineering</span> <br>Author: Hyungsuck Cho<br> Taylor and Francis
         p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, gustavo@gusbits.com with use of images from the above referenced book
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Problems : {{ slides.length }}</sup>
+        h3 Problems
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 1. Considere un sensor de capacitancia compuesto por dos placas paralelas separadas por un material dieléctrico. Su longitud de translape original es l suponga que la placa superior se mueve en &Delta;l como se muestra en la figura. 
+          .center
+            img(src='./assets/p41.png' width="350px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Utilizando la Ecuación 
+          .center
+            img(src='./assets/eq4-2.png' width="150px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") determine la función de sensibilidad definida por S = &Delta;C/&Delta;l. 
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 2. Cuando un material dieléctrico entre dos placas se mueve en la dirección del eje x una distancia l, como se muestra en la figura, obtenga la capacitancia total de este sensor. &epsilon;<sub>1</sub> y &epsilon;<sub>2</sub> son la permitividad de las constantes dieléctricas relativas del material 1 y el material 2, respectivamente. 
+          .center
+            img(src='./assets/p42.png' width="300px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 3. Un sensor piezoeléctrico consta de un transductor piezoeléctrico, un cable de conexión y un circuito externo, como se muestra en la figura. Suponga que se modela como un sistema resorte-masa-amortiguador con rigidez k<sub>p</sub>, coeficiente de amortiguamiento b<sub>p</sub> y masa m<sub>p</sub>: Suponga que el cable está representado por un elemento de capacitancia pura C<sub>c</sub>  y que el circuito externo está representado por una carga pura R<sub>L</sub>. <br>(1) Escriba la ecuación de movimiento del sensor en la dirección z para una fuerza F dada. <br>(2) Si el transductor está modelado por un generador de corriente con una capacitancia C<sub>p</sub>, escriba la ecuación para el circuito eléctrico que se muestra en la figura.  <br>(3) Obtenga la función de transferencia entre la fuerza F y el voltaje de salida V<sub>L</sub>: 
+          .center
+            img(src='./assets/p43.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 4. Suponga que hay una fuente de luz puntual (objeto) S distante de un detector, D, como se muestra en la figura. Cuando se requiera una alta eficiencia de detección, sugiera un método para aumentar la eficiencia. 
+          .center
+            img(src='./assets/p44.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. En la figura se muestra un circuito electrónico de la operación integral. Obtenga la ecuación que describe la relación entrada-salida.
+          .center
+            img(src='./assets/p45.png' width="400px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. En microsistemas electromecánicos (MEMS) o microactuador y sensores, la estructura de viga sujetada tiene una variedad de interesantes. aplicaciones Una de estas aplicaciones se puede encontrar en un actuador de tipo capacitivo como se muestra en la figura 
+          .center
+            img(src='./assets/p46.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Las dos vigas están separadas inicialmente por d. la viga superior es deformable, mientras que la viga inferior es fija. Si se aplica el campo eléctrico V a la viga deformable, determine la fuerza por unidad de longitud que actúa sobre el elemento de la viga. En la figura, l, w y h son la longitud, el ancho y el espesor de la viga, respectivamente. 
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 7. Un resorte de masa m está hecho de una aleación con memoria de forma (SMA). El objetivo del uso del SMA es dar a la masa un movimiento oscilatorio de manera adecuada. <br>(1) Describa cómo se puede producir el movimiento vibratorio. <br>(2) Con base en este principio, exprese aproximadamente la ecuación del movimiento, teniendo en cuenta el efecto de histéresis del material. 
+          .center
+            img(src='./assets/p47.png' width="150px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. La figura muestra el uso de un puente de Wheatstone para medir la deformación. Cuando ocurre la deformación de la galga extensiométrica, la resistencia de la galga cambia, &Delta;R. Si el puente tiene la misma resistencia R, demuestre que V<sub>out</sub> está determinado por V<sub>out</sub> = (V<sub>S</sub>R<sub>f</sub>/R)(&Delta;R/2). En la figura V<sub>s</sub> es la tensión de alimentación y R<sub>f</sub> es la resistencia de realimentación del amplificador.  
+          .center
+            img(src='./assets/p48.png' width="400px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Un registrador de galvanómetro utiliza una luz ultravioleta como fuente de luz, un espejo y una tira móvil de papel fotosensible. El espejo está unido a un conjunto de bobina móvil que está suspendido por una cuerda de torsión y un amortiguador viscoso. La bobina se mueve en un campo magnético bajo el mismo principio que el del motor eléctrico de CC. Mientras el papel se mueve en la dirección x, el espejo refleja un haz incidente en un punto P(x,y) en el papel como se muestra en la figura <br>(1) Si el ensamblaje de la bobina tiene un momento de inercia I y está suspendido por un resorte de torsión, k<sub>t</sub>, y un amortiguador viscoso, b, escriba la ecuación que gobierna el movimiento del espejo &theta; suponga que la densidad de flujo magnético es B, n es el número de vueltas de la bobina, A es la sección transversal área del imán, e i es la corriente que fluye a través de la bobina. <br>(2) Suponga que el espejo gira &theta; desde un ángulo inicial &theta;(0) = 0, con velocidad angular cero d&theta;/dt(0) = 0. Escriba la función de transferencia entre la corriente i(t) y &theta;(t). Analice el movimiento del espejo en términos de frecuencia natural y relación de amortiguamiento del sistema de espejos.  <br>(3)Si el espejo gira una pequeña cantidad &Delta;&theta; desde su posición angular inicial, ¿cuál será la relación entre y y &Delta;&theta;? Suponga que el ángulo inicial del haz incidente es &theta; = &theta;<sub>i</sub> con respecto a algún ángulo de referencia.
+          .center
+            img(src='./assets/p49.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 10 En la figura se muestra un sistema de control de bucle cerrado. Para fines de control, el microprocesador toma la información obtenida por un sensor cuya señal está contaminada por ruido. Luego, la señal se muestrea una vez dentro de un período &Delta;t<sub>s</sub> y, basándose en esta señal muestreada, el controlador genera una señal de comando para un actuador que acciona el sistema. <br>(1) Supongamos que la señal de lavariable de salida tiene un rango de frecuencia de 10 Hz &le; f<sub>s</sub> &le; 50 Hz, y rangos de frecuencia de ruido f<sub>n</sub> = 60 Hz. ¿Qué tipo de filtro se puede usar para reducir el ruido? ¿Qué tipo de consideraciones se deben dar para diseñar un filtro de este tipo? <br>(2) Para asegurar un buen desempeño del sistema de control, ¿qué frecuencia de acción de control se recomienda? Suponga que la acción de control (f<sub>c</sub>) se lleva a cabo al menos dos veces dentro de una frecuencia de muestreo.  
+          .center
+            img(src='./assets/p410.png' width="400px" style="margin: -150px 0px -150px 0px;").rotateimg90
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 11. Considere un espejo accionado por un actuador de cierre de espacio sostenido por un resorte cuya rigidez es k, como se muestra en la figura 
+          .center
+            img(src='./assets/p411.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") m es la masa total de la unidad de espejo, z es el desplazamiento desde el estado de equilibrio en dirección hacia abajo, V es el voltaje aplicado al actuador y z<sub>0</sub> es el espacio original, la ecuación de movimiento del espejo esta dada por la ecuación 
+          .center
+            img(src='./assets/eq4-51.png' width="400px" style="margin: 0px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Discuta el comportamiento del movimiento del espejo según el voltaje aplicado.  <br>(2) Describa el comportamiento del movimiento del espejo cuando el espejo se acerca a la placa inferior.  <br>(3) Muestre un diagrama de bloques de un sistema de control de retroalimentación para mantener la posición del espejo en la posición deseada y explique su concepto de control. 
+        div.pcontainer
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 12. Considere el sensor piezoeléctrico tratado en el problema 3. Si la dinámica del sensor es tal que su función de transferencia es descrita por
+          .center
+            img(src='./assets/p412.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Analice el efecto de &tau; en la respuesta del sistema a medida que &tau; disminuye de un valor grande a un valor muy pequeño. En el caso de que &tau;&le;1, ¿cuáles serán las características del tipo de respuesta?  <br>(2) Grafique la respuesta del sistema sensor a una entrada escalón unitario de fuerza F(s) = 1/s, usando el modelo software. Los parámetros se dan a continuación: &omega;n = 1.6&times;10<sup>5</sup> rad/s, &xi; = 0.01, &tau;=2.0 ms. <br>(3) Determine el error de estado estacionario para (a) una fuerza de entrada de escalón unitario y (b) una fuerza de entrada de rampa unitaria.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
 </template>
 
@@ -692,7 +958,7 @@ export default {
   infos: {
     title: 'Optomechatronics',
     description: 'Mechatronic Elements',
-    path: 'optomechatronics-machine-vision/MechatronicElements'
+    path: 'optomechatronics-mechatronic-elements/MechatronicElements'
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),
@@ -712,7 +978,9 @@ export default {
   },
   data: function () {
     return {
-      theme: 'Mechatronic elements'
+      theme: 'Mechatronic elements',
+      isSpanish: true,
+      languages: ['🇺🇸', '🇲🇽']
     }
   },
   methods: {
@@ -810,6 +1078,7 @@ export default {
     margin: 0 auto;
     font-size: 14px;
     height: 10px;
+    // font-family:'Courier New', Courier, monospace
   }
 
   & caption {
@@ -828,5 +1097,11 @@ export default {
   -ms-transform: rotate(90deg);
   -o-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+.pcontainer {
+  padding: 15px;
+  margin: 3px 0px 3px 0px;
+  border: 1px solid black;
 }
 </style>
