@@ -507,7 +507,7 @@
         h3 References
         ul
           li <b>Digital Image Processing</b><br> <span class="small">An Algorithmic Introduction Using Java</span> <br>Wilhelm Burger and Mark J. Burge<br> Springer
-        p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
+        p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       //- .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")

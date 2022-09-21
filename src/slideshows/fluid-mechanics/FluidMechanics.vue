@@ -576,8 +576,63 @@
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      //- .next(@click.stop='nextSlide' style="float: right;")
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h6(style="margin-top: -0px;").center Problems
+      div.pcontainer
+        .center
+          img(src='./assets/p1.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+       .center
+          img(src='./assets/p2.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p3.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p4.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p5.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p6.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p7.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p8.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer  
+        .center
+          img(src='./assets/p9.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer  
+        .center
+          img(src='./assets/p10.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p11.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer
+        .center
+          img(src='./assets/p12.png' width="100%" style="margin: -10px 0px -20px 0px;")
+      div.pcontainer 
+        .center
+          img(src='./assets/p13.png' width="100%" style="margin: -10px 0px -20px 0px;")      
+      div.pcontainer
+        .center
+          img(src='./assets/p14.png' width="100%" style="margin: -10px 0px -20px 0px;")      
+      div.pcontainer   
+        .center
+          img(src='./assets/p15.png' width="100%" style="margin: -10px 0px -20px 0px;")      
+      
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
       //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
 
 </template>
 
