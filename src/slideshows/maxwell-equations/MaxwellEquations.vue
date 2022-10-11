@@ -270,21 +270,22 @@
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -10px;").center RL Circuits
-      p(style="margin-top: -30px;").center
-      img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 50px -200px 0;")
-      img(src='./assets/eq32-6.png'  height="70px"  style="margin: 0 0px 200px 0px;")
-      img(src='./assets/eq32-6B.png' height="70px"  style="margin: 0 0px 100px -200px;")
-      img(src='./assets/eq32-6C.png' height="70px"  style="margin: 0 0 20px -160px;")
-      img(src='./assets/eq32-6D.png' height="70px"  style="margin: 0 0 -70px -180px;")
-      img(src='./assets/eq32-6E.png' height="50px"  style="margin: 0 0 -140px -160px;")
-      img(src='./assets/eq32-6F.png' height="60px"  style="margin: 0 0 200px 130px;")
-      img(src='./assets/eq32-6G.png' height="70px"  style="margin: 0 0 110px -180px;")
-      img(src='./assets/eq32-7.png'  height="70px"  style="margin: 0 0 30px -200px;")
-      img(src='./assets/eq32-8.png'  height="70px"  style="margin: 0 0 -50px -180px;")
-      img(src='./assets/fig32-3.png' height="300px" style="margin: 0px -300px -400px -150px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      div  
+        p(style="margin-top: -30px;").center
+        img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 50px -200px 0;")
+        img(src='./assets/eq32-6.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+        img(src='./assets/eq32-6B.png' height="70px"  style="margin: 0 0px 100px -200px;")
+        img(src='./assets/eq32-6C.png' height="70px"  style="margin: 0 0 20px -160px;")
+        img(src='./assets/eq32-6D.png' height="70px"  style="margin: 0 0 -70px -180px;")
+        img(src='./assets/eq32-6E.png' height="50px"  style="margin: 0 0 -140px -160px;")
+        img(src='./assets/eq32-6F.png' height="60px"  style="margin: 0 0 200px 130px;")
+        img(src='./assets/eq32-6G.png' height="70px"  style="margin: 0 0 110px -180px;")
+        img(src='./assets/eq32-7.png'  height="70px"  style="margin: 0 0 30px -200px;")
+        img(src='./assets/eq32-8.png'  height="70px"  style="margin: 0 0 -50px -180px;")
+        img(src='./assets/fig32-3.png' height="300px" style="margin: 0px -300px -400px -150px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 400px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      .next(@click.stop='nextSlide' style="float: right; margin: 400px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
@@ -294,9 +295,9 @@
       img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 100px -200px 100px;")
       img(src='./assets/eq32-9B.png'  height="70px"  style="margin: 0 0px 200px 0px;")
       img(src='./assets/eq32-10.png' height="70px"  style="margin: 0 0px 100px -200px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 200px 0px 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      .next(@click.stop='nextSlide' style="float: right; margin: 200px 0px 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
@@ -316,9 +317,9 @@
       img(src='./assets/eq32-16.png' height="70px"  style="margin: 0 0px 100px -150px;")
       img(src='./assets/eq32-17.png' height="70px"  style="margin: 0 0 20px -500px;")
       img(src='./assets/eq32-17B.png' height="70px"  style="margin: 0 0 -70px -180px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 400px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      .next(@click.stop='nextSlide' style="float: right; margin: 400px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
@@ -341,9 +342,9 @@
       img(src='./assets/eq32-21.png' height="50px"  style="margin: 0 0 -120px -170px;")
       img(src='./assets/eq32-22.png' height="70px"  style="margin: 0 0 -200px -200px;")
       img(src='./assets/eq32-23.png' height="70px"  style="margin: 0 0 -280px -220px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 300px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      .next(@click.stop='nextSlide' style="float: right; margin: 300px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
@@ -367,9 +368,9 @@
         img(src='./assets/eq32-29.png' height="60px"  style="margin: 0 0 -80px -200px;")
         img(src='./assets/eq32-31.png' height="40px"  style="margin: 0 0 -130px -210px;")
         img(src='./assets/eq32-32.png' height="60px"  style="margin: 0 0 -200px -230px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 300px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      .next(@click.stop='nextSlide' style="float: right; margin: 300px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")

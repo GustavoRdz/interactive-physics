@@ -22,6 +22,8 @@ export default {
     require('./optomechatronics-optics/Optics'),
     require('./optomechatronics-machine-vision/MachineVision'),
     require('./optomechatronics-om-i/OpenModelica1'),
+    require('./optomechatronics-om-causality/OpenModelicaCausality'),
+    // require('./optomechatronics-om-ii/OpenModelica2'),
     require('./optomechatronics-mechatronic-elements/MechatronicElements'),
     require('./optomechatronics-optomechartonic-integration/OptomechatronicIntegration'),
     // require('./mecatronica-computacional-modelado/Modelado'),
@@ -44,7 +46,8 @@ export default {
     require('./vision-systems-fourier/fourier'),
     // require('./vision-systems-lab/visionSystemsLab'),
     require('./introduction/Introduction'),
-    require('./comming-soon/CommingSoon')
+    require('./comming-soon/CommingSoon'),
+    require('./quantum-computing/QuantumComputing')
   ]
 }
 

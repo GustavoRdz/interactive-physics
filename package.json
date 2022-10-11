@@ -1,8 +1,8 @@
 {
-  "name": "eaglejs-example",
+  "name": "physics-playground",
   "version": "0.1.1",
-  "description": "Example presentation with Eagle.js",
-  "author": "Zulko",
+  "description": "Physics playground with Eagle.js",
+  "author": "GUstavo Rodriguez",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",

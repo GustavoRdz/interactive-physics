@@ -1,64 +1,88 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h2 Vision Systems
         img(src='./assets/U.svg')
         p Corner detection
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
-        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
+        //- .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown')
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
-      h6(style="margin-top: -20px;")
-        | Topics on Corner detection
-      .center
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1")
-            <b>Points of interest</b>
-        eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if="step >= 1")
-            <b>Harris corner detector</b><br><span style="font-size: 0.7em;">Local Structure Matrix, CornerResponseFunction(CRF), Determining Corner Points.</span>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if="step >= 1")
-            <b> Implementation</b><br><span style="font-size: 0.7em;">. Step 1: Calculating the Corner Response Function, Step 2: Selecting “Good” Corner Points, Step 3: Cleaning up</span>
+    //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Topics</sup>
+    //-   h6(style="margin-top: -20px;")
+    //-     | Topics on Corner detection
+    //-   .center
+    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+    //-       p(v-if="step >= 1")
+    //-         <b>Points of interest</b>
+    //-     eg-transition(enter='bounceInRight' leave='bounceOutRight')
+    //-       p(v-if="step >= 1")
+    //-         <b>Harris corner detector</b><br><span style="font-size: 0.7em;">Local Structure Matrix, CornerResponseFunction(CRF), Determining Corner Points.</span>
+    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+    //-       p(v-if="step >= 1")
+    //-         <b> Implementation</b><br><span style="font-size: 0.7em;">. Step 1: Calculating the Corner Response Function, Step 2: Selecting “Good” Corner Points, Step 3: Cleaning up</span>
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h2(style="margin: -20px 0 0 0; ").center Corner Detection
       p Corners are prominent structural elements in an image and are therefore useful in a wide variety of applications, including following objects across related images (tracking), determining the correspon- dence between stereo images, serving as reference points for precise geometrical measurements, and calibrating camera systems for machine vision applications.
       p Thus corner points are not only important in human vision but they are also “robust” in the sense that they do not arise accidentally in 3D scenes and, furthermore, can be lo- cated quite reliably under a wide range of viewing angles and lighting conditions.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
       
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4(style="margin: -0px 0 0 0").center Points of interest
       p Despite being easily recognized by our visual system, accurately and precisely detecting corners automatically is not a trivial task. 
       p A good corner detector must satisfy a number of criteria, including distinguishing between true and accidental corners, reliably detecting corners in the presence of realistic image noise, and precisely and accurately determining the locations of corners.
       p Finally, it should also be possible to implement the detector efficiently enough so that it can be utilized in real-time applications such as video tracking.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4(style="margin: -0px 0 0 0").center Points of interest
       p Numerous methods for finding corners or similar interest points have been proposed and most of them take advantage of the following basic principle. While an edge is usually defined as a location in the image at which the gradient is especially high in one direction and low in the direction normal to it, a corner point is defined as a location that exhibits a strong gradient value in multiple directions at the same time.
       p Most methods take advantage of this observation by examining the first or second derivative of the image in the x and y directions to find corners.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4(style="margin-top: -30px;").center Harris Corner Detector
       p This operator, developed by Harris and Stephens, is one of a group of related methods based on the same premise: a corner point exists where the gradient of the image is especially strong in more than one direction at the same time.
       p In addition, locations along edges, where the gradient is strong in only one direction, should not be considered as corners, and the detector should be isotropic, that is, independent of the orientation of the local gradients.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center Local structure matrix
@@ -72,8 +96,12 @@
         img(src='./assets/chap08/p140-eqn8-3.png' height="50px" style="margin-top: -20px;") 
       .center
         img(src='./assets/chap08/p140-eqn8-4.png' height="50px" style="margin-top: -20px;") 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center Local structure matrix
@@ -83,8 +111,12 @@
       p Next, each of the three scalar fields A(u, v), B(u, v), C(u, v) is individually smoothed by convolution with a linear Gaussian filter H<sup>G,σ</sup>,
       .center
         img(src='./assets/chap08/p141-eqn8-6.png' height="100px" style="margin-top: -20px;")     
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center(style="margin-top: -50px;") Local structure matrix
@@ -95,6 +127,10 @@
       p They contain essential information about the local image structure.
       p Within an image region that is uniform (that is, appears flat), M = 0 and therefore λ1 = λ2 = 0.
       p On an ideal ramp, however, the eigenvalues are λ1 > 0 and λ2 = 0, independent of the orientation of the edge.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
@@ -107,7 +143,7 @@
 
     //-   p the two eigenvalues, λ2 = trace(M)/2 − . . . , is relevant when  determining a corner we can assume that trace(M) > 0 and thus |λ1| ≥ |λ2|. Therefore only the smalle
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center(style="margin-top: -50px;") Corner Response Function (CRF)
@@ -118,8 +154,12 @@
       p To avoid the explicit calculation of the eigenvalues (and the square root) the Harris detector defines the function
       .center
         img(src='./assets/chap08/p141-eqn8-9.png' height="90px" style="margin: -30px 0 -15px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center(style="margin-top: -50px;") Corner Response Function (CRF)
@@ -129,8 +169,12 @@
       p <b>Q(u, v)</b> is called the “<b>corner response function</b>” and returns maximum values at isolated corners.
       p In practice, <b>&alpha;</b> is assigned a fixed value in the range of 0.04 to 0.06 (max. 0.25 = 1/4 ).
       p The larger the value of α, the less sensitive the detector is and the fewer corners detected.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       h5.center(style="margin-top: -60px;") Determining Corner Points
@@ -141,25 +185,41 @@
       .center
         img(src='./assets/chap08/p142-math-b.png' height="50px" style="margin: -50px 0 0px 0;")
       p(style="margin: 0px 0 -10px 0; line-height: 1.4em;") which is then sorted in descending order (i.e., q<sub>i</sub> ≥ q<sub>i+1</sub>) according to corner strength q<sub>i</sub> = Q(u<sub>i</sub>, v<sub>i</sub>). To suppress the false corners that tend to arise in densely packed groups around true corners, all except the strongest corner in a specified vicinity are eliminated.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       .center
         img(src='./assets/chap08/p145-fig8-2.png' height="700px" style="margin: -50px 0 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Corner detection</sup>
       h4.center(style="margin-top: -10px;") Harris Corner Detector
       .center
         img(src='./assets/chap08/p146-fig8-3.png' height="700px" style="margin: -50px 0 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}: References: {{ slides.length }}</sup>
         h3 References
         ul
           li <b>Digital Image Processing</b><br> <span class="small">An Algorithmic Introduction Using Java</span> <br>Wilhelm Burger and Mark J. Burge<br> Springer
-        p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
+        p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, with use of images from the above referenced book
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 </template>
 
