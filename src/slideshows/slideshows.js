@@ -32,7 +32,6 @@ export default {
     require('./open-modelica-intro/OpenModelicaIntro'),
     require('./om-intro-circuits/OMIntroCircuits'),
     require('./mc-optom-functional-units/functional-units'),
-    require('./mecatronica-computacional-AFM/AtomicForceMicroscope'),
     // require('./gms/gms'),
     require('./vision-systems/visionSystems'),
     require('./vision-systems-imagej/imagej'),

@@ -27,16 +27,16 @@
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft') 
           p(style="margin: -10px 0 0 0;") <b>Sensores</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(style="margin: -10px 0 0 0;") <b>Acondicionamiento de la señal</b>
+        //- eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+        //-   p(style="margin: -10px 0 0 0;") <b>Acondicionamiento de la señal</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(style="margin: -10px 0 0 0;") <b>Actuadores</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(style="margin: -10px 0 0 0;") <b>Microactuadores</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(style="margin: -10px 0 0 0;") <b>Desplegado de la señal</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(style="margin: -10px 0 0 0;") <b>Sistemas dinámicos y control </b>
+        //-   p(style="margin: -10px 0 0 0;") <b>Desplegado de la señal</b>
+        //- eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+        //-   p(style="margin: -10px 0 0 0;") <b>Sistemas dinámicos y control </b>
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
@@ -323,20 +323,20 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -0px;").center  Semiconductor Sensors; Light Detectors
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Most semiconductor devices involve a junction at which p-type and n-type doping meet. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") In other words, these are placed in contact with one another. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The resulting device is called a p– n junction. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Through this junction, current flows easily from the p-type to the n-type conductor, since positively charged holes easily enter the n-type conductor, whereas electrons (negatively charged) easily enter the p-type conductor. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") This process is known as diffusion process. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") In the case of the current flow from the n-type to p-type, there is much greater resistance. 
-      p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") There are two types of connection when a voltage source is applied to the junction; forward biased when the p-type is connected to the positive side of the source, and reverse biased when n-type is connected to the positive side. 
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -0px;").center  Semiconductor Sensors; Light Detectors
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Most semiconductor devices involve a junction at which p-type and n-type doping meet. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") In other words, these are placed in contact with one another. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") The resulting device is called a p– n junction. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") Through this junction, current flows easily from the p-type to the n-type conductor, since positively charged holes easily enter the n-type conductor, whereas electrons (negatively charged) easily enter the p-type conductor. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") This process is known as diffusion process. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") In the case of the current flow from the n-type to p-type, there is much greater resistance. 
+    //-   p(style="padding: 1px; margin: 10px 0 0px 0px; line-height: 1.5em;") There are two types of connection when a voltage source is applied to the junction; forward biased when the p-type is connected to the positive side of the source, and reverse biased when n-type is connected to the positive side. 
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -394,139 +394,139 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin: 0 0 -0px 0px;").center Signal conditioning
-      h6(style="margin: 0 0 -0px 0px;;").center Operational amplifiers
-      p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") An operational amplifier (op-amp) is a complete amplifier circuit supplied as an integrated circuit on a silicon chip and is a basic signal conditioning element. 
-      p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") The amplifier has an extremely high gain with typical value higher than 10<sup>5</sup>, and therefore can be regarded as infinite for the purpose of circuit analysis. 
-      .center
-        img(src='./assets/fig4-15.png' height="220px" style="margin: 0px 0px 0px 0px;")
-      p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") We will limit our discussion here to the ideal op-amp which has the following characteristics; 
-      p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") (1) high input impedance mega ohms to giga ohms,<br> (2) low output impedance (of the order of 100 &Omega;) considered to be negligible,<br>(3) extremely high gain (G = 10<sup>5</sup> (100 dB) typical value).
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4(style="margin: 0 0 -0px 0px;").center Signal conditioning
+    //-   h6(style="margin: 0 0 -0px 0px;;").center Operational amplifiers
+    //-   p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") An operational amplifier (op-amp) is a complete amplifier circuit supplied as an integrated circuit on a silicon chip and is a basic signal conditioning element. 
+    //-   p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") The amplifier has an extremely high gain with typical value higher than 10<sup>5</sup>, and therefore can be regarded as infinite for the purpose of circuit analysis. 
+    //-   .center
+    //-     img(src='./assets/fig4-15.png' height="220px" style="margin: 0px 0px 0px 0px;")
+    //-   p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") We will limit our discussion here to the ideal op-amp which has the following characteristics; 
+    //-   p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") (1) high input impedance mega ohms to giga ohms,<br> (2) low output impedance (of the order of 100 &Omega;) considered to be negligible,<br>(3) extremely high gain (G = 10<sup>5</sup> (100 dB) typical value).
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Operational amplifiers
-      h6 
-      p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") Six different types of amplifier circuits frequently used in instrumentation and signal conditioning.
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Operational amplifiers
+    //-   h6 
+    //-   p(style="padding: 15px 0 0 0px; margin: 0px 0px 0px 0px; line-height: 1.2em;") Six different types of amplifier circuits frequently used in instrumentation and signal conditioning.
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Inverting Amplifier
-      p 
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 330px; height: 210px; object-fit: none; object-position: 0% 0;")
-      .center
-        img(src='./assets/eq4-12C.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-13.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Inverting Amplifier
+    //-   p 
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 330px; height: 210px; object-fit: none; object-position: 0% 0;")
+    //-   .center
+    //-     img(src='./assets/eq4-12C.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-13.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Inverting Amplifier
-      p 
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 0;")
-      .center
-        img(src='./assets/eq4-12C.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-13.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Inverting Amplifier
+    //-   p 
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 0;")
+    //-   .center
+    //-     img(src='./assets/eq4-12C.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-13.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-13B.png' height="50px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-14.png' height="75px" style="margin: 10px 20px -0px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Inverting Summing Amplifier
-      p 
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 2% 47%;")
-      .center
-        img(src='./assets/eq4-16.png' height="60px" style="margin: 30px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-16B.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-16C.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Inverting Summing Amplifier
+    //-   p 
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 2% 47%;")
+    //-   .center
+    //-     img(src='./assets/eq4-16.png' height="60px" style="margin: 30px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-16B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-16C.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Integrating Amplifier
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 47%;")
-      .center
-        img(src='./assets/eq4-17.png' height="60px" style="margin: 30px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-17B.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Integrating Amplifier
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 47%;")
+    //-   .center
+    //-     img(src='./assets/eq4-17.png' height="60px" style="margin: 30px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-17B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Differential Amplifier
-      .center
-        img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 610px; height: 210px; object-fit: none; object-position: 0% 98%;")
-      .center
-        img(src='./assets/eq4-18.png' height="60px" style="margin: 30px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-19.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .center
-        img(src='./assets/eq4-19B.png' height="70px" style="margin: 10px 20px -0px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Differential Amplifier
+    //-   .center
+    //-     img(src='./assets/fig4-16.png' height="500px" style="margin: -0px 0px -0px 0px; width: 610px; height: 210px; object-fit: none; object-position: 0% 98%;")
+    //-   .center
+    //-     img(src='./assets/eq4-18.png' height="60px" style="margin: 30px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-19.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .center
+    //-     img(src='./assets/eq4-19B.png' height="70px" style="margin: 10px 20px -0px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Comparator
-      .center
-        img(src='./assets/fig4-17.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 100%;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Comparator
+    //-   .center
+    //-     img(src='./assets/fig4-17.png' height="500px" style="margin: -0px 0px -0px 0px; width: 300px; height: 210px; object-fit: none; object-position: 100% 100%;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h6(style="margin-top: -0px;").center Signal Processing Elements
-      h6(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") Filters
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.2em;") Filters are used to inhibit the presence of a certain band of undesirable frequencies from a dynamic final signal, permitting others to be transmitted, as illustrated in Figure 4.18a.
-      .center
-        img(src='./assets/fig4-18.png' height="500px" style="margin: 40px 20px -30px 20px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
-      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h6(style="margin-top: -0px;").center Signal Processing Elements
+    //-   h6(style="padding: 15px; margin: -60px 1px -0px 1px; line-height: 1.2em;") Filters
+    //-   p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.2em;") Filters are used to inhibit the presence of a certain band of undesirable frequencies from a dynamic final signal, permitting others to be transmitted, as illustrated in Figure 4.18a.
+    //-   .center
+    //-     img(src='./assets/fig4-18.png' height="500px" style="margin: 40px 20px -30px 20px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -563,12 +563,12 @@
       .center
         img(src='./assets/eq4-33B.png' height="50px" style="margin: 50px 20px -15px 20px;")
         | <span style="font-size: 20px;">in a generator</span> 
-        img(src='./assets/eq4-34.png' height="50px" style="margin: 50px 20px -15px 20px;")
+        img(src='./assets/eq4-34.png' height="60px" style="margin: 50px 20px -15px 20px;")
       .center
         | <span style="font-size: 20px;">electrical</span> 
-        img(src='./assets/eq4-35.png' height="50px" style="margin: 50px 20px -15px 20px;")
+        img(src='./assets/eq4-35.png' height="60px" style="margin: 50px 20px -15px 20px;")
         | <span style="font-size: 20px;">mechanical</span> 
-        img(src='./assets/eq4-36.png' height="50px" style="margin: 50px 20px -15px 20px;")
+        img(src='./assets/eq4-36.png' height="60px" style="margin: 50px 20px -15px 20px;")
       .center
         img(src='./assets/fig4-30.png' height="200px" style="margin: 50px 20px -0px 20px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
@@ -697,7 +697,7 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center  Microactuators: Shape Memory Alloy (SMA) Actuator
-      p LoG
+      // p LoG
       .center
         img(src='./assets/fig4-37.png' height="300px" style="margin: -10px 20px -0px 0px;")
       .center
