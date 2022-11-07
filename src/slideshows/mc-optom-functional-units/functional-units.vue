@@ -1,21 +1,25 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h3 Mecatronica Computacional
         img(src='./assets/U.svg')
         h4 Optmechatronic Functional units
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
-        .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
+        //- .top <sup style="font-size: 10px;">{{ slides.length }}</sup>
+      //- .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Temas</sup>
       h6(style="margin-top: -20px;") Optomechatronic functional units
       .center
@@ -34,6 +38,10 @@
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
             <b>Optical Scanning</b><br><span style="font-size: 0.8em;">Galvanometer. Feedback Control of Galvanometer. Polygonal Scanner. Correcting Scan Errors.</span>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Temas</sup>
@@ -58,15 +66,19 @@
     //-       p(v-if="step >= 1")
     //-         <b>Optical Signal Transmission</b><br><span style="font-size: 0.8em;">Signal Transmission. Power Transmission and Detection.</span>
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Opto-mechatronic functional units</sup>
       h4(style="margin: -20px 0 0 0; ").center Optomechatronic Actuation
       p(style="padding: 15px; margin: 1px; line-height: 1.1em;") The types of optomechatronic actuation can be grouped into three classes.
       p The first class is the optical actuators which employ the optically-driven actuation principle. In this case, the energy supplied for actuation comes from a light source, which provides displacement or force to moving mechanisms.
       p The second class is the mechatronic actuators with embedded optical units: Here, mechatronic actuators implies all non-optical actuators. An electrical motor with an optical encoder is a typical example.
       p The third class encompasses the actuators that drive an optical or optomechatronic system.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : Opto-mechatronic functional units</sup>
       h4(style="margin: -20px 0 0 0; ").center Optomechatronic Actuation
       p(style="padding: 15px; margin: 1px; line-height: 1.1em;") Optical actuators function when light is either directly or indirectly transformed into mechanical deformation that generates small displacements of micro- or nanometer scale.
@@ -74,8 +86,12 @@
       p(style="padding: 15px; margin: 1px; line-height: 1.1em;") According to their nature, two types of optical actuations are considered here: photo-electric actuation and photo-thermal actuation.
       p(style="padding: 15px; margin: 1px; line-height: 1.1em;") Photo-electric actuation utilizes the conversion of the variations in light intensity into the change in the electric power by means of a p–n junction of semiconductor devices, or piezoelectric material resulting from the generation of photo electrons. The other form of conversion uses the change in capacitance in a capacitor type of actuator configuration.
       p(style="padding: 15px; margin: 1px; line-height: 1.1em;") In contrast to this principle, photo thermal actuation utilizes the conversion of the variation in light energy into the change in thermal energy.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p( style="margin: 15px 0 0 0; line-height: 1.2em;") Silicon micro actuator is one of the photo-electric actuators that utilize the photon-generated electrons.
@@ -85,8 +101,12 @@
       .center
         img(src='./assets/fig6-1a.png' height="200px")
         img(src='./assets/fig6-1b.png' height="200px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p(style="margin: 15px 0 10px 0; line-height: 1.2em;") This parallel plate capacitor is given by a simple relation according to Equation
@@ -96,8 +116,12 @@
       p(style="margin: 15px 0 10px 0; line-height: 1.2em;") If an electric voltage <b>V<sub>o</sub></b> is applied to the capacitor through a resistor <b>R</b>, the stored charge is 
       .center
         img(src='./assets/eq6-1.png' height="90px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p(style="margin: 15px 0 20px 0; line-height: 1.2em;") Now, let us consider the optical actuator subject to the electrical potential <b>V</b>, whose gap is not constant due to the cantilevered beam being clamped at one end.
@@ -108,8 +132,12 @@
       p(style="margin: 15px 0 50px 0; line-height: 1.2em;") where <b>k<sub>q</sub></b> is a constant related to the geometry and material property of the cantilever. This relation can be derived from a simple beam theory from which the deflection of a cantilever beam is governed by
       .center
         img(src='./assets/eq6-3.png' height="90px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p(style="margin: 15px 0 20px 0; line-height: 1.2em;") where z is the vertical displacement at the location x along the beam, and pðxÞ is the distributed loading due to the applied voltage. In the above equation, the cantilever has small deflection and the thickness <b>h << l</b>.
@@ -119,8 +147,12 @@
       p(style="margin: 15px 0 10px 0; line-height: 1.2em;") Substituting abover equation in its previous one and evaluating z(x) at the end of the cantilever, we have
       .center
         img(src='./assets/eq6-5.png' height="90px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") It is found that this relation is valid for small <b>δ << d</b>. This relates the displacement <b>δ</b> to the applied voltage. If we neglect the changes in capacitance formed by the cantilever beam and ground plate, as the applied voltage increases, the displacement can be expressed by using the relation <b>q &thickapprox; C<sub>o</sub>V</b>. Then it relates the displacement at the cantilever tip to the stored charge q due to the applied voltage. 
@@ -129,8 +161,12 @@
         | <span style="font-size: 15px; color: blue;">becomes</span> 
         img(src='./assets/eq6-2.png' height="90px" style="margin: -10px 0 -30px 50px;")
       p(style="margin: 40px 0 20px 0; line-height: 1.2em;")  This implies that the electrostatic field provides the cantilevered optical actuator with a potential energy field.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") When monochromatic light (photon) strikes the ground metal plate through the air gap, the photoelectrons are generated through the gap to the cantilever plate.
@@ -141,8 +177,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.1em;") Then generation of photoelectron current can control the cantilever beam position denoted by a dotted line shown in the figure.
       .center
         img(src='./assets/fig6-1a.png' height="200px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
      
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Silicon Capacitive Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Silicon Capacitive Actuator
       .center
@@ -151,8 +191,12 @@
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Total current includes the current induced due to optical power and that of the induced current due to bias voltage. The figure indicates a nonlinear relationship between the current and the voltage.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This relationship differs from magnitude of light intensity, and shows that, as light intensity increases, total current increases accordingly.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") It is reported that for a bias voltage 6V and optical power less than 0.1 mW/cm2 for 600 x 50 x 1 mm3 cantilever beam with a gap of 12 mm.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") When a piezoelectric material is irradiated by light (UV light), it exhibits two interesting phenomena:
@@ -162,17 +206,25 @@
       .center
         img(src='./assets/fig6-2a.png' height="300px")
         img(src='./assets/fig6-2b.png' height="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
    
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") The energy conversion process.
       .center
         img(src='./assets/fig6-3.png' height="300px")
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") This optical actuator can be utilized for various applications such as optical switch, microvalve, and microrobot.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Mathematical Model of the Photon-Induced Currents
@@ -183,8 +235,12 @@
       .center
         img(src='./assets/eq6-8.png' height="70px")
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") where <b>C<sub>t</sub></b> is the coefficient for conversion from thermal to electric energy, <b>θ<sub>lm</sub>(t)</b> and <b>θ<sub>rm</sub>(t)</b> are the average temperature at both sides of the PLZT due to irradiation, respectively.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Induced Strains of the PLZT
@@ -197,8 +253,12 @@
       .center
         img(src='./assets/eq6-10.png' height="70px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>τ<sub>q</sub></b> is the time constant of the electric charge process.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Induced Strains of the PLZT
@@ -208,9 +268,13 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>α<sub>t</sub></b> is the coefficient of thermal expansion of the PLZT.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Combining the above equations, we have total strains due to photovoltaic effect, pyroelectric effect, and thermal deformations
       .center
-        img(src='./assets/eq6-12.png' height="70px")      
+        img(src='./assets/eq6-12.png' height="70px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Induced Strains of the PLZT
@@ -218,9 +282,13 @@
       .center
         img(src='./assets/eq6-13.png' height="90px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>L</b> is the length of the optical piezoelectric element, <b>h</b> is the thickness of the same element.
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") <b>Optical actuator control</b> of the optical actuator, based upon the above derived model equations.
@@ -228,8 +296,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To determine the response of the system for a given controller, we need to determine all of the transfer functions. Some are neither simple nor linear.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") If the actuator system is operated at a certain nominal point, the relationship can be linearized near that point.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For simplicity, we will assume all elements are linear.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 50px 0; line-height: 1.2em;") Figure shows a servo-controlled optical actuator system in which an electric motor controls the position of the valve.
@@ -237,8 +309,12 @@
         img(src='./assets/fig6-4.png' height="300px")
       //- p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The control system is composed of an optical actuator <b>G<sub>p</sub>(s)</b> consisting of two bimorph PLZT elements, a UV beam source <b>G<sub>l</sub>(s)</b>, a servomotor, <b>G</sub>m</sub>(s)</b>, a controller <b>G<sub>c</sub>(s)</b>, and a displacement sensor <b>G</sub>s</sub></b>. 
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") The controller must be so designed that the error between <b>x<sub>d</sub></b> and <b>x(t)</b>, <b>e(t)</b>, be driven to zero steady state with fast response.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The open loop transfer function between the displacement at the tip <b>δ<sub>l</sub>(s)</b> and UV beam energy <b>U<sub>p</sub>(s)</b> can be obtained by Laplace transforming the above equations. This can be written by 
@@ -247,9 +323,13 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For simplicity, let us suppose that the dynamics of the servomotor-UV beam and sensor are fast enough to be neglected. In this situation, the control system has two elements; plant to be controlled <b>G<sub>p</sub>(s)</b> and controller <b>G<sub>c</sub>(s)</b>. The control system block diagram (a) in this case can be reduced to (b) to describe the simplified loop transfer function <b>G<sub>o</sub>(s)</b> which is given by
       .center
         img(src='./assets/eq6-15.png' height="90px")
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>δ(s)</b> is replaced by <b>X(s)</b>, <b>i</b> is the current input to the UV radiator, <b>K<sub>l</sub></b> is the gain associated with the radiator and servomotor. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>δ(s)</b> is replaced by <b>X(s)</b>, <b>i</b> is the current input to the UV radiator, <b>K<sub>l</sub></b> is the gain associated with the radiator and servomotor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") With <b>G<sub>p</sub>(s)</b>, we have
@@ -258,27 +338,38 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where the above coefficients are <b>b<sub>0</sub>=CC<sub>t</sub>α<sub>q</sub></b>, <b>b<sub>1</sub>=C<sub>p</sub>α<sub>q</sub> + CC<sub>t</sub>α<sub>q</sub>τ<sub>p</sub></b>, <b>b<sub>2</sub>=C<sub>p</sub>α<sub>q</sub>τ<sub>t</sub></b>, <b>a<sub>0</sub>=τ<sub>p</sub> + τ<sub>q</sub> + τ<sub>t</sub></b>, <b>a<sub>1</sub>=τ<sub>p</sub>τ<sub>q</sub> + τ<sub>p</sub>τ<sub>t</sub> + τ<sub>q</sub>τ<sub>t</sub></b>, <b>a<sub>2</sub>=τ<sub>p</sub>τ<sub>q</sub>τ<sub>t</sub></b> and C = 2.0&times;10<sup>-4</sup>. <br>Let the desired deformation at the tip of the PLZT be 20 μm, i.e., X<sub>d</sub> = 20&times;10<sup>-6</sup>&times;(1/s). <br>With the open loop transfer function <b>G<sub>o</sub>(s)</b> of the optical actuator system and a PID controller given in the form
       .center
         img(src='./assets/eq6-16.png' height="90px")
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") we can simulate the closed loop control system in order to see the control performance of the optical actuator.      
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") we can simulate the closed loop control system in order to see the control performance of the optical actuator.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") we can simulate the closed loop control system in order to see the control performance of the optical actuator.
       .center
         img(src='./assets/table6-1.png' height="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;").center Controller response
-
       .center
         img(src='./assets/fig6-5.png' height="300px")
       p(style="margin: -10px 0 20px 0; line-height: 1.2em;").center Optical actuator responses
       .center
         img(src='./assets/fig6-6.png' height="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Piezoelectric Actuator</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Piezoelectric Actuator
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") A gripper-like structure of a robotic manipulator application
@@ -287,29 +378,45 @@
       .center
         img(src='./assets/fig6-7b.png' height="200px")
       p(style="margin: 10px 0 20px 0; line-height: 1.1em;") <b>G<sub>l</sub>(s)</b> is the transfer function between the controller input and the radiated input of the UV beam, <b>G<sub>o</sub>(s)</b> is the transfer function between the UV light and actuator movement, <b>G<sub>p</sub>(s)</b> is the gripper transfer function, <b>G<sub>c</sub>(s)</b> is the controller transfer function, and <b>G<sub>s</sub>(s)</b> is the sensor transfer function.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Photo Thermal Actuador</sup>
       h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") This actuator employs an indirect means of transforming light energy into mechanical actuation. <br>Typical arrangements of the photo-thermal actuator are illustrated in figure
       .center
         img(src='./assets/fig6-8.png' height="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Photo Thermal Actuador</sup>
       h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Walking machine
       .center
         img(src='./assets/fig6-9.png' height="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Photo Thermal Actuador</sup>
       h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Walking machine
       .center
         img(src='./assets/fig6-10.png' height="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
     
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Photo Thermal Actuador</sup>
       h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Walking machine
@@ -319,52 +426,80 @@
         img(src='./assets/eq6-17-B.png' height="100px")
       .center
         img(src='./assets/eq6-18.png' height="100px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Photo Thermal Actuador</sup>
       h4(style="margin: -20px 0 20px 0; ").center Photo Thermal Actuador
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Walking machine control
       .center
         img(src='./assets/fig6-12.png' height="200px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Deformable Mirror</sup>
       h4(style="margin: -20px 0 20px 0; ").center Deformable Mirror
       //- p(style="margin: 20px 0 20px 0; line-height: 1.2em;") Deformable Mirror
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Deformable mirror concept for controlling the phase of light wave. The first one shown in (a) is a monolithic deformable mirror actuated by a PZT ceramic bulk with two-dimensionally-arrayed electrodes.<br> Applying suitable electrical voltage on these electrodes forms a locally deformable mirror surface.<br> Deformable mirrors based on MEMS technology shown in (b) are to correct the distorted wave front, which utilize a great member of a tiny lenslet.
       .center
         img(src='./assets/fig6-13.png' height="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optomechatronic Sensing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Sensing is a basic functionality that optomechatronic systems possess. 
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Depending upon whether optical or mechatronic elements participate in providing sensing function or not, optomechatronic sensors are classified into the following two groups.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The first group represents optical sensors whose sensing function is enabled by incorporating with mechatronic units. Most of the optical sensors belong to this class. 
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The second group represents non-optical sensors integrated with optical units or elements belonging to the reverse case of the above example.<br> In this case, sensors have optical units within their body to constitute a sensing element.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") As an illustration of an optical sensor, consider an <b>optical encoder</b> which measures angular or linear motion of mechatronic systems in an optical way by adopting the optical photoelectric principle.
       .center
         img(src='./assets/fig6-14.png' height="450px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The interferometric <b>dilatometer</b> is a variation of Michelson type that is based upon opto-mechatronic interaction between the optical and mechatronic units.
       .center
         img(src='./assets/fig6-15.png' height="450px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon has a variety of different fringe characteristics controlled by varying one of the mirror separations, the index of refraction, the incident angle. Due to this changeability of its parameters, and its special characteristics, the device has numerous applications in various fields.
       .center
         img(src='./assets/fig6-16.png' height="450px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
@@ -372,8 +507,12 @@
         img(src='./assets/fig6-16-1.png' height="250px")
       .center
         img(src='./assets/fig6-16-2.png' height="350px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
@@ -381,8 +520,12 @@
         img(src='./assets/fig6-16-1.png' height="250px")
       .center
         img(src='./assets/fig6-16-2.png' height="350px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
@@ -392,8 +535,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When two wavelength components &lambda;<sub>0</sub> and &lambda;<sub>1</sub> = &lambda;<sub>0</sub> + &Delta;&lambda;, are contained in the source, superposition of two fringe systems would result.  
       .center
         img(src='./assets/fig6-17.png' height="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The Fabry-Parot etalon.
@@ -403,25 +550,37 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When two wavelength components &lambda;<sub>0</sub> and &lambda;<sub>1</sub> = &lambda;<sub>0</sub> + &Delta;&lambda;, are contained in the source, superposition of two fringe systems would result.  
       .center
         img(src='./assets/fig6-17.png' height="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The characteristic of fiber optic sensors as distinct from other optical sensors is that they can easily interact with the mechanical elements in detecting motion. 
       .center
         img(src='./assets/table6-2.png' height="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The characteristic of fiber optic sensors as distinct from other optical sensors is that they can easily interact with the mechanical elements in detecting motion. 
       .center
         img(src='./assets/fig6-18.png' height="400px")
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Intensity modulation optical sensors. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Intensity modulation optical sensors.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
@@ -431,8 +590,12 @@
       .center
         img(src='./assets/eq6-20.png' height="50px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Wavelength modulation-based optical sensor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
@@ -443,8 +606,12 @@
       .center
         img(src='./assets/eq6-22.png' height="100px" style="margin: 0 50px 0 0;")
         img(src='./assets/eq6-23.png' height="100px" style="margin: 0 0 0 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
@@ -454,8 +621,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Piezoelectric bimorph optical fiber sensor.
       .center
         img(src='./assets/eq6-24.png' height="100px" style="margin: 0 0px 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optomechatronic sensing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Optical Sensor
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fiber optic sensor
@@ -463,8 +634,12 @@
       .center
         img(src='./assets/fig6-22.png' height="300px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Fibre-optic vision sensor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Autofocusing that automatically locates the focal position is a desirable attribute and an important concept in a number of optical systems.
@@ -472,8 +647,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For instance, in some types of microscopes, autofocusing makes possible the detection and identification of atoms. For example, a confocal microscope employs the confocal principle in which a point of light source is always in focus with a point inside the sample, using a pinhole placed in front of the object.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This confocal system can effectively see a clear image inside thick samples due to this arrangement in which its autofocusing adopts a single point illumination. In this way, it produces a clear image of objects by locally imaging one point at a time.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In optical hard disks, it enables the optical head to accurately read and write the data by optical means. And in a laser printer, it also helps print better quality images.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical System Configuration
@@ -481,8 +660,12 @@
       .center
         img(src='./assets/fig6-23.png' height="400px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Basic configuration of the autofocusing system.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") <em>The f-number</em>
@@ -494,8 +677,12 @@
         img(src='./assets/eq6-25.png' height="50px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>n<sub>t</sub></b> is the refractive index of the immersing medium adjacent to the objective lens of the confocal system, and <b>θ<sub>a</sub></b> is the half-angle of the maximum light cone picked up by the lens, depending upon the aperture of the lens.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A large value of <b>NA</b> implies a large lens aperture. This is true when the object lens pupil is uniformly filled with light.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical Resolution
@@ -507,8 +694,12 @@
         img(src='./assets/eq6-26.png' height="70px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>&Delta;<sub>x</sub></b> is the minimum resolvable distance that the diffraction images of two adjacent points in the object can approach each other laterally before they merge.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The above equation implies that the larger the numerical aperture, the higher the resolution.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Automatic Optical Focusing
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Axial Resolution 
@@ -519,16 +710,24 @@
       .center
         img(src='./assets/eq6-27.png' height="70px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The depth of field. A practical rule is that the beam spot is “in focus” if it is located in a region on either side of the focal (image) plane bounded by the depth of focus. <br>The bound is given by &pm;10% of the beam spot diameter, <b>D<sub>w</sub></b> at beam waist.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") A typical autofocusing system controls the motion of the objective lens in the direction of optical axis so that it always places a focal point at the image plane.
       .center
         img(src='./assets/fig6-24.png' height="400px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") It consists of an actuator, a half mirror plate, a laser diode, and a quadrant photo sensor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
@@ -539,8 +738,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") PZT is desirable in terms of accuracy and response time, but not for moving range.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The actuator needs to be chosen depending on specifications of the application.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For autofocusing applications, voice coil motors and piezo-electric transducers are popularly used due to relatively simple structure, fast response, light weight and high precision.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
       
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
@@ -552,8 +755,12 @@
       .center
         img(src='./assets/fig6-26.png' height="450px")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;").center A configuration of the confocal system.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Feedback Control of the Objective Lens
@@ -563,8 +770,12 @@
       .center
         img(src='./assets/eq6-28.png' height="60px")
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") <b>n</b> is the number of coil turns, <b>B</b> is the magnetic flux density in tesla, <b>i</b> is the current in amperes, flowing in the direction perpendicular to the image plane and <b>l<sub>c</sub></b> is the coil effective length in meter.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The electrical circuit of the VCM is written by
@@ -579,9 +790,13 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The back emf is given by
       .center
         img(src='./assets/eq6-30.png' height="70px" style="margin: 0px 50px 0px 0;")
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>dz/dt</b> is the velocity of the bobbin. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>dz/dt</b> is the velocity of the bobbin.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Then
@@ -597,8 +812,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The transfer function is given by 
       .center
         img(src='./assets/eq6-33.png' height="60px" style="margin: 0px 50px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       .center
@@ -612,16 +831,24 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") From the block diagram, the overall closed loop transfer function is determined by
       .center
         img(src='./assets/eq6-34.png' height="120px" style="margin: 0px 0px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       .center
         img(src='./assets/table6-4.png' height="300px" style="margin: 0px 50px 0px 0;")
       .center
         img(src='./assets/fig6-27.png' height="450px" style="margin: 0px 50px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Let us consider the stability of the system, and determine the range of stability for various gain parameters. The characteristic equation of the
@@ -634,8 +861,12 @@
       p(style="margin: 100px 0 20px 0; line-height: 1.2em;") (1) All the coefficients of the characteristic equation should be greater than zero,
       .center
         img(src='./assets/eq6-35-1.png' height="40px" style="margin: 0px 0px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (2) Arranging the coefficients of the polynomial in rows and columns according to the following pattern yields
@@ -644,8 +875,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We have the following parameter condition for stability
       .center
         img(src='./assets/eq6-35-3.png' height="350px" style="margin: 0px 0px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To satisfy all of the above conditions, kp and ki should meet the following condition for stability
@@ -655,8 +890,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We see that kp is bounded for all values of ki, while ki is not for small kp value.
       .center
         img(src='./assets/fig6-28.png' height="400px" style="margin: 0px 50px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
@@ -669,9 +908,13 @@
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The displacement deviation <b>&Delta;Z(s)</b> due to the external disturbance is given as
       .center
         img(src='./assets/eq6-37.png' height="65px" style="margin: 0px 0px 0px 0;")
-      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The deviation can be remarkably diminished by a factor of |1/1+Gp(s)Gc(s)| compared to the case without feedback. This observation implies that the open loop transfer function should be sufficiently larger than unity in order to minimize the displacement deviation. 
+      p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The deviation can be remarkably diminished by a factor of |1/1+Gp(s)Gc(s)| compared to the case without feedback. This observation implies that the open loop transfer function should be sufficiently larger than unity in order to minimize the displacement deviation.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
@@ -685,8 +928,12 @@
       .center
         img(src='./assets/eq6-37-3.png' height="65px" style="margin: 0px 0px 0px 0;")
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") The results show that in order to reduce the steady state error, kp should be increased as large as possible, but the overshoot and stability must also be taken into account.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       //- h4(style="margin: -20px 0 20px 0; ").center Feedback Control of the Objective Lens
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Effect of External Disturbance
@@ -697,8 +944,12 @@
       .center
         img(src='./assets/eq6-37-5.png' height="50px" style="margin: 20px 0px 0px 0;")
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") which indicates that the integral control action eliminates the steady state error due to the step disturbance.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Automatic Optical Focusing</sup>
       h4(style="margin: -20px 0 20px 0; ").center Focus Measurement
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The astigmatism method,
@@ -708,15 +959,23 @@
       .center
         img(src='./assets/eq6-38.png' height="50px" style="margin: 20px 0px 0px 0;")
       p(style="margin: 10px 0 0px 0; line-height: 1.2em;") This &Delta;z represents the error between the desired z(t), and actual values of the focal length, zf, and is measured at every instant of time.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       h4(style="margin: 50px 0 20px 0; ").center Acustic-Opto Modulator
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When an acoustic wave propagates in a transparent solid block of a medium such as fused quartz, it produces a periodic modulation of the index of refraction via the elasto-optical effect.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") All acousto-optic (AO) devices utilize the interaction of acoustic and optical waves within the medium.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The devices are connected to various laser systems for information handing, optical signal processing, display and spatial and temporal modulation of coherent light.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The AO interaction provides four basic properties that are frequently used in various devices. They are classified as follows:
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (1) Deflection: angular deviation of the light beam which is proportional to the acoustic frequency.
@@ -725,14 +984,22 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") (4) Amplitude modulation: modulation of deflected beam intensity by varying acoustic power.
       .center
         img(src='./assets/fig6-30.png' height="300px" style="margin: -40px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Acustic-Opto Modulator
       .center
         img(src='./assets/table6-5.png' height="300px" style="margin: 50px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Acousto-optical deflection utilizes an acousto-optic effect in which acousto-optic interaction provides a means of modifying the spatial position of an optical beam.
@@ -740,16 +1007,24 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a collimated beam with wavelength &lambda; is incident to a collective lens whose focal length is <b>f<sub>c</sub></b>, the collected beam encounters an acoustic wave having a wavelength, &Lambda;. 
       .center
         img(src='./assets/fig6-32.png' height="250px" style="margin: 0px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In the acousto-optic interaction a harmonic acoustic wave accompanies variation in the refractive index, which causes the input beam to deflect through a medium of alternating refractive index by the Bragg effect.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") By altering the amplitude and frequency of the acoustic wave, the spatial position, intensity, or frequency of an optical beam propagating through the acousto-optic medium can be varied.
       .center
         img(src='./assets/fig6-33.png' height="400px" style="margin: 0px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") To derive the deflection angle, let us consider that a light beam of a single frequency is incident at an angle &theta;, to the plane of grating, which is the acoustic wave front.
@@ -760,8 +1035,12 @@
       .center
         img(src='./assets/eq6-40.png' height="60px" style="margin: 0px 20px 0px 0;")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>m</b> is the diffraction order, and &lambda; is the wavelength of the light in air.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The angle between a first-order diffracted beam and the undiffracted beam is given by
@@ -772,8 +1051,12 @@
         img(src='./assets/eq6-41-1.png' height="70px" style="margin: 0px 20px 0px 0;")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") This indicates that a light beam can be diffracted by simply varying the frequency of acoustic wave.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Acoustic-optical scanners use this relationship, in that the angle of deflection is in proportion to the sound frequency <b>f<sub>a</sub></b>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") For example, we consider lithium niobate (LiNbO3) material as an AO medium.
@@ -789,8 +1072,12 @@
       p(style="margin: -10px 0 20px 0; line-height: 1.2em;") This gives
       .center
         img(src='./assets/eq6-41-4.png' height="40px" style="margin: -50px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") We can also compute the range of scan, if the maximum and minimum frequencies are known for scanning, respectively, <b>max(f<sub>a</sub>)</b> and <b>min(f<sub>a</sub>)</b>.
@@ -803,16 +1090,24 @@
       p(style="margin: -10px 0 20px 0; line-height: 1.2em;") It can be expressed by the number of resolvable spots, which is the scan angle range divided by the angular diffraction spread
       .center
         img(src='./assets/eq6-42-1.png' height="80px" style="margin: 0px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Deflector
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When multiples of AO deflectors are combined, several applications can be considered for scanning. The scanning area is limited by the scan angle, which is usually very small.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a helium–neon laser passes through a glass (tellurium oxide) interacting with acoustic wave having its velocity 0.62 km/sec and frequency 70 MHz, the scan range is roughly within 1.8 mm.
       .center
         img(src='./assets/fig6-34.png' height="350px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The acousto-optical device can also be used as a frequency shifter by modifying the frequency of the deflected light.
@@ -824,8 +1119,12 @@
       .center
         img(src='./assets/eq6-44.png' height="80px" style="margin: 20px 20px 0px 0;")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In this equation, the relative velocity is positive for relative motion in the same direction as each other, and negative for motion away from each other.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In the acousto-optical modulator, we can easily show that the above equation can be rewritten as
@@ -838,8 +1137,12 @@
       .center
         img(src='./assets/eq6-47.png' height="50px" style="margin: 20px 20px 0px 0;")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") where <b>f<sub>d</sub></b> is the frequency of the deflected beam.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Acustic-Opto Modulator</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Frequency Shifter
       .center
@@ -847,8 +1150,12 @@
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;").center Multiple AOM
       .center
         img(src='./assets/fig6-36.png' height="250px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Optical scanning is a method of changing the direction of a light beam in a scheduled manner.
@@ -857,8 +1164,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Objective scanning, pre-objective scanning, and post-objective scanning.
       .center
         img(src='./assets/fig6-37.png' height="400px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") There are several scanning devices that direct light onto objects with a preplanned rotation speed.
@@ -866,33 +1177,49 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Galvanometric scanners use an electromagnetically-driven motor to steer a beam in a particular pattern over a certain angular range.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") AO scanners, change the direction of the light by an acousto-optic effect — which occurs when a small variation in refractive index.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Spinning mirrors have a number of plane-mirror facets parallel to and facing away from a rotation axis of a motor. They provide wide angular range, as much as 360º. 
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Galvanometric scanners use coated-plane mirrors to improve the reflex activity to deflect a laser beam. 
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The scan head is operated via an optomechatronic principle, in that the optical device “mirror” configured with other optics is actuated by an electromagnetically driven motor.
       .center
         img(src='./assets/fig6-38.png' height="400px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Post-objective scan uses a toroidal and a cylindrical lenses 
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") 
       .center
         img(src='./assets/fig6-39.png' height="400px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") Pre-objective scan distortion
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") 
       .center
         img(src='./assets/fig6-40.png' height="400px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The post-objective scan system has two types of scanning:
@@ -900,8 +1227,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") · Dynamic-focus objective lens system.
       .center
         img(src='./assets/fig6-41.png' height="350px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 20px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") · Fixed-focus objective lens
@@ -913,17 +1244,25 @@
       .center
         img(src='./assets/eq6-50-1.png' height="70px" style="margin: 0px 20px 0px 0;")
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In order to keep the scan range in focus, it is necessary to keep it within the depth of focus defined by <b>2&Delta;z</b>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 20px 0; line-height: 1.2em;") · Dynamic-focus objective lens system.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When the scan field exceeds the depth of focus a dynamic focus system called a lens translator, needs to be employed to achieve a flat-field focus.
       .center
         img(src='./assets/fig6-42.png' height="250px" style="margin: 20px 20px 0px 0;")
-      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In this dynamic focus objective system, an objective lens is placed on a slider and translated dynamically in order to relay and focus the beam on to the scan field at any instant. 
+      p(style="margin: 10px 0 20px 0; line-height: 1.2em;") In this dynamic focus objective system, an objective lens is placed on a slider and translated dynamically in order to relay and focus the beam on to the scan field at any instant.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") There are several configurations for achieving this objective. 
@@ -933,8 +1272,12 @@
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") The small lens located far left is a translating lens.
       p(style="margin: 10px 0 20px 0; line-height: 1.2em;") Elements 2 and 3 can be either plano-convex or best-form signets oriented to minimize spherical aberrations.
       //- p(style="margin: 10px 0 20px 0; line-height: 1.2em;") When a collimated beam enters a translating lens the beam is expanded by a beam expander composed of elements 1 and 2 to fill the aperture of the scanning head.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;")  The focal length of element 3 is designed by considering the optical path length from the element to the target object scanned.
@@ -945,16 +1288,24 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The translator position, focus change, and focal lengths of the three lenses are related by the two lens equations
       .center
         img(src='./assets/eq6-52.png' height="60px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 0px 0; line-height: 1.2em;") When the maximum range of <b>z<sub>c</sub></b> and <b>z</b> are known, we can determine the focal length <b>f<sub>2</sub></b> from the above design considerations.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The focal lengths of elements 1 and 2 can be determined by the following equations
       .center
         img(src='./assets/eq6-53.png' height="60px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Feedback Control of Galvanometer
@@ -963,8 +1314,12 @@
         img(src='./assets/fig6-45.png' height="360px" style="margin: 20px 20px 0px 0;")
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") The galvanometer is essentially an electromechanical transducer containing an optical unit.
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") It consists of an armateur (a moving coil assembly), a position transducer, a driving electronics composed of amplifier power supply and logics, a permanent magnet, and a rotating mirror.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 30px 0 0px 0; line-height: 1.2em;") There are three types of armatures: <em>moving coil</em>, <em>moving iron</em>, and <em>moving magnet</em>.
@@ -975,8 +1330,12 @@
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (3) a dynamically balanced armateur
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (4) immunity to all internal, external dynamic disturbances
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (5) capability of low power consumption and good heat dissipation.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The galvanometric scanner is a feedback control system that controls its rotation angle in a desired fashion, based on the information of a position sensor.
@@ -989,8 +1348,12 @@
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") (5) insensitive to radial motions of the rotor.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Galvanometers can position beams over a wide range of angular displacement (0, 80º) at speeds ranging from 1 to 100 msec.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The positioning accuracy can be achieved up to micro radians. 
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Dynamic properties
@@ -1000,8 +1363,12 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The differential equation for the electrical field due to an input voltage is given by
       .center
         img(src='./assets/eq6-56.png' height="70px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       .center
@@ -1010,8 +1377,12 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Then, the dynamics of the moving optical mirror is governed by
       .center
         img(src='./assets/eq6-57.png' height="70px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") If we neglect the effect of inductance within a certain operating frequency range of the galvanometer, we can easily have the resulting simplified equation expressed by
@@ -1025,17 +1396,25 @@
       .center
         img(src='./assets/eq6-58-3.png' height="80px" style="margin: 20px 20px 0px 0;")
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") where <b>R<sub>f</sub></b> is the resistance of the coil frame.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The response of the galvanometer has three different solutions, depending on &zeta; these are: underdamped (<b>&zeta; < 1</b>), critical damped (<b>&zeta; = 1</b>) and overdamped (<b>&zeta; > 1</b>)
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The dynamic response of the galvanometer is characterized by peak overshoot (<b>M<sub>p</sub></b>), rise time (<b>t<sub>r</sub></b>) and settling time (<b>t<sub>s</sub></b>)
       .center
         img(src='./assets/fig6-46.png' height="350px" style="margin: 20px 20px 0px 0;")
-      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The damping ratio should be designed in order that, within the permitted overshoot, the response be kept to a minimum. 
+      p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The damping ratio should be designed in order that, within the permitted overshoot, the response be kept to a minimum.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") For example, if the accuracy required in a transient period is within &pm;5%, a damping ratio is chosen such that the percentages overshoot gives 1.05.
@@ -1044,8 +1423,12 @@
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") The damping ratio that meets this requirement is shown to be 0.690.
       .center
         img(src='./assets/fig6-47.png' height="350px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") When a galvanometer scans over a certain region in repeated fashion, a sinusoidal voltage must be given to it.
@@ -1057,8 +1440,12 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") and for the phase of G(&omega;) which is the phase difference between the input and output
       .center
         img(src='./assets/eq6-59b.png' height="80px" style="margin: 20px 20px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       //- p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The ratio <b>&Theta;(&omega;)/KV<sub>g</sub>(&omega;)</b> is a measure of the optical mirror dynamic response.
@@ -1069,8 +1456,12 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") the damping ratio in the range of about 50 to 90% should be used to have reasonable bandwidth.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Usually, the frequency response characteristics shown here do not yield a satisfactory response if any modification or correction is not made.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") To obtain satisfactory results, we normally extend the range of acceptable frequency responses by feedback control gain adjustment.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") Control
@@ -1080,36 +1471,181 @@
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") The control system is composed of a controller, power amp, a sensor and a mirror.
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") We will consider time-domain response of the galvanometer response
       //-  , but will not treat that of frequency domain.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 30px 0 0px 0; line-height: 1.2em;") In order to simulate its controlled responses, we will use a PI controller and the parameters
       .center
         img(src='./assets/table6-7.png' height="400px" style="margin: 30px 0px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 50px 0 0px 0; line-height: 1.2em;") The galvanometer response gets faster, but becomes oscillatory as <b>k<sub>p</sub></b> increases. 
       .center
         img(src='./assets/fig6-50.png' height="300px" style="margin: 30px 0px 0px 0;")
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") With inclusion of an integral gain, the response becomes faster, with large overshoot, but has no steady state error.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Opto-mechatronic functional units : Optical Scanning</sup>
       p(style="margin: 0px 0 0px 0; line-height: 1.2em;") Optical Scanning: Galvanometer
       p(style="margin: 20px 0 0px 0; line-height: 1.2em;") To see the effect of external disturbance such as noise, a step noise of magnitude 0.01/s was included. The responses of the P control alone to this input noise show a large error at steady state. However, the PI controller shows such error is eliminated due to the integral action at steady state.
       .center
         img(src='./assets/fig6-51-1.png' height="200px" style="margin: 30px 0px 0px 0;")
         img(src='./assets/fig6-51-2.png' height="350px" style="margin: 0px 0px 0px 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
           li <b>Optomechatronics</b> <span class="small"> Fusion of Optical and Mechatronic Engineering</span> <br>Author: Hyungsuck Cho<br> Tylor and Francias
-        p.small Slides created by G. Rodríguez-Morales and spheroidGames, gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com with use of images from the above referenced book
+        p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com with use of images from the above referenced book
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Problems : {{ slides.length }}</sup>
+        h3 Problems
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 1. Considere una pinza robótica impulsada por un problema de control de actuador óptico PLZT que se muestra en la figura.
+          .center
+            img(src='./assets/figP6-1.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Gs, y se supone que Guv(s) y Ga(s) son dada por
+          .center
+            img(src='./assets/eqP6-1.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Todos los parámetros se dan en la Tabla 6.1. Cuando se utiliza un controlador proporcional, Gc(s) =  kp; y Gp(s) se desprecia<br>(1) ¿Cuál será el error de estado estable a una posición de paso, xd(s) = 1/s?<br>(2) Si hay un error presente para esta entrada, ¿cómo puede eliminarlo?<br>(3) En los problemas anteriores (1) y (2), la dinámica de la pinza Gp(s) es despreciable. Si esto no puede ser despreciado, ¿qué tipo de Gp(s) será? Si este Gp(s) se incluye en la función de transferencia, ¿cuál será el efecto de la inclusión?
+          .center
+            img(src='./assets/table6-1.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 2. Considere el caso en que la masa m2 mueve la pendiente que se muestra en la figura, mientras que la masa m1 se pega al piso. Determine la condición de no deslizamiento entre la masa m2 y el suelo.
+          .center
+            img(src='./assets/figP6-2.png' width="300px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 3. La configuración del actuador óptico con efecto fototérmico, que se muestra en la figura, utiliza las fibras ópticas formando tres voladizos cuyas patas se unen a un cuerpo triangular equilátero. La parte inferior de cada pata está cortada en forma de bisel y coloreada de negro para que pueda absorber la luz y convertirla en calor cuando entra la luz. Si la luz está encendida, este efecto fototérmico que se produce en la parte inferior de la pierna hace que la pierna se doble (deformado). Luego, debido a este estado deformado, la pierna se estira hacia adelante. Explique en detalle cómo se puede generar un movimiento en línea recta y un movimiento bidimensional aplicando luz apropiadamente a las fibras.
+          .center
+            img(src='./assets/figP6-3.png' width="300px" style="margin: 10px 0px 10px 0px;")
+         
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 4. Considere el modelo dinámico en la etapa (2) que se muestra en la figura. En esta etapa, la máquina en movimiento tiene un pie real en estado de bloqueo, mientras que su cuerpo se estira con el pie delantero libre para moverse debido al aumento de temperatura en el área sombreada.
+          .center
+            img(src='./assets/fig6-10.png' width="400px" style="margin: 10px 0px 10px 0px;")
+       
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Dibuje un diagrama de cuerpo libre en este caso, como se muestra en el caso de la etapa (4) de la figura
+          .center
+            img(src='./assets/fig6-11.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (2) Deduzca la condición de no deslizamiento para el movimiento ascendente de la máquina.
+       
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. Si se requiere un ángulo de deflexión de Bragg de 0.25º, ¿qué frecuencia de onda acústica debe generarse? Se utiliza un haz de láser rojo con fines de exploración óptica. El material acústico-óptico es un vidrio dopado listado en la Tabla 6.4.
+          .center
+            img(src='./assets/table6-5.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. Un cristal acústico-óptico desvía el haz desde el ángulo &theta;i a &theta;d: suponga que el ancho de la apertura es de 2 mm y que la velocidad de la onda acústica en el cristal es de 700 m/s. Determine el tiempo de subida requerido para desviar el haz por la onda acústica. Suponga que el haz llena completamente la abertura del cristal.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 7. La figura
+          .center
+            img(src='./assets/figP6-7.png' width="300px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") muestra un método de escaneo bidimensional para leer o escribir. Se compone de un único escáner galvanómetro posobjetivo, una lente objetivo (no se muestra) y un medio móvil.<br>(1) Discuta un método que pueda lograr un campo de escaneo plano sin usar ningún sistema óptico adicional.<br>(2) Considere el caso en el que empleamos un método activo que utiliza un desplazador en z que se muestra en la figura. Deseamos corregir la desviación de la longitud del foco de escaneo de forma en línea. Dibuje un diagrama de bloques del sistema de control utilizando la figura y explique el principio de funcionamiento. En (2), diseñe un sensor que pueda medir la desviación del escaneo en cada instante del escaneo.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. Un galvanómetro x-y explora toda la región de un campo de exploración(80 &times; 80 mm de área), como se muestra en la figura. 
+          .center
+            img(src='./assets/figP6-8.png' width="300px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Suponga que dos espejos están separados por 20 mm. La distancia desde el espejo del eje y hasta el plano de exploración es de 400 mm. Calcule la desviación del foco a lo largo de la línea de AA0 en un intervalo de 10 mm.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Derive la ecuación simplificada dada en la Ecuación
+          .center
+            img(src='./assets/eq6-58.png' width="300px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") obtenida despreciando el efecto de la inductancia del circuito eléctrico
+          .center
+            img(src='./assets/eqP6-9.png' width="300px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 10. Muestre que la relación de amortiguamiento utilizada en un galvanómetro es 0.690 cuando la curva de respuesta interseca la magnitud &theta;/&theta; = 0.95 en el tiempo t = 0.454(&omega;t/2&pi;) y alcanza el punto de tangencia pt en el límite superior de precisión, como se muestra en la figura. 
+          .center
+            img(src='./assets/fig6-47.png' width="400px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 11. Considere la disposición de una sola lente que se muestra en la figura.
+          .center
+            img(src='./assets/figP6-11.png' width="400px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Si esta lente con distancia focal f avanza hacia una ubicación P en la que la distancia de la imagen es 2f, ¿cuál será la ampliación del tamaño de la imagen? Suponga que la distancia del objeto es mucho mayor que la distancia de la imagen. <br>(1) Explique los resultados dibujando la trayectoria del rayo a través del modelo del agujero de alfiler de la lente delgada. <br>(2) Describa el fenómeno de desenfoque cuando solo se usa una sola lente para hacer zoom.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 12. Suponga que una lente positiva con una distancia focal f1 = 15 se coloca frente a la lente negativa con una distancia focal f2 = - 10 que se muestra en la figura.
+          .center
+            img(src='./assets/figP6-12.png' width="400px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Están ubicados inicialmente en P1 y M1. Cuando la lente negativa se mueve gradualmente hacia atrás a otras dos ubicaciones M2, M3, y la lente positiva se mueve a otras dos ubicaciones P2, P3 desde su posición inicial, las variaciones de distancia focal resultantes se muestran en la figura. Tenga en cuenta que los puntos de enfoque corresponden al plano de la película para todos los casos. <br>(1) Explique la imagen ampliada obtenida en el plano de imágenes en el caso 2 y el caso 3 en comparación con el caso 1. <br>(2) Para que la distancia focal del sistema de imágenes sea de 40 mm, diseñe las posiciones de las lentes positiva y negativa de aciuerdo a la figura. Explique la magnificación de la imagen comparado con el caso de condiciones iniciales.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 13. Considere un mecanismo accionado por leva para el sistema de control de zoom. La relación entre la posición de la lente y la distancia focal equivalente se encuentra en la tabla. Deseamos lograr feq = 15 mm desde el inicial feq = 20 mm: <br>(1) Determine una forma de función (polinomio de cuarto orden en terminos de feq) que describa los datos dados en la tabla. <br>(2) Calcule la distancia del movimiento de la lente L2 y L3 desde sus posiciones iniciales.
+          .center
+            img(src='./assets/tableP6-13.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          .center
+            img(src='./assets/figP6-13.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 14. Considere un sistema de enfoque automático cuya configuración se da en la figura.
+          .center
+            img(src='./assets/figP6-14.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Suponga que una cámara está enfocando automáticamente una imagen de un patrón de rayas que se muestra en la figura. La cámara se mueve una distancia incremental dz = 1 mm que va desde z = 0 mm hasta z = 8 mm: <br>(1) La medida de enfoque en cada imagen se define para el área dentro de la ventana, como se indica, 100 &times; 100 píxeles. Determine la medida de enfoque para la imagen obtenida en cada ubicación. La medida se calcula en base a los siguientes tres operadores. <br>&emsp;(a) Operador sobel, <br>&emsp;(b) Laplaciano, <br>&emsp;(c) Mediana ponderada. <br>(2) Compare los resultados de los tres métodos trazando la relación del valor de enfoque frente a la ubicación de la cámara y discuta las diferencias entre ellos.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 15. Suponga que en la figura se traza una medida de enfoque frente a la posición de la cámara para un rostro humano determinado. Se supone que la distribución de la medida viene dada por 
+          .center
+            img(src='./assets/eqP6-15.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          .center
+            img(src='./assets/figP6-15.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") El valor máximo exacto de la medida debe determinarse mediante el método de escalada de colinas, a partir de z(0) = -4.0. Suponga que los parámetros son &sigma; = 1.0, z&#x304; = 3.5, z0 = -4.0, &Delta;z=3.0, &delta;z=1.0. <br>(1) Muestre todos los procedimientos necesarios para determinar la medida pico. <br>(2) Trace la posición de la cámara frente al tiempo y la medida correspondiente contra el tiempo
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") P6.16. Considere el concepto de iluminación ilustrado en la figura. Basado en el concepto, <br>(1) discuta el efecto de la superficie normal, el ángulo incidente y el eje óptico del sistema de detección, y luego la relación entre estos tres factores. <br>(2) cuando se mide la superficie normal de un objeto, cómo podemos diseñar un sistema de iluminación apropiado.
+          .center
+            img(src='./assets/figP6-16.png' width="500px" style="margin: 10px 0px 10px 0px;")
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 17. La figura muestra un sistema de iluminación de tres capas para detectar la imagen de una PCB que se compone de varias áreas unidas de partes electrónicas, marcas y un fondo. En la figura se muestra la PCB de la que se va a formar una imagen.
+          .center
+            img(src='./assets/figP6-17.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) El color de la luz de iluminación será efectivo para detectar las áreas con juntas y las marcas cuando el color de las juntas sea aproximadamente similar al del oro, mientras que las marcas estén en blanco. La cámara utilizada aquí es monocolor. <br>(2) Cuando el anillo de iluminación en la capa inferior está encendido, ¿cómo podemos esperar que se vea la imagen? <br>(3) Cuando la capa superior esté activada, discuta las características de la imagen que se puede detectar.
+        div.pcontainer
+          //- p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 18. Once funcionalidades fundamentales se han discutido en el Capítulo. Siguiendo los métodos ilustrados en el capítulo, dibuje cada uno de los diagramas de flujo de señales para los sistemas que se muestran en la Figura 6.16, Figura 6.24, Figura 6.34, Figura 6.42 y Figura 6.65.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 19. La figura muestra una escena de control visual que impulsa un chip eléctrico en un escenario de 6 ejes para ubicarlo en una posición deseada con una pose deseada. Por lo tanto, el objetivo de este control visual es moverlo de la imagen actual en (a) a la imagen deseada (b), como se muestra en la Figura.
+          .center
+            img(src='./assets/figP6-19.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Determine cuatro puntos característicos (puntos de esquina) del chip electrónico que se muestra en la figura (a) usando la transformada de Hough, “Proyección en perspectiva”. <br>(2) Determine el jacobiano de la imagen en la ubicación actual obteniendo los puntos característicos en el marco de la imagen actual. Suponga que los parámetros intrínsecos de la cámara vienen dados por: &alpha;u = 1955, &alpha;v = 1940, u0 = 358,v0 = 292, &theta;= 90º, f = 0.016. El detector esta colocado a 0.3m de la camara a lo largo del eje optco de lac camara. Por simplicidad suponga que en este instante los cuatro puntos de las esquinas están ubicados en la misma posición vertical z = 0.3m. <br>(3)A partir de la imagen jacobiana obtenida en la pregunta anterior, determine la entrada del comando de velocidad u = KpJ<sup>+</sup>e donde Kp es la matriz de ganancia de identidad y J<sup>+</sup> es la pseudo inversa de J y e es el vector de error. 
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 20. Se utiliza un deflector acústico-óptico para difractar el haz de luz incidente en un ángulo específico. El ángulo de difracción determina qué fotodiodo dentro del conjunto recibirá el haz difractado, como se muestra en la figura. 
+          .center
+            img(src='./assets/figP6-20.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") La salida del diodo luego ingresará al amplificador. <br>(1) ¿Cuántos módulos transformadores de señal hay en el sistema? Explícalos en detalle. <br>(2) ¿Cuántos módulos de modulación de señal hay en el sistema? Explícalos en detalle. <br>(3) Dibuje un gráfico de flujo de señales de este sistema y déle una explicación física.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 21. La figura  muestra un disco óptico que funciona según el principio optomecatrónico.
+          .center
+            img(src='./assets/figP6-21.png' width="500px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Explique su principio de funcionamiento. <br>(2) Repita los mismos problemas (1), (2) y (3) dados en el problema 20.
+        div.pcontainer
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 22. La figura  muestra una cámara digital.
+          .center
+            img(src='./assets/figP6-22.png' width="300px" style="margin: 10px 0px 10px 0px;")
+          p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Explique cómo funciona. <br>(2) Repita los mismos problemas (1), (2) y (3) dados en el problema 20.
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Previous
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
 </template>
 
@@ -1248,5 +1784,12 @@ export default {
     background-color:slateblue;
     color: white;
   }
+
+}
+.pcontainer {
+  padding: 15px;
+  margin: 10px 0px 3px 0px;
+  border: 1px solid black;
+  font-size: 18px;
 }
 </style>

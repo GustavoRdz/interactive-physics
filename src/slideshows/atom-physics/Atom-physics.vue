@@ -1,21 +1,25 @@
 <template lang="pug">
 #Relativity.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' style="overflow: scroll;")
       .center.frontpage
         h1 Atomic physics
         img(src='./assets/microres4.jpg')
         p Atomic spectra of gases<br> Models of the atom<br> Bohr's model of the hydogen atom
-        eg-triggered-message(:trigger='slideTimer >= 2',
-                            :duration='6', position='top right',
-                            enter='bounceInRight', leave='bounceOutRight')
-          p Next:
-          img.control-schema(src='./assets/controlsNext.svg')
-          p Previous:
-          img.control-schema(src='./assets/controlsPrev.svg')
+        //- eg-triggered-message(:trigger='slideTimer >= 2',
+        //-                     :duration='6', position='top right',
+        //-                     enter='bounceInRight', leave='bounceOutRight')
+        //-   p Next:
+        //-   img.control-schema(src='./assets/controlsNext.svg')
+        //-   p Previous:
+        //-   img.control-schema(src='./assets/controlsPrev.svg')
         .top <sup style="font-size: 10px;">{{ slides.length }} </sup>
+      //- .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=3, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false')
+    slide(:steps=3, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3
         | Topics
@@ -31,15 +35,23 @@
           p(v-if="step>=3")
             <b>Bohr's model of the hydogen atom</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft' )
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h2 Atomic spectra of gases
       .center
         img(src='./assets/atomo01.png' width="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(:steps=1, enter='bounceInDown')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Atomic spectra of gases
       .center
@@ -47,8 +59,12 @@
       .center
         img(src='./assets/atomo02.png' width="700px")
         p(style="margin-top:-20px; color: blue;") b) Absorption spectroscoy
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Emission series
       .center
@@ -57,9 +73,13 @@
       .center
         img(src='./assets/atomo04.png' width="400px" style="margin-top:-20px;")
       p.center Rydberg constant: R<sub>H</sub> = 1.0973732x10<sup>7</sup> m<sup>-1</sup>
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center  Emission series
       h6.center Other series
@@ -73,40 +93,60 @@
           p Brackett series (fall down to n = 4)
           p Pfund series (fall down to n = 5)
           p Humphreys series (fall down to n = 6)
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Early models of the atom
       h5.center Thomson's model
       .center
         img(src='./assets/atomo06.png' width="250px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide.boredYet(enter='bounceInDown' :mouseNavigation='false')
+    slide.boredYet(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4.center Rutherford's model
       .center
         img(src='./assets/atomo07.png' width="700px")
       p “It was quite the most incredible event that has ever happened to me in my life. It was almost as incredible as if you fired a 15-inch [artillery] shell at a piece of tissue paper and it came back and hit you.” <br>-- E. Rutherford
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Rutherford's model
       p Drawback of the Rutherford model: accelerated electric carges emits EM energy
       .center
         img(src='./assets/atomo09.png' width="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
       p Bohr applied Planck’s ideas of quantized energy levels to Rutherford’s orbiting atomic electrons
       .center
         img(src='./assets/atomo10.png' width="400px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
       h4(style="margin-bottom: 60px;").center Bohr's model of the Hydrogen atom
@@ -117,9 +157,13 @@
       p where <span style="font-family: Times; font-style: italic; font-weight: bold;">m<sub>e</sub></span> is the electron mass, <span style="font-family: Times; font-style: italic; font-weight: bold;">v</span> is the electron’s speed in its orbit, <span style="font-family: Times; font-style: italic; font-weight: bold;">r</span> is the orbital radius, and
           |
           img(src='./assets/atomo13.png' width="120px" style="margin: 0px 0 -3px 20px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
       h4(style="margin-top:0px;").center Bohr's model of the Hydrogen atom
@@ -142,8 +186,12 @@
       p and kinetic energy becomes
       .center
         img(src='./assets/atomo21.png' width="300px" style="margin: -20px 10px 0px 10px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
       h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
@@ -162,9 +210,13 @@
       p(style="margin-top: -0px;") and the orbital radius is given by
       .center
         img(src='./assets/atomo25.png' width="300px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
       h4(style="margin-top:-20px;").center Bohr's model of the Hydrogen atom
@@ -177,8 +229,12 @@
       p and revisiting the orbital radius we have
       .center
         img(src='./assets/atomo27.png' width="600px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       //- img(src='./assets/atomo10.png' width="180px" style=" position: absolute; right: 100px; top: 10px;")
       h4(style="margin-top: -20px;").center Bohr's model of the Hydrogen atom
@@ -196,8 +252,12 @@
       p For emision frequency we have
       .center
         img(src='./assets/atomo31.png' width="500px" style="margin-top: -10px;" )
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Bohr's model of the Hydrogen atom
       p(style="margin: -20px 100px 10px 10px;") Changing for wavelength
@@ -208,8 +268,12 @@
       p(style=" position: absolute; top: 280px; right: 100px;").center Rydberg constant:<br> R<sub>H</sub> = 1.0973732x10<sup>7</sup> m<sup>-1</sup>
       .center
         img(src='./assets/atomo30.png' width="300px" style="margin: 50px 10px 0px 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Ionized atoms
       p Some ionized atoms can be modeled with the model for the hydrogen atom
@@ -218,74 +282,98 @@
         img(src='./assets/atomo34.png' width="250px")
       .center
         img(src='./assets/atomo35.png' width="500px")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 1
       example-one
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      //- .button.prev(@click.stop='previousSlide')
+      //-   span &lt; Prev. slide
+      //-   br
+      //-   span.small  Ctrl + left
+      //- .button.next(@click.stop='nextSlide')
+      //-   span Next slide &gt;
+      //-   br
+      //-   span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 2
       example-two
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      //- .button.prev(@click.stop='previousSlide')
+      //-   span &lt; Prev. slide
+      //-   br
+      //-   span.small  Ctrl + left
+      //- .button.next(@click.stop='nextSlide')
+      //-   span Next slide &gt;
+      //-   br
+      //-   span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(:steps=1 enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 3
       example-three
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      //- .button.prev(@click.stop='previousSlide')
+      //-   span &lt; Prev. slide
+      //-   br
+      //-   span.small  Ctrl + left
+      //- .button.next(@click.stop='nextSlide')
+      //-   span Next slide &gt;
+      //-   br
+      //-   span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3(style="margin-top: -10px;") Exercise 4
       example-four
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      //- .button.prev(@click.stop='previousSlide')
+      //-   span &lt; Prev. slide
+      //-   br
+      //-   span.small  Ctrl + left
+      //- .button.next(@click.stop='nextSlide')
+      //-   span Next slide &gt;
+      //-   br
+      //-   span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false')
+    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h3 Exercise 5
       example-five
-      .button.prev(@click.stop='previousSlide')
-        span &lt; Prev. slide
-        br
-        span.small  Ctrl + left
-      .button.next(@click.stop='nextSlide')
-        span Next slide &gt;
-        br
-        span.small Ctrl + right
+      //- .button.prev(@click.stop='previousSlide')
+      //-   span &lt; Prev. slide
+      //-   br
+      //-   span.small  Ctrl + left
+      //- .button.next(@click.stop='nextSlide')
+      //-   span Next slide &gt;
+      //-   br
+      //-   span.small Ctrl + right
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(:steps=3 enter='bounceInDown' :mouseNavigation='false')
+    slide(:steps=3 enter='bounceInDown' :mouseNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -0px; margin-bottom: 40px").center Spontaneous and stimulated emission
       div(class="container" style="display: flex; flex-direction: row; margin-top: 20px;")
@@ -303,9 +391,13 @@
           h5(style="margin: 0;").center Stimulated emission
           .center
             img(src='./assets/lasers3.png' width="100%")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Laser
@@ -314,24 +406,36 @@
       p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">S</span>timulated
       p(style="margin: 0 0 -15PX 400px;") <span style="font-size: 60px; color: blue;">E</span>mission of
       p(style="margin: 0 0 -0PX 400px;") <span style="font-size: 60px; color: blue;">R</span>adiation
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Lasers
       .center
         img(src='./assets/lasers4.png' width="700px" style="margin-top: -30px; margin-right: 0px;")
         img(src='./assets/lasers5.png' width="250px" style="margin-top: -30px; margin-left: 50px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false'  style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="margin-top: -20px;").center Sponteneous and stimulated emission
       h5.center Laser cooling
       .center
         img(src='./assets/lasers7.png' width="400px" style="margin-top: -30px;")
         img(src='./assets/lasers6.png' width="400px" style="margin-top: -30px; margin-left: 100px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false')
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
@@ -339,6 +443,10 @@
         p.center Physics for Scientist and Engineers with Modern Physics <br>9th Edition<br> Serway, Jewett
         p.small created by G. Rodríguez-Morales and spheroidGames
         p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
 
 

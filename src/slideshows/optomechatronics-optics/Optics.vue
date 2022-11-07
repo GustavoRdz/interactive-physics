@@ -1216,90 +1216,90 @@
       div.pcontainer
         p(style="padding: 15px; margin: -0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 4. Diseñe un expansor de haz usando cualquier combinación de dos tipos de lentes (cóncavas y convexas). El expansor es necesario para expandir un haz de 1.5 cm a 9.0 cm. Suponga que el valor absoluto de la distancia focal de la lente es menor que 9.0 cm.
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. Hay varias formas de medir la distancia focal efectiva de una lente. Una forma es usar un colimador. Dibuje una configuración de este colimador focal, un sistema de medición de distancia focal, y explique el principio de funcionamiento.  
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. Hay varias formas de medir la distancia focal efectiva de una lente. Una forma es usar un colimador. Dibuje una configuración de este colimador focal, un sistema de medición de distancia focal, y explique el principio de funcionamiento.  
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. El expansor de haz es un dispositivo de uso frecuente para expandir el diámetro del haz. El expansor de haz reflectante sin enfoque es práctico para la mayoría de las aplicaciones debido a la simplicidad de su configuración. Dibuje tres de estos y explique como funciona.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. El expansor de haz es un dispositivo de uso frecuente para expandir el diámetro del haz. El expansor de haz reflectante sin enfoque es práctico para la mayoría de las aplicaciones debido a la simplicidad de su configuración. Dibuje tres de estos y explique como funciona.
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  7. El tamaño de la imagen de un sistema óptico se puede describir convenientemente mediante un factor de aumento lateral, m = h'/h, donde h y h' son la altura del objeto y la altura de la imagen, respectivamente. Si s<sub>o</sub> y s<sub>i</sub> son las distancias del objeto y de la imagen desde la lente, respectivamente, demuestre que s<sub>o</sub> y s<sub>i</sub> pueden expresarse como
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  7. El tamaño de la imagen de un sistema óptico se puede describir convenientemente mediante un factor de aumento lateral, m = h'/h, donde h y h' son la altura del objeto y la altura de la imagen, respectivamente. Si s<sub>o</sub> y s<sub>i</sub> son las distancias del objeto y de la imagen desde la lente, respectivamente, demuestre que s<sub>o</sub> y s<sub>i</sub> pueden expresarse como
         .center
           img(src='./assets/p27A.png' width="200px" style="margin: 10px 0px -0px 0px;")
         .center
           img(src='./assets/p27B.png' width="200px" style="margin: 10px 0px -0px 0px;")
 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. Considere el astigmatismo discutido en la siguiente figura.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. Considere el astigmatismo discutido en la siguiente figura.
         .center
           img(src='./assets/fig2-23.png' width="500px" style="margin: 10px 0px -0px 0px;")
-        p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Suponga que los rayos se enfocan como una línea en f<sub>T</sub> y f<sub>s</sub> como se muestra en la siguiente figura.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Suponga que los rayos se enfocan como una línea en f<sub>T</sub> y f<sub>s</sub> como se muestra en la siguiente figura.
         .center
           img(src='./assets/p28.png' width="500px" style="margin: 10px 0px -0px 0px;")
-        p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Si se supone que la lente tiene un foco tangencial (f<sub>T</sub>) 17,8 cm y un foco sagital (f<sub>s</sub>), 19,2 cm, ¿cuál será el diámetro del círculo de menor confusión? Se supone que el círculo está ubicado en el punto que tiene un promedio de las potencias ópticas de las dos distancias focales. El diámetro de la lente es D.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") Si se supone que la lente tiene un foco tangencial (f<sub>T</sub>) 17,8 cm y un foco sagital (f<sub>s</sub>), 19,2 cm, ¿cuál será el diámetro del círculo de menor confusión? Se supone que el círculo está ubicado en el punto que tiene un promedio de las potencias ópticas de las dos distancias focales. El diámetro de la lente es D.
 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Un telescopio es un dispositivo óptico que aumenta el tamaño aparente de un objeto ubicado a cierta distancia. Dicho dispositivo se puede configurar combinando dos lentes delgadas, L<sub>1</sub> y L<sub>2</sub>, que se muestran en la figura. Las dos lentes están separadas por una distancia d, y f<sub>1</sub> y f<sub>2</sub> son las distancias focales de las lentes L<sub>1</sub> y L<sub>2</sub>, respectivamente. <br>(1) Ubique el punto focal de cada lente y dibuje caminos ópticos por los cuales la luz llega al ojo para los dos casos que se muestran en la figura en los casos a y b. <br>(2) En la figura caso a, la imagen obtenida está invertida. Para obtener la imagen erigida, repita el mismo problema (1) para un sistema óptico que se muestra en la figura caso c. En este caso, ¿cuál será la magnificación?    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Un telescopio es un dispositivo óptico que aumenta el tamaño aparente de un objeto ubicado a cierta distancia. Dicho dispositivo se puede configurar combinando dos lentes delgadas, L<sub>1</sub> y L<sub>2</sub>, que se muestran en la figura. Las dos lentes están separadas por una distancia d, y f<sub>1</sub> y f<sub>2</sub> son las distancias focales de las lentes L<sub>1</sub> y L<sub>2</sub>, respectivamente. <br>(1) Ubique el punto focal de cada lente y dibuje caminos ópticos por los cuales la luz llega al ojo para los dos casos que se muestran en la figura en los casos a y b. <br>(2) En la figura caso a, la imagen obtenida está invertida. Para obtener la imagen erigida, repita el mismo problema (1) para un sistema óptico que se muestra en la figura caso c. En este caso, ¿cuál será la magnificación?    
         .center
           img(src='./assets/p29A.png' width="300px" style="margin: 10px 0px -0px 0px;")
           img(src='./assets/p29B.png' width="300px" style="margin: 10px 0px -0px 0px;")
           img(src='./assets/p29C.png' width="300px" style="margin: 10px 0px -0px 0px;")
 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  10. La figura muestra una apertura colocada en un sistema óptico compuesto por dos lentes convexas idénticas. Analice el efecto del tope de apertura en la distorsión.    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  10. La figura muestra una apertura colocada en un sistema óptico compuesto por dos lentes convexas idénticas. Analice el efecto del tope de apertura en la distorsión.    
         .center
           img(src='./assets/p210.png' width="500px" style="margin: 10px 0px -0px 0px;")
 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  11. Supongamos que deseamos rectificar el borde de la lente para que la línea entre los centros de curvatura de dos superficies de la lente coincida con el eje mecánico, que está definido por el borde rectificado de la lente. Dada una herramienta tubular precisa en un husillo giratorio donde la lente se puede sujetar con cera o brea, <br>(1) configure un sistema óptico para este sistema de pulido y <br>(2) describa en detalle cómo funciona el sistema.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  11. Supongamos que deseamos rectificar el borde de la lente para que la línea entre los centros de curvatura de dos superficies de la lente coincida con el eje mecánico, que está definido por el borde rectificado de la lente. Dada una herramienta tubular precisa en un husillo giratorio donde la lente se puede sujetar con cera o brea, <br>(1) configure un sistema óptico para este sistema de pulido y <br>(2) describa en detalle cómo funciona el sistema.
 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 12. Considere que una onda de luz no polarizada se propaga a través de un polarizador con eje de transmisión vertical y luego un segundo polarizador con su eje de transmisión formando un ángulo de 60° con el eje vertical, como se muestra en la figura. ¿Cuál será el ángulo de polarización y la intensidad de la luz transmitida?    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 12. Considere que una onda de luz no polarizada se propaga a través de un polarizador con eje de transmisión vertical y luego un segundo polarizador con su eje de transmisión formando un ángulo de 60° con el eje vertical, como se muestra en la figura. ¿Cuál será el ángulo de polarización y la intensidad de la luz transmitida?    
         .center
           img(src='./assets/p212.png' width="500px" style="margin: 10px 0px -0px 0px;")
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 13. Contar el número de franjas observadas en un interferómetro de Michelson se usa para medir el desplazamiento de un objeto. Cuando el objeto se desplaza 0,81 mm, se observa un desplazamiento de 2000 franjas. Calcule la longitud de onda de la fuente de luz.  
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 13. Contar el número de franjas observadas en un interferómetro de Michelson se usa para medir el desplazamiento de un objeto. Cuando el objeto se desplaza 0,81 mm, se observa un desplazamiento de 2000 franjas. Calcule la longitud de onda de la fuente de luz.  
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")   14. La Figura muestra un arreglo de la interferencia de Fabry-Perot. La disposición utiliza una lente de colimación entre la fuente y el interferómetro. Describa qué tipos de franjas ocurrirán. Explique las razones de esto. 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")   14. La Figura muestra un arreglo de la interferencia de Fabry-Perot. La disposición utiliza una lente de colimación entre la fuente y el interferómetro. Describa qué tipos de franjas ocurrirán. Explique las razones de esto. 
         .center
           img(src='./assets/p214.png' width="500px" style="margin: 10px 0px -0px 0px;")
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 15. Cuando un haz incidente contiene dos longitudes de onda que son ligeramente diferentes entre sí, la irradiancia transmitida de cada franja se muestra en la figura. Si una longitud de onda l<sub>0</sub> es de 500 nm y la otra difiere solo en &Delta;l = 0.0052 nm, ¿cuál será el espaciamiento del etalon Fabry-Perot cuando el orden m-ésimo de una componente coincida con el orden (m+1)-esimo de la otra?       
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 15. Cuando un haz incidente contiene dos longitudes de onda que son ligeramente diferentes entre sí, la irradiancia transmitida de cada franja se muestra en la figura. Si una longitud de onda l<sub>0</sub> es de 500 nm y la otra difiere solo en &Delta;l = 0.0052 nm, ¿cuál será el espaciamiento del etalon Fabry-Perot cuando el orden m-ésimo de una componente coincida con el orden (m+1)-esimo de la otra?       
         .center
           img(src='./assets/p215.png' width="300px" style="margin: 10px 0px -0px 0px;")
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  16. Un etalón de Fabry-Perot tiene un coeficiente de reflexión de &rho;<sub>r</sub> = 0.92 y una separación de placas de 1,5 cm. La luz incidente tiene dos longitudes de onda ligeramente diferentes alrededor de 490 nm. Determine <br>(1) el coeficiente de finesa <br>(2) el orden máximo de interferencia <br>(3) la diferencia mínima de longitud de onda resoluble &Delta;&lambda;: 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  16. Un etalón de Fabry-Perot tiene un coeficiente de reflexión de &rho;<sub>r</sub> = 0.92 y una separación de placas de 1,5 cm. La luz incidente tiene dos longitudes de onda ligeramente diferentes alrededor de 490 nm. Determine <br>(1) el coeficiente de finesa <br>(2) el orden máximo de interferencia <br>(3) la diferencia mínima de longitud de onda resoluble &Delta;&lambda;: 
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 17. El sistema óptico que se muestra en la figura llamado “espejo de Lloyd” consta de una fuente puntual S, un espejo plano M colocado cerca de la fuente y un plano de imagen &Sigma;<sub>i</sub>: <br>(1) Dibuje los caminos ópticos relevantes para describir la imagen en el plano de la imagen &Sigma;<sub>i</sub>. <br>(2) Qué tipo de imagen aparecerá en el plano &Sigma;<sub>i</sub>:    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 17. El sistema óptico que se muestra en la figura llamado “espejo de Lloyd” consta de una fuente puntual S, un espejo plano M colocado cerca de la fuente y un plano de imagen &Sigma;<sub>i</sub>: <br>(1) Dibuje los caminos ópticos relevantes para describir la imagen en el plano de la imagen &Sigma;<sub>i</sub>. <br>(2) Qué tipo de imagen aparecerá en el plano &Sigma;<sub>i</sub>:    
         .center
           img(src='./assets/p217.png' width="400px" style="margin: 10px 0px -0px 0px;")
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 18. Suponga que un haz paralelo de luz de 632.8 nm se propaga a través de una sola rendija. Si la distancia entre la rendija y la pantalla es de 1 m, determine el ancho de la rendija para tener un ancho en el máximo central de 30 cm.    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 18. Suponga que un haz paralelo de luz de 632.8 nm se propaga a través de una sola rendija. Si la distancia entre la rendija y la pantalla es de 1 m, determine el ancho de la rendija para tener un ancho en el máximo central de 30 cm.    
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 19. Suponga que una onda de luz coherente que tiene una longitud de onda de &lambda; = 640nm pasa a través do rendijas cuya distancia de separación es de 0.2 mm. La pantalla se encuentra a 1 m de distancia de las rendijas. Calcular el ancho de los máximos centrales.   
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 19. Suponga que una onda de luz coherente que tiene una longitud de onda de &lambda; = 640nm pasa a través do rendijas cuya distancia de separación es de 0.2 mm. La pantalla se encuentra a 1 m de distancia de las rendijas. Calcular el ancho de los máximos centrales.   
       
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 20. En la difracción de doble rendija, la relación entre la separación y el ancho viene dada por d = 5w. <br>(1) Haga una grafica del factor de interferencia vs. &alpha; <br>(2) Haga una grafica del factor de difracción vs. &beta; <br>(3) Haga una grafica del factor de la intensidad vs. el ángulo espacial, &theta;    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 20. En la difracción de doble rendija, la relación entre la separación y el ancho viene dada por d = 5w. <br>(1) Haga una grafica del factor de interferencia vs. &alpha; <br>(2) Haga una grafica del factor de difracción vs. &beta; <br>(3) Haga una grafica del factor de la intensidad vs. el ángulo espacial, &theta;    
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 21. De la figura del patron de interferencia para la doble rendija  
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 21. De la figura del patron de interferencia para la doble rendija  
         .center
           img(src='./assets/fig2-40.png' height="450px" style="margin: 10px 0px 20px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") y las figuras para la interferencia (izquierda) y de difracción (derecha) para rendijas multiples (N=4, &alpha; = 4&beta;)
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") y las figuras para la interferencia (izquierda) y de difracción (derecha) para rendijas multiples (N=4, &alpha; = 4&beta;)
          .center
           img(src='./assets/fig2-41A.png' height="200px" style="margin: 10px 0px 10px 0px;")
           img(src='./assets/fig2-41B.png' height="200px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") podemos ver que las ondas parecen mucho más nítidas para el caso de rendijas múltiples que para el de rendijas dobles. Da una razón física con algún detalle.   
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") podemos ver que las ondas parecen mucho más nítidas para el caso de rendijas múltiples que para el de rendijas dobles. Da una razón física con algún detalle.   
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  22. Muestre que en el rango de Rayleigh z<sub>r</sub> el haz se esparse por un factor de 2, es decir, r(z<sub>r</sub>) =  &radic;2 r<sub>0</sub>.    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  22. Muestre que en el rango de Rayleigh z<sub>r</sub> el haz se esparse por un factor de 2, es decir, r(z<sub>r</sub>) =  &radic;2 r<sub>0</sub>.    
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  23. Suponga que un rayo láser se extiende desde la cintura del rayo. Determine el radio del haz en una ubicación z =  80 m para un haz de diodo láser de 0,3 mm de radio &lambda; = 810 nm.    
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  23. Suponga que un rayo láser se extiende desde la cintura del rayo. Determine el radio del haz en una ubicación z =  80 m para un haz de diodo láser de 0,3 mm de radio &lambda; = 810 nm.    
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  24. Suponga que un láser HeNe de 5 mm de radio entra en una lente que tiene una distancia focal de 50 mm. Calcule un diámetro de punto de enfoque aproximado.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;")  24. Suponga que un láser HeNe de 5 mm de radio entra en una lente que tiene una distancia focal de 50 mm. Calcule un diámetro de punto de enfoque aproximado.
       
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide

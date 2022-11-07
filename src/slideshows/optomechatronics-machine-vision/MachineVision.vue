@@ -743,56 +743,56 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h6(style="margin-top: -0px;").center Problems
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 1. La figura muestra una imagen que tiene un cierto histograma de nivel de gris. Si deseamos modificar el histograma original de modo que se estire en un rango determinado y se deslice con cierta desviación del histograma original, como se muestra en la figura, explique qué tipo de cambios en la imagen ocurrirán en ambos casos. 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 1. La figura muestra una imagen que tiene un cierto histograma de nivel de gris. Si deseamos modificar el histograma original de modo que se estire en un rango determinado y se deslice con cierta desviación del histograma original, como se muestra en la figura, explique qué tipo de cambios en la imagen ocurrirán en ambos casos. 
         .center
           img(src='./assets/p31.png' width="500px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 2. Encontrar los componentes conectados en una imagen es una práctica común en la visión artificial. Un algoritmo de etiquetado encuentra todos los componentes conectados en la imagen y asigna una etiqueta a todos los puntos en el mismo componente. Para una imagen que se muestra en la figura, explique cómo puede funcionar el algoritmo de etiquetado para segmentar cada componente individual. 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 2. Encontrar los componentes conectados en una imagen es una práctica común en la visión artificial. Un algoritmo de etiquetado encuentra todos los componentes conectados en la imagen y asigna una etiqueta a todos los puntos en el mismo componente. Para una imagen que se muestra en la figura, explique cómo puede funcionar el algoritmo de etiquetado para segmentar cada componente individual. 
         .center
           img(src='./assets/p32.png' width="300px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 3. La imagen binaria varía mucho según el valor de umbral que se utilice. La figura muestra una imagen de la hoja de un árbol. Obtenga las imágenes binarias en T<sub>1</sub> = 150 y T<sub>2</sub> = 180 y explique los resultados comparando las imágenes binarias obtenidas. 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 3. La imagen binaria varía mucho según el valor de umbral que se utilice. La figura muestra una imagen de la hoja de un árbol. Obtenga las imágenes binarias en T<sub>1</sub> = 150 y T<sub>2</sub> = 180 y explique los resultados comparando las imágenes binarias obtenidas. 
         .center
           img(src='./assets/p33.png' width="300px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 4. En la figura, se dan dos series simples de mosaicos de 1 y 0 que imitan una imagen de nivel de gris en una ventana de 8 × 10. Deseamos determinar su borde usando los operadores de Robert y Laplaciano. <br>(1) Obtenga el vector gradiente G<sub>x</sub> y G<sub>y</sub> de la imagen (a), usando un operador de Robert y encuentre el borde, usando T = 220.<br> (2) Obtenga la operación laplaciana de la imagen (b) y encuentre la línea de cruce por cero a partir del resultado. 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 4. En la figura, se dan dos series simples de mosaicos de 1 y 0 que imitan una imagen de nivel de gris en una ventana de 8 × 10. Deseamos determinar su borde usando los operadores de Robert y Laplaciano. <br>(1) Obtenga el vector gradiente G<sub>x</sub> y G<sub>y</sub> de la imagen (a), usando un operador de Robert y encuentre el borde, usando T = 220.<br> (2) Obtenga la operación laplaciana de la imagen (b) y encuentre la línea de cruce por cero a partir del resultado. 
         .center
           img(src='./assets/p34.png' width="500px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. La imagen de una matriz de resistencia se muestra en la figura. Utilice el operador de Sobel para detectar el borde en tres valores de umbral arbitrarios diferentes.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 5. La imagen de una matriz de resistencia se muestra en la figura. Utilice el operador de Sobel para detectar el borde en tres valores de umbral arbitrarios diferentes.
         .center
           img(src='./assets/p35.png' width="300px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. La figura contiene dos niveles de ruido diferentes. Obtenga las imágenes filtradas de las imágenes utilizando un filtro mediano con media = 0.0 y desviación estándar = 2.0.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 6. La figura contiene dos niveles de ruido diferentes. Obtenga las imágenes filtradas de las imágenes utilizando un filtro mediano con media = 0.0 y desviación estándar = 2.0.
         .center
           img(src='./assets/p36.png' width="500px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 7. En la figura se muestra una línea en el marco de coordenadas x-y. Los puntos P<sub>1</sub> y P<sub>2</sub> están ubicados en la línea. <br>(1) Explique por qué la representación de líneas en coordenadas polares, &rho; = xcos&theta; + ysen&theta;, es más adecuada para la detección de líneas usando la transformada de Hough que la representación de línea estándar, y =  mx + c. <br>(2) Explique cómo la representación de línea estándar y = mx + c se puede convertir a la representación de coordenadas polares, r = xcos&theta; + ysen&theta;. <br>(3) Para la línea que se muestra en la figura, muestre la representación de línea estándar y la representación de coordenadas polares de la línea.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 7. En la figura se muestra una línea en el marco de coordenadas x-y. Los puntos P<sub>1</sub> y P<sub>2</sub> están ubicados en la línea. <br>(1) Explique por qué la representación de líneas en coordenadas polares, &rho; = xcos&theta; + ysen&theta;, es más adecuada para la detección de líneas usando la transformada de Hough que la representación de línea estándar, y =  mx + c. <br>(2) Explique cómo la representación de línea estándar y = mx + c se puede convertir a la representación de coordenadas polares, r = xcos&theta; + ysen&theta;. <br>(3) Para la línea que se muestra en la figura, muestre la representación de línea estándar y la representación de coordenadas polares de la línea.
         .center
           img(src='./assets/p37.png' width="400px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. Sea un plano de imagen con un tamaño de 300&times;400 píxeles como se muestra en la figura. Para extraer la información de línea de la imagen adquirida en este plano de imagen, generalmente se utiliza una transformada de Hough. Aquí, nos gustaría obtener la resolución especificada de la línea extraída y &Delta;&rho; = 1 píxel. <br>(1) Diseñe la matriz de acumuladores A(&theta;). Suponga que el efecto de cuantización de la imagen es insignificante. Determine los valores de m y c donde m y c son los tamaños horizontal y vertical del acumulador, respectivamente. <br>(2) En este plano de imagen, se adquiere una línea denotada por AB, como se muestra en la figura. ¿Qué celda del acumulador corresponde a la línea? <br>(3) Cuando esta línea se reconstruye a partir de la celda del acumulador correspondiente, ¿cuál es el error paramétrico de la ecuación de la línea?
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 8. Sea un plano de imagen con un tamaño de 300&times;400 píxeles como se muestra en la figura. Para extraer la información de línea de la imagen adquirida en este plano de imagen, generalmente se utiliza una transformada de Hough. Aquí, nos gustaría obtener la resolución especificada de la línea extraída y &Delta;&rho; = 1 píxel. <br>(1) Diseñe la matriz de acumuladores A(&theta;). Suponga que el efecto de cuantización de la imagen es insignificante. Determine los valores de m y c donde m y c son los tamaños horizontal y vertical del acumulador, respectivamente. <br>(2) En este plano de imagen, se adquiere una línea denotada por AB, como se muestra en la figura. ¿Qué celda del acumulador corresponde a la línea? <br>(3) Cuando esta línea se reconstruye a partir de la celda del acumulador correspondiente, ¿cuál es el error paramétrico de la ecuación de la línea?
         .center
           img(src='./assets/p38.png' width="500px" style="margin: 10px 0px 10px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Una cámara está ubicada relativamente al marco de coordenadas del mundo {W}, como se muestra en la figura. Deseamos asignar un punto en coordenadas del mundo a los puntos correspondientes en el marco de coordenadas de la imagen.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 9. Una cámara está ubicada relativamente al marco de coordenadas del mundo {W}, como se muestra en la figura. Deseamos asignar un punto en coordenadas del mundo a los puntos correspondientes en el marco de coordenadas de la imagen.
         .center
           img(src='./assets/p39A.png' width="400px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) La transformación entre las coordenadas del mundo y las coordenadas de la cámara se puede expresar usando el ángulo de Euler (&phi;,&theta; y &psi;) y traslación(a, b, c) y está dada por 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) La transformación entre las coordenadas del mundo y las coordenadas de la cámara se puede expresar usando el ángulo de Euler (&phi;,&theta; y &psi;) y traslación(a, b, c) y está dada por 
         .center
           img(src='./assets/p39B.png' width="250px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") donde cTw viene dado por 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") donde cTw viene dado por 
         .center
           img(src='./assets/p39C.png' width="600px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -10px 1px 10px 1px; line-height: 1.3em; font-family: New Times Roman;") Sean los parámetros intrínsecos de la cámara dados por f = 16mm, k<sub>u</sub> = k<sub>v</sub> = 50mm<sup>-1</sup>, u<sub>0</sub> = 320, v<sub>0</sub> = 240. <br>(1) Encuentre la matriz de transformación <strong>H</strong> en la Ecuación 3.52. 
+        p(style="padding: 15px; margin: 0px 1px 10px 1px; line-height: 1.3em; font-family: New Times Roman;") Sean los parámetros intrínsecos de la cámara dados por f = 16mm, k<sub>u</sub> = k<sub>v</sub> = 50mm<sup>-1</sup>, u<sub>0</sub> = 320, v<sub>0</sub> = 240. <br>(1) Encuentre la matriz de transformación <strong>H</strong> en la Ecuación 3.52. 
         .center
           img(src='./assets/eq3-52.png' width="400px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px 10px 1px; line-height: 1.3em; font-family: New Times Roman;") (2) Si un punto P<sub>w</sub> está ubicado en X<sub>w</sub> = [200, 600, 200] en las coordenadas del mundo, ¿cuál es el correspondiente u<sub>p</sub> en las coordenadas de píxeles? 
+        p(style="padding: 15px; margin: 0px 1px 10px 1px; line-height: 1.3em; font-family: New Times Roman;") (2) Si un punto P<sub>w</sub> está ubicado en X<sub>w</sub> = [200, 600, 200] en las coordenadas del mundo, ¿cuál es el correspondiente u<sub>p</sub> en las coordenadas de píxeles? 
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 10. Considere una transformación de perspectiva que tiene <sup>~</sup>u<sub>p</sub> =  HX<sup>~</sup><sub>w</sub> donde
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 10. Considere una transformación de perspectiva que tiene <sup>~</sup>u<sub>p</sub> =  HX<sup>~</sup><sub>w</sub> donde
         .center
           img(src='./assets/p310A.png' width="250px" style="margin: 10px 0px 10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") y sea
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") y sea
           |
           img(src='./assets/p310B.png' width="150px" style="margin: 0px 0px -10px 0px;")
           | , 
@@ -801,16 +801,16 @@
           img(src='./assets/p310D.png' width="150px" style="margin: 0px 0px -10px 0px;")
           | , 
           img(src='./assets/p310E.png' width="160px" style="margin: 0px 0px -10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Demuestre que u<sub>0</sub> y v<sub>0</sub> se pueden expresar como 
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (1) Demuestre que u<sub>0</sub> y v<sub>0</sub> se pueden expresar como 
           | 
           img(src='./assets/p310F.png' width="100px" style="margin: 10px 0px -10px 0px;")
           | , 
           img(src='./assets/p310G.png' width="100px" style="margin: 10px 0px -10px 0px;")
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (2) Demuestre que
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") (2) Demuestre que
           | 
           img(src='./assets/p310H.png' width="300px" style="margin: 10px 0px -12px 0px;")
       div.pcontainer
-        p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 11. Considere la configuración de calibración de la cámara presentada en la sección "Calibración de la cámara". Se obtiene una imagen de patrón como se muestra en la figura <br>(1) Determine los valores de las coordenadas de los centroides de los círculos de esta imagen. <br>(2) Compare este resultado con el obtenido por la matriz de calibración de la cámara. <br>Los valores absolutos de las coordenadas de los círculos se muestran en la tabla. Discuta el error causado por la calibración.
+        p(style="padding: 15px; margin: 0px 1px -0px 1px; line-height: 1.3em; font-family: New Times Roman;") 11. Considere la configuración de calibración de la cámara presentada en la sección "Calibración de la cámara". Se obtiene una imagen de patrón como se muestra en la figura <br>(1) Determine los valores de las coordenadas de los centroides de los círculos de esta imagen. <br>(2) Compare este resultado con el obtenido por la matriz de calibración de la cámara. <br>Los valores absolutos de las coordenadas de los círculos se muestran en la tabla. Discuta el error causado por la calibración.
         .center
           img(src='./assets/p311.png' height="300px" style="margin: 0px 0px 10px 0px;")
         .center
@@ -981,5 +981,6 @@ export default {
   padding: 15px;
   margin: 3px 0px 3px 0px;
   border: 1px solid black;
+  font-size: 18px;
 }
 </style>
