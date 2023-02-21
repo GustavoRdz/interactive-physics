@@ -12,6 +12,9 @@
     "array-move": "^3.0.1",
     "chart.js": "2.5.0",
     "eagle.js": "0.2.0",
+    "mathjax": "^3.2.2",
+    "mathjax-node": "^2.1.1",
+    "mathjax-node-svg2png": "^2.0.0",
     "vue": "^2.1.10",
     "vue-router": "^2.2.0"
   },

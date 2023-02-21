@@ -9,8 +9,11 @@ import Eagle from 'eagle.js'
 import 'eagle.js/dist/eagle.css'
 
 import slideshows from './slideshows/slideshows.js'
+// import mathjax from 'mathjax'
+
 /* eslint-disable no-new */
 
+// Vue.use(mathjax)
 Vue.use(Eagle)
 Vue.use(Router)
 Vue.config.productionTip = false

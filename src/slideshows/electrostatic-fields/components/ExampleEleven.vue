@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Find the electric field a distance <span style="font-family: Times New Roman; font-style: italic;">r</span> from a line of positive charge of infinite length and constant charge per unit length <span style="font-family: Times New Roman;">&lambda;</span>.
-    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem Encuentre el campo eléctrico a una distancia <span style="font-family: Times New Roman; font-style: italic;">r</span> de una línea de carga positiva de longitud infinita y carga constante por unidad de longitud <span style="font-family: Times New Roman;">&lambda;</span>.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Encuentre el campo eléctrico a una distancia <span style="font-family: Times New Roman; font-style: italic;">r</span> de una línea de carga positiva de longitud infinita y carga constante por unidad de longitud <span style="font-family: Times New Roman;">&lambda;</span>.
     .center
       img(src='../assets/fig24-12.png', height="300px")
     //- .center
