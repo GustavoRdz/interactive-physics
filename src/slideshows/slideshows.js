@@ -32,7 +32,7 @@ export default {
     require('./mecatronica-computacional-dae-systems/Dae-systems'),
     require('./open-modelica-intro/OpenModelicaIntro'),
     require('./om-intro-circuits/OMIntroCircuits'),
-    // require('./gms/gms'),
+    require('./om-model-systems/OMModelSystems'),
     // require('./vision-systems/visionSystems'),
     // require('./vision-systems-imagej/imagej'),
     require('./vision-systems-point/pointoperations'),
@@ -45,11 +45,12 @@ export default {
     // require('./vision-systems-regions-binary/regionBinary'),
     // require('./vision-systems-fourier/fourier'),
     require('./computer-vision-intro/computerVisionIntro'),
-    require('./computer-vision-image-formation/ImageFormation')
+    require('./computer-vision-image-formation/ImageFormation'),
     // require('./vision-systems-lab/visionSystemsLab'),
     // require('./introduction/Introduction'),
     // require('./comming-soon/CommingSoon'),
     // require('./quantum-computing/QuantumComputing')
+    require('./gms/gms')
   ]
 }
 

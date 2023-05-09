@@ -49,6 +49,12 @@
     
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h6(style="text-transform: uppercase; margin-top: -20px;").center lander
+      .center
+        lander
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h6(style="text-transform: uppercase; margin-top: -20px;").center worm
       .center
         worm
@@ -384,6 +390,7 @@ export default {
   },
   components: {
     'worm': require('./components/worm'),
+    'lander': require('./components/lander'),
     'diffraction-grating': require('./components/DiffractionGrating'),
     'spring-mass': require('./components/SpringMass'),
     'reflection': require('./components/reflection'),
