@@ -796,7 +796,9 @@ export default {
   infos: {
     title: 'Optics',
     description: 'Geometrical and wave optics',
-    path: 'optics'
+    path: 'optics',
+    course: 'Physics IV',
+    part: 2
   },
   components: {
     'example-one': require('./components/ExampleOne'),

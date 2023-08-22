@@ -1109,7 +1109,9 @@ export default {
   infos: {
     title: 'Photoelectric',
     description: 'Introduction to quantum physics',
-    path: 'photoelectric'
+    path: 'photoelectric',
+    course: 'Physics IV',
+    part: '3-I'
   },
   components: {
     'example-one': require('./components/ExampleOne'),

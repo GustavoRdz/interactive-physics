@@ -512,7 +512,9 @@ export default {
   infos: {
     title: 'DAE systems',
     description: 'Differencial algebraic equation systems',
-    path: 'mecatronica-computacional-dae-systems'
+    path: 'mecatronica-computacional-dae-systems',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

@@ -515,7 +515,9 @@ export default {
   infos: {
     title: 'Modelado',
     description: 'Paradigmas del modelado en sistemas mecatrónicos',
-    path: 'mecatronica-computacional-paradigmas'
+    path: 'mecatronica-computacional-paradigmas',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

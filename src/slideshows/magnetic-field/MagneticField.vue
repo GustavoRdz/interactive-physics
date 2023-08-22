@@ -471,7 +471,9 @@ export default {
   infos: {
     title: 'Magnetic field',
     description: 'Magnetic field',
-    path: 'magnetic-field'
+    path: 'magnetic-field',
+    course: 'physics III',
+    part: 3
   },
   components: {
     'example-one': require('./components/ExampleOne'),

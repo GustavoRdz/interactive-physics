@@ -272,7 +272,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '11.- Frequency domain analysis',
-    path: 'vision-systems-fourier'
+    path: 'vision-systems-fourier',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

@@ -264,7 +264,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '8.- Feature detectors openCV',
-    path: 'vision-systems-feature-detectors'
+    path: 'vision-systems-feature-detectors',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

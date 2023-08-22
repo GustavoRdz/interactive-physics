@@ -458,7 +458,9 @@ export default {
   infos: {
     title: 'Modelado de sistemas',
     description: 'System modeling',
-    path: 'om-model-systems'
+    path: 'om-model-systems',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

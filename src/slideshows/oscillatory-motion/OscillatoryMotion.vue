@@ -574,7 +574,9 @@ export default {
   infos: {
     title: 'Oscillatory Motion',
     description: 'Simple Harmonic Motion',
-    path: 'oscillatory-motion'
+    path: 'oscillatory-motion',
+    course: 'Physics II',
+    part: 1
   },
   components: {
     'example-one': require('./components/ExampleOne'),

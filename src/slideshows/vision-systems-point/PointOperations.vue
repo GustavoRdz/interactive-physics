@@ -407,7 +407,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '3.- Point operations',
-    path: 'vision-systems-point'
+    path: 'vision-systems-point',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

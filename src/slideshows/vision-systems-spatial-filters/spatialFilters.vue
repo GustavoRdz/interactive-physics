@@ -458,7 +458,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '4.- Space domain filters',
-    path: 'vision-systems-spatial-filters'
+    path: 'vision-systems-spatial-filters',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

@@ -410,7 +410,9 @@ export default {
   infos: {
     title: 'Relativity',
     description: 'Special relativity',
-    path: 'relativity'
+    path: 'relativity',
+    course: 'Physics IV',
+    part: 1
   },
   components: {
     'example-one': require('./components/ExampleOne'),

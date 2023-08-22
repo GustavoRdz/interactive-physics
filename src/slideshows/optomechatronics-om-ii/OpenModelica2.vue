@@ -698,7 +698,9 @@ export default {
   infos: {
     title: 'Optomechatronics',
     description: 'Open Modelica II',
-    path: 'optomechatronics-om-ii/OpenModelica11'
+    path: 'optomechatronics-om-ii/OpenModelica11',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

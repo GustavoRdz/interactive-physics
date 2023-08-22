@@ -14,13 +14,15 @@
 
     .thumbnails(style="margin-button: -120px;")
       .block-box.box-card(v-for='slideshow in slideshows' style="height:150px;")
+        //- hr(v-if=`slideshow.infos.part == 1` style="width: 100%")
         router-link(:to='slideshow.infos.path' @click.native="click")
+          p(style="color:blue; font-size: 15px; margin:0 0 -50px 0;") {{slideshow.infos.course}} - {{slideshow.infos.part}}
           .embedded-slideshow-container
             component(:is="slideshow", :embedded='true',
                       :keyboardNavigation='false',
-                      :mouseNavigation='false')
+                      :mouseNavigation='false' style="margin: 0px;")
         .caption
-          //- h3(style="color:blue;") {{slideshow.infos.title}}
+          //- h6(style="color:blue;") {{slideshow.infos.course}}
           p(style="color:green; font-size:17px;").thumbnail-description {{slideshow.infos.description}}
 
 </template>

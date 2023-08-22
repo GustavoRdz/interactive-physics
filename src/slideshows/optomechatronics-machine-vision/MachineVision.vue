@@ -831,7 +831,9 @@ export default {
   infos: {
     title: 'Optomechatronics',
     description: 'Machine Vision',
-    path: 'optomechatronics-machine-vision/MachineVision'
+    path: 'optomechatronics-machine-vision/MachineVision',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

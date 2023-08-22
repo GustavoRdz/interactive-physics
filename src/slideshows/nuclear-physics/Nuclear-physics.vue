@@ -421,7 +421,9 @@ export default {
   infos: {
     title: 'Nuclear Physics',
     description: 'Nuclear physics',
-    path: 'nuclear-physics'
+    path: 'nuclear-physics',
+    course: 'Physics IV',
+    part: 4
   },
   components: {
     'example-one': require('./components/ExampleOne'),

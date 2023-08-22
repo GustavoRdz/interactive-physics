@@ -652,7 +652,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '1.- Introduction and digital images',
-    path: 'vision-systems'
+    path: 'vision-systems',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

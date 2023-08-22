@@ -244,7 +244,9 @@ export default {
   infos: {
     title: 'Atomic Force Microscope',
     description: 'Atomic force microscope system',
-    path: 'mecatronica-computacional-AFM'
+    path: 'mecatronica-computacional-AFM',
+    course: 'Computational Mechatronics',
+    part: null    
   },
   components: {
     'example-one': require('./components/ExampleOne'),

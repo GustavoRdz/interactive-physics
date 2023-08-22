@@ -508,7 +508,9 @@ export default {
   infos: {
     title: 'Maxwell equations',
     description: 'Maxwell equations',
-    path: 'maxwell-equation'
+    path: 'maxwell-equation',
+    course: 'Physics III',
+    part: 4
   },
   components: {
     'example-one': require('./components/ExampleOne'),

@@ -1317,7 +1317,9 @@ export default {
   infos: {
     title: 'Optomechatronics',
     description: 'Optics',
-    path: 'optomechatronics-optics/Optics'
+    path: 'optomechatronics-optics/Optics',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

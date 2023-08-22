@@ -137,7 +137,9 @@ export default {
   infos: {
     title: 'Vision Systems Laboratory',
     description: 'Image procesing with ImageJ',
-    path: 'vision-systems-lab'
+    path: 'vision-systems-lab',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
 

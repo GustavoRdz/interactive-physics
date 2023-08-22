@@ -454,7 +454,9 @@ export default {
   infos: {
     title: 'Modelado',
     description: 'modelado en mecatrónica',
-    path: 'mecatronica-computacional-modelado'
+    path: 'mecatronica-computacional-modelado',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

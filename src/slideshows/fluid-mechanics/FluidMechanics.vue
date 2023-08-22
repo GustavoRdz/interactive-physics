@@ -644,7 +644,9 @@ export default {
   infos: {
     title: 'Fluid Mechanics',
     description: 'Static and Dynamic',
-    path: 'fluid-mechanics'
+    path: 'fluid-mechanics',
+    course: 'Physics II',
+    part: 3
   },
   components: {
     'pressure-machine': require('./PressureMachine'),

@@ -84,9 +84,9 @@
 
     slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px;") Oscillations
-      p(style="margin: 0 0 -0px 0;").center Mass-spring system
-      spring-mass
+      h4(style="margin-top: -20px;").center q NOT
+      p(style="margin: 0 0 -0px 0;").center
+      q-gates
       p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
       p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -574,7 +574,9 @@ export default {
   infos: {
     title: 'Quantum computing',
     description: 'About quantum computer science',
-    path: 'quantum-computing'
+    path: 'quantum-computing',
+    course: null,
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),
@@ -600,7 +602,8 @@ export default {
     'simple-pendulum': require('./components/SimplePendulum'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
-    'torsion-pendulum': require('./components/TorsionPendulum')
+    'torsion-pendulum': require('./components/TorsionPendulum'),
+    'q-gates': require('./components/QGates')
   },
   data: function () {
     return {

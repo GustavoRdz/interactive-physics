@@ -460,7 +460,9 @@ export default {
   infos: {
     title: 'Atom Physics',
     description: 'Atom physics',
-    path: 'atom-physics'
+    path: 'atom-physics',
+    course: 'Physics IV',
+    part: '3-II'
   },
   components: {
     'example-one': require('./components/ExampleOne'),

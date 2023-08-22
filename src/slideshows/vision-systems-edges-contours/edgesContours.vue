@@ -523,7 +523,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '5.- Edges and contours',
-    path: 'vision-systems-edges-contours'
+    path: 'vision-systems-edges-contours',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

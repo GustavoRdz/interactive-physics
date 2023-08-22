@@ -476,7 +476,9 @@ export default {
   infos: {
     title: 'Equation-based Modeling',
     description: 'Electric circuits',
-    path: 'om-intro-circuits'
+    path: 'om-intro-circuits',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

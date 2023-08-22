@@ -231,7 +231,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '6.- Corner detection',
-    path: 'vision-systems-corner-detection'
+    path: 'vision-systems-corner-detection',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

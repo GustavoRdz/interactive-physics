@@ -1657,7 +1657,9 @@ export default {
   infos: {
     title: 'Optomechatronic functional units',
     description: 'optmechatronic functional units',
-    path: 'mc-optom-functional-units'
+    path: 'mc-optom-functional-units',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

@@ -132,7 +132,9 @@ export default {
   infos: {
     title: 'Open modelica',
     description: 'Open modelica introduction',
-    path: 'open-modelica-intro'
+    path: 'open-modelica-intro',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

@@ -270,7 +270,9 @@ export default {
   infos: {
     title: 'Computer vision',
     description: '1.- Introduction',
-    path: 'computer-vision-intro'
+    path: 'computer-vision-intro',
+    course: 'Computer Vision',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

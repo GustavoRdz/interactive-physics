@@ -552,7 +552,9 @@ export default {
   infos: {
     title: 'Formación de imagenes',
     description: 'Formación de imagenes',
-    path: 'computer-vision-image-formation'
+    path: 'computer-vision-image-formation',
+    course: 'Computer Visión',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

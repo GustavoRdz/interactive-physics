@@ -422,7 +422,9 @@ export default {
   infos: {
     title: 'Optomechatronics',
     description: 'Optomechatronic Integration',
-    path: 'optomechatronics-optomechartonic-integration/OptomechatronicIntegration'
+    path: 'optomechatronics-optomechartonic-integration/OptomechatronicIntegration',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

@@ -979,7 +979,9 @@ export default {
   infos: {
     title: 'Temperature and Heat',
     description: 'Temperature and Heat',
-    path: 'temperature-heat'
+    path: 'temperature-heat',
+    course: 'Physics II',
+    part: 4
   },
   components: {
     'pressure-machine': require('./PressureMachine'),

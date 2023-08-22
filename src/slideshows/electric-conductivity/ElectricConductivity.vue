@@ -413,7 +413,9 @@ export default {
   infos: {
     title: 'Electric conductivity',
     description: 'Electric conductivity',
-    path: 'electric-conductivity'
+    path: 'electric-conductivity',
+    course: 'Physics III',
+    part: 2
   },
   components: {
     'example-one': require('./components/ExampleOne'),

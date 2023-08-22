@@ -891,7 +891,9 @@ export default {
   infos: {
     title: 'Electrostatic fields',
     description: 'Electrostatic fields',
-    path: 'electrostatic-fields'
+    path: 'electrostatic-fields',
+    course: 'Physics III',
+    part: 1
   },
   components: {
     // 'pressure-machine': require('./PressureMachine'),

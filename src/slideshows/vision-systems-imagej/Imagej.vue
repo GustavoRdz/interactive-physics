@@ -570,7 +570,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '2.- Introduction to ImageJ, Histograms and Image Statistics',
-    path: 'vision-systems-imagej'
+    path: 'vision-systems-imagej',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
     'example-one': require('./components/ExampleOne'),

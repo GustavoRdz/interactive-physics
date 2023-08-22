@@ -646,7 +646,9 @@ export default {
   infos: {
     title: 'Computational causality',
     description: 'Computational causality',
-    path: 'optomechatronics-om-causality/OpenModelicaCausality'
+    path: 'optomechatronics-om-causality/OpenModelicaCausality',
+    course: 'Computational Mechatronics',
+    part: null
   },
   components: {
     // 'example-one': require('./components/ExampleOne'),

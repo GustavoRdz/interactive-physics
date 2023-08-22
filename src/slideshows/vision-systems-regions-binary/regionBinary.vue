@@ -725,7 +725,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '10.- Regions in binary images',
-    path: 'vision-systems-regions-binary'
+    path: 'vision-systems-regions-binary',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

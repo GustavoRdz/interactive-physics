@@ -455,7 +455,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '9.- Morphological filters',
-    path: 'vision-systems-morph'
+    path: 'vision-systems-morph',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

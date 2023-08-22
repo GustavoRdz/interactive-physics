@@ -220,7 +220,9 @@ export default {
   infos: {
     title: 'Vision Systems',
     description: '7.- Hough Transform',
-    path: 'vision-systems-hough-transform'
+    path: 'vision-systems-hough-transform',
+    course: 'Vision Systems',
+    part: null
   },
   components: {
   },

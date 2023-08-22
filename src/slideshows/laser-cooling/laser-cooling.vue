@@ -279,7 +279,9 @@ export default {
   infos: {
     title: 'Enfriamiento laser',
     description: 'Enfriamiento laser',
-    path: 'laser-cooling'
+    path: 'laser-cooling',
+    course: 'Seminar',
+    part: null
   },
   components: {
     'light-wave': require('./components/LightWave'),

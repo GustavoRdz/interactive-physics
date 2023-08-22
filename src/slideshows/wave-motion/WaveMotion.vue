@@ -623,7 +623,9 @@ export default {
   infos: {
     title: 'Wave Motion',
     description: 'Wave Propagation',
-    path: 'wave-motion'
+    path: 'wave-motion',
+    course: 'Physics II',
+    part: 2
   },
   components: {
     'example-one': require('./components/ExampleOne'),
