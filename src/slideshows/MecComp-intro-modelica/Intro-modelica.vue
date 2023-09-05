@@ -323,7 +323,7 @@
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como se ha indicado antes, por definición
       .center
         img(src='./assets/eq2_1.png' width="500px" style="margin: 10px 0px -0px -0px;")
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Además, del tetraedro de la figura 2.2, se tienen las siguientes relaciones
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Además, del tetraedro, se tienen las siguientes relaciones
       .center
         img(src='./assets/eq2_3.png' width="500px" style="margin: 10px 0px -0px -0px;")
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Combinando (2.3) y (2.1) se obtiene, que  
@@ -747,13 +747,13 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h1(v-if = 'isSpanish' style="margin: 200px 0px 200px 0px;").center Sesión 3
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h1(v-if = 'isSpanish' style="margin: 200px 0px 200px 0px;").center Sesión 3
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
@@ -790,6 +790,8 @@
       h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
       h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Definición de los conectores y puertos en Modelica
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Para la interconexión de los componentes entre si, se deben definir los terminales de conexión o conectores, y las variables -de potencial y flujo- que residen en ellos.
+      .center
+        img(src='./assets/table3_1.png' heigth="100px" style="margin: 10px 0px -0px -0px;")
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En Modelica, las declaraciones de los conectores de los componentes, son de la forma general
       .center
         img(src='./assets/code3_1.png' heigth="220px" style="margin: 10px 0px -0px -0px;")
@@ -815,7 +817,7 @@
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Conector térmico</b>
       .center
         img(src='./assets/code3_7.png' heigth="200px" style="margin: 10px 0px -0px -0px;")
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Puerto eléctrico</b> -modelo parcial1-
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Puerto eléctrico</b> -modelo parcial 1-
       .center
         img(src='./assets/code3_8.png' heigth="200px" style="margin: 10px 0px -0px -0px;")
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Puerto mecánico rígido</b> -modelo parcial-
@@ -851,6 +853,11 @@
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Resorte giratorio</b>
       .center
         img(src='./assets/code3_15.png' height="225px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") • <b>Resistor térmico</b>
+      .center
+        img(src='./assets/code3_16.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los modelos de los componentes, extienden (extends) los modelos parciales (partial) de los puertos. De esta manera, los componentes heredan todas las propiedades de los puertos, los cuales a su vez se han definido en función de los conectores. Esto permite realizar un modelado jerarquizado. Se establece un “árbol genealógico” de clases, donde los objetos de una clase heredan las propiedades de su clase “progenitora”, esta a su vez los de la suya, y así en orden ascendente.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Un cambio en una de las propiedades de una clase, es heredado (transmitido) inmediatamente a todos los objetos descendientes de la misma.
 
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
@@ -871,142 +878,240 @@
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Supóngase que se desea analizar el comportamiento de un sistema dinámico, modelado por la ecuación diferencial de segundo orden  
       .center
         img(src='./assets/eq4_1.png' height="60px" style="margin: 10px 0px -0px -0px;")
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ante un estímulo tipo escalón u(t) = 2 para t ≥ 0,2 s, cuyos parámetros son K = 2,5, ωn = 10,0 rad−1 y ζ = 0,40.
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En Modelica se tiene la función der, derivada de primer orden (d/dt), por lo que (4.1) debe escribirse, utilizando la variable auxiliar x(t), comoExamples of array equations
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplos de ecuaciones con arreglos  
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ante un estímulo tipo escalón u(t) = 2 para t ≥ 0,2 s, cuyos parámetros son K = 2,5, ωn = 10,0 rad-1 y ζ = 0,40.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En Modelica se tiene la función <span style="color: red;">der</span>, derivada de primer orden (d/dt), por lo que (4.1) debe escribirse, utilizando la variable auxiliar x(t), como
       .center
-        img(src='./assets/code3_16.png' width="600px" style="margin: 10px 0px -0px -0px;")
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Examples showing how to declare and assign value to parameter arrays
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplos mostrando como declarar y asignar valores a un arreglo  
+        img(src='./assets/eq4_2.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El codigo del modelo, para realizar la simulación deseada, utilizando ecuaciones, es:  
       .center
-        img(src='./assets/code3_16.png' width="600px" style="margin: 10px 0px -0px -0px;")
+        img(src='./assets/code4_1.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") De la descripción anterior del problema a resolver, se hace evidente la diferencia en la forma en que se puede establecer el modelo Modelica empleando ecuaciones, respecto a la que se debe utilizar en los lenguajes en que se hace uso de instrucciones de asignación.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En la figura, se muestran el estímulo aplicado y la respuesta del sistema simulado, para el intervalo de tiempo 0 ≤ t ≤ 2,0 s, obtenidos con el ambiente de modelado y simulación OMEdit.  
+      .center
+        img(src='./assets/fig4_1.png' width="600px" style="margin: 10px 0px -0px -0px;")
 
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center  Translation in two dimensions
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Translación en dos dimensiones
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Examples of array constructors with iterators.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplos de constructores de arreglos con iteradores  
-    //-   .center
-    //-     img(src='./assets/table2-8.png' width="600px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Example of for-clause in equation section.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplo de ciclo for en la sección de ecuaciones  
-    //-   .center
-    //-     img(src='./assets/table2-9.png' width="600px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Examples of array equations and algorithms.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplos de ecuaciones con arreglos y algoritmos  
-    //-   .center
-    //-     img(src='./assets/table2-10.png' width="600px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") An algorithm section is composed of a sequence of assignments that is evalua- ted by the modeling environment in the same order as written. A variable can be evaluated more than once within an algorithm section. However, a variable evaluated in an algorithm section cannot be evaluated in other algorithm section or equation.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Una sección de algoritmo se compone de una secuencia de asignaciones que es evaluada por el entorno de modelado en el mismo orden en que están escritas. Una variable puede evaluarse más de una vez dentro de una sección de algoritmo. Sin embargo, una variable evaluada en una sección de algoritmo no puede evaluarse en otra sección o ecuación de algoritmo.
-
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center Radial heat transfer in a pipe
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Transferencia de calor radial en una tubería
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Stationary heat transfer in the radial direction of an insulated steel pipe.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Transferencia de calor estacionaria en la dirección radial de una tubería de acero aislada.  
-    //-   .center
-    //-     img(src='./assets/fig2-12.png' width="400px" style="margin: 10px 0px -0px -0px;")
-    //-   //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parameters
-    //-   //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parámetros  
-    //-   //- .center
-    //-   //-   img(src='./assets/table2-11.png' width="600px" style="margin: 10px 0px -0px -0px;")
-
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center Radial heat transfer in a pipe
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Transferencia de calor radial en una tubería
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") The system model is composed by
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El modelo del sistema está compuesto por  
-    //-   .center
-    //-     img(src='./assets/eq2-43.png' width="400px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parameters
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parámetros  
-    //-   .center
-    //-     img(src='./assets/table2-11.png' width="600px" style="margin: 10px 0px -0px -0px;")
-
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center Radial heat transfer in a pipe
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Transferencia de calor radial en una tubería
-    //-   //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parameters
-    //-   //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Parámetros  
-    //-   .center
-    //-     img(src='./assets/code2-8.png' width="600px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  Result obtained of simulating during 86400 s.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Resultados obtenidos al simular por 86400 s.
-    //-   .center
-    //-     img(src='./assets/fig2-13.png' width="600px" style="margin: 10px 0px -0px -0px;")
-
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center Radial heat transfer in a pipe
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Transferencia de calor radial en una tubería
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Suppose now that the air temperature (T<sub>5</sub>) is not described by a known function of time, but it has to be interpolated from the temperature readings recorded at specific times in a day. <br>We will program a Modelica function to calculate the temperature at any time of the day by linear interpolation between the available time-temperature recordings.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Supongamos ahora que la temperatura del aire (T<sub>5</sub>) no se describe mediante una función conocida del tiempo, sino que debe interpolarse a partir de las lecturas de temperatura registradas en momentos específicos del día.<br> Programaremos una función de Modelica para calcular la temperatura en cualquier momento del día por interpolación lineal entre los registros de tiempo-temperatura disponibles.
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelica provides the function class to create user-defined functions. The declaration of a function can consist of:<br><br> - The function interface, containing the declaration of the function arguments (input variables) and returned values (output variables). The input and out- put keywords are used to distinguish between input and output variables. <br><br> - The local variables employed in the function algorithm, declared within a protected section. <br><br> - The body of the function, consisting of an algorithm section or a call to an external function written in a programming language (typically, C or Fortran 77). <br><br>User-defined functions must fulfill the following rule: functions cannot have in- ternal memory. This means that given the same input, the function always must return the same output.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelica proporciona la clase de función para crear funciones definidas por el usuario. La declaración de una función puede constar de:<br><br> - La interfaz de la función, que contiene la declaración de los argumentos de la función (variables de entrada) y los valores devueltos (variables de salida). Las palabras clave de entrada y salida se utilizan para distinguir entre variables de entrada y salida. <br><br> - Las variables locales empleadas en el algoritmo de la función, declaradas dentro de una sección protegida. <br><br> - El cuerpo de la función, que consta de una sección de algoritmo o una llamada a una función externa escrita en un lenguaje de programación (normalmente, C o Fortran 77).<br><br> Las funciones definidas por el usuario deben cumplir la siguiente regla: las funciones no pueden tener memoria interna. Esto significa que dada la misma entrada, la función siempre debe devolver la misma salida.
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center Continuous-time atomic models
-    //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Modelos atómicos de tiempo continuo
-    //-   h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center Radial heat transfer in a pipe
-    //-   h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Transferencia de calor radial en una tubería
-    //-   p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Function interface (above) and example of linear interpolation (below).
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Interfaz de función (arriba) y ejemplo de interpolación lineal (abajo).
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Fundamentos de modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como lo es en todo lenguaje de programación para computadoras digitales, los programas (modelos) Modelica deben cumplir con ciertas convenciones de notación, sintaxis y ejecución.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelica es un lenguaje de modelado y simulación de sistemas dinámicos orientado a objetos, que emplea una descripción no causal del sistema con base en ecuaciones.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Su entidad básica es la clase.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los objetos son miembros de las clases.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los objetos interactúan entre si, por medio de los conectores.
+      h5.center Estructura de un modelo Modelica.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejemplos de constructores de arreglos con iteradores  
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La estructura general, de la lista de definiciones de un modelo Modelica, es:
+      .center
+        img(src='./assets/code4_2.png' width="600px" style="margin: 10px 0px -10px -0px;")
+      .center
+        img(src='./assets/code4_2B.png' width="600px" style="margin: 0px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La declaración de una clase, se inicia con la palabra clave <span style="color: blue; font-family: Arial;">class</span> o <span style="color: blue; font-family: Arial;">model</span>, seguida del nombre de la clase.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El programa puede definir una clase (<span style="color: blue; font-family: Arial;">class</span>), un modelo (<span style="color: blue; font-family: Arial;">model</span>), una función (<span style="color: blue; font-family: Arial;">function</span>), un conector (<span style="color: blue; font-family: Arial;">connector</span>), un registro (<span style="color: blue; font-family: Arial;">record</span>), un bloque (<span style="color: blue; font-family: Arial;">block</span>), o un paquete (<span style="color: blue; font-family: Arial;">package</span>).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las palabras clave <span style="color: blue; font-family: Arial;">model</span> y <span style="color: blue; font-family: Arial;">class</span> son equivalentes e intercambiables. Las clases <span style="color: blue; font-family: Arial;">connector</span>, <span style="color: blue; font-family: Arial;">record</span>, <span style="color: blue; font-family: Arial;">block</span> y <span style="color: blue; font-family: Arial;">function</span>, tienen propiedades especiales.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase package, permiten agrupar las definiciones de diferentes clases, usualmente relacionadas entre si de alguna manera, facilitando la creación de bibliotecas de componentes.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La declaración de una clase, crea un “nombre tipo” en Modelica, que hace posible declarar variables de este tipo, conocidas como objetos o miembros de la clase.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Definida una clase, los objetos son miembros de la clase, heredan sus características y propiedades, a los cuales se accede con la notación punto (.).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El objeto se crea precediendo el nombre de la variable con el nombre de la clase (tipo).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Cada objeto puede utilizarse como un “registro”, que hereda todos los atributos de la clase.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La declaración de un objeto de una clase la “crea”. Se reserva memoria para el y se inicializan sus variables.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se establece una jerarquía de clases, de manera que las variables de una clase son objetos (“hijos”, herederos) de una clase de mayor nivel y las de esta, son a su vez objetos de una clase de un nivel aún mayor.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La declaración de la clase (modelo, función, etc.) termina con la palabra clave <span style="color: blue; font-family: Arial;">end</span> seguida del nombre dado a esta.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En el modelo Modelica, la primera parte es la sección de declaraciones de las constantes, parámetros y variables, con base en el “tipo” de información que alma- cenan, ya sean estos tipos básicos (<span style="color: red; font-family: Arial;">Real</span>, Integer, Boolean, ...), o de una clase definida (Voltage, Inductance, Mass, Force, ...).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La palabra clave <span style="color: blue; font-family: Arial;">equation</span>, separa la sección de declaraciones de la de ecuacio- nes, en la que se establece el comportamiento de las variables del sistema simulado.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Cada línea de declaración y cada ecuación, se termina con un punto y coma (<span style="color: blue; font-family: Arial;">;</span>).
       
-    //-   .center
-    //-     img(src='./assets/fig2-14.png' width="600px" style="margin: 10px 0px -0px -0px;")
-    //-   //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  Result obtained of simulating during 86400 s.
-    //-   //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Resultados obtenidos al simular por 86400 s.
-    //-   .center
-    //-     img(src='./assets/code2-9.png' width="700px" style="margin: 20px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center EL Lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Clases especializadas
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Aunque en Modelica casi todo representa una clase -<span style="color: blue; font-family: Arial;">class</span>-, se utilizan nombres específicos para distinguirlas según su uso específico: <span style="color: blue; font-family: Arial;">block</span>, <span style="color: blue; font-family: Arial;">connector</span>, <span style="color: blue; font-family: Arial;">function</span>, <span style="color: blue; font-family: Arial;">model</span>, <span style="color: blue; font-family: Arial;">operator</span>, <span style="color: blue; font-family: Arial;">package</span>, <span style="color: blue; font-family: Arial;">record</span>, <span style="color: blue; font-family: Arial;">type</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase <span style="color: blue; font-family: Arial;">block</span> es una clase con una causalidad definida (entrada → salida). Esta es similar a la clase <span style="color: blue; font-family: Arial;">model</span>, con la restricción que todas las variables de un conector de un <span style="color: blue; font-family: Arial;">block</span>, deben llevar el prefijo <span style="color: blue; font-family: Arial;">input</span> u <span style="color: blue; font-family: Arial;">output</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase <span style="color: blue; font-family: Arial;">connector</span>, se utiliza para establecer la estructura de los puntos de interfaz (conexión), de un componente.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase <span style="color: blue; font-family: Arial;">function</span> es una clase que puede ser llamada con un conjunto de varia- bles. Corresponde a una función matemática. Sus resultados son devueltos a través de las variable con el prefijo <span style="color: blue; font-family: Arial;">output</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase <span style="color: blue; font-family: Arial;">model</span> es la clase más utilizada, ya que es empleada para definir el modelo del sistema de interés.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los paquetes -clase <span style="color: blue; font-family: Arial;">package</span>- solo pueden contener declaraciones de clases y constantes. Estos proveen una manera de agrupar definiciones relacionadas y de encapsular bibliotecas en una forma jerarquizada. Además, evitan el conflicto entre nombres de las definiciones de los componentes, ya que estos estarán precedidos por el nombre del paquete −usando la notación punto−.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los elementos de un paquete pueden ser “importados” dentro de otra clase, utilizando <span style="color: blue; font-family: Arial;">import</span>. Se puede importar el paquete “completo”, o una o más definiciones en particular e incluso, estas se pueden renombrar:
+      .center
+        img(src='./assets/code4_3.png' height="60px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Similar a los paquetes es el operator, pero este solo puede contener declaraciones de funciones.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase type permite la definición de nuevos “nombres tipo”, a ser utilizados en las definiciones dentro de otras clases.  
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Convención para nombres
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En Modelica existe una convención no forzada de uso general, para la asignación de los identificadores (nombres) de las clases, variables, constantes, parámetros y otros elementos:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ Los nombres de las clases o tipos, excepto los de las funciones, siempre empiezan con mayúscula. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ Los nombres de las variables empiezan con minúscula, excepto los que son de solo una letra.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ Los nombres formados por varias palabras, tienen cada palabra iniciada con mayúscula, con la palabra inicial siguiendo las reglas anteriores. A esta forma de declarar los nombres, se le denomina “tipo camello”.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ El símbolo de subrayado, solo se usa al final del nombre para indicar un subíndice o superíndice.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ Los nombres predefinidos para los objetos de conexión (connector) en los modelos, son p (positivo) y n (negativo), en los componentes eléctricos, o variantes de nombres terminados con a o b para indicar los lados opuestos de un componente, como por ejemplo flange_a (izquierdo) y flange_b (derecho), en los sistemas mecánicos.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los nombres son sensibles al uso de las mayúsculas y pueden contener cualquier numero de letras y números. Solo está restringido el uso de las palabras clave reservadas de Modelica, las cuales no pueden utilizarse como identificadores.  
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Números enteros y de punto flotante
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  Los números enteros (Integer), son secuencias de dígitos decimales en el ámbito que va desde <span style="font-family: Arial;">-2147483648</span> hasta <span style="font-family: Arial;">+2147483647</span> (para una implementación en com- plemento de dos de <span style="font-family: Arial;">32</span> bits).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los números en punto flotante (<span style="color: red; font-family: Arial;">Real</span>), se expresan como números decimales formados por + o −, una secuencia de dígitos incluyendo un punto decimal (optativo) y seguidos (en forma optativa) por un indicador de exponente (E, o e), + o − y uno o más dígitos decimales como potencias de 10. El ámbito recomendado corresponde a los números de punto flotante IEEE de precisión doble (<span style="color: black; font-family: Arial;">±2.225073858572014E-308</span> a <span style="color: black; font-family: Arial;">±1.7976931348623157E+30</span>).
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Valores lógicos y cadenas de caracteres
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los identificadores lógicos (Boolean) pueden tener valor true (cierto) o false (falso).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las cadenas de caracteres (String) aparecen encerrados ente comillas dobles (”) y pueden incluir en forma directa cualquier símbolo alfanumérico, excepto las comillas dobles (”) y la barra diagonal invertida (\).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se pueden representar algunos caracteres especiales dentro de una cadena, prece- diéndolos por una barra diagonal invertida: \’, \", \?, \\, \n (“new line”), \r (“return”), \t (“horizontal tab”).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se utiliza el símbolo + para concatenar las cadenas de caracteres.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Operadores y funciones matemáticas
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En Modelica, las ecuaciones, las asignaciones y las declaraciones, contienen expresiones con operadores, entre los que se incluyen:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ elevar a una potencia: <span style="color: red; font-family: Arial;">^</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ multiplicación y división, y multiplicación y división de arreglos (elemento por elemento): <span style="color: red; font-family: Arial;">* / .* ./</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ suma, resta, y suma y resta de arreglos (elemento por elemento): <span style="color: red; font-family: Arial;">+ -</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ relaciones: <span style="color: red; font-family: Arial;">< <= > >= == <></span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ negación unitaria: <span style="color: red; font-family: Arial;">not</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ “y” lógico: <span style="color: red; font-family: Arial;">and</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ “o” lógico: <span style="color: red; font-family: Arial;">or</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ ámbito de arreglos: <span style="color: red; font-family: Arial;">expDe:expHasta, expDe:exPaso:expHasta</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ construcción de arreglos: <span style="color: red; font-family: Arial;">{exp1...}, [exp1...], {exp1...; exp2...}, [exp1...; exp2...]</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ acceso a elementos de un arreglo: <span style="color: red; font-family: Arial;">arr[indice]</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ acceso a propiedades de un elemento: <span style="color: red; font-family: Arial;">var.pro</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 20px;  padding: 15px; line-height: 1.5em;") ⚈ llamado a funciones: <span style="color: red; font-family: Arial;">funNombre(argumentos)</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La evaluación de las expresiones aritméticas sigue las reglas usuales, donde los operadores de mayor precedencia se evalúan primero y donde se obedecen las leyes de conmutación y asociación.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las funciones disponibles incluyen: <span style="color: red; font-family: Arial;">abs(v)</span>, <span style="color: red; font-family: Arial;">sign(v)</span>, <span style="color: red; font-family: Arial;">sqrt(v)</span>, <span style="color: red; font-family: Arial;">exp(v)</span>, <span style="color: red; font-family: Arial;">log(v)</span>, <span style="color: red; font-family: Arial;">log10(v)</span>; <span style="color: red; font-family: Arial;">sin(v)</span>, <span style="color: red; font-family: Arial;">cos(v)</span>, <span style="color: red; font-family: Arial;">tan(v)</span>, <span style="color: red; font-family: Arial;">asin(v)</span>, <span style="color: red; font-family: Arial;">acos(v)</span>, <span style="color: red; font-family: Arial;">atan(v)</span>, <span style="color: red; font-family: Arial;">atan2(x,y)</span>, <span style="color: red; font-family: Arial;">sinh(v)</span>, <span style="color: red; font-family: Arial;">cosh(v)</span>, <span style="color: red; font-family: Arial;">tanh(v)</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las siguientes funciones producen un “evento” (si no están dentro de una instrucción <span style="color: blue; font-family: Arial;">when</span>): <span style="color: red; font-family: Arial;">div(x,y)</span>, <span style="color: red; font-family: Arial;">mod(x,y)</span>, <span style="color: red; font-family: Arial;">rem(x,y)</span>, <span style="color: red; font-family: Arial;">ceil(x)</span>, <span style="color: red; font-family: Arial;">floor(x)</span>, <span style="color: red; font-family: Arial;">integer(x)</span>. Si se desea que esto no suceda, se les puede aplicar la función <span style="color: red; font-family: Arial;">noEvent</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se utiliza la función derivada <span style="color: red; font-family: Arial;">der</span><span style="color: black; font-family: Arial;">(exp1) (d/dt)</span>, para la escritura de las derivadas de las variables en las ecuaciones. La expresión “<span style="color: red; font-family: Arial;">exp1</span>” debe ser un escalar Real.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se dispone también del tiempo “tiempo muerto” con la función <span style="color: red; font-family: Arial;">delay(exp1,L)</span> o, si se quiere establecer una cota al tiempo muerto, con <span style="color: red; font-family: Arial;">delay(exp1,L,Lmax)</span>.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Arreglos -vectores y matrices-
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Un arreglo se puede considerar como una colección de variables, todas del mismo tipo. En Modelica los arreglos son multidimensionales y rectangulares.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los escalares pueden considerarse arreglos de cero dimensiones. Por su parte, los vectores son un arreglo de una dimensión y las matrices arreglos de dos dimensiones. En Modelica no existen “vectores fila” o “vectores columna” y no se puede distinguir entre ellos, ya que los vectores tienen solo una dimensión. Si se desea una diferenciación de este tipo, están disponibles las matrices columna y las matrices fila, que son sus correspondientes equivalentes de dos dimensiones.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El número de dimensiones de un arreglo es fijo, no se puede cambiar en el transcurso de la ejecución del programa. Sin embargo, el tamaño de las dimensiones del arreglo se puede calcular durante la ejecución.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los arreglos se pueden definir de dos formas diferentes, como se muestra adelante. En estas, la definición <span style="color: black; font-family: Arial;">Ct</span> corresponde al parámetro de sustitución para la clase de los elementos del arreglo (Boolean, Integer, Real, String, tipos de enumeración). La cota superior de la dimensión <span style="color: black; font-family: Arial;">(n, m)</span> debe ser tipo entero o el nombre E para los enumerados o lógicos. Los dos puntos <span style="color: black; font-family: Arial;">(:)</span> indican que la cota superior de las dimensiones es desconocida.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Declaración de los arreglos:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct x;</span>, escalar (dim-0),
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[n] x; o Ct x[n];</span>, vector (dim-1) de n elementos,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[E] x; o Ct x[E];</span>, vector con índice mediante enumeración tipo E,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[n,m] x; o Ct x[n,m];</span>, matriz (dim-2) de nxm elementos,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[1] x; o Ct x[1];</span>, vector (dim-1) representando un escalar,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[1,1] x; o Ct x[1,1];</span>, matriz (dim-2) representando un escalar,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[n,1] x; o Ct x[n,1];</span>, matriz (dim-2) de una columna con n elementos,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[1,m] x; o Ct x[1,m];</span>, matriz (dim-2) de una fila con m elementos,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">Ct[n1,n2,...,nk]x; o Ct x[n1,n2,...,nk];</span>, arreglo (dim-k).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Algunos constructores de arreglos particulares son:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">identity(n)</span>, devuelve una matriz identidad nxn,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">diagonal(v)</span>, devuelve una matriz cuadrada diagonal, con los elementos del vector v en la diagonal,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">zeros(n1,n2,...)</span>, devuelve un arreglo n1 x n2 x n3 x... lleno de “ceros”,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">ones(n1,n2,...)</span>, devuelve un arreglo n1 x n2 x n3 x... lleno de “unos”,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ f<span style="color: black; font-family: Arial;">ill(s,n1,n2,...)</span>, devuelve un arreglo n1 x n2 x n3 x... con todos los elementos iguales al escalar o arreglo s,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">linespace(x1,x2,n)</span>, devuelve un vector de n elementos linealmente espa- ciadoa entre x1 y x2, incluyendo los valores extremos, n ≥ 2.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Formación (acceso a los elementos) de los arreglos, vectores y matrices:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">array(A, B, C)</span>, devuelve un arreglo formado por su argumentos, todos es- tos deben ser del mismo tamaño y del mismo tipo,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">vec ={1,2,3,...}</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">mat ={ {11,12,13,...},{21,22,23,...},{...} }</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">A[i,j]</span>, elemento i,j del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">A[:,j]</span>, devuelve un vector con todos los elementos de la columna j del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">A[i,:]</span>, devuelve un vector con todos los elementos de la fila i del arreglo A. Funciones de álgebra vectorial:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Funciones de álgebra vectorial:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">transpose(A)</span>, permuta las primeras dos dimensiones del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">outerProduct(v1,v2)</span>, devuelve el producto v1 * traspuesta(v2),
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">symetric(A)</span>, devuelve una matriz cuyos elementos de la diagonal y sobre esta, son los correspondientes a la matriz A, y cuyos elementos debajo de la diagonal se hacen iguales a los que están sobre la diagonal de A.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">cross(v1,v2)</span>, devuelve el producto cruz de v1 con v2,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La igualdad <span style="color: black; font-family: Arial;">A=B</span>, la asignación <span style="color: black; font-family: Arial;">A:=B</span>, y la suma y resta <span style="color: black; font-family: Arial;">C:= A+/-B</span> de escalares, vectores, matrices y arreglos, están definidas elemento por elemento y requieren que <span style="color: black; font-family: Arial;">size(A)=size(B)</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La multiplicación <span style="color: black; font-family: Arial;">C:=s*A</span> de un escalar, vector, matriz, o arreglo <span style="color: black; font-family: Arial;">A</span>, por un escalar <span style="color: black; font-family: Arial;">s</span>, está definida elemento por elemento, 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La división<span style="color: black; font-family: Arial;">C:=A/s</span> de un escalar, vector, matriz, o arreglo <span style="color: black; font-family: Arial;">A</span>, por un escalar <span style="color: black; font-family: Arial;">s</span>, está definida elemento por elemento,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La multiplicación elemento por elemento, de dos arreglos <span style="color: black; font-family: Arial;">A</span> y <span style="color: black; font-family: Arial;">B</span>, es <span style="color: black; font-family: Arial;">C:= A.*B</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La división elemento por elemento, de dos arreglos <span style="color: black; font-family: Arial;">A</span> y <span style="color: black; font-family: Arial;">B</span>, es <span style="color: black; font-family: Arial;">C:= A./B</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La multiplicación <span style="color: black; font-family: Arial;">C:=A*B</span> de dos vectores <span style="color: black; font-family: Arial;">(v)</span> o matrices <span style="color: black; font-family: Arial;">(q)</span>, esta definida para los casos: <span style="color: black; font-family: Arial;">v[n]*v[n]=escalar, v[n]*q[n,m]=v[m], q[n,m]*v[m]=v[n], q[n,m]*q[m,p]=m[n,p]</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ La elevación a una potencia, elemento por elemento <span style="color: black; font-family: Arial;">C:=A.^B</span>, requiere que <span style="color: black; font-family: Arial;">A</span> o <span style="color: black; font-family: Arial;">B</span> sean escalares, o que <span style="color: black; font-family: Arial;">size(A)=size(B)</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Funciones operadores de “reducción”:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">min(A)</span>, devuelve el elemento más pequeño del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">min(x1,x2)</span>, devuelve el menor entre los escalares x1 y x2,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">max(A)</span>, devuelve el elemento más grande del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">max(x1,x2)</span>, devuelve el mayor entre los escalares x1 y x2,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">sum(A)</span>, devuelve la suma escalar de todos los elementos del arreglo A,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">product(A)</span>, devuelve la multiplicación escalar de todos los elementos del arreglo <span style="color: black; font-family: Arial;">A</span>.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Otras funciones:
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">ndims(A)</span>, devuelve el número de dimensiones del arreglo <span style="color: black; font-family: Arial;">A</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">size(A)</span>, devuelve un vector de largo <span style="color: black; font-family: Arial;">ndims(A)</span> conteniendo los tamaños de las dimensiones del arreglo <span style="color: black; font-family: Arial;">A</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">size(A,i)</span>, devuelve el tamaño de la dimensión <span style="color: black; font-family: Arial;">i</span> del arreglo <span style="color: black; font-family: Arial;">A</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">vector(A)</span>, devuelve un vector con todos los elementos del arreglo <span style="color: black; font-family: Arial;">A</span>,
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") ⚈ <span style="color: black; font-family: Arial;">matrix(A)</span>,devuelve una matriz con las dos primeras dimensiones del arreglo <span style="color: black; font-family: Arial;">A</span>.
+      
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center El lenguaje Modelica
+      h6(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;").center 
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Operadores que generan un evento
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Existen <b>eventos temporales</b>, que ocurren en un instante determinado -se conoce el instante en que se producen- y <b>eventos de estado</b>, generados por un cambio en la condición de una variable, de los cuales no se conoce con antelación en que instante ocurrirán.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los operadores relacionados con eventos son: <span style="color: red; font-family: Arial;">initial</span><span style="color: black; font-family: Arial;">()</span> (ocurre al inicio de la simulación), <span style="color: red; font-family: Arial;">terminal</span><span style="color: black; font-family: Arial;">()</span>  (al finalizar una simulación exitosa), <span style="color: red; font-family: Arial;">noEvent</span><span style="color: black; font-family: Arial;">(expr)</span>  (hace que la expresión “<span style="color: black; font-family: Arial;">expr</span>” se tome en forma literal, no generando un evento), <span style="color: red; font-family: Arial;">smooth</span><span style="color: black; font-family: Arial;">(p,expr)</span>  (para <span style="color: black; font-family: Arial;">p > 0</span>, regresa la expresión real “<span style="color: black; font-family: Arial;">expr</span>” e indica que esta es diferenciable <span style="color: black; font-family: Arial;">p</span> veces), <span style="color: red; font-family: Arial;">sample</span><span style="color: black; font-family: Arial;">(inicio, periodoMuestreo)</span>  (genera eventos instantáneos cada “<span style="color: black; font-family: Arial;">periodoMuestreo</span>” a partir de “<span style="color: black; font-family: Arial;">inicio</span>”), <span style="color: red; font-family: Arial;">pre</span><span style="color: black; font-family: Arial;">(y)</span>  (regresa el “límite por la izquierda” de “<span style="color: black; font-family: Arial;">y</span>” en un evento), <span style="color: red; font-family: Arial;">edge</span><span style="color: black; font-family: Arial;">(b)</span> (<span style="color: black; font-family: Arial;">b</span> and <span style="color: red; font-family: Arial;">not pre</span><span style="color: black; font-family: Arial;">(b)</span>), <span style="color: black; font-family: Arial;">change(v)</span> (<span style="color: black; font-family: Arial;">v<>pre(v)</span>), <span style="color: black; font-family: Arial;">reinit(x,exp)</span> (dentro de una cláusula <span style="color: blue; font-family: Arial;">when</span> reinicializa “<span style="color: black; font-family: Arial;">x</span>” con “<span style="color: black; font-family: Arial;">expr</span>”).
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La función <span style="color: black; font-family: Arial;">clock</span> genera eventos temporales (“tictac” de reloj) y la función <span style="color: black; font-family: Arial;">sample</span> muestrea una variable continua, proveyendo una variable con valor solo en instantes determinados (discreta), en sincronía con un reloj.
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>

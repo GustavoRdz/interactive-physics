@@ -28,31 +28,12 @@
       h6(v-if = 'isActive' style="margin: 0 0 0 0px;") Temas del curso
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Image Formation</b>
-          p(v-if = 'isActive') <b>Formación de imagenes</b>
+          p(v-if = 'isActive') <b>procesado de imagenes</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Image processing</b>
-          p(v-if = 'isActive') <b>Procesado de imagenes</b>
+          p(v-if = 'isActive') <b>Transformaciones geometricas</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if = '!isActive') <b>Feature detection and matching</b>
-          p(v-if = 'isActive') <b>Detección de caracteristicas y concidencias</b>
+          p(v-if = 'isActive') <b>Detección de caracteristicas</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
-          p(v-if = '!isActive') <b>Segmentation</b>
-          p(v-if = 'isActive') <b>Segmentación</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Feature-based alignment</b>
-          p(v-if = 'isActive') <b>Alineación basada en caracteristicas</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Structure from motion</b>
-          p(v-if = 'isActive') <b>Estructura desde el movimiento</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Stereo correspondence</b>
-          p(v-if = 'isActive') <b>Correspondencia estereo</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>3D reconstruction</b>
-          p(v-if = 'isActive') <b>Reconstrucción 3D</b>
-        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(v-if = '!isActive') <b>Deep learning applications</b>
           p(v-if = 'isActive') <b>Aplicaciones con aprendizaje profundo</b>
         
       .prev(@click.stop='previousSlide' style="float: left;")
