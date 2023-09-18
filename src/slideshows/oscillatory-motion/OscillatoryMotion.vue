@@ -1,7 +1,20 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
-    <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
+    div(style="width: 100%; display: flex; align-items: center;").container.center
+      button(@click="currentSlideIndex = 1").themes Inicio
+      button(@click="currentSlideIndex = 2").themes Temas
+      button(@click="currentSlideIndex = 4").themes Definiciones
+      button(@click="currentSlideIndex = 8").themes MAS
+      button(@click="currentSlideIndex = 10").themes Despl. Vel. Acel.
+      button(@click="currentSlideIndex = 14").themes phase and amplitude
+      button(@click="currentSlideIndex = 20").themes Energía en el MAS
+      button(@click="currentSlideIndex = 25").themes Otros sistemas MAS
+      button(@click="currentSlideIndex = 32").themes Osc. forzadas
+      button(@click="currentSlideIndex = 34").themes Bibliografía
+      button(@click="currentSlideIndex = 35").themes Problemario
+      //- button(:class="{active:isSpanish}" @click="isSpanish = !isSpanish").themes {{ a = isSpanish ? languages[0]:languages[1] }}
+    
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
@@ -609,7 +622,7 @@ export default {
       tiempo: '',
       theme: 'Oscillatory motion',
       isSpanish: true,
-      languages: ['🇺🇸', '🇲🇽']
+      languages: ['Inglés', 'Español']
     }
   },
   computed: {
@@ -782,5 +795,14 @@ export default {
   border: 1px solid black;
 }
 
+.themes {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 0px 0px;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 10px;
+  min-width: 70px;
+}
 
 </style>
