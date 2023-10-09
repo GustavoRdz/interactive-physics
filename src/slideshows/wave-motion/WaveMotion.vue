@@ -1,6 +1,8 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
+    div(style="width: 100%; display: flex; align-items: center;").container.center
+      button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
     slide(enter='fadeIn' leave='bounceOutLeft' style="overflow: scroll;")
       .center.frontpage
         h1 Wave Motion
@@ -20,6 +22,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h3
         | Topics
         .inline(class='animated infinite pulse heart')
@@ -48,6 +51,7 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Waves</sup>
       h3 Waves
       p Ripples on a pond, musical sounds, seismic tremors triggered by an earthquake—all these are wave phenomena. Waves can occur whenever a system is disturbed from equilibrium and when the disturbance can travel, or propagate, from one region of the system to another. As a wave propagates, it carries energy. The energy in light waves from the sun warms the surface of our planet; the energy in seismic waves can crack our planet’s crust.
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -646,6 +650,11 @@ export default {
   },
   data: function () {
     return {
+      theme: 'Wave motion',
+      isSpanish: true,
+      languages: ['Inglés', 'Español'],
+      topics: ['Inicio', 'Temas', 'Definiciones', 'Funcion de onda', 'Ondas en una cuerda', 'Interferencia', 'Condiciones de frontera', 'Ondas estacionarias', 'Ondas sonoras', 'Efecto Doppler', 'Ondas de choque', 'Bibliografía', 'Problemario'],
+      page: [1, 2, 3, 5, 10, 13, 15, 16, 22, 26, 30, 32, 33]
     }
   },
   methods: {
@@ -752,5 +761,17 @@ export default {
   padding: 0px;
   margin: 0px 0px 0px 0px;
   border: 1px solid black;
+}
+
+.themes {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 0px 0px;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 10px;
+  min-width: 70px;
+  border-radius: 0 0 0px 10px;
+  height: 30px;
 }
 </style>

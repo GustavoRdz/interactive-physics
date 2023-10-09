@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider the loop of wire in figure. Imagine it is pivoted along side &#x2783;, which is parallel to the z axis and fastened so that side &#x2783; remains fixed and the rest of the loop hangs vertically in the gravitational field of the Earth but can rotate around side &#x2783;. The mass of the loop is 50.0 g, and the sides are of lengths a = 0.200 m and b = 0.100 m. The loop carries a current of 3.50 A and is immersed in a vertical uniform magnetic field of magnitude 0.010 T in the positive y direction. What angle does the plane of the loop make with the vertical?
+    //- p.problem Consider the loop of wire in figure. Imagine it is pivoted along side &#x2783;, which is parallel to the z axis and fastened so that side &#x2783; remains fixed and the rest of the loop hangs vertically in the gravitational field of the Earth but can rotate around side &#x2783;. The mass of the loop is 50.0 g, and the sides are of lengths a = 0.200 m and b = 0.100 m. The loop carries a current of 3.50 A and is immersed in a vertical uniform magnetic field of magnitude 0.010 T in the positive y direction. What angle does the plane of the loop make with the vertical?
+    p.problem Considere el bucle de alambre en la figura. Imagine que se gira a lo largo del lado &#x2783;, que es paralelo al eje z y se fija de manera que ese lado &#x2783; permanece fijo y el resto del bucle cuelga verticalmente en el campo gravitacional de la Tierra, pero puede girar alrededor del lado &#x2783;. La masa del bucle es 50.0 g y los lados tienen longitudes a = 0.200 m y b = 0.100 m. La espira transporta una corriente de 3.50 A y está sumergida en un campo magnético uniforme vertical de magnitud 0.010 T en la dirección y positiva. ¿Qué ángulo forma el plano de la espira con la vertical?
     .center
       img(src='../assets/fig29-25.png')
     //- .center
@@ -103,11 +104,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

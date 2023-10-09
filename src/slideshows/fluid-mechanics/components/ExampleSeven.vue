@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A child tries to drink water through a straw that is {{ strawHeight }} cm long, but notes that the water only rises {{ rise }} cm. How much did he reduce the pressure in his mouth with respect to that of the atmosphere?
+    //- p.problem A child tries to drink water through a straw that is {{ strawHeight }} cm long, but notes that the water only rises {{ rise }} cm. How much did he reduce the pressure in his mouth with respect to that of the atmosphere?
+    p.problem Un niño intenta beber agua a través de una pajita que mide {{ strawHeight }} cm de largo, pero nota que el agua solo sube {{ rise }} cm. ¿Cuánto redujo la presión en su boca con respecto a la de la atmósfera?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Water rise (m)
@@ -121,11 +122,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

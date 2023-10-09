@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Figure below shows a manometer being used to indicate the pressure difference between two points in a fabricated system (called venturi meter). Calculate the volumen flow rate of water in the system if the manometer deflection h is 260mm
+    //- p.problem Figure below shows a manometer being used to indicate the pressure difference between two points in a fabricated system (called venturi meter). Calculate the volumen flow rate of water in the system if the manometer deflection h is 260mm
+    p.problem La siguiente figura muestra un manómetro que se utiliza para indicar la diferencia de presión entre dos puntos en un sistema fabricado (llamado medidor venturi). Calcule el caudal volumétrico de agua en el sistema si la desviación del manómetro h es de 260 mm
+
     .center
       img(src='../assets/venturiExercise.png' width="400px" style="margin-top: 0px;")
 
@@ -40,11 +42,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

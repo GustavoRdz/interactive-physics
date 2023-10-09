@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider a circular wire loop of radius a located in the yz plane and carrying a steady current I. Calculate the magnetic field at an axial point P a distance x from the center of the loop.
+    //- p.problem Consider a circular wire loop of radius a located in the yz plane and carrying a steady current I. Calculate the magnetic field at an axial point P a distance x from the center of the loop.
+    p.problem Considere una espira de alambre circular de radio a ubicada en el plano yz y por la que circula una corriente constante I. Calcule el campo magnético en un punto axial P a una distancia x del centro de la espira.
     .center 
       img(src='../assets/fig30-5.png' height="300px")
     //- .center
@@ -118,10 +119,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: auto;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 
 .solution {

@@ -58,6 +58,11 @@
       h6(style="text-transform: uppercase; margin-top: -20px;").center worm
       .center
         worm
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h6(style="text-transform: uppercase; margin-top: -20px;").center word search
+      .center
+        wordSearch
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
@@ -389,6 +394,7 @@ export default {
     path: 'gms'
   },
   components: {
+    'wordSearch': require('./components/wordSearch'),
     'worm': require('./components/worm'),
     'lander': require('./components/lander'),
     'diffraction-grating': require('./components/DiffractionGrating'),

@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A manometer tube is partially filled with water. Oil (which does not mix with water) is poured into the left arm of the tube until the oil-water interface is at the midpoint of the tube as shown. Both arms of the tube are open to the air. Find a relationship between <em>h<sub>water</sub></em> and <em>h<sub>oil</sub></em>. If <em>h<sub>water</sub></em> = {{ hWater }} cm and <em>h<sub>oil</sub></em> = {{ hOil }} cm what is the density of the oil.
+    //- p.problem A manometer tube is partially filled with water. Oil (which does not mix with water) is poured into the left arm of the tube until the oil-water interface is at the midpoint of the tube as shown. Both arms of the tube are open to the air. Find a relationship between <em>h<sub>water</sub></em> and <em>h<sub>oil</sub></em>. If <em>h<sub>water</sub></em> = {{ hWater }} cm and <em>h<sub>oil</sub></em> = {{ hOil }} cm what is the density of the oil.
+    p.problem Un tubo manómetro está parcialmente lleno de agua. Se vierte aceite (que no se mezcla con agua) en el brazo izquierdo del tubo hasta que la interfaz aceite-agua esté en el punto medio del tubo, como se muestra. Ambos brazos del tubo están abiertos al aire. Encuentre una relación entre <em>h<sub>agua</sub></em> y <em>h<sub>aceite</sub></em>. Si <em>h<sub>agua</sub></em> = {{ hAgua }} cm y <em>h<sub>aceite</sub></em> = {{ hOil }} cm ¿cuál es la densidad del aceite.
       .center
         img(src='../assets/equations/uTubeProblem.svg' style="width: 300px;")
     .center
@@ -96,11 +97,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

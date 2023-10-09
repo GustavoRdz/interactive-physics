@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem If the work function of a given material is {{ work }} eV, what is the maximum kinetic energy of electrons ejected from a polished surface of that material by the {{ (wavelength * 1e10).toPrecision(4) }} Å ultraviolet line of mercury (1Å = 10<sup>-10</sup> m). Also determine the maximum speed and stopping potential.
+    //- p.problem If the work function of a given material is {{ work }} eV, what is the maximum kinetic energy of electrons ejected from a polished surface of that material by the {{ (wavelength * 1e10).toPrecision(4) }} Å ultraviolet line of mercury (1Å = 10<sup>-10</sup> m). Also determine the maximum speed and stopping potential.
+    p.problem Si la función de trabajo de un material dado es {{ work }} eV, <br>¿cuál es la energía cinética máxima de los electrones expulsados de una superficie pulida de ese material por la línea ultravioleta {{ (wavelength * 1e10).toPrecision(4) }} Å del mercurio? (1Å = 10<sup>-10</sup> m). <br>También determine la velocidad máxima y el potencial de frenado.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data φ (J)
@@ -143,10 +144,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
+  margin: auto;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   color: blue;
-  width: 95%;
+  width: 70%;
 }
 
 .solution {

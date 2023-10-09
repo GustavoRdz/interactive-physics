@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The threshold frequency for a certain material is {{ thresholdF.toExponential() }} cycles/s.<br> a) Determine the maximum kinetic energy for photoelectrons when light, whose frequency is {{ frequency.toExponential() }} cycles/s, strikes that material.<br> b) Calculate the stopping potential and<br>c) finally find the maximum velocity of the photoelectrons.
+    //- p.problem The threshold frequency for a certain material is {{ thresholdF.toExponential() }} cycles/s.<br> a) Determine the maximum kinetic energy for photoelectrons when light, whose frequency is {{ frequency.toExponential() }} cycles/s, strikes that material.<br> b) Calculate the stopping potential and<br>c) finally find the maximum velocity of the photoelectrons.
+    p.problem La frecuencia umbral para un determinado material es {{ thresholdF.toExponential() }} ciclos/s.<br> a) Determinar la energía cinética máxima de los fotoelectrones cuando se ilumina, cuya frecuencia es {{ frequency.toExponential() }} ciclos/s, golpea ese material.<br> b) Calcula el potencial de frenado y<br>c) finalmente encuentra la velocidad máxima de los fotoelectrones.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data f<sub>Th</sub> (Hz)
@@ -173,11 +174,11 @@ export default {
 }
 
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 70%;
 }
 
 .solution {

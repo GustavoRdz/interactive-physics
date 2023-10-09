@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A <b>{{ materials[material].name }}</b> surface is illuminated with light having a wavelength of {{ wavelength }} nm. The work function for <b>{{ materials[material].material }}</b> metal is {{ materials[material].phi }} eV.<br>(A) Find the maximum kinetic energy of the ejected photoelectrons.<br>B) Find the cutoff wavelength λ<sub>c</sub> for <b>{{ materials[material].name }}</b>.
+    //- p.problem A <b>{{ materials[material].name }}</b> surface is illuminated with light having a wavelength of {{ wavelength }} nm. The work function for <b>{{ materials[material].material }}</b> metal is {{ materials[material].phi }} eV.<br>(A) Find the maximum kinetic energy of the ejected photoelectrons.<br>(B) Find the cutoff wavelength λ<sub>c</sub> for <b>{{ materials[material].name }}</b>.
+    p.problem Una superficie <b>{{ materials[material].name }}</b> se ilumina con luz que tiene una longitud de onda de {{ wavelength }} nm. La función de trabajo para el metal <b>{{ materials[material].material }}</b> es {{ materials[material].phi }} eV.<br>(A) Encuentre la energía cinética máxima de los fotoelectrones expulsados .<br>(B) Encuentre la longitud de onda de corte λ<sub>c</sub> para <b>{{ materials[material].name }}</b>.
     .center
       //img(src='../assets/example2.png' width="200px" style="margin: -100px 0 50px 200px;")
     .center
@@ -172,11 +173,11 @@ export default {
 }
 
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 70%;
 }
 
 .solution {

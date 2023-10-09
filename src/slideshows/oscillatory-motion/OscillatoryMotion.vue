@@ -2,18 +2,7 @@
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
     div(style="width: 100%; display: flex; align-items: center;").container.center
-      button(@click="currentSlideIndex = 1").themes Inicio
-      button(@click="currentSlideIndex = 2").themes Temas
-      button(@click="currentSlideIndex = 4").themes Definiciones
-      button(@click="currentSlideIndex = 8").themes MAS
-      button(@click="currentSlideIndex = 10").themes Despl. Vel. Acel.
-      button(@click="currentSlideIndex = 14").themes phase and amplitude
-      button(@click="currentSlideIndex = 20").themes Energía en el MAS
-      button(@click="currentSlideIndex = 25").themes Otros sistemas MAS
-      button(@click="currentSlideIndex = 32").themes Osc. forzadas
-      button(@click="currentSlideIndex = 34").themes Bibliografía
-      button(@click="currentSlideIndex = 35").themes Problemario
-      //- button(:class="{active:isSpanish}" @click="isSpanish = !isSpanish").themes {{ a = isSpanish ? languages[0]:languages[1] }}
+      button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
     
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
@@ -622,7 +611,9 @@ export default {
       tiempo: '',
       theme: 'Oscillatory motion',
       isSpanish: true,
-      languages: ['Inglés', 'Español']
+      languages: ['Inglés', 'Español'],
+      topics: ['Inicio', 'Temas', 'Definiciones', 'MAS', 'Despl. Vel. Acel.', 'phase and amplitude', 'Energía en el MAS', 'Otros sistemas MAS', 'Osc. forzadas', 'Bibliografía', 'Problemario'],
+      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
     }
   },
   computed: {
@@ -803,6 +794,8 @@ export default {
   font-weight: bold;
   font-size: 10px;
   min-width: 70px;
+  border-radius: 0 0 0px 10px;
+  height: 30px;
 }
 
 </style>

@@ -1,9 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem (A) Find the peak wavelength of the blackbody radiation emitted by the human body when the skin temperature is {{ tempA - 273.15 }}°C.
-    p.problem (B) Find the peak wavelength of the blackbody radiation emitted by the tungsten filament of a lightbulb, which operates at {{ tempB }} K.
-    p.problem (C) Find the peak wavelength of the blackbody radiation emitted by the Sun, which has a surface temperature of approximately {{ tempC }} K.
+    //- p.problem (A) Find the peak wavelength of the blackbody radiation emitted by the human body when the skin temperature is {{ tempA - 273.15 }}°C.
+    //- p.problem (B) Find the peak wavelength of the blackbody radiation emitted by the tungsten filament of a lightbulb, which operates at {{ tempB }} K.
+    //- p.problem (C) Find the peak wavelength of the blackbody radiation emitted by the Sun, which has a surface temperature of approximately {{ tempC }} K.
+
+    p.problem (A) Encuentre la longitud de onda máxima de la radiación del cuerpo negro emitida por el cuerpo humano cuando la temperatura de la piel es {{ tempA - 273.15 }}°C.
+    p.problem (B) Encuentre la longitud de onda máxima de la radiación del cuerpo negro emitida por el filamento de tungsteno de una bombilla, que funciona a {{ tempB }} K.
+    p.problem (C) Encuentre la longitud de onda máxima de la radiación del cuerpo negro emitida por el Sol, que tiene una temperatura superficial de aproximadamente {{ tempC }} K.
 
     .center
       p.solution Please do calculations and introduce your results
@@ -155,11 +159,11 @@ export default {
 }
 
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 70%;
 }
 
 .solution {

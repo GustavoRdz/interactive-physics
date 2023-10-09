@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ mass }}-kg block is attached to a massless spring that has a force constant of k = {{ elasticK }} N/m. The spring is stretched {{ amplitude }} m from its equilibrium position and released from rest. <br>(A) Find the total energy of the system and the frequency of oscillation according to classical calculations. (B) Assuming the energy of the oscillator is quantized, find the quantum number n for the system oscillating with this amplitude.
+    //- p.problem A {{ mass }}-kg block is attached to a massless spring that has a force constant of k = {{ elasticK }} N/m. The spring is stretched {{ amplitude }} m from its equilibrium position and released from rest. <br>(A) Find the total energy of the system and the frequency of oscillation according to classical calculations. (B) Assuming the energy of the oscillator is quantized, find the quantum number n for the system oscillating with this amplitude.
+    p.problem Un bloque de {{ mass }} kg está unido a un resorte sin masa que tiene una fuerza constante de k = {{ elasticK }} N/m. El resorte se estira {{ amplitude }} m desde su posición de equilibrio y se suelta desde el reposo. <br>(A) Encuentre la energía total del sistema y la frecuencia de oscilación según cálculos clásicos. <br>(B) Suponiendo que la energía del oscilador está cuantificada, encuentre el número cuántico n para el sistema que oscila con esta amplitud.
 
     .center
       p.solution Please do calculations and introduce your results
@@ -153,11 +154,11 @@ export default {
 }
 
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 70%;
 }
 
 .solution {

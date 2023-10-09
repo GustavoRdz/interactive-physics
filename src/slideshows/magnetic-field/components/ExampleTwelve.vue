@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rectangular loop of width a and length <i>b</i> is located near a long wire carrying a current <i>I</i>. The distance between the wire and the closest side of the loop is <i>c</i>. The wire is parallel to the long side of the loop. Find the total magnetic flux through the loop due to the current in the wire.
+    //- p.problem A rectangular loop of width a and length <i>b</i> is located near a long wire carrying a current <i>I</i>. The distance between the wire and the closest side of the loop is <i>c</i>. The wire is parallel to the long side of the loop. Find the total magnetic flux through the loop due to the current in the wire.
+    p.problem Un bucle rectangular de ancho a y largo <i>b</i> está ubicado cerca de un cable largo que transporta una corriente <i>I</i>. <br>La distancia entre el cable y el lado más cercano del bucle es <i>c</i>. <br>El cable es paralelo al lado largo del bucle. <br>Encuentre el flujo magnético total a través de la espira debido a la corriente en el cable.
     .center
       img(src="../assets/fig30-21.png" height="250px;")
       
@@ -154,10 +155,11 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: auto;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 
 .solution {

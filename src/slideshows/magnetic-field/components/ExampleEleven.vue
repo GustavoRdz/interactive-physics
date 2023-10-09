@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A long solenoid that has 1 000 turns uniformly distributed over a length of 0.400 m produces a magnetic field of magnitude 1.00 &times; 10<sup>-4</sup> T at its center. What current is required in the windings for that to occur?
+    //- p.problem A long solenoid that has 1 000 turns uniformly distributed over a length of 0.400 m produces a magnetic field of magnitude 1.00 &times; 10<sup>-4</sup> T at its center. What current is required in the windings for that to occur?
+    p.problem Un solenoide largo que tiene 1000 vueltas distribuidas uniformemente en una longitud de 0.400 m produce un campo magnético de magnitud 1.00 &times; 10<sup>-4</sup> T en su centro. ¿Qué corriente se requiere en los devanados para que eso ocurra?
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Displacement (m)
@@ -148,11 +149,11 @@ export default {
 }
 
 .problem {
-  margin: 0;
-  font-family: Times;
-  font-size: 30px;
-  color: black;
-  width: 100%;
+  margin: auto;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
+  color: blue;
+  width: 80%;
 }
 
 .solution {

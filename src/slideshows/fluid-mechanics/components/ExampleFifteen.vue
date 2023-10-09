@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A gardener uses a water hose {{ hoseDiameter }} cm in diameter to fill a {{ bucketVolume }} L bucket. The gardener notes that it takes {{ fillTime }} min to fill the bucket. A nozzle with an opening of cross-sectional area {{ nozzleArea }} cm<sup>2</sup> is attached to the hose. The nozzle is held so that water is projected horizontally from a point {{ hoseHeight }} m above the ground. Over what horizontal distance can the water be projected?
+    //- p.problem A gardener uses a water hose {{ hoseDiameter }} cm in diameter to fill a {{ bucketVolume }} L bucket. The gardener notes that it takes {{ fillTime }} min to fill the bucket. A nozzle with an opening of cross-sectional area {{ nozzleArea }} cm<sup>2</sup> is attached to the hose. The nozzle is held so that water is projected horizontally from a point {{ hoseHeight }} m above the ground. Over what horizontal distance can the water be projected?
+    p.problem Un jardinero usa una manguera de agua de {{hoseDiameter }} cm de diámetro para llenar un balde de {{ bucketVolume }} L. El jardinero observa que se necesitan {{ fillTime }} min para llenar el balde. A la manguera se adjunta una boquilla con una abertura de área de sección transversal {{ nozzleArea }} cm<sup>2</sup>. La boquilla se sostiene de manera que el agua se proyecte horizontalmente desde un punto {{hoseHeight}} m sobre el suelo. ¿A qué distancia horizontal se puede proyectar el agua?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Hose area (m<sup>2</sup>)
@@ -150,11 +151,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

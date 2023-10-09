@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem It is suspected that a piece of pure gold has a bubble in its center. Its weight in air is {{ airWeight  }} N and in water of {{ waterWeight }} N, what is the volume of the bubble?
+    //- p.problem It is suspected that a piece of pure gold has a bubble in its center. Its weight in air is {{ airWeight  }} N and in water of {{ waterWeight }} N, what is the volume of the bubble?
+    p.problem Se sospecha que una pieza de oro puro tiene una burbuja en el centro. Su peso en el aire es {{ airWeight }} N y en agua de {{ waterWeight }} N, ¿cuál es el volumen de la burbuja?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Weight in air (N)
@@ -153,11 +154,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

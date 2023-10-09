@@ -1,8 +1,9 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem In the room described in the last excercice, what is the total downward force on the floor due to an air pressure of 1.00 atm.
-      p Use room size, width: {{ width }}, depth {{ large }}, and height {{ height }}
+      //- p.problem In the room described in the last excercice, what is the total downward force on the floor due to an air pressure of 1.00 atm.
+      p.problem En la habitación descrita en el último ejercicio, ¿cuál es la fuerza total hacia abajo sobre el piso debido a una presión de aire de 1.00 atm?.
+      p.problem Use room size, width: {{ width }}, depth {{ large }}, and height {{ height }}
       .center
         p.solution Please do calculations and introduce your results
         p.inline.data Width (m)
@@ -119,11 +120,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

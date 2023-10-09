@@ -1,7 +1,9 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem A proton is moving in a circular orbit of radius 14 cm in a uniform 0.35-T magnetic field perpendicular to the velocity of the proton. Find the speed of the proton.
+      //- p.problem A proton is moving in a circular orbit of radius 14 cm in a uniform 0.35-T magnetic field perpendicular to the velocity of the proton. Find the speed of the proton.
+      p.problem Un protón se mueve en una órbita circular de 14 cm de radio en un campo magnético uniforme de 0.35 T perpendicular a la velocidad del protón.
+      p.problem Encuentra la velocidad del protón.
       //- .center
       //-   p.solution Please do calculations and introduce your results
       //-   p.inline.data Force (N)
@@ -141,11 +143,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 70%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

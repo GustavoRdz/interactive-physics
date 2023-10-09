@@ -1,6 +1,8 @@
 <template lang="pug">
 #FluidMechanics.eg-theme-agrume
   .eg-slideshow
+    div(style="width: 100%; display: flex; align-items: center;").container.center
+      button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h1 Fluid Mechanics
@@ -674,22 +676,12 @@ export default {
   },
   data: function () {
     return {
-      username: 'Tracy',
-      preference: 'baby bunnies',
-      preferences: [
-        {
-          label: 'baby bunnies',
-          text: 'Baby bunnies'
-        },
-        {
-          label: 'fluffy puppies',
-          text: 'Fluffy puppies'
-        },
-        {
-          label: 'funny kitties',
-          text: 'Funny kitties'
-        }
-      ],
+      theme: 'Fluid mechanics',
+      isSpanish: true,
+      languages: ['Inglés', 'Español'],
+      topics: ['Inicio', 'Temas', 'Definiciones', 'Presión y profundidad', 'Pascal', 'Absoluta, manométrica', 'Medición presión', 'Flotación', 'Dinámica de fluidos', 'Continuidad', 'Bernoulli', 'Bibliografía', 'Problemario'],
+      page: [1, 2, 3, 9, 12, 14, 16, 23, 30, 32, 37, 44, 45],
+
       slideCategories: {
         themes: {
           show: true,
@@ -822,5 +814,17 @@ export default {
   .pressureFormula{
       height: 5em;
   }
+}
+
+.themes {
+  display: flex;
+  justify-content: center;
+  margin: 0px 0px 0px 0px;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 10px;
+  min-width: 70px;
+  border-radius: 0 0 0px 10px;
+  height: 30px;
 }
 </style>

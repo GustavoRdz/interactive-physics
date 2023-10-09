@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Estimate the force excerted on your eardrum due to the water when you are swimming at the bottom of a pool that is {{ deep }} m deep. <span style="font-size: 20px; color: green;">Eardrum estimate area is 1 cm<sup>2</sup></span>
+    //- p.problem Estimate the force excerted on your eardrum due to the water when you are swimming at the bottom of a pool that is {{ deep }} m deep. <span style="font-size: 20px; color: green;">Eardrum estimate area is 1 cm<sup>2</sup></span>
+    p.problem Estima la fuerza ejercida sobre tu oreja debido al agua cuando nadas en el fondo de una piscina que tiene {{ deep }} m de profundidad. <span style="font-size: 20px; color: green;">El área estimada del tímpano es 1 cm<sup>2</sup></span>
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Pool deep (m)
@@ -108,11 +109,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

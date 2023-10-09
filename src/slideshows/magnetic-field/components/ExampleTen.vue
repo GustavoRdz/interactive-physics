@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A device called a toroid is often used to create an almost uniform magnetic field in some enclosed area. The device consists of a conducting wire wrapped around a ring (a torus) made of a nonconducting material. For a toroid having N closely spaced turns of wire, calculate the magnetic field in the region occupied by the torus, a distance r from the center.
+    //- p.problem A device called a toroid is often used to create an almost uniform magnetic field in some enclosed area. The device consists of a conducting wire wrapped around a ring (a torus) made of a nonconducting material. For a toroid having N closely spaced turns of wire, calculate the magnetic field in the region occupied by the torus, a distance r from the center.
+    p.problem A menudo se utiliza un dispositivo llamado toroide para crear un campo magnético casi uniforme en un área cerrada. El dispositivo consta de un cable conductor enrollado alrededor de un anillo (un toro) hecho de un material no conductor. Para un toroide que tiene N espiras de alambre muy espaciadas, calcule el campo magnético en la región ocupada por el toro, a una distancia r del centro.
     .center
       img(src="../assets/fig30-15.png" height="250px;" style="margin: 50px 0 0 0px;")
     //- .center
@@ -140,11 +141,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

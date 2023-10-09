@@ -1,9 +1,13 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A diving bell is being designed to withstand the pressure of the sea at a depth of {{ deep }} m.
-      p.problem What is the manometric pressure at that depth?
-      p.problem At that depth, what net force do external water and indoor air exert on a circular window of {{ diameter }} cm in diameter, if the pressure inside the bell is the same as that on the surface of the water?
+    //- p.problem A diving bell is being designed to withstand the pressure of the sea at a depth of {{ deep }} m.
+     p.problem What is the manometric pressure at that depth?
+    //- p.problem At that depth, what net force do external water and indoor air exert on a circular window of {{ diameter }} cm in diameter, if the pressure inside the bell is the same as that on the surface of the water?
+    p(style="padding: 0px 0px 10px 0px;").problem Se está diseñando una campana de buceo para resistir la presión del mar a una profundidad de {{ deep }} m.
+    p(style="padding: 0px 0px 10px 0px;").problem ¿Cuál es la presión manométrica a esa profundidad?
+    p.problem A esa profundidad, ¿qué fuerza neta ejercen el agua externa y el aire interior sobre una ventana circular de {{ diameter }} cm de diámetro, si la presión dentro de la campana es la misma que en la superficie del agua?
+
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Deep (m)
@@ -130,11 +134,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

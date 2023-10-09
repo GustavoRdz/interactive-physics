@@ -1,9 +1,14 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Incompressible oil of density {{ oilDensity }} kg/m<sup>3</sup> is pumped through a cylindrical pipe at a rate of {{ flowRate }} liters per second.
-    p.problem a) The first section of the pipe has diameter of {{ firstDiameter }} cm. What is the flow speed of the oil? What is the mass flow rate?
-    p.problem b) The second section of the pipe has a diameter of {{ secondDiameter }} cm. What are the flow speed and mass flow rate in that section?
+    //- p.problem Incompressible oil of density {{ oilDensity }} kg/m<sup>3</sup> is pumped through a cylindrical pipe at a rate of {{ flowRate }} liters per second.
+    //- p.problem a) The first section of the pipe has diameter of {{ firstDiameter }} cm. What is the flow speed of the oil? What is the mass flow rate?
+    //- p.problem b) The second section of the pipe has a diameter of {{ secondDiameter }} cm. What are the flow speed and mass flow rate in that section?
+
+    p.problem Se bombea aceite incompresible de densidad {{ oilDensity }} kg/m<sup>3</sup> a través de una tubería cilíndrica a una velocidad de {{ flowRate }} litros por segundo.
+    p.problem a) La primera sección de la tubería tiene un diámetro de {{ firstDiameter }} cm. ¿Cuál es la velocidad del flujo del aceite? ¿Cuál es el caudal másico?
+    p.problem b) La segunda sección de la tubería tiene un diámetro de {{ secondDiameter }} cm. ¿Cuáles son la velocidad del flujo y el caudal másico en esa sección?
+
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>fluid</sub> (kg/m<sup>3</sup>)
@@ -158,11 +163,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

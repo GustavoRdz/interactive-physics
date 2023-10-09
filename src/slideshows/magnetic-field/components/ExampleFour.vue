@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rectangular coil of dimensions 5.40 cm &times; 8.50 cm consists of 25 turns of wire and carries a current of 15.0 mA. A 0.350-T magnetic field is applied parallel to the plane of the coil.<br> (A) Calculate the magnitude of the magnetic dipole moment of the coil.<br>(B) What is the magnitude of the torque acting on the loop?
+    //- p.problem A rectangular coil of dimensions 5.40 cm &times; 8.50 cm consists of 25 turns of wire and carries a current of 15.0 mA. A 0.350-T magnetic field is applied parallel to the plane of the coil.<br> (A) Calculate the magnitude of the magnetic dipole moment of the coil.<br>(B) What is the magnitude of the torque acting on the loop?
+    p.problem Una bobina rectangular de dimensiones 5.40 cm &times; 8.50 cm consta de 25 vueltas de alambre y transporta una corriente de 15.0 mA. Se aplica un campo magnético de 0.350 T paralelo al plano de la bobina.<br> (A) Calcule la magnitud del momento dipolar magnético de la bobina.<br>(B) ¿Cuál es la magnitud del par que actúa sobre la bobina? ¿bucle?
     .center
       //img(src='../assets/equations/graphProblem4.svg' width="200px")
      
@@ -134,11 +135,11 @@ function calcChord (initialX, frequency, amplitude, phase) {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A long, straight wire of radius R carries a steady current I that is uniformly distributed through the cross section of the wire. Calculate the magnetic field a distance r from the center of the wire in the regions r &ge; R and r &le; R.
+    //- p.problem A long, straight wire of radius R carries a steady current I that is uniformly distributed through the cross section of the wire. Calculate the magnetic field a distance r from the center of the wire in the regions r &ge; R and r &le; R.
+    p.problem Un alambre largo y recto de radio R conduce una corriente constante I que se distribuye uniformemente a través de la sección transversal del alambre. Calcule el campo magnético a una distancia r del centro del cable en las regiones r &ge; R y r &le; A.
 
     .center
       img(src="../assets/fig30-13.png" height="250px" style="margin: 30px 0 0 0px;")
@@ -94,11 +95,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

@@ -1,7 +1,10 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem In an experiment designed to measure the magnitude of a uniform magnetic field, electrons are accelerated from rest through a potential difference of 350 V and then enter a uniform magnetic field that is perpendicular to the velocity vector of the electrons. The electrons travel along a curved path because of the magnetic force exerted on them, and the radius of the path is measured to be 7.5 cm. <br>(A) What is the magnitude of the magnetic field? <br>(B) What is the angular speed of the electrons?
+    //- p.problem In an experiment designed to measure the magnitude of a uniform magnetic field, electrons are accelerated from rest through a potential difference of 350 V and then enter a uniform magnetic field that is perpendicular to the velocity vector of the electrons. The electrons travel along a curved path because of the magnetic force exerted on them, and the radius of the path is measured to be 7.5 cm. <br>(A) What is the magnitude of the magnetic field? <br>(B) What is the angular speed of the electrons?
+    p.problem En un experimento diseñado para medir la magnitud de un campo magnético uniforme, los electrones se aceleran desde el reposo a través de una diferencia de potencial de 350 V y luego entran en un campo magnético uniforme que es perpendicular al vector de velocidad de los electrones. Los electrones viajan a lo largo de una trayectoria curva debido a la fuerza magnética ejercida sobre ellos, y se mide que el radio de la trayectoria es de 7,5 cm.
+    p.problem (A) ¿Cuál es la magnitud del campo magnético? 
+    p.problem (B) ¿Cuál es la velocidad angular de los electrones?
     .center
         img(src='../assets/fig29-10.png' height="250px" style="margin: -0px 0px -0px 0px;")
 
@@ -118,11 +121,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

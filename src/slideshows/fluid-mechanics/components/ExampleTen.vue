@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Archimedes suppousedly was asked to determine whether a crown made for the king consisted of pure gold. According to legend he solved this problem by weighting the crown first in air and then in water. Suppose the scale read {{ airWeight }} N when the crown was in air and {{ waterWeight }} N when it was in water. What should Archimedes have told the king?
+    //- p.problem Archimedes suppousedly was asked to determine whether a crown made for the king consisted of pure gold. According to legend he solved this problem by weighting the crown first in air and then in water. Suppose the scale read {{ airWeight }} N when the crown was in air and {{ waterWeight }} N when it was in water. What should Archimedes have told the king?
+    p.problem Supuestamente se le pidió a Arquímedes que determinara si una corona hecha para el rey estaba hecha de oro puro. Según la leyenda, resolvió este problema pesando la corona primero en aire y luego en agua. Suponga que la báscula marca {{ airWeight }} N cuando la corona estaba en el aire y {{ waterWeight }} N cuando estaba en agua. ¿Qué debería haberle dicho Arquímedes al rey?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Weight in air (N)
@@ -152,11 +153,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

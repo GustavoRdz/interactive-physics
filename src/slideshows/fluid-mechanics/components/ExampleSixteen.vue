@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Water enters a house through a tube with an internal diameter of {{ inletDiameter }} cm at an absolute pressure of {{ inletPressure }} kPa. A tube of {{ outletDiameter }} cm in diameter goes to the bathroom on the second floor, {{ height }} m above. Calculate the flow speed, pressure, and volume flow rate in the bathroom, when the flow speed in the inlet tube is {{ inletFlowSpeed }} m/s
+    //- p.problem Water enters a house through a tube with an internal diameter of {{ inletDiameter }} cm at an absolute pressure of {{ inletPressure }} kPa. A tube of {{ outletDiameter }} cm in diameter goes to the bathroom on the second floor, {{ height }} m above. Calculate the flow speed, pressure, and volume flow rate in the bathroom, when the flow speed in the inlet tube is {{ inletFlowSpeed }} m/s
+    p.problem El agua entra a una casa a través de un tubo con un diámetro interno de {{ inletDiameter }} cm a una presión absoluta de {{ inletPressure }} kPa. Un tubo de {{ outletDiameter }} cm de diámetro va al baño del segundo piso, {{ height }} m arriba. Calcule la velocidad del flujo, la presión y el caudal volumétrico en el baño, cuando la velocidad del flujo en el tubo de entrada es {{ inletFlowSpeed }} m/s
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data A<sub>1</sub> (m<sup>2</sup>)
@@ -155,11 +156,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

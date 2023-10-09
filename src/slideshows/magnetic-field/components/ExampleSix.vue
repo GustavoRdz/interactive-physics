@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider a thin, straight wire carrying a constant current I and placed along the x axis. Determine the magnitude and direction of the magnetic field at point P due to this current.
+    //- p.problem Consider a thin, straight wire carrying a constant current I and placed along the x axis. Determine the magnitude and direction of the magnetic field at point P due to this current.
+    p.problem Considere un alambre delgado y recto que transporta una corriente constante I y se coloca a lo largo del eje x. Determine la magnitud y dirección del campo magnético en el punto P debido a esta corriente.
     .center
       img(src="../assets/fig30-3.png" )
     //- .center
@@ -131,11 +132,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The density of an iceberg floating in the sea is {{ rhoObject }} kg/m<sup>3</sup>. The density of seawater is {{ rhoFluid }} kg/m<sup>3</sup> with a salient volume of {{ volumeAbove }} m<sup>3</sup>. What is the total mass of the iceberg? What fraction of the iceberg lies below the water level?
+    //- p.problem The density of an iceberg floating in the sea is {{ rhoObject }} kg/m<sup>3</sup>. The density of seawater is {{ rhoFluid }} kg/m<sup>3</sup> with a salient volume of {{ volumeAbove }} m<sup>3</sup>. What is the total mass of the iceberg? What fraction of the iceberg lies below the water level?
+    p.problem La densidad de un iceberg flotando en el mar es {{ rhoObject }} kg/m<sup>3</sup>. La densidad del agua de mar es {{ rhoFluid }} kg/m<sup>3</sup> con un volumen saliente de {{ volumeAbove }} m<sup>3</sup>. ¿Cuál es la masa total del iceberg? ¿Qué fracción del iceberg se encuentra debajo del nivel del agua?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>solid</sub> (kg/m<sup>3</sup>)
@@ -141,11 +142,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

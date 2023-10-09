@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem In a car lift used in a service station, compressed air is exerts a force on a small piston that has circular cross section and radius of {{ radiusA }} cm. This pressure is transmitted by a liquid to a piston that has a radius of {{ radiusB }} cm. What force must the compressed air exert to lift a car weigthing {{ weigth }} N? What air pressure produces this force?
+    //- p.problem In a car lift used in a service station, compressed air is exerts a force on a small piston that has circular cross section and radius of {{ radiusA }} cm. This pressure is transmitted by a liquid to a piston that has a radius of {{ radiusB }} cm. What force must the compressed air exert to lift a car weigthing {{ weigth }} N? What air pressure produces this force?
+    p.problem En un elevador de automóviles utilizado en una estación de servicio, se ejerce una fuerza con aire comprimido sobre un pequeño pistón que tiene una sección transversal circular y un radio de {{ radiusA }} cm. Esta presión es transmitida por un líquido a un pistón que tiene un radio de {{ radiusB }} cm. ¿Qué fuerza debe ejercer el aire comprimido para levantar un automóvil de peso {{ weigth }} N? ¿Qué presión del aire produce esta fuerza?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Small radius (m)
@@ -134,11 +135,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

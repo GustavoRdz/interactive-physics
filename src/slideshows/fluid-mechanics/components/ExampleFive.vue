@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ deep }} m deep storage tank is fulled with water. The upper part of the tank is open to the air. What is the absolute pressure at the bottom of the tank? And the gauge pressure?
+    //- p.problem A {{ deep }} m deep storage tank is fulled with water. The upper part of the tank is open to the air. What is the absolute pressure at the bottom of the tank? And the gauge pressure?
+    p.problem Un tanque de almacenamiento de {{ deep }} m de profundidad está lleno de agua. La parte superior del tanque está abierta al aire. ¿Cuál es la presión absoluta en el fondo del tanque? ¿Y la presión manométrica?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data Deep (m)
@@ -102,11 +103,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

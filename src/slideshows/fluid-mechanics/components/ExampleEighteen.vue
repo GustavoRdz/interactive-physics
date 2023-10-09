@@ -3,6 +3,9 @@ eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem A jet of water squirts out horizontally from a hole near the bottom of the tank shown.
     p.problem  If the hole has a diameter of 3.50 mm, what is the height h of the water level in the tank?
+
+    p.problem Un chorro de agua sale horizontalmente desde un agujero cerca del fondo del tanque que se muestra.
+    p.problema Si el agujero tiene un diámetro de 3,50 mm, ¿cuál es la altura h del nivel del agua en el tanque?
     .center
         img(src='../assets/exerciseTorricelli.png'  width="300px")
 
@@ -150,11 +153,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

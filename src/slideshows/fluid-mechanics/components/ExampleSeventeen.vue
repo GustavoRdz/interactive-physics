@@ -1,9 +1,14 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A gas storage tank with a cross-sectional area <em>A</em><sub>1</sub>, filled up to a height <em>h</em>. The space above the gasoline contains air at P<sub>0</sub> and the gasoline comes out through a short tube of area A<sub>2</sub>, located at the bottom of the tank.
-    p.solution a) Deduce expresions for the speed of flow in the tube and the volume flow rate
-    p.solution b) If the tank is open to the atmosphere which will be the expression for the flow speed and volume flow rate
+    //- p.problem A gas storage tank with a cross-sectional area <em>A</em><sub>1</sub>, filled up to a height <em>h</em>. The space above the gasoline contains air at P<sub>0</sub> and the gasoline comes out through a short tube of area A<sub>2</sub>, located at the bottom of the tank.
+    //- p.solution a) Deduce expresions for the speed of flow in the tube and the volume flow rate
+    //- p.solution b) If the tank is open to the atmosphere which will be the expression for the flow speed and volume flow rate
+
+    p.problem Un tanque de almacenamiento de gas con un área de sección transversal <em>A</em><sub>1</sub>, lleno hasta una altura <em>h</em>. El espacio encima de la gasolina contiene aire en P<sub>0</sub> y la gasolina sale por un tubo corto de área A<sub>2</sub>, ubicado en el fondo del tanque.
+    p.solution a) Deducir expresiones para la velocidad del flujo en el tubo y el caudal volumétrico
+    p.solution b) Si el tanque está abierto a la atmósfera cuál será la expresión para la velocidad del flujo y el caudal volumétrico
+
       .center
         img(width="350px" src='../assets/equations/ex17Solutions.svg')
     
@@ -38,11 +43,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';
@@ -50,10 +55,10 @@ export default {
   font-size: 30px;
 }
 .solution {
-  margin: 15px 5px 5px 5px;
+  margin: auto;
   font-size: 20px;
   color: red;
-  width: 100%;
+  width: 60%;
 }
 .not-correct {
   background: #fa4408;

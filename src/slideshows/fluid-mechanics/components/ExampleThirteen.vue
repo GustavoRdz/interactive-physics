@@ -1,10 +1,15 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A plastic ball has a radius of {{ radius }} cm and floats in water, the submerged volume represents {{ volumeSubmergedPercent }}% of the total volume of the ball.
-    p.problem a) What force should we apply to the ball to hold it at rest completely below the surface of the water?
-    p.problem b) If the ball is released, what acceleration will it have at the moment it is released?
+    //- p.problem A plastic ball has a radius of {{ radius }} cm and floats in water, the submerged volume represents {{ volumeSubmergedPercent }}% of the total volume of the ball.
+    //- p.problem a) What force should we apply to the ball to hold it at rest completely below the surface of the water?
+    //- p.problem b) If the ball is released, what acceleration will it have at the moment it is released?
+
+    p.problem Una bola de plástico tiene un radio de {{ radius }} cm y flota en el agua, el volumen sumergido representa el {{ volumeSubmergedPercent }}% del volumen total de la bola.
+    p.problem a) ¿Qué fuerza debemos aplicar a la pelota para mantenerla en reposo completamente debajo de la superficie del agua?
+    p.problem b) Si se suelta la pelota, ¿qué aceleración tendrá en el momento de soltarse?
     .center
+    
       p.solution Please do calculations and introduce your results
       p.inline.data <span style="font-family: times new roman; font-style: italic;">&#x03c1;</span><sub>fluid</sub> (kg/m<sup>3</sup>)
         input.center.data(:class="checkedRhoFluid" v-model.number='enterRhoFluid')
@@ -147,11 +152,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Calculate the magnetic field at point O for the current-carrying wire segment shown. The wire consists of two straight portions and a circular arc of radius a, which subtends an angle u.
+    //- p.problem Calculate the magnetic field at point O for the current-carrying wire segment shown. The wire consists of two straight portions and a circular arc of radius a, which subtends an angle u.
+    p.problem Calcule el campo magnético en el punto O para el segmento de alambre que transporta corriente que se muestra. El alambre consta de dos porciones rectas y un arco circular de radio a, que subtiende un ángulo u.
 
     .center
       img(src="../assets/fig30-4.png")
@@ -161,11 +162,11 @@ function calcChord (initialX, frequency, amplitudeAccel, phase) {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
-  width: 100%;
+  width: 80%;
 }
 .solution {
   margin: 15px 5px 5px 5px;

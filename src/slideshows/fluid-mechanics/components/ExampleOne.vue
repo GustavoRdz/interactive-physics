@@ -1,7 +1,8 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the mass and weight of the air at 20<sup>o</sup>C in a living room with a {{ width }} x {{ large }} m floor and a ceiling {{ height }} m high, and the mass and weight of an equal volume of water.
+    //- p.problem Find the mass and weight of the air at 20<sup>o</sup>C in a living room with a {{ width }} x {{ large }} m floor and a ceiling {{ height }} m high, and the mass and weight of an equal volume of water.
+    p.problem Encuentre la masa y el peso del  aire a 20<sup>o</sup>C que llena una habitacion con dimensiones {{ width }} x {{ large }} m en el piso y el techo esta a {{ height }} m de altura. Calcule también la masa y el peso de un volumen igual de agua.
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data width (m)
@@ -155,11 +156,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';

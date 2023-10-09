@@ -2,6 +2,8 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem A Venturi meter is used to measure the flow speed in a pipe. Derive an expression for the flow speed v<sub>1</sub> in terms of the cross-setional areas A<sub>1</sub> and A<sub>2</sub> and the difference in height h of the liquid levels in the two vertical tubes.
+
+    p.problem Se utiliza un medidor Venturi para medir la velocidad del flujo en una tubería. Deduzca una expresión para la velocidad del flujo v<sub>1</sub> en términos de las áreas interregionales A<sub>1</sub> y A<sub>2</sub> y la diferencia de altura h de los niveles de líquido en los dos tubos verticales.
     .center
       img(src='../assets/equations/venturiPipeProblem.svg' width="300px" style="margin-top: -50px;")
 
@@ -40,11 +42,11 @@ export default {
   font-size: 20px;
 }
 .problem {
-  margin: 0;
+  margin: auto;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 22px;
   color: blue;
-  width: 100%;
+  width: 60%;
 }
 .mate {
   font-family: 'New Times Roman';
