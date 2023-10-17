@@ -1,7 +1,7 @@
 <template lang="pug">
 #OscillatoryMotion.eg-theme-agrume
   .eg-slideshow
-    div(style="width: 100%; display: flex; align-items: center;").container.center
+    div(style="width: 100%; display: flex; flex-wrap: wrap; align-items: center;").container.center
       button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
     slide(enter='fadeIn' leave='bounceOutLeft' style="overflow: scroll;")
       .center.frontpage

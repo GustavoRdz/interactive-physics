@@ -1,7 +1,9 @@
 <template lang="pug">
 #TemperatureHeat.eg-theme-gourmet
   .eg-slideshow
-    <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
+    div(style="width: 100%; display: flex; flex-wrap: wrap; align-items: center;").container.center
+      button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
+    //- <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h3 Optomechatronics
@@ -419,7 +421,7 @@
       .center
         img(src='./assets/fig2-6.png' width="700px" style="margin: 10px 0px -0px -0px;")
 
-      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 60px 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
@@ -490,7 +492,6 @@
         img(src='./assets/code2-6.png' width="600px" style="margin: 10px 0px -0px -0px;")
       .center
         img(src='./assets/eq2-31.png' width="700px" style="margin: 10px 0px -0px -0px;")
-
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
@@ -678,11 +679,354 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h2(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Diseño de librerias de modelos
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;").center Libreria eléctrica
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Revisemos el modelado del circuito rectificador que se muestra en la Figura.
+      .center
+        img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En lugar de describir el circuito como un modelo atómico, ahora aplicaremos la metodología de modelado orientado a objetos.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El circuito rectificado se compone de cuatro clases diferentes de componentes eléctricos: fuente de voltaje, diodo, resistencia y capacitor.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Clase conector
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los componentes se conectan conectando sus pines eléctricos.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los pines conectados en un punto de conexión (nodo de circuito) tienen el mismo voltaje y la suma de todas las corrientes es cero.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La clase de conector de Modelica se puede utilizar para modelar el pin eléctrico como se muestra a continuación.
+      eg-code-block.
+        connector Pin
+          Modelica.SIunits.Voltage       u;
+          flow Modelica.SIunits.Current  i;
+        end Pin;
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Interface
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La interfaz del componente se compone de las variables que describen la interacción del componente con el resto del sistema y los parámetros. Una clase de modelo describe un tipo de sistema. Al establecer el valor de los parámetros de la clase de modelo, se especifica un elemento en particular (una instancia particular) de la clase de modelo.
+
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Al desarrollar bibliotecas de modelos, suele ser una buena práctica definir las interfaces de los componentes por separado. Esto facilita la reutilización de las definiciones de interfaz y hace más fácil saber si dos clases de modelo tienen la misma interfaz.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los componentes de dos pines. Los dos pines se pueden declarar en una clase que será heredada por las clases de componentes.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los dos pines y la caída de tensión se declaran en la siguiente clase.
+      eg-code-block(style="font-color: green;").
+        partial model TwoPins
+          Pin p, n;
+        protected
+          Modelica.SIunits.Voltage u  "Voltage drop (= p.u - n.u)";
+        equation
+          u = p.u - n.u;
+        end TwoPins;
+      
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La palabra clave <b>partial</b> indica que TwoPins es una clase parcial, es decir, una clase que describe parcialmente el sistema.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La palabra clave <b>protected</b> indica el comienzo de una sección en la que las variables declaradas, las clases heredadas y los componentes instanciados son elementos protegidos. Esto significa que no es posible acceder a ellos desde fuera de la clase usando notación de puntos.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La palabra clave <b>public</b> permite señalar explícitamente el comienzo de una sección donde se declaran componentes públicos.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Interfase
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los componentes de dos pines, como resistencia, capacitor, inducción y diodo, tienen la siguiente propiedad: la corriente que ingresa a un pin es igual a la corriente que sale del otro pin. Además, la convención de signos para componentes pasivos dice que la flecha de corriente apunta al terminal de voltaje positivo del elemento. La siguiente clase hereda TwoPins y describe el comportamiento adicional.
+      eg-code-block.
+        partial model OnePort
+          extends TwoPins;
+        protected
+          Modelica.SIunits.Current i "Current entering p and leaving n";
+        equation
+          i = p.i;
+          i = -n.i;
+        end OnePort;
+      
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La herencia se declara escribiendo la palabra clave <b>extends</b> seguida del nombre de la superclase, y opcionalmente mediante la asignación de valores a los parámetros de la superclase. Como Modelica admite herencia múltiple, una clase puede contener un número arbitrario de cláusulas de extensión.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Resistor, diodo y capacitor
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las clases que describen la resistencia, el diodo y el condensador son subclases de OnePort.
+      eg-code-block.
+        model Resistor "Ideal resistor"
+          extends OnePort;
+          parameter Modelica.SIunits.Resistance R "Resistance";
+        equation
+          u = R*i;
+        end Resistor;
+      eg-code-block.
+        model Diode "Ideal diode"
+          extends OnePort;
+          parameter Modelica.SIunits.Current Is = 1e-9  "Saturation current";
+          parameter Modelica.SIunits.Voltage Vt = 0.025 "Thermal voltage";
+        equation
+          i = Is * ( exp(u / Vt) - 1);;
+        end Diode;
+      eg-code-block.
+        model Capacitor "Ideal capacitor"
+          extends OnePort;
+          parameter Modelica.SIunits.Capacitance C "Capacitance";
+        equation
+          C*der(u) = i;
+        end Capacitor;      
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Observe que no hemos asignado un valor a los parámetros de las clases Resistor y Capacitor (los parámetros R y C). En esta situación, el valor predeterminado es cero si el parámetro es de tipo Real o Entero, y falso si es booleano.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los valores de los parámetros se pueden establecer y modificar al declarar instancias de las clases o al heredarlas, y en la definición del experimento.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Fuente de voltaje
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La convención de signos para la fuente de voltaje es opuesta a la convención de signos para los componentes pasivos.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modifiquemos la clase OnePort como se muestra a continuación, para que la convención de signos dependa del valor asignado al parámetro booleano activo. Por otro lado, recuerde la convención de signos para las variables pasantes de los conectores: la variable pasante es positiva mientras fluye hacia el componente.
+      eg-code-block.
+        partial model OnePort
+          extends TwoPins;
+          parameter Boolean active = false;
+        protected
+          Modelica.SIunits.Current i "Current through the component";
+        equation
+          if ( active ) then
+            i = n.i;
+          else
+            i = p.i;
+          end if;
+          p.i = - n.i;
+        end OnePort;
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuente de voltaje se puede definir como se muestra a continuación.
+      eg-code-block.
+        model VsourceAC "Sinusoidal voltage source" 
+          extends OnePort ( active = true );
+          parameter Modelica.SIunits.Voltage U0;
+          parameter Modelica.SIunits.Frequency frec;
+          parameter Modelica.SIunits.Angle phi; 
+        protected
+          parameter Modelica.SIunits.AngularFrequency w = 2*Modelica.Constants.pi*frec;
+        equation
+          u = U0 * sin( w * time + phi);
+        end VsourceAC;
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El componente Tierra se declara a continuación. Al conectar este componente a un circuito de nodo, el nodo se selecciona como nodo de referencia para el voltaje.
+      eg-code-block.
+        model Ground "Voltage reference"
+          Pin p;
+        equation
+          p.u = 0;
+        end Ground;
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Libreria eléctrica
+      h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Package
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- .center
+      //-   img(src='./assets/fig2-1.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelica proporciona la clase de <b>package</b> para facilitar la estructuración de la definición de tipos, conectores, modelos, etc. en bibliotecas. Los paquetes se pueden declarar dentro de otros paquetes, lo que permite definir bibliotecas estructuradas jerárquicamente.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Organicemos las clases de los componentes eléctricos en una biblioteca de modelos. El contenido completo de la biblioteca se definirá dentro de un paquete llamado ElectricLib. Dentro de este paquete, se definen los siguientes tres paquetes: Interfaces contiene las interfaces de los componentes, Componentes los componentes eléctricos y Ejemplos el modelo de circuito rectificador.
+      eg-code-block.
+        encapsulated package ElectricLib 
+          import SI = Modelica.SIunits;
+          import Modelica.Constants;
+          
+
+          package Interfaces
+            connector Pin
+              SI.Voltage u;
+              flow SI.Current i;
+            end Pin;
+      
+            partial model TwoPins
+              Pin p, n;
+            protected 
+              SI.Voltage u "Voltage drop (= p.u - n.u)";
+            equation
+              u =p.u -n.u;
+            end TwoPins;
+
+            partial model OnePort
+              extends TwoPins;
+              parameter Boolean active = false;
+            protected
+              SI.Current i "Current through the component";
+            equation
+              if ( active ) then
+                i = n.i;
+              else
+                i = p.i;
+              end if;
+              p.i = -n.i;
+            end OnePort;
+          end Interfaces;
+
+
+          package Components
+            model Resistor "Ideal resistor"
+              extends Interfaces.OnePort;
+              parameter SI.Resistance R "Resistance";
+            equation
+              u = R*i;
+            end Resistor;
+
+            model Diode "Ideal diode"
+              extends Interfaces.OnePort;
+              parameter SI.Current Is=1e-9 "Saturation current";
+              parameter SI.Voltage Vt=0.025 "Thermal voltage";
+            equation
+              i = Is*(exp(u/Vt) - 1);
+            end Diode;
+
+            model Capacitor "Ideal capacitor"
+              extends Interfaces.OnePort;
+              parameter SI.Capacitance C "Capacitance";
+            equation
+              C*der(u) = i;
+            end Capacitor;
+
+            model VsourceAC "AC voltage source"
+              extends Interfaces.OnePort( active=true );
+              parameter SI.Voltage U0;
+              parameter SI.Frequency frec;
+              parameter SI.Angle phi;
+            protected
+              parameter SI.AngularFrequency w=2*Constants.pi*frec;
+            equation
+              u = U0*sin(w*time + phi);
+            end VsourceAC;
+
+            model Ground "Voltage reference"
+              Interfaces.Pin p;
+            equation
+              p.u = 0;
+            end Ground;
+          end Components;
+
+
+          package Examples
+            model Circuit1
+              // Voltage source
+              parameter SI.Voltage U0=5; 
+              parameter SI.Frequency frec=100;
+              parameter SI.Angle phi=0;
+              // Resistors
+              parameter SI.Resistance R1=100;
+              parameter SI.Resistance R2=100;
+              // Capacitor
+              parameter SI.Capacitance C=1e-6;
+              // Diode
+              parameter SI.Current Is=1e-9;
+              parameter SI.Voltage Vt=0.025;
+              // Components
+              Components.Resistor Resist1(R=R1);
+              Components.Resistor Resist2(R=R2);
+              Components.Capacitor Cond(C=C);
+              Components.Diode Diode(Is=Is, Vt=Vt);
+              Components.VsourceAC VS(U0=U0, frec=frec, phi=phi);
+              Components.Ground ground;
+            equation
+              connect(VS.p, Resist1.p);
+              connect(Resist1.n, Diode.p);
+              connect(Resist1.n, Resist2.p);
+              connect(Resist1.n, Cond.p);
+              connect(VS.n, ground.p);
+              connect(Diode.n, ground.p);
+              connect(Resist2.n, ground.p);
+              connect(Cond.n, ground.p);
+            end Circuit1;
+          end Examples;
+        end ElectricLib;
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+    //-   //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+    //-   h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Vibraciones longitudinales de una barra
+    //-   //- h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Package
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Considere una barra uniforme de longitud L, sección transversal A, masa M y módulo de Young E.
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se aplica una fuerza externa F(t) en el extremo libre en dirección longitudinal. El sistema se representa en la figura, donde ξ (x, t) representa el desplazamiento longitudinal desde su posición de equilibrio a una distancia x del extremo izquierdo y en el tiempo t.
+    //-   .center
+    //-     img(src='./assets/fig3-2.png' height="200px" style="margin: 10px 0px -0px -0px;")
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El objetivo es analizar la vibración resultante de la barra en la dirección axial (longitudinal). El modelo se desarrolla dividiendo la barra en n elementos de igual longitud ∆x = L/n, cada uno de masa ∆m = M/n. El momento lineal del i-ésimo elemento es:
+    //-   .center
+    //-     img(src='./assets/eq3-1.png' height="65px" style="margin: 10px 0px -0px -0px;")
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La tensión sobre cada elemento se modela como la fuerza ejercida por cuerdas conectadas al elemento, como se muestra
+    //-   .center
+    //-     img(src='./assets/fig3-3.png' height="200px" style="margin: 10px 0px -0px -0px;")
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por tanto, la barra se describe como la conexión de n masas y n cuerdas. Aplicando la ley de Newton a cada elemento se obtiene:
+    //-   .center
+    //-     img(src='./assets/eq3-2.png' height="120px" style="margin: 10px 0px -0px -0px;")
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+    //-   .center
+    //-     img(src='./assets/eq3-4.png' height="140px" style="margin: 10px 0px -0px -0px;")
+    //-   //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 60px; 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 60px; 0;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+
+   
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
-          li <b>Sistemas dinámicos heterogéneos</b> <br>Modelado, simulación y optimización con Modelica <br>Author: Victor M. Alfaro<br>
+          li <b>Modeling and simulation in engineering using modelica</b><br>Author: Alfonso Urquía Moraleda, Carla Martín Villalba<br> UNED, Madrid
         p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, gustavo@gusbits.com with use of images from the above referenced book
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
@@ -723,7 +1067,9 @@ export default {
     return {
       theme: 'Open Modelica I',
       isSpanish: true,
-      languages: ['🇺🇸', '🇲🇽']
+      languages: ['🇺🇸', '🇲🇽'],
+      topics: ['Inicio', 'Temas', 'Paradigma', 'modelos atómicos', 'Circuito rectificador', 'Rectificador puente', 'Traslación 1D', 'Traslación 2D', 'Transferencia calor', 'Librerias de modelos', 'Bibliografía'],
+      page: [1, 1, 2, 9, 12, 17, 19, 23, 27, 32, 40, 44, 45]
     }
   },
   methods: {
