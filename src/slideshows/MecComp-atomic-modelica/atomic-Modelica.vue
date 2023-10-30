@@ -992,34 +992,535 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
-    //-   //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
-    //-   h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Vibraciones longitudinales de una barra
-    //-   //- h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Package
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Considere una barra uniforme de longitud L, sección transversal A, masa M y módulo de Young E.
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se aplica una fuerza externa F(t) en el extremo libre en dirección longitudinal. El sistema se representa en la figura, donde ξ (x, t) representa el desplazamiento longitudinal desde su posición de equilibrio a una distancia x del extremo izquierdo y en el tiempo t.
-    //-   .center
-    //-     img(src='./assets/fig3-2.png' height="200px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El objetivo es analizar la vibración resultante de la barra en la dirección axial (longitudinal). El modelo se desarrolla dividiendo la barra en n elementos de igual longitud ∆x = L/n, cada uno de masa ∆m = M/n. El momento lineal del i-ésimo elemento es:
-    //-   .center
-    //-     img(src='./assets/eq3-1.png' height="65px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La tensión sobre cada elemento se modela como la fuerza ejercida por cuerdas conectadas al elemento, como se muestra
-    //-   .center
-    //-     img(src='./assets/fig3-3.png' height="200px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por tanto, la barra se describe como la conexión de n masas y n cuerdas. Aplicando la ley de Newton a cada elemento se obtiene:
-    //-   .center
-    //-     img(src='./assets/eq3-2.png' height="120px" style="margin: 10px 0px -0px -0px;")
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
-    //-   .center
-    //-     img(src='./assets/eq3-4.png' height="140px" style="margin: 10px 0px -0px -0px;")
-    //-   //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Vibraciones longitudinales de una barra
+      //- h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Package
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Considere una barra uniforme de longitud L, sección transversal A, masa M y módulo de Young E.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se aplica una fuerza externa F(t) en el extremo libre en dirección longitudinal. El sistema se representa en la figura, donde ξ (x, t) representa el desplazamiento longitudinal desde su posición de equilibrio a una distancia x del extremo izquierdo y en el tiempo t.
+      .center
+        img(src='./assets/fig3-2.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El objetivo es analizar la vibración resultante de la barra en la dirección axial (longitudinal). El modelo se desarrolla dividiendo la barra en n elementos de igual longitud ∆x = L/n, cada uno de masa ∆m = M/n. El momento lineal del i-ésimo elemento es:
+      .center
+        img(src='./assets/eq3-1.png' height="65px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La tensión sobre cada elemento se modela como la fuerza ejercida por cuerdas conectadas al elemento, como se muestra
+      .center
+        img(src='./assets/fig3-3.png' height="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por tanto, la barra se describe como la conexión de n masas y n cuerdas. Aplicando la ley de Newton a cada elemento se obtiene:
+      .center
+        img(src='./assets/eq3-2.png' height="120px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+      .center
+        img(src='./assets/eq3-4.png' height="140px" style="margin: 10px 0px -0px -0px;")     
+      .prev(@click.stop='previousSlide' style="float: left; margin: -50px; 0 0px; 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: -0px; 0 0px; 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+      //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+    
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      //- h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Librerias de modelos
+      h6(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Vibraciones longitudinales de una barra
+      //- h5(v-if = 'isSpanish' style="margin: 10px 0px 0px 0px;").center Package
+      eg-code-block.
+        record BarData
+          import SI = Modelica.SIunits;
+          parameter parameter parameter parameter
+          SI.Area section;
+          SI.Length length;
+          SI.Mass mass;
+          SI.Pressure Young;
+        end BarData;
+       
 
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 60px; 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
-    //-   .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 60px; 0;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
-    //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La fuerza ejercida por las cuerdas se puede calcular usando
+        package BarCatalog
+          
+          record Bar21 = BarData (
+              section = 8.636e-005,
+              length =1,
+               mass = 0.233172,
+               Young = 6.9e10 );
+          end BarCatalog;
+
+        partial model LVib_UnifBar
+          import SI = Modelica.SIunits;
+          constant Integer n = 100 "Number of elements";
+          BarData dBar;
+          parameter SI.Length delta_x = dBar.length/n;
+          parameter SI.Mass delta_m = dBar.mass/n;
+          parameter SI.TranslationalSpringConstant k = dBar.Young*dBar.section/delta_x;
+          SI.Position eps[n] "Longitudinal displacement";
+          SI.Force F[n] "Force of springs";
+          SI.Momentum p[n] "Linear momentum";
+          SI.Force Fext "External force";
+        
+        equation
+          // Linear momentum of elements
+          for i in 1:n loop
+            p[i] = delta_m*der(eps[i]);
+          end for;
+          // Newton’s law on elements
+          for i in 1:(n - 1) loop
+            der(p[i]) = F[i + 1] - F[i];
+          end for;
+          der(p[n]) = Fext - F[n];
+          // Force exerted by springs
+          F[1] = k*eps[1];
+          for i in 2:n loop
+            F[i] = k*(eps[i] - eps[i - 1]);
+          end for;
+        end LVib_UnifBar;
+
+
+        model Test
+          extends LVib_UnifBar( dBar = BarCatalog.Bar21() );
+        equation
+          // External force in the longitudinal direction
+          Fext = if time < 1e-3 then 0 else 2e3;
+        end Test;
+
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+    
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h2(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Causalidad computacional
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Introduction
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Introducción
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El comportamiento de un modelo se puede describir en Modelica usando ecuaciones y algoritmos.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Un algoritmo es una secuencia ordenada de asignaciones. Una tarea tiene la forma variable := expresión.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La causalidad computacional de un algoritmo se especifica en el propio algoritmo: las variables calculadas a partir del algoritmo (computational outputs) son todas las escritas a la izquierda de las asignaciones, y el resto de variables que intervienen en el algoritmo son entradas computacionales.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  Una ecuación consta de dos expresiones separadas por el signo igual. La forma de escribir una ecuación no determina su causalidad computacional.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En general, la causalidad computacional de una ecuación depende de la propia ecuación, y también de las demás ecuaciones y algoritmos del modelo.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por esta razón, la causalidad computacional de los modelos descritos mediante ecuaciones es una propiedad global del modelo, que debe analizarse considerando el modelo completo.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Classification of the model variables
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Clasificación de las variables del modelo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las dos acciones siguientes se realizan antes de iniciar el análisis de la causalidad computacional.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. <span style="font-weight: bold;">Reemplazar derivadas por variables ficticias</span>. Las variaciones ficticias. Los nombres de las tablas se construyen concatenando el prefijo "der" y la variable nombres Por ejemplo, <span style="font-weight: bold;">dx/dt</span> sería reemplazado en todas las ecuaciones del modelo por una variable ficticia denominada <span style="font-weight: bold;">derx</span>.
+
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2. <span style="font-weight: bold;">Clasificar las variables del modelo en variables conocidas y desconocidas</span>. Las variables desconocidas son aquellas que deben calcularse a partir de las ecuaciones del modelo. Por lo tanto, el objetivo de asignar la causalidad computacional es averiguar qué ecuación se debe emplear para evaluar cada variable desconocida.
+
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las siguientes variables se clasifican como variables conocidas: <br> - <span style="font-weight: bold;">La variable tiempo</span>. <br> - Las <span style="font-weight: bold;">constantes</span> y <span style="font-weight: bold;">parámetros</span>. Sus valores se calculan al comienzo de la simulación y no cambian durante la simulación.<br>- Las <span style="font-weight: bold;">variables de estado</span>. No se calculan a partir de las ecuaciones del modelo. Las variables de estado se calculan por integración numérica de sus derivadas.<br><br> Las siguientes variables se clasifican como <span style="font-weight: bold;">variables desconocidas</span>:<br> - Las <span style="font-weight: bold;">variables ficticias</span> introducidas para reemplazar las derivadas.<br> - El <span style="font-weight: bold;">resto de variables</span>. Es decir, las variables del modelo dependientes del tiempo que no se seleccionan como variables de estado.
+      //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En aras de la simplicidad, supongamos ahora (eliminaremos esta suposición en la siguiente lección) que todas las variables que aparecen diferenciadas pueden seleccionarse como variables de estado. Esto es equivalente a suponer que el modelo tiene igual número de grados de libertad y variables diferenciadas.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Clasificación de las variables del modelo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Podemos representar el conjunto de ecuaciones del modelo como
+      .center
+        img(src='./assets/eq4-1.png' width="150px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") donde los vectores <span style="font-weight: bold;">x</span> e <span style="font-weight: bold;">y</span> representan las variables conocidas y desconocidas respectivamente. En base a esta representación del modelo, la <span style="font-weight: bold;">matriz de incidencia</span> del modelo, también conocida como <span style="font-weight: bold;">matriz jacobiana estructural</span>, es una matriz de elementos booleanos que indica qué variables desconocidas intervienen en cada ecuación. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La matriz de incidencia se puede definir de la siguiente manera. <br><br>Si la j-ésima variable desconocida no aparece en la i-ésima ecuación del modelo, entonces el elemento (i, j) de la matriz de incidencia es cero. De lo contrario, el elemento es uno y se representa con una cruz (X).
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Clasificación de las variables del modelo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El siguiente ejemplo permite ilustrar la construcción de la matriz de incidencia. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Supongamos un modelo compuesto por tres ecuaciones y tres variables denominadas x, y y z.<br><br> La estructura computacional del modelo es la siguiente: <br><br>- x, y y z intervienen en la primera ecuación.<br> - x y y, y la derivada de x, intervienen en la segunda ecuación. <br>- x y z intervienen en la tercera ecuación.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Clasificación de las variables del modelo
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La estructura computacional de este modelo se representa como se muestra a continuación, donde x ̇ representa la derivada de x.
+      .center
+        img(src='./assets/eq4-2.png' width="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Sustituyendo x ̇ por derx, se obtiene:
+      .center
+        img(src='./assets/eq4-5.png' width="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como la derivada de x aparece en el modelo, supongamos que se puede seleccionar x como variable de estado. Seleccionando x como variable de estado, el modelo tiene las siguientes tres variables desconocidas: derx, y y z.<br><br> La matriz de incidencia es:
+      .center
+        img(src='./assets/eq4-8.png' width="250px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Singularidad estructural
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El siguiente paso en el análisis de la causalidad computacional del modelo es comprobar si el modelo es estructuralmente singular.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Para ello, se comprueba si:
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. El número de variables desconocidas es el mismo que el número de ecuaciones.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2. Cada variable desconocida puede estar asociada a una ecuación que satisfaga simultáneamente las dos condiciones siguientes: <br>&emsp;&emsp;- la variable interviene en la ecuación, <br>&emsp;&emsp;- otra variable desconocida no ha sido asociada a esta ecuación previamente.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Esta última condición se comprueba encontrando una secuencia de permutaciones de las columnas de la matriz (variables desconocidas) que permita obtener una matriz permutada con todos los elementos de la diagonal principal distintos de cero.<br> Si tal secuencia de permutaciones no existe, entonces se dice que el modelo es estructuralmente singular.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por ejemplo, permutando el orden de las dos primeras columnas de la matriz de incidencia, se obtiene una matriz con todos los elementos de la diagonal distintos de cero. Por tanto, el modelo representado por la matriz no es estructuralmente singular.
+      .center
+        img(src='./assets/eq4-9.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La siguiente matriz de incidencia corresponde a un modelo estructuralmente singular.
+      .center
+        img(src='./assets/eq4-10.png' width="700px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Singularidad estructural
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En general, los modelos son estructuralmente singulares debido a las siguientes razones:
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. El número de ecuaciones (E) es igual al número de variables desconocidas (V), pero no es posible obtener una matriz con diagonal principal libre de cero permutando las columnas de la matriz de incidencia. Ante esta situación, existen dos posibilidades: <br><br> a) El modelo es matemáticamente incorrecto. <br>b) El modelo es matemáticamente correcto, pero el número de sus grados de libertad es menor que el número de variables que aparecen diferenciadas en el modelo. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2. El número de ecuaciones (E) y el número de variables desconocidas (V) no son iguales. En este caso, se dice que el modelo está <span style="font-weight: bold;">sobredeterminado</span> (E > V) o <span style="font-weight: bold;">subdeterminado</span> (E < V).
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Algoritmo de partición
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Supongamos que el modelo no es estructuralmente singular. <br> El siguiente paso es transformar la matriz de incidencia en una matriz triangular inferior por bloques (BLT), con bloques diagonales lo más pequeños posible.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Esta transformación, conocida como partición del modelo, se realiza permutando filas y permutando columnas de la matriz de incidencia. La matriz de incidencia escrita en forma BLT se denomina matriz de incidencia ordenada del modelo.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La matriz de incidencia en forma BLT tiene la siguiente propiedad. Las variables desconocidas que intervienen en las ecuaciones de cada bloque diagonal se calculan a partir de las ecuaciones de este bloque, o apartir de las ecuaciones de bloques anteriores.
+    
+      .center
+        // img(src='./assets/fig2-3.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Algoritmo de partición
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se han propuesto varios algoritmos para transformar la matriz de incidencia en su forma BLT. Por ejemplo, un algoritmo ampliamente utilizado es el algoritmo de Tarjan, que emplea gráficos bipartitos para representar la estructura computacional del modelo. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El procedimiento consiste en la aplicación reiterada de las siguientes reglas:
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Regla 1. Suponga que una o más variables desconocidas aparecen en una ecuación, y solo una de estas variables aún no ha sido evaluada. Entonces, la ecuación debe emplearse para calcular esta variable desconocida no evaluada.  
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Regla 2. Supongamos que aún no se ha evaluado una variable desconocida, y esta variable solo aparece en una de las ecuaciones cuya causalidad computacional aún no se ha asignado. Luego, la variable desconocida no evaluada debe calcularse a partir de esta ecuación.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El siguiente ejemplo permite ilustrar este procedimiento para particionar el modelo. <br>El modelo y la matriz de incidencia original se muestran nuevamente para comodidad del lector.
+      .center
+        img(src='./assets/eq4-11.png' width="700px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Algoritmo de partición
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. La ecuación f3 contiene solo una variable desconocida: la variable z. Por lo tanto, se debe emplear f3 para evaluar z (Regla 1). Como z no solo aparece en f3, sino que también aparece en f1, el valor de z es necesario para calcular otras variables no evaluadas. Entonces, f3 se mueve a la primera fila y z a la primera columna. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La variable derx aparece en una sola ecuación: la ecuación f2. Por lo tanto, derx debe evaluarse desde f2 (Regla 2). Como derx no interviene en ninguna otra ecuación, el valor de derx no se emplea para calcular otras variables desconocidas. Entonces, f2 se mueve a la última fila y derx a la última columna.
+      .center
+        img(src='./assets/eq4-12.png' width="300px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Algoritmo de partición
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2. Como z se evalúa a partir de f3, f1 contiene solo una variable no evaluada: y. Por lo tanto, y debe evaluarse a partir de f1 (Regla 1).
+      .center
+        img(src='./assets/eq4-12.png' width="300px" style="margin: 10px 0px -0px -0px;")
+ 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El modelo ordenado, con la causalidad computacional anotada, se muestra a continuación. <br>Observe que la variable a evaluar de cada ecuación se señala al incluir la variable entre corchetes.
+      .center
+        img(src='./assets/eq4-14.png' width="300px" style="margin: 10px 0px -0px -0px;")
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Sistemas sobredeterminados y subdeterminados
+      p(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Si el modelo está <span style="font-weight: bold;">indeterminado</span>, es útil averiguar qué variables se pueden resolver y cuáles no. <br>Para ello, se incluye en el modelo un conjunto de ecuaciones ficticias que cumplen que: el número de ecuaciones resultante es igual al número total de variables desconocidas; y cada ecuación ficticia contiene todas las variables desconocidas. <br>Esto es equivalente a agregar tantas filas llenas de unos como sea necesario para hacer que la matriz de incidencia sea cuadrada.
+      //- p(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      //- p(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Luego, esta matriz extendida se particiona. Como en cada ecuación ficticia intervienen todas las variables desconocidas, todas estas ecuaciones ficticias estarán en el último bloque diagonal de la matriz de incidencia ordenada. Todos los bloques diagonales, excepto el último, definen las variables desconocidas que se pueden calcular a partir de las ecuaciones del modelo y la secuencia en la que se deben realizar estos cálculos.
+      p(v-if = '!isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 50px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") A Ejemplo. Consideremos un modelo compuesto por dos ecuaciones y tres variables: x, y, z. La estructura computacional es la siguiente. Las variables x, y, z, y la derivada de x, aparecen en la primera ecuación. Las variables x e y aparecen en la segunda ecuación. Por lo tanto, el modelo tiene tres variables desconocidas (derx, y, z) y dos ecuaciones. Para analizar qué variables desconocidas se pueden calcular a partir del modelo, se agrega una ecuación ficticia al modelo.
+      .center
+        img(src='./assets/eq4-17.png' width="700px" style="margin: 10px 0px -0px -0px;")
+      
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Sistemas sobredeterminados y subdeterminados
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") A continuación, se particiona la matriz de incidencia extendida. Como f2 solo contiene una variable desconocida (y), f2 se mueve a la primera fila e y a la primera columna. La matriz de incidencia en su forma BLT es
+      .center
+        img(src='./assets/eq4-18.png' width="300px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como las variables derx y z se calculan en el último bloque diagonal, se necesita una ecuación adicional para calcular estas dos variables.
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Sistemas sobredeterminados y subdeterminados
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los modelos <span style="font-weight: bold;">sobredeterminados</span> se pueden analizar de manera análoga. Denotemos la diferencia entre el número de ecuaciones y las variables desconocidas como E - V . Para analizar el modelo sobredeterminado, se introducen variables ficticias, de manera que todas intervienen en cada ecuación del modelo. Esto es equivalente a agregar tantas columnas llenas con unos como sea necesario para hacer que la matriz de incidencia sea cuadrada.
+
+      //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Al particionar esta matriz de incidencia extendida, la matriz BLT obtenida tendrá algunas variables desconocidas y todas las variables ficticias en el primer bloque diagonal. La razón por la que las variables ficticias aparecen en el primer bloque diagonal es la siguiente. Como todas las variables ficticias se han incluido en todas las ecuaciones del modelo,       es necesario conocer el valor de las variables ficticias para calcular todas las variables desconocidas del modelo.
+      //- p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las ecuaciones redundantes E − V (tantas como variables ficticias) se encuentran entre las ecuaciones del primer bloque diagonal. Las variables del primer bloque diagonal son todas las variables ficticias y las variables desconocidas que aparecen en las ecuaciones redundantes.<br>A continuación se muestra un ejemplo. El modelo está compuesto por cuatro ecuaciones y tiene tres variables: x, y, z. La estructura computacional de las ecuaciones del modelo y la matriz de incidencia extendida se muestran en (4.19). Observe que se ha incluido una variable ficticia llamada α en todas las ecuaciones.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") A Ejemplo. El modelo está compuesto por cuatro ecuaciones y tiene tres variables: x, y, z. <br>Observe que se ha incluido una variable ficticia llamada &alpha; en todas las ecuaciones.
+      .center
+       img(src='./assets/eq4-19.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como derx solo aparece en f4, se debe emplear f4 para calcular derx. La ecuación f4 permanece en la última fila y derx se mueve a la última columna. Las otras tres variables desconocidas se evalúan en el primer bloque diagonal. En conclusión, una ecuación entre f1, f2 y f3 es redundante.
+      .center
+        img(src='./assets/eq4-20.png' width="300px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El ejemplo discutido en esta sección permite ilustrar la asignación de causalidad computacional. Está compuesto por una fuente de tensión sinusoidal, dos resistencias y dos condensadores. Se han asignado nombres a las corrientes y los voltajes de los nodos. Se supone que las resistencias (R1, R2), las capacitancias (C1, C2) y la amplitud (U) y la frecuencia (w) de la fuente, son parámetros conocidos. 
+      .center
+        img(src='./assets/fig4-1.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  El modelo de circuito se compone de las siguientes seis ecuaciones:  
+      .center
+        img(src='./assets/eq4-21.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")  El primer paso es reemplazar en el modelo las derivadas por variables ficticias:  
+      .center
+        img(src='./assets/eq4-27.png' width="400px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center  Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El siguiente paso es clasificar las variables del modelo en variables conocidas (tiempo, parámetros y variables de estado) y variables desconocidas (resto de variables del modelo y variables ficticias introducidas reemplazando las derivadas). Suponiendo que las dos variables que aparecen diferenciadas pueden seleccionarse como variables de estado, las variables se clasifican de la siguiente manera.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") -- Conocidas
+      .center
+        img(src='./assets/eq4-31B.png' width="300px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") -- Desconocidas
+      .center
+        img(src='./assets/eq4-31C.png' width="250px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se construye la matriz de incidencia original del modelo
+      .center
+        img(src='./assets/eq4-33.png' width="500px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Con el fin de analizar si el modelo es estructuralmente singular, se comprueba que:
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. El número de ecuaciones y el número de variables desconocidas son iguales. Este modelo tiene seis ecuaciones y seis variables desconocidas: deru1, deru2, i, i1, i2, u.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2. Se puede establecer una relación uno a uno entre las variables desconocidas y las ecuaciones del modelo, satisfaciendo que: cada variable desconocida está asociada con una ecuación en la que aparece la variable, y cada ecuación está asociada con una sola variable.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Esto es equivalente a encontrar una secuencia de permutaciones de columnas que transforme la matriz de incidencia original en una matriz sin ceros en la diagonal. La matriz obtenida se muestra a continuación.
+      .center
+        img(src='./assets/eq4-34.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      .center
+       // img(src='./assets/eq2-27.png' width="600px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La matriz de incidencia ordenada se puede obtener aplicando las dos reglas, como se describe a continuación.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 1. La relación constitutiva de la fuente de voltaje contiene solo una variable desconocida: u. 
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La relación constitutiva de la resistencia R2 contiene solo una variable desconocida: i2.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por lo tanto, estas variables deben calcularse a partir de estas ecuaciones. Como estas variables desconocidas intervienen en otras ecuaciones, estas dos ecuaciones se trasladan a las primeras filas, y estas variables a las primeras columnas.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La variable deru1 solo aparece en una ecuación: la relación constitutiva del capacitor C1.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La variable deru2 solo aparece en una ecuación: la relación constitutiva del capacitor C2.
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como los valores de estas variables no se emplean en el cálculo de otras variables, estas dos ecuaciones se trasladan a las últimas filas y estas variables a las últimas columnas.
+      .center
+        img(src='./assets/eq4-35.png' width="500px" style="margin: 10px 0px -0px -0px;")
+      .center
+       // img(src='./assets/fig2-8.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") 2.  Assuming that u and i2 have already been evaluated, the constitutive rela- tionship of the R1 resistor has only one unevaluated variable: i. Moving this equation to the third row and i to the third column, the following incidence matrix is obtained.
+      .center
+        img(src='./assets/eq4-36.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      .center
+        // img(src='./assets/eq2-31.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") The circuit model can be described by
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Suponiendo que u, i2 y i ya han sido evaluadas, la ecuación de la conservación de la corriente contiene solo una variable no evaluada: i1. Por lo tanto, i1 debe calcularse a partir de la ecuación de conservación actual. La matriz de incidencia ahora está escrita en forma BLT.
+      .center
+        img(src='./assets/eq4-37.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      .center
+        // img(src='./assets/eq2-31.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por tanto, las ecuciones ordenadas del modelo, con la causalidad computacional indicada, son las siguientes:
+      .center
+        img(src='./assets/eq4-38.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Manipulando las ecuaciones, la variable a calcular de cada ecuación se aísla en un lado de la ecuación. El modelo ordenado y resuelto se obtiene:
+      .center
+        img(src='./assets/eq4-44.png' width="300px" style="margin: 10px 0px -15px -0px;")
+      .center
+        img(src='./assets/eq4-45.png' width="300px" style="margin: 0px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Ejemplo: simulación de un circuito eléctrico
+      p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En la figura se muestra un algoritmo para simular el modelo de circuito. La integración numérica se realiza aplicando el método de Euler directo. Observe que la clasificación de las variables del modelo en parámetros (variables independientes del tiempo), variables de estado y variables algebraicas (variables dependientes del tiempo no seleccionadas como variables de estado) se utiliza como base para escribir el algoritmo de simulación.  
+      .center
+        img(src='./assets/fig4-2.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      .center
+        // img(src='./assets/fig2-11.png' width="500px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
 
    
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
@@ -1068,8 +1569,8 @@ export default {
       theme: 'Open Modelica I',
       isSpanish: true,
       languages: ['🇺🇸', '🇲🇽'],
-      topics: ['Inicio', 'Temas', 'Paradigma', 'modelos atómicos', 'Circuito rectificador', 'Rectificador puente', 'Traslación 1D', 'Traslación 2D', 'Transferencia calor', 'Librerias de modelos', 'Bibliografía'],
-      page: [1, 1, 2, 9, 12, 17, 19, 23, 27, 32, 40, 44, 45]
+      topics: ['Inicio', 'Temas', 'Paradigma', 'modelos atómicos', 'Circuito rectificador', 'Rectificador puente', 'Traslación 1D', 'Traslación 2D', 'Transferencia calor', 'Librerias eléctrica', 'Vibraciones longitudinales', 'Causalidad', 'Bibliografía'],
+      page: [1, 1, 2, 9, 12, 17, 19, 23, 27, 32, 40, 42, 40]
     }
   },
   methods: {
