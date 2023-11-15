@@ -155,7 +155,7 @@ export default {
 
 .problem {
   margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  font-size: 35px;
   color: blue;
   width: 100%;
 }

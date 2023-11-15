@@ -309,27 +309,27 @@
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Mutual Inductance
-      img(src='./assets/fig32-8.png' height="400px" style="margin: -30px 50px -100px 0;")
-      img(src='./assets/eq32-15.png'  height="70px"  style="margin: 0 0px 200px 0px;")
-      img(src='./assets/eq32-16.png' height="70px"  style="margin: 0 0px 100px -150px;")
-      img(src='./assets/eq32-17.png' height="70px"  style="margin: 0 0 20px -500px;")
-      img(src='./assets/eq32-17B.png' height="70px"  style="margin: 0 0 -70px -180px;")
-      .prev(@click.stop='previousSlide' style="float: left; margin: 400px 0 0px 0px;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 400px 0 0px 0px;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5.center Mutual Inductance
+    //-   img(src='./assets/fig32-8.png' height="400px" style="margin: -30px 50px -100px 0;")
+    //-   img(src='./assets/eq32-15.png'  height="70px"  style="margin: 0 0px 200px 0px;")
+    //-   img(src='./assets/eq32-16.png' height="70px"  style="margin: 0 0px 100px -150px;")
+    //-   img(src='./assets/eq32-17.png' height="70px"  style="margin: 0 0 20px -500px;")
+    //-   img(src='./assets/eq32-17B.png' height="70px"  style="margin: 0 0 -70px -180px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 400px 0 0px 0px;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 400px 0 0px 0px;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
-    slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -30px;") Exercise 10
-      example-ten
-      .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
+    //- slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(style="margin-top: -30px;") Exercise 10
+    //-   example-ten
+    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;  
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -349,7 +349,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 11
+      h3(style="margin-top: -20px;") Exercise 10
       example-eleven
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -419,7 +419,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 12
+      h3(style="margin-top: -20px;") Exercise 11
       example-twelve
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -478,7 +478,7 @@
       
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 13
+      h3(style="margin-top: -20px;") Exercise 12
       example-thirteen
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide

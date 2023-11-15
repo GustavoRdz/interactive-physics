@@ -1,10 +1,11 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider the circuit in Active Figure 32.2 again. Suppose the circuit elements have the following values: e 5 12.0 V, R 5 6.00 V, and L 5 30.0 mH.<br>(A) Find the time constant of the circuit.<br>(B) Switch S2 is at position a, and switch S1 is thrown closed at t 5 0. Calculate the current in the circuit at t 5 2.00 ms.<br>(C) Compare the potential difference across the resistor with that across the inductor.
-
+    p.problem Consider the circuit.
     .center
       img(src="../assets/fig32-2.png" height="500px" style="margin: 0px; width: 250px; height: 180px; object-fit: none; object-position: 10% 55%;")
+    p.problem Suppose the circuit elements have the following values: &epsilon;= 12.0 V, R = 6.00 &ohm;, and L = 30.0 mH.<br>(A) Find the time constant of the circuit.<br>(B) Switch S2 is at position a, and switch S1 is thrown closed at t = 0. Calculate the current in the circuit at t = 2.00 ms.<br>(C) Compare the potential difference across the resistor with that across the inductor.
+
 
 
     //- .center

@@ -151,8 +151,9 @@ export default {
 }
 
 .problem {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }

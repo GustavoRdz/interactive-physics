@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The coil in an AC generator consists of 8 turns of wire, each of area A = 0.090 0 m<sup>2</sup>, and the total resistance of the wire is 12.0 V. The coil rotates in a 0.500-T magnetic field at a constant frequency of 60.0 Hz.<br>(A) Find the maximum induced emf in the coil.<br>(B) What is the maximum induced current in the coil when the output terminals are connected to a low-resistance conductor?
+    p.problem The coil in an AC generator consists of 8 turns of wire, each of area A = 0.090 0 m<sup>2</sup>, and the total resistance of the wire is 12.0 &ohm;. The coil rotates in a 0.500-T magnetic field at a constant frequency of 60.0 Hz.<br>(A) Find the maximum induced emf in the coil.<br>(B) What is the maximum induced current in the coil when the output terminals are connected to a low-resistance conductor?
 
 
     //- .center
