@@ -182,6 +182,8 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Exercise 5
       example-five
+      p Solution
+      ex-five-anim
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -532,7 +534,8 @@ export default {
     'example-seventeen': require('./components/ExampleSeventeen'),
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
-    'example-twenty': require('./components/ExampleTwenty')
+    'example-twenty': require('./components/ExampleTwenty'),
+    'ex-five-anim': require('./components/ExFiveAnim')
   },
   data: function () {
     return {

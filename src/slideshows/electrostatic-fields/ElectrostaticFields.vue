@@ -647,84 +647,84 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Obtaining the Value of the Electric Field from the Electric Potential
-      .center
-        img(src='./assets/eq25-15.png' height="50px" style="margin: 10px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-16.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-18.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5.center Obtaining the Value of the Electric Field from the Electric Potential
+    //-   .center
+    //-     img(src='./assets/eq25-15.png' height="50px" style="margin: 10px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-16.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-18.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 16
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 16
-      example-sixteen(:language="isSpanish")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 16
+    //-   h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 16
+    //-   example-sixteen(:language="isSpanish")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Electric Potential Due to Continuous Charge Distribution
-      .center
-        img(src='./assets/fig25-14.png' height="200px" style="margin: 10px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-20.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5.center Electric Potential Due to Continuous Charge Distribution
+    //-   .center
+    //-     img(src='./assets/fig25-14.png' height="200px" style="margin: 10px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-20.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 17
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 17
-      example-seventeen(:language="isSpanish")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 17
+    //-   h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 17
+    //-   example-seventeen(:language="isSpanish")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 18
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 18
-      example-eighteen(:language="isSpanish")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 18
+    //-   h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 18
+    //-   example-eighteen(:language="isSpanish")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Electric Potential Due to a Charged Conductor
-      .center
-        img(src='./assets/fig25-18.png' height="300px" style="margin: 10px 0px 0px 0px;")
-      //- .center
-      //-   img(src='./assets/fig25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-20B.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .center
-        img(src='./assets/eq25-20C.png' height="70px" style="margin: 20px 0px 0px 0px;")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5.center Electric Potential Due to a Charged Conductor
+    //-   .center
+    //-     img(src='./assets/fig25-18.png' height="300px" style="margin: 10px 0px 0px 0px;")
+    //-   //- .center
+    //-   //-   img(src='./assets/fig25-19.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-20B.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .center
+    //-     img(src='./assets/eq25-20C.png' height="70px" style="margin: 20px 0px 0px 0px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3.center Capacitance and dielectrics
-      p Consider two conductors. Such a combination of two conductors is called a capacitor. The conductors are called plates. If the conductors carry charges of equal magnitude and opposite sign, a potential difference DV exists between them.
+      p Consider two conductors. Such a combination of two conductors is called a capacitor. The conductors are called plates. If the conductors carry charges of equal magnitude and opposite sign, a potential difference &Delta;V exists between them.
       .center
         img(src='./assets/fig26-1.png' height="300px" style="margin: 10px 0px 0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -766,15 +766,15 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 19
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 19
-      example-nineteen(:language="isSpanish")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 19
+    //-   h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 19
+    //-   example-nineteen(:language="isSpanish")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -828,8 +828,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 20
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 20
+      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 16
+      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 16
       example-twenty(:language="isSpanish")
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -838,8 +838,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 21
-      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 21
+      h3(v-if = '!isSpanish' style="margin: 25px 0px 0px 0px;") Exercise 17
+      h3(v-if = 'isSpanish' style="margin: 25px 0px 0px 0px;") Ejercicio 17
       example-twenty-one(:language="isSpanish")
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -858,15 +858,15 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
   
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Capacitors with dielectrics
-      .center
-        img(src='./assets/fig26-14.png' height="400px" style="margin: 30px 0px 0px 0px;")
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5.center Capacitors with dielectrics
+    //-   .center
+    //-     img(src='./assets/fig26-14.png' height="400px" style="margin: 30px 0px 0px 0px;")
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
