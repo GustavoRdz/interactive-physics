@@ -1,9 +1,10 @@
 <template lang="pug">
 #Relativity.eg-theme-agrume
   .eg-slideshow
-    slide(enter='fadeIn' leave='bounceOutLeft')
+    slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
         h1 gms lab
+        florVida
         img(src='./assets/microres4.jpg')
         h4 games
         eg-triggered-message(:trigger='slideTimer >= 2',
@@ -394,6 +395,7 @@ export default {
     path: 'gms'
   },
   components: {
+    'florVida': require('./components/FlorVida'),
     'wordSearch': require('./components/wordSearch'),
     'worm': require('./components/worm'),
     'lander': require('./components/lander'),

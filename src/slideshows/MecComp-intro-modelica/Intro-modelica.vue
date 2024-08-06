@@ -69,7 +69,7 @@
       h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center Physical modeling paradigm
       h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Paradigma de modelado físico
       h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center equation-based languages
-      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Lenguajes basados en equaciones
+      h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center Lenguajes basados en ecuaciones
       p(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;")
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los lenguajes concebidos para respaldar el paradigma de modelado físico permiten describir la parte de tiempo continuo del modelo mediante ecuaciones.
       p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por este motivo, estos lenguajes de modelado se conocen como lenguajes basados en ecuaciones. Modelica pertenece a este tipo de lenguaje de modelado.
