@@ -127,7 +127,7 @@ a<template lang="pug">
       p(style="margin-top: -0px; color: blue;") Se expresa como:
       distancia-formula
       p(style="margin-top: -0px; color: blue;") Demostración
-      p(style="margin-top: -0px; color: blue;") Colocando los puntos P1 y P2 en un sistema coordenado linealDemostración
+      p(style="margin-top: -0px; color: blue;") Colocando los puntos P1 y P2 en un sistema coordenado lineal
       demo-points
       p(style="margin-top: -0px; color: blue;") Tenemos que
       demo-dist
@@ -181,127 +181,25 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Simple Harmonic Motion
-    //-   spring-mass
-    //-   p(style="margin: 0px 20px 0 0;") Hooke's law
-    //-   .center
-    //-     img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") with
-    //-   .center
-    //-     img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
-    //-   p(style="margin: -10px 20px 0 0;") we have
-    //-   .center
-    //-     img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
-    //-     img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
+      example-two(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
-    //-   example-two(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top: -40px;").center
-    //-   spring-mass
-    //-   p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
-    //-   displacement-plot
-    //-   .center
-    //-     img(src='./assets/displacementGraph.png' height="250px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
-    //-     img(src='./assets/displacementB.png' height="250px")
-    //-   .center
-    //-     img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
-    //-     img(src='./assets/displacementPhase.png' height="250px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass(style="margin-left: -70px;")
-    //-   p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   p
-    //-     img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
-    //-     img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass
-    //-   p(style="margin: 40px 0px -40px 100px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   .center
-    //-     img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Phase constant and Amplitude
-    //-   p At t = 0
-    //-   .center
-    //-     img(src='./assets/displacementT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-     img(src='./assets/velocityT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") dividing
-    //-   .center
-    //-     img(src='./assets/velocityOverDisplacementT0.png' height="100px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") then
-    //-   .center
-    //-     img(src='./assets/phaseT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") and squaring the displacement and velocity we get
-    //-   .center
-    //-     img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
-    //-   example-three(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
+      example-three(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

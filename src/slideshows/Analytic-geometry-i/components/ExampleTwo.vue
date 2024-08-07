@@ -1,36 +1,23 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A spring is mounted horizontally, with its left end fixed. A spring balance attached to the free end and pulled toward the right indicates that the stretching force is proportional to the displacement, and a force of {{ force }} N causes a displacement of {{ displacement }} m. We replace the spring balance with a {{ mass }}-kg glider, pull it {{ pullDistance }} m to the right along a frictionless air track, and release it from rest. (a) Find the force constant <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> of the spring. (b) Find the angular frequency <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, frequency <span style="font-family: times; font-style: italic; font-weight: bold;">f</span>, and period <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> of the resulting oscillation.
-      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un resorte está montado horizontalmente, con su extremo izquierdo fijo. Un dinamómetro de resorte unida al extremo libre y tirada hacia la derecha indica que la fuerza de estiramiento es proporcional al desplazamiento, y una fuerza de {{ force }} N provoca un desplazamiento de {{ displacement }} m. Reemplazamos el dinamómetro con un deslizador de {{ mass }} kg, lo tiramos {{ pullDistance }} m hacia la derecha a lo largo de una pista de aire sin fricción y lo soltamos desde el reposo. (a) Encuentre la constante de fuerza <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> del resorte. (b) Encuentre la frecuencia angular <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, la frecuencia <span style="font-family: times; font-style: italic; font-weight: bold;">f</span> y el período <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> de la oscilación resultante.
+      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Hallar la distancia entre los puntos cuyas coordenandas son:
+      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem a) {{ aa }}  y {{ ab }}
+      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem b) {{ ba }} y {{ bb }}
+      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem c) {{ ca }} y {{ cb }}
       .center
         p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
         p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-        p.inline.data Force (N)
-          input.center.data(:class="checkedF" v-model.number='enterF')
+        p.inline.data (a) d
+          input.center.data(:class="checkedda" v-model.number='enterda')
           <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-        p.inline.data Displacement (m)
-          input.center.data(:class="checkedD" v-model.number='enterD')
+        p.inline.data (b) d
+          input.center.data(:class="checkeddb" v-model.number='enterdb')
           <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
-        p.inline.data Mass (Kg)
-          input.center.data(:class="checkedM" v-model.number='enterM')
+        p.inline.data (c) d
+          input.center.data(:class="checkeddc" v-model.number='enterdc')
           <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
-        p.inline.data Pull distance (m)
-          input.center.data(:class="checkedPullD" v-model='enterPullD')
-          <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
-        p.inline.data Elastic constant (N/m)
-          input.center.data(:class="checkedK" v-model='enterK')
-          <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
-        p.inline.data Angular frequency (rad/s)
-          input.center.data(:class="checkedOmega" v-model='enterOmega')
-          <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
-        p.inline.data Frequency (Hz)
-          input.center.data(:class="checkedFr" v-model='enterFr')
-          <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
-        p.inline.data Period (s)
-          input.center.data(:class="checkedT" v-model='enterT')
-          <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
-
+      
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -40,48 +27,44 @@ export default {
   },
   data: function () {
     return {
-      enterF: '',
-      errorF: 0,
-      enterD: '',
-      errorD: 0,
-      enterM: '',
-      errorM: 0,
-      enterPullD: '',
-      errorPullD: 0,
-      enterK: '',
-      errorK: 0,
-      enterOmega: '',
-      errorOmega: 0,
-      enterFr: '',
-      errorFr: 0,
-      enterT: '',
-      errorT: 0
+      enterda: '',
+      errorda: 0,
+      enterdb: '',
+      errordb: 0,
+      enterdc: '',
+      errordc: 0
     }
   },
   computed: {
-    force: function () {
-      console.clear()
-      let max = 10
+    aa: function () {
+      let max = 20
+      let min = 10
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    ab: function () {
+      let max = 9
+      let min = 0
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    ba: function () {
+      let max = 20
       let min = 5
-      return Math.floor(100 * (Math.random() * (max - min + 1) + min)) / 100
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    displacement: function () {
-      let max = 10
-      let min = 2
-      return Math.floor(10 * (Math.random() * (max - min + 1) + min)) / 1000
+    bb: function () {
+      let max = -1
+      let min = -20
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    mass: function () {
-      let max = 8
-      let min = 2
-      return Math.floor(100 * Math.random() * (max - min + 1) + min) / 1000
+    ca: function () {
+      let max = 20
+      let min = 5
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    pullDistance: function () {
-      let max = 8
-      let min = 2
-      return Math.floor(10 * Math.random() * (max - min + 1) + min) / 1000
-    },
-    elastic: function () {
-      return this.force / this.displacement
+    cb: function () {
+      let max = -1
+      let min = -20
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     frequency: function () {
       return this.angular / (2 * Math.PI)
