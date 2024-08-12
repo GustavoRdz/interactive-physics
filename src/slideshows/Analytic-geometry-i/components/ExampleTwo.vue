@@ -10,13 +10,13 @@
         p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
         p.inline.data (a) d
           input.center.data(:class="checkedda" v-model.number='enterda')
-          <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
+          <span class="error" v-if="errorda">[e: {{ errorda.toPrecision(3) }}%]</span>
         p.inline.data (b) d
           input.center.data(:class="checkeddb" v-model.number='enterdb')
-          <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
+          <span class="error" v-if="errordb">[e: {{ errordb.toPrecision(3) }}%]</span>
         p.inline.data (c) d
           input.center.data(:class="checkeddc" v-model.number='enterdc')
-          <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
+          <span class="error" v-if="errordc">[e: {{ errordc.toPrecision(3) }}%]</span>
       
 </template>
 <script>
@@ -66,46 +66,26 @@ export default {
       let min = -20
       return Math.round(Math.random() * (max - min + 1) + min)
     },
-    frequency: function () {
-      return this.angular / (2 * Math.PI)
+    da: function () {
+      return Math.abs(this.ab - this.aa)
     },
-    angular: function () {
-      return Math.sqrt(this.elastic / this.mass)
+    db: function () {
+      return Math.abs(this.bb - this.ba)
     },
-    period: function () {
-      return 1 / this.frequency
+    dc: function () {
+      return Math.abs(this.cb - this.ca)
     },
-    checkedF: function () {
-      this.errorF = this.errorRelative('Force => ', this.force, parseFloat(this.enterF))
-      return this.errorF < 1e-1 ? 'correct' : 'not-correct'
+    checkedda: function () {
+      this.errorda = this.errorRelative('da => ', this.da, parseFloat(this.enterda))
+      return this.errorda < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedD: function () {
-      this.errorD = this.errorRelative('Displacement => ', this.displacement, parseFloat(this.enterD))
-      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
+    checkeddb: function () {
+      this.errordb = this.errorRelative('db => ', this.db, parseFloat(this.enterdb))
+      return this.errordb < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedM: function () {
-      this.errorM = this.errorRelative('Mass => ', this.mass, parseFloat(this.enterM))
-      return this.errorM < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedPullD: function () {
-      this.errorPullD = this.errorRelative('Pull distance => ', this.pullDistance, parseFloat(this.enterPullD))
-      return this.errorPullD < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedK: function () {
-      this.errorK = this.errorRelative('elastic K => ', this.elastic, parseFloat(this.enterK))
-      return this.errorK < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedOmega: function () {
-      this.errorOmega = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterOmega))
-      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedFr: function () {
-      this.errorFr = this.errorRelative('frequency => ', this.frequency, parseFloat(this.enterFr))
-      return this.errorFr < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedT: function () {
-      this.errorT = this.errorRelative('Period => ', this.period, parseFloat(this.enterT))
-      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
+    checkeddc: function () {
+      this.errordc = this.errorRelative('dc => ', this.dc, parseFloat(this.enterdc))
+      return this.errordc < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {

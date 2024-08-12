@@ -1,26 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem An object is undergoing Simple Harmonic Motion (SHM) with period {{ period }} s and amplitude {{ amplitude }} cm. At <span style="font-family: times; font-style: italic; font-weight: bold;">t</span> = 0s the object is at <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm and is instantaneously at rest. Calculate the time it takes the object to go (a) from <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm to <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm and (b) from <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm to <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = 0 cm.
-    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un objeto experimenta un movimiento armónico simple (MAS) con un período de {{ period }} s y una amplitud de {{ amplitude }} cm. En <span style="font-family: times; font-style: italic; font-weight: bold;">t</span> = 0s el objeto está en <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude }} cm y está instantáneamente en reposo. Calcula el tiempo que tarda el objeto en ir (a) de <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> =  {{ amplitude }} cm a <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm y (b) de <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = {{ amplitude / 2 }} cm a <span style="font-family: times; font-style: italic; font-weight: bold;">x</span> = 0 cm.
+    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Hallar las coordenadas del punto medio del segmento formado por los puntos A({{ A }}) y B({{ B }}).
     .center
       p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
       p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-      p.inline.data Period (s)
-        input.center.data(:class="checkedPeriod" v-model.number='enterPeriod')
-        <span class="error" v-if="errorPeriod">[e: {{ errorPeriod.toPrecision(3) }}%]</span>
-      p.inline.data Amplitude (m)
-        input.center.data(:class="checkedAmplitude" v-model.number='enterAmplitude')
-        <span class="error" v-if="errorAmplitude">[e: {{ errorAmplitude.toPrecision(3) }}%]</span>
-      p.inline.data Angular frequency (rad/s)
-        input.center.data(:class="checkedAngular" v-model.number='enterAngular')
-        <span class="error" v-if="errorAngular">[e: {{ errorAngular.toPrecision(3) }}%]</span>
-      p.inline.data (a) time (s)
-        input.center.data(:class="checkedHalf" v-model.number='enterHalf')
-        <span class="error" v-if="errorHalf">[e: {{ errorHalf.toPrecision(3) }}%]</span>
-      p.inline.data (b) time (s)
-        input.center.data(:class="checkedSecondHalf" v-model='enterSecondHalf')
-        <span class="error" v-if="errorSecondHalf">[e: {{ errorSecondHalf.toPrecision(3) }}%]</span>
+      p.inline.data A(?)
+        input.center.data(:class="checkedA" v-model.number='enterA')
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data B(?)
+        input.center.data(:class="checkedB" v-model.number='enterB')
+        <span class="error" v-if="errorB">[e: {{ errorB.toPrecision(3) }}%]</span>
+      p.inline.data C(?)
+        input.center.data(:class="checkedC" v-model.number='enterC')
+        <span class="error" v-if="errorC">[e: {{ errorC.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -31,58 +25,40 @@ export default {
   },
   data: function () {
     return {
-      enterPeriod: '',
-      errorPeriod: 0,
-      enterAmplitude: '',
-      errorAmplitude: 0,
-      enterAngular: '',
-      errorAngular: 0,
-      enterHalf: '',
-      errorHalf: 0,
-      enterSecondHalf: '',
-      errorSecondHalf: 0
+      enterA: '',
+      errorA: 0,
+      enterB: '',
+      errorB: 0,
+      enterC: '',
+      errorC: 0
     }
   },
   computed: {
-    period: function () {
+    A: function () {
       console.clear()
-      let max = 40
-      let min = 20
-      return Math.floor(Math.random() * (max - min + 1) + min)
+      let max = -10
+      let min = 10
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    amplitude: function () {
-      let max = 40
-      let min = 20
-      return Math.floor(Math.random() * (max - min + 1) + min)
+    B: function () {
+      let max = -10
+      let min = 10
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
-    angular: function () {
-      return 2 * Math.PI / this.period
+    C: function () {
+      return (this.A + this.B) / 2
     },
-    half: function () {
-      return this.period / 6
+    checkedA: function () {
+      this.errorA = this.errorRelative('A => ', this.A, parseFloat(this.enterA))
+      return this.errorA < 1e-1 ? 'correct' : 'not-correct'
     },
-    secondHalf: function () {
-      return (this.period / 4) - this.half
+    checkedB: function () {
+      this.errorB = this.errorRelative('B => ', this.B, parseFloat(this.enterB))
+      return this.errorB < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedPeriod: function () {
-      this.errorPeriod = this.errorRelative('Period => ', this.period, parseFloat(this.enterPeriod))
-      return this.errorPeriod < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedAmplitude: function () {
-      this.errorAmplitude = this.errorRelative('Amplitude => ', this.amplitude / 100, parseFloat(this.enterAmplitude))
-      return this.errorAmplitude < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedAngular: function () {
-      this.errorAngular = this.errorRelative('Omega => ', this.angular, parseFloat(this.enterAngular))
-      return this.errorAngular < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedHalf: function () {
-      this.errorHalf = this.errorRelative('a) time  => ', this.half, parseFloat(this.enterHalf))
-      return this.errorHalf < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedSecondHalf: function () {
-      this.errorSecondHalf = this.errorRelative('b) time => ', this.secondHalf, parseFloat(this.enterSecondHalf))
-      return this.errorSecondHalf < 1e-1 ? 'correct' : 'not-correct'
+    checkedC: function () {
+      this.errorC = this.errorRelative('C => ', this.C, parseFloat(this.enterC))
+      return this.errorC < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
