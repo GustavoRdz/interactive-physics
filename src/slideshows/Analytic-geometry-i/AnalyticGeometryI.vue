@@ -17,7 +17,7 @@ a<template lang="pug">
         //- spring-mass
 
         h4(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") General concepts and the rect line
-        h4(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Conceptos generales y la recta numérica
+        h4(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Conceptos generales y la línea recta 
         //- eg-triggered-message(:trigger='slideTimer >= 2',
         //-                     :duration='6', position='top right',
         //-                     enter='bounceInRight', leave='bounceOutRight')
@@ -262,95 +262,100 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center
-    //-     <svg height="250" width="600" viewbox="0 0 600 250">
-    //-       <defs>
-    //-         <path id="r1" fill="none" stroke="black">
-    //-           <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-    //-           <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-         </path>
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 1</span>. Se llama ángulo de inclinación (&alpha;) de una recta al formado por la parte positiva del eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">X</span>y la recta, cuando esta se considera dirigida hacia arriba, por lo tanto, 0º &leq; &alpha; &leq; 180º.
+      angulo-inclinacion-figura
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //-       </defs>
-    //-       <use xlink:href="#r1"/>
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 2</span>. Se llama pendiente de una recta dirigida a la tangente de su ángulo de inclinación, se denota <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>, por lo tanto, se expresa como <span style="font-family: roboto; font-weight: bold; font-style: italic;">m = tan&alpha;</span>.
+      p(style="margin-top: -0px; color: blue;") Consideraciones
+      ul(style="margin-top: -0px; color: blue;") 
+        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 0º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> = 0, es una recta coincidente o paralela al eje  <span style="font-family: roboto; font-weight: normal; font-style: italic;">x</span>, dirigida hacia la derecha.
+        <br>
+        li Si 0º &le; <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> &le; 90º, entonces, <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> es positiva.
+        <br>
+        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 90º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> no esta definida, es una recta coincidente o paralela al eje <span style="font-family: roboto; font-weight: normal; font-style: italic;">y</span>, dirigida hacia arriba.
+        <br>
+        li Si 90º &le; <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> &le; 180º, entonces, <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> es negativa.
+        <br>
+        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 180º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> = 0, es una recta coincidente o paralela al eje <span style="font-family: roboto; font-weight: normal; font-style: italic;">x</span>, dirigida hacia la izquierda.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //-       <path :d="base" stroke="black"  fill="none"/>
-    //-       <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-    //-         <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-       </rect>
-    //-       <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-    //-       <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-    //-       <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
+      pendiente-recta-formula
+      p(style="margin-top: -0px; color: blue;") Demostración
+      pendiente-recta-figura
+      p(style="margin-top: -0px; color: blue;") Para el triangulo rectangulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
+      tangente-pendiente-formula
+      p(style="margin-top: -0px; color: blue;") entonces 
+      pendiente-recta-formula
+  
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //-       <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-    //-       <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-    //-       <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
 
-    //-         <text x="500" y="98">
-    //-           <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-    //-         </text>
-    //-         <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
+      example-eight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //-         //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-    //-         //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-    //-     </svg>
-    //-   p(style="margin: 0px 20px 0 0;") Energies
-    //-   .center
-    //-     img(src='./assets/kineticEnergy.png' height="50px"  style="margin: -20px 100px 0 0;")
-    //-     img(src='./assets/potentialEnergy.png' height="50px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") Mecanical energy
-    //-   .center
-    //-     img(src='./assets/totalEnergyA.png' height="50px"  style="margin: -50px 10px 0 0")
-    //-   p(style="margin: 0px 20px 0 0;") the constant
-    //-   .center
-    //-     img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
+      example-nine(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
+      example-ten(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
-    //-   example-nine(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
-    //-   example-ten(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
-    //-   example-thirteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
+      pendiente-recta-formula
+      p(style="margin-top: -0px; color: blue;") Demostración
+      pendiente-recta-figura
+      p(style="margin-top: -0px; color: blue;") Para el triangulo rectangulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
+      tangente-pendiente-formula
+      p(style="margin-top: -0px; color: blue;") entonces 
+      pendiente-recta-formula
+  
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -584,6 +589,10 @@ export default {
     'razon-division-segmento': require('./components/razonDivisionSegmento'),
     'razon-division-segmento-demo': require('./components/razonDivisionSegmentoDemo'),
     'razon-division-segmento-punto-medio': require('./components/razonDivisionPuntoMedio'),
+    'angulo-inclinacion-figura': require('./components/anguloInclinacionFig'),
+    'pendiente-recta-formula': require('./components/pendienteRectaFormula'),
+    'pendiente-recta-figura': require('./components/pendienteRectaFig'),
+    'tangente-pendiente-formula': require('./components/tangentePendienteFormula'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
     'torsion-pendulum': require('./components/TorsionPendulum')
