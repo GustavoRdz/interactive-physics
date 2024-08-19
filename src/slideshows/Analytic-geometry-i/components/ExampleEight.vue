@@ -22,17 +22,17 @@ eg-transition(:enter='enter', :leave='leave')
         <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
         <!-- triangle -->
-        <line :x1="x1l" :y1="y1l" :x2="x2l" :y2="y2l" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <line v-if="showLine" :x1="x1l" :y1="y1l" :x2="x2l" :y2="y2l" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         //- <line :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         //- <line :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         //- <line :x1="x3" :y1="y3" :x2="x4" :y2="y4" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         
         <!-- Points -->
-        <circle r="6" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
-        <text :x="x1-20" :y="y1" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic">A </text>
-        <circle r="6" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
-        <text :x="x2+10" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> B </text>
-        <circle r="6" cx="354" cy="238"  fill="black" stroke="#000" stroke-width="1"/>
+        <circle v-if="showPointX1 && showPointY1" r="6" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
+        <text v-if="showPointX1 && showPointY1" :x="x1-20" :y="y1" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic">A </text>
+        <circle v-if="showPointX2 && showPointY2" r="6" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
+        <text v-if="showPointX2 && showPointY2" :x="x2+10" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> B </text>
+        //- <circle r="6" cx="354" cy="238"  fill="black" stroke="#000" stroke-width="1"/>
         //- <text :x="x3" :y="y3" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> C </text>
         //- <circle r="6" :cx="x4" :cy="y4"  fill="magenta" stroke="#000" stroke-width="1"/>
         //- <text :x="x4" :y="y4" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> D </text>
@@ -80,7 +80,12 @@ export default {
       enterM: '',
       errorM: 0,
       enterA: '',
-      errorA: 0
+      errorA: 0,
+      showPointX1: false,
+      showPointY1: false,
+      showPointX2: false,
+      showPointY2: false,
+      showLine: false
     }
   },
   computed: {
@@ -140,22 +145,28 @@ export default {
     },
     checkedX1: function () {
       this.errorX1 = this.errorRelative('X1 => ', this.X1, parseFloat(this.enterX1))
+      this.showPointX1 = this.errorX1 < 1e-1
+      console.log(this.showPointX1)
       return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedY1: function () {
       this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
+      this.showPointY1 = this.errorY1 < 1e-1
       return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedX2: function () {
       this.errorX2 = this.errorRelative('X2 => ', this.X2, parseFloat(this.enterX2))
+      this.showPointX2 = this.errorX2 < 1e-1
       return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedY2: function () {
       this.errorY2 = this.errorRelative('Y2 => ', this.Y2, parseFloat(this.enterY2))
+      this.showPointY2 = this.errorY2 < 1e-1
       return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedM: function () {
       this.errorM = this.errorRelative('m => ', this.m, parseFloat(this.enterM))
+      this.showLine = this.errorM < 1e-1
       return this.errorM < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedA: function () {
@@ -202,6 +213,7 @@ export default {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;

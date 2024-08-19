@@ -54,8 +54,8 @@ eg-transition(:enter='enter', :leave='leave')
         </g>
         <g transform="translate(520, 0)">    
           <text x="10" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"> = </text>
-          <text x="40" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"> <tspan style="font-style: italic;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan></text>
-          <text x="40" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"> <tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan></text>
+          <text x="40" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"> <tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan></text>
+          <text x="40" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"> <tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan></text>
           <line  x1="35" y1="42" x2="130" y2="42" fill="none" stroke="#000" stroke-width="2"stroke-linecap="round"/>
         </g>
         <g transform="translate(400, 120)">    

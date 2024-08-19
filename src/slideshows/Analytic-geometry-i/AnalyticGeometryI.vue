@@ -342,106 +342,70 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
-      pendiente-recta-formula
-      p(style="margin-top: -0px; color: blue;") Demostración
-      pendiente-recta-figura
-      p(style="margin-top: -0px; color: blue;") Para el triangulo rectangulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
-      tangente-pendiente-formula
-      p(style="margin-top: -0px; color: blue;") entonces 
-      pendiente-recta-formula
+      h4(style="margin-top: -20px; color: green;").center Angulo entre dos rectas
+      p(style="margin-top: -40px; color: blue;") Cuando dos rectas se cortan se forman dos pares de angulos, iguales, opuestos por el vertice  
+      angulo-dos-rectas
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El angulo entre dos rectas dirigidas esta dado por 
+      angulo-dos-rectas-formula
+      p(style="margin-top: -0px; color: blue;") Demostración  
+      p(style="margin-top: -0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con angulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con angulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
+      p(style="margin-top: -0px; color: blue;") En un triángulo un ángulo exterior es igual a la suma de sus ángulos internos opuestos
+      angulo-externo-suma-internos
+      p(style="margin-top: -0px; color: blue;") Aplicando la tangente tenemos que  
+      angulo-externo-suma-tangente
+      p(style="margin-top: -0px; color: blue;") utilizando la identidad trigonométrica   
+      identidad-tangente-AminusB
+      p(style="margin-top: -0px; color: blue;") tenemos que   
+      identidad-tangente-teorema
+      p(style="margin-top: -0px; color: blue;") por lo tanto   
+      angulo-dos-rectas-formula
   
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Other systems of SHM
-    //-   p(style="margin-top: -30px;").center Angular SHM
-    //-   //- torsion-pendulum
-    //-   .center
-    //-     img(src='./assets/angularSHM.png' height="300px")
-    //-   .center
-    //-     img(src='./assets/angularTheta.png')
-    //-   .center
-    //-     img(src='./assets/angularWf.png' height="100px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Angulo entre dos rectas
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span style="font-family: roboto; font-weight: bold; font-style: normal;">-1</span>
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Inertia moments
-    //-   p(style="margin-top: -30px;").center
-    //-   .center
-    //-     img(src='./assets/inertiaMomentsTable.png')
-    //-   p.center Parallel axis theorem
-    //-   .center
-    //-     img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The simple pendulum
-    //-   .center
-    //-     img(src='./assets/simplePendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumW.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumF.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumT.png' height="100px")
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
+      example-eleven(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
+      example-twelve(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
-    //-   example-fourteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
-    //-   example-seventeen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
-    //-   example-eighteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
+      example-thirteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -593,6 +557,12 @@ export default {
     'pendiente-recta-formula': require('./components/pendienteRectaFormula'),
     'pendiente-recta-figura': require('./components/pendienteRectaFig'),
     'tangente-pendiente-formula': require('./components/tangentePendienteFormula'),
+    'angulo-dos-rectas': require('./components/anguloDosRectas'),
+    'angulo-dos-rectas-formula': require('./components/anguloRectasFormula'),
+    'angulo-externo-suma-internos': require('./components/anguloExternoSumaInternos'),
+    'angulo-externo-suma-tangente': require('./components/anguloExternoSumaTangente'),
+    'identidad-tangente-AminusB': require('./components/identidadTangenteXmenosY'),
+    'identidad-tangente-teorema': require('./components/identidadTangenteTeorema'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
     'torsion-pendulum': require('./components/TorsionPendulum')
@@ -604,7 +574,7 @@ export default {
       isSpanish: true,
       languages: ['Inglés', 'Español'],
       topics: ['Inicio', 'Temas', 'Segmento', 'Unidimensional', 'Bidimensional', 'Distancia', 'Divisiòn por una razon', 'Pendiente', 'Angulo 2 rectas', 'distancia punto vs. recta', 'Definicion de recta', 'Diferentes formas', 'posiciones relativas', 'Bibliografía', 'Problemario'],
-      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
+      page: [1, 2, 3, 5, 7, 8, 12, 17, 23, 28, 35]
     }
   },
   computed: {

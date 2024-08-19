@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
-    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Los vertices de un triangulo son: A({{ x1i }}, {{ y1i }}), B({{ x2i }}, {{ y2i }}) y C({{ x3i }}, {{ y3i }}). Si D({{ x4i }}, {{ y4i }}) es el punto medio del lado AB, calcular la longitud de la mediana CD.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Los vertices de un triangulo son: A({{ x1i }}, {{ y1i }}), B({{ x2i }}, {{ y2i }}) y C({{ x3i }}, {{ y3i }}). Si D es el punto medio del lado AB, calcular la longitud de la mediana CD.
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="500px" width="700px" >
 

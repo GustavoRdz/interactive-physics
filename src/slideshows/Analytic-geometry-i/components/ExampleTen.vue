@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
-    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Digase las pendientes de cada una de las siguientes rectas dirigidas<br> a) El eje x.<br> b) Una recta paralela al eje x y dirigida yasea a derecha o a la izquierda.<br>c) La recta que pasa por el origen y bisecael cuadrante I.<br>d) La recta que pasa por el origen y biseca el cuadrante II.
+    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Digase las pendientes de cada una de las siguientes rectas dirigidas<br> a) El eje x.<br> b) Una recta paralela al eje x y dirigida ya sea a derecha o a la izquierda.<br>c) La recta que pasa por el origen y biseca el cuadrante I.<br>d) La recta que pasa por el origen y biseca el cuadrante II.
 
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
@@ -26,8 +26,8 @@ eg-transition(:enter='enter', :leave='leave')
         
         <!-- triangle -->
         <line v-if="showLineB" x1="0" :y1="y1" x2="700" :y2="y1" fill="none" stroke="#0F0" stroke-width="4" stroke-linecap="round"/>
-        <line v-if="showLineC" x1="114" y1="0" x2="614" y2="500" fill="none" stroke="#00F" stroke-width="4" stroke-linecap="round"/>
-        <line v-if="showLineD" x1="94" y1="500" x2="594" y2="0" fill="none" stroke="#F0F" stroke-width="4" stroke-linecap="round"/>
+        <line v-if="showLineC" x1="94" y1="500" x2="594" y2="0" fill="none" stroke="#F0F" stroke-width="4" stroke-linecap="round"/>
+        <line v-if="showLineD" x1="114" y1="0" x2="614" y2="500" fill="none" stroke="#00F" stroke-width="4" stroke-linecap="round"/>
         //- <line :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         //- <line :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
         //- <line :x1="x3" :y1="y3" :x2="x4" :y2="y4" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>

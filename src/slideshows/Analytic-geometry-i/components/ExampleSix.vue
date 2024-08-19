@@ -57,7 +57,7 @@ export default {
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     R: function () {
-      return (this.P - this.P1) / (this.P - this.P2)
+      return (this.P2 - this.P) / (this.P - this.P1)
     },
     checkedP: function () {
       this.errorP = this.errorRelative('P => ', this.P, parseFloat(this.enterP))
