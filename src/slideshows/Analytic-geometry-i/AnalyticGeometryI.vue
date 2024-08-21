@@ -407,18 +407,59 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Damped oscillations
-    //-   .center
-    //-     img(src='./assets/dampedOscillationsX.png')
-    //-   .center
-    //-     img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
-    //-     img(src='./assets/struts.png' height="300px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px -30px 0px;").center Seccion 2
+      h3.center La recta
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definicion</span>
+      p(style="margin-top: 0px; color: blue;") Lugar geometrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span> calculado por la formula del teorema 4
+      pendiente-recta-formula
+      p(style="margin-top: -40px; color: blue;") resulta siempre constante 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta que pasa por un punto y tiene una pendiente dada
+      p(style="margin-top: -40px; color: blue;") La ecuación de una recta puede estar perfectamente determinada si se conocen las coordenadas de uno de sus puntos y su ángulo de inclinación (y, por tanto, su pendiente)
+      punto-pendiente-figura
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 6</span>: La recta que pasa por el punto dado <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y tiene pendiente <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>, tiene la ecuación 
+      punto-pendiente-ecuacion
+      p(style="margin-top: -0px; color: blue;") Demostración  
+      p(style="margin-top: 0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>), un punto cualquiera de la recta, diferente al punto dado <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) satisfacen la ecuación
+      punto-pendiente-ecuacion-demo
+      p(style="margin-top: -0px; color: blue;") Multiplicando la ecuacón por el denominador  obtenemos
+      punto-pendiente-ecuacion 
+      p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
+      punto-pendiente-ecuacion-demo2
+      p(style="margin-top: 0px; color: blue;") que es la expresión analítica de la definición de la recta,aplicada a los puntos <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>). Por lo tanto, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> esta sobre la recta.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      example-fourteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Ecuacion de la recta que pasa por un punto y tiene una pendiente dada
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span style="font-family: roboto; font-weight: bold; font-style: normal;">-1</span>
+      p(style="margin-top: -40px; color: blue;") resulta siempre constante 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -563,6 +604,10 @@ export default {
     'angulo-externo-suma-tangente': require('./components/anguloExternoSumaTangente'),
     'identidad-tangente-AminusB': require('./components/identidadTangenteXmenosY'),
     'identidad-tangente-teorema': require('./components/identidadTangenteTeorema'),
+    'punto-pendiente-figura': require('./components/puntoPendienteFig'),
+    'punto-pendiente-ecuacion': require('./components/puntoPendienteEcuacion'),
+    'punto-pendiente-ecuacion-demo': require('./components/puntoPendienteDemoEcu'),
+    'punto-pendiente-ecuacion-demo2': require('./components/puntoPendienteDemoEcu2'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
     'torsion-pendulum': require('./components/TorsionPendulum')
