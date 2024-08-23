@@ -85,7 +85,7 @@ export default {
       return Math.round(Math.floor(Math.random() * (max - min + 1)) + min) / 10
     },
     m2: function () {
-      return (this.m1 + Math.tan(this.theta * Math.PI / 180)) / (1 - Math.tan(this.theta * Math.PI / 180))
+      return (this.m1 + Math.tan(this.theta * Math.PI / 180)) / (1 - this.m1 * Math.tan(this.theta * Math.PI / 180))
     },
     b1: function () {
       return this.Y1 - this.m1 * this.X1

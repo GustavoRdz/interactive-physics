@@ -430,7 +430,7 @@ a<template lang="pug">
       p(style="margin-top: -0px; color: blue;") Demostración  
       p(style="margin-top: 0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>), un punto cualquiera de la recta, diferente al punto dado <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) satisfacen la ecuación
       punto-pendiente-ecuacion-demo
-      p(style="margin-top: -0px; color: blue;") Multiplicando la ecuacón por el denominador  obtenemos
+      p(style="margin-top: -0px; color: blue;") Multiplicando la ecuación por el denominador  obtenemos
       punto-pendiente-ecuacion 
       p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
       punto-pendiente-ecuacion-demo2
@@ -452,12 +452,50 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Ecuacion de la recta que pasa por un punto y tiene una pendiente dada
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
-      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span style="font-family: roboto; font-weight: bold; font-style: normal;">-1</span>
-      p(style="margin-top: -40px; color: blue;") resulta siempre constante 
+      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta dada su pendiente y su ordenada al origen
+      p(style="margin-top: -40px; color: blue;") Como se conoce <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>, el punto cuyas coordenadas (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) y tiene una pendiente dada
+      ordenada-pendiente-figura
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>  y cuya ordenada al origen es <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> tiene por ecuación  
+      ordenada-pendiente-ecuacion
+      p(style="margin-top: -0px; color: blue;") Demostración  
+      p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
+      punto-pendiente-ecuacion
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>), entonces 
+      ordenada-pendiente-ecuacion-demo
+      p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
+      ordenada-pendiente-ecuacion 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 15
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 15
+      example-fifteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta en forma simétrica
+      p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejes
+      //- ordenada-pendiente-figura
+      //- p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>  y cuya ordenada al origen es <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> tiene por ecuación  
+      //- ordenada-pendiente-ecuacion
+      //- p(style="margin-top: -0px; color: blue;") Demostración  
+      //- p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejessegmentos que determina  sobre los ejes Sean <span style="font-family: roboto; font-weight: bold; font-style: italic;">a &ne; 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">b &ne; 0</span> los segmentos que una recta determina sobre los ejes <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>, es decir sus intersecciones.  Como se conoce <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>, el punto cuyas coordenadas (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) y tiene una pendiente dada
+      //- p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
+      //- punto-pendiente-ecuacion
+      //- p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>), entonces 
+      //- ordenada-pendiente-ecuacion-demo
+      //- p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
+      //- ordenada-pendiente-ecuacion 
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
@@ -608,6 +646,9 @@ export default {
     'punto-pendiente-ecuacion': require('./components/puntoPendienteEcuacion'),
     'punto-pendiente-ecuacion-demo': require('./components/puntoPendienteDemoEcu'),
     'punto-pendiente-ecuacion-demo2': require('./components/puntoPendienteDemoEcu2'),
+    'ordenada-pendiente-figura': require('./components/ordenadaPendienteFig'),
+    'ordenada-pendiente-ecuacion': require('./components/ordenadaPendienteEcuacion'),
+    'ordenada-pendiente-ecuacion-demo': require('./components/ordenadaPendienteDemoEcu'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
     'torsion-pendulum': require('./components/TorsionPendulum')

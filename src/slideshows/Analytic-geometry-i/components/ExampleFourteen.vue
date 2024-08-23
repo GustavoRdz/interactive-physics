@@ -29,16 +29,16 @@ eg-transition(:enter='enter', :leave='leave')
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan> = </text>
           <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">m</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan>)</text>
         </g>
-        <g transform="translate(750, 150)">    
+        <g v-if="showPointX1 && showPointY1" transform="translate(750, 150)">    
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: normal">{{ Y1 }}</tspan> = </text>
           <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">m</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">{{ X1 }}</tspan>)</text>
         </g>
-        <g transform="translate(750, 200)">    
+        <g v-if="showLine" transform="translate(750, 200)">    
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: normal">{{ Y1 }}</tspan> = </text>
           <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ m }}</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">{{ X1 }}</tspan>)</text>
         </g>
-        <g transform="translate(750, 250)">    
-         <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">{{ m }}</tspan><tspan style="font-style: italic;">x</tspan>&ensp;+&ensp;<tspan style="font-style: normal">{{ -Y1 + m * X1 }}</tspan>= 0</text>
+        <g v-if="showLine" transform="translate(750, 250)">    
+         <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;=&ensp;<tspan style="font-style: italic;">{{ m }}</tspan><tspan style="font-style: italic;">x</tspan>&ensp;+&ensp;<tspan style="font-style: normal">{{ Y1 - m * X1 }}</tspan></text>
         </g>
         <path v-if="showLine" :d="abscisa" stroke="#F00" fill="none" stroke-opacity="1" stroke-width="2"></path>
         <text  v-if="showLine" :x="354 + 80 + 38 * abscX" y="210" font-size="35" fill="red" font-weight="bold" font-family="Times" font-style="italic">{{ alpha }}º</text>
