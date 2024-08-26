@@ -483,17 +483,67 @@ a<template lang="pug">
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Ecuación de la recta en forma simétrica
       p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejes
-      //- ordenada-pendiente-figura
-      //- p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>  y cuya ordenada al origen es <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> tiene por ecuación  
-      //- ordenada-pendiente-ecuacion
-      //- p(style="margin-top: -0px; color: blue;") Demostración  
-      //- p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejessegmentos que determina  sobre los ejes Sean <span style="font-family: roboto; font-weight: bold; font-style: italic;">a &ne; 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">b &ne; 0</span> los segmentos que una recta determina sobre los ejes <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>, es decir sus intersecciones.  Como se conoce <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>, el punto cuyas coordenadas (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) y tiene una pendiente dada
-      //- p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
-      //- punto-pendiente-ecuacion
-      //- p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>), entonces 
-      //- ordenada-pendiente-ecuacion-demo
-      //- p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
-      //- ordenada-pendiente-ecuacion 
+      ecuacion-simetrica-figura
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 8</span>: La recta cuyas intercepciones con los ejes <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>  son <span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>&ne; <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> &ne; <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span> respectivamente, tiene por ecuación  
+      ecuacion-simetrica
+      p(style="margin-top: -0px; color: blue;") Demostración  
+      p(style="margin: -10px 0px 0px 0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>) y <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) los puntos de intersección de la recta con los ejes coordenados, la pendiente de la recta esta dada por
+      pendiente-simetrica-demo
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos en la forma punto pendiente usando el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>), entonces 
+      punto-pendiente-simetrica-demo
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Dividiendo entre <span style="font-family: roboto; font-weight: bold; font-style: italic;">ab</span>, tenemos 
+      ecuacion-simetrica
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 16
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 16
+      example-sixteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta, forma general
+      p(style="margin-top: -40px; color: blue;") Esta forma resulta al desarrollar cualquiera de las formas anteriores hasta expresarla en la forma
+      general-ecuacion
+      p(style="margin-top: 10px; color: blue;") En donde <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span> pueden ser difrerentes de cero, o bien, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> o <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span>, pueden ser cero y <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span> puede tomar cualquier valor incluyendo cero.
+      p(style="margin-top: -0px; color: blue;") Consideraciones  
+      p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>  
+      p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+      p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-(A/B)x - C/B</span> en donde  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">A/B</span> y la ordenada al origen <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span><span style="font-family: roboto; font-weight: bold; font-style: italic;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">C/B</span>  
+      p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simetrica, tenemos   
+      simetrica-ecuacion-general
+      p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>)  y (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span>)
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
+      example-seventeen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Posiciones relativas de dos rectas
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas <span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax + By + C = 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">A'x + B'y + C = 0</span>, Las relaciones siguientes son condiciones necesarias y suficientes para  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: A/A' = B/B', o bien, Ab' -A'B = 0  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: AA' + BB' = 0  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: A =kA'; B=kB' y C=kC'
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Interseccion en uno y solamente un punto: A/A' &ne; B/B', o bien AB' - A'B &ne; 0
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -649,6 +699,12 @@ export default {
     'ordenada-pendiente-figura': require('./components/ordenadaPendienteFig'),
     'ordenada-pendiente-ecuacion': require('./components/ordenadaPendienteEcuacion'),
     'ordenada-pendiente-ecuacion-demo': require('./components/ordenadaPendienteDemoEcu'),
+    'ecuacion-simetrica-figura': require('./components/ecuacionSimetricaFig'),
+    'ecuacion-simetrica': require('./components/simetricaEcuacion'),
+    'pendiente-simetrica-demo': require('./components/pendienteSimetricaDemo'),
+    'punto-pendiente-simetrica-demo': require('./components/puntoPendienteSimetricaDemo'),
+    'general-ecuacion': require('./components/generalEcuacion'),
+    'simetrica-ecuacion-general': require('./components/simetricaEcuacionGeneral'),
     'spring-mass': require('./components/SpringMass'),
     'displacement-plot': require('./components/DisplacementPlot'),
     'torsion-pendulum': require('./components/TorsionPendulum')
@@ -659,8 +715,8 @@ export default {
       theme: 'Concepts and the straight line',
       isSpanish: true,
       languages: ['Inglés', 'Español'],
-      topics: ['Inicio', 'Temas', 'Segmento', 'Unidimensional', 'Bidimensional', 'Distancia', 'Divisiòn por una razon', 'Pendiente', 'Angulo 2 rectas', 'distancia punto vs. recta', 'Definicion de recta', 'Diferentes formas', 'posiciones relativas', 'Bibliografía', 'Problemario'],
-      page: [1, 2, 3, 5, 7, 8, 12, 17, 23, 28, 35]
+      topics: ['Inicio', 'Temas', 'Segmento', 'Unidimensional', 'Bidimensional', 'Distancia', 'Divisiòn por una razon', 'Pendiente', 'Angulo 2 rectas', 'Definicion de recta', 'Diferentes formas', 'posiciones relativas', 'Bibliografía', 'Problemario'],
+      page: [1, 2, 3, 5, 7, 8, 12, 17, 23, 28, 28, 28, 35, 35]
     }
   },
   computed: {

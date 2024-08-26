@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Hallar la ecuación de la recta cuya pendiente es {{ m }} y cuya intercepción con el eje y es {{ b }}
+    p.problem Hallar la ecuación que pasa por los puntos de la recta cuya pendiente es {{ m }} y cuya intercepción con el eje y es {{ b }}
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="700px" >
         <!-- x grid -->
@@ -33,16 +33,13 @@ eg-transition(:enter='enter', :leave='leave')
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: normal">{{ Y1 }}</tspan> = </text>
           <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">m</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">{{ X1 }}</tspan>)</text>
         </g>
-        <g v-if="showLine" transform="translate(750, 200)">    
+        <g v-if="showEcu" transform="translate(750, 200)">    
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: normal">{{ Y1 }}</tspan> = </text>
           <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ m }}</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">{{ X1 }}</tspan>)</text>
         </g>
-        <g v-if="showLine" transform="translate(750, 250)">    
+        <g v-if="showEcu" transform="translate(750, 250)">    
          <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;=&ensp;<tspan style="font-style: italic;">{{ m }}</tspan><tspan style="font-style: italic;">x</tspan>&ensp;+&ensp;<tspan style="font-style: normal">{{ b }}</tspan></text>
         </g>
-        //- <path v-if="showLine" :d="abscisa" stroke="#F00" fill="none" stroke-opacity="1" stroke-width="2"></path>
-        //- <text  v-if="showLine" :x="354 + 80 + 38 * abscX" y="210" font-size="35" fill="red" font-weight="bold" font-family="Times" font-style="italic">{{ alpha }}º</text>
-        //- <path d="M592 390 a80, 80 0 0 0 -127,-62  l5 2 l-5 -2 l1 -5" stroke="blue" fill="none" stroke-opacity="1" stroke-width="2"></path>
         
         <circle r="4" :cx="354 + 38 * abscX" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
         <circle r="4" cx="354" :cy="238 - 38 * b"  fill="#000" stroke="#000" stroke-width="1"/>
@@ -74,7 +71,8 @@ export default {
       showPointX1: false,
       showPointY1: false,
       showLine: false,
-      showAngle: false
+      showAngle: false,
+      showEcu: false
     }
   },
   computed: {
@@ -152,6 +150,7 @@ export default {
     checkedM: function () {
       this.errorM = this.errorRelative('m => ', this.m, parseFloat(this.enterM))
       this.showLine = true // this.errorM < 1e-1
+      this.showEcu = this.errorM < 1e-1
       return this.errorM < 1e-1 ? 'correct' : 'not-correct'
     }
   },
