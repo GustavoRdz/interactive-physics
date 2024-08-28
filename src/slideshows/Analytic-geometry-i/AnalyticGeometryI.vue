@@ -61,7 +61,7 @@ a<template lang="pug">
             <b>Distancia entre dos puntos</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutTop')
           p(v-if="step >= 1")
-            <b>Division de segmentos en una razon dada</b>
+            <b>División de segmentos en una razón dada</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutRight')
           p(v-if="step >= 1")
             <b>Pendiente de la recta</b>
@@ -73,7 +73,7 @@ a<template lang="pug">
             <b>Distancia de un punto a una recta</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
-            <b>Diferentes formas de la ecuacion de la recta</b>
+            <b>Diferentes formas de la ecuación de la recta</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
             <b>Posiciones relativas de dos rectas</b>
@@ -84,7 +84,7 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Segmento rectilineo dirigido
+      h4(style="margin-top: -20px; color: green;").center Segmento rectilíneo dirigido
       p(style="margin-top: -40px; color: blue;").center Se llama segmento rectilíneo a la porción de una línea recta comprendida entre dos de sus puntos, llamados extremos del segmento. 
       segment
       //- .center
@@ -96,7 +96,7 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Longitud de un segmento rectilineo dirigido
+      h4(style="margin-top: -20px; color: green;").center Longitud de un segmento rectilíneo dirigido
       p(style="margin-top: -40px; color: blue;").center <span style='font-weight: bold; font-size: 40px;'>Positiva</span>, segmento dirigido en el sentido de la recta. 
       p(style="margin-top: -40px; color: blue;").center <span style='font-weight: bold; font-size: 40px;'>Negativa</span>, segmento dirigido en el sentido opuesto de la recta. 
       longitud
@@ -110,11 +110,9 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Sistema coordenado unidimensional
-      p(style="margin-top: -40px; color: blue;") Este sistema se representa graficamente con una recta, donde se coloca un punto de referencia llamado origen.
+      p(style="margin-top: -40px; color: blue;") Este sistema se representa gráficamente con una recta, donde se coloca un punto de referencia llamado origen.
       p(style="margin-top: -0px; color: blue;") Cualquier valor sobre el eje se hace referencia a través de una variable, por ejemplo <span style="font-family: Times; font-style: italic; font-weight: bold;">x</span>.
       coord-unidim
-      //- .center
-      //-   img(width="400px" src='./assets/motor vocho.gif')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -203,8 +201,8 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Division de un segmento en una razón dada
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 3</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son los exteremos del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>,las coordenadas, (<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) de un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span> que divide al segmento  en la razon <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">1</span></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span></span>/<span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">2</span></span></span> son:
+      h4(style="margin-top: -20px; color: green;").center División de un segmento en una razón dada
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 3</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son los exteremos del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>,las coordenadas, (<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) de un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span> que divide al segmento  en la razón <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">1</span></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span></span>/<span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">2</span></span></span> son:
       razon-division-segmento
       p(style="margin-top: -0px; color: blue;") Demostración
       razon-division-segmento-demo
@@ -299,7 +297,7 @@ a<template lang="pug">
       pendiente-recta-formula
       p(style="margin-top: -0px; color: blue;") Demostración
       pendiente-recta-figura
-      p(style="margin-top: -0px; color: blue;") Para el triangulo rectangulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
+      p(style="margin-top: -0px; color: blue;") Para el triángulo rectángulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
       tangente-pendiente-formula
       p(style="margin-top: -0px; color: blue;") entonces 
       pendiente-recta-formula
@@ -342,13 +340,13 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Angulo entre dos rectas
-      p(style="margin-top: -40px; color: blue;") Cuando dos rectas se cortan se forman dos pares de angulos, iguales, opuestos por el vertice  
+      h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
+      p(style="margin-top: -40px; color: blue;") Cuando dos rectas se cortan se forman dos pares de ángulos, iguales, opuestos por el vértice  
       angulo-dos-rectas
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El angulo entre dos rectas dirigidas esta dado por 
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El ángulo entre dos rectas dirigidas esta dado por 
       angulo-dos-rectas-formula
       p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin-top: -0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con angulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con angulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
+      p(style="margin-top: -0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con ángulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con ángulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
       p(style="margin-top: -0px; color: blue;") En un triángulo un ángulo exterior es igual a la suma de sus ángulos internos opuestos
       angulo-externo-suma-internos
       p(style="margin-top: -0px; color: blue;") Aplicando la tangente tenemos que  
@@ -367,7 +365,7 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Angulo entre dos rectas
+      h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
       p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
       p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span style="font-family: roboto; font-weight: bold; font-style: normal;">-1</span>
       
@@ -409,10 +407,10 @@ a<template lang="pug">
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin: 0px 0px -30px 0px;").center Seccion 2
+      h4(style="margin: 0px 0px -30px 0px;").center Sección 2
       h3.center La recta
-      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definicion</span>
-      p(style="margin-top: 0px; color: blue;") Lugar geometrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span> calculado por la formula del teorema 4
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") Lugar geométrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span> calculado por la formula del teorema 4
       pendiente-recta-formula
       p(style="margin-top: -40px; color: blue;") resulta siempre constante 
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -518,7 +516,7 @@ a<template lang="pug">
       p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>  
       p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
       p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-(A/B)x - C/B</span> en donde  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">A/B</span> y la ordenada al origen <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span><span style="font-family: roboto; font-weight: bold; font-style: italic;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">C/B</span>  
-      p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simetrica, tenemos   
+      p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simétrica, tenemos   
       simetrica-ecuacion-general
       p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>)  y (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span>)
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -539,16 +537,86 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Posiciones relativas de dos rectas
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas <span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax + By + C = 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">A'x + B'y + C = 0</span>, Las relaciones siguientes son condiciones necesarias y suficientes para  
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: A/A' = B/B', o bien, Ab' -A'B = 0  
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: AA' + BB' = 0  
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: A =kA'; B=kB' y C=kC'
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Interseccion en uno y solamente un punto: A/A' &ne; B/B', o bien AB' - A'B &ne; 0
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas son<br> &emsp;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax + By + C = 0</span>&emsp;&emsp; y &emsp;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">A'x + B'y + C = 0</span>, <br>Las relaciones siguientes son condiciones necesarias y suficientes para  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A/A'</span> = <span style="font-family: roboto; font-weight: bold; font-style: italic;">B/B'</span>, o bien, <span style="font-family: roboto; font-weight: bold; font-style: italic;">AB' - A'B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>  
+      
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: <span style="font-family: roboto; font-weight: bold; font-style: italic;">AA' +BB'</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+      
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kA</span>;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kB</span>&emsp; y&emsp; <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kC</span>
+      
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Intersección en uno y solamente un punto: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A/A' &ne; B/B'</span>, o bien <span style="font-family: roboto; font-weight: bold; font-style: italic;">AB' - A'B &ne; 0</span>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
+      example-eighteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
+      example-nineteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
+      example-twenty(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Sección 3
+      h5(style="margin-top: -20px; color: green;").center La circunferencia
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>: Se llama circunferencia al conjunto de puntos en el plano tal que su distancia a un punto fijo del plano es siempre la misma. El punto fijo del plano se llama centro y la distancia constante se llama radio.  
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Forma ordinaria de la circunferencia
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema10</span>: La ecuación de la circunferencia con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> esta dada por   
+      
+      p(style="margin-top: -0px; color: blue;").center <span style="font-family: roboto; font-weight: bold; font-style: italic;">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      
+      p(style="margin-top: -0px; color: blue;") Demostración: 
+      p(style="margin-top: -20px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P(x,y)</span> un punto cualquiera del conjunto y sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">c(h, k)</span> el centro de la circunferencia con radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>. De acuerdo con la definición,
+      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>| = <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+      p(style="margin-top: -20px; color: blue;") como
+      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>|<span style="font-family: roboto; font-weight: bold; font-style: italic;"><sup style="font-size: 20px; font-style: normal;">2</sup> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 21
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 21
+      example-twentyOne(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
     //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
     //-   h5.center Forced oscillations
@@ -667,6 +735,7 @@ export default {
     'example-eighteen': require('./components/ExampleEighteen'),
     'example-nineteen': require('./components/ExampleNineteen'),
     'example-twenty': require('./components/ExampleTwenty'),
+    'example-twentyOne': require('./components/ExampleTwentyOne'),
     'segment': require('./components/Segment'),
     'longitud': require('./components/Longitud'),
     'coord-unidim': require('./components/coordUnidimensional'),

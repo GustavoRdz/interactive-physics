@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Dos rectas se cortan formando un angulo de {{ theta }}. Si la recta inicial tiene una pendiente de {{ m1 }}, calcular la pendiente de la recta final.
+    p.problem Dos rectas se cortan formando un ángulo de {{ theta }}. Si la recta inicial tiene una pendiente de {{ m1 }}, calcular la pendiente de la recta final.
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
         <!-- x grid -->

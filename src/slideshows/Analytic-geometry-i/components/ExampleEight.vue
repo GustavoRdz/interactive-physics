@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem  Hallar la pendiente y el angulo de inclinación de la recta que pasa por los puntos ({{ X1 }}, {{ Y1 }}) y ({{ X2 }}, {{ Y2 }}).
+    p.problem  Hallar la pendiente y el ángulo de inclinación de la recta que pasa por los puntos ({{ X1 }}, {{ Y1 }}) y ({{ X2 }}, {{ Y2 }}).
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
         <!-- x grid -->

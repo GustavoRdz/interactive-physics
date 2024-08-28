@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p(style="margin: 25px 0px 0px 0px;").problem Hallar la ecuación de la recta que pasa por el punto ({{ X1 }}, {{ Y1 }}) y tiene un angulo de inclinación de {{ alpha }}º
+    p(style="margin: 25px 0px 20px 0px;").problem Hallar la ecuación de la recta que pasa por el punto ({{ X1 }}, {{ Y1 }}) y tiene un ángulo de inclinación de {{ alpha }}º
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="700px" >
         <!-- x grid -->

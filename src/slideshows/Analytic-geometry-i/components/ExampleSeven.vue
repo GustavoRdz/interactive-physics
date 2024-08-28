@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p(v-if = '!language' style="margin: 25px 0px 10px 0px;").problem 
-    p(v-if = 'language' style="margin: 25px 0px 10px 0px;").problem Los extremos de un segmento son los puntos P1({{ X1 }}, {{ Y1 }}) y P2({{ X2 }}, {{ Y2 }}) hallar la razon r en la que el origen divide al segmento, interpreta el resultado. 
+    p(v-if = 'language' style="margin: 25px 0px 10px 0px;").problem Los extremos de un segmento son los puntos P1({{ X1 }}, {{ Y1 }}) y P2({{ X2 }}, {{ Y2 }}) hallar la razón r en la que el origen divide al segmento, interpreta el resultado. 
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
 

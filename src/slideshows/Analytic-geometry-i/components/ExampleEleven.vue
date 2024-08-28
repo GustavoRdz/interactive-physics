@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem  Demostrar que los puntos A({{ X1 }}, {{ Y1 }}), B({{ X2 }}, {{ Y2 }}), C({{ X3 }}, {{ Y3 }}) y D({{ X4 }}, {{ Y4 }}) son vertices de un paralelogramo y hallar su angulo obtuso.
+    p.problem  Demostrar que los puntos A({{ X1 }}, {{ Y1 }}), B({{ X2 }}, {{ Y2 }}), C({{ X3 }}, {{ Y3 }}) y D({{ X4 }}, {{ Y4 }}) son vértices de un paralelogramo y hallar su ángulo obtuso.
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
         <!-- x grid -->
