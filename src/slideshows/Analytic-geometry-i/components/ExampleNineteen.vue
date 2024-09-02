@@ -193,7 +193,7 @@ export default {
       return this.B
     },
     Cp: function () {
-      return -this.B * this.X1 - this.A * this.Y1
+      return -this.A * this.X1 - this.B * this.Y1
     },
     ap: function () {
       return -this.Cp / this.Ap
