@@ -610,6 +610,36 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 24
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 24
+      example-twentyFour(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 25
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 25
+      example-twentyFive(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 26
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 26
+      example-twentySix(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Sección 3
@@ -639,14 +669,364 @@ a<template lang="pug">
    
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2x
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2x
-      example-twentyFive(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 27
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 27
+      example-twentySeven(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la circunferencia
+     
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+      
+      p(style="margin-top: -0px; color: blue;") Desarrolando la ecuación en la forma ordinaria   
+      
+      p(style="margin-top: -0px; color: blue;").center <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">hx</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">ky</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">hx</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">ky</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+      
+      p(style="margin-top: -0px; color: blue;") Entonces  
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> C = -2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>,&emsp;
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> D = -2</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>,&emsp;
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> E = </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 11</span>:<br>La ecuación 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span> representa una circunferencia con centro en  
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(h, k) = (-C/2, -D/2)</span> y radio 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+      
+      p(style="margin-top: -0px; color: blue;") <Bf> Demostración </bf>   
+      p(style="margin-top: -0px; color: blue;") Ahora si se realiza el proceso en partiendo de la forma general  
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+      
+      p(style="margin-top: -0px; color: blue;") Completando trinomios  cuadrado perfecto
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(C/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(D/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(C/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(D/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + (</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D/2)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+      
+
+      p(style="margin-top: -20px; color: blue;") Entonces
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(h, k) = (-C/2, -D/2)</span>
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 29
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 29
+      example-twentyNine(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 30
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 30
+      example-thirty(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 31
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 31
+      example-thirtyOne(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+      example-twentyEight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
     //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
     //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
     //-   h5.center Forced oscillations
@@ -768,7 +1148,23 @@ export default {
     'example-twentyOne': require('./components/ExampleTwentyOne'),
     'example-twentyTwo': require('./components/ExampleTwentyTwo'),
     'example-twentyThree': require('./components/ExampleTwentyThree'),
+    'example-twentyFour': require('./components/ExampleTwentyFour'),
     'example-twentyFive': require('./components/ExampleTwentyFive'),
+    'example-twentySix': require('./components/ExampleTwentySix'),
+    'example-twentySeven': require('./components/ExampleTwentySeven'),
+    'example-twentyEight': require('./components/ExampleTwentyEight'),
+    'example-twentyNine': require('./components/ExampleTwentyNine'),
+    'example-thirty': require('./components/ExampleThirty'),
+    'example-thirtyOne': require('./components/ExampleThirtyOne'),
+    'example-thirtyTwo': require('./components/ExampleThirtyTwo'),
+    'example-thirtyThree': require('./components/ExampleThirtyThree'),
+    'example-thirtyFour': require('./components/ExampleThirtyFour'),
+    'example-thirtyFive': require('./components/ExampleThirtyFive'),
+    'example-thirtySix': require('./components/ExampleThirtySix'),
+    'example-thirtySeven': require('./components/ExampleThirtySeven'),
+    'example-thirtyEight': require('./components/ExampleThirtyEight'),
+    'example-thirtyNine': require('./components/ExampleThirtyNine'),
+    'example-forty': require('./components/ExampleFourty'),
     'segment': require('./components/Segment'),
     'longitud': require('./components/Longitud'),
     'coord-unidim': require('./components/coordUnidimensional'),

@@ -2,71 +2,71 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem En las ecuaciones
-    p.problem.center ax + (b-1)y + 3 = 0&emsp;&emsp; y&emsp;&emsp; (2-a)x + by -7 = 0
+    p.problem.center ax + (b{{ parseFloat(h)>0 ? " - " : " + " }}{{ Math.abs(parseFloat(h)) }})y {{ parseFloat(C)>0 ? " + " : " - " }}{{ Math.abs(parseFloat(C)) }} = 0&emsp;&ensp; y&emsp;&ensp; ({{ k }} - a)x + by {{ parseFloat(Cp)>0 ? " + " : " - " }}{{ Math.abs(parseFloat(Cp)) }} = 0
     p.problem hallar los valores de a y b para que representen rectas que pasan por el punto ({{ X1 }}, {{ Y1 }})
     .center
-      //- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="750px" >
-      //-   //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
-      //-   <!-- x grid -->
-      //-   <line v-for="x in [12, 50, 88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658, 696]" fill="none" stroke="#000" stroke-width="0.5" :x1="x" y1="7" :x2="x" y2="470" stroke-linecap="round"/>
-      //-   <!-- x scale bold -->
-      //-   //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
-      //-   <!-- y grid -->
-      //-   <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="750px" >
+      //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
+      <!-- x grid -->
+      <line v-for="x in [12, 50, 88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658, 696]" fill="none" stroke="#000" stroke-width="0.5" :x1="x" y1="7" :x2="x" y2="470" stroke-linecap="round"/>
+      <!-- x scale bold -->
+      //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
+      <!-- y grid -->
+      <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
         
-      //-   <!-- x Axis -->
-      //-   <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
-      //-   <text x="677" y="270" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
+      <!-- x Axis -->
+      <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+      <text x="677" y="270" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
 
-      //-   <!-- y Axis -->
-      //-   <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
-      //-   <text x="330" y="28" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
-              
-      //-   <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
+      <!-- y Axis -->
+      <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+      <text x="330" y="28" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
+            
+      <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
-      //-   <!-- plots -->
-      //-   <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-      //-   <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-      //-   <line :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
-      //-   <circle r="8" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#00F" stroke="#000" stroke-width="1"/>
-      //-   <circle r="8" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#00F" stroke="#000" stroke-width="1"/>
-      //-   <circle r="8" :cx="354 + 38 * enterX3" :cy="238 - 38 * enterY3"  fill="#0F0" stroke="#000" stroke-width="1"/>
+      <!-- plots -->
+      <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
+      <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
+      <line :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
+      <circle r="8" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#00F" stroke="#000" stroke-width="1"/>
+      //- <circle r="8" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#00F" stroke="#000" stroke-width="1"/>
+      //- <circle r="8" :cx="354 + 38 * enterX3" :cy="238 - 38 * enterY3"  fill="#0F0" stroke="#000" stroke-width="1"/>
 
-      //-   <!-- forma general -->
-      //-   <g transform="translate(750, 0)">    
-      //-    <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">Ax</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">By</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C</tspan> = 0</text>
-      //-    <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterA===""  ? " 0 " : enterA }}x</tspan>&ensp;{{ parseFloat(enterB)>0 ? " + " : " - " }} <tspan style="font-style: italic;">{{ enterB===""  ? " 0 " : isNaN(parseFloat(enterB)) ? "0" : Math.abs(parseFloat(enterB))  }}y</tspan>&ensp;{{ parseFloat(enterC)>0 ? " + " : " - " }} <tspan style="font-style: italic;">{{ enterC===""  ? " 0 " : isNaN(parseFloat(enterC)) ? "0" :Math.abs(parseFloat(enterC)) }}</tspan> = 0</text>
-      //-   </g>
+      <!-- forma general -->
+      <g transform="translate(750, 0)">    
+        <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">Ax</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">By</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C</tspan> = 0</text>
+        <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterA===""  ? " 0 " : enterA }}x</tspan>&ensp;{{ parseFloat(enterB)>0 ? " + " : " - " }} <tspan style="font-style: italic;">{{ enterB===""  ? " 0 " : isNaN(parseFloat(enterB)) ? "0" : Math.abs(parseFloat(enterB))  }}y</tspan>&ensp;{{ parseFloat(enterC)>0 ? " + " : " - " }} <tspan style="font-style: italic;">{{ enterC===""  ? " 0 " : isNaN(parseFloat(enterC)) ? "0" :Math.abs(parseFloat(enterC)) }}</tspan> = 0</text>
+      </g>
 
-      //-   <g transform="translate(750, 90)">    
-      //-   //-  <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan> = <tspan style="font-style: italic;">m</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan>)</text>
+      <g transform="translate(750, 90)">    
+        <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan> = <tspan style="font-style: italic;">m</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">1</tspan>)</text>
 
-      //-   //-  <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;{{ parseFloat(enterY1)>0 ? " - " : " + " }}{{ enterY1===""  ? " 0 " : isNaN(parseFloat(enterY1)) ? "0" : Math.abs(parseFloat(enterY1)) }}&ensp;= {{ parseFloat(enterM1)>0 ? " " : " - " }} {{ enterM1===""  ? " 0 " : isNaN(parseFloat(enterM1)) ? "0" : Math.abs(parseFloat(enterM1)) }}(<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterX1)>0 ? " - " : " + " }}{{ enterX1===""  ? " 0 " : isNaN(parseFloat(enterX1)) ? "0" : Math.abs(parseFloat(enterX1)) }})</text>
+        <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;{{ parseFloat(enterY1)>0 ? " - " : " + " }}{{ enterY1===""  ? " 0 " : isNaN(parseFloat(enterY1)) ? "0" : Math.abs(parseFloat(enterY1)) }}&ensp;= {{ parseFloat(enterM1)>0 ? " " : " - " }} {{ enterM1===""  ? " 0 " : isNaN(parseFloat(enterM1)) ? "0" : Math.abs(parseFloat(enterM1)) }}(<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterX1)>0 ? " - " : " + " }}{{ enterX1===""  ? " 0 " : isNaN(parseFloat(enterX1)) ? "0" : Math.abs(parseFloat(enterX1)) }})</text>
+        
+        <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = {{ enterM1===""  ? " 0 " : isNaN(parseFloat(enterM1)) ? "0" : Math.abs(parseFloat(enterM1)) }}<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterb1)>0 ? " - " : " + " }} {{ enterb1===""  ? " 0 " : isNaN(parseFloat(enterb1)) ? "0" : Math.abs(parseFloat(enterb1)) }}</text>
+      </g>
+        <!-- second line -->
+        <g transform="translate(752, 260)">    
+         <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">A'x</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">B'y</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C'</tspan> = 0</text>
+         <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterAp===""  ? " 0 " : enterAp }}x</tspan>&ensp;{{ parseFloat(enterBp)>0 ? " + " : " - " }}</text>
+         <text x="80" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterBp===""  ? " 0 " : isNaN(parseFloat(enterBp)) ? "0" : Math.abs(parseFloat(enterBp))  }}y</tspan>&ensp;{{ parseFloat(enterCp)>0 ? " + " : " - " }}</text>
+         <text x="160" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterCp===""  ? " 0 " : isNaN(parseFloat(enterCp)) ? "0" :Math.abs(parseFloat(enterCp)) }}</tspan> = 0</text>
+        </g>
+        <g transform="translate(750, 260)">    
+         <text x="0" y="30" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">A'x</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">B'y</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C'</tspan> = 0</text>
+        //-  <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Ap }}x</tspan>&ensp;{{ Bp>0 ? " + " : " - " }}</text>
+        //-  <text x="80" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Math.abs(Bp) }}y</tspan>&ensp;{{ Cp>0 ? " + " : " - " }}</text>
+        //-  <text x="160" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Math.abs(Cp) }}</tspan> = 0</text>
+        </g>
+
+        <g transform="translate(752, 360)">    
+         <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan> = <tspan style="font-style: italic;">m'</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan>)</text>
+
+         <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;{{ parseFloat(enterY1)>0 ? " - " : " + " }}{{ enterY1===""  ? " 0 " : isNaN(parseFloat(enterY1)) ? "0" : Math.abs(parseFloat(enterY1)) }}&ensp;= {{ parseFloat(enterM2)>0 ? " " : " - " }} {{ enterM2===""  ? " 0 " : isNaN(parseFloat(enterM2)) ? "0" : Math.abs(parseFloat(enterM2)) }}(<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterX1)>0 ? " - " : " + " }}{{ enterX1===""  ? " 0 " : isNaN(parseFloat(enterX1)) ? "0" : Math.abs(parseFloat(enterX1)) }})</text>
          
-      //-   //-  <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = {{ enterM1===""  ? " 0 " : isNaN(parseFloat(enterM1)) ? "0" : Math.abs(parseFloat(enterM1)) }}<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterb1)>0 ? " - " : " + " }} {{ enterb1===""  ? " 0 " : isNaN(parseFloat(enterb1)) ? "0" : Math.abs(parseFloat(enterb1)) }}</text>
-      //-   </g>
-      //-   <!-- second line -->
-      //-   <g transform="translate(752, 260)">    
-      //-    <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">A'x</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">B'y</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C'</tspan> = 0</text>
-      //-    <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterAp===""  ? " 0 " : enterAp }}x</tspan>&ensp;{{ parseFloat(enterBp)>0 ? " + " : " - " }}</text>
-      //-    <text x="80" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterBp===""  ? " 0 " : isNaN(parseFloat(enterBp)) ? "0" : Math.abs(parseFloat(enterBp))  }}y</tspan>&ensp;{{ parseFloat(enterCp)>0 ? " + " : " - " }}</text>
-      //-    <text x="160" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ enterCp===""  ? " 0 " : isNaN(parseFloat(enterCp)) ? "0" :Math.abs(parseFloat(enterCp)) }}</tspan> = 0</text>
-      //-   </g>
-      //-   <g transform="translate(750, 260)">    
-      //-    <text x="0" y="30" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">A'x</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">B'y</tspan>&ensp;+&ensp;<tspan style="font-style: italic;">C'</tspan> = 0</text>
-      //-   //-  <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Ap }}x</tspan>&ensp;{{ Bp>0 ? " + " : " - " }}</text>
-      //-   //-  <text x="80" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Math.abs(Bp) }}y</tspan>&ensp;{{ Cp>0 ? " + " : " - " }}</text>
-      //-   //-  <text x="160" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ Math.abs(Cp) }}</tspan> = 0</text>
-      //-   </g>
-
-      //-   //- <g transform="translate(752, 360)">    
-      //-   //-  <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan> = <tspan style="font-style: italic;">m'</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan>)</text>
-
-      //-   //-  <text x="0" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;{{ parseFloat(enterY3)>0 ? " - " : " + " }}{{ enterY3===""  ? " 0 " : isNaN(parseFloat(enterY3)) ? "0" : Math.abs(parseFloat(enterY3)) }}&ensp;= {{ parseFloat(enterM2)>0 ? " " : " - " }} {{ enterM2===""  ? " 0 " : isNaN(parseFloat(enterM2)) ? "0" : Math.abs(parseFloat(enterM2)) }}(<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterX3)>0 ? " - " : " + " }}{{ enterX3===""  ? " 0 " : isNaN(parseFloat(enterX3)) ? "0" : Math.abs(parseFloat(enterX3)) }})</text>
-         
-      //-   //-  <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = {{ enterM2===""  ? " 0 " : isNaN(parseFloat(enterM2)) ? "0" : Math.abs(parseFloat(enterM2)) }}<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterb2)>0 ? " - " : " + " }} {{ enterb2===""  ? " 0 " : isNaN(parseFloat(enterb2)) ? "0" : Math.abs(parseFloat(enterb2)) }}</text>
-      //-   //- //-  <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = <tspan style="font-style: italic;">{{ m2>0 ? " " : " - " }} {{ Math.abs(m2) }}</tspan><tspan style="font-style: normal;">x</tspan>&ensp;{{ (Y3 - m2*X3)>0 ? " + " : " - " }}<tspan style="font-style: italic;">{{ Math.abs(Y3 - m2 * X3) }}</tspan></text>
-      //-   //- </g>
+         <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = {{ enterM2===""  ? " 0 " : isNaN(parseFloat(enterM2)) ? "0" : Math.abs(parseFloat(enterM2)) }}<tspan style="font-style: normal;">x</tspan>&ensp;{{ parseFloat(enterb2)>0 ? " - " : " + " }} {{ enterb2===""  ? " 0 " : isNaN(parseFloat(enterb2)) ? "0" : Math.abs(parseFloat(enterb2)) }}</text>
+        //-  <text x="0" y="110" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp; = <tspan style="font-style: italic;">{{ m2>0 ? " " : " - " }} {{ Math.abs(m2) }}</tspan><tspan style="font-style: normal;">x</tspan>&ensp;{{ (Y1 - m2*X1)>0 ? " + " : " - " }}<tspan style="font-style: italic;">{{ Math.abs(Y1 - m2 * X1) }}</tspan></text>
+        </g>
 
       //-   <g transform="translate(750, 360)">    
       //-   //-  <text x="0" y="30" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan> = <tspan style="font-style: italic;">m'</tspan>(<tspan style="font-style: normal;">x</tspan>&ensp;-&ensp;<tspan style="font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "sub">2</tspan>)</text>
@@ -87,19 +87,22 @@ eg-transition(:enter='enter', :leave='leave')
       //-   //-  <text x="0" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan>&ensp;=&ensp;<tspan style="font-style: italic;">{{ m1 }}</tspan><tspan style="font-style: italic;">x</tspan>&ensp;+&ensp;<tspan style="font-style: normal">{{ b1 }}</tspan></text>
       //-   //- </g>
         
-      //-   <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-      //-   <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
-      //-   <path :d="trianguloA" fill="#00F" stroke="#000" stroke-width="1" opacity="0.3"/>
-      //-   <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-      //-   <circle r="4" cx="354" :cy="238 - 38 * bp"  fill="#000" stroke="#000" stroke-width="1"/>
-      //-   <path :d="trianguloB" fill="#00F" stroke="#000" stroke-width="1" opacity="0.3"/>
-      //- </svg>
-    //- p {{ A }}<br>{{ ae  }}<br> {{ trianguloA }}<br> {{ trianguloB }}
+      <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
+      <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
+      //- <path :d="trianguloA" fill="#00F" stroke="#000" stroke-width="1" opacity="0.3"/>
+      <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
+      <circle r="4" cx="354" :cy="238 - 38 * bp"  fill="#000" stroke="#000" stroke-width="1"/>
+      //- <path :d="trianguloB" fill="#00F" stroke="#000" stroke-width="1" opacity="0.3"/>
+      </svg>
+    //- p {{ A }}x + {{ B }}y + {{C }} <br>{{ Ap }}x + {{ Bp }}y + {{ Cp }} <br>{{ X1 }}, {{ Y1 }}<br> {{ trianguloA }}<br> {{ trianguloB }}
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data Area
-        input.center.data(:class="checkedArea" v-model.number='enterArea')
-        <span class="error" v-if="errorArea">[e: {{ errorArea.toPrecision(3) }}%]</span>
+      p.inline.data X1
+        input.center.data(:class="checkedX1" v-model.number='enterX1')
+        <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
+      p.inline.data Y1
+        input.center.data(:class="checkedY1" v-model.number='enterY1')
+        <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
       p.inline.data A
         input.center.data(:class="checkedA" v-model.number='enterA')
         <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
@@ -137,8 +140,10 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
-      enterArea: '',
-      errorArea: 0,
+      enterX1: '',
+      errorX1: 0,
+      enterY1: '',
+      errorY1: 0,
       enterA: '',
       errorA: 0,
       enterB: '',
@@ -171,26 +176,46 @@ export default {
   computed: {
     X1: function () {
       console.clear()
+      let max = 9
+      let min = -9
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    Y1: function () {
+      let max = 5
+      let min = -5
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    h: function () {
       let max = 10
       let min = 1
       return Math.round(Math.random() * (max - min + 1) + min)
     },
-    Y1: function () {
-      let max = 6
+    k: function () {
+      let max = 10
       let min = 1
       return Math.round(Math.random() * (max - min + 1) + min)
     },
-    area: function () {
-      return this.X1 * this.Y1 / 2
-    },
     A: function () {
-      return this.Y1
+      return ((this.h - this.Bp) * this.Y1 - this.C) / this.X1
     },
     B: function () {
-      return this.X1
+      return this.Bp - this.h
     },
     C: function () {
-      return -this.X1 * this.Y1
+      let max = 10
+      let min = -10
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    Ap: function () {
+      return this.k - this.A
+    },
+    Bp: function () {
+      return (this.h * this.Y1 - this.k * this.X1 - this.C - this.Cp) / (2 * this.Y1)
+    },
+    Cp: function () {
+      let max = 10
+      let min = -10
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     m1: function () {
       return -this.A / this.B
@@ -199,19 +224,10 @@ export default {
       return -this.C / this.B
     },
     m2: function () {
-      return -this.A / this.B
+      return -this.Ap / this.Bp
     },
     b2: function () {
-      return this.C / this.B
-    },
-    Ap: function () {
-      return this.A
-    },
-    Bp: function () {
-      return this.B
-    },
-    Cp: function () {
-      return -this.C
+      return this.Cp / this.Bp
     },
     ae: function () {
       return -this.Cp / this.Ap
@@ -273,39 +289,17 @@ export default {
     yl2b: function () {
       return 238 - 38 * this.Yl2b
     },
-    checkedArea: function () {
-      this.errorArea = this.errorRelative('Area => ', this.area, parseFloat(this.enterArea))
-      this.showPointX1 = this.errorArea < 1e-1
-      return this.errorArea < 1e-1 ? 'correct' : 'not-correct'
+    checkedX1: function () {
+      this.errorX1 = this.errorRelative('X1 => ', this.X1, parseFloat(this.enterX1))
+      return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedY1: function () {
       this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
       this.showPointY1 = this.errorY1 < 1e-1
       return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedX2: function () {
-      this.errorX2 = this.errorRelative('X2 => ', this.X2, parseFloat(this.enterX2))
-      this.showPointX2 = this.errorX2 < 1e-1
-      return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedY2: function () {
-      this.errorY2 = this.errorRelative('Y2 => ', this.Y2, parseFloat(this.enterY2))
-      this.showPointY2 = this.errorY2 < 1e-1
-      return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedX3: function () {
-      this.errorX3 = this.errorRelative('X3 => ', this.X3, parseFloat(this.enterX3))
-      this.showPointX3 = this.errorX3 < 1e-1
-      return this.errorX3 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedY3: function () {
-      this.errorY3 = this.errorRelative('Y3 => ', this.Y3, parseFloat(this.enterY3))
-      this.showPointY3 = this.errorY3 < 1e-1
-      return this.errorY3 < 1e-1 ? 'correct' : 'not-correct'
-    },
     checkedA: function () {
       this.errorA = this.errorRelative('A => ', this.A, parseFloat(this.enterA))
-      this.showLineA = this.errorA < 1e-1
       return this.errorA < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedB: function () {
