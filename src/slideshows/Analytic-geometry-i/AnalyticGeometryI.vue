@@ -653,7 +653,7 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Forma ordinaria de la circunferencia
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema10</span>: La ecuación de la circunferencia con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> esta dada por   
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 10</span>: La ecuación de la circunferencia con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> esta dada por   
       
       p(style="margin-top: -0px; color: blue;").center <span style="font-family: roboto; font-weight: bold; font-style: italic;">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
@@ -687,6 +687,16 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 29
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 29
+      example-twentyNine(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la circunferencia
@@ -907,15 +917,6 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 29
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 29
-      example-twentyNine(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
         
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -939,9 +940,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 32
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 32
+      example-thirtyTwo(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -949,9 +950,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 33
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 33
+      example-thirtyThree(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")

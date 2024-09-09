@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Hallar la ecuación de la circunferencia que tiene centro en C({{ H }}, {{ K }}) y pasa por el punto P({{ X1 }}, {{ Y1 }}), trace la gráfica
+    p.problem Hallar la ecuación de la circunferencia que tiene extremos de un diametro a los puntos P({{ X1 }}, {{ Y1 }}) y Q({{ X2 }}, {{ Y2 }})
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="750px" >
         //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
@@ -29,15 +29,18 @@ eg-transition(:enter='enter', :leave='leave')
         //- <circle r="8" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#00F" stroke="#000" stroke-width="1"/>
         //- <circle r="8" :cx="354 + 38 * enterX3" :cy="238 - 38 * enterY3"  fill="#0F0" stroke="#000" stroke-width="1"/>
 
-        <path :d="circulo" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        //- <path :d="circulo" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
         
         //- <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="h" :cy="k"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="x1" :cy="y1"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="8" :cx="h" :cy="k" fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="8" :cx="x1" :cy="y1" fill="#0FF" stroke="#000" stroke-width="1"/>
+        <circle r="8" :cx="x2" :cy="y2" fill="#0FF" stroke="#000" stroke-width="1"/>
         <circle r="4" :cx="354 + 38 * enterH" :cy="238 - 38 * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
         <circle r="4" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="4" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle :r="38 * enterR" :cx="354 + 38 * enterH" :cy="238 - 38 * enterK"  fill="none" stroke="#000" stroke-width="3"/>
          <g transform="translate(750, 0)">    
          <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x - h</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y - k</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">r</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
         
@@ -47,21 +50,27 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    p {{ R }},m {{ r }}
+    //- p {{ R }},m {{ r }}
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data h
-        input.center.data(:class="checkedH" v-model.number='enterH')
-        <span class="error" v-if="errorH">[e: {{ errorH.toPrecision(3) }}%]</span>
-      p.inline.data k
-        input.center.data(:class="checkedK" v-model.number='enterK')
-        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
       p.inline.data X1
         input.center.data(:class="checkedX1" v-model.number='enterX1')
         <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
       p.inline.data Y1
         input.center.data(:class="checkedY1" v-model.number='enterY1')
         <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
+      p.inline.data X2
+        input.center.data(:class="checkedX2" v-model.number='enterX2')
+        <span class="error" v-if="errorX2">[e: {{ errorX2.toPrecision(3) }}%]</span>
+      p.inline.data Y2
+        input.center.data(:class="checkedY2" v-model.number='enterY2')
+        <span class="error" v-if="errorY2">[e: {{ errorY2.toPrecision(3) }}%]</span>
+      p.inline.data h
+        input.center.data(:class="checkedH" v-model.number='enterH')
+        <span class="error" v-if="errorH">[e: {{ errorH.toPrecision(3) }}%]</span>
+      p.inline.data k
+        input.center.data(:class="checkedK" v-model.number='enterK')
+        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
       p.inline.data r
         input.center.data(:class="checkedR" v-model.number='enterR')
         <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
@@ -80,31 +89,19 @@ export default {
       errorX1: 0,
       enterY1: '',
       errorY1: 0,
+      enterX2: '',
+      errorX2: 0,
+      enterY2: '',
+      errorY2: 0,
       enterR: '',
       errorR: 0
     }
   },
   computed: {
-    H: function () {
-      console.clear()
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    h: function () {
-      return 354 + 38 * this.H
-    },
-    K: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    k: function () {
-      return 238 - 38 * this.K
-    },
     X1: function () {
-      let max = 5
-      let min = -5
+      console.clear()
+      let max = -1
+      let min = -6
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     x1: function () {
@@ -117,6 +114,34 @@ export default {
     },
     y1: function () {
       return 238 - 38 * this.Y1
+    },
+    X2: function () {
+      let max = 6
+      let min = 1
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    x2: function () {
+      return 354 + 38 * this.X2
+    },
+    Y2: function () {
+      let max = 5
+      let min = -5
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    y2: function () {
+      return 238 - 38 * this.Y2
+    },
+    H: function () {
+      return (this.X1 + this.X2) / 2
+    },
+    h: function () {
+      return 354 + 38 * this.H
+    },
+    K: function () {
+      return (this.Y1 + this.Y2) / 2
+    },
+    k: function () {
+      return 238 - 38 * this.K
     },
     R: function () {
       return Math.sqrt((this.X1 - this.H) ** 2 + (this.Y1 - this.K) ** 2)
@@ -157,6 +182,14 @@ export default {
     checkedY1: function () {
       this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
       return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedX2: function () {
+      this.errorX2 = this.errorRelative('X2 => ', this.X2, parseFloat(this.enterX2))
+      return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedY2: function () {
+      this.errorY2 = this.errorRelative('Y2 => ', this.Y2, parseFloat(this.enterY2))
+      return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedR: function () {
       this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))

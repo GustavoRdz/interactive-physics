@@ -1,26 +1,28 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Hallar la ecuación de la circunferencia que tiene centro en C({{ H }}, {{ K }}) y pasa por el punto P({{ X1 }}, {{ Y1 }}), trace la gráfica
+    p.problem Hallar la ecuación de la circunferencia que sea tangente al eje  <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>, tenga centro sobre el eje  <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y radio   <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> = {{ R }}
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="750px" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" height="300px" width="600px" >
         //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
         <!-- x grid -->
-        <line v-for="x in [12, 50, 88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658, 696]" fill="none" stroke="#000" stroke-width="0.5" :x1="x" y1="7" :x2="x" y2="470" stroke-linecap="round"/>
+        //- <line v-for="x in [12, 50, 88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658, 696]" fill="none" stroke="#000" stroke-width="0.5" :x1="x" y1="7" :x2="x" y2="470" stroke-linecap="round"/>
+        <line v-for="x in xScale" fill="none" stroke="#000" stroke-width="0.2" :x1="x" y1="0" :x2="x" y2="300" stroke-linecap="round"/>
         <!-- x scale bold -->
         //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
         <!-- y grid -->
-        <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
+        <line v-for="y in yScale" fill="none" stroke="#000" stroke-width="0.2" x1="0" :y1="y" x2="300" :y2="y" stroke-linecap="round"/>
+        //- <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
         
         <!-- x Axis -->
-        <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
-        <text x="677" y="270" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
+        <path d="M0 150 l300 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="1" ></path>
+        <text x="285" y="169" font-size="25" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
 
         <!-- y Axis -->
-        <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
-        <text x="330" y="28" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
+        <path d="M150 300 l0 -300 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="1" ></path>
+        <text x="133" y="13" font-size="25" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
               
-        <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
+        <text x="132" y="168" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
         <!-- plots -->
         //- <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
@@ -29,42 +31,51 @@ eg-transition(:enter='enter', :leave='leave')
         //- <circle r="8" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#00F" stroke="#000" stroke-width="1"/>
         //- <circle r="8" :cx="354 + 38 * enterX3" :cy="238 - 38 * enterY3"  fill="#0F0" stroke="#000" stroke-width="1"/>
 
-        <path :d="circulo" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        //- <path :d="circulo" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
         
         //- <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="h" :cy="k"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="x1" :cy="y1"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="354 + 38 * enterH" :cy="238 - 38 * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
-         <g transform="translate(750, 0)">    
-         <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x - h</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y - k</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">r</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
+        <circle r="4" :cx="h" :cy="k"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="4" :cx="x1" :cy="y1"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta * enterX1" :cy="150 - delta * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta * enterX2" :cy="150 - delta * enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle :r="rEnter" :cx="354 - 19 * enterC" :cy="238 + 19 * enterD"  fill="none" stroke="#0F0" stroke-width="8" opacity="0.2"/>
+        <circle :r="delta * enterR" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="none" stroke="#000" stroke-width="2"/>
+         <g transform="translate(300, 0)">    
+           <text x="0" y="30" font-size="15" fill="#F00" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x - h</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y - k</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">r</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
         
-         <text x="0" y="70" font-size="30" fill="#000" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x {{ parseFloat(enterH)>0 ? " - " : " + " }}{{ enterH===""  ? " 0 " : Math.abs(enterH) }}</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y{{ parseFloat(enterK)>0 ? " - " : " + " }}{{ enterK===""  ? " 0 " : Math.abs(enterK) }}</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">{{ enterR===""  ? " 0 " : enterR }}</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
+           <text x="0" y="60" font-size="15" fill="#000" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x {{ parseFloat(enterH)>0 ? " - " : " + " }}{{ enterH===""  ? " 0 " : Math.abs(enterH) }}</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y{{ parseFloat(enterK)>0 ? " - " : " + " }}{{ enterK===""  ? " 0 " : Math.abs(enterK) }}</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">{{ enterR===""  ? " 0 " : enterR }}</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
          
         </g>
 
 
       </svg>
-    p {{ R }},m {{ r }}
+    //- p {{ R }},m {{ r }}, {{ xScale }}
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data h
-        input.center.data(:class="checkedH" v-model.number='enterH')
-        <span class="error" v-if="errorH">[e: {{ errorH.toPrecision(3) }}%]</span>
-      p.inline.data k
-        input.center.data(:class="checkedK" v-model.number='enterK')
-        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
       p.inline.data X1
         input.center.data(:class="checkedX1" v-model.number='enterX1')
         <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
       p.inline.data Y1
         input.center.data(:class="checkedY1" v-model.number='enterY1')
         <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
+      p.inline.data X2
+        input.center.data(:class="checkedX2" v-model.number='enterX2')
+        <span class="error" v-if="errorX2">[e: {{ errorX2.toPrecision(3) }}%]</span>
+      p.inline.data Y3
+        input.center.data(:class="checkedY2" v-model.number='enterY2')
+        <span class="error" v-if="errorY2">[e: {{ errorY2.toPrecision(3) }}%]</span>
       p.inline.data r
         input.center.data(:class="checkedR" v-model.number='enterR')
         <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
+      p.inline.data h
+        input.center.data(:class="checkedH" v-model.number='enterH')
+        <span class="error" v-if="errorH">[e: {{ errorH.toPrecision(3) }}%]</span>
+      p.inline.data k
+        input.center.data(:class="checkedK" v-model.number='enterK')
+        <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
       </template>
 
 <script>
@@ -80,49 +91,77 @@ export default {
       errorX1: 0,
       enterY1: '',
       errorY1: 0,
+      enterX2: '',
+      errorX2: 0,
+      enterY2: '',
+      errorY2: 0,
       enterR: '',
-      errorR: 0
+      errorR: 0,
+      points: 30
     }
   },
   computed: {
-    H: function () {
-      console.clear()
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    h: function () {
-      return 354 + 38 * this.H
-    },
-    K: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    k: function () {
-      return 238 - 38 * this.K
-    },
-    X1: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    x1: function () {
-      return 354 + 38 * this.X1
-    },
-    Y1: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    y1: function () {
-      return 238 - 38 * this.Y1
-    },
     R: function () {
-      return Math.sqrt((this.X1 - this.H) ** 2 + (this.Y1 - this.K) ** 2)
+      console.clear()
+      let max = 15
+      let min = 1
+      return Math.round(Math.random() * (max - min + 1) + min)
     },
     r: function () {
-      return 38 * this.R
+      return this.delta * this.R
+    },
+    H: function () {
+      return this.R
+    },
+    h: function () {
+      return 150 + this.delta * this.H
+    },
+    K: function () {
+      return 0
+    },
+    k: function () {
+      return 150 - this.delta * this.K
+    },
+    X1: function () {
+      return 0
+    },
+    x1: function () {
+      return 150 + this.delta * this.X1
+    },
+    Y1: function () {
+      return 0
+    },
+    y1: function () {
+      return 150 - this.delta * this.Y1
+    },
+    X2: function () {
+      return this.R
+    },
+    x2: function () {
+      return 150 + this.delta * this.X1
+    },
+    Y2: function () {
+      return 0
+    },
+    y2: function () {
+      return 150 - this.delta * this.Y1
+    },
+    delta: function () {
+      return 300 / (this.points + 0)
+    },
+    xScale: function () {
+      let xs = []
+      for (var j = 0; j < this.points + 1; j++) {
+        xs[j] = -0 + j * this.delta
+      }
+      return xs
+    },
+    yScale: function () {
+      let ys = []
+      for (var j = 0; j < this.points + 1; j++) {
+        ys[j] = -0 + j * this.delta
+      }
+      return ys
     },
     circulo () {
       let d = ''
@@ -157,6 +196,14 @@ export default {
     checkedY1: function () {
       this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
       return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedX2: function () {
+      this.errorX2 = this.errorRelative('X2 => ', this.X2, parseFloat(this.enterX2))
+      return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedY2: function () {
+      this.errorY2 = this.errorRelative('Y2 => ', this.Y2, parseFloat(this.enterY2))
+      return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedR: function () {
       this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))

@@ -1,7 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Hallar la ecuación de la circunferencia que tiene centro en C({{ H }}, {{ K }}) y pasa por el punto P({{ X1 }}, {{ Y1 }}), trace la gráfica
+    p.problem Determine qué lugar geométrico representa la ecuación
+    p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> {{ C>0 ? " + " : " - " }}{{ C===""  ? " 0 " : Math.abs(C) }} </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> {{ D>0 ? " + " : " - " }}{{ D===""  ? " 0 " : Math.abs(D) }} </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> {{ E>0 ? " + " : " - " }}{{ E===""  ? " 0 " : Math.abs(E) }} </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 500" height="250px" width="750px" >
         //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
@@ -34,10 +47,14 @@ eg-transition(:enter='enter', :leave='leave')
         //- <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="h" :cy="k"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="8" :cx="x1" :cy="y1"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="8" :cx="h" :cy="k" fill="#0F0" stroke="#000" stroke-width="1" opacity="0.2"/>
+        //- <circle r="8" :cx="x1" :cy="y1" fill="#0FF" stroke="#000" stroke-width="1"/>
+        //- <circle r="8" :cx="x2" :cy="y2" fill="#0FF" stroke="#000" stroke-width="1"/>
         <circle r="4" :cx="354 + 38 * enterH" :cy="238 - 38 * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle r="4" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle r="4" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle :r="rEnter" :cx="354 - 19 * enterC" :cy="238 + 19 * enterD"  fill="none" stroke="#0F0" stroke-width="8" opacity="0.2"/>
+        <circle :r="38 * enterR" :cx="354 + 38 * enterH" :cy="238 - 38 * enterK"  fill="none" stroke="#000" stroke-width="3"/>
          <g transform="translate(750, 0)">    
          <text x="0" y="30" font-size="30" fill="#F00" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x - h</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y - k</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">r</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
         
@@ -47,21 +64,24 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    p {{ R }},m {{ r }}
+    //- p {{ R }},m {{ rEnter }}
     .center
       p.solution Please do calculations and introduce your results
+      p.inline.data C
+        input.center.data(:class="checkedC" v-model.number='enterC')
+        <span class="error" v-if="errorC">[e: {{ errorC.toPrecision(3) }}%]</span>
+      p.inline.data D
+        input.center.data(:class="checkedD" v-model.number='enterD')
+        <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
+      p.inline.data E
+        input.center.data(:class="checkedE" v-model.number='enterE')
+        <span class="error" v-if="errorE">[e: {{ errorE.toPrecision(3) }}%]</span>
       p.inline.data h
         input.center.data(:class="checkedH" v-model.number='enterH')
         <span class="error" v-if="errorH">[e: {{ errorH.toPrecision(3) }}%]</span>
       p.inline.data k
         input.center.data(:class="checkedK" v-model.number='enterK')
         <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
-      p.inline.data X1
-        input.center.data(:class="checkedX1" v-model.number='enterX1')
-        <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
-      p.inline.data Y1
-        input.center.data(:class="checkedY1" v-model.number='enterY1')
-        <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
       p.inline.data r
         input.center.data(:class="checkedR" v-model.number='enterR')
         <span class="error" v-if="errorR">[e: {{ errorR.toPrecision(3) }}%]</span>
@@ -72,75 +92,72 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
+      enterC: '',
+      errorC: 0,
+      enterD: '',
+      errorD: 0,
+      enterE: '',
+      errorE: 0,
       enterH: '',
       errorH: 0,
       enterK: '',
       errorK: 0,
-      enterX1: '',
-      errorX1: 0,
-      enterY1: '',
-      errorY1: 0,
       enterR: '',
       errorR: 0
     }
   },
   computed: {
-    H: function () {
+    C: function () {
       console.clear()
-      let max = 5
-      let min = -5
+      let max = 10
+      let min = -10
       return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    D: function () {
+      let max = 10
+      let min = -10
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    E: function () {
+      let max = 10
+      let min = -10
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    H: function () {
+      return -this.C / 2
     },
     h: function () {
       return 354 + 38 * this.H
     },
     K: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
+      return -this.D / 2
     },
     k: function () {
       return 238 - 38 * this.K
     },
-    X1: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    x1: function () {
-      return 354 + 38 * this.X1
-    },
-    Y1: function () {
-      let max = 5
-      let min = -5
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    y1: function () {
-      return 238 - 38 * this.Y1
-    },
     R: function () {
-      return Math.sqrt((this.X1 - this.H) ** 2 + (this.Y1 - this.K) ** 2)
+      return Math.sqrt(-4 * this.E + this.C ** 2 + this.D ** 2) / 2
     },
     r: function () {
       return 38 * this.R
     },
-    circulo () {
-      let d = ''
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      // let ranges = [350, 335, 294, 233, 167, 106, 65, 50, 65, 106, 167, 233, 294, 335, 350]
-      let points = 40
-      // for (var i = 0; i < ranges.length; i++) {
-      let d1 = 'M' + `${354 + 38 * this.enterH + 38 * this.enterR}, ${238 - 38 * this.enterK} `
-      let period = 2 * Math.PI // ranges[i] / 7
-      let delta = period / (points - 2) // ranges[i] / (points + 0)
-      for (var j = 0; j < points - 1; j++) {
-        d1 = d1 + `${354 + 38 * this.enterH + 38 * this.enterR * Math.cos(2 * Math.PI * delta * j / period)},${238 - 38 * this.enterK + 38 * this.enterR * Math.sin(2 * Math.PI * delta * j / period)} `
-      }
-      // d1 = d1 + ` ${ranges[i] + 30},90 ${ranges[i] + 50},90;`
-      d = d + d1
-      // }
-      return d
+    Renter: function () {
+      return Math.sqrt(-4 * this.enterE + this.enterC ** 2 + this.enterD ** 2) / 2
+    },
+    rEnter: function () {
+      return 38 * this.Renter
+    },
+    checkedC: function () {
+      this.errorC = this.errorRelative('C => ', this.C, parseFloat(this.enterC))
+      return this.errorC < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedD: function () {
+      this.errorD = this.errorRelative('D => ', this.D, parseFloat(this.enterD))
+      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedE: function () {
+      this.errorE = this.errorRelative('E => ', this.E, parseFloat(this.enterE))
+      return this.errorE < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedH: function () {
       this.errorH = this.errorRelative('h => ', this.H, parseFloat(this.enterH))
@@ -149,14 +166,6 @@ export default {
     checkedK: function () {
       this.errorK = this.errorRelative('k => ', this.K, parseFloat(this.enterK))
       return this.errorK < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedX1: function () {
-      this.errorX1 = this.errorRelative('X1 => ', this.X1, parseFloat(this.enterX1))
-      return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedY1: function () {
-      this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
-      return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedR: function () {
       this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))

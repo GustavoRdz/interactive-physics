@@ -47,7 +47,7 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    p {{ R }},m {{ r }}
+    //- p {{ R }},m {{ r }}
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data h
