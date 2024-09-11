@@ -960,9 +960,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 34
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 34
+      example-thirtyFour(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -970,9 +970,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 35
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 35
+      example-thirtyFive(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")

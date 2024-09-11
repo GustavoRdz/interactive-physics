@@ -31,29 +31,42 @@ eg-transition(:enter='enter', :leave='leave')
         <text x="132" y="168" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
         <!-- plots -->
-        //- <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-        //- <line :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
-        //- <circle r="8" :cx="354 + 38 * enterX1" :cy="238 - 38 * enterY1"  fill="#00F" stroke="#000" stroke-width="1"/>
-        //- <circle r="8" :cx="354 + 38 * enterX2" :cy="238 - 38 * enterY2"  fill="#00F" stroke="#000" stroke-width="1"/>
-        //- <circle r="8" :cx="354 + 38 * enterX3" :cy="238 - 38 * enterY3"  fill="#0F0" stroke="#000" stroke-width="1"/>
-
-        //- <path :d="circulo" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        <line v-if="showLineA && showLineB && showLineC" :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#FF0" stroke-width="4" stroke-linecap="round"/>
         <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-        <line :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
-        
-        //- <circle r="4" :cx="354 + 38 * ae" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-        //- <circle r="4" cx="354" :cy="238 - 38 * be"  fill="#000" stroke="#000" stroke-width="1"/>
-        //- <circle r="4" :cx="354 + 38 * ap" cy="238"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="h" :cy="k"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="x1" :cy="y1"  fill="#0F0" stroke="#000" stroke-width="1"/>
-        <circle r="2" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
+        <line v-if="showLineAp && showLineBp && showLineCp" :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#FF0" stroke-width="4" stroke-linecap="round"/>
+        <line :x1="xl2a" :y1="yl2a" :x2="xl2b" :y2="yl2b" fill="none" stroke="#00F" stroke-width="2" stroke-linecap="round"/>
+        <!-- axis intersections line-->
+        <circle r="2" cx="150" :cy="150 + delta*enterC/enterB"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle v-if="showLineA && showLineB && showLineC" r="2" cx="150" :cy="150 + delta*C/B"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 - delta*enterC/enterA" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle v-if="showLineA && showLineB && showLineC" r="2" :cx="150 - delta*C/A" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" cx="150" :cy="150 + delta*enterCp/enterBp"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle v-if="showLineAp && showLineBp && showLineCp" r="2" cx="150" :cy="150 + delta*Cp/Bp"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 - delta*enterCp/enterAp" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle v-if="showLineAp && showLineBp && showLineCp" r="2" :cx="150 - delta*Cp/Ap" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        <!-- interseccion lines -->
+        <circle v-if="showCircleXi && showCircleYi" r="4" :cx="xi" :cy="yi"  fill="#FF0" stroke="#000" stroke-width="1"/>
         <circle r="2" :cx="150 + delta * enterX1" :cy="150 - delta * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="2" cx="150" :cy="x0y1"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="2" cx="150" :cy="x0y2"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="4" :cx="xi" :cy="yi"  fill="#00F" stroke="#000" stroke-width="1"/>
+        
+        <!-- circle -->
+        <circle v-if="showCircleR && showCircleH && showCircleK" :r="r" :cx="h" :cy="k"  fill="none" stroke="#0F0" stroke-width="4"/>
+        <circle :r="delta * enterR" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="none" stroke="#000" stroke-width="2"/>
+        <!-- center -->
+        <circle v-if="showCircleH && showCircleK" r="4" :cx="h" :cy="k"  fill="#FF0" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150+delta*enterH" :cy="150-delta*enterK"  fill="#000" stroke="#000" stroke-width="1"/>
+        <!-- axis intersections circle -->
+        
+        <circle r="2" :cx="150" :cy="x0y1"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150" :cy="x0y2"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="y0x1" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="y0x2" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
+        
+        //- <circle r="2" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle r="2" cx="150" :cy="x0y1"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle r="2" cx="150" :cy="x0y2"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta*enterX1" :cy="150 - delta*enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="2" :cx="150 + delta * enterX2" :cy="150 - delta * enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle :r="rEnter" :cx="354 - 19 * enterC" :cy="238 + 19 * enterD"  fill="none" stroke="#0F0" stroke-width="8" opacity="0.2"/>
-        <circle :r="delta * enterR" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="none" stroke="#000" stroke-width="2"/>
          <g transform="translate(300, 0)">    
            <text x="0" y="30" font-size="15" fill="#F00" font-weight="bold" font-family="Times">(<tspan style="font-style: italic;">x - h</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;+&ensp;(<tspan style="font-style: italic;">y - k</tspan>)<tspan style="font-size: 15px;" baseline-shift = "super">2</tspan> = <tspan style="font-style: italic;">r</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan></text>
         
@@ -63,13 +76,31 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    p {{ Xi }},m {{ xi }}, {{ Yi }}, xy {{ yi }}   Ap  {{ Ap }}, Bp {{ Bp }}, Cp {{ Cp }}
+    //- p.center {{ Xi }},Xi {{ xi }}, {{ Yi }}, Yi {{ yi }} <br> r {{ R }}  
     .center
       p.solution Please do calculations and introduce your results
-      p.inline.data X1
+      p.inline.data A
+        input.center.data(:class="checkedA" v-model.number='enterA')
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data B
+        input.center.data(:class="checkedB" v-model.number='enterB')
+        <span class="error" v-if="errorB">[e: {{ errorB.toPrecision(3) }}%]</span>
+      p.inline.data C
+        input.center.data(:class="checkedC" v-model.number='enterC')
+        <span class="error" v-if="errorC">[e: {{ errorC.toPrecision(3) }}%]</span>
+      p.inline.data A'
+        input.center.data(:class="checkedAp" v-model.number='enterAp')
+        <span class="error" v-if="errorAp">[e: {{ errorAp.toPrecision(3) }}%]</span>
+      p.inline.data B'
+        input.center.data(:class="checkedBp" v-model.number='enterBp')
+        <span class="error" v-if="errorBp">[e: {{ errorBp.toPrecision(3) }}%]</span>
+      p.inline.data C'
+        input.center.data(:class="checkedCp" v-model.number='enterCp')
+        <span class="error" v-if="errorCp">[e: {{ errorCp.toPrecision(3) }}%]</span>
+      p.inline.data X1 (cruce)
         input.center.data(:class="checkedX1" v-model.number='enterX1')
         <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
-      p.inline.data Y1
+      p.inline.data Y1 (cruce)
         input.center.data(:class="checkedY1" v-model.number='enterY1')
         <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
       p.inline.data r
@@ -88,6 +119,18 @@ import eagle from 'eagle.js'
 export default {
   data: function () {
     return {
+      enterA: '',
+      errorA: 0,
+      enterB: '',
+      errorB: 0,
+      enterC: '',
+      errorC: 0,
+      enterAp: '',
+      errorAp: 0,
+      enterBp: '',
+      errorBp: 0,
+      enterCp: '',
+      errorCp: 0,
       enterH: '',
       errorH: 0,
       enterK: '',
@@ -96,10 +139,6 @@ export default {
       errorX1: 0,
       enterY1: '',
       errorY1: 0,
-      enterX2: '',
-      errorX2: 0,
-      enterY2: '',
-      errorY2: 0,
       enterR: '',
       errorR: 0,
       points: 30
@@ -154,16 +193,16 @@ export default {
       return 150 + this.delta * this.Xi
     },
     Yi: function () {
-      return (-this.A * this.xi - this.C) / this.B
+      return (-this.A * this.Xi - this.C) / this.B
     },
     yi: function () {
       return 150 - this.delta * this.Yi
     },
     R: function () {
-      return Math.abs(this.K)
+      return Math.sqrt((this.H - this.Xi) ** 2 + (this.K - this.Yi) ** 2)
     },
     r: function () {
-      return 150 + this.delta * this.R
+      return this.delta * this.R
     },
     X1: function () {
       return this.H
@@ -178,16 +217,28 @@ export default {
       return 150 - this.delta * this.Y1
     },
     X0Y1: function () {
-      return this.K + Math.sqrt(this.R ** 2 - this.H ** 2)
+      return this.enterK + Math.sqrt(this.enterR ** 2 - this.enterH ** 2)
     },
     x0y1: function () {
       return 150 - this.delta * this.X0Y1
     },
     X0Y2: function () {
-      return this.K - Math.sqrt(this.R ** 2 - this.H ** 2)
+      return this.enterK - Math.sqrt(this.enterR ** 2 - this.enterH ** 2)
     },
     x0y2: function () {
       return 150 - this.delta * this.X0Y2
+    },
+    Y0X1: function () {
+      return this.enterH + Math.sqrt(this.enterR ** 2 - this.enterK ** 2)
+    },
+    y0x1: function () {
+      return 150 + this.delta * this.Y0X1
+    },
+    Y0X2: function () {
+      return this.enterH - Math.sqrt(this.enterR ** 2 - this.enterK ** 2)
+    },
+    y0x2: function () {
+      return 150 + this.delta * this.Y0X2
     },
     Xl1a: function () {
       return -15
@@ -196,7 +247,7 @@ export default {
       return 150 + this.delta * this.Xl1a
     },
     Yl1a: function () {
-      return -this.A * this.Xl1a / this.B - this.C / this.enterB
+      return -this.enterA * this.Xl1a / this.enterB - this.enterC / this.enterB
     },
     yl1a: function () {
       return 150 - this.delta * this.Yl1a
@@ -208,7 +259,7 @@ export default {
       return 150 + this.delta * this.Xl1b
     },
     Yl1b: function () {
-      return -this.A * this.Xl1b / this.B - this.C / this.B
+      return -this.enterA * this.Xl1b / this.enterB - this.enterC / this.enterB
     },
     yl1b: function () {
       return 150 - this.delta * this.Yl1b
@@ -220,7 +271,7 @@ export default {
       return 150 + this.delta * this.Xl2a
     },
     Yl2a: function () {
-      return -this.Ap * this.Xl2a / this.Bp - this.Cp / this.Bp
+      return -this.enterAp * this.Xl2a / this.enterBp - this.enterCp / this.enterBp
     },
     yl2a: function () {
       return 150 - this.delta * this.Yl2a
@@ -232,7 +283,7 @@ export default {
       return 150 + this.delta * this.Xl2b
     },
     Yl2b: function () {
-      return -this.Ap * this.Xl2b / this.Bp - this.Cp / this.Bp
+      return -this.enterAp * this.Xl2b / this.enterBp - this.enterCp / this.enterBp
     },
     yl2b: function () {
       return 150 - this.delta * this.Yl2b
@@ -272,33 +323,60 @@ export default {
       // }
       return d
     },
+    checkedA: function () {
+      this.errorA = this.errorRelative('A => ', this.A, parseFloat(this.enterA))
+      this.showLineA = this.errorA < 1e-1
+      return this.errorA < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedB: function () {
+      this.errorB = this.errorRelative('B => ', this.B, parseFloat(this.enterB))
+      this.showLineB = this.errorB < 1e-1
+      return this.errorB < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedC: function () {
+      this.errorC = this.errorRelative('C => ', this.C, parseFloat(this.enterC))
+      this.showLineC = this.errorC < 1e-1
+      return this.errorC < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedAp: function () {
+      this.errorAp = this.errorRelative('Ap => ', this.Ap, parseFloat(this.enterAp))
+      this.showLineAp = this.errorAp < 1e-1
+      return this.errorAp < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedBp: function () {
+      this.errorBp = this.errorRelative('Bp => ', this.Bp, parseFloat(this.enterBp))
+      this.showLineBp = this.errorBp < 1e-1
+      return this.errorBp < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedCp: function () {
+      this.errorCp = this.errorRelative('Cp => ', this.Cp, parseFloat(this.enterCp))
+      this.showLineCp = this.errorCp < 1e-1
+      return this.errorCp < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedX1: function () {
+      this.errorX1 = this.errorRelative('X1 => ', this.Xi, parseFloat(this.enterX1))
+      this.showCircleXi = this.errorX1 < 1e-1
+      return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedY1: function () {
+      this.errorY1 = this.errorRelative('Y1 => ', this.Yi, parseFloat(this.enterY1))
+      this.showCircleYi = this.errorY1 < 1e-1
+      return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedR: function () {
+      this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))
+      this.showCircleR = this.errorR < 1e-1
+      return this.errorR < 1e-1 ? 'correct' : 'not-correct'
+    },
     checkedH: function () {
       this.errorH = this.errorRelative('h => ', this.H, parseFloat(this.enterH))
+      this.showCircleH = this.errorH < 1e-1
       return this.errorH < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedK: function () {
       this.errorK = this.errorRelative('k => ', this.K, parseFloat(this.enterK))
+      this.showCircleK = this.errorK < 1e-1
       return this.errorK < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedX1: function () {
-      this.errorX1 = this.errorRelative('X1 => ', this.X1, parseFloat(this.enterX1))
-      return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedY1: function () {
-      this.errorY1 = this.errorRelative('Y1 => ', this.Y1, parseFloat(this.enterY1))
-      return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedX2: function () {
-      this.errorX2 = this.errorRelative('X2 => ', this.X2, parseFloat(this.enterX2))
-      return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedY2: function () {
-      this.errorY2 = this.errorRelative('Y2 => ', this.Y2, parseFloat(this.enterY2))
-      return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedR: function () {
-      this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))
-      return this.errorR < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
