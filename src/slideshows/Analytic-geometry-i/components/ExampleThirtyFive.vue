@@ -63,8 +63,8 @@ eg-transition(:enter='enter', :leave='leave')
         <circle r="2" :cx="150 + delta * enterX1" :cy="150 - delta * enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
         
         <!-- circle -->
-        <circle v-if="showCircleR && showCircleH && showCircleK" :r="r" :cx="h" :cy="k"  fill="none" stroke="#0F0" stroke-width="4"/>
-        <circle :r="r" :cx="h" :cy="k"  fill="none" stroke="#0F0" stroke-width="1"/>
+        <circle v-if="showCircleC && showCircleD && showCircleE" :r="r" :cx="h" :cy="k"  fill="none" stroke="#0F0" stroke-width="4"/>
+        <circle :r="intror" :cx="introH" :cy="introK"  fill="none" stroke="#000" stroke-width="2"/>
         <circle :r="delta * enterR" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="none" stroke="#000" stroke-width="2"/>
         <!-- center -->
         <circle v-if="showCircleH && showCircleK" r="4" :cx="h" :cy="k"  fill="#FF0" stroke="#000" stroke-width="1"/>
@@ -76,13 +76,15 @@ eg-transition(:enter='enter', :leave='leave')
         <circle r="2" :cx="y0x1" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
         <circle r="2" :cx="y0x2" :cy="150"  fill="#000" stroke="#000" stroke-width="1"/>
         
-        <circle r="2" :cx="xi1" :cy="yi1"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="2" :cx="xi2" :cy="yi2"  fill="#000" stroke="#000" stroke-width="1"/>
-        <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
+        <circle v-if="showCircleXi1 && showCircleYi1" r="4" :cx="xi1" :cy="yi1"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta*enterX1" :cy="150 - delta*enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        <circle v-if="showCircleXi2 && showCircleYi2" r="4" :cx="xi2" :cy="yi2"  fill="#0F0" stroke="#000" stroke-width="1"/>
+        <circle r="2" :cx="150 + delta*enterX2" :cy="150 - delta*enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <line :x1="xl1a" :y1="yl1a" :x2="xl1b" :y2="yl1b" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
         //- <circle r="2" :cx="150 + delta * enterH" :cy="150 - delta * enterK"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="2" cx="150" :cy="x0y1"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="2" cx="150" :cy="x0y2"  fill="#000" stroke="#000" stroke-width="1"/>
-        <circle r="2" :cx="150 + delta*enterX1" :cy="150 - delta*enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
+        //- <circle r="2" :cx="150 + delta*enterX1" :cy="150 - delta*enterY1"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle r="2" :cx="150 + delta * enterX2" :cy="150 - delta * enterY2"  fill="#000" stroke="#000" stroke-width="1"/>
         //- <circle :r="rEnter" :cx="354 - 19 * enterC" :cy="238 + 19 * enterD"  fill="none" stroke="#0F0" stroke-width="8" opacity="0.2"/>
          <g transform="translate(300, 0)">    
@@ -94,7 +96,7 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    //- p.center Xi1={{ Xi1 }},Yi1={{ Yi1 }}, <br>Xi2={{ Xi2 }},Yi2={{ Yi2 }} <br>{{ Yi }}, Yi {{ yi }} <br> r {{ R }}  
+    //- p.center Xi1={{ Xi1 }},Yi1={{ Yi1 }},<br>xi1={{ xi1 }},yi1={{ yi1 }} <br>Xi2={{ Xi2 }},Yi2={{ Yi2 }} <br> show {{ showCircleXi2 }}, {{ showCircleYi2 }}  
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data A
@@ -207,6 +209,18 @@ export default {
     r: function () {
       return this.delta * this.R
     },
+    introH: function () {
+      return 150 - this.delta * this.enterCc / 2
+    },
+    introK: function () {
+      return 150 + this.delta * this.enterD / 2
+    },
+    introR: function () {
+      return Math.sqrt(-4 * this.enterE + this.enterCc ** 2 + this.enterD ** 2) / 2
+    },
+    intror: function () {
+      return this.delta * this.introR
+    },
     Ap: function () {
       return this.B
     },
@@ -259,25 +273,25 @@ export default {
       return 150 - this.delta * this.Y1
     },
     X0Y1: function () {
-      return this.enterK + Math.sqrt(this.enterR ** 2 - this.enterH ** 2)
+      return this.K + Math.sqrt(this.R ** 2 - this.H ** 2)
     },
     x0y1: function () {
       return 150 - this.delta * this.X0Y1
     },
     X0Y2: function () {
-      return this.enterK - Math.sqrt(this.enterR ** 2 - this.enterH ** 2)
+      return this.K - Math.sqrt(this.R ** 2 - this.H ** 2)
     },
     x0y2: function () {
       return 150 - this.delta * this.X0Y2
     },
     Y0X1: function () {
-      return this.enterH + Math.sqrt(this.enterR ** 2 - this.enterK ** 2)
+      return this.H + Math.sqrt(this.R ** 2 - this.K ** 2)
     },
     y0x1: function () {
       return 150 + this.delta * this.Y0X1
     },
     Y0X2: function () {
-      return this.enterH - Math.sqrt(this.enterR ** 2 - this.enterK ** 2)
+      return this.H - Math.sqrt(this.R ** 2 - this.K ** 2)
     },
     y0x2: function () {
       return 150 + this.delta * this.Y0X2
@@ -347,24 +361,6 @@ export default {
       }
       return ys
     },
-    circulo () {
-      let d = ''
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
-      // let ranges = [350, 335, 294, 233, 167, 106, 65, 50, 65, 106, 167, 233, 294, 335, 350]
-      let points = 40
-      // for (var i = 0; i < ranges.length; i++) {
-      let d1 = 'M' + `${354 + 38 * this.enterH + 38 * this.enterR}, ${238 - 38 * this.enterK} `
-      let period = 2 * Math.PI // ranges[i] / 7
-      let delta = period / (points - 2) // ranges[i] / (points + 0)
-      for (var j = 0; j < points - 1; j++) {
-        d1 = d1 + `${354 + 38 * this.enterH + 38 * this.enterR * Math.cos(2 * Math.PI * delta * j / period)},${238 - 38 * this.enterK + 38 * this.enterR * Math.sin(2 * Math.PI * delta * j / period)} `
-      }
-      // d1 = d1 + ` ${ranges[i] + 30},90 ${ranges[i] + 50},90;`
-      d = d + d1
-      // }
-      return d
-    },
     checkedA: function () {
       this.errorA = this.errorRelative('A => ', this.A, parseFloat(this.enterA))
       this.showLineA = this.errorA < 1e-1
@@ -380,45 +376,40 @@ export default {
       this.showLineC = this.errorC < 1e-1
       return this.errorC < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedAp: function () {
-      this.errorAp = this.errorRelative('Ap => ', this.Ap, parseFloat(this.enterAp))
-      this.showLineAp = this.errorAp < 1e-1
-      return this.errorAp < 1e-1 ? 'correct' : 'not-correct'
+    checkedCc: function () {
+      this.errorCc = this.errorRelative('Cc => ', this.Cc, parseFloat(this.enterCc))
+      this.showCircleC = this.errorCc < 1e-1
+      return this.errorCc < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedBp: function () {
-      this.errorBp = this.errorRelative('Bp => ', this.Bp, parseFloat(this.enterBp))
-      this.showLineBp = this.errorBp < 1e-1
-      return this.errorBp < 1e-1 ? 'correct' : 'not-correct'
+    checkedD: function () {
+      this.errorD = this.errorRelative('D => ', this.D, parseFloat(this.enterD))
+      this.showCircleD = this.errorD < 1e-1
+      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedCp: function () {
-      this.errorCp = this.errorRelative('Cp => ', this.Cp, parseFloat(this.enterCp))
-      this.showLineCp = this.errorCp < 1e-1
-      return this.errorCp < 1e-1 ? 'correct' : 'not-correct'
+    checkedE: function () {
+      this.errorE = this.errorRelative('E => ', this.E, parseFloat(this.enterE))
+      this.showCircleE = this.errorE < 1e-1
+      return this.errorE < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedX1: function () {
-      this.errorX1 = this.errorRelative('X1 => ', this.Xi, parseFloat(this.enterX1))
-      this.showCircleXi = this.errorX1 < 1e-1
+      this.errorX1 = this.errorRelative('X1 => ', this.Xi1, parseFloat(this.enterX1))
+      this.showCircleXi1 = this.errorX1 < 1e-1
       return this.errorX1 < 1e-1 ? 'correct' : 'not-correct'
     },
     checkedY1: function () {
-      this.errorY1 = this.errorRelative('Y1 => ', this.Yi, parseFloat(this.enterY1))
-      this.showCircleYi = this.errorY1 < 1e-1
+      this.errorY1 = this.errorRelative('Y1 => ', this.Yi1, parseFloat(this.enterY1))
+      this.showCircleYi1 = this.errorY1 < 1e-1
       return this.errorY1 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedR: function () {
-      this.errorR = this.errorRelative('r => ', this.R, parseFloat(this.enterR))
-      this.showCircleR = this.errorR < 1e-1
-      return this.errorR < 1e-1 ? 'correct' : 'not-correct'
+    checkedX2: function () {
+      this.errorX2 = this.errorRelative('X2 => ', this.Xi2, parseFloat(this.enterX2))
+      this.showCircleXi2 = this.errorX2 < 1e-1
+      return this.errorX2 < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedH: function () {
-      this.errorH = this.errorRelative('h => ', this.H, parseFloat(this.enterH))
-      this.showCircleH = this.errorH < 1e-1
-      return this.errorH < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedK: function () {
-      this.errorK = this.errorRelative('k => ', this.K, parseFloat(this.enterK))
-      this.showCircleK = this.errorK < 1e-1
-      return this.errorK < 1e-1 ? 'correct' : 'not-correct'
+    checkedY2: function () {
+      this.errorY2 = this.errorRelative('Y2 => ', this.Yi2, parseFloat(this.enterY2))
+      this.showCircleYi2 = this.errorY2 < 1e-1
+      return this.errorY2 < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {

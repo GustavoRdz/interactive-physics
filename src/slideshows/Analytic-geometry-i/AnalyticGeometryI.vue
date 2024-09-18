@@ -980,9 +980,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 36
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 36
+      example-thirtySix(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -990,9 +990,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 37
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 37
+      example-thirtySeven(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -1000,9 +1000,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 38
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 38
+      example-thirtyEight(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -1010,9 +1010,9 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 39
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 39
+      example-thirtyNine(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -1020,25 +1020,13 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 40
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 40
+      example-forty(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Forced oscillations
-    //-   .center
-    //-     img(src='./assets/forcedOscA.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/forcedOscillationsGraph.png' height="500px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -1051,65 +1039,6 @@ a<template lang="pug">
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       //- .next(@click.stop='nextSlide' style="float: right;")
       //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h6(style="margin-top: -0px;").center Problems
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p1.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-    .center
-    //-       img(src='./assets/p2.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p3.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p4.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p5.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p6.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p7.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p8.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer  
-    //-     .center
-    //-       img(src='./assets/p9.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer  
-    //-     .center
-    //-       img(src='./assets/p10.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p11.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p12.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer 
-    //-     .center
-    //-       img(src='./assets/p13.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p14.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer   
-    //-     .center
-    //-       img(src='./assets/p15.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer      
-    //-     .center
-    //-       img(src='./assets/t1.png' width="100%" style="margin: 0px 0px 0px 0px;")
-      
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
-      //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
- 
 
 </template>
 
@@ -1214,8 +1143,8 @@ export default {
       theme: 'Concepts and the straight line',
       isSpanish: true,
       languages: ['Inglés', 'Español'],
-      topics: ['Inicio', 'Temas', 'Segmento', 'Unidimensional', 'Bidimensional', 'Distancia', 'Divisiòn por una razon', 'Pendiente', 'Angulo 2 rectas', 'Definicion de recta', 'Diferentes formas', 'posiciones relativas', 'Bibliografía', 'Problemario'],
-      page: [1, 2, 3, 5, 7, 8, 12, 17, 23, 28, 28, 28, 35, 35]
+      topics: ['Inicio', 'Temas', 'Segmento', 'Unidimensional', 'Bidimensional', 'Distancia', 'Divisiòn por una razon', 'Pendiente', 'Angulo 2 rectas', 'Definicion de recta', 'Diferentes formas', 'posiciones relativas', 'circunferencia', 'Bibliografía'],
+      page: [1, 2, 3, 5, 7, 8, 12, 17, 23, 28, 31, 37, 47, 64]
     }
   },
   computed: {
