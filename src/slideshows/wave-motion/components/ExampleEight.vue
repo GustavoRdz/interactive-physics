@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A police car’s siren emits a sinusoidal wave with frequency <b>f<sub>s</sub></b> = {{ fSource}} Hz. The speed of sound is {{ speed }} m/s and the air is still.<br> (a) If a listener L is at rest and the siren is moving away from L at {{ speedSourceA }} m/s, what frequency does the listener hear? <br>(b) The siren is moving away from the listener with a speed of {{ speedSourceB }} m/s relative to the air, and the listener is moving toward the siren with a speed of {{ speedListener }} m/s relative to the air. What frequency does the listener hear?
+    p.problem La sirena de un coche de policía emite una onda sinusoidal con una frecuencia f<sub>f</sub> = {{ fSource}} Hz. La velocidad del sonido es de {{ speed }} m/s y el aire está en calma.<br>(a) Si un receptor R está en reposo y la sirena se aleja de R a {{ speedSourceA }} m/s, ¿qué frecuencia oye el receptor?<br>(b) La sirena se aleja del receptor con una velocidad de {{ speedSourceB }} m/s con respecto al aire, y el receptor se acerca a la sirena con una velocidad de {{ speedListener }} m/s con respecto al aire. ¿Qué frecuencia oye el receptor?
     .center
       p.solution Please do calculations and introduce your results
       p.inline.data f<sub>Source</sub> (Hz)

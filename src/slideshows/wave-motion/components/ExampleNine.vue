@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The police car is moving toward a warehouse at {{ speedSourceA }} m/s, emitting a sound of {{ frequency }}Hz. What frequency does the driver hear reflected from the warehouse?
+    p.problem El coche de policía se dirige a un almacén a  {{ speedSourceA }} m/s y emite un sonido de {{ frequency }} Hz. ¿Qué frecuencia oye el conductor reflejada en el almacén?
 
     .center
       p.solution Please do calculations and introduce your results

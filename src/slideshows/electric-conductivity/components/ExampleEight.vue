@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An uncharged capacitor and a resistor are connected in series to a battery as shown in Active Figure 28.16, where &epsilon; = 12.0 V, C = 5.00 &mu;F, and R = 8.00 &times; 10<sup>5</sup> &Omega;. The switch is thrown to position a. Find the time constant of the circuit, the maximum charge on the capacitor, the maximum current in the circuit, and the charge and current as functions of time.
+    p.problem Un capacitor y una resistencia sin carga están conectados en serie a una batería como se muestra en la figura, donde ε = 12,0 V, C = 5,00 μF y R = 8,00 x 10<sup>5</sup>&Omega;.<br> El interruptor se coloca en la posición <strong>a</strong>. Halla la constante de tiempo del circuito, la carga máxima en el capacitor, la corriente máxima en el circuito y la carga y la corriente como funciones del tiempo.
     .center 
       img(src='../assets/fig28-16A.png' width="300px")
     
@@ -119,6 +119,7 @@ export default {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;

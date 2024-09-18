@@ -1,7 +1,9 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider a capacitor of capacitance C that is being discharged through a resistor of resistance R.<br>(A) After how many time constants is the charge on the capacitor one-fourth its initial value?<br> (B) The energy stored in the capacitor decreases with time as the capacitor discharges. After how many time constants is this stored energy one-fourth its initial value?
+    p.problem Considere un capacitor de capacidad C que se está descargando a través de una resistencia de resistencia R. <br>A) ¿Después de cuántas constantes de tiempo la carga del capacitor es un cuarto de su valor inicial?<br> B) La energía almacenada en el capacitor disminuye con el tiempo a medida que el capacitor se descarga. ¿Después de cuántas constantes de tiempo esta energía almacenada es un cuarto de su valor inicial?
+
+    //- p.problem Consider a capacitor of capacitance C that is being discharged through a resistor of resistance R.<br>(A) After how many time constants is the charge on the capacitor one-fourth its initial value?<br> (B) The energy stored in the capacitor decreases with time as the capacitor discharges. After how many time constants is this stored energy one-fourth its initial value?
     .center 
       img(src='../assets/fig28-16C.png' width="300px")
     //-   p.solution Please do calculations and introduce your results

@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem An airplane is flying at Mach {{ M }} at an altitude of {{ h }} m, where the speed of sound is {{ speed }} m/s How long after the plane passes directly overhead will you hear the sonic boom?
+    p.problem Un avión está volando a Mach {{ M }} a una altitud de {{ h }} m, donde la velocidad del sonido es {{ speed }} m/s. ¿Cuánto tiempo después de que el avión pase directamente por encima oirás el estampido sónico?
     .center
       img(src='../assets/shockProblem.png' height="250px")
 

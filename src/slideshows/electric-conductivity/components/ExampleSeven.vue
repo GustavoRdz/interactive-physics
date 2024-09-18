@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Find the currents I1, I2, and I3 in the circuit shown in Figure.
+    p.problem Encuentre las corrientes I<sub>1</sub>, I<sub>2</sub> e I<sub>3</sub> en el circuito que se muestra en la Figura.
     .center
       img(src='../assets/fig28-15.png' height=300)
 

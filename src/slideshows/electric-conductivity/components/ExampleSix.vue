@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A single-loop circuit contains two resistors and two batteries as shown in Figure. Find the current in the circuit.
+    p.problem Un circuito de un solo bucle contiene dos resistencias y dos baterías, como se muestra en la figura. Halla la corriente en el circuito.
 
     .center
       img(src='../assets/fig28-14.png' height=250)
