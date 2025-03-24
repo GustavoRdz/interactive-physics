@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="700px" height="400px" viewBox="0 0 700 400" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+  <g transform="scale(1) translate(0, 0)">
+		<!-- Bourdon gauge -->
+
+		<!-- background -->
+		<circle r="175" cx="500" cy="200" fill="#dedede" stroke="#000" opacity="1"/>
+		<circle r="140" cx="500" cy="200" fill="#aaa" stroke="#000" opacity="1"/>
+
+		<!-- inlet tube-->
+		<path d="M150 180
+						 L180 178
+						 L180 222
+					   L150 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+		<path d="M180 180
+						 L210 178
+						 L210 222
+					   L180 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+		<path d="M210 180
+						 L240 178
+						 L240 222
+					   L210 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+		<path d="M240 180
+						 L270 178
+						 L270 222
+					   L240 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+		<path d="M270 180
+						 L300 178
+						 L300 222
+					   L270 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+		<path d="M300 180
+						 L420 180
+						 L420 220
+					   L300 220
+					   Z" fill="#d3d3d3" stroke="#000" opacity="1"/>
+
+    <!-- flexibe tube -->
+		<path d="M500 310
+		         A120 120 0 1 0 380 180
+						 L388 180
+		         A111 111 0 1 1 500 301
+					   Z" fill="#deaaaa" stroke="#000" opacity="1"/>
+		<!-- mechanism -->
+		<path d="M490 260
+		         L505 301
+						 L495 308
+						 L475 260
+					   Z" fill="#dedede" stroke="#000" opacity="1"/>
+		<path d="M480 185
+		         A10 10 0 0 1 525 207
+						 L490 260
+		         A10 10 0 1 1 468 250
+					   Z" fill="#dedede" stroke="#000" opacity="1"/>
+
+
+		<!-- center circle -->
+    <circle r="10" cx="502" cy="198"/>
+		<!-- screws -->
+		<circle r="7" cx="500" cy="305"/>
+		<circle r="7" cx="479" cy="255"/>
+
+		<!-- scale -->
+    <path d="M500 75
+		         A145 145 0 0 1 500 325
+						 A8 10 0 0 0 500 370
+             A100 100 0 0 0 500 29
+						 A8 10 0 0 0 500 75
+					   Z" fill="#eee" stroke="#000" opacity="0.7"/>
+
+		<path d="M500 40
+		         A145 145 0 0 1 500 360
+					   " fill="none" stroke="#222" stroke-width="10" opacity="1" stroke-dasharray="2 4"/>
+		<path d="M500 45
+		         A145 145 0 0 1 500 355
+					   " fill="none" stroke="#222" stroke-width="20" opacity="1" stroke-dasharray="2 27"/>
+
+		<!-- needle -->
+    <path d="M480 230
+		         A20 20 0 1 0 500 238
+						 L557 45
+					   Z" fill="orange" stroke="#000" opacity="1"/>
+	<!-- center circle -->
+    <circle r="10" cx="502" cy="198" fill="#555" stroke="#000"/>
+
+		<!-- draw text -->
+		<text x="200" y="80" fill="black" font-size="30" font-style="normal">Flexible</text>
+		<text x="200" y="105" fill="black" font-size="30" font-style="normal">pressure</text>
+		<text x="200" y="135" fill="black" font-size="30" font-style="normal">tube</text>
+
+		<line fill="none" stroke="#000000" stroke-width="2" x1="310" y1="100" x2="400" y2="120"/>
+
+		<text x="200" y="250" fill="black" font-size="30" font-family="Times new roman" font-style="normal">Inlet</text>
+		
+		<text x="40" y="250" fill="black" font-size="30" font-family="Times new roman" font-style="normal">Pressure</text>
+		<text x="30" y="280" fill="black" font-size="30" font-family="Times new roman" font-style="normal">to measure</text>
+
+		<line fill="none" stroke="#f00" stroke-width="5" x1="30" y1="200" x2="140" y2="200" stroke-linecap="round"/>
+    <line fill="none" stroke="#f00" stroke-width="5" x1="110" y1="205" x2="135" y2="200" stroke-linecap="round"/>
+    <line fill="none" stroke="#f00" stroke-width="5" x1="110" y1="195" x2="135" y2="200" stroke-linecap="round"/>
+
+	</g>
+
+	<!-- <g>
+	
+		<text x="3" y="30" fill="blue" font-size="35" font-family="Times new roman" font-style="normal">Pressure at the bottom</text>
+
+		<text x="3" y="80" fill="black" font-size="35" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="15">atm</tspan> + &#x03c1;gy<tspan baseline-shift="sub" font-size="15">1</tspan> = p<tspan baseline-shift="sub" font-size="15">0</tspan> + &#x03c1;gy<tspan baseline-shift="sub" font-size="15">2</tspan></text>
+
+		<text x="3" y="150" fill="black" font-size="35" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="15">atm</tspan> - p<tspan baseline-shift="sub" font-size="15">0</tspan> = &#x03c1;g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="15">2</tspan> - y<tspan baseline-shift="sub" font-size="15">1</tspan><tspan font-style="normal">)</tspan></text>
+
+		<text x="3" y="230" fill="black" font-size="40" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="15">atm</tspan> + 0 = &#x03c1;gh</text>
+
+		<text x="3" y="300" fill="green" font-size="35" font-family="Times new roman" font-style="normal">Atmospheric pressure</text>
+
+		<text x="30" y="360" fill="black" font-size="40" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="15">atm</tspan>= &#x03c1;gh</text>
+	</g> -->
+</svg>

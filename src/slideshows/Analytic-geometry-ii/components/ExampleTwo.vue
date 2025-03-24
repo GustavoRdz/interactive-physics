@@ -1,128 +1,205 @@
 <template lang="pug">
-  eg-transition(:enter='enter', :leave='leave')
-    .eg-slide-content
-      p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem A spring is mounted horizontally, with its left end fixed. A spring balance attached to the free end and pulled toward the right indicates that the stretching force is proportional to the displacement, and a force of {{ force }} N causes a displacement of {{ displacement }} m. We replace the spring balance with a {{ mass }}-kg glider, pull it {{ pullDistance }} m to the right along a frictionless air track, and release it from rest. (a) Find the force constant <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> of the spring. (b) Find the angular frequency <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, frequency <span style="font-family: times; font-style: italic; font-weight: bold;">f</span>, and period <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> of the resulting oscillation.
-      p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Un resorte está montado horizontalmente, con su extremo izquierdo fijo. Un dinamómetro de resorte unida al extremo libre y tirada hacia la derecha indica que la fuerza de estiramiento es proporcional al desplazamiento, y una fuerza de {{ force }} N provoca un desplazamiento de {{ displacement }} m. Reemplazamos el dinamómetro con un deslizador de {{ mass }} kg, lo tiramos {{ pullDistance }} m hacia la derecha a lo largo de una pista de aire sin fricción y lo soltamos desde el reposo. (a) Encuentre la constante de fuerza <span style="font-family: times; font-style: italic; font-weight: bold;">k</span> del resorte. (b) Encuentre la frecuencia angular <span style="font-family: times; font-style: italic; font-weight: bold;">&omega;</span>, la frecuencia <span style="font-family: times; font-style: italic; font-weight: bold;">f</span> y el período <span style="font-family: times; font-style: italic; font-weight: bold;">T</span> de la oscilación resultante.
-      .center
-        p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
-        p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-        p.inline.data Force (N)
-          input.center.data(:class="checkedF" v-model.number='enterF')
-          <span class="error" v-if="errorF">[e: {{ errorF.toPrecision(3) }}%]</span>
-        p.inline.data Displacement (m)
-          input.center.data(:class="checkedD" v-model.number='enterD')
-          <span class="error" v-if="errorD">[e: {{ errorD.toPrecision(3) }}%]</span>
-        p.inline.data Mass (Kg)
-          input.center.data(:class="checkedM" v-model.number='enterM')
-          <span class="error" v-if="errorM">[e: {{ errorM.toPrecision(3) }}%]</span>
-        p.inline.data Pull distance (m)
-          input.center.data(:class="checkedPullD" v-model='enterPullD')
-          <span class="error" v-if="errorPullD">[e: {{ errorPullD.toPrecision(3) }}%]</span>
-        p.inline.data Elastic constant (N/m)
-          input.center.data(:class="checkedK" v-model='enterK')
-          <span class="error" v-if="errorK">[e: {{ errorK.toPrecision(3) }}%]</span>
-        p.inline.data Angular frequency (rad/s)
-          input.center.data(:class="checkedOmega" v-model='enterOmega')
-          <span class="error" v-if="errorOmega">[e: {{ errorOmega.toPrecision(3) }}%]</span>
-        p.inline.data Frequency (Hz)
-          input.center.data(:class="checkedFr" v-model='enterFr')
-          <span class="error" v-if="errorFr">[e: {{ errorFr.toPrecision(3) }}%]</span>
-        p.inline.data Period (s)
-          input.center.data(:class="checkedT" v-model='enterT')
-          <span class="error" v-if="errorT">[e: {{ errorT.toPrecision(3) }}%]</span>
+eg-transition(:enter='enter', :leave='leave')
+  .eg-slide-content
+    p.problem Discutir el lugar geométrico de la ecuación
+    p(style="margin: 15px 0 50px 0; ").problema.center
+      <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ A>0 ? " " : " - " }}{{ A===""  ? " 0 " : Math.abs(A)===1 ? "" : Math.abs(A) }}</span>
+      <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+      <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
+      <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ B>0 ? "  " : " - " }}{{ B===""  ? " 0 " : Math.abs(B)===1 ? "" : Math.abs(B) }}</span>
+      <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
 
-</template>
+    .center
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" height="300px" width="600px" >
+        //- <rect x="10" y="10" width="1040" height="490" fill="none" stroke="#000" />
+        <!-- x grid -->
+        <line v-for="x in xScale" fill="none" stroke="#000" stroke-width="0.3" :x1="x" y1="0" :x2="x" y2="300" stroke-linecap="round"/>
+        <!-- x grid short-->
+        <line v-for="x in xScale" fill="none" stroke="#000" stroke-width="0.3" :x1="x" y1="144" :x2="x" y2="155" stroke-linecap="round"/>
+        <!-- x scale bold -->
+        //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
+        <!-- y grid -->
+        <line v-for="y in yScale" fill="none" stroke="#000" stroke-width="0.3" x1="0" :y1="y" x2="300" :y2="y" stroke-linecap="round"/>
+        <!-- y grid short-->
+        <line v-for="y in yScale" fill="none" stroke="#000" stroke-width="0.3" x1="145" :y1="y" x2="155" :y2="y" stroke-linecap="round"/>
+        
+        
+        <!-- x Axis -->
+        //- <path d="M0 150 l300 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        <path d="M0 150 l300 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
+        <text x="285" y="169" font-size="25" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
+
+        <!-- y Axis -->
+        <path d="M150 300 l0 -300 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
+        <text x="133" y="13" font-size="25" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
+              
+        <text x="132" y="168" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
+        
+        <!-- plots -->
+        <!-- directriz -->
+        <line v-if="enterPotencia == 2 & showP" x1="0" :y1="150 + deltaY*enterP" x2="300" :y2="150 + deltaY*enterP" fill="none" stroke="#0AF" stroke-width="3" stroke-linecap="round"/>
+        <line v-if="enterPotencia == 1 & showP" :x1="150 - deltaX*enterP" y1="0" :x2="150 - deltaX*enterP" y2="300" fill="none" stroke="#0AF" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- Parabola -->
+        <path v-if="enterPotencia == 2 || enterPotencia == 1" :d="parabola" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        
+        <!-- Lado recto -->
+        <line v-if="showLR & enterPotencia == 2" x1="0" :y1="150 + deltaY*enterP" x2="300" :y2="150 + deltaY*enterP" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+        <line v-if="showLR & enterPotencia == 1" :x1="150 + deltaX*enterP" :y1="150 - 2*deltaY*enterP" :x2="150 + deltaX*enterP" :y2="150 + 2*deltaY*enterP" fill="none" stroke="#0aF" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- f(p,0) -->
+        <circle v-if="enterPotencia == 2 & showf" r="4" cx="150" :cy="150 - deltaY*enterP"  fill="#000" stroke="#F00" stroke-width="2"/>
+        <circle v-if="enterPotencia == 1 & showf" r="4" :cx="150+deltaX*enterP" cy="150"  fill="#000" stroke="#F00" stroke-width="2"/>
+        
+        <!-- texto f(p, 0) -->
+        <text v-if="enterPotencia == 2 & showf" x="160" :y="140 - deltaY*enterP" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(0, <tspan style="font-style: italic;">p</tspan>)</text>
+        <text v-if="enterPotencia == 1 & showf" :x="160 + deltaX*enterP" y="170" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(<tspan style="font-style: italic;">p</tspan>, 0)</text>
+        
+        <!-- ecuacion parabola -->
+         <text v-if="enterPotencia == 2" x="320" y="100" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;= 4<tspan style="font-size: 30px; font-style: italic;">py</tspan></text>
+
+         <text v-if="enterPotencia == 1" x="320" y="100" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;= 4<tspan style="font-size: 30px; font-style: italic;">px</tspan></text>
+         <text v-if="enterPotencia == 1 & showEc" x="320" y="140" font-size="30" fill="#000" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">y</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;= {{ 4*enterP }}<tspan style="font-size: 30px; font-style: italic;">x</tspan></text>
+
+        <!-- texto L(-p,y) -->
+        <text v-if="enterPotencia == 2 & showP" x="170-deltaX*enterP" :y="170 + deltaY*enterP" font-size="20" fill="#00F" font-weight="bold" font-family="Times" style="font-style: italic;">L(x, <tspan style="font-style: italic;">-p</tspan>)
+        </text>
+        <text v-if="enterPotencia == 1 & showP" :x="160-deltaX*enterP" y="50 " font-size="20" fill="#00F" font-weight="bold" font-family="Times" style="font-style: italic;">L(<tspan style="font-style: italic;">-p</tspan>, x)
+          //- <animate attributeName="x" :values="parabolaX" dur="5" repeatCount="indefinite"/>
+        </text>
+
+      </svg>
+      //- p.center {{ sgA }}  {{ sgB }}
+    //- p.center H={{ H }}, K={{ K }}, R={{ R }}<br>X1={{ X1 }},Y1={{ Y1 }} 
+    .center
+      p.solution Please do calculations and introduce your results
+      p.inline.data p
+        input.center.data(:class="checkedP" v-model.number='enterP')
+        <span class="error" v-if="errorP">[e: {{ errorP.toPrecision(3) }}%]</span>
+      p.inline.data f
+        input.center.data(:class="checkedf" v-model.number='enterf')
+        <span class="error" v-if="errorf">[e: {{ errorf.toPrecision(3) }}%]</span>
+      p.inline.data Lado recto
+        input.center.data(:class="checkedLR" v-model.number='enterLR')
+        <span class="error" v-if="errorLR">[e: {{ errorLR.toPrecision(3) }}%]</span>
+      </template> 
+
 <script>
 import eagle from 'eagle.js'
 export default {
-  props: {
-    language: Boolean
-  },
   data: function () {
     return {
-      enterF: '',
-      errorF: 0,
-      enterD: '',
-      errorD: 0,
-      enterM: '',
-      errorM: 0,
-      enterPullD: '',
-      errorPullD: 0,
-      enterK: '',
-      errorK: 0,
-      enterOmega: '',
-      errorOmega: 0,
-      enterFr: '',
-      errorFr: 0,
-      enterT: '',
-      errorT: 0
+      enterf: '',
+      errorf: 0,
+      enterLR: '',
+      errorLR: 0,
+      enterP: '',
+      errorP: 0,
+      enterPotencia: 1,
+      pointsX: 20,
+      pointsY: 20,
+      parabolaX: '',
+      parabolaY: '',
+      showLR: ''
     }
   },
   computed: {
-    force: function () {
+    A: function () {
       console.clear()
-      let max = 10
+      let max = 5
+      let min = 1
+      return this.sgA * Math.round(Math.random() * (max - min + 1) + min)
+    },
+    B: function () {
+      let max = 20
       let min = 5
-      return Math.floor(100 * (Math.random() * (max - min + 1) + min)) / 100
+      return this.sgB * Math.round(Math.random() * (max - min + 1) + min)
     },
-    displacement: function () {
-      let max = 10
-      let min = 2
-      return Math.floor(10 * (Math.random() * (max - min + 1) + min)) / 1000
+    sgA: function () {
+      let max = 0
+      let min = 0
+      return 2 * Math.round(Math.random() * (max - min + 1) + min) - 1
     },
-    mass: function () {
-      let max = 8
-      let min = 2
-      return Math.floor(100 * Math.random() * (max - min + 1) + min) / 1000
+    sgB: function () {
+      let max = 0
+      let min = 0
+      return 2 * Math.round(Math.random() * (max - min + 1) + min) - 1
     },
-    pullDistance: function () {
-      let max = 8
-      let min = 2
-      return Math.floor(10 * Math.random() * (max - min + 1) + min) / 1000
+    LR: function () {
+      return Math.abs(4 * this.p)
     },
-    elastic: function () {
-      return this.force / this.displacement
+    f: function () {
+      return this.p
     },
-    frequency: function () {
-      return this.angular / (2 * Math.PI)
+    p: function () {
+      return this.B / (this.A * 4)
     },
-    angular: function () {
-      return Math.sqrt(this.elastic / this.mass)
+    deltaX: function () {
+      return 300 / (this.pointsX + 0)
     },
-    period: function () {
-      return 1 / this.frequency
+    deltaY: function () {
+      return 300 / (this.pointsY + 0)
     },
-    checkedF: function () {
-      this.errorF = this.errorRelative('Force => ', this.force, parseFloat(this.enterF))
-      return this.errorF < 1e-1 ? 'correct' : 'not-correct'
+    xScale: function () {
+      let xs = []
+      for (var j = 0; j < this.pointsX + 1; j++) {
+        xs[j] = -0 + j * this.deltaX
+      }
+      return xs
     },
-    checkedD: function () {
-      this.errorD = this.errorRelative('Displacement => ', this.displacement, parseFloat(this.enterD))
-      return this.errorD < 1e-1 ? 'correct' : 'not-correct'
+    yScale: function () {
+      let ys = []
+      for (var j = 0; j < this.pointsY + 1; j++) {
+        ys[j] = -0 + j * this.deltaY
+      }
+      return ys
     },
-    checkedM: function () {
-      this.errorM = this.errorRelative('Mass => ', this.mass, parseFloat(this.enterM))
-      return this.errorM < 1e-1 ? 'correct' : 'not-correct'
+    parabola () {
+      let d = ''
+      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
+      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
+      // let ranges = [350, 335, 294, 233, 167, 106, 65, 50, 65, 106, 167, 233, 294, 335, 350]
+      let points = 40
+      // for (var i = 0; i < ranges.length; i++) {
+      let d1 = '' // + `${150}, ${150} `
+      let d2 = '' // + `${150}, ${150} `
+      let period = this.pointsX // ranges[i] / 7
+      let delta = period / (points - 1) // ranges[i] / (points + 0)
+      let potencia = this.enterPotencia === 1 ? 0.5 : 2
+      console.log(potencia)
+      let coef = this.enterPotencia === 1 ? Math.sqrt(4 * Math.abs(this.enterP)) : 1 / (4 * Math.abs(this.enterP))
+      coef = this.enterP < 0 ? -coef : coef
+      // let coefY = this.enterPotencia === 1 ? Math.sqrt(4 * this.enterP) : 1
+      for (var j = 0; j < points - 1; j++) {
+        let xR = 150 + this.deltaX * (j * delta) * coef / Math.abs(coef)
+        let xL = 150 - this.deltaX * (j * delta) * coef / Math.abs(coef)
+        let yUp = 150 - this.deltaY * coef * (j * delta) ** potencia
+        let yDn = 150 + this.deltaY * coef * (j * delta) ** potencia
+        this.parabolaX += `${xR};`
+        this.parabolaY += `${yUp};`
+        d1 = this.enterPotencia === 1 ? d1 + `${xR},${yUp} ` : d1 + `${xR},${yUp} `
+        d2 = this.enterPotencia === 1 ? d2 + `${xR},${yDn} ` : d2 + `${xL},${yUp} `
+      }
+      // d1 = d1 + ` ${ranges[i] + 30},90 ${ranges[i] + 50},90;`
+      d = 'M' + d1 + ' M' + d2
+      // }
+      return d
     },
-    checkedPullD: function () {
-      this.errorPullD = this.errorRelative('Pull distance => ', this.pullDistance, parseFloat(this.enterPullD))
-      return this.errorPullD < 1e-1 ? 'correct' : 'not-correct'
+    checkedP: function () {
+      this.errorP = this.errorRelative('P => ', this.p, parseFloat(this.enterP))
+      this.showP = this.errorP < 1e-1
+      return this.errorP < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedK: function () {
-      this.errorK = this.errorRelative('elastic K => ', this.elastic, parseFloat(this.enterK))
-      return this.errorK < 1e-1 ? 'correct' : 'not-correct'
+    checkedf: function () {
+      this.errorf = this.errorRelative('f => ', this.f, parseFloat(this.enterf))
+      this.showf = this.errorf < 1e-1
+      return this.errorf < 1e-1 ? 'correct' : 'not-correct'
     },
-    checkedOmega: function () {
-      this.errorOmega = this.errorRelative('Angular freq => ', this.angular, parseFloat(this.enterOmega))
-      return this.errorOmega < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedFr: function () {
-      this.errorFr = this.errorRelative('frequency => ', this.frequency, parseFloat(this.enterFr))
-      return this.errorFr < 1e-1 ? 'correct' : 'not-correct'
-    },
-    checkedT: function () {
-      this.errorT = this.errorRelative('Period => ', this.period, parseFloat(this.enterT))
-      return this.errorT < 1e-1 ? 'correct' : 'not-correct'
+    checkedLR: function () {
+      this.errorLR = this.errorRelative('LR => ', this.LR, parseFloat(this.enterLR))
+      this.showLR = this.errorLR < 1e-1
+      return this.errorLR < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {
@@ -138,6 +215,22 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.eg-slide {
+  .eg-slide-content {
+    // FIGURE AND CAPTIONS
+    .figure {
+      p {
+        font-size: 0.7em;
+        margin-top: 2em;
+        margin-bottom: 0;
+        color: #555;
+      }
+      width: 80%;
+      margin-left: 10%;
+    }
+  }
+}
+
 .data {
   display: inline-block;
   width: 100px;
@@ -145,26 +238,26 @@ export default {
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
+
 .problem {
-  margin: 0;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
+
 .solution {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
+
 .not-correct {
   background: #fa4408;
 }
 .correct {
   background: #80c080;
-}
-.error {
-  font-size: 14px;
 }
 </style>
