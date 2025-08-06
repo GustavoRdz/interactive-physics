@@ -54,13 +54,14 @@ eg-transition(:enter='enter', :leave='leave')
         //- <circle r="4" :cx="150+deltaX*enterP" cy="150"  fill="#000" stroke="#F00" stroke-width="2"/>
 
          <!-- Lado recto -->
-        <line v-if="showLR & enterPotencia == 2" x1="0" :y1="150 + deltaY*enterP" x2="300" :y2="150 + deltaY*enterP" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round"/>
-        <line v-if="showLR & enterPotencia == 1" :x1="150 + deltaX*enterP" :y1="150 - 2*deltaY*enterP" :x2="150 + deltaX*enterP" :y2="150 + 2*deltaY*enterP" fill="none" stroke="#0aF" stroke-width="3" stroke-linecap="round"/>
+        //- <line v-if="showLR" x1="0" :y1="150 + deltaY*enterP" x2="300" :y2="150 + deltaY*enterP" fill="none" stroke="#555" stroke-width="3" stroke-linecap="round"/>
+        <line v-if="showLR & enterOr == 'v'" :x1="150 - 2*deltaX*enterP" :y1="150 - deltaY*enterP" :x2="150 + 2*deltaX*enterP" :y2="150 - deltaY*enterP" fill="none" stroke="#0aF" stroke-width="3" stroke-linecap="round"/>
+        <line v-if="showLR & enterOr == 'h'" :x1="150 + deltaX*enterP" :y1="150 - 2*deltaY*enterP" :x2="150 + deltaX*enterP" :y2="150 + 2*deltaY*enterP" fill="none" stroke="#0aF" stroke-width="3" stroke-linecap="round"/>
         
 
         <!-- texto f(p, 0) -->
-        <text v-if="enterPotencia == 2 & showf" x="160" :y="140 - deltaY*enterP" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(0, <tspan style="font-style: italic;">p</tspan>)</text>
-        <text v-if="enterPotencia == 1 & showf" :x="130 + deltaX*enterP" y="170" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(<tspan style="font-style: italic;">p</tspan>, 0)</text>
+        <text v-if="enterOr == 'v' & showf" x="160" :y="140 - deltaY*enterP" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(0, <tspan style="font-style: italic;">p</tspan>)</text>
+        <text v-if="enterOr == 'h' & showf" :x="130 + deltaX*enterP" y="170" font-size="20" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">f</tspan>(<tspan style="font-style: italic;">p</tspan>, 0)</text>
         
         <!-- ecuacion parabola -->
          <text v-if="enterPotencia == 2" x="320" y="100" font-size="30" fill="#00F" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 15px;" baseline-shift = "super">2</tspan>&ensp;= 4<tspan style="font-size: 30px; font-style: italic;">py</tspan></text>
@@ -207,7 +208,7 @@ export default {
     },
     checkedOr: function () {
       // this.errorOr = this.errorRelative('Orientacion => ', this.Or, this.enterOr)
-      // this.showLineC = this.errorC < 1e-1
+      this.showL = this.enterOr === this.Or
       return this.enterOr === this.Or ? 'correct' : 'not-correct'
     },
     checkedP: function () {

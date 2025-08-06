@@ -65,6 +65,13 @@
       .center
         wordSearch
 
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
+      h4(style="text-transform: uppercase; margin-top: -20px;").center Fenomeno de difracción de la luz
+      h6(style="text-transform: uppercase; margin-top: -20px;").center Rejilla de difracción
+      .center
+        graficaVisionArtificial
+
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false')
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} </sup>
       h4(style="text-transform: uppercase; margin-top: -20px;").center Fenomeno de difracción de la luz
@@ -400,6 +407,7 @@ export default {
     'worm': require('./components/worm'),
     'lander': require('./components/lander'),
     'diffraction-grating': require('./components/DiffractionGrating'),
+    'graficaVisionArtificial': require('./components/graficaVisionArtificial'),
     'spring-mass': require('./components/SpringMass'),
     'reflection': require('./components/reflection'),
     'example-one': require('./components/ExampleOne'),

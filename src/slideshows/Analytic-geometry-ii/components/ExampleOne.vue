@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Discutir el lugar geometrico de la ecuación
+    p.problem Discutir el lugar geométrico de la ecuación
     p(style="margin: 15px 0 10px 0; ").problema.center
       <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ A>0 ? " - " : " " }}{{ A===""  ? " 0 " : Math.abs(A)===1 ? "" : Math.abs(A) }}</span>
       <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
