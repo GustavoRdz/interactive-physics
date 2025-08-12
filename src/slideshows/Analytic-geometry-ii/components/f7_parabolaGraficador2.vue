@@ -150,7 +150,7 @@ eg-transition(:enter='enter', :leave='leave')
       //- p {{ parabolaX }} ::: {{ parabolaY }}
     //- p {{ xScale }}, {{ yScale }}, {{ deltaX }}, {{ deltaY }}
     .center
-      p.solution Introdusca los parametros
+      p.solution Introduzca los parametros
       p.inline.data <span style="font-family: Times;">¿Potencia de x?<br>(1 o 2)</span>
         input.center.data(:class="checkedPotencia" v-model.number='enterPotencia')
         //- <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>

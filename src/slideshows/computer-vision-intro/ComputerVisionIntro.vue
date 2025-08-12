@@ -3,9 +3,7 @@
   .eg-slideshow
     div(style="width: 100%; ;display: flex; align-items: flex-start;").container
       button(:class="{active:isActive}" @click="isActive = !isActive").lenguage {{ a = isActive ? languages[0]:languages[1] }}
-      button(@click="currentSlideIndex = 2").themes Temas
-      button(@click="currentSlideIndex = 4").themes Intro
-      button(@click="currentSlideIndex = 17").themes Geo. proyect.
+      button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
 
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false')
       .center.frontpage
@@ -47,23 +45,23 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
 
-    slide(:mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Evaluación</sup>
-      h6(v-if = '!isActive') Course topics
-      h6(v-if = 'isActive') Temas del curso
-      .center
-      ul
-        li Actividad 1: Formación y procesado de imagenes (5%)
-        li Actividad 2: Transformaciones 2D (10%)
-        li Actividad 3: Examen de medio curso (20%)
-        li Actividad 4: Detección de movimiento (10%)
-        li Actividad 5: Reconstrucción 3D (10%)
-        li Actividad 6: Examen ordinario (20%)
-        li Actividad 7: PIA (25%)
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(:mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Evaluación</sup>
+    //-   h6(v-if = '!isActive') Course topics
+    //-   h6(v-if = 'isActive') Temas del curso
+    //-   .center
+    //-   ul
+    //-     li Actividad 1: Formación y procesado de imagenes (5%)
+    //-     li Actividad 2: Transformaciones 2D (10%)
+    //-     li Actividad 3: Examen de medio curso (20%)
+    //-     li Actividad 4: Detección de movimiento (10%)
+    //-     li Actividad 5: Reconstrucción 3D (10%)
+    //-     li Actividad 6: Examen ordinario (20%)
+    //-     li Actividad 7: PIA (25%)
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Introduction</sup>
@@ -233,9 +231,56 @@
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Procesado de Imágenes</sup>
+      h1(v-if = 'isActive' style="margin: 0 0 0px 0px;" ).center Procesado de imágenes
+    
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Procesado de imágenes</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Procesado de imágenes
+      p(v-if = 'isActive')
+      .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>Histograma</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>Modificaciones de imagenes usando el Histograma</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Filtros en el dominio espacial</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Filtros en el dominio de frecuencia</b>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h1(v-if = 'isActive' style="margin: 0 0 0px 0px;" ).center Geometría proyectiva
-    
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometria proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Geometria proyectiva
+      p(v-if = 'isActive')
+      .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>Puntos, líneas y planos</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>Transformaciones 2D</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Homografia</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Transformaciones 3D</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Reconstruccion 3D</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Calibración</b>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
@@ -308,6 +353,27 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Detección de caracteristicas</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Detección de carcterísticas
+      p(v-if = 'isActive')
+      .center
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>Estimación de parametros</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if = 'isActive') <b>SIFT</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Local Binary Patterns</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Haralick</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if = 'isActive') <b>Gabor</b>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References</sup>
         h3 References
@@ -353,7 +419,9 @@ export default {
   data: function () {
     return {
       isActive: true,
-      languages: ['🇺🇸', '🇲🇽']
+      languages: ['🇺🇸', '🇲🇽'],
+      topics: ['Inicio', 'temas', 'Intro', 'histograma', 'Filtro espacial', 'Filtro frecuencias', 'Grometria proyectiva', 'Deteccion de caracteristicas', 'Bibliografía'],
+      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
     }
   },
   methods: {

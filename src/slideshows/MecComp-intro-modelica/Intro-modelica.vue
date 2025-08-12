@@ -30,9 +30,9 @@
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(style="margin: -10px 0 0 0;") <b>Modelos atomicos</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(style="margin: -10px 0 0 0;") <b>Integración de sistemas</b>
+          p(style="margin: -10px 0 0 0;") <b>Modelos hibridos</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-          p(style="margin: -10px 0 0 0;") <b>Optomecatronica</b>
+          p(style="margin: -10px 0 0 0;") <b>Integración de sistemas</b>
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")

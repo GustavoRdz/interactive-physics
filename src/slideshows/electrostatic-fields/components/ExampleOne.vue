@@ -65,7 +65,7 @@ export default {
       return this.ke * this.e * this.e / this.distance ** 2
     },
     forceG: function () {
-      return this.G * this.me * this.me / this.distance ** 2
+      return this.G * this.me * this.mp / this.distance ** 2
     },
     checkedR: function () {
       this.errorR = this.errorRelative('distance=> ', this.distance, parseFloat(this.enterR))

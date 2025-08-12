@@ -55,13 +55,13 @@ export default {
     // require('./vision-systems-morph/morphFilters'),
     // require('./vision-systems-regions-binary/regionBinary'),
     // require('./vision-systems-fourier/fourier'),
-    require('./computer-vision-intro/computerVisionIntro'),
+    require('./computer-vision-intro/computerVisionIntro')
     // require('./computer-vision-image-formation/ImageFormation'),
     // require('./vision-systems-lab/visionSystemsLab'),
     // require('./introduction/Introduction'),
     // require('./comming-soon/CommingSoon'),
-    require('./quantum-computing/QuantumComputing'),
-    require('./gms/gms')
+    // require('./quantum-computing/QuantumComputing'),
+    // require('./gms/gms')
   ]
 }
 
