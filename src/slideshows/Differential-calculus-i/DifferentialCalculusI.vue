@@ -75,85 +75,9 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Segmento rectilíneo dirigido
-      p(style="margin-top: -40px; color: blue;").center Se llama segmento rectilíneo a la porción de una línea recta comprendida entre dos de sus puntos, llamados extremos del segmento. 
-      segment
-      //- .center
-      //-   img(width="400px" src='./assets/motor vocho.gif')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Longitud de un segmento rectilíneo dirigido
-      p(style="margin-top: -40px; color: blue;").center <span style='font-weight: bold; font-size: 40px;'>Positiva</span>, segmento dirigido en el sentido de la recta. 
-      p(style="margin-top: -40px; color: blue;").center <span style='font-weight: bold; font-size: 40px;'>Negativa</span>, segmento dirigido en el sentido opuesto de la recta. 
-      longitud
-      //- .center
-      //-   img(width="400px" src='./assets/motor vocho.gif')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Sistema coordenado unidimensional
-      p(style="margin-top: -40px; color: blue;") Este sistema se representa gráficamente con una recta, donde se coloca un punto de referencia llamado origen.
-      p(style="margin-top: -0px; color: blue;") Cualquier valor sobre el eje se hace referencia a través de una variable, por ejemplo <span style="font-family: Times; font-style: italic; font-weight: bold;">x</span>.
-      coord-unidim
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Distancia entre dos puntos
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 1</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">La distancia entre dos puntos <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>), en un sistema de coordenadas unidimensionales se define como el valor absoluto de la longitud del segmento rectilíneo.</span> 
-      p(style="margin-top: -0px; color: blue;") Se expresa como:
-      distancia-formula
-      p(style="margin-top: -0px; color: blue;") Demostración
-      p(style="margin-top: -0px; color: blue;") Colocando los puntos P1 y P2 en un sistema coordenado lineal
-      demo-points
-      p(style="margin-top: -0px; color: blue;") Tenemos que
-      demo-dist
-      p(style="margin-top: -0px; color: blue;") Por lo tanto la distancia entre dos puntos es 
-      demo-dist-conclusion
-      //- .center
-      //-   img(width="400px" src='./assets/motor vocho.gif')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Sistema coordenado bidimensional
-      p(style="margin-top: -40px; color: blue;") El sistema coordenado rectagular consta de dos rectas dirigidas, perpendiculares entre si, llamadas ejes de coordenadas.
-      coord-bidim
-      //- .center
-      //-   img(width="400px" src='./assets/motor vocho.gif')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Distancia entre dos puntos
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 2</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Dados dos puntos cualsequiera <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>), la distancia esta dada por</span> 
-      p(style="margin-top: -0px; color: blue;") Se expresa como:
-      distancia-formula-bidim
-      p(style="margin-top: -0px; color: blue;") Demostración
-      p(style="margin-top: -0px; color: blue;") Colocando los puntos <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> en un sistema coordenado, se construye un triángulo rectángulo
-      demo-dist-bidim
-      p(style="margin-top: -0px; color: blue;") Analizamos las distancias entre los punto en cada eje o cateto del triángulo
-      demo-dist-catetos
-      p(style="margin-top: -0px; color: blue;") usando el teorema de pitágoras 
-      demo-dist-bidim-conclusion
+      h4(style="margin-top: -20px; color: green;").center Funciones
+      p(style="margin-top: -40px; padding: 20px; border-style: solid; text-align: left;").center Sean <span class="mib">X</span> y <span class="mib">Y</span> conjuntos de números reales. Una función real <span class="mib">f</span> de una variable real <span class="mib">x</span> de <span class="mib">X</span> a <span class="mib">Y</span> es una regla de correspondencia que asigna a cada número <span class="mib">x</span> de <span class="mib">X</span> exactamente un número <span class="mib">y</span> de <span class="mib">Y</span>.<br><br> El <span style="font-family: roboto; font-weight: bold; font-size: 25px; font-style: normal;">dominio</span> de <span class="mib">f</span> es el conjunto <span class="mib">X</span>. El número <span class="mib">y</span> es la imagen de <span class="mib">x</span> por <span class="mib">f</span> y se denota mediante <span class="mib">f</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span>, a lo cual se le llama el valor de <span class="mib">f</span> en <span class="mib">x</span>.<br><br> El recorrido o <span style="font-family: roboto; font-weight: bold; font-size: 25px; font-style: normal;">rango</span> de <span class="mib">f</span> se define como el subconjunto de <span class="mib">Y</span> formado por todas las imágenes de los números de <span class="mib">X</span>.
+      funcionDiagram
       //- .center
       //-   img(width="400px" src='./assets/motor vocho.gif')
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -192,18 +116,22 @@ a<template lang="pug">
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center División de un segmento en una razón dada
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 3</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son los exteremos del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>,las coordenadas, (<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) de un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span> que divide al segmento  en la razón <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">1</span></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span></span>/<span style="text-decoration-line: overline"><span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<span style="font-style: normal;">2</span></span></span> son:
-      razon-division-segmento
-      p(style="margin-top: -0px; color: blue;") Demostración
-      razon-division-segmento-demo
-      p(style="margin-top: -0px; color: blue;") Consideraciones
-      ul(style="margin-top: -0px; color: blue;") 
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">r</span> &gt; 0, el punto <span style="font-family: roboto; font-weight: normal; font-style: italic;">P</span> que divide el segmento está dentro del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>.
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">r</span> &lt; 0 el punto <span style="font-family: roboto; font-weight: normal; font-style: italic;">P</span> que divide el segmento es externo al segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>.
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">r</span> = 1 el punto <span style="font-family: roboto; font-weight: normal; font-style: italic;">P</span> que divide el segmento es el punto medio del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> y sus coordenadas son .
-          razon-division-segmento-punto-medio
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">r</span> = -1 el punto <span style="font-family: roboto; font-weight: normal; font-style: italic;">P</span> que divide el segmento está sobre uno de los extremos del segmento <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>.
+      h4(style="margin-top: -30px; color: green;").center Límite
+      p(style="margin-top: -50px; color: blue; text-align: left;").center Definición de límite 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Sea <span class="mib">f</span> una función definida en un intervalo abierto que contiene a <span class="mib">c</span> (salvo posiblemente en <span class="mib">c</span>) y <span class="mib">L</span> un número real. La afirmación 
+        <svg width="500" height="80">
+          <text x="70" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">) = </tspan><tspan style="font-size: 30px; font-style: italic;">L</tspan></text>
+          <text x="70" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+        | <br>significa que para todo &epsilon; &gt; 0 existe uno &delta; &gt; 0 tal que si 
+        <svg width="500" height="80">
+          <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times">0 &lt; <tspan style="font-size: 30px; font-style: italic;"> x - c </tspan> &lt; <tspan style="font-size: 30px; font-style: italic;">&delta;,</tspan> &ensp; entonces &ensp; <tspan style="font-size: 30px; font-style: italic;"> f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan><tspan style="font-size: 30px; font-style: italic;"> - L </tspan> &lt; &epsilon;</text>
+          <line  x1="65" y1="15" x2="65" y2="50" fill="none" stroke="#000" stroke-width="2"stroke-linecap="round"/>
+          <line  x1="122" y1="15" x2="122" y2="50" fill="none" stroke="#000" stroke-width="2"stroke-linecap="round"/>
+          <line  x1="338" y1="15" x2="338" y2="50" fill="none" stroke="#000" stroke-width="2"stroke-linecap="round"/>
+          <line  x1="437" y1="15" x2="437" y2="50" fill="none" stroke="#000" stroke-width="2"stroke-linecap="round"/>
+        </svg>
+      limite
       //- .center
       //-   img(width="400px" src='./assets/motor vocho.gif')
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -211,11 +139,285 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 4
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 4
-      example-four(:language='isSpanish')
+      h4(style="margin-top: -30px; color: green;").center Límites
+      p(style="margin-top: -50px; color: blue; text-align: left;").center Límites básicos 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">b</span> y  <span class="mib">c</span> son números reales y <span class="mib">n</span> un entero positivo:  
+        <svg width="700" height="70">
+          <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">1. &ensp; </tspan><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">b</tspan> = <tspan style="font-size: 30px; font-style: italic;">b</tspan></text>
+          <text x="70" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+
+          <text x="260" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">2. &ensp; </tspan><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan> = <tspan style="font-size: 30px; font-style: italic;">c</tspan></text>
+          <text x="310" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+
+          <text x="500" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">3. &ensp; </tspan><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">x<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan></tspan> = <tspan style="font-size: 30px; font-style: italic;">c<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan></tspan></text>
+          <text x="550" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Propiedades de los límites 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">b</span> y  <span class="mib">c</span> son números reales y <span class="mib">n</span> un entero positivo, <span class="mib">f</span> y <span class="mib">g</span> son funciones con los límites siguientes:
+        <svg width="800" height="420">
+          <text x="70" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">) = </tspan><tspan style="font-size: 30px; font-style: italic;">L</tspan>&emsp; y &emsp;<tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">) = </tspan><tspan style="font-size: 30px; font-style: italic;">K</tspan></text>
+          <text x="70" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+          
+          <text x="10" y="120" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">1. Múltiplo escalar: &emsp;&ensp; </tspan><tspan style="font-size: 30px; font-style: normal;"> lím [</tspan><tspan style="font-size: 30px; font-style: italic;">bf</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)] = </tspan><tspan style="font-size: 30px; font-style: italic;">bL</tspan></text>
+          <text x="265" y="140" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+         
+          <text x="10" y="180" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">2. Suma o diferencia: &emsp;</tspan><tspan style="font-size: 30px; font-style: normal;">lím [</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">) &pm; <tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan>] = </tspan><tspan style="font-size: 30px; font-style: italic;">L </tspan>&pm;<tspan style="font-size: 30px; font-style: italic;"> K</tspan></text>
+          <text x="265" y="195" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+         
+          <text x="10" y="240" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">3. Producto: &ensp;&emsp;&emsp;&emsp;&emsp;</tspan><tspan style="font-size: 30px; font-style: normal;"> lím [</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)<tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan>] = </tspan><tspan style="font-size: 30px; font-style: italic;">L</tspan><tspan style="font-size: 30px; font-style: italic;">K</tspan></text>
+          <text x="265" y="255" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        
+          <text x="10" y="320" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">4. Cociente: &ensp;&emsp;&emsp;&emsp;&emsp; </tspan><tspan style="font-size: 30px; font-style: normal;"> lím </tspan>&emsp;&emsp;= &emsp; ,&ensp;siempre que <tspan style="font-size: 30px; font-style: italic;">K </tspan>&NotEqual; 0</text>
+          <text x="319" y="300" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> <tspan style="font-size: 30px; font-style: italic;">&emsp; L </tspan></text>
+          <text x="315" y="340" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan><tspan style="font-size: 30px; font-style: italic;">&emsp; K </tspan></text>
+          <text x="255" y="335" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+          <line x1="310" y1="313" x2="360" y2="313" style="stroke:black; stroke-width:2"/>
+          <line x1="400" y1="313" x2="430" y2="313" style="stroke:black; stroke-width:2"/>
+         
+          <text x="10" y="400" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">5. Potencias: &ensp;&emsp;&emsp;&emsp;&emsp;</tspan><tspan style="font-size: 30px; font-style: normal;">lím [</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)]<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan> = </tspan><tspan style="font-size: 30px; font-style: italic;">L<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan> </tspan></text>
+          <text x="260" y="420" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Continuidad
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Definicion de Continuidad 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Confinuidad en un punto: una función <span class="mib">f</span> es continua en <span class="mib">c</span> si se satisfacen las tres condiciones siguientes:
+        <svg width="800" height="200">
+         <text x="10" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">1.&ensp; </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> <tspan style="font-size: 30px; font-style: normal; font-weight:normal ">está definida</tspan></text>
+         
+         <text x="10" y="120" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">2. &ensp;</tspan><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> <tspan style="font-size: 30px; font-style: italic; font-weight: normal">existe</tspan></text>
+          <text x="40" y="135" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+         
+          <text x="10" y="180" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">3. &ensp;</tspan><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> = <tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">c</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan></text>
+          <text x="40" y="195" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+         
+        </svg>
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Límites laterales 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Límite por la derecha
+        <svg width="800" height="70">
+          <text x="10" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> = <tspan style="font-size: 30px; font-style: italic;">L</tspan></text>
+          <text x="5" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c<tspan  baseline-shift="super" style="font-size: 15px; font-style: normal;">+</tspan></tspan></text>
+        </svg>
+        | Límite por la izquierda
+        <svg width="800" height="70">
+          <text x="10" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> = <tspan style="font-size: 30px; font-style: italic;">L</tspan></text>
+          <text x="5" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c<tspan  baseline-shift="super" style="font-size: 15px; font-style: normal;">-</tspan></tspan></text>
+        </svg>
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Propiedades de la continuidad 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">b</span> es un número real y <span class="mib">f</span> y <span class="mib">g</span> son funciones continuas en <span class="mib">x = c</span>, entonces las funciones tambien son continuas en <span class="mib">c</span>.
+        <svg width="800" height="250">
+          <text x="10" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-weight: normal; font-style: normal;">1. Múltiplo escalar: &emsp;&ensp; </tspan><tspan style="font-size: 30px; font-style: italic;">bf</tspan></text>
+                   
+          <text x="10" y="80" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-weight: normal; font-style: normal;">2. Suma o diferencia: &emsp;</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan> &pm; <tspan style="font-size: 30px; font-style: italic;">g</tspan></text>
+                   
+          <text x="10" y="120" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-weight: normal; font-style: normal;">3. Producto: &emsp;&emsp;&emsp;</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-size: 30px; font-style: italic;">g</tspan></text>
+                  
+          <text x="10" y="180" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-weight: normal; font-style: normal;">4. Cociente: &ensp;&emsp;&emsp;&emsp;&emsp; </tspan>&emsp;si <tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">c</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> &NotEqual; 0</text>
+          <text x="222" y="160" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">f</tspan></text>
+          <text x="219" y="190" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">g</tspan></text>
+          <line x1="210" y1="170" x2="250" y2="170" style="stroke:black; stroke-width:2"/>
+         
+          <text x="10" y="400" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 25px; font-style: normal;">5. Potencias: &ensp;&emsp;&emsp;&emsp;&emsp;</tspan><tspan style="font-size: 30px; font-style: normal;">lím [</tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)]<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan> = </tspan><tspan style="font-size: 30px; font-style: italic;">L<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan> </tspan></text>
+          <text x="260" y="420" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+   
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Límites infinitos
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Definición de límites infinitos 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Sea <span class="mib">f</span> una funcion definida en todo número real de un intervalo abierto que contiene a <span class="mib">c</span> (salvo, posiblemente, en el propio <span class="mib">c</span>). La expresión
+        <svg width="800" height="70">
+          <text x="10" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> = <tspan style="font-size: 30px; font-style: normal;">&infin;</tspan></text>
+          <text x="5" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+        | Significa que para toda 
+        | <span class="mib">M</span>
+        | <span class="mnb">&gt;</span>
+        | <span class="mnb">0</span> existe una 
+        | <span class="mib">&delta;</span>
+        | <span class="mnb">&gt;</span>
+        | <span class="mnb">0</span> tal que 
+        | <span class="mib">f</span>
+        | <span class="mnb">(</span>
+        | <span class="mib">x</span>
+        | <span class="mnb">)</span>
+        | <span class="mnb"> &gt; </span>
+        | <span class="mib">M</span>, siempre que
+        | <span class="mnb">0</span>
+        | <span class="mnb"> &lt; </span>
+        | <span class="mnb">|</span>
+        | <span class="mib">x</span>
+        | <span class="mnb"> - </span>
+        | <span class="mib">c</span>
+        | <span class="mnb">|</span>
+        | <span class="mib"> &lt; </span>
+        | <span class="mib">&delta;</span> Del mismo modo, la expresión
+        <svg width="800" height="70">
+          <text x="10" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: normal;">lím </tspan><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan> = <tspan style="font-size: 30px; font-style: normal;"> - &infin;</tspan></text>
+          <text x="5" y="65" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 20px; font-style: italic;">x </tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;"> c</tspan></text>
+        </svg>
+        | Significa que para todo 
+        | <span class="mib">N</span> 
+        | <span class="mnb">&gt;</span> 
+        | <span class="mnb">0</span> existe una 
+        | <span class="mib">&delta;</span> 
+        | <span class="mnb">&gt;</span> 
+        | <span class="mnb">0</span> tal que 
+        | <span class="mib">f</span>
+        | <span class="mnb">(</span>
+        | <span class="mib">x</span>
+        | <span class="mnb">)</span>
+        | <span class="mnb"> &lt; </span><span class="mib">N</span>, siempre que <span class="mnb">0</span><span class="mnb"> &lt; </span><span class="mnb">|</span><span class="mib">x</span><span class="mnb"> - </span><span class="mib">c</span><span class="mnb">|</span><span class="mib"> &lt; </span><span class="mib">&delta;</span>
+        | <br>Para definir el límite infinito por la izquierda, sustituir
+        | <span class="mnb">0</span><span class="mnb"> &lt; </span><span class="mnb">|</span><span class="mib">x</span><span class="mnb"> - </span><span class="mib">c</span><span class="mnb">|</span><span class="mib"> &lt; </span><span class="mib">&delta;</span>
+        | por <span class="mib">c</span><span class="mnb"> - </span><span class="mib">&delta;</span><span class="mnb"> &lt; </span><span class="mib"> x </span><span class="mnb"> &lt; </span><span class="mib"> &delta;</span>
+        | <br>Para definir el límite infinito por la derecha, reemplazar
+        | <span class="mnb">0</span><span class="mnb"> &lt; </span><span class="mnb">|</span><span class="mib">x</span><span class="mnb"> - </span><span class="mib">c</span><span class="mnb">|</span><span class="mib"> &lt; </span><span class="mib">&delta;</span>
+        | por <span class="mib">c</span><span class="mnb"> &lt; </span><span class="mib"> x </span><span class="mnb"> &lt; </span><span class="mib"> c</span><span class="mnb"> + </span><span class="mib"> &delta;</span>.
+
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Definicion de asíntota vertical
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">f</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span> tiende a infinito (o menos infinito) cuando <span class="mib">x</span> tiende a <span class="mib">c</span> por la derecha o por la izquierda, se dice que la recta <span class="mib">x</span><span class="mnb"> = </span><span class="mib">c</span> es una <span class="mnn">asíntota vertical</span> de la gráfica <span class="mib">f</span>.
+
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Asíntotas verticales
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Sean 
+        <span class="mib">f</span> y 
+        <span class="mib">g</span> funciones continuas en un intervalo abierto que contiene a 
+        <span class="mib">c</span>. Si
+        <span class="mib">f</span>
+        <span class="mnb">(</span><span class="mib">c</span><span class="mnb">)</span>
+        <span class="mnb"> &ne; 0</span>,
+        <span class="mib">g</span>
+        <span class="mnb">(</span><span class="mib">c</span><span class="mnb">)</span>
+        <span class="mnb"> = 0</span>, y existe un intervalo abierto que contiene a 
+        <span class="mib"> c </span> tal que 
+        <span class="mib">g</span>
+        <span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span>
+        <span class="mnb"> &ne; 0</span> para todo 
+        <span class="mib">x</span>
+        <span class="mnb"> &ne;</span>
+        <span class="mib"> c </span> en el intervalo, entonces la gráfica de la función está dada por
+        <svg width="800" height="90">
+          <text x="10" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">h</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">) = </tspan></text>
+          <text x="100" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">f</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan></text>
+          <text x="96" y="77" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-size: 30px; font-style: italic;">g</tspan><tspan style="font-style: normal;">(</tspan><tspan style="font-size: 30px; font-style: italic;">x</tspan><tspan style="font-size: 30px; font-style: normal;">)</tspan></text>
+          <line x1="90" y1="52" x2="150" y2="52" style="stroke:black; stroke-width:2"/>
+        </svg>
+        | tiene una asíntota vertical en 
+        | <span class="mib">x</span>
+        | <span class="mnb"> = </span>
+        | <span class="mib">c</span>.
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Pendiente de la recta tangente
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Definición de la recta tangente con pendiente <span class="mib">m</span> 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">f</span> está definida en un intervalo abierto que contiene a <span class="mib">c</span> y además existe el límite
+        <svg width="800" height="100">          
+          <text x="10" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">lím &ensp;&emsp; = lím &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = </tspan><tspan class="mib"> m</tspan></text>
+          <text x="60" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">y</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb"> + </tspan><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> - </tspan><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb">)</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan></text>
+          <text x="5" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan></text>
+          <line x1="55" y1="42" x2="100" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="185" y1="42" x2="385" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        | entonces la recta que pasa por
+        | <span class="mnb">(</span><span class="mib">c</span>, <span class="mib">f</span><span class="mnb">(</span><span class="mib">c</span><span class="mnb">))</span> y cuenta con una pendiente <span class="mib">m</span> es la recta tangente a la gráfica de <span class="mib">f</span> en el punto <span class="mnb">(</span><span class="mib">c</span>, <span class="mib">f</span><span class="mnb">(</span><span class="mib">c</span><span class="mnb">))</span>
+
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Derivada
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Definición de la derivada de una función 
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center La derivada de <span class="mib">f</span> en <span class="mib">x</span> esta dada por
+        <svg width="800" height="100">          
+          <text x="10" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> = lím</tspan></text>
+          <text x="160" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb"> + </tspan><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> - </tspan><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb">)</tspan></text>
+          <text x="225" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan></text>
+          <text x="90" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan></text>
+          <line x1="140" y1="42" x2="385" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        | siempre que exista es límite. Para todos los entonces la recta que pasa por
+        | <span class="mib">x</span> para los que exista este límite, 
+        | <span class="mib">f '</span> es una función de <span class="mib">x</span>.
+        
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Reglas básicas de derivación
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Reglas básicas
+      p(style="margin-top: -40px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">c</tspan><tspan class="mnb">] = 0</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="50" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla de la constante</tspan></text>
+        </svg> 
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">x</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan><tspan class="mnb">] = </tspan><tspan class="mib">nx</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n-1</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="55" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla de la potencia</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">cf</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)] = </tspan><tspan class="mib">cf '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="55" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla del multiplo constante</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan> &pm; <tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)] = </tspan><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan> &pm; <tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="500" y="55" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla de la suma y diferencia</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)] = </tspan><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan> + <tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="600" y="55" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla del producto</tspan></text>
+        </svg>
+        <svg width="800" height="100">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan font-size="50" fill="black" font-weight="100" font-family="Times" >[</tspan>&emsp;&emsp;<tspan font-size="50" fill="black" font-weight="100" font-family="Times" >]</tspan><tspan class="mnb"> = </tspan>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;<tspan class="mnn">, </tspan>&ensp;<tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan> &NotEqual; <tspan class="mnb">0</tspan></text>
+          <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan>&emsp;&emsp;<tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan> - <tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="125" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan>&emsp;&emsp;&emsp;&emsp;&ensp;[<tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan>]<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="115" y1="42" x2="180" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="230" y1="42" x2="480" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="640" y="50" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla del cociente</tspan></text>
+        </svg>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -223,9 +425,70 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 5
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 5
-      example-five(:language='isSpanish')
+      h4(style="margin-top: -0px; color: green;").center Reglas básicas de derivación
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Derivadas de funciones trigonométricas
+      p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sen</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">cos</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cos</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">- cos</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">tan</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cot</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">csc</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sec</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> tan</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">csc</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">- csc</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> cot</tspan><tspan class="mib"> x</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>        
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Reglas de derivación
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Regla de la cadena
+      p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">y</span><span class="mnb"> = </span> <span class="mib">f</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span>es una función derivable de <span class="mib">u</span> y además <span class="mib">u</span><span class="mnb"> = </span><span class="mib">g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span> es una función derivable de <span class="mib">x</span>, entonces <span class="mib">y</span><span class="mnb"> = </span><span class="mib">f</span><span class="mnb">(</span><span class="mib">g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">))</span> es una función derivable de <span class="mib">x</span> y        
+        <svg width="800" height="100">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb"> = </tspan>&ensp;&emsp;<tspan class="mnb"> · </tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dy</tspan>&ensp;&emsp;<tspan class="mib">dy</tspan>&emsp;<tspan class="mib">du</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;<tspan class="mib">du</tspan>&emsp;<tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="130" y1="42" x2="170" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="190" y1="42" x2="230" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        | o su equivalente
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))] = </tspan><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))</tspan><tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -254,7 +517,7 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 1</span>. Se llama ángulo de inclinación (&alpha;) de una recta al formado por la parte positiva del eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">X</span>y la recta, cuando esta se considera dirigida hacia arriba, por lo tanto, 0º &leq; &alpha; &leq; 180º.
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 1</span>. Se llama ángulo de inclinación (&alpha;) de una recta al formado por la parte positiva del eje <span class="mib">X</span>y la recta, cuando esta se considera dirigida hacia arriba, por lo tanto, 0º &leq; &alpha; &leq; 180º.
       angulo-inclinacion-figura
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -264,7 +527,7 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 2</span>. Se llama pendiente de una recta dirigida a la tangente de su ángulo de inclinación, se denota <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>, por lo tanto, se expresa como <span style="font-family: roboto; font-weight: bold; font-style: italic;">m = tan&alpha;</span>.
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 2</span>. Se llama pendiente de una recta dirigida a la tangente de su ángulo de inclinación, se denota <span class="mib">m</span>, por lo tanto, se expresa como <span class="mib">m = tan&alpha;</span>.
       p(style="margin-top: -0px; color: blue;") Consideraciones
       ul(style="margin-top: -0px; color: blue;") 
         li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 0º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> = 0, es una recta coincidente o paralela al eje  <span style="font-family: roboto; font-weight: normal; font-style: italic;">x</span>, dirigida hacia la derecha.
@@ -284,11 +547,11 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
       pendiente-recta-formula
       p(style="margin-top: -0px; color: blue;") Demostración
       pendiente-recta-figura
-      p(style="margin-top: -0px; color: blue;") Para el triángulo rectángulo, mostrado en la figura, cuyos vertices son <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>, tenemos que: 
+      p(style="margin-top: -0px; color: blue;") Para el triángulo rectángulo, mostrado en la figura, cuyos vertices son <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span class="mib">A</span>, tenemos que: 
       tangente-pendiente-formula
       p(style="margin-top: -0px; color: blue;") entonces 
       pendiente-recta-formula
@@ -337,7 +600,7 @@ a<template lang="pug">
       p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El ángulo entre dos rectas dirigidas esta dado por 
       angulo-dos-rectas-formula
       p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin-top: -0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con ángulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con ángulo de inclinación <span style="font-family: roboto; font-weight: bold; font-style: italic;">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
+      p(style="margin-top: -0px; color: blue;") Sea <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span class="mib">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
       p(style="margin-top: -0px; color: blue;") En un triángulo un ángulo exterior es igual a la suma de sus ángulos internos opuestos
       angulo-externo-suma-internos
       p(style="margin-top: -0px; color: blue;") Aplicando la tangente tenemos que  
@@ -357,8 +620,8 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
-      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span style="font-family: roboto; font-weight: bold; font-style: italic;">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span style="font-family: roboto; font-weight: bold; font-style: italic;">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span style="font-family: roboto; font-weight: bold; font-style: normal;">-1</span>
+      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span class="mnb">-1</span>
       
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -401,7 +664,7 @@ a<template lang="pug">
       h4(style="margin: 0px 0px -30px 0px;").center Sección 2
       h3.center La recta
       p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
-      p(style="margin-top: 0px; color: blue;") Lugar geométrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span> calculado por la formula del teorema 4
+      p(style="margin-top: 0px; color: blue;") Lugar geométrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span class="mib">m</span> calculado por la formula del teorema 4
       pendiente-recta-formula
       p(style="margin-top: -40px; color: blue;") resulta siempre constante 
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -414,16 +677,16 @@ a<template lang="pug">
       h5(style="margin-top: -20px; color: green;").center Ecuación de la recta que pasa por un punto y tiene una pendiente dada
       p(style="margin-top: -40px; color: blue;") La ecuación de una recta puede estar perfectamente determinada si se conocen las coordenadas de uno de sus puntos y su ángulo de inclinación (y, por tanto, su pendiente)
       punto-pendiente-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 6</span>: La recta que pasa por el punto dado <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y tiene pendiente <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>, tiene la ecuación 
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 6</span>: La recta que pasa por el punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y tiene pendiente <span class="mib">m</span>, tiene la ecuación 
       punto-pendiente-ecuacion
       p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin-top: 0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>), un punto cualquiera de la recta, diferente al punto dado <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>) satisfacen la ecuación
+      p(style="margin-top: 0px; color: blue;") Sea <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>), un punto cualquiera de la recta, diferente al punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>) satisfacen la ecuación
       punto-pendiente-ecuacion-demo
       p(style="margin-top: -0px; color: blue;") Multiplicando la ecuación por el denominador  obtenemos
       punto-pendiente-ecuacion 
-      p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
+      p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
       punto-pendiente-ecuacion-demo2
-      p(style="margin-top: 0px; color: blue;") que es la expresión analítica de la definición de la recta,aplicada a los puntos <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>). Por lo tanto, <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> esta sobre la recta.
+      p(style="margin-top: 0px; color: blue;") que es la expresión analítica de la definición de la recta,aplicada a los puntos <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>). Por lo tanto, <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> esta sobre la recta.
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -442,14 +705,14 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Ecuación de la recta dada su pendiente y su ordenada al origen
-      p(style="margin-top: -40px; color: blue;") Como se conoce <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>, el punto cuyas coordenadas (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>,<span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) y tiene una pendiente dada
+      p(style="margin-top: -40px; color: blue;") Como se conoce <span class="mib">b</span>, el punto cuyas coordenadas (<span class="mnb">0</span>,<span class="mib">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>,<span class="mib">b</span>) y tiene una pendiente dada
       ordenada-pendiente-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span>  y cuya ordenada al origen es <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> tiene por ecuación  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span class="mib">m</span>  y cuya ordenada al origen es <span class="mib">b</span> tiene por ecuación  
       ordenada-pendiente-ecuacion
       p(style="margin-top: -0px; color: blue;") Demostración  
       p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
       punto-pendiente-ecuacion
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>), entonces 
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>), entonces 
       ordenada-pendiente-ecuacion-demo
       p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
       ordenada-pendiente-ecuacion 
@@ -473,14 +736,14 @@ a<template lang="pug">
       h5(style="margin-top: -20px; color: green;").center Ecuación de la recta en forma simétrica
       p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejes
       ecuacion-simetrica-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 8</span>: La recta cuyas intercepciones con los ejes <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>  son <span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>&ne; <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span> &ne; <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span> respectivamente, tiene por ecuación  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 8</span>: La recta cuyas intercepciones con los ejes <span class="mib">x</span> y <span class="mib">y</span>  son <span class="mib">a</span>&ne; <span class="mnb">0</span> y <span class="mib">b</span> &ne; <span class="mnb">0</span> respectivamente, tiene por ecuación  
       ecuacion-simetrica
       p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin: -10px 0px 0px 0px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>) y <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span>) los puntos de intersección de la recta con los ejes coordenados, la pendiente de la recta esta dada por
+      p(style="margin: -10px 0px 0px 0px; color: blue;") Sea <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>) los puntos de intersección de la recta con los ejes coordenados, la pendiente de la recta esta dada por
       pendiente-simetrica-demo
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos en la forma punto pendiente usando el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">a</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>), entonces 
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos en la forma punto pendiente usando el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>), entonces 
       punto-pendiente-simetrica-demo
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Dividiendo entre <span style="font-family: roboto; font-weight: bold; font-style: italic;">ab</span>, tenemos 
+      p(style="margin: 0px 0px 10px 0px; color: blue;") Dividiendo entre <span class="mib">ab</span>, tenemos 
       ecuacion-simetrica
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -502,14 +765,14 @@ a<template lang="pug">
       h5(style="margin-top: -20px; color: green;").center Ecuación de la recta, forma general
       p(style="margin-top: -40px; color: blue;") Esta forma resulta al desarrollar cualquiera de las formas anteriores hasta expresarla en la forma
       general-ecuacion
-      p(style="margin-top: 10px; color: blue;") En donde <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span> pueden ser difrerentes de cero, o bien, <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> o <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span>, pueden ser cero y <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span> puede tomar cualquier valor incluyendo cero.
+      p(style="margin-top: 10px; color: blue;") En donde <span class="mib">A</span> y <span class="mib">B</span> pueden ser difrerentes de cero, o bien, <span class="mib">A</span> o <span class="mib">B</span>, pueden ser cero y <span class="mib">C</span> puede tomar cualquier valor incluyendo cero.
       p(style="margin-top: -0px; color: blue;") Consideraciones  
-      p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>  
-      p(style="margin-top: -0px; color: blue;") + Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span> la recta es paralela al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-      p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">-(A/B)x - C/B</span> en donde  <span style="font-family: roboto; font-weight: bold; font-style: italic;">m</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">A/B</span> y la ordenada al origen <span style="font-family: roboto; font-weight: bold; font-style: italic;">b</span><span style="font-family: roboto; font-weight: bold; font-style: italic;"> = -</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">C/B</span>  
+      p(style="margin-top: -0px; color: blue;") + Si <span class="mib">A</span><span class="mnb"> = 0</span>, <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-C/B</span> la recta es paralela al eje <span class="mib">x</span>  
+      p(style="margin-top: -0px; color: blue;") + Si <span class="mib">B</span><span class="mnb"> = 0</span>, <span class="mib">x</span><span class="mnb"> = </span><span class="mib">-C/A</span> la recta es paralela al eje <span class="mib">y</span>
+      p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-(A/B)x - C/B</span> en donde  <span class="mib">m</span><span class="mnb"> = -</span><span class="mib">A/B</span> y la ordenada al origen <span class="mib">b</span><span class="mib"> = -</span><span class="mib">C/B</span>  
       p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simétrica, tenemos   
       simetrica-ecuacion-general
-      p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/A</span>, <span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>)  y (<span style="font-family: roboto; font-weight: bold; font-style: normal;">0</span>, <span style="font-family: roboto; font-weight: bold; font-style: italic;">-C/B</span>)
+      p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span class="mib">-C/A</span>, <span class="mnb">0</span>)  y (<span class="mnb">0</span>, <span class="mib">-C/B</span>)
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -528,14 +791,14 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Posiciones relativas de dos rectas
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas son<br> &emsp;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax + By + C = 0</span>&emsp;&emsp; y &emsp;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">A'x + B'y + C = 0</span>, <br>Las relaciones siguientes son condiciones necesarias y suficientes para  
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A/A'</span> = <span style="font-family: roboto; font-weight: bold; font-style: italic;">B/B'</span>, o bien, <span style="font-family: roboto; font-weight: bold; font-style: italic;">AB' - A'B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas son<br> &emsp;&emsp;<span class="mib">Ax + By + C = 0</span>&emsp;&emsp; y &emsp;&emsp;<span class="mib">A'x + B'y + C = 0</span>, <br>Las relaciones siguientes son condiciones necesarias y suficientes para  
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: <span class="mib">A/A'</span> = <span class="mib">B/B'</span>, o bien, <span class="mib">AB' - A'B</span><span class="mnb"> = 0</span>  
       
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: <span style="font-family: roboto; font-weight: bold; font-style: italic;">AA' +BB'</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: <span class="mib">AA' +BB'</span><span class="mnb"> = 0</span>
       
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kA</span>;&emsp;<span style="font-family: roboto; font-weight: bold; font-style: italic;">B</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kB</span>&emsp; y&emsp; <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">kC</span>
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: <span class="mib">A</span><span class="mnb"> = </span><span class="mib">kA</span>;&emsp;<span class="mib">B</span><span class="mnb"> = </span><span class="mib">kB</span>&emsp; y&emsp; <span class="mib">C</span><span class="mnb"> = </span><span class="mib">kC</span>
       
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Intersección en uno y solamente un punto: <span style="font-family: roboto; font-weight: bold; font-style: italic;">A/A' &ne; B/B'</span>, o bien <span style="font-family: roboto; font-weight: bold; font-style: italic;">AB' - A'B &ne; 0</span>
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Intersección en uno y solamente un punto: <span class="mib">A/A' &ne; B/B'</span>, o bien <span class="mib">AB' - A'B &ne; 0</span>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -644,15 +907,15 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5(style="margin-top: -20px; color: green;").center Forma ordinaria de la circunferencia
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 10</span>: La ecuación de la circunferencia con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span> esta dada por   
+      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 10</span>: La ecuación de la circunferencia con centro en <span class="mib">C(h, k)</span> y radio <span class="mib">r</span> esta dada por   
       
-      p(style="margin-top: -0px; color: blue;").center <span style="font-family: roboto; font-weight: bold; font-style: italic;">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      p(style="margin-top: -0px; color: blue;").center <span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
       p(style="margin-top: -0px; color: blue;") Demostración: 
-      p(style="margin-top: -20px; color: blue;") Sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">P(x,y)</span> un punto cualquiera del conjunto y sea <span style="font-family: roboto; font-weight: bold; font-style: italic;">c(h, k)</span> el centro de la circunferencia con radio <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>. De acuerdo con la definición,
-      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>| = <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
+      p(style="margin-top: -20px; color: blue;") Sea <span class="mib">P(x,y)</span> un punto cualquiera del conjunto y sea <span class="mib">c(h, k)</span> el centro de la circunferencia con radio <span class="mib">r</span>. De acuerdo con la definición,
+      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>| = <span class="mib">r</span>
       p(style="margin-top: -20px; color: blue;") como
-      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>|<span style="font-family: roboto; font-weight: bold; font-style: italic;"><sup style="font-size: 20px; font-style: normal;">2</sup> = </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>|<span class="mib"><sup style="font-size: 20px; font-style: normal;">2</sup> = </span><span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -693,215 +956,215 @@ a<template lang="pug">
       h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la circunferencia
      
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">C</span>
+        <span class="mib">x</span>
+        <span class="mnb">+</span>
+        <span class="mnb">D</span>
+        <span class="mib">y</span>
+        <span class="mnb">+</span>
+        <span class="mib">E</span>
+        <span class="mnb"> = 0</span>
       
       p(style="margin-top: -0px; color: blue;") Desarrolando la ecuación en la forma ordinaria   
       
-      p(style="margin-top: -0px; color: blue;").center <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+      p(style="margin-top: -0px; color: blue;").center <span class="mnb">(</span>
+        <span class="mib">x</span>
+        <span class="mnb">-</span>
+        <span class="mib">h</span>
+        <span class="mnb">)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mnb">(</span>
+        <span class="mib">y</span>
+        <span class="mnb"> - </span>
+        <span class="mib">k</span>
+        <span class="mnb">)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = </span>
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">hx</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">ky</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">-</span>
+        <span class="mnb">2</span>
+        <span class="mib">hx</span>
+        <span class="mnb">+</span>
+        <span class="mib">h</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> - </span>
+        <span class="mnb">2</span>
+        <span class="mib">ky</span>
+        <span class="mnb"> + </span>
+        <span class="mib">k</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = </span>
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">hx</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">ky</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">-</span>
+        <span class="mnb">2</span>
+        <span class="mib">hx</span>
+        <span class="mnb"> - </span>
+        <span class="mnb">2</span>
+        <span class="mib">ky</span>
+        <span class="mnb">+</span>
+        <span class="mib">h</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">k</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> - </span>
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = 0</span>
       
       p(style="margin-top: -0px; color: blue;") Entonces  
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> C = -2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>,&emsp;
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> D = -2</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>,&emsp;
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> E = </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">h</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> C = -2</span>
+        <span class="mib">h</span>,&emsp;
+        <span class="mnb"> D = -2</span>
+        <span class="mib">k</span>,&emsp;
+        <span class="mnb"> E = </span>
+        <span class="mib">h</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">k</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> - </span>
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
       p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 11</span>:<br>La ecuación 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span> representa una circunferencia con centro en  
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(h, k) = (-C/2, -D/2)</span> y radio 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">C</span>
+        <span class="mib">x</span>
+        <span class="mnb">+</span>
+        <span class="mnb">D</span>
+        <span class="mib">y</span>
+        <span class="mnb">+</span>
+        <span class="mib">E</span>
+        <span class="mnb"> = 0</span> representa una circunferencia con centro en  
+        <span class="mnb">(h, k) = (-C/2, -D/2)</span> y radio 
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = (-</span>
+        <span class="mib">E</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">C</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mnb">D</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">)</span>
+        <span class="mnb">/4</span>
       
       p(style="margin-top: -0px; color: blue;") <Bf> Demostración </bf>   
       p(style="margin-top: -0px; color: blue;") Ahora si se realiza el proceso en partiendo de la forma general  
       
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">C</span>
+        <span class="mib">x</span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">D</span>
+        <span class="mib">y</span>
+        <span class="mnb"> = -</span>
+        <span class="mib">E</span>
       
       p(style="margin-top: -0px; color: blue;") Completando trinomios  cuadrado perfecto
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(C/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(D/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = -</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(C/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(D/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mib">x</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">C</span>
+        <span class="mib">x</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">(C/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mib">y</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">+</span>
+        <span class="mnb">D</span>
+        <span class="mib">y</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">(D/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = -</span>
+        <span class="mib">E</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">(C/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mnb">(D/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + (</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D/2)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+        <span class="mnb">(</span>
+        <span class="mib">x</span>
+        <span class="mnb">+</span>
+        <span class="mnb">C/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + (</span>
+        <span class="mib">y</span>
+        <span class="mnb">+</span>
+        <span class="mnb">D/2)</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = (-</span>
+        <span class="mib">E</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">C</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mnb">D</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">)</span>
+        <span class="mnb">/4</span>
       
 
       p(style="margin-top: -20px; color: blue;") Entonces
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">(h, k) = (-C/2, -D/2)</span>
+        <span class="mnb">(h, k) = (-C/2, -D/2)</span>
       p(style="margin-top: -0px; color: blue;").center 
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">r</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = (-</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">C</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span>
-        <span style="font-family: roboto; font-weight: bold; font-style: normal;">/4</span>
+        <span class="mib">r</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> = (-</span>
+        <span class="mib">E</span>
+        <span class="mnb"> + </span>
+        <span class="mnb">C</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb"> + </span>
+        <span class="mnb">D</span>
+        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span class="mnb">)</span>
+        <span class="mnb">/4</span>
       
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -1086,8 +1349,8 @@ export default {
     'example-thirtyEight': require('./components/ExampleThirtyEight'),
     'example-thirtyNine': require('./components/ExampleThirtyNine'),
     'example-forty': require('./components/ExampleFourty'),
-    'segment': require('./components/Segment'),
-    'longitud': require('./components/Longitud'),
+    'funcionDiagram': require('./components/funcionDiagram'),
+    'limite': require('./components/Limite'),
     'coord-unidim': require('./components/coordUnidimensional'),
     'distancia-formula': require('./components/distanciaFormula'),
     'demo-points': require('./components/demoDistPoints'),
@@ -1318,6 +1581,31 @@ export default {
   min-width: 70px;
   border-radius: 0 0 0px 10px;
   height: 20px;
+}
+
+.mib
+{
+  font-family: roboto;
+  font-weight: bold;
+  font-style: italic;
+}
+.min
+{
+  font-family: roboto;
+  font-weight: bold;
+  font-style: italic;
+}
+.mnn
+{
+  font-family: roboto;
+  font-weight: normal;
+  font-style: normal;
+}
+.mnb
+{
+  font-family: roboto;
+  font-weight: bold;
+  font-style: normal;
 }
 
 </style>

@@ -25,34 +25,58 @@ eg-transition(:enter='enter', :leave='leave')
         <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
         <!-- triangle -->
-        <line :x1="x1" :y1="y1" :x2="x2" :y2="y2" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-        <line :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-        <line :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-        <line :x1="x3" :y1="y3" :x2="x4" :y2="y4" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <line :x1="x1e" :y1="y1e" :x2="x2e" :y2="y2e" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <line :x1="x1e" :y1="y1e" :x2="x3e" :y2="y3e" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <line :x1="x2e" :y1="y2e" :x2="x3e" :y2="y3e" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <line :x1="x3e" :y1="y3e" :x2="x4e" :y2="y4e" fill="none" stroke="#F00" stroke-width="4" stroke-linecap="round"/>
+        <line :x1="x3e" :y1="y3e" :x2="xm34" :y2="ym34" fill="none" stroke="#FAED27" stroke-width="2" stroke-linecap="round"/>
         
         <!-- Points -->
-        <circle r="6" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
-        <text :x="x1" :y="y1" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic">A </text>
-        <circle r="6" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
-        <text :x="x2" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> B </text>
-        <circle r="6" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
-        <text :x="x3" :y="y3" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> C </text>
-        <circle r="6" :cx="x4" :cy="y4"  fill="magenta" stroke="#000" stroke-width="1"/>
-        <text :x="x4" :y="y4" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> D </text>
+        <circle r="7" :cx="x1" :cy="y1"  fill="red" stroke="#FAED27" stroke-width="2" opacity="0.2" />
+        <circle r="6" :cx="x1e" :cy="y1e"  fill="red" stroke="#FAED27" stroke-width="2"/>
+        <text :x="x1e+5" :y="y1e-5" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic">A </text>
+        <circle r="7" :cx="x2" :cy="y2"  fill="blue" stroke="#FAED27" stroke-width="2" opacity="0.2"/>
+        <circle r="6" :cx="x2e" :cy="y2e"  fill="blue" stroke="#FAED27" stroke-width="2"/>
+        <text :x="x2e-15" :y="y2e-5" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> B </text>
+        <circle r="7" :cx="x3" :cy="y3"  fill="green" stroke="#FAED27" stroke-width="2" opacity="0.2"/>
+        <circle r="6" :cx="x3e" :cy="y3e"  fill="green" stroke="#FAED27" stroke-width="2"/>
+        <text :x="x3e-5" :y="y3e+15" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> C </text>
+        <circle r="7" :cx="x4" :cy="y4"  fill="magenta" stroke="#FAED27" stroke-width="2" opacity="0.2"/>
+        <circle r="6" :cx="x4e" :cy="y4e"  fill="magenta" stroke="#FAED27" stroke-width="2"/>
+        <text :x="x4e" :y="y4e-5" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> D </text>
+
 
         </svg>
     .center
       p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
       p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-      p.inline.data distance: 12
-        input.center.data(:class="checkedd12" v-model.number='enterd12')
-        <span class="error" v-if="errord12">[e: {{ errord12.toPrecision(3) }}%]</span>
-      //- p.inline.data distance: 13
-      //-   input.center.data(:class="checkedd13" v-model.number='enterd13')
-      //-   <span class="error" v-if="errord13">[e: {{ errord13.toPrecision(3) }}%]</span>
-      //- p.inline.data distance: 23
-      //-   input.center.data(:class="checkedd23" v-model.number='enterd23')
-      //-   <span class="error" v-if="errord23">[e: {{ errord23.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: xA
+        input.center.data(:class="checkedXa" v-model.number='enterXa')
+        <span class="error" v-if="errorXa">[e: {{ errorXa.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: yA
+        input.center.data(:class="checkedYa" v-model.number='enterYa')
+        <span class="error" v-if="errorYa">[e: {{ errorYa.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: xB
+        input.center.data(:class="checkedXb" v-model.number='enterXb')
+        <span class="error" v-if="errorXb">[e: {{ errorXb.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: yB
+        input.center.data(:class="checkedYb" v-model.number='enterYb')
+        <span class="error" v-if="errorYb">[e: {{ errorYb.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: xC
+        input.center.data(:class="checkedXc" v-model.number='enterXc')
+        <span class="error" v-if="errorXc">[e: {{ errorXc.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: yC
+        input.center.data(:class="checkedYc" v-model.number='enterYc')
+        <span class="error" v-if="errorYc">[e: {{ errorYc.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: xD
+        input.center.data(:class="checkedXd" v-model.number='enterXd')
+        <span class="error" v-if="errorXd">[e: {{ errorXd.toPrecision(3) }}%]</span>
+      p.inline.data coordenada: yD
+        input.center.data(:class="checkedYd" v-model.number='enterYd')
+        <span class="error" v-if="errorYd">[e: {{ errorYd.toPrecision(3) }}%]</span>
+      p.inline.data distance: CD
+        input.center.data(:class="checkeddCD" v-model.number='enterdCD')
+        <span class="error" v-if="errordCD">[e: {{ errordCD.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -63,8 +87,24 @@ export default {
   },
   data: function () {
     return {
-      enterd12: '',
-      errord12: 0
+      enterXa: '',
+      errorXa: 0,
+      enterYa: '',
+      errorYa: 0,
+      enterXb: '',
+      errorXb: 0,
+      enterYb: '',
+      errorYb: 0,
+      enterXc: '',
+      errorXc: 0,
+      enterYc: '',
+      errorYc: 0,
+      enterXd: '',
+      errorXd: 0,
+      enterYd: '',
+      errorYd: 0,
+      enterdCD: '',
+      errordCD: 0
     }
   },
   computed: {
@@ -72,6 +112,9 @@ export default {
       let max = 8
       let min = 0
       return Math.round(Math.random() * (max - min) + min)
+    },
+    x1e: function () {
+      return 354 + 38 * this.enterXa
     },
     x1: function () {
       return 354 + 38 * this.x1i
@@ -81,6 +124,9 @@ export default {
       let min = 0
       return Math.round(Math.random() * (max - min) + min)
     },
+    y1e: function () {
+      return 238 - 38 * this.enterYa
+    },
     y1: function () {
       return 238 - 38 * this.y1i
     },
@@ -88,6 +134,9 @@ export default {
       let max = -1
       let min = -8
       return Math.round(Math.random() * (max - min) + min)
+    },
+    x2e: function () {
+      return 354 + 38 * this.enterXb
     },
     x2: function () {
       return 354 + 38 * this.x2i
@@ -97,6 +146,9 @@ export default {
       let min = -1
       return Math.round(Math.random() * (max - min) + min)
     },
+    y2e: function () {
+      return 238 - 38 * this.enterYb
+    },
     y2: function () {
       return 238 - 38 * this.y2i
     },
@@ -104,6 +156,9 @@ export default {
       let max = 8
       let min = -8
       return Math.round(Math.random() * (max - min) + min)
+    },
+    x3e: function () {
+      return 354 + 38 * this.enterXc
     },
     x3: function () {
       return 354 + 38 * this.x3i
@@ -113,11 +168,17 @@ export default {
       let min = -5
       return Math.round(Math.random() * (max - min) + min)
     },
+    y3e: function () {
+      return 238 - 38 * this.enterYc
+    },
     y3: function () {
       return 238 - 38 * this.y3i
     },
     x4i: function () {
       return (this.x1i + this.x2i) / 2
+    },
+    x4e: function () {
+      return 354 + 38 * this.enterXd
     },
     x4: function () {
       return 354 + 38 * this.x4i
@@ -125,29 +186,83 @@ export default {
     y4i: function () {
       return (this.y1i + this.y2i) / 2
     },
+    y4e: function () {
+      return 238 - 38 * this.enterYd
+    },
     y4: function () {
       return 238 - 38 * this.y4i
     },
-    d12: function () {
-      return Math.sqrt((this.x2i - this.x1i) ** 2 + (this.y2i - this.y1i) ** 2)
+    // d12: function () {
+    //   return Math.sqrt((this.x2i - this.x1i) ** 2 + (this.y2i - this.y1i) ** 2)
+    // },
+    // d13: function () {
+    //   return Math.sqrt((this.x3i - this.x1i) ** 2 + (this.y3i - this.y1i) ** 2)
+    // },
+    // d23: function () {
+    //   return Math.sqrt((this.x3i - this.x2i) ** 2 + (this.y3i - this.y2i) ** 2)
+    // },
+    dCD: function () {
+      return Math.sqrt((this.x4i - this.x3i) ** 2 + (this.y4i - this.y3i) ** 2)
     },
-    d13: function () {
-      return Math.sqrt((this.x3i - this.x1i) ** 2 + (this.y3i - this.y1i) ** 2)
+    dCDe: function () {
+      return Math.sqrt((this.enterXd - this.enterXc) ** 2 + (this.enterYd - this.enterYc) ** 2)
     },
-    d23: function () {
-      return Math.sqrt((this.x3i - this.x2i) ** 2 + (this.y3i - this.y2i) ** 2)
+    m34: function () {
+      return (this.y4i - this.y3i) / (this.x4i - this.x3i)
     },
-    checkedd12: function () {
-      this.errord12 = this.errorRelative('d12 => ', this.d12, parseFloat(this.enterd12))
-      return this.errord12 < 1e-1 ? 'correct' : 'not-correct'
+    b34: function () {
+      return this.y3i - this.m34 * this.x3i
     },
-    checkedd13: function () {
-      this.errord13 = this.errorRelative('d13 => ', this.d13, parseFloat(this.enterd13))
-      return this.errord13 < 1e-1 ? 'correct' : 'not-correct'
+    r34: function () {
+      return 1 / (this.dCDe / this.enterdCD - 1)
     },
-    checkedd23: function () {
-      this.errord23 = this.errorRelative('d23 => ', this.d23, parseFloat(this.enterd23))
-      return this.errord23 < 1e-1 ? 'correct' : 'not-correct'
+    xm34i: function () {
+      return (this.enterXc + this.r34 * this.enterXd) / (1 + this.r34)
+    },
+    xm34: function () {
+      return 354 + 38 * this.xm34i
+    },
+    ym34i: function () {
+      return (this.enterYc + this.r34 * this.enterYd) / (1 + this.r34)
+    },
+    ym34: function () {
+      return 238 - 38 * this.ym34i
+    },
+    checkedXa: function () {
+      this.errorXa = this.errorRelative('Xa => ', this.x1i, parseFloat(this.enterXa))
+      return this.errorXa < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedYa: function () {
+      this.errorYa = this.errorRelative('Ya => ', this.y1i, parseFloat(this.enterYa))
+      return this.errorYa < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedXb: function () {
+      this.errorXb = this.errorRelative('Xb => ', this.x2i, parseFloat(this.enterXb))
+      return this.errorXb < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedYb: function () {
+      this.errorYb = this.errorRelative('Yb => ', this.y2i, parseFloat(this.enterYb))
+      return this.errorYb < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedXc: function () {
+      this.errorXc = this.errorRelative('Xc => ', this.x3i, parseFloat(this.enterXc))
+      return this.errorXc < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedYc: function () {
+      this.errorYc = this.errorRelative('Yc => ', this.y3i, parseFloat(this.enterYc))
+      return this.errorYc < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedXd: function () {
+      this.errorXd = this.errorRelative('Xd => ', this.x4i, parseFloat(this.enterXd))
+      return this.errorXd < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkedYd: function () {
+      this.errorYd = this.errorRelative('Yd => ', this.y4i, parseFloat(this.enterYd))
+      return this.errorYd < 1e-1 ? 'correct' : 'not-correct'
+    },
+    checkeddCD: function () {
+      this.errordCD = this.errorRelative('dCD => ', this.dCD, parseFloat(this.enterdCD))
+      return this.errordCD < 1e-1 ? 'correct' : 'not-correct'
     }
   },
   methods: {

@@ -4,7 +4,7 @@ eg-transition(:enter='enter', :leave='leave')
     p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
     p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Demostrar que los puntos P1({{ x1i }}, {{ y1i }}), P2({{ x2i }}, {{ y2i }}) y P3({{ x3i }}, {{ y3i }}) son los vertices de un triángulo isósceles
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="350px" width="350px" >
 
 
         <!-- x grid -->
@@ -30,11 +30,11 @@ eg-transition(:enter='enter', :leave='leave')
         <line v-if="showLine3" :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#00F" stroke-width="2" stroke-linecap="round"/>
         
         <!-- Points -->
-        <circle v-if="showPointX1 && showPointY1" r="6" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
+        <circle v-if="showPointX1 && showPointY1" r="8" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX1 && showPointY1" :x="x1+10" :y="y1-10" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P1 </text>
-        <circle v-if="showPointX2 && showPointY2" r="6" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
+        <circle v-if="showPointX2 && showPointY2" r="8" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX2 && showPointY2" :x="x2-30" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P2 </text>
-        <circle v-if="showPointX3 && showPointY3" r="6" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
+        <circle v-if="showPointX3 && showPointY3" r="8" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX3 && showPointY3" :x="x3" :y="y3+20" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P3 </text>
 
         </svg>
@@ -117,8 +117,8 @@ export default {
       return 354 + 38 * this.x1i
     },
     y1i: function () {
-      let max = 3
-      let min = 0
+      let max = 5
+      let min = -5
       return Math.round(Math.random() * (max - min) + min)
     },
     y1: function () {
@@ -134,7 +134,7 @@ export default {
     },
     y2i: function () {
       let max = 3
-      let min = -1
+      let min = -3
       return Math.round(Math.random() * (max - min) + min)
     },
     y2: function () {

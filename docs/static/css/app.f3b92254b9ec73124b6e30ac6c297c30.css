@@ -20507,6 +20507,26 @@ input:checked + .slider[data-v-5cccab48]:before {
   border-radius: 0 0 0px 10px;
   height: 20px;
 }
+.mib {
+  font-family: roboto;
+  font-weight: bold;
+  font-style: italic;
+}
+.min {
+  font-family: roboto;
+  font-weight: bold;
+  font-style: italic;
+}
+.mnn {
+  font-family: roboto;
+  font-weight: normal;
+  font-style: normal;
+}
+.mnb {
+  font-family: roboto;
+  font-weight: bold;
+  font-style: normal;
+}
 
 .data[data-v-7ff7d980] {
   display: inline-block;
@@ -21925,63 +21945,63 @@ input:checked + .slider[data-v-5cccab48]:before {
   background: #80c080;
 }
 
-.data[data-v-302941bf] {
+.data[data-v-17427073] {
   display: inline-block;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-.problem[data-v-302941bf] {
+.problem[data-v-17427073] {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
   width: 100%;
 }
-.solution[data-v-302941bf] {
+.solution[data-v-17427073] {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-.not-correct[data-v-302941bf] {
+.not-correct[data-v-17427073] {
   background: #fa4408;
 }
-.correct[data-v-302941bf] {
+.correct[data-v-17427073] {
   background: #80c080;
 }
-.error[data-v-302941bf] {
+.error[data-v-17427073] {
   font-size: 14px;
 }
 
-.data[data-v-f41dcbcc] {
+.data[data-v-d9d5eca4] {
   display: inline-block;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
   font-size: 20px;
 }
-.problem[data-v-f41dcbcc] {
+.problem[data-v-d9d5eca4] {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 25px;
   color: blue;
   width: 100%;
 }
-.solution[data-v-f41dcbcc] {
+.solution[data-v-d9d5eca4] {
   margin: 15px 5px 5px 5px;
   font-size: 20px;
   color: red;
   width: 100%;
 }
-.not-correct[data-v-f41dcbcc] {
+.not-correct[data-v-d9d5eca4] {
   background: #fa4408;
 }
-.correct[data-v-f41dcbcc] {
+.correct[data-v-d9d5eca4] {
   background: #80c080;
 }
-.error[data-v-f41dcbcc] {
+.error[data-v-d9d5eca4] {
   font-size: 14px;
 }
 

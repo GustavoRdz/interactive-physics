@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
-    p(v-if = 'language' style="margin: 25px 0px 0px 0px;").problem Demostrar que los puntos P1({{ x1i }}, {{ y1i }}), P2({{ x2i }}, {{ y2i }}) y P3({{ x3i }}, {{ y3i }}) son los vertices de un triángulo isósceles
+    p(v-if = 'language' style="margin: 25px 0px 40px 0px;").problem Encontrar el dominio y el rango de de la función <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span> {{ a }}<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sup style="font-size: 20px; font-style: normal;">{{ n }}</sup></span>
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
 
@@ -15,11 +15,11 @@ eg-transition(:enter='enter', :leave='leave')
         <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
         
         <!-- x Axis -->
-        <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
         <text x="677" y="270" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
 
         <!-- y Axis -->
-        <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="3" ></path>
+        <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
         <text x="330" y="28" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
               
         <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
@@ -37,37 +37,42 @@ eg-transition(:enter='enter', :leave='leave')
         <circle v-if="showPointX3 && showPointY3" r="6" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX3 && showPointY3" :x="x3" :y="y3+20" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P3 </text>
 
+        <circle r="6" cx="3" :cy="3"  fill="green" stroke="#000" stroke-width="1"/>
+        <circle r="6" cx="697" :cy="497"  fill="green" stroke="#000" stroke-width="1"/>
+
+        <path :d="exponencial" stroke="blue" fill="none" stroke-opacity="1" stroke-width="6" ></path>
+
         </svg>
     .center
       p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
       p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-      p.inline.data x1
-        input.center.data(:class="checkedX1" v-model.number='enterX1')
-        <span class="error" v-if="errorX1">[e: {{ errorX1.toPrecision(3) }}%]</span>
-      p.inline.data y1
+      p.inline.data coeficiente
+        input.center.data(:class="checkedA" v-model.number='enterA')
+        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
+      p.inline.data exponente
         input.center.data(:class="checkedY1" v-model.number='enterY1')
         <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
-      p.inline.data x2
+      p.inline.data [a,_] (dominio)
         input.center.data(:class="checkedX2" v-model.number='enterX2')
         <span class="error" v-if="errorX2">[e: {{ errorX2.toPrecision(3) }}%]</span>
-      p.inline.data y2
+      p.inline.data [_,b] (dominio)
         input.center.data(:class="checkedY2" v-model.number='enterY2')
         <span class="error" v-if="errorY2">[e: {{ errorY2.toPrecision(3) }}%]</span>
-      p.inline.data x3
+      p.inline.data [c,_] (Rango)
         input.center.data(:class="checkedX3" v-model.number='enterX3')
         <span class="error" v-if="errorX3">[e: {{ errorX3.toPrecision(3) }}%]</span>
-      p.inline.data y3
+      p.inline.data [_,d] (Rango)
         input.center.data(:class="checkedY3" v-model.number='enterY3')
         <span class="error" v-if="errorY3">[e: {{ errorY3.toPrecision(3) }}%]</span>
-      p.inline.data distance: P1P2
-        input.center.data(:class="checkedd12" v-model.number='enterd12')
-        <span class="error" v-if="errord12">[e: {{ errord12.toPrecision(3) }}%]</span>
-      p.inline.data distance: P1P3
-        input.center.data(:class="checkedd13" v-model.number='enterd13')
-        <span class="error" v-if="errord13">[e: {{ errord13.toPrecision(3) }}%]</span>
-      p.inline.data distance: P2P3
-        input.center.data(:class="checkedd23" v-model.number='enterd23')
-        <span class="error" v-if="errord23">[e: {{ errord23.toPrecision(3) }}%]</span>
+      //- p.inline.data distance: P1P2
+      //-   input.center.data(:class="checkedd12" v-model.number='enterd12')
+      //-   <span class="error" v-if="errord12">[e: {{ errord12.toPrecision(3) }}%]</span>
+      //- p.inline.data distance: P1P3
+      //-   input.center.data(:class="checkedd13" v-model.number='enterd13')
+      //-   <span class="error" v-if="errord13">[e: {{ errord13.toPrecision(3) }}%]</span>
+      //- p.inline.data distance: P2P3
+      //-   input.center.data(:class="checkedd23" v-model.number='enterd23')
+      //-   <span class="error" v-if="errord23">[e: {{ errord23.toPrecision(3) }}%]</span>
 
 </template>
 <script>
@@ -78,8 +83,8 @@ export default {
   },
   data: function () {
     return {
-      enterX1: '',
-      errorX1: 0,
+      enterA: '',
+      errorA: 0,
       enterY1: '',
       errorY1: 0,
       enterX2: '',
@@ -108,13 +113,15 @@ export default {
     }
   },
   computed: {
-    x1i: function () {
+    a: function () {
       let max = 5
-      let min = 0
+      let min = -5
       return Math.round(Math.random() * (max - min) + min)
     },
-    x1: function () {
-      return 354 + 38 * this.x1i
+    n: function () {
+      let max = 5
+      let min = 1
+      return Math.round(Math.random() * (max - min) + min)
     },
     y1i: function () {
       let max = 3
@@ -166,6 +173,27 @@ export default {
     },
     d23: function () {
       return Math.sqrt((this.x3i - this.x2i) ** 2 + (this.y3i - this.y2i) ** 2)
+    },
+    exponencial () {
+      let d = ''
+      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
+      // let ranges = [350, 342, 318, 282, 237, 188, 140, 98, 68, 52, 52, 68, 98, 140, 188, 237, 282, 318, 342, 350]
+      // let ranges = [350, 335, 294, 233, 167, 106, 65, 50, 65, 106, 167, 233, 294, 335, 350]
+      let x0 = -10
+      let y0 = this.a * Math.pow(x0, this.n)
+      let points = 100
+      // for (var i = 0; i < ranges.length; i++) {
+      let d1 = 'M' + `${354 + 38 * x0}, ${238 - 38 * y0} `
+      // let period = 2 * Math.PI // ranges[i] / 7
+      let delta = 20 / (points - 2) // ranges[i] / (points + 0)
+      for (var j = 0; j < points - 1; j++) {
+        d1 = d1 + `${354 + 38 * (j - points / 2) * delta},${238 - 38 * this.a * Math.pow((j - points / 2), this.n) / (this.n * 100)} `
+        // d1 = d1 + `${354 + 38 * 1 + 38 * 5 * Math.cos(2 * Math.PI * delta * j / period)},${238 - 38 * 1 + 38 * 5 * Math.sin(2 * Math.PI * delta * j / period)} `
+      }
+      // d1 = d1 + ` ${ranges[i] + 30},90 ${ranges[i] + 50},90;`
+      d = d + d1
+      // }
+      return d
     },
     checkedX1: function () {
       this.errorX1 = this.errorRelative('x1 => ', this.x1i, parseFloat(this.enterX1))
