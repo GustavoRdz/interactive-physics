@@ -310,12 +310,12 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Electric field lines
-      p(style="margin-top: -30px;") Electric field lines, that are related to the electric field in a region of space in the following manner:
-      p • The electric field vector is tangent to the electric field line at each point. The line has a direction, indicated by an arrowhead, that is the same as that of the electric field vector. The direction of the line is that of the force on a positive test charge placed in the field.
-      p • The number of lines per unit area through a surface perpendicular to the lines is proportional to the magnitude of the electric field in that region. Therefore, the field lines are close together where the electric field is strong and far apart where the field is weak.
+      h4(style="margin-top: -10px;").center líneas de campo eléctrico
+      p(style="margin-top: -30px;") Las líneas de campo eléctrico están relacionadas con el campo eléctrico en una región del espacio de la siguiente manera:
+      p El vector de campo eléctrico es tangente a la línea de campo eléctrico en cada punto.
+      p El número de líneas por unidad de área que atraviesan una superficie perpendicular a las líneas es proporcional a la magnitud del campo eléctrico en esa región. Por lo tanto, las líneas de campo están próximas entre sí donde el campo eléctrico es intenso y alejadas donde el campo es débil.
       .center
-        img(src='./assets/fig23-18.png' height="250px")
+        img(src='./assets/fig23-18.png' height="350px")
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -323,8 +323,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Electric field lines
-      p(style="margin-top: -30px;") The electric field lines for a point charge.
+      h4(style="margin-top: -10px;").center Líneas de campo eléctrico
+      p(style="margin-top: -30px;") Las líneas de campo eléctrico para una carga puntual
       .center
         img(src='./assets/fig23-19.png')
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -334,9 +334,11 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Electric field lines
-      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1em;") The rules for drawing electric field lines are as follows:
-      p(style="padding: 15px; margin: 1px 1px -0px 1px; line-height: 1.2em;") • The lines must begin on a positive charge and terminate on a negative charge. In the case of an excess of one type of charge, some lines will begin or end infinitely far away.<br> • The number of lines drawn leaving a positive charge or approaching a negative charge is proportional to the magnitude of the charge.<br> • No two field lines can cross
+      h4(style="margin-top: -10px;").center Líneas de campo eléctrico
+      p(style="padding: 15px; margin: -30px 1px -0px 1px; line-height: 1em;") Las reglas para dibujar líneas de campo eléctrico son las siguientes:
+      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1em;") • Las líneas deben comenzar con una carga positiva y terminar con una carga negativa. En caso de exceso de un tipo de carga, algunas líneas comenzarán o terminarán a una distancia infinita.
+      p(style="padding: 15px; margin: -10px 1px -0px 1px; line-height: 1em;") • El número de líneas que se dibujan al salir de una carga positiva o al acercarse a una carga negativa es proporcional a la magnitud de la carga.
+      p(style="padding: 15px; margin: -10px 1px 10px 1px; line-height: 1em;") • Dos líneas de campo no pueden cruzarse.
       .center
         img(src='./assets/fig23-20.png' height="300px")
         img(src='./assets/fig23-21.png' height="200px")
@@ -368,7 +370,7 @@
     
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3.center Electric Flux
+      h3.center Flujo eléctrico
       .center
         img(src='./assets/fig24-1.png' height="400px" style="margin: 50px;")
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -378,8 +380,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3.center Electric Flux
-      p This product of the magnitude of the electric field E and surface area A perpendicular to the field is called the electric flux &Phi;<sub>E</sub>:
+      h3.center Flujo eléctrico
+      p Este producto de la magnitud del campo eléctrico E y el área de la superficie A perpendicular al campo se llama flujo eléctrico &Phi;<sub>E</sub>:
       .center
         img(src='./assets/eq24-1.png' height="50px" style="margin: 0px;")
       .center
@@ -393,15 +395,15 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Electric Flux
-      p It is convenient to define a vector &Delta;<strong>A<sub>i</sub></strong> whose magnitude represents the area of the ith element of the large surface and whose direction is defined to be perpendicular to the surface element.
+      h5.center Flujo eléctrico
+      p Es conveniente definir un vector &Delta;<strong>A<sub>i</sub></strong> cuya magnitud represente el área del i-ésimo elemento de la superficie grande y cuya dirección se define como perpendicular al elemento de superficie.
       .center
         img(src='./assets/fig24-3.png' height="200px" style="margin: -20px;")
-      p The electric field <strong>E<sub>i</sub></strong> at the location of this element makes an angle &theta;<sub>i</sub> with the vector &Delta;<strong>A<sub>i</sub></strong>. The electric flux &Phi;<sub>E,i</sub> through this element is
+      p El campo eléctrico <strong>E<sub>i</sub></strong> en la ubicación de este elemento forma un ángulo &theta;<sub>i</sub> con el vector &Delta;<strong>A<sub>i</sub></strong>. <br>El flujo eléctrico &Phi;<sub>E,i</sub> a través de este elemento es
       .center
-        img(src='./assets/eq24-2C.png' height="50px" style="margin: 0px 50px -15px 0px;")
+        img(src='./assets/eq24-2C.png' height="50px" style="margin: 0px 50px 15px 0px;")
         | or 
-        img(src='./assets/eq24-3.png' height="100px" style="margin: 0px 0px -50px 50px;")
+        img(src='./assets/eq24-3.png' height="100px" style="margin: 0px 0px -35px 50px;")
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -409,8 +411,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Electric Flux
-      p A closed surface in an electric field.<br>The area vectors are, by convention, normal to the surface and point outward.
+      h5.center Flujo eléctrico
+      p Una superficie cerrada en un campo eléctrico. <br>Los vectores de área son, por convención, normales a la superficie y apuntan hacia afuera.
       .center
         img(src='./assets/fig24-4.png' height="550px" style="margin: 0px 0px -0px 50px;")
         img(src='./assets/eq24-4.png' height="100px" style="margin: 0px 0px 250px 50px;")
@@ -452,8 +454,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Gauss's Law
-      h6 The net flux through any closed surface surrounding a point charge q is given by <strong>q/&epsilon;<sub>0</sub></strong> and is independent of the shape of that surface.
+      h5.center Ley de Gauss
+      h6 El flujo neto a través de cualquier superficie cerrada que rodea una carga puntual q está dado por <strong>q/&epsilon;<sub>0</sub></strong> y es independiente de la forma de esa superficie.
       .center
         img(src='./assets/fig24-7.png' height="250px" style="margin: 0px 20px 27px 0px;")
         img(src='./assets/fig24-8.png' height="300px" style="margin: 0px 0px 0px 20px;")
@@ -497,25 +499,25 @@
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h5.center Electric potential
-      p For an infinitesimal displacement 
+      p Para un desplazamiento infinitesimal 
         | <svg height="20px" width="20px">
         |    <rect x="0" y="0" width="17" height="20" stroke="white" fill="white"/>
         |    <path d="M12,7 L20,7 17,4" stroke="black" fill="none"/>
         |    <text x="0" y="18" style="font-family: Times; font-size: 20px; font-style: italic;">d</text>
         |    <text x="10" y="18" style="font-family: Times; font-size: 20px; font-weight: bold; font-style: italic;">s</text>
         |  </svg>
-        | of a point charge 
+        | de una carga puntual
         | <svg height="20px" width="20px">
         |    <rect x="0" y="0" width="17" height="20" stroke="white" fill="white"/>
         //- |    <path d="M12,7 L20,7 17,4" stroke="black" fill="none"/>
         |    <text x="0" y="18" style="font-family: Times; font-size: 20px; font-style: italic;">q</text>
         |    <text x="10" y="20" style="font-family: Times; font-size: 10px;">0</text>
         |  </svg>
-        | immersed in an electric field, the work done within the charge-field system by the electric field on the charge is
+        |  inmersa en un campo eléctrico, el trabajo realizado dentro del sistema de carga-campo por el campo eléctrico sobre la carga es
         img(src='./assets/eq25-0B-.png', height="30px" style="margin: 0 10px -8px 10px;")
-        | As this amount of work is done by the field, the potential energy of the charge-field system is changed by an amount 
+        |  Como esta cantidad de trabajo es realizada por el campo, la energía potencial del sistema de carga-campo cambia en una cantidad 
         img(src='./assets/eq25-0C-.png', height="30px" style="margin: 0 10px -0px 0;")
-        | For a finite displacement of the charge from point <span style="font-size: 22px;">&#9398;</span> to point <span style="font-size: 22px;">&#9399;</span>, the change in potential energy of the system
+        | Para un desplazamiento finito de la carga del punto <span style="font-size: 22px;">&#9398;</span> al punto <span style="font-size: 22px;">&#9399;</span>, el cambio en la energía potencial del sistema 
         img(src='./assets/eq25-0D-.png' style="margin: 0 10px -10px 10px;")
       img(src='./assets/fig25-1.png' height="300px" style="margin: 0 0px -250px 0px;")
       .center
@@ -531,8 +533,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Electric potential
-      p the work done by an external agent in moving a charge q through an electric field at constant velocity is immersed in an electric field, the work done within the charge-field system by the electric field on the charge is
+      h5.center Potencial eléctrico
+      p El trabajo realizado por un agente externo al mover una carga q a través de un campo eléctrico a velocidad constante está inmersa en un campo eléctrico, el trabajo realizado dentro del sistema de carga-campo por el campo eléctrico sobre la carga es
       .center
         img(src='./assets/eq25-4.png' height="50px" style="margin: -20px 0px 10px 0px;")
       p.center(style="margin: 0px 400px 0px 0px;") Volt (V)
@@ -551,15 +553,15 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Potential Difference in a Uniform Electric Field
-      p Let’s calculate the potential difference between two points <span style="font-size: 22px;">&#9398;</span> and <span style="font-size: 22px;">&#9399;</span> separated by a distance d, where the displacement s points from <span style="font-size: 22px;">&#9398;</span> toward <span style="font-size: 22px;">&#9399;</span> and is parallel to the field lines.
+      h5.center Diferencia de potencial en un campo eléctrico uniforme
+      p Calculemos la diferencia de potencial entre dos puntos <span style="font-size: 22px;">&#9398;</span> y <span style="font-size: 22px;">&#9399;</span> separados por una distancia d, donde el desplazamiento s apunta desde <span style="font-size: 22px;">&#9398;</span> hacia <span style="font-size: 22px;">&#9399;</span> y es paralelo a las líneas de campo.
       .center
         img(src='./assets/eq25-5B.png' height="90px" style="margin: -40px 0px 10px 0px;")
-      p(style="margin: 0px 0px 0px 0px;") Because E is constant, it can be removed from the integral 
+      p(style="margin: 0px 0px 0px 0px;") Como E es constante, se puede eliminar de la integral 
       .center
-        img(src='./assets/eq25-6.png' height="90px" style="margin: 0 50px 0px 0px;")
+        img(src='./assets/eq25-6.png' height="90px" style="margin: 0px 50px 0px 0px;")
         | &rArr;
-        img(src='./assets/eq25-7.png' height="45px" style="margin: -0px 0px 20px 50px;")
+        img(src='./assets/eq25-7.png' height="45px" style="margin: 50px 0px 20px 50px;")
       .center
         img(src='./assets/fig25-2.png' height="300px" style="margin: -0px 0px 0px 0px;")
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -569,9 +571,9 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Potential Difference in a Uniform Electric Field
+      h5.center Diferencia de potencial en un campo eléctrico uniforme
       .center
-      p(style="margin: 0px 0px 0px 0px;") Now consider the more general case of a charged particle that moves between <span style="font-size: 22px;">&#9398;</span> and <span style="font-size: 22px;">&#9399;</span> in a uniform electric field such that the vector <b>s</b> is not parallel to the field lines
+      p(style="margin: 0px 0px 0px 0px;") Consideremos ahora el caso más general de una partícula cargada que se mueve entre <span style="font-size: 22px;">&#9398;</span> <span style="font-size: 22px;">&#9399;</span> en un campo eléctrico uniforme tal que el vector <b>s</b> no es paralelo a las líneas de campo
       .center
         img(src='./assets/fig25-3.png' height="320px" style="margin: -10px 0px 0px 0px;")
       .center
