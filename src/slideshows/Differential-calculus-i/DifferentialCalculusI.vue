@@ -334,7 +334,7 @@ a<template lang="pug">
           <text x="10" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">lím &ensp;&emsp; = lím &ensp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; = </tspan><tspan class="mib"> m</tspan></text>
           <text x="60" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">y</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb"> + </tspan><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> - </tspan><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb">)</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan></text>
-          <text x="5" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan></text>
+          <text x="5" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">0</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">0</tspan></text>
           <line x1="55" y1="42" x2="100" y2="42" style="stroke:black; stroke-width:2"/>
           <line x1="185" y1="42" x2="385" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
@@ -355,7 +355,7 @@ a<template lang="pug">
           <text x="10" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> = lím</tspan></text>
           <text x="160" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb"> + </tspan><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan><tspan class="mnb"> - </tspan><tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">c</tspan><tspan class="mnb">)</tspan></text>
           <text x="225" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan></text>
-          <text x="90" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">c</tspan></text>
+          <text x="90" y="70" font-size="20" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan style="font-size: 20px; font-style: italic;">0</tspan></text>
           <line x1="140" y1="42" x2="385" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         | siempre que exista es límite. Para todos los entonces la recta que pasa por
@@ -417,6 +417,56 @@ a<template lang="pug">
           <line x1="115" y1="42" x2="180" y2="42" style="stroke:black; stroke-width:2"/>
           <line x1="230" y1="42" x2="480" y2="42" style="stroke:black; stroke-width:2"/>
           <text x="640" y="50" font-size="20" fill="black" font-weight="normal" font-family="Times"><tspan class="mnn">Regla del cociente</tspan></text>
+        </svg>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Reglas básicas de derivación
+      p(style="margin-top: -30px; color: blue; text-align: left;").center Regla de la cadena
+      p(style="margin-top: -20px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        | Si <span class="mib">y</span><span class="mnb"> = </span><span class="mib">f</span><span class="mnb">(</span><span class="mib">u</span><span class="mnb">)</span> es una función derivable de <span class="mib">u</span> y además <span class="mib">u</span><span class="mnb"> = g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span> es una función deribable de <span class="mib">x</span>, entonces <span class="mib">y</span><span class="mnb"> = </span><span class="mib">f</span><span class="mnb">(</span><span class="mib">g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">))</span> es una función derivable de <span class="mib">x</span> y 
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"> = &emsp; · </text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dy</tspan>&emsp;<tspan class="mib"> dy</tspan>&ensp;<tspan class="mib">du</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&emsp;<tspan class="mib"> du</tspan>&ensp;<tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="125" y1="42" x2="155" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="175" y1="42" x2="210" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg> 
+        | o su equivalente
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))] = </tspan><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))</tspan><tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px; color: green;").center Reglas de derivación
+      p(style="margin-top: -20px; color: blue; text-align: left;").center Función logaritmo natural
+      p(style="margin-top: -20px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">ln</tspan><tspan class="mib">x</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;<tspan class="mib">x</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">x</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="190" y1="42" x2="220" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">ln</tspan><tspan class="mib">u</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;<tspan class="mib">u</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">x</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="190" y1="42" x2="220" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
