@@ -85,34 +85,26 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 1
-      example-one(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
-      example-two(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
+    //-   example-two(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
-      example-three(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
+    //-   example-three(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -185,6 +177,15 @@ a<template lang="pug">
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Continuidad
@@ -452,22 +453,41 @@ a<template lang="pug">
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -20px; color: green;").center Reglas de derivación
-      p(style="margin-top: -20px; color: blue; text-align: left;").center Función logaritmo natural
+      p(style="margin-top: -20px; color: blue; text-align: left;").center Función logaritmo
       p(style="margin-top: -20px; color: black; border-style: solid; text-align: left; padding: 20px;").center
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">ln</tspan><tspan class="mib">x</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;<tspan class="mib">x</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
-          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
-          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">ln</tspan><tspan class="mib">u</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mib">u</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan>&ensp;<tspan class="mib">du</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">u</tspan>&ensp;<tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
           <line x1="190" y1="42" x2="220" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="225" y1="42" x2="265" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">ln</tspan><tspan class="mib">u</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;<tspan class="mib">u</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
-          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
-          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;&emsp;&emsp;<tspan class="mib">x</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan><tspan class="mib">d</tspan>&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib">u</tspan><tspan class="mnb">] = </tspan>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<tspan class="mib">u</tspan><tspan class="mnb"> &gt; </tspan><tspan class="mnb">0</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan>&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;<tspan class="mnb">1</tspan>&emsp;&emsp;<tspan class="mib">du</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&ensp;&emsp;&emsp;&emsp;<tspan class="mnb">(ln</tspan><tspan class="mib">a</tspan><tspan class="mnb">)</tspan><tspan class="mib">u</tspan>&emsp;<tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
-          <line x1="190" y1="42" x2="220" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="215" y1="42" x2="300" y2="42" style="stroke:black; stroke-width:2"/>
+          <line x1="315" y1="42" x2="350" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
+        | propiedades de los logaritmos
+        <svg width="800" height="80">          
+          <text x="65" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mnb"> 1</tspan><tspan class="mnb"> = </tspan><tspan class="mnb"> 0</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="65" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib"> xy</tspan><tspan class="mnb"> = </tspan><tspan class="mnb"> log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib"> x</tspan> + <tspan class="mnb"> log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib"> y</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="65" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib"> x<tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">n</tspan></tspan><tspan class="mnb"> = </tspan><tspan class="mib"> n </tspan><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib">x</tspan></text>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="65" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan>&ensp;&emsp;<tspan class="mnb"> = </tspan>&ensp;<tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib">x</tspan><tspan class="mnb"> - </tspan><tspan class="mnb">log<tspan  baseline-shift="sub"  style="font-size: 20px; font-style: italic;">a</tspan></tspan><tspan class="mib"> y</tspan></text>
+          <text x="130" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan></text>
+          <text x="130" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">y</tspan></text>
+          <line x1="120" y1="42" x2="150" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -479,40 +499,58 @@ a<template lang="pug">
       p(style="margin-top: -40px; color: blue; text-align: left;").center Derivadas de funciones trigonométricas
       p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sen</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">cos</tspan><tspan class="mib"> x</tspan></text>
-          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
-          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
-          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sen</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">cos</tspan><tspan class="mib"> u</tspan></text>
+          <text x="65" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="95" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="305" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="295" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cos</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">- cos</tspan><tspan class="mib"> x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cos</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb"> -sen</tspan><tspan class="mib"> u</tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="310" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="315" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="305" y1="42" x2="350" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">tan</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">tan</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> u</tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="305" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="295" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cot</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">csc</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cot</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb"> -csc</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib"> u</tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="305" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="295" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sec</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> tan</tspan><tspan class="mib"> x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sec</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sec</tspan><tspan class="mib"> u</tspan><tspan class="mnb"> tan</tspan><tspan class="mib"> u</tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="360" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="365" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="355" y1="42" x2="400" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">csc</tspan><tspan class="mib"> x</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">- csc</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> cot</tspan><tspan class="mib"> x</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">csc</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">-csc</tspan><tspan class="mib"> u</tspan><tspan class="mnb"> cot</tspan><tspan class="mib"> u</tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="370" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="375" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="370" y1="42" x2="415" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>        
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -521,824 +559,955 @@ a<template lang="pug">
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Reglas de derivación
-      p(style="margin-top: -40px; color: blue; text-align: left;").center Regla de la cadena
-      p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center Si <span class="mib">y</span><span class="mnb"> = </span> <span class="mib">f</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span>es una función derivable de <span class="mib">u</span> y además <span class="mib">u</span><span class="mnb"> = </span><span class="mib">g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">)</span> es una función derivable de <span class="mib">x</span>, entonces <span class="mib">y</span><span class="mnb"> = </span><span class="mib">f</span><span class="mnb">(</span><span class="mib">g</span><span class="mnb">(</span><span class="mib">x</span><span class="mnb">))</span> es una función derivable de <span class="mib">x</span> y        
-        <svg width="800" height="100">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb"> = </tspan>&ensp;&emsp;<tspan class="mnb"> · </tspan></text>
-          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dy</tspan>&ensp;&emsp;<tspan class="mib">dy</tspan>&emsp;<tspan class="mib">du</tspan></text>
-          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan>&ensp;&emsp;<tspan class="mib">du</tspan>&emsp;<tspan class="mib">dx</tspan></text>
-          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
-          <line x1="130" y1="42" x2="170" y2="42" style="stroke:black; stroke-width:2"/>
-          <line x1="190" y1="42" x2="230" y2="42" style="stroke:black; stroke-width:2"/>
-        </svg>
-        | o su equivalente
+      h4(style="margin-top: -0px; color: green;").center Reglas de derivación
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Derivadas de funciones trigonométricas inversas
+      p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
         <svg width="800" height="80">          
-          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mib">f</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))] = </tspan><tspan class="mib">f '</tspan><tspan class="mnb">(</tspan><tspan class="mib">g</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">))</tspan><tspan class="mib">g'</tspan><tspan class="mnb">(</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arcsen</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
+          <text x="65" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="95" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="290" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+          <text x="265" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1 - </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan></text>
+          <line x1="255" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+          <path d="M250 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <text x="355" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="350" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="345" y1="42" x2="390" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arccos</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
           <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
           <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
           <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="280" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">-1</tspan></text>
+          <text x="265" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1 - </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan></text>
+          <path d="M250 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <line x1="255" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="355" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="350" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="345" y1="42" x2="390" y2="42" style="stroke:black; stroke-width:2"/>
         </svg>
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 6
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 6
-      example-six(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 7
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 7
-      example-seven(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 1</span>. Se llama ángulo de inclinación (&alpha;) de una recta al formado por la parte positiva del eje <span class="mib">X</span>y la recta, cuando esta se considera dirigida hacia arriba, por lo tanto, 0º &leq; &alpha; &leq; 180º.
-      angulo-inclinacion-figura
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición 2</span>. Se llama pendiente de una recta dirigida a la tangente de su ángulo de inclinación, se denota <span class="mib">m</span>, por lo tanto, se expresa como <span class="mib">m = tan&alpha;</span>.
-      p(style="margin-top: -0px; color: blue;") Consideraciones
-      ul(style="margin-top: -0px; color: blue;") 
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 0º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> = 0, es una recta coincidente o paralela al eje  <span style="font-family: roboto; font-weight: normal; font-style: italic;">x</span>, dirigida hacia la derecha.
-        <br>
-        li Si 0º &le; <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> &le; 90º, entonces, <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> es positiva.
-        <br>
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 90º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> no esta definida, es una recta coincidente o paralela al eje <span style="font-family: roboto; font-weight: normal; font-style: italic;">y</span>, dirigida hacia arriba.
-        <br>
-        li Si 90º &le; <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> &le; 180º, entonces, <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> es negativa.
-        <br>
-        li Si <span style="font-family: roboto; font-weight: normal; font-style: italic;">&alpha;</span> = 180º, entonces  <span style="font-family: roboto; font-weight: normal; font-style: italic;">m</span> = 0, es una recta coincidente o paralela al eje <span style="font-family: roboto; font-weight: normal; font-style: italic;">x</span>, dirigida hacia la izquierda.
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Pendiente de una recta
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 4</span>: <span style="font-family: roboto; font-size: 30px; font-weight: normal;">Si <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>),</span> son dos puntos diferentes cualesquiera de una recta, la pendiente  de la recta es: 
-      pendiente-recta-formula
-      p(style="margin-top: -0px; color: blue;") Demostración
-      pendiente-recta-figura
-      p(style="margin-top: -0px; color: blue;") Para el triángulo rectángulo, mostrado en la figura, cuyos vertices son <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>, <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>, <span class="mib">A</span>, tenemos que: 
-      tangente-pendiente-formula
-      p(style="margin-top: -0px; color: blue;") entonces 
-      pendiente-recta-formula
-  
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
-      example-eight(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
-      example-nine(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
-      example-ten(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
-      p(style="margin-top: -40px; color: blue;") Cuando dos rectas se cortan se forman dos pares de ángulos, iguales, opuestos por el vértice  
-      angulo-dos-rectas
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El ángulo entre dos rectas dirigidas esta dado por 
-      angulo-dos-rectas-formula
-      p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin-top: -0px; color: blue;") Sea <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span class="mib">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
-      p(style="margin-top: -0px; color: blue;") En un triángulo un ángulo exterior es igual a la suma de sus ángulos internos opuestos
-      angulo-externo-suma-internos
-      p(style="margin-top: -0px; color: blue;") Aplicando la tangente tenemos que  
-      angulo-externo-suma-tangente
-      p(style="margin-top: -0px; color: blue;") utilizando la identidad trigonométrica   
-      identidad-tangente-AminusB
-      p(style="margin-top: -0px; color: blue;") tenemos que   
-      identidad-tangente-teorema
-      p(style="margin-top: -0px; color: blue;") por lo tanto   
-      angulo-dos-rectas-formula
-  
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
-      p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
-      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span class="mnb">-1</span>
-      
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
-      example-eleven(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
-      example-twelve(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
-      example-thirteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin: 0px 0px -30px 0px;").center Sección 2
-      h3.center La recta
-      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
-      p(style="margin-top: 0px; color: blue;") Lugar geométrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span class="mib">m</span> calculado por la formula del teorema 4
-      pendiente-recta-formula
-      p(style="margin-top: -40px; color: blue;") resulta siempre constante 
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta que pasa por un punto y tiene una pendiente dada
-      p(style="margin-top: -40px; color: blue;") La ecuación de una recta puede estar perfectamente determinada si se conocen las coordenadas de uno de sus puntos y su ángulo de inclinación (y, por tanto, su pendiente)
-      punto-pendiente-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 6</span>: La recta que pasa por el punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y tiene pendiente <span class="mib">m</span>, tiene la ecuación 
-      punto-pendiente-ecuacion
-      p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin-top: 0px; color: blue;") Sea <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>), un punto cualquiera de la recta, diferente al punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>) satisfacen la ecuación
-      punto-pendiente-ecuacion-demo
-      p(style="margin-top: -0px; color: blue;") Multiplicando la ecuación por el denominador  obtenemos
-      punto-pendiente-ecuacion 
-      p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
-      punto-pendiente-ecuacion-demo2
-      p(style="margin-top: 0px; color: blue;") que es la expresión analítica de la definición de la recta,aplicada a los puntos <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>). Por lo tanto, <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> esta sobre la recta.
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
-      example-fourteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta dada su pendiente y su ordenada al origen
-      p(style="margin-top: -40px; color: blue;") Como se conoce <span class="mib">b</span>, el punto cuyas coordenadas (<span class="mnb">0</span>,<span class="mib">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>,<span class="mib">b</span>) y tiene una pendiente dada
-      ordenada-pendiente-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span class="mib">m</span>  y cuya ordenada al origen es <span class="mib">b</span> tiene por ecuación  
-      ordenada-pendiente-ecuacion
-      p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
-      punto-pendiente-ecuacion
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>), entonces 
-      ordenada-pendiente-ecuacion-demo
-      p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
-      ordenada-pendiente-ecuacion 
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 15
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 15
-      example-fifteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta en forma simétrica
-      p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejes
-      ecuacion-simetrica-figura
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 8</span>: La recta cuyas intercepciones con los ejes <span class="mib">x</span> y <span class="mib">y</span>  son <span class="mib">a</span>&ne; <span class="mnb">0</span> y <span class="mib">b</span> &ne; <span class="mnb">0</span> respectivamente, tiene por ecuación  
-      ecuacion-simetrica
-      p(style="margin-top: -0px; color: blue;") Demostración  
-      p(style="margin: -10px 0px 0px 0px; color: blue;") Sea <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>) los puntos de intersección de la recta con los ejes coordenados, la pendiente de la recta esta dada por
-      pendiente-simetrica-demo
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos en la forma punto pendiente usando el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>), entonces 
-      punto-pendiente-simetrica-demo
-      p(style="margin: 0px 0px 10px 0px; color: blue;") Dividiendo entre <span class="mib">ab</span>, tenemos 
-      ecuacion-simetrica
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 16
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 16
-      example-sixteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Ecuación de la recta, forma general
-      p(style="margin-top: -40px; color: blue;") Esta forma resulta al desarrollar cualquiera de las formas anteriores hasta expresarla en la forma
-      general-ecuacion
-      p(style="margin-top: 10px; color: blue;") En donde <span class="mib">A</span> y <span class="mib">B</span> pueden ser difrerentes de cero, o bien, <span class="mib">A</span> o <span class="mib">B</span>, pueden ser cero y <span class="mib">C</span> puede tomar cualquier valor incluyendo cero.
-      p(style="margin-top: -0px; color: blue;") Consideraciones  
-      p(style="margin-top: -0px; color: blue;") + Si <span class="mib">A</span><span class="mnb"> = 0</span>, <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-C/B</span> la recta es paralela al eje <span class="mib">x</span>  
-      p(style="margin-top: -0px; color: blue;") + Si <span class="mib">B</span><span class="mnb"> = 0</span>, <span class="mib">x</span><span class="mnb"> = </span><span class="mib">-C/A</span> la recta es paralela al eje <span class="mib">y</span>
-      p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-(A/B)x - C/B</span> en donde  <span class="mib">m</span><span class="mnb"> = -</span><span class="mib">A/B</span> y la ordenada al origen <span class="mib">b</span><span class="mib"> = -</span><span class="mib">C/B</span>  
-      p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simétrica, tenemos   
-      simetrica-ecuacion-general
-      p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span class="mib">-C/A</span>, <span class="mnb">0</span>)  y (<span class="mnb">0</span>, <span class="mib">-C/B</span>)
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
-      example-seventeen(:language='isSpanish')
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arctan</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="290" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+          <text x="265" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1 + </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan></text>
+          //- <path d="M250 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <line x1="255" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="350" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="355" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="345" y1="42" x2="390" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arccot</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="280" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">-1</tspan></text>
+          <text x="265" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1 + </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan></text>
+          //- <path d="M250 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <line x1="255" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="350" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="355" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="345" y1="42" x2="390" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arcsec</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+          <text x="255" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">|u| </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mnb"> - 1</tspan></text>
+          <path d="M285 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <line x1="255" y1="42" x2="380" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="390" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="395" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="385" y1="42" x2="430" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">arcsec</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="300" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb"> -1</tspan></text>
+          <text x="255" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">|u| </tspan><tspan class="mnb">u</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mnb"> - 1</tspan></text>
+          <path d="M285 70 l5 5 l5 -30 l80 0" style="fill:none;stroke:black;stroke-width:2" />
+          <line x1="255" y1="42" x2="380" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="390" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <text x="395" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <line x1="385" y1="42" x2="430" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>     
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Posiciones relativas de dos rectas
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas son<br> &emsp;&emsp;<span class="mib">Ax + By + C = 0</span>&emsp;&emsp; y &emsp;&emsp;<span class="mib">A'x + B'y + C = 0</span>, <br>Las relaciones siguientes son condiciones necesarias y suficientes para  
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: <span class="mib">A/A'</span> = <span class="mib">B/B'</span>, o bien, <span class="mib">AB' - A'B</span><span class="mnb"> = 0</span>  
-      
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: <span class="mib">AA' +BB'</span><span class="mnb"> = 0</span>
-      
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: <span class="mib">A</span><span class="mnb"> = </span><span class="mib">kA</span>;&emsp;<span class="mib">B</span><span class="mnb"> = </span><span class="mib">kB</span>&emsp; y&emsp; <span class="mib">C</span><span class="mnb"> = </span><span class="mib">kC</span>
-      
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Intersección en uno y solamente un punto: <span class="mib">A/A' &ne; B/B'</span>, o bien <span class="mib">AB' - A'B &ne; 0</span>
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
-      example-eighteen(:language='isSpanish')
+      h4(style="margin-top: -0px; color: green;").center Reglas básicas de derivación
+      p(style="margin-top: -40px; color: blue; text-align: left;").center Derivadas de funciones trigonométricas hiperbólicas
+      p(style="margin-top: -10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">senh</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">cosh</tspan><tspan class="mib"> u</tspan></text>
+          <text x="65" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="95" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="325" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="320" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="320" y1="42" x2="360" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">cosh</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">senh</tspan><tspan class="mib"> u</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="330" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="325" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="320" y1="42" x2="370" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">tanh</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">sech</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="335" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="330" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="325" y1="42" x2="370" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">coth</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">-csch</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="340" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="335" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="330" y1="42" x2="375" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">sech</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">-sech</tspan><tspan class="mib"> u</tspan><tspan class="mnb"> tanh</tspan><tspan class="mib"> u</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="425" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="420" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="415" y1="42" x2="465" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="100" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times">[<tspan class="mnb">csch</tspan><tspan class="mib"> u</tspan><tspan class="mnb">] = </tspan><tspan class="mnb">-csch</tspan><tspan class="mib"> u</tspan><tspan class="mnb"> coth</tspan><tspan class="mib"> u</tspan></text>
+          <text x="65" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">d</tspan></text>
+          <text x="60" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="55" y1="42" x2="90" y2="42" style="stroke:black; stroke-width:2"/>
+          <text x="425" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">du</tspan></text>
+          <text x="420" y="70" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">dx</tspan></text>
+          <line x1="415" y1="42" x2="465" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>        
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Funciones trigonométricas hiperbolicas
+      p(style="margin-top: 10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">e</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">x</tspan> - <tspan class="mib">e</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">x</tspan></text>
+          <text x="200" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">2</tspan></text>
+          <line x1="170" y1="42" x2="250" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">e</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">x</tspan> + <tspan class="mib">e</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">x</tspan></text>
+          <text x="200" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">2</tspan></text>
+          <line x1="170" y1="42" x2="250" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">tanh</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan><tspan class="mib"> x</tspan></text>
+          <text x="180" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan class="mib"> x</tspan></text>
+          <line x1="170" y1="42" x2="270" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">coth</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan class="mib"> x</tspan></text>
+          <text x="180" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan><tspan class="mib"> x</tspan></text>
+          <line x1="170" y1="42" x2="270" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">sech</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="210" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+          <text x="180" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan class="mib"> x</tspan></text>
+          <line x1="170" y1="42" x2="270" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="80">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">csch</tspan><tspan class="mib"> x</tspan><tspan class="mnb"> = </tspan></text>
+          <text x="210" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+          <text x="180" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan><tspan class="mib"> x</tspan></text>
+          <line x1="170" y1="42" x2="270" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>     
+      p(style="margin-top: -10px; color: blue; text-align: left;").center Identidades hiperbólicas
+      p(style="margin-top: 10px; color: black; border-style: solid; text-align: left; padding: 20px;").center
+        <svg width="800" height="50">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan> - <tspan class="mnb">senh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan><tspan class="mnb"> = 1</tspan></text>
+        </svg>
+        <svg width="800" height="50">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">tanh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan> + <tspan class="mnb">sech</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan><tspan class="mnb"> = 1</tspan></text>
+        </svg>
+        <svg width="800" height="50">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">coth</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan> - <tspan class="mnb">csch</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan><tspan class="mnb"> = 1</tspan></text>
+        </svg>
+        <svg width="800" height="70">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan> + <tspan class="mnb">sinh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan><tspan class="mnb"> = </tspan><tspan class="mnb">cosh</tspan><tspan class="mnb"> 2</tspan><tspan class="mib">u</tspan></text>
+        </svg>
+        <svg width="800" height="70">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan>  =  </text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh(2</tspan><tspan class="mib">x</tspan><tspan class="mnb">) - 1</tspan></text>
+          <text x="250" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">2</tspan></text>
+          <line x1="170" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="70">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh</tspan><tspan  baseline-shift="super"  style="font-size: 20px; font-style: italic;">2</tspan><tspan class="mib">u</tspan>  =  </text>
+          <text x="180" y="35" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">cosh(2</tspan><tspan class="mib">u</tspan><tspan class="mnb">) + 1</tspan></text>
+          <text x="250" y="65" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">2</tspan></text>
+          <line x1="170" y1="42" x2="340" y2="42" style="stroke:black; stroke-width:2"/>
+        </svg>
+        <svg width="800" height="50">          
+          <text x="50" y="50" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">senh</tspan> <tspan class="mnb">2</tspan><tspan class="mib">u</tspan> = <tspan class="mnb">2senh</tspan><tspan class="mib"> u</tspan><tspan class="mnb"> cosh</tspan><tspan class="mib"> u</tspan></text>
+        </svg>     
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
-      example-nineteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+  
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
-      example-twenty(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
+    //-   example-eight(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
+    //-   example-nine(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
+    //-   example-ten(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
+    //-   p(style="margin-top: -40px; color: blue;") Cuando dos rectas se cortan se forman dos pares de ángulos, iguales, opuestos por el vértice  
+    //-   angulo-dos-rectas
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 5</span>: El ángulo entre dos rectas dirigidas esta dado por 
+    //-   angulo-dos-rectas-formula
+    //-   p(style="margin-top: -0px; color: blue;") Demostración  
+    //-   p(style="margin-top: -0px; color: blue;") Sea <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> una recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">1</sub></span> y <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> otra recta con ángulo de inclinación <span class="mib">&alpha;<sub style="font-size: 20px; font-style: normal;">2</sub></span> y <span class="mib">&theta;<sub style="font-size: 20px; font-style: normal;">1</sub></span> el ángulo entre ellas. 
+    //-   p(style="margin-top: -0px; color: blue;") En un triángulo un ángulo exterior es igual a la suma de sus ángulos internos opuestos
+    //-   angulo-externo-suma-internos
+    //-   p(style="margin-top: -0px; color: blue;") Aplicando la tangente tenemos que  
+    //-   angulo-externo-suma-tangente
+    //-   p(style="margin-top: -0px; color: blue;") utilizando la identidad trigonométrica   
+    //-   identidad-tangente-AminusB
+    //-   p(style="margin-top: -0px; color: blue;") tenemos que   
+    //-   identidad-tangente-teorema
+    //-   p(style="margin-top: -0px; color: blue;") por lo tanto   
+    //-   angulo-dos-rectas-formula
+  
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4(style="margin-top: -20px; color: green;").center Ángulo entre dos rectas
+    //-   p(style="margin-top: -40px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 1</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean paralelas es que sus pendientes sean iguales, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span> =  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> 
+    //-   p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Corolario 2</span>: La condición necesaria y suficiente para que dos rectas,  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">1</sub></span> y  <span class="mib">l<sub style="font-size: 20px; font-style: normal;">2</sub></span> sean perpendiculares es que sus pendientes sean recíprocas y de signo contrario, es decir  <span class="mib">m<sub style="font-size: 20px; font-style: normal;">1</sub></span><span class="mib">m<sub style="font-size: 20px; font-style: normal;">2</sub></span> = <span class="mnb">-1</span>
+      
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
+    //-   example-eleven(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
+    //-   example-twelve(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
+    //-   example-thirteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4(style="margin: 0px 0px -30px 0px;").center Sección 2
+    //-   h3.center La recta
+    //-   p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+    //-   p(style="margin-top: 0px; color: blue;") Lugar geométrico de los puntos, tales que tomados dos puntos diferentes cualesquiera <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>), <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) del lugar, el valor de la pendiente<span class="mib">m</span> calculado por la formula del teorema 4
+    //-   pendiente-recta-formula
+    //-   p(style="margin-top: -40px; color: blue;") resulta siempre constante 
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Ecuación de la recta que pasa por un punto y tiene una pendiente dada
+    //-   p(style="margin-top: -40px; color: blue;") La ecuación de una recta puede estar perfectamente determinada si se conocen las coordenadas de uno de sus puntos y su ángulo de inclinación (y, por tanto, su pendiente)
+    //-   punto-pendiente-figura
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 6</span>: La recta que pasa por el punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y tiene pendiente <span class="mib">m</span>, tiene la ecuación 
+    //-   punto-pendiente-ecuacion
+    //-   p(style="margin-top: -0px; color: blue;") Demostración  
+    //-   p(style="margin-top: 0px; color: blue;") Sea <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>), un punto cualquiera de la recta, diferente al punto dado <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>). por la definicion de la recta, las coordenadas del punto <span class="mib">P</span>(<span class="mib">x</span>,<span class="mib">y</span>) satisfacen la ecuación
+    //-   punto-pendiente-ecuacion-demo
+    //-   p(style="margin-top: -0px; color: blue;") Multiplicando la ecuación por el denominador  obtenemos
+    //-   punto-pendiente-ecuacion 
+    //-   p(style="margin-top: -0px; color: blue;") Reciprocamente, si las coordenadas de cualquier otro punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>) satisfacen la ecuación anterior, tenemos
+    //-   punto-pendiente-ecuacion-demo2
+    //-   p(style="margin-top: 0px; color: blue;") que es la expresión analítica de la definición de la recta,aplicada a los puntos <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">1</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">1</sub></span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mib">x<sub style="font-size: 20px; font-style: normal;">2</sub></span>,<span class="mib">y<sub style="font-size: 20px; font-style: normal;">2</sub></span>). Por lo tanto, <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span> esta sobre la recta.
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+    //-   example-fourteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Ecuación de la recta dada su pendiente y su ordenada al origen
+    //-   p(style="margin-top: -40px; color: blue;") Como se conoce <span class="mib">b</span>, el punto cuyas coordenadas (<span class="mnb">0</span>,<span class="mib">b</span>) está sobre la recta . Por lo tanto, el problema se reduce a hallar la ecuación de la recta que pasa por un punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>,<span class="mib">b</span>) y tiene una pendiente dada
+    //-   ordenada-pendiente-figura
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 7</span>: La recta cuya pendiente es <span class="mib">m</span>  y cuya ordenada al origen es <span class="mib">b</span> tiene por ecuación  
+    //-   ordenada-pendiente-ecuacion
+    //-   p(style="margin-top: -0px; color: blue;") Demostración  
+    //-   p(style="margin: -10px 0px 0px 0px; color: blue;") Partiendo de la ecuación
+    //-   punto-pendiente-ecuacion
+    //-   p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>), entonces 
+    //-   ordenada-pendiente-ecuacion-demo
+    //-   p(style="margin: 0px 0px 0px 0px; color: blue;") Ordenando tenemos
+    //-   ordenada-pendiente-ecuacion 
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 15
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 15
+    //-   example-fifteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Ecuación de la recta en forma simétrica
+    //-   p(style="margin-top: -40px; color: blue;") Se puede obtener la ecuación de la recta cuando se conocen los puntos de interseccion de la recta con los ejes
+    //-   ecuacion-simetrica-figura
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 8</span>: La recta cuyas intercepciones con los ejes <span class="mib">x</span> y <span class="mib">y</span>  son <span class="mib">a</span>&ne; <span class="mnb">0</span> y <span class="mib">b</span> &ne; <span class="mnb">0</span> respectivamente, tiene por ecuación  
+    //-   ecuacion-simetrica
+    //-   p(style="margin-top: -0px; color: blue;") Demostración  
+    //-   p(style="margin: -10px 0px 0px 0px; color: blue;") Sea <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>) y <span class="mib">P<sub style="font-size: 20px; font-style: normal;">2</sub></span>(<span class="mnb">0</span>, <span class="mib">b</span>) los puntos de intersección de la recta con los ejes coordenados, la pendiente de la recta esta dada por
+    //-   pendiente-simetrica-demo
+    //-   p(style="margin: 0px 0px 10px 0px; color: blue;") Sustituimos en la forma punto pendiente usando el punto <span class="mib">P<sub style="font-size: 20px; font-style: normal;">1</sub></span>(<span class="mib">a</span>, <span class="mnb">0</span>), entonces 
+    //-   punto-pendiente-simetrica-demo
+    //-   p(style="margin: 0px 0px 10px 0px; color: blue;") Dividiendo entre <span class="mib">ab</span>, tenemos 
+    //-   ecuacion-simetrica
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 16
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 16
+    //-   example-sixteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Ecuación de la recta, forma general
+    //-   p(style="margin-top: -40px; color: blue;") Esta forma resulta al desarrollar cualquiera de las formas anteriores hasta expresarla en la forma
+    //-   general-ecuacion
+    //-   p(style="margin-top: 10px; color: blue;") En donde <span class="mib">A</span> y <span class="mib">B</span> pueden ser difrerentes de cero, o bien, <span class="mib">A</span> o <span class="mib">B</span>, pueden ser cero y <span class="mib">C</span> puede tomar cualquier valor incluyendo cero.
+    //-   p(style="margin-top: -0px; color: blue;") Consideraciones  
+    //-   p(style="margin-top: -0px; color: blue;") + Si <span class="mib">A</span><span class="mnb"> = 0</span>, <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-C/B</span> la recta es paralela al eje <span class="mib">x</span>  
+    //-   p(style="margin-top: -0px; color: blue;") + Si <span class="mib">B</span><span class="mnb"> = 0</span>, <span class="mib">x</span><span class="mnb"> = </span><span class="mib">-C/A</span> la recta es paralela al eje <span class="mib">y</span>
+    //-   p(style="margin-top: -0px; color: blue;") + Si despejamos y de la ecuación general, la ecuación toma la forma de ordenada al origen, es decir <span class="mib">y</span><span class="mnb"> = </span><span class="mib">-(A/B)x - C/B</span> en donde  <span class="mib">m</span><span class="mnb"> = -</span><span class="mib">A/B</span> y la ordenada al origen <span class="mib">b</span><span class="mib"> = -</span><span class="mib">C/B</span>  
+    //-   p(style="margin-top: -0px; color: blue;") + Si a la forma general le damos la forma simétrica, tenemos   
+    //-   simetrica-ecuacion-general
+    //-   p(style="margin-top: -0px; color: blue;") entonces las intersecciones con los ejes coordenados estan dados por (<span class="mib">-C/A</span>, <span class="mnb">0</span>)  y (<span class="mnb">0</span>, <span class="mib">-C/B</span>)
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
+    //-   example-seventeen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+   
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Posiciones relativas de dos rectas
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 9</span>: Si las ecuaciones de dos rectas son<br> &emsp;&emsp;<span class="mib">Ax + By + C = 0</span>&emsp;&emsp; y &emsp;&emsp;<span class="mib">A'x + B'y + C = 0</span>, <br>Las relaciones siguientes son condiciones necesarias y suficientes para  
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">a)</span> Paralelismo: <span class="mib">A/A'</span> = <span class="mib">B/B'</span>, o bien, <span class="mib">AB' - A'B</span><span class="mnb"> = 0</span>  
+      
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">b)</span> Perpendicularidad: <span class="mib">AA' +BB'</span><span class="mnb"> = 0</span>
+      
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">c)</span> Coincidencia: <span class="mib">A</span><span class="mnb"> = </span><span class="mib">kA</span>;&emsp;<span class="mib">B</span><span class="mnb"> = </span><span class="mib">kB</span>&emsp; y&emsp; <span class="mib">C</span><span class="mnb"> = </span><span class="mib">kC</span>
+      
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">d)</span> Intersección en uno y solamente un punto: <span class="mib">A/A' &ne; B/B'</span>, o bien <span class="mib">AB' - A'B &ne; 0</span>
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="margin: 0 0 20px 0;  border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
+    //-   example-eighteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
+    //-   example-nineteen(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
+    //-   example-twenty(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
     
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 21
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 21
-      example-twentyOne(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 21
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 21
+    //-   example-twentyOne(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 22
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 22
-      example-twentyTwo(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 22
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 22
+    //-   example-twentyTwo(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 23
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 23
-      example-twentyThree(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 23
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 23
+    //-   example-twentyThree(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 24
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 24
-      example-twentyFour(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 24
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 24
+    //-   example-twentyFour(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 25
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 25
-      example-twentyFive(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 25
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 25
+    //-   example-twentyFive(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 26
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 26
-      example-twentySix(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 26
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 26
+    //-   example-twentySix(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px; color: green;").center Sección 3
-      h5(style="margin-top: -20px; color: green;").center La circunferencia
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>: Se llama circunferencia al conjunto de puntos en el plano tal que su distancia a un punto fijo del plano es siempre la misma. El punto fijo del plano se llama centro y la distancia constante se llama radio.  
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h4(style="margin-top: -20px; color: green;").center Sección 3
+    //-   h5(style="margin-top: -20px; color: green;").center La circunferencia
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>: Se llama circunferencia al conjunto de puntos en el plano tal que su distancia a un punto fijo del plano es siempre la misma. El punto fijo del plano se llama centro y la distancia constante se llama radio.  
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Forma ordinaria de la circunferencia
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 10</span>: La ecuación de la circunferencia con centro en <span class="mib">C(h, k)</span> y radio <span class="mib">r</span> esta dada por   
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Forma ordinaria de la circunferencia
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 10</span>: La ecuación de la circunferencia con centro en <span class="mib">C(h, k)</span> y radio <span class="mib">r</span> esta dada por   
       
-      p(style="margin-top: -0px; color: blue;").center <span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   p(style="margin-top: -0px; color: blue;").center <span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
-      p(style="margin-top: -0px; color: blue;") Demostración: 
-      p(style="margin-top: -20px; color: blue;") Sea <span class="mib">P(x,y)</span> un punto cualquiera del conjunto y sea <span class="mib">c(h, k)</span> el centro de la circunferencia con radio <span class="mib">r</span>. De acuerdo con la definición,
-      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>| = <span class="mib">r</span>
-      p(style="margin-top: -20px; color: blue;") como
-      p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>|<span class="mib"><sup style="font-size: 20px; font-style: normal;">2</sup> = </span><span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //-   p(style="margin-top: -0px; color: blue;") Demostración: 
+    //-   p(style="margin-top: -20px; color: blue;") Sea <span class="mib">P(x,y)</span> un punto cualquiera del conjunto y sea <span class="mib">c(h, k)</span> el centro de la circunferencia con radio <span class="mib">r</span>. De acuerdo con la definición,
+    //-   p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>| = <span class="mib">r</span>
+    //-   p(style="margin-top: -20px; color: blue;") como
+    //-   p(style="margin-top: -0px; color: blue;").center |<span style="font-family: roboto; font-weight: bold; font-style: italic; text-decoration:overline;">PC</span>|<span class="mib"><sup style="font-size: 20px; font-style: normal;">2</sup> = </span><span class="mib">(x - h)<sup style="font-size: 20px; font-style: normal;">2</sup> + (y - k)<sup style="font-size: 20px; font-style: normal;">2</sup> = r<sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 27
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 27
-      example-twentySeven(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 27
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 27
+    //-   example-twentySeven(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
-      example-twentyEight(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 28
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 28
+    //-   example-twentyEight(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 29
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 29
-      example-twentyNine(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 29
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 29
+    //-   example-twentyNine(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
         
-    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la circunferencia
+    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la circunferencia
      
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">C</span>
-        <span class="mib">x</span>
-        <span class="mnb">+</span>
-        <span class="mnb">D</span>
-        <span class="mib">y</span>
-        <span class="mnb">+</span>
-        <span class="mib">E</span>
-        <span class="mnb"> = 0</span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> = 0</span>
       
-      p(style="margin-top: -0px; color: blue;") Desarrolando la ecuación en la forma ordinaria   
+    //-   p(style="margin-top: -0px; color: blue;") Desarrolando la ecuación en la forma ordinaria   
       
-      p(style="margin-top: -0px; color: blue;").center <span class="mnb">(</span>
-        <span class="mib">x</span>
-        <span class="mnb">-</span>
-        <span class="mib">h</span>
-        <span class="mnb">)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mnb">(</span>
-        <span class="mib">y</span>
-        <span class="mnb"> - </span>
-        <span class="mib">k</span>
-        <span class="mnb">)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = </span>
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   p(style="margin-top: -0px; color: blue;").center <span class="mnb">(</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb">-</span>
+    //-     <span class="mib">h</span>
+    //-     <span class="mnb">)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">(</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"> - </span>
+    //-     <span class="mib">k</span>
+    //-     <span class="mnb">)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = </span>
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">-</span>
-        <span class="mnb">2</span>
-        <span class="mib">hx</span>
-        <span class="mnb">+</span>
-        <span class="mib">h</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> - </span>
-        <span class="mnb">2</span>
-        <span class="mib">ky</span>
-        <span class="mnb"> + </span>
-        <span class="mib">k</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = </span>
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">-</span>
+    //-     <span class="mnb">2</span>
+    //-     <span class="mib">hx</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mib">h</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> - </span>
+    //-     <span class="mnb">2</span>
+    //-     <span class="mib">ky</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">k</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = </span>
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">-</span>
-        <span class="mnb">2</span>
-        <span class="mib">hx</span>
-        <span class="mnb"> - </span>
-        <span class="mnb">2</span>
-        <span class="mib">ky</span>
-        <span class="mnb">+</span>
-        <span class="mib">h</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">k</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> - </span>
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = 0</span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">-</span>
+    //-     <span class="mnb">2</span>
+    //-     <span class="mib">hx</span>
+    //-     <span class="mnb"> - </span>
+    //-     <span class="mnb">2</span>
+    //-     <span class="mib">ky</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mib">h</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">k</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> - </span>
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = 0</span>
       
-      p(style="margin-top: -0px; color: blue;") Entonces  
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mnb"> C = -2</span>
-        <span class="mib">h</span>,&emsp;
-        <span class="mnb"> D = -2</span>
-        <span class="mib">k</span>,&emsp;
-        <span class="mnb"> E = </span>
-        <span class="mib">h</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">k</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> - </span>
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   p(style="margin-top: -0px; color: blue;") Entonces  
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mnb"> C = -2</span>
+    //-     <span class="mib">h</span>,&emsp;
+    //-     <span class="mnb"> D = -2</span>
+    //-     <span class="mib">k</span>,&emsp;
+    //-     <span class="mnb"> E = </span>
+    //-     <span class="mib">h</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">k</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> - </span>
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
-      p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 11</span>:<br>La ecuación 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">C</span>
-        <span class="mib">x</span>
-        <span class="mnb">+</span>
-        <span class="mnb">D</span>
-        <span class="mib">y</span>
-        <span class="mnb">+</span>
-        <span class="mib">E</span>
-        <span class="mnb"> = 0</span> representa una circunferencia con centro en  
-        <span class="mnb">(h, k) = (-C/2, -D/2)</span> y radio 
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = (-</span>
-        <span class="mib">E</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">C</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mnb">D</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">)</span>
-        <span class="mnb">/4</span>
+    //-   p(style="margin-top: -0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Teorema 11</span>:<br>La ecuación 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> = 0</span> representa una circunferencia con centro en  
+    //-     <span class="mnb">(h, k) = (-C/2, -D/2)</span> y radio 
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = (-</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">)</span>
+    //-     <span class="mnb">/4</span>
       
-      p(style="margin-top: -0px; color: blue;") <Bf> Demostración </bf>   
-      p(style="margin-top: -0px; color: blue;") Ahora si se realiza el proceso en partiendo de la forma general  
+    //-   p(style="margin-top: -0px; color: blue;") <Bf> Demostración </bf>   
+    //-   p(style="margin-top: -0px; color: blue;") Ahora si se realiza el proceso en partiendo de la forma general  
       
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">C</span>
-        <span class="mib">x</span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">D</span>
-        <span class="mib">y</span>
-        <span class="mnb"> = -</span>
-        <span class="mib">E</span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"> = -</span>
+    //-     <span class="mib">E</span>
       
-      p(style="margin-top: -0px; color: blue;") Completando trinomios  cuadrado perfecto
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">x</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">C</span>
-        <span class="mib">x</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">(C/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mib">y</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">+</span>
-        <span class="mnb">D</span>
-        <span class="mib">y</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">(D/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = -</span>
-        <span class="mib">E</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">(C/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mnb">(D/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-   p(style="margin-top: -0px; color: blue;") Completando trinomios  cuadrado perfecto
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">(C/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">(D/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = -</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">(C/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">(D/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
       
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mnb">(</span>
-        <span class="mib">x</span>
-        <span class="mnb">+</span>
-        <span class="mnb">C/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + (</span>
-        <span class="mib">y</span>
-        <span class="mnb">+</span>
-        <span class="mnb">D/2)</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = (-</span>
-        <span class="mib">E</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">C</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mnb">D</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">)</span>
-        <span class="mnb">/4</span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mnb">(</span>
+    //-     <span class="mib">x</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">C/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + (</span>
+    //-     <span class="mib">y</span>
+    //-     <span class="mnb">+</span>
+    //-     <span class="mnb">D/2)</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = (-</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">)</span>
+    //-     <span class="mnb">/4</span>
       
 
-      p(style="margin-top: -20px; color: blue;") Entonces
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mnb">(h, k) = (-C/2, -D/2)</span>
-      p(style="margin-top: -0px; color: blue;").center 
-        <span class="mib">r</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> = (-</span>
-        <span class="mib">E</span>
-        <span class="mnb"> + </span>
-        <span class="mnb">C</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb"> + </span>
-        <span class="mnb">D</span>
-        <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-        <span class="mnb">)</span>
-        <span class="mnb">/4</span>
+    //-   p(style="margin-top: -20px; color: blue;") Entonces
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mnb">(h, k) = (-C/2, -D/2)</span>
+    //-   p(style="margin-top: -0px; color: blue;").center 
+    //-     <span class="mib">r</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> = (-</span>
+    //-     <span class="mib">E</span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">C</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb"> + </span>
+    //-     <span class="mnb">D</span>
+    //-     <span class="mnb"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+    //-     <span class="mnb">)</span>
+    //-     <span class="mnb">/4</span>
       
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
    
         
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 30
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 30
-      example-thirty(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 30
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 30
+    //-   example-thirty(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 31
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 31
-      example-thirtyOne(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 31
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 31
+    //-   example-thirtyOne(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 32
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 32
-      example-thirtyTwo(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 32
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 32
+    //-   example-thirtyTwo(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 33
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 33
-      example-thirtyThree(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 33
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 33
+    //-   example-thirtyThree(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 34
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 34
-      example-thirtyFour(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 34
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 34
+    //-   example-thirtyFour(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 35
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 35
-      example-thirtyFive(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 35
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 35
+    //-   example-thirtyFive(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 36
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 36
-      example-thirtySix(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 36
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 36
+    //-   example-thirtySix(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 37
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 37
-      example-thirtySeven(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 37
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 37
+    //-   example-thirtySeven(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 38
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 38
-      example-thirtyEight(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 38
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 38
+    //-   example-thirtyEight(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 39
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 39
-      example-thirtyNine(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 39
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 39
+    //-   example-thirtyNine(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 40
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 40
-      example-forty(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 40
+    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 40
+    //-   example-forty(:language='isSpanish')
+    //-   .prev(@click.stop='previousSlide' style="float: left;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+    //-   .next(@click.stop='nextSlide' style="float: right;")
+    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       .center
         h3 References
-        p Geometría analítica. Lemhann
-        p.small created by G. Rodríguez-Morales and spheroidGames
-        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com, gustavo@gusbits.com
+        p Calculo. Loman
+        p.small created by G. Rodríguez-Morales
+        p.small gustavo.rodriguezml@gmail.com, gustavo@gusbits.com
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       //- .next(@click.stop='nextSlide' style="float: right;")

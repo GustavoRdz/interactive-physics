@@ -1,78 +1,125 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p(v-if = '!language' style="margin: 25px 0px 0px 0px;").problem 
-    p(v-if = 'language' style="margin: 25px 0px 40px 0px;").problem Encontrar el dominio y el rango de de la función <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span> {{ a }}<span style="font-family: roboto; font-weight: bold; font-style: italic;">x<sup style="font-size: 20px; font-style: normal;">{{ n }}</sup></span>
+    p(style="margin: 0px 0px 20px 0px;").problem Calcular los siguientes límites
     .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" height="250px" width="350px" >
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">a) </tspan><tspan class="mnb"> lím (4</tspan><tspan class="mib">x</tspan><tspan class="mnb"> + 5)</tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -1</tspan></text>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">b) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" class="mib"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 3</tspan><tspan class="mib">x</tspan><tspan class="mnb"> - 10</tspan></text>
+        <text x="160" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="270" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">c) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> 4</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> - 16</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">d) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> 3</tspan></text>
+        <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">3</tspan><tspan class="mnb"> - 27</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 3</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">e) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr; <tspan class="mnb"> 3</tspan></text>
+        <path d="M73 60 l5 5 l5 -20 l10 0" style="fill:none;stroke:black;stroke-width:2" />
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 3</tspan></text>
+        <path d="M160 27 l5 5 l5 -30 l20 0" style="fill:none;stroke:black;stroke-width:2" />
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> - 3</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">f) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> 5</tspan></text>
+        <text x="135" y="15" font-size="15" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+        <text x="120" y="33" font-size="15" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> + 1</tspan></text>
+        <line x1="120" y1="20" x2="155" y2="20" style="stroke:black; stroke-width:2"/>
+        <line x1="160" y1="20" x2="170" y2="20" style="stroke:black; stroke-width:2"/>
+        <text x="180" y="15" font-size="15" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">1</tspan></text>
+        <text x="180" y="33" font-size="15" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">6</tspan></text>
+        <line x1="175" y1="20" x2="195" y2="20" style="stroke:black; stroke-width:2"/>
+        <text x="130" y="60" font-size="25" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 5</tspan></text>
 
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">g) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">&Delta;</tspan><tspan class="mib">x</tspan>&rarr;<tspan class="mnb"> 0</tspan></text>
+        <text x="110" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">(</tspan><tspan class="mib">x </tspan><tspan class="mnb">+ &Delta;</tspan><tspan class="mib">x</tspan><tspan class="mnb">)</tspan></text>
+        <text x="140" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mmb">&Delta;</tspan><tspan class="mib">x</tspan></text>
+        <line x1="110" y1="35" x2="210" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">h) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> 0</tspan></text>
+        <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> + 5 - 5</tspan></text>
+        <path d="M110 27 l5 5 l5 -25 l60 0" style="fill:none;stroke:black;stroke-width:2" />
+        <path d="M197 27 l5 5 l5 -25 l20 0" style="fill:none;stroke:black;stroke-width:2" />
+        <text x="150" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan></text>
+        <line x1="110" y1="35" x2="230" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">i) </tspan><tspan class="mnb"> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -4</tspan></text>
+        <text x="110" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">3</tspan><tspan class="mnb"> + 64</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> + 4</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnn">j) </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -2</tspan></text>
+        <text x="145" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> + 2</tspan></text>
+        <text x="110" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> - 4</tspan><tspan class="mib">x</tspan><tspan class="mnb"> - 12</tspan></text>
+        <line x1="110" y1="35" x2="250" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">3.- </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">3.- </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">3.- </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">3.- </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
+      <svg width="300px" height="70px" >
+        <text x="20" y="40" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mnb">3.- </tspan><tspan class="mnb""> lím </tspan></text>
+        <text x="50" y="60" font-size="17" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x </tspan>&rarr;<tspan class="mnb"> -5</tspan></text>
+        <text x="130" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan class="mnb"> - 4</tspan></text>
+        <text x="120" y="60" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan class="mib">x</tspan><tspan  baseline-shift="super"  class="mib" style="font-size: 17px;">2</tspan><tspan class="mnb"> + 5</tspan></text>
+        <line x1="110" y1="35" x2="200" y2="35" style="stroke:black; stroke-width:2"/>
+      </svg>
 
-        <!-- x grid -->
-        <line v-for="x in [12, 50, 88, 126, 164, 202, 240, 278, 316, 354, 392, 430, 468, 506, 544, 582, 620, 658, 696]" fill="none" stroke="#000" stroke-width="0.5" :x1="x" y1="7" :x2="x" y2="470" stroke-linecap="round"/>
-        <!-- x scale bold -->
-        //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
-        <!-- y grid -->
-        <line v-for="y in [10, 48, 86, 124, 162, 200, 238, 276, 314, 352, 390, 428, 466]" fill="none" stroke="#000" stroke-width="0.5" x1="7" :y1="y" x2="700" :y2="y" stroke-linecap="round"/>
-        
-        <!-- x Axis -->
-        <path d="M0 238 l698 0 l-10 5 l10 -5 l-10 -5" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
-        <text x="677" y="270" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">x</text>
-
-        <!-- y Axis -->
-        <path d="M354 480 l0 -475 l-5 10 l5 -10 l5 10" stroke="#000" fill="none" stroke-opacity="1" stroke-width="2" ></path>
-        <text x="330" y="28" font-size="35" fill="black" font-weight="bold" font-family="Times" font-style="italic">y</text>
-              
-        <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
-        
-        <!-- triangle -->
-        <line v-if="showLine1" :x1="x1" :y1="y1" :x2="x2" :y2="y2" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-        <line v-if="showLine2" :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
-        <line v-if="showLine3" :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#00F" stroke-width="2" stroke-linecap="round"/>
-        
-        <!-- Points -->
-        <circle v-if="showPointX1 && showPointY1" r="6" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
-        <text v-if="showPointX1 && showPointY1" :x="x1+10" :y="y1-10" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P1 </text>
-        <circle v-if="showPointX2 && showPointY2" r="6" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
-        <text v-if="showPointX2 && showPointY2" :x="x2-30" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P2 </text>
-        <circle v-if="showPointX3 && showPointY3" r="6" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
-        <text v-if="showPointX3 && showPointY3" :x="x3" :y="y3+20" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P3 </text>
-
-        <circle r="6" cx="3" :cy="3"  fill="green" stroke="#000" stroke-width="1"/>
-        <circle r="6" cx="697" :cy="497"  fill="green" stroke="#000" stroke-width="1"/>
-
-        <path :d="exponencial" stroke="blue" fill="none" stroke-opacity="1" stroke-width="6" ></path>
-
-        </svg>
     .center
       p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
-      p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
-      p.inline.data coeficiente
-        input.center.data(:class="checkedA" v-model.number='enterA')
-        <span class="error" v-if="errorA">[e: {{ errorA.toPrecision(3) }}%]</span>
-      p.inline.data exponente
-        input.center.data(:class="checkedY1" v-model.number='enterY1')
-        <span class="error" v-if="errorY1">[e: {{ errorY1.toPrecision(3) }}%]</span>
-      p.inline.data [a,_] (dominio)
-        input.center.data(:class="checkedX2" v-model.number='enterX2')
-        <span class="error" v-if="errorX2">[e: {{ errorX2.toPrecision(3) }}%]</span>
-      p.inline.data [_,b] (dominio)
-        input.center.data(:class="checkedY2" v-model.number='enterY2')
-        <span class="error" v-if="errorY2">[e: {{ errorY2.toPrecision(3) }}%]</span>
-      p.inline.data [c,_] (Rango)
-        input.center.data(:class="checkedX3" v-model.number='enterX3')
-        <span class="error" v-if="errorX3">[e: {{ errorX3.toPrecision(3) }}%]</span>
-      p.inline.data [_,d] (Rango)
-        input.center.data(:class="checkedY3" v-model.number='enterY3')
-        <span class="error" v-if="errorY3">[e: {{ errorY3.toPrecision(3) }}%]</span>
-      //- p.inline.data distance: P1P2
-      //-   input.center.data(:class="checkedd12" v-model.number='enterd12')
-      //-   <span class="error" v-if="errord12">[e: {{ errord12.toPrecision(3) }}%]</span>
-      //- p.inline.data distance: P1P3
-      //-   input.center.data(:class="checkedd13" v-model.number='enterd13')
-      //-   <span class="error" v-if="errord13">[e: {{ errord13.toPrecision(3) }}%]</span>
-      //- p.inline.data distance: P2P3
-      //-   input.center.data(:class="checkedd23" v-model.number='enterd23')
-      //-   <span class="error" v-if="errord23">[e: {{ errord23.toPrecision(3) }}%]</span>
+  
 
 </template>
 <script>
