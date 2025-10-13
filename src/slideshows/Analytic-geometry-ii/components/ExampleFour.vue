@@ -80,7 +80,7 @@ eg-transition(:enter='enter', :leave='leave')
 
 
       </svg>
-    p.center ePot = {{ enterPotencia }}, xoy = {{ xoy }}, Fx={{ Fx }} Fy={{ Fy }},Vx={{ Vx }},Vy={{ Vy }},p={{ p }} 
+    //- p.center ePot = {{ enterPotencia }}, xoy = {{ xoy }}, Fx={{ Fx }} Fy={{ Fy }},Vx={{ Vx }},Vy={{ Vy }},p={{ p }} 
     //- <br> par ={{ parabola }}
     .center
       p.solution Please do calculations and introduce your results
