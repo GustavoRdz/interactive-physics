@@ -6,7 +6,7 @@
     //- <button class="language" @click="isSpanish = !isSpanish">{{ a = isSpanish ? languages[0]:languages[1] }} </button>
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       .center.frontpage
-        h3 Optomechatronics
+        h3 Computational mechatronics
         img(src='./assets/U.svg')
         p Open modelica<br>Systems and integration
         //- eg-triggered-message(:trigger='slideTimer >= 2',
@@ -54,25 +54,162 @@
     slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
       h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
-      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Modelado de sistemas hibridos
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Los modelos híbridos son aquellos que combinan comportamiento en tiempo continuo con eventos. Un evento es un conjunto de acciones que se desencadenan cuando se cumple una determinada condición. Por tanto, la definición de un evento consiste en especificar la condición lógica que lo desencadena y las acciones a realizar.
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La ejecución de las acciones asociadas al evento no consume tiempo simulado. Por esta razón, aquellas variables que cambian debido al evento tienen dos valores en el momento en que se desencadena el evento: el valor antes de la ejecución del evento y el valor después de la ejecución del evento.
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelica proporciona la función pre() para distinguir entre el valor de la variable antes del evento, pre(variable), y el nuevo valor de la variable después de la ejecución del evento, al que se hace referencia mediante el nombre de la variable. Por ejemplo, si la ecuación instantánea que describe la acción asociada a un evento es:Modelica es un lenguaje de modelado diseñado para facilitar la aplicación del paradigma de modelado físico.
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") entonces el valor de la variable x se duplica cada vez que se ejecuta este evento.
-      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las acciones que Modelica permite realizar en un evento son básicamente de los siguientes tres tipos:
-      ul
-        li <b>Cambio en la estructura del modelo</b>. Un evento puede generar un cambio en la estructura matemática del modelo. Es decir, un cambio en las ecuaciones que describen el comportamiento del modelo.
-        li <b>Actualizar el valor de las variables de tiempo discreto</b>. La acción asociada a un evento puede ser modificar el valor de una o más variables de tiempo discreto. El valor de una variable de tiempo discreto es constante entre dos eventos consecutivos y cambia solo en los instantes del evento.
-        li <b>Reinicialización de variables de estado de tiempo continuo</b>. Otra acción asociada a un evento puede ser cambiar el valor de una variable de tiempo continuo. Para que este cambio surta efecto, la variable cuyo valor se reinicializa en la acción del evento tiene que ser una variable de estado.
-      //- p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se emplean oraciones if y cláusulas if para describir el primer tipo de acción. Para los dos últimos, se emplea la cláusula cuando. Esto se explica en detalle a continuación.
+      h4(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sistemas de control
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Áreas importantes que requieren del modelado de sistema heterogéneos y que hacen un uso intensivo de la simulación, son el análisis y el diseño de los sistemas de control. 
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La biblioteca estándar de componentes Modelica.Blocks y las bibliotecas independientes Modelica_LinearSystems2 e IndustrialControlSystems, proveen bloques de funciones de transferencia, controladores y otros componentes, para simular sistemas representados mediante diagramas de bloques, o para integrar los elementos del sistema de control con el proceso controlado heterogéneo, formado por componentes de otras bibliotecas.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Control de velocidad de un motor de corriente continua
+      .center
+        img(src='./assets/ControlMotorContinua.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El diagrama de simulación incorpora componentes no causales eléctricos y mecánicos, y bloques causales.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En este sistema existen por lo tanto tres dominios: <br><br>El dominio de las variables mecánicas −posición, velocidad angular, par−, en el rotor del motor y la carga; <br><br>El dominio de las variables eléctricas −tensión y corriente eléctrica−, en el circuito de armadura y la alimentación del motor; <br><br>El dominio de las “señales de control” −valor deseado, error, señal o esfuerzo de control−. <br><br>Por lo tanto, en el sistema varios compones cumplen la función de “interfaz” de conversión entre las diferentes dominios.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El medidor de velocidad (SpeedSensor) provee el valor de la variable controlada, la velocidad de rotación del motor −señal realimentada− al sistema de control. Por lo tanto conecta los componentes mecánicos con los de control mediante las ecuaciones.
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Control de velocidad de un motor de corriente continua
+      .center
+        img(src='./assets/f978.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      // eg-code-block(lang='html').
+        
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+  
+  
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sistemas de control en diagramas de bloques
+      .center
+        img(src='./assets/f979.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      // eg-code-block(lang='html').
+        
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En la figura se muestra el diagrama de bloques realizado con Modelica, de un lazo de control realimentado con un controlador con un algoritmo de control proporcional, integral y derivativo (PID), para un proceso de segundo orden más tiempo muerto.
+      .center
+        img(src='./assets/f980.png' width="500px" style="margin: 10px 0px -0px -0px;")
 
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
       .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Efecto del periodo de muestreo en un sistema de control digital
+      .center
+        img(src='./assets/f981.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      // eg-code-block(lang='html').
+        
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En la figura se muestra el diagrama de bloques realizado con Modelica, de un lazo de control realimentado con un controlador con un algoritmo de control proporcional, integral y derivativo (PID), para un proceso de segundo orden más tiempo muerto.
+      .center
+        img(src='./assets/f982.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Control mediante realimentación lineal en el estado
+      .center
+        img(src='./assets/f983.png' width="600px" style="margin: 10px 0px -0px -0px;")
+        img(src='./assets/f984.png' width="600px" style="margin: 10px 0px -0px -0px;")
+      // eg-code-block(lang='html').
+        
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Como se observa, el sistema cumple con las especificaciones dadas para la res- puesta del servo control.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Las curvas de respuesta también muestran dos características inherentes al control realimentado en el estado, tal como se ha implementado: <br>1. existe un error per- manente ante un cambio escalón en la perturbación; <br>2. se produce un salto brusco grande en la señal de control, ante un cambio escalón en el valor deseado.
+      .center
+        img(src='./assets/f986.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Control óptimo de tiempo mínimo
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El objetivo de la teoría de control óptimo, es determinar la señal de control que haga que un sistema o proceso controlado, satisfaga las restricciones físicas impuestas y que al mismo tiempo, optimice (minimice o maximice) algún criterio de desempeño utilizado para evaluarlo.
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Modelo matemático
+      .center
+        img(src='./assets/e955.png' width="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") funcion de costo a optimizar
+      .center
+        img(src='./assets/e956.png' width="200px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La solución
+      .center
+        img(src='./assets/e959.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La curva de conmutación
+      .center
+        img(src='./assets/e960.png' width="200px" style="margin: 10px 0px -0px -0px;")
+      .center
+        img(src='./assets/f988.png' width="700px" style="margin: 10px 0px -0px -0px;")
+
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Sistema de control inicialmente en un punto de equilibrio
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Se desea controlar el nivel del líquido en el taque 2, de un sistema de tanques en serie, manipulando el caudal de entrada al tanque 1. Para esto, se ha adicionado un transmisor electrónico del nivel (LT) del líquido del tanque 2, un controlador de nivel (LIC) y una válvula de control neumática (LV) para variar el caudal del fluido que entra al tanque 1.
+      .center
+        img(src='./assets/f989.png' width="400px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") El algoritmo de control del controlador es proporcional e integral (PI) cuya salida está dada por la ecuación
+      .center
+        img(src='./assets/e961.png' width="500px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La solución
+      .center
+        img(src='./assets/f990.png' width="700px" style="margin: 10px 0px -0px -0px;")
+      .center
+        img(src='./assets/f991.png' width="400px" style="margin: 10px 0px -0px -0px;")
+     
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+    slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  :  {{ theme }}</sup>
+      h4(v-if = '!isSpanish' style="margin: -30px 0px 0px 0px;").center 
+      h5(v-if = 'isSpanish' style="margin: -30px 0px 0px 0px;").center Modelado con base en bloques causales definidos por el usuario
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Sistema de control del nivel del líquido en el tanque inferior, de un proceso hidráulico de dos tanques no interactivos
+      .center
+        img(src='./assets/f9105.png' width="250px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Diagrama de conexión
+      .center
+        img(src='./assets/f9106.png' width="500px" style="margin: 10px 0px -0px -0px;")
+      p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La solución
+      .center
+        img(src='./assets/f9107.png' width="700px" style="margin: 10px 0px -0px -0px;")
+     
+      .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev
+      .next(@click.stop='nextSlide' style="float: right; margin: 60px; 0 0 0;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next &gt;
+
+
+
     //-   h5(v-if = '!isSpanish' style="margin: -10px 0px 0px 0px;").center
     //-   h5(v-if = 'isSpanish' style="margin: -10px 0px 0px 0px;").center If
     //-   p(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La instrucción <b>if</b> permite describir modelos con una estructura variable. Ambos pueden incluirse en secciones de ecuaciones y algoritmos.
@@ -357,7 +494,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : References: {{ slides.length }}</sup>
         h3 References
         ul
-          li <b>Modeling and simulation in engineering using modelica</b><br>Author: Alfonso Urquía Moraleda, Carla Martín Villalba<br> UNED, Madrid
+          li <b>Modelado simulación y optimización con modelica. Sistemas dinámicos hetereogeneos</b><br>Author: Victor M. Alfaro<br>
         p.small Slides created by G. Rodríguez-Morales, gustavo.rodriguezml@gmail.com, gustavo@gusbits.com with use of images from the above referenced book
       .prev(@click.stop='previousSlide' style="float: left; margin: 60px; 0 0 0;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev

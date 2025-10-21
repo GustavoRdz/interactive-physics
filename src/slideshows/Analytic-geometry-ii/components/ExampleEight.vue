@@ -5,13 +5,7 @@ eg-transition(:enter='enter', :leave='leave')
       <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ vh===0 ? " Y " : " X " }}</span>
       <span style="font-family: roboto; font-weight: bold; font-style: italic;" >  </span> y que pasa por el punto 
       <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ ax }}, {{ ay }})</span>
-    //- p(style="margin: 15px 0 10px 0; ").problema.center
-    //-   //- <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ A>0 ? " - " : " " }}{{ A===""  ? " 0 " : Math.abs(A)===1 ? "" : Math.abs(A) }}</span>
-    //-   <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
-    //-   <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
-    //-   <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = </span>
-    //-   <span style="font-family: roboto; font-weight: bold; font-style: normal;">{{ Fy>0 ? " " : " - " }}{{ Fy===""  ? " 0 " : Math.abs(Fy)===1 ? "" : 4 * Math.abs(Fy) }}</span>
-    //-   <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+   
 
     .center
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" height="300px" width="600px" >

@@ -27,7 +27,7 @@ export default {
     require('./MecComp-intro-modelica/intro-modelica'),
     require('./MecComp-atomic-modelica/atomic-modelica'),
     require('./MecComp-hybrid-modelica/hybrid-modelica'),
-    // require('./MecComp-systems-modelica/systems-modelica'),
+    require('./MecComp-systems-modelica/systems-modelica'),
     // require('./OM-ContinuousTimeModeling/ContinuousTimeModeling'),
     // require('./open-modelica-intro/OpenModelicaIntro'),
     // require('./optomechatronics-om-i/OpenModelica1'),
