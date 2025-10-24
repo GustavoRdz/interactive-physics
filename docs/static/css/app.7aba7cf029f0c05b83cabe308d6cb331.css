@@ -18167,6 +18167,16 @@ input:checked + .slider[data-v-7c409d7c]:before {
   background: #80c080;
 }
 
+.eg-slide .eg-slide-content .figure[data-v-dc8771f4] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-dc8771f4] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-dc8771f4] {
   display: inline-block;
   width: 100px;
@@ -18175,9 +18185,9 @@ input:checked + .slider[data-v-7c409d7c]:before {
   font-size: 20px;
 }
 .problem[data-v-dc8771f4] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -18192,9 +18202,6 @@ input:checked + .slider[data-v-7c409d7c]:before {
 }
 .correct[data-v-dc8771f4] {
   background: #80c080;
-}
-.error[data-v-dc8771f4] {
-  font-size: 14px;
 }
 
 .eg-slide .eg-slide-content .figure[data-v-3ef853e8] {
@@ -18215,6 +18222,7 @@ input:checked + .slider[data-v-7c409d7c]:before {
   font-size: 20px;
 }
 .problem[data-v-3ef853e8] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
@@ -18251,6 +18259,7 @@ input:checked + .slider[data-v-7c409d7c]:before {
   font-size: 20px;
 }
 .problem[data-v-0c880f80] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
