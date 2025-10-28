@@ -368,6 +368,90 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px -30px 0px;").center Sección 2
+      h3.center La elipse
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") Es un conjunto de puntos en el plano tal que, al tomar cualquier punto del conjunto, la suma de sus distancias a dos puntos fijos en el plano es siempre igual a una constante, mayor que la distancia entre los dos puntos.
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Primera forma ordinaria de la elipse</span>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      //- f1_parabolaDef
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;    
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Elementos de la elipse
+      p.center
+      ol 
+        li Los puntos fijos mencionados se llaman <span style="color: #00aa00;"><b>focos</b></span>.
+        li La recta que pasa por los dos focos se llama <span style="color: #0000aa;"><b>eje focal</b></span>.
+        li El eje focal intersecta a la elipse es dos puntos llamados <span style="color: #aaaa00;"><b>vertices</b></span>.
+        li El segmento del eje focal entre los vertices se llama <span style="color: #00aaaa;"><b>eje mayor</b></span>.
+        li El punto medio entre los focos se llama <span style="color: #aa00aa;"><b>centro</b></span>.
+        li La recta perpendicular al eje focal que pasa por el centro se llama <span style="color: #aaaaaa;"><b>eje normal</b></span>.
+        li El eje normal intersecta a la elipse en dos puntos, el segmento el segmento que une esos dos puntos se llama <span style="color: #00aa00;"><b>eje menor</b></span>.
+        li El segmento que une dos puntos de la elipse se llama <span style="color: #0000aa;"><b>cuerda</b></span>.
+        li La cuerda que pasa por el foco se llama <span style="color: #aaaa00;"><b>cuerda focal</b></span>.
+        li La cuerda focal perpendicular al eje focal se llama <span style="color: #00aaaa;"><b>lado recto</b></span>.
+        li Una cuerda que pasa por el centro se llama <span style="color: #aa00aa;"><b>diámetro</b></span>.
+        li Si <span style="color: #000000;"><b>P</b></span> es es un punto cualquiera de la elipse, los segmentos que unen a <span style="color: #000000;"><b>P</b></span> con los focos se llaman <span style="color: #aaaaaa;"><b>radio vectores</b></span>
+      .center
+        //- f2_parabolaElem
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
@@ -388,10 +472,108 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Segunda forma ordinaria de la elipse
+      p(style="margin-top: -0px; color: blue;") La ecuación de la elipse con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y eje focal paralelo al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> está dada por   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="92" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="45" x2="80" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="120" y1="45" x2="195" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="150" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="210" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      
+      p(style="margin-top: -0px; color: blue;") La ecuación de la elipse con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y eje focal paralelo al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> está dada por   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="92" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="45" x2="80" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="120" y1="45" x2="195" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="150" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="210" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+      
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 15
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 15
+      example-fifteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Forma general de la elipse
+      p(style="margin-top: -0px; color: blue;") La ecuación   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50" height="50px" width="400px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">Ax</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Cy</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Dx</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Ey</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">F</tspan><tspan style="font-style: normal;"> = 0</tspan></text>
+          </g>
+        </svg>
+      
+      p(style="margin-top: -0px; color: blue;") Representa una elipse con eje focal paralelo o sobre los ejes coordenados o un punto en el plano, o ningún lugar geométrico real, siempre y cuando <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span> sean del mismo signo   
+            
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 16
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 16
+      example-sixteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
       example-fourteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -400,8 +582,8 @@
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
       example-fourteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -410,8 +592,8 @@
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
       example-fourteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -420,35 +602,13 @@
 
     slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
       example-fourteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
-      example-fourteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
-      example-fourteen(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
@@ -518,8 +678,8 @@ export default {
       theme: 'Ecuaciones generales de segundo grado',
       isSpanish: true,
       languages: ['Inglés', 'Español'],
-      topics: ['Inicio', 'Temas', 'Circunferencia', 'Parabola', 'Elipse', 'Hiperbola', 'Bibliografía', 'Problemario'],
-      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
+      topics: ['Inicio', 'Temas', 'Parabola', 'Elipse', 'Bibliografía'],
+      page: [1, 2, 3, 32, 32]
     }
   },
   computed: {
