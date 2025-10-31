@@ -17,7 +17,7 @@ export default {
     require('./nuclear-physics/Nuclear-physics'),
     require('./Analytic-geometry-i/AnalyticGeometryI'),
     require('./Analytic-geometry-ii/AnalyticGeometryII'),
-    // require('./Analytic-geometry-iii/AnalyticGeometryIII'),
+    require('./Analytic-geometry-iii/AnalyticGeometryIII'),
     require('./Differential-calculus-i/DifferentialCalculusI'),
     // require('./Differential-calculus-ii/DifferentialCalculusII'),
     // require('./Differential-Calculus-iii/DifferentialCalculusIII'),

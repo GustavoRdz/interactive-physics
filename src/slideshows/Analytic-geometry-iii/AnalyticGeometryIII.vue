@@ -1,5 +1,5 @@
-a<template lang="pug">
-#OscillatoryMotion.eg-theme-agrume
+<template lang="pug">
+#AnalyticGeometryI.eg-theme-agrume
   .eg-slideshow
     div(style="width: 100%; display: flex; flex-wrap: wrap; align-items: center;").container.center
       button(v-for="(topic, index) in topics" @click="currentSlideIndex = page[index]").themes {{ topic }}
@@ -7,8 +7,8 @@ a<template lang="pug">
     slide(enter='fadeIn' leave='bounceOutLeft' :mouseNavigation='false' style="overflow: scroll;")
       //- img(src='./assets/Logo-FIME copy.svg' height='820px' style="margin: -10 0 50px 0;")
       .center.frontpage
-        h2(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") Oscillatory Motion
-        h2(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") Movimiento oscilatorio
+        h2(v-if = '!isSpanish' style="margin: 0px 0px 0px 0px;") Analytic Geometry
+        h2(v-if = 'isSpanish' style="margin: 0px 0px 0px 0px;") Geometría analítica
         // img(src='./assets/frontImage.svg')
         img(src='./assets/U.svg')
         // spring-mass
@@ -16,8 +16,8 @@ a<template lang="pug">
         //- simple-pendulum
         //- spring-mass
 
-        h4(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Simple Harmonic Motion Systems
-        h4(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Sistemas de movimiento armónico simple
+        h4(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") 
+        h4(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Hipérbola, coordenadas polares
         //- eg-triggered-message(:trigger='slideTimer >= 2',
         //-                     :duration='6', position='top right',
         //-                     enter='bounceInRight', leave='bounceOutRight')
@@ -44,526 +44,584 @@ a<template lang="pug">
     //-     span.small Ctrl + right
 
 
-    //- slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3
-    //-     | Topics
-    //-     .inline(class='animated infinite pulse heart')
-    //-   .center
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Motion of an Object Attached to a Spring</b>
-    //-     eg-transition(enter='bounceInRight' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Particle Model in Simple Harmonic Motion</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Energy of the Simple Harmonic Oscillator</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutTop')
-    //-       p(v-if="step >= 1")
-    //-         <b>The pendulum and other systems</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutRight')
-    //-       p(v-if="step >= 1")
-    //-         <b>Damped oscillations</b>
-    //-     eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
-    //-       p(v-if="step >= 1")
-    //-         <b>Forced oscillations and resonance</b>
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Periodic motion
-    //-   p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
-    //-   .center
-    //-     img(width="400px" src='./assets/motor vocho.gif')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
-    //-   p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -30px;") Oscillations
-    //-   p(style="margin: 0 0 -0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p <span style="font-size: 1em;"><b>Period</b></span>, is the time interval in which the sistem completes an oscillation
-    //-   p <span style="font-size: 1em;"><b>Frequency</b></span>, is the number of oscillations made in one unit of time
-    //-   p <span style="font-size: 1em;"><b>Angular Frequency</b></span>, is 2&#x1D70B; radians times the number of oscillations made in one unit of time
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -20px;") Oscillations
-    //-   p(style="margin: 0 0 0px 0;").center Mass-spring system
-    //-   spring-mass
-    //-   p(style="margin: 50px 0 -0px 0;") Formulas: <b>frequency</b>, <b>period</b> and <b>angular frequency</b>
-    //-   .center
-    //-     img(src='./assets/equations/frequency.svg' height="150px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(style="margin-top: -20px;") Exercise 1
-    //-   example-one(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Simple Harmonic Motion
-    //-   spring-mass
-    //-   p(style="margin: 0px 20px 0 0;") Hooke's law
-    //-   .center
-    //-     img(src='./assets/equations/forceHook.svg' height="100px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") with
-    //-   .center
-    //-     img(src='./assets/equations/frequencySpring.svg' height="100px" style="margin: -20px 30px 0 0;")
-    //-   p(style="margin: -10px 20px 0 0;") we have
-    //-   .center
-    //-     img(src='./assets/equations/formulasSpring.svg' height="100px"  style="margin-right: 20px;")
-    //-     img(src='./assets/period.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
-    //-   example-two(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top: -40px;").center
-    //-   spring-mass
-    //-   p(style="margin: 30px 0px -40px 70px; font-size: 1.3em;") <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacement.png' height="70px" style="margin: -20px 20px 0 50px;")
-    //-   displacement-plot
-    //-   .center
-    //-     img(src='./assets/displacementGraph.png' height="250px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p <b>Displacement:</b>
-    //-   .center
-    //-     img(src='./assets/displacementA.png' height="250px" style="margin: -20px 20px 0 0;")
-    //-     img(src='./assets/displacementB.png' height="250px")
-    //-   .center
-    //-     img(src='./assets/displacementC.png' height="250px" style="margin: -20px 55px 0 0;")
-    //-     img(src='./assets/displacementPhase.png' height="250px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass(style="margin-left: -70px;")
-    //-   p(style="margin: -30px 0px -40px 70px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   p
-    //-     img(src='./assets/velocityAcceleration.png' height="150px" style="margin: -0px 130px 180px 100px;")
-    //-     img(src='./assets/velocityAccelerationGraphs.png' height="600px" style="margin: -300px -150px 50px 0px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Displacement, Velocity and Acceleration
-    //-   p(style="margin-top:-60px;")
-    //-     spring-mass
-    //-   p(style="margin: 40px 0px -40px 100px; font-size: 1.3em;") <b>Velocity and acceleration</b>
-    //-   .center
-    //-     img(src='./assets/velocityAccelerationSigns.png' height="400px" style="margin: -40px -200px 0px 150px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Phase constant and Amplitude
-    //-   p At t = 0
-    //-   .center
-    //-     img(src='./assets/displacementT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-     img(src='./assets/velocityT0.png' height="50px" style="margin: -70px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") dividing
-    //-   .center
-    //-     img(src='./assets/velocityOverDisplacementT0.png' height="100px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") then
-    //-   .center
-    //-     img(src='./assets/phaseT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   p(style="margin: -150px 20px 150px 35px;") and squaring the displacement and velocity we get
-    //-   .center
-    //-     img(src='./assets/amplitudeT0.png' height="150px" style="margin: -150px 20px 150px 35px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
-    //-   example-three(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 4
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 4
-    //-   example-four(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 5
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 5
-    //-   example-five(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 6
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 6
-    //-   example-six(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 7
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 7
-    //-   example-seven(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center
-    //-     <svg height="250" width="600" viewbox="0 0 600 250">
-    //-       <defs>
-    //-         <path id="r1" fill="none" stroke="black">
-    //-           <animate id="p1" attributeName="d" :values="resorte" dur="2s" repeatCount="indefinite"/>
-    //-           <animate attributeName="stroke" values="red;red;black;red;red;black;red;red;" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-         </path>
-
-    //-       </defs>
-    //-       <use xlink:href="#r1"/>
-
-    //-       <path :d="base" stroke="black"  fill="none"/>
-    //-       <rect x="250" y="40" width="100" height="100" stroke="black" fill="lightskyblue" opacity="0.8">
-    //-         <animate attributeName="x" :values="blockPositions" dur="2s" repeatCount="indefinite" begin="p1.begin"/>
-    //-       </rect>
-    //-       <line x1="300" y1="138" x2="300" y2="170" stroke="red" />
-    //-       <line x1="450" y1="138" x2="450" y2="170" stroke="red" />
-    //-       <line x1="150" y1="138" x2="150" y2="170" stroke="red" />
-
-    //-       <text x="120" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = -A</tspan></text>
-    //-       <text x="275" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = 0</tspan></text>
-    //-       <text x="420" y="190"><tspan style="font-style:italic; font-family: Times New Roman; font-size:0.8em;">x = +A</tspan></text>
-
-    //-         <text x="500" y="98">
-    //-           <tspan style="font-style:normal; font-size:0.8em;">No friction</tspan>
-    //-         </text>
-    //-         <path d="M500,100 475,140 477,125 M475,140 490,130" stroke="red" stroke-width="3" fill="none"/>
-
-    //-         //- <line x1="0" y1="0" x2="500" y2="200" stroke="red" stroke-width="0.5"/>
-    //-         //- <line x1="0" y1="200" x2="500" y2="0" stroke="red" stroke-width="0.5"/>
-    //-     </svg>
-    //-   p(style="margin: 0px 20px 0 0;") Energies
-    //-   .center
-    //-     img(src='./assets/kineticEnergy.png' height="50px"  style="margin: -20px 100px 0 0;")
-    //-     img(src='./assets/potentialEnergy.png' height="50px" style="margin: -20px 20px 0 0;")
-    //-   p(style="margin: 0px 20px 0 0;") Mecanical energy
-    //-   .center
-    //-     img(src='./assets/totalEnergyA.png' height="50px"  style="margin: -50px 10px 0 0")
-    //-   p(style="margin: 0px 20px 0 0;") the constant
-    //-   .center
-    //-     img(src='./assets/totalEnergyB.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Energy in Simple Harmonic Motion
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/velocityEnergy.png' height="100px"  style="margin-right: 20px;")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
-    //-   example-nine(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
-    //-   example-ten(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
-    //-   example-thirteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Other systems of SHM
-    //-   p(style="margin-top: -30px;").center Angular SHM
-    //-   //- torsion-pendulum
-    //-   .center
-    //-     img(src='./assets/angularSHM.png' height="300px")
-    //-   .center
-    //-     img(src='./assets/angularTheta.png')
-    //-   .center
-    //-     img(src='./assets/angularWf.png' height="100px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center Inertia moments
-    //-   p(style="margin-top: -30px;").center
-    //-   .center
-    //-     img(src='./assets/inertiaMomentsTable.png')
-    //-   p.center Parallel axis theorem
-    //-   .center
-    //-     img(src='./assets/inertiaParallelAxisTheorem.png' height="70px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The simple pendulum
-    //-   .center
-    //-     img(src='./assets/simplePendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumW.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumF.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/simplePendulumT.png' height="100px")
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h4(style="margin-top: -10px;").center The physical pendulum
-    //-   p.center We can derivre formulas for velocity
-    //-   .center
-    //-     img(src='./assets/physicalPendulum.png' height="350px")
-    //-   .center
-    //-     img(src='./assets/physicalPendulumW.png' height="100px" style="margin-right: 40px;")
-    //-     img(src='./assets/physicalPendulumT.png' height="100px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
-    //-   example-fourteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
-    //-   example-seventeen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
-    //-   h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
-    //-   example-eighteen(:language='isSpanish')
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Damped oscillations
-    //-   .center
-    //-     img(src='./assets/dampedOscillationsX.png')
-    //-   .center
-    //-     img(src='./assets/dampedOscGraph.png' height="300px" style="margin-right: 50px;")
-    //-     img(src='./assets/struts.png' height="300px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    //- slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h5.center Forced oscillations
-    //-   .center
-    //-     img(src='./assets/forcedOscA.png' height="100px")
-    //-   .center
-    //-     img(src='./assets/forcedOscillationsGraph.png' height="500px")
-    //-   .prev(@click.stop='previousSlide' style="float: left;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   .next(@click.stop='nextSlide' style="float: right;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
-
-    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+    slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3
+        | Temas
+        .inline(class='animated infinite pulse heart')
       .center
-        h3 References
-        p Geometría analitica. Charles H. Lemhann. Limusa
-        p.small created by G. Rodríguez-Morales
-        p.small gustavo.rodriguezml@gmail.com, gustavo@gusbits.com, spheroidgames@gmail.com
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Definición de laHipérbola</b>
+        eg-transition(enter='bounceInRight' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Elementos de la hipérbola</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Formas de la ecuación de la Hiperbola: ordinarias, general</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutTop')
+          p(v-if="step >= 1")
+            <b>Coordenadas porlaes</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutRight')
+          p(v-if="step >= 1")
+            <b>Transformaciones entre sistemas coordenados</b>
+        eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
+          p(v-if="step >= 1")
+            <b>Trazado de curvas en coordenadas polares</b>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide(:steps=1, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h6(style="margin-top: -0px;").center Problems
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p1.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-    .center
-    //-       img(src='./assets/p2.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p3.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p4.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p5.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p6.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p7.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p8.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer  
-    //-     .center
-    //-       img(src='./assets/p9.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer  
-    //-     .center
-    //-       img(src='./assets/p10.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p11.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p12.png' width="100%" style="margin: 0px 0px 0px 0px;")
-    //-   div.pcontainer 
-    //-     .center
-    //-       img(src='./assets/p13.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer
-    //-     .center
-    //-       img(src='./assets/p14.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer   
-    //-     .center
-    //-       img(src='./assets/p15.png' width="100%" style="margin: 0px 0px 0px 0px;")      
-    //-   div.pcontainer      
-    //-     .center
-    //-       img(src='./assets/t1.png' width="100%" style="margin: 0px 0px 0px 0px;")
-      
-    //-   .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
-    //-     span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-    //-   //- .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
-    //-   //-   span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px -30px 0px;").center Sección 1
+      h3.center La parábola
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") Lugar geométrico de un punto que se mueve en un plano <span style="font-family: roboto; font-weight: bold; font-style: italic;">xy</span>, de tal manera que su distancia de una recta fija, llamada directriz (<span style="font-family: roboto; font-weight: bold; font-style: italic;">L</span>), situada en el plano, es siempre igual a su distancia de un punto fijo del plano, que no pertenece a la recta, llamado foco (<span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span>).
+      // f1_parabolaDef
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
- 
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Elementos de la parabola
+      p.center Sea L, la recta fija llamada directriz y f  el punto fijo llamado foco, a partir de estos y del lugar geometrico, sus principales elementos son:
+      ol 
+        li <span style="color: #00aa00;"><b>Eje focal</b></span> es la recta perpendicular a la directriz y que pasa por el foco.
+        li <span style="color: #0000aa;"><b>Vértice</b></span> es el punto de intersección del eje focal con la parábola.
+        li <span style="color: #aaaa00;"><b>Cuerda</b></span> es un segmento que une dos puntos cualesquiera de la parabola.
+        li <span style="color: #00aaaa;"><b>Cuerda focal</b></span> es una cuerda que pasa por el foco.
+        li <span style="color: #aa00aa;"><b>Lado recto</b></span> es una cuerda focal perpendicular al eje focal.
+        li <span style="color: #aaaaaa;"><b>Radio focal</b></span> o <span style="color: #aaaaaa;"><b>Radio vector</b></span> es el segmento que une cualquier punto de la parabola con el foco.
+      .center
+        f2_parabolaElem
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;").center Forma canonica de la ecuacion de la parabola
+      h5(style="margin: -50px 0 0px 0;").center o primera forma ordinaria de la parabola
+      // E1_parabolaPrimeraOrd
+
+      h6(style="margin: -20px 0 0px 0; color: #0000FF").center Análisis de la ecuación
+      ol
+        li La curva pasa por el origen y no tiene ninguna intersección con los ejes coordenados.
+        li La curva es simétrica con respecto al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, o bien, el eje focal divide a la parábola en dos partes iguales
+        li Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight:"> = &#x00B1; 2&#x221A;</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">px</span>), entonces, para que y tome valores reales y diferentes de cero, <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, deben tener el mismo signo, es decir:
+          ol(type='A')
+            li si <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold; "> &gt; 0</span> , se excluyen todos los valores negativos de <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, por lo tanto, la parábola se abre hacia la derecha. 
+            li si <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold; "> &lt; 0</span> , se excluyen todos los valores positivos de <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, por lo tanto, la parábola se abre hacia la izquierda. 
+        li La curva no tiene asintotas verticales ni horizontales.
+        li Existen dos puntos sobre la parábola que tienen abscisas igual a <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y sus ordenadas son <span style="font-family: roboto; font-weight: bold;">2</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y <span style="font-family: roboto; font-weight: bold;">-2</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span>, respectivamente, por lo tanto, la longitud de su lado recto está dada por : <span style="font-family: roboto; font-weight: bold;">|4</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold;">|</span>.
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;").center Forma canonica de la ecuacion de la parabola
+      h5(style="margin: -50px 0 0px 0;").center o primera forma ordinaria de la parabola
+      // f3_parabolaVertical
+
+      E2_parabolaPrimeraOrd
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;") Graficador
+      p(style="margin: 0 0 -0px 0;").center 
+      // f4_parabolaGraficador      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
+      example-two(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
+      example-three(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px 30px 0px;").center Segunda forma ordinaria de la parábola
+      //- p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") La parabola tiene su vertice fuera del origen, en el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">V</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">h, </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span> y su eje focal es paralelo a un eje coordenado.
+      f5_parabola2ord
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px 30px 0px;").center Segunda forma ordinaria de la parábola
+      //- p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") La parabola tiene su vertice fuera del origen, en el punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">V</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">h, </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">k</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span> y su eje focal es paralelo a un eje coordenado.
+      f6_parabola2ordV
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -10px;") Graficador
+      p(style="margin: 0 0 -0px 0;").center 
+      f7_parabolaGraficador2
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 4
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 4
+      example-four(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Forma general de la ecuación de la parábola
+     
+      p(style="margin-top: -0px;") <span style="font-family: roboto; font-weight: bold; font-style: normal;">Teorema: </span>Una ecuación de segundo grado en las variables <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> que carescan del termino <span style="font-family: roboto; font-weight: bold; font-style: italic;">xy</span>, puede escribirse de la forma: 
+        
+      p(style="margin-top: -0px; color: blue;").center 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Cy</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;">+</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">F</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>
+
+      p(style="margin-top: -0px;") En donde   
+      
+      p(style="margin-top: -0px;") Si 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>; 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> &ne; 0</span> y 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> &ne; 0</span> la ecuación representa una parábola cuyo eje focal es paralelo o coincidente con el eje 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">X</span>. Si
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">D</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, entonces, la ecuación, 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Cy</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Ey</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">F</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, puede representar dos rectas diferentes paralelas al eje 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">X</span>, dos rectas coincidentes paralelas al eje
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">X</span> o nungún lugar geométrico, dependiendo de la naturaleza de sus raices.
+      
+      p(style="margin-top: -0px;") Si 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> &ne; 0</span>; 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span> y 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> &ne; 0</span> la ecuación representa una parábola cuyo eje focal es paralelo o coincidente con el eje 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Y</span>. Si
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">E</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, entonces, la ecuación, 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Ax</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"><sup style="font-size: 20px; font-style: normal;">2</sup></span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Dx</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span>
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">F</span>
+        <span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>, puede representar dos rectas diferentes paralelas al eje 
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Y</span>, dos rectas coincidentes paralelas al eje
+        <span style="font-family: roboto; font-weight: bold; font-style: italic;">Y</span> o nungún lugar geométrico, dependiendo de la naturaleza de sus raices.
+  
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 5
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 5
+      example-five(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 6
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 6
+      example-six(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 7
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 7
+      example-seven(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 8
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 8
+      example-eight(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+    
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 9
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 9
+      example-nine(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 10
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 10
+      example-ten(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 11
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 11
+      example-eleven(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+   
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 12
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 12
+      example-twelve(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin: 0px 0px -30px 0px;").center Sección 2
+      h3.center La elipse
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
+      p(style="margin-top: 0px; color: blue;") Es un conjunto de puntos en el plano tal que, al tomar cualquier punto del conjunto, la suma de sus distancias a dos puntos fijos en el plano es siempre igual a una constante, mayor que la distancia entre los dos puntos.
+      p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Primera forma ordinaria de la elipse</span>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      //- f1_parabolaDef
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;    
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Elementos de la elipse
+      p.center
+      ol 
+        li Los puntos fijos mencionados se llaman <span style="color: #00aa00;"><b>focos</b></span>.
+        li La recta que pasa por los dos focos se llama <span style="color: #0000aa;"><b>eje focal</b></span>.
+        li El eje focal intersecta a la elipse es dos puntos llamados <span style="color: #aaaa00;"><b>vertices</b></span>.
+        li El segmento del eje focal entre los vertices se llama <span style="color: #00aaaa;"><b>eje mayor</b></span>.
+        li El punto medio entre los focos se llama <span style="color: #aa00aa;"><b>centro</b></span>.
+        li La recta perpendicular al eje focal que pasa por el centro se llama <span style="color: #aaaaaa;"><b>eje normal</b></span>.
+        li El eje normal intersecta a la elipse en dos puntos, el segmento el segmento que une esos dos puntos se llama <span style="color: #00aa00;"><b>eje menor</b></span>.
+        li El segmento que une dos puntos de la elipse se llama <span style="color: #0000aa;"><b>cuerda</b></span>.
+        li La cuerda que pasa por el foco se llama <span style="color: #aaaa00;"><b>cuerda focal</b></span>.
+        li La cuerda focal perpendicular al eje focal se llama <span style="color: #00aaaa;"><b>lado recto</b></span>.
+        li Una cuerda que pasa por el centro se llama <span style="color: #aa00aa;"><b>diámetro</b></span>.
+        li Si <span style="color: #000000;"><b>P</b></span> es es un punto cualquiera de la elipse, los segmentos que unen a <span style="color: #000000;"><b>P</b></span> con los focos se llaman <span style="color: #aaaaaa;"><b>radio vectores</b></span>
+      .center
+        //- f2_parabolaElem
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 13
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 13
+      example-thirteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 14
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 14
+      example-fourteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Segunda forma ordinaria de la elipse
+      p(style="margin-top: -0px; color: blue;") La ecuación de la elipse con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y eje focal paralelo al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> está dada por   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="92" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="45" x2="80" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="120" y1="45" x2="195" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="150" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="210" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      
+      p(style="margin-top: -0px; color: blue;") La ecuación de la elipse con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C(h, k)</span> y eje focal paralelo al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> está dada por   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="92" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> + </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="45" x2="80" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="120" y1="45" x2="195" y2="45" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="150" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="210" y="53" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+      
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 15
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 15
+      example-fifteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h5(style="margin-top: -20px; color: green;").center Forma general de la elipse
+      p(style="margin-top: -0px; color: blue;") La ecuación   
+      
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50" height="50px" width="400px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">Ax</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Cy</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Dx</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">Ey</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">F</tspan><tspan style="font-style: normal;"> = 0</tspan></text>
+          </g>
+        </svg>
+      
+      p(style="margin-top: -0px; color: blue;") Representa una elipse con eje focal paralelo o sobre los ejes coordenados o un punto en el plano, o ningún lugar geométrico real, siempre y cuando <span style="font-family: roboto; font-weight: bold; font-style: italic;">A</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span> sean del mismo signo   
+            
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 16
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 16
+      example-sixteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
+      example-seventeen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
+      example-eighteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
+      example-nineteen(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
+      example-twenty(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      .center
+        h3 References
+        //- p University Physics 13th Edition. Searzs and Zemanzky
+        //- p Physics for scientist and engineers 8th Edition. Serway, Jewett
+        p.small created by G. Rodríguez-Morales and spheroidGames
+        p.small gustavo.rodriguezml@gmail.com, spheroidgames@gmail.com
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt; 
 
 </template>
 
@@ -573,13 +631,22 @@ import eagle from 'eagle.js'
 export default {
   mixins: [eagle.slideshow],
   infos: {
-    title: 'Sistema polar',
-    description: 'Polar coordinates sistem',
+    title: 'La hipérbola y coordenadas polares',
+    description: 'The Hyperbolae, Polar coordinates',
     path: 'AnalyticGeometryIII',
     course: 'Analytic Geometry',
     part: 3
   },
   components: {
+    // 'f1_parabolaDef': require('./components/f1_parabolaDefinicion'),
+    // 'f2_parabolaElem': require('./components/f2_parabolaElementos'),
+    // 'E1_parabolaPrimeraOrd': require('./components/E1_parabolaPrimeraOrdinaria'),
+    // 'f3_parabolaVertical': require('./components/f3_parabolaVertical'),
+    // 'E2_parabolaPrimeraOrd': require('./components/E2_parabolaPrimeraOrdinaria'),
+    // 'f4_parabolaGraficador': require('./components/f4_parabolaGraficador'),
+    // 'f5_parabola2ord': require('./components/f5_parabola2ord'),
+    // 'f6_parabola2ordV': require('./components/f6_parabola2ordV'),
+    // 'f7_parabolaGraficador2': require('./components/f7_parabolaGraficador2'),
     'example-one': require('./components/ExampleOne'),
     'example-two': require('./components/ExampleTwo'),
     'example-three': require('./components/ExampleThree'),
@@ -608,11 +675,11 @@ export default {
   data: function () {
     return {
       tiempo: '',
-      theme: 'Coordenadas polares',
+      theme: 'Ecuaciones generales de segundo grado',
       isSpanish: true,
       languages: ['Inglés', 'Español'],
-      topics: ['Inicio', 'Coordenadas polares', 'Transformaciones', 'Curvas polares', 'Bibliografía', 'Problemario'],
-      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
+      topics: ['Inicio', 'Temas', 'Hipérbola', 'Coordenadas polares', 'Bibliografía'],
+      page: [1, 2, 3, 32, 32]
     }
   },
   computed: {

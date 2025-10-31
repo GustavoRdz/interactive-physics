@@ -1,7 +1,10 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Encuentre la ecuación de la elipse con centro en <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ Cx }}, {{ Cy }})</span> y foco en <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ fx }}, {{ fy }})</span> y vertice <span style="font-family: roboto; font-weight: bold; font-style: italic;">V</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ Vx }}, {{ Vy }})</span>, calcule los elementos que faltan y trace su gráfica. 
+    p.problem Encuentre la ecuación de la elipse con centro en 
+      <span style="font-family: roboto; font-weight: bold; font-style: italic;">C</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ h }}, {{ k }})</span> y foco en 
+      <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ fx }}, {{ fy }})</span> y vertice 
+      <span style="font-family: roboto; font-weight: bold; font-style: italic;">V</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">({{ Vx }}, {{ Vy }})</span>, calcule los elementos que faltan y trace su gráfica. 
    
 
     //- .center
@@ -13,7 +16,7 @@ eg-transition(:enter='enter', :leave='leave')
     //-     <line v-for="x in xScale" fill="none" stroke="#000" stroke-width="0.3" :x1="x" y1="144" :x2="x" y2="155" stroke-linecap="round"/>
     //-     <!-- x scale bold -->
     //-     //- <line v-for="x in [50, 202, 354, 506, 658]" fill="none" stroke="#000" stroke-width="3" :x1="x" y1="10" :x2="x" y2="390" stroke-linecap="round"/>
-    //-     <!-- y grid -->
+    //-     <!-- y grid -->this.decimalAdjust('round', 
     //-     <line v-for="y in yScale" fill="none" stroke="#000" stroke-width="0.3" x1="0" :y1="y" x2="300" :y2="y" stroke-linecap="round"/>
     //-     <!-- y grid short-->
     //-     <line v-for="y in yScale" fill="none" stroke="#000" stroke-width="0.3" x1="145" :y1="y" x2="155" :y2="y" stroke-linecap="round"/>
@@ -66,7 +69,7 @@ eg-transition(:enter='enter', :leave='leave')
 
 
     //-   </svg>
-    //- p vh= {{ vh }}, &Delta;fx={{ fx - Cx }}, &Delta;fy={{ fy - Cy }}, &Delta;V= {{ Vx - Cx }}, &Delta;Vy= {{ Vy - Cy }}
+    //- p vh= {{ vh }}, a={{ a }}, b={{ b }}, c= &Sqrt;{{ a ** 2 - b ** 2 }}= {{ c }}, h= {{ h }}, k={{ k }} fx = {{ fx }}, fy = {{ fy }}
     //- //- p.center ePot = {{ enterPotencia }}, xoy = {{ xoy }}, Fx={{ Fx }} Fy={{ Fy }},Vx={{ Vx }},Vy={{ Vy }},p={{ p }} 
     //- //- <br> par ={{ parabola }}
     //- .center
@@ -122,55 +125,44 @@ export default {
   computed: {
     vh: function () {
       console.clear()
-      let max = 1
-      let min = 0
+      let max = 1 // vertical
+      let min = 0 // Horizontal
       return Math.floor(Math.random() * (max - min + 1) + min)
     },
-    Cx: function () {
+    a: function () {
+      let max = 10
+      let min = 5
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    b: function () {
+      let max = this.a - 1
+      let min = 1
+      return Math.round(Math.random() * (max - min + 1) + min)
+    },
+    c: function () {
+      return this.decimalAdjust('round', Math.sqrt(this.a ** 2 - this.b ** 2), -2)
+    },
+    h: function () {
       let max = 5
       let min = -5
       return Math.round(Math.random() * (max - min + 1) + min)
     },
-    Cy: function () {
+    k: function () {
       let max = 5
       let min = -5
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     fx: function () {
-      let max = this.Cx + 5
-      let min = this.Cx
-      let sg = Math.floor(Math.random() * (1 - 0 + 1) + 0)
-      sg = sg === 0 ? -1 : 1
-      let ret
-      ret = this.vh ? this.Cx : sg * Math.round(Math.random() * (max - min + 1) + min)
-      return ret
+      return this.vh ? this.h : this.h + this.c
     },
     fy: function () {
-      let max = this.Cy + 5
-      let min = this.Cy
-      let sg = Math.floor(Math.random() * (1 - 0 + 1) + 0)
-      sg = sg === 0 ? -1 : 1
-      let ret
-      ret = this.vh ? sg * Math.round(Math.random() * (max - min + 1) + min) : this.Cy
-      return ret
+      return this.vh ? this.k + this.c : this.k
     },
     Vx: function () {
-      let max = this.fx + 5
-      let min = this.fx
-      let sg = Math.floor(Math.random() * (1 - 0 + 1) + 0)
-      sg = sg === 0 ? -1 : 1
-      let ret
-      ret = this.vh ? this.Cx : sg * Math.round(Math.random() * (max - min + 1) + min)
-      return ret
+      return this.vh ? this.h : this.h + this.a
     },
     Vy: function () {
-      let max = this.fy + 5
-      let min = this.fy
-      let sg = Math.floor(Math.random() * (1 - 0 + 1) + 0)
-      sg = sg === 0 ? -1 : 1
-      let ret
-      ret = this.vh ? sg * Math.round(Math.random() * (max - min + 1) + min) : this.Cy
-      return ret
+      return this.vh ? this.k + this.a : this.k
     },
     lr: function () {
       let max = 7
@@ -196,47 +188,6 @@ export default {
       let max = 5
       let min = -5
       return this.A === 0 ? Math.floor(Math.random() * (max - min + 1) + min) : this.decimalAdjust('round', -(this.A / this.E) * ((this.bx + this.D / (2 * this.A)) ** 2 + (4 + this.A * this.F - this.D ** 2) / (4 * this.A ** 2)), -2)
-    },
-    cx: function () {
-      let max = 5
-      let min = -5
-      return this.A === 0 ? this.decimalAdjust('round', -(this.C / this.D) * ((this.cy + this.E / (2 * this.C)) ** 2 + (4 + this.C * this.F - this.E ** 2) / (4 * this.C ** 2)), -2) : Math.floor(Math.random() * (max - min + 1) + min)
-    },
-    cy: function () {
-      let max = 5
-      let min = -5
-      return this.A === 0 ? Math.floor(Math.random() * (max - min + 1) + min) : this.decimalAdjust('round', -(this.A / this.E) * ((this.cx + this.D / (2 * this.A)) ** 2 + (4 + this.A * this.F - this.D ** 2) / (4 * this.A ** 2)), -2)
-    },
-    h: function () {
-      return this.A === 0 ? -this.F / this.D + this.E ** 2 / (4 * this.D * this.C) : -this.D / (2 * this.A)
-    },
-    k: function () {
-      return this.A === 0 ? -this.E / (2 * this.C) : -this.F / this.E + this.D ** 2 / (4 * this.A * this.E)
-    },
-    p: function () {
-      return this.A === 0 ? -this.D / (4 * this.C) : -this.E / (4 * this.A)
-    },
-    Fx: function () {
-      return this.A === 0 ? this.h + this.p : this.h
-    },
-    Fy: function () {
-      return this.A === 0 ? this.k : this.k + this.p
-    },
-    LR: function () {
-      return Math.abs(4 * this.p)
-    },
-    sgF: function () {
-      let max = 0
-      let min = 0
-      return 2 * Math.round(Math.random() * (max - min + 1) + min) - 1
-    },
-    xoy: function () {
-      let max = 0
-      let min = 0
-      return Math.round(Math.random() * (max - min + 1) + min)
-    },
-    Or: function () {
-      return this.xoy === 1 ? 'h' : 'v'
     },
     enterPotencia: function () {
       return this.enterOr === 'h' ? 1 : 2

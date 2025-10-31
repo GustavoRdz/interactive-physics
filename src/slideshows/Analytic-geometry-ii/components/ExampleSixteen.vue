@@ -5,9 +5,16 @@ eg-transition(:enter='enter', :leave='leave')
    
 
     p.center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 50" height="50px" width="450px" >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 50" height="50px" width="500px" >
         <g transform="translate(0, 0)">    
-          <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">{{ A }}x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">{{ C }}y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">{{ D }}x</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">{{ E }}y</tspan><tspan style="font-style: normal;"> + </tspan><tspan style="font-style: italic;">{{ F }}</tspan><tspan style="font-style: normal;"> = 0</tspan></text>
+          <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times">
+            <tspan style="font-style: normal;">{{ A>0 ? " " : " - " }}{{ Math.abs(A) === 1 ? "" : Math.abs(A)}}</tspan><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan>
+            <tspan style="font-style: normal;">{{ C>0 ? " + " : " - " }}{{ Math.abs(C) === 1 ? "" : Math.abs(C)}}</tspan><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan>
+            <tspan style="font-style: normal;">{{ D>0 ? " + " : " - " }}{{ Math.abs(D) === 1 ? "" : Math.abs(D)}}</tspan><tspan style="font-style: italic;">x</tspan>
+            <tspan style="font-style: normal;">{{ E>0 ? " + " : " - " }}{{ Math.abs(E) === 1 ? "" : Math.abs(E)}}</tspan><tspan style="font-style: italic;">y</tspan>
+            <tspan style="font-style: italic;">{{ F>0 ? " + " : " - " }}{{ Math.abs(F) === 1 ? "" : Math.abs(F)}}</tspan>
+            <tspan style="font-style: normal;"> = 0</tspan>
+          </text>
         </g>
       </svg>
     //-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" height="300px" width="600px" >
@@ -71,6 +78,7 @@ eg-transition(:enter='enter', :leave='leave')
 
 
     //-   </svg>
+    //- p vh= {{ vh }}, a={{ a }}, b={{ b }}, c= {{ Math.sqrt(mayor**2 - menor**2) }}, h= {{ h }}, k={{ k }} fx = {{ h + (1-vh)*Math.sqrt(mayor**2 - menor**2) }}, fy = {{ k + vh*Math.sqrt(mayor**2 - menor**2) }}
     //- p vh= {{ vh }}, h={{ h }}, k={{ k }}, a= {{ a }}, b= {{ b }}
     //- //- p.center ePot = {{ enterPotencia }}, xoy = {{ xoy }}, Fx={{ Fx }} Fy={{ Fy }},Vx={{ Vx }},Vy={{ Vy }},p={{ p }} 
     //- //- <br> par ={{ parabola }}
@@ -142,13 +150,13 @@ export default {
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     mayor: function () {
-      let max = 5
-      let min = 1
+      let max = 10
+      let min = 6
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     menor: function () {
-      let max = this.a + 5
-      let min = this.a
+      let max = 5
+      let min = 1
       return Math.round(Math.random() * (max - min + 1) + min)
     },
     a: function () {

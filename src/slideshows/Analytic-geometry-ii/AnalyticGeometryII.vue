@@ -574,7 +574,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 17
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 17
-      example-fourteen(:language='isSpanish')
+      example-seventeen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -584,7 +584,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 18
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 18
-      example-fourteen(:language='isSpanish')
+      example-eighteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -594,7 +594,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 19
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 19
-      example-fourteen(:language='isSpanish')
+      example-nineteen(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -604,7 +604,7 @@
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 20
       h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 20
-      example-fourteen(:language='isSpanish')
+      example-twenty(:language='isSpanish')
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
