@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem In the circuit, the battery has an emf of 12.0 V, the inductance is 2.81 mH, and the capacitance is 9.00 pF. The switch has been set to position a for a long time so that the capacitor is charged. The switch is then thrown to position b, removing the battery from the circuit and connecting the capacitor directly across the inductor.<br>(A) Find the frequency of oscillation of the circuit.<br>(B) What are the maximum values of charge on the capacitor and current in the circuit?
+    p.problem En el circuito, la batería tiene una fem de 12.0 V, la inductancia es de 2.81 mH y la capacitancia es de 9.00 pF. El interruptor se ha mantenido en la posición a durante un tiempo prolongado para cargar el capacitor. Luego, el interruptor se cambia a la posición b, desconectando la batería del circuito y conectando el capacitor directamente en paralelo con el inductor.<br>(A) Calcule la frecuencia de oscilación del circuito.<br>(B) ¿Cuáles son los valores máximos de carga en el capacitor y de corriente en el circuito?
 
     .center
       img(src="../assets/fig32-14.png")

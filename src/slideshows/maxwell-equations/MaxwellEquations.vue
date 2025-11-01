@@ -29,10 +29,10 @@
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
-            <b>Faraday law</b>
+            <b>Ley de Faraday</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
-            <b>Inductance</b>
+            <b>Inductancia</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
             <b>Circuitos RCL</b>
@@ -41,7 +41,7 @@
             <b>Ecuaciones de Maxwell</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutRight')
           p(v-if="step >= 1")
-            <b>Ondas electromagneticas</b>
+            <b>Ondas electromagnéticas</b>
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -49,7 +49,7 @@
 
     slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin: 40px 0 0 0px;") Faraday's Law of Induction
+      h3(style="margin: 40px 0 0 0px;") Ley de Faraday de inducción
       p.center 
       .center
         img(height="350px" src='./assets/fig31-1.png' style="margin: 40px 20px 0 0px;")
@@ -61,7 +61,7 @@
 
     slide(:steps=0, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin: 0px 0 0 0px;") Faraday's Law of Induction
+      h3(style="margin: 0px 0 0 0px;") Ley de Faraday de inducción
       .center
         img(height="70px" src='./assets/eq31-1.png' style="margin: 30px 0 0 0px;")
       .center
@@ -69,7 +69,7 @@
       .center
         img(height="70px" src='./assets/eq31-3.png' style="margin: 20px 0px 0 270px;")
         img(height="200px" src='./assets/fig31-3.png' style="margin: -50px 0 -60px 50px;")
-      p(style="margin: 50px 0 0px 100px;") • The magnitude of <b>B</b> can change with time.<br> • The area enclosed by the loop can change with time.<br> • The angle &theta; between <b>B</b> and the normal to the loop can change with time.<br> • Any combination of the above can occur.
+      p(style="margin: 50px 0 0px 100px;") • La magnitud de <b>B</b> puede cambiar con el tiempo.<br> • El area delimitada por la espira puede cambiar con el tiempo.<br> • El ángulo &theta; entre <b>B</b> y la normal a la espira puede cambiar con el tiempo.<br> • Alguna combinación de los anteriores puede ocurrir.
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -78,9 +78,9 @@
 
     slide(:steps=0, enter='bounceInDown', :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px;") Some Applications of Faraday's Law
+      h4(style="margin-top: -20px;") Algunas aplicaciones de la ley de Faraday
       .center
-      p The ground fault circuit interrupter (GFCI)
+      p El interruptor de circuito por falla a tierra
       .center
         img(height="300px" src='./assets/fig31-4.png' style="margin: 30px 0 0 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
@@ -91,8 +91,8 @@
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin-top: -30px;")
-      p(style="margin: 0 0 -0px 0;").center Some Applications of Faraday’s Law
-      p Electric guitar
+      p(style="margin: 0 0 -0px 0;").center Algunas aplicaciones de la ley de Faraday
+      p Gutarra electrica
       .center
         img(height="300px" src='./assets/fig31-5.png' style="margin: 30px 0 0 0px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
@@ -102,7 +102,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 1
+      h3(style="margin-top: -20px;") Ejercicio 1
       example-one
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -111,7 +111,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 2
+      h3(style="margin-top: -20px;") Ejercicio 2
       example-two
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -121,9 +121,9 @@
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Non Motional emf
+      h4(style="margin-top: -10px;").center Fem no movil
       img(src='./assets/fig31-7.png' height="400px" style="margin: 0px 0px -350px 0px;")
-      p(style="margin: 0px 0px 30px 150px; ").center Equilibrium condition
+      p(style="margin: 0px 0px 30px 150px; ").center Condición de equilibrio
       img(src='./assets/eq31-3B.png' height="70px" style="margin: 0px 0px 0px 400px; ")
       img(src='./assets/eq31-4.png' height="70px" style="margin: 0px 0px 30px 440px; ")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
@@ -133,8 +133,8 @@
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Motional emf
-      p(style="margin: -40px 0px 0 0;") The emf induced in a conductor moving through a constant magnetic field.
+      h4(style="margin-top: -10px;").center Fem de movimiento
+      p(style="margin: -40px 0px 0 0;") La emf inducida en un conductor que se mueve a través de un campo magnético
       img(src='./assets/fig31-8.png' height="400px" style="margin: 50px 20px -350px -50px;")
       img(src='./assets/eq31-4B.png' height="50px" style="margin: 0px 0px 0px 30px;")
       img(src='./assets/eq31-5.png' height="70px" style="margin: 0px 0px 0 535px;")
@@ -148,7 +148,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 3
+      h3(style="margin-top: -20px;") Ejercicio 3
       example-three
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -157,9 +157,9 @@
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Lenz's law
-      p(style="margin: 0px 0px 20px 0; padding: 10px; border: 1px solid black;")  The induced current in a loop is in the direction that creates a magnetic field that opposes the change in magnetic flux through the area enclosed by the loop.
-      p From Faraday's law sign
+      h4(style="margin-top: -10px;").center Ley de Lenz
+      p(style="margin: 0px 0px 20px 0; padding: 10px; border: 1px solid black;")  La corriente inducida en una espira tiene la dirección de tal forma que crea un campo magnético que se opone al cambio en el flujo magnético a través del área encerrada por la espira.
+      p El signo de la ley de Faraday
       .center
         img(src='./assets/eq31-1.png' height="70px" style="margin: 0px 20px 0 0;")
       .center
@@ -171,7 +171,7 @@
       
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 4
+      h3(style="margin-top: -20px;") Ejercicio 4
       example-four
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -180,7 +180,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 5
+      h3(style="margin-top: -20px;") Ejercicio 5
       example-five
       p Solution
       ex-five-anim
@@ -191,19 +191,19 @@
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Induced emf and Electric Fields
-      p(style="margin: -50px 0 0 0px;") If the magnetic field changes with time, an emf is induced in the loop.
+      h4(style="margin-top: -10px;").center Fem inducida y campos electricos
+      p(style="margin: -50px 0 0 0px;") Si el campo magnetico cambia con el tiempo, se induce una fem en la espira.
       .center
-        img(src='./assets/fig31-15.png' height="250px"  style="margin: 0px;")
-      p(style="margin: 0px 0 0 0px;") The work done by the electric field in moving a test charge q once around the loop is equal to qξ.
+        img(src='./assets/fig31-15.png' height="300px"  style="margin: 0px;")
+      p(style="margin: 0px 0 0 0px;") El trabajo hecho por el campo eléctrico al mover una carga de prueba q a lo largo de la espira es igua a qξ.
       .center
         img(src='./assets/eq31-7B.png' height="50px"  style="margin: -10px 0 0 0px;")
-      p(style="margin: 0px 0 -20px 0px;")  the induced electric field can be expressed as 
+      p(style="margin: 0px 0 -20px 0px;")  el campo eléctrico inducido puede ser expresado como 
       .center
         img(src='./assets/eq31-8.png' height="70px"  style="margin: -70px 0 0px 450px;")
-      p(style="margin: 40px 0 -20px 0px;") <b>Faraday's law in general form</b>:
+      p(style="margin: 40px 0 -20px 0px;") <b>Ley de Faraday en forma general</b>:
       .center
-        img(src='./assets/eq31-9.png' height="100px"  style="margin: -47px 0 0 70px;")
+        img(src='./assets/eq31-9.png' height="100px"  style="margin: -47px 0 0 150px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -211,7 +211,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 6
+      h3(style="margin-top: -20px;") Ejercicio 6
       example-six
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -220,11 +220,12 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Generators and motors
+      h4(style="margin-top: -10px;").center Generadores y motores
       p(style="margin-top: -30px;").center
       //- torsion-pendulum
       .center
         img(src='./assets/fig31-17.png' height="250px" style="margin: -30px 10px 0 0px;")
+      .center
         img(src='./assets/fig31-19.png' height="250px" style="margin: -30px 0px 0 0px;")
       .center
         img(src='./assets/fig31-18.png' height="200px" style="margin: 0px 0 0 0px;")
@@ -241,7 +242,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 7
+      h3(style="margin-top: -20px;") Ejercicio 7
       example-seven
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -250,8 +251,8 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Self-Induction and Inductance
-        img(src='./assets/fig32-1.png' height="400px" style="margin: 0 50px -200px 0")
+      h4(style="margin-top: -10px;").center Auto-inductancia e inductancia
+        img(src='./assets/fig32-1.png' height="400px" style="margin: 0 50px -300px 0")
         img(src='./assets/eq31-1.png' height="70px" style="margin: 0 0 100px 0px")
         img(src='./assets/eq32-2.png' height="70px" style="margin: 0 0 0px -145px")
         img(src='./assets/eq32-3.png' height="70px" style="margin: 0 0 -100px -123px")
@@ -262,7 +263,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 8
+      h3(style="margin-top: -20px;") Ejercicio 8
       example-eight
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -271,7 +272,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center RL Circuits
+      h4(style="margin-top: -10px;").center Circuitos RL
       div  
         p(style="margin-top: -30px;").center
         img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 50px -200px 0;")
@@ -282,9 +283,9 @@
         img(src='./assets/eq32-6E.png' height="50px"  style="margin: 0 0 -140px -160px;")
         img(src='./assets/eq32-6F.png' height="60px"  style="margin: 0 0 200px 130px;")
         img(src='./assets/eq32-6G.png' height="70px"  style="margin: 0 0 110px -180px;")
-        img(src='./assets/eq32-7.png'  height="70px"  style="margin: 0 0 30px -200px;")
+        img(src='./assets/eq32-7.png'  height="70px"  style="margin: -150px 0 30px 650px;")
         img(src='./assets/eq32-8.png'  height="70px"  style="margin: 0 0 -50px -180px;")
-        img(src='./assets/fig32-3.png' height="300px" style="margin: 0px -300px -400px -150px;")
+        img(src='./assets/fig32-3.png' height="300px" style="margin: 0 -300px -400px -300px;")
       .prev(@click.stop='previousSlide' style="float: left; margin: 400px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 400px 0 0px 0px;")
@@ -292,7 +293,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center RL Circuits
+      h4(style="margin-top: -10px;").center Circuitos RL
       p(style="margin-top: -30px;") Con S<sub>2</sub> en b
       img(src='./assets/fig32-2.png' height="500px" style="margin: -30px 100px -200px 100px;")
       img(src='./assets/eq32-9B.png'  height="70px"  style="margin: 0 0px 200px 0px;")
@@ -304,7 +305,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 9
+      h3(style="margin-top: -20px;") Ejercicio 9
       example-nine
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -335,7 +336,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Oscillations in an LC Circuit
+      h5.center Oscilaciones en un LC Circuit
       img(src='./assets/fig32-10.png' height="250px" style="margin: -30px 50px -100px 0;")
       img(src='./assets/eq32-18.png'  height="70px"  style="margin: 0 0px 200px 0px;")
       img(src='./assets/eq32-19.png' height="70px"  style="margin: 0 0px 100px -280px;")
@@ -351,7 +352,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 10
+      h3(style="margin-top: -20px;") Ejercicio 10
       example-eleven
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -360,7 +361,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center The RLC Circuit
+      h5.center Circuito RLC
       .center
         img(src='./assets/fig32-15.png' height="350px" style="margin: -30px 50px -100px 0;")
         img(src='./assets/eq32-27C.png'  height="60px"  style="margin: 0 0px 200px 0px;")
@@ -377,7 +378,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center The RLC Circuit
+      h5.center Circuito RLC
       .center
         img(src='./assets/fig32-16.png' height="350px" style="margin: 0px 0px 0px 0;")
       .center
@@ -391,16 +392,16 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Displacement Current and the General Form of Ampère's Law
+      h5.center Corriente de desplazamiento y la forma general de la ley de Ampere
       p
     
       img(src='./assets/fig34-1.png' height="350px" style="margin: -30px 50px -100px 0;")
       img(src='./assets/eq34-0.png'  height="60px"  style="margin: 0 0px 200px 0px;")
-      p(style="margin: -260px 0px 0px 500px;") Ampère's law
+      p(style="margin: -260px 0px 0px 500px;") Ley de Ampere
       img(src='./assets/eq34-1.png' height="60px"  style="margin: 50px 0px 130px 300px;")
-      p(style="margin: -200px 0px 0px 500px;") Displacement current
+      p(style="margin: -200px 0px 0px 500px;") Corriente de desplazamiento
       img(src='./assets/eq34-2.png' height="60px"  style="margin: 70px 0 60px 250px;")
-      p(style="margin: -130px 0px 0px 650px;") Ampère-Maxwell law
+      p(style="margin: -130px 0px 0px 650px;") Ley de Ampere-Maxwell
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -408,7 +409,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h5.center Displacement Current and the General Form of Ampère's Law
+      h5.center Corriente de desplazamiento y la forma general de la ley de Ampere
       p
       .center
         img(src='./assets/fig34-2.png' height="350px" style="margin: 30px 50px 60px 0;")
@@ -421,7 +422,7 @@
 
     slide.boredYet(enter='bounceInDown' , :mouseNavigation='false' :keyboardNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 11
+      h3(style="margin-top: -20px;") Ejercicio 11
       example-twelve
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -433,13 +434,13 @@
       h4(style="margin-top: -10px;").center Maxwell's Equations
       .center
         img(src='./assets/eq34-4.png' height="70px" style="margin: 0 0px -70px -100px;")
-        p(style="margin: 0px 0px 0px 300px;") Gauss's law
+        p(style="margin: 0px 0px 0px 300px;") Ley de Gauss
         img(src='./assets/eq34-5.png' height="70px" style="margin: 0 0 -70px -83px;")
-        p(style="margin: 0 0 0 450px;") Gauss's law in magnetism
+        p(style="margin: 0 0 0 450px;") Ley de Gauss en magnetismo
         img(src='./assets/eq34-6.png' height="70px" style="margin: 0 0 -70px -143px;")
-        p(style="margin: 0 0 0 325px;") Faraday's law
+        p(style="margin: 0 0 0 325px;") Ley de Faraday
         img(src='./assets/eq34-7.png' height="70px" style="margin: 0 0 -70px -223px;")
-        p(style="margin: 0 0 0 440px;") Ampère-Maxwell's law
+        p(style="margin: 0 0 0 440px;") Ley de Ampere-Maxwell
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -447,7 +448,7 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Wave equation
+      h4(style="margin-top: -10px;").center Ecuación de onda
       .center
         img(src='./assets/fig34-6.png' height="300px" style="margin: -50px 100px -100px 0px;")
         img(src='./assets/eq34-15.png' height="70px" style="margin: 0 0 0px 0px;")
@@ -456,7 +457,7 @@
         img(src='./assets/eq34-16.png' height="70px" style="margin: 0 0 0px 0px;")
       .center
         img(src='./assets/eq34-17.png' height="70px" style="margin: 100px 0 -70px 0px;")
-        p(style="margin: 0 0 0 300px;") Wave speed
+        p(style="margin: 0 0 0 400px;") rapidez de la onda
       .prev(@click.stop='previousSlide' style="float: left; margin: 50px 0 0px 0px;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right; margin: 50px 0 0px 0px;")
@@ -464,10 +465,10 @@
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -10px;").center Wave equation
+      h4(style="margin-top: -10px;").center Ecuación de onda
       .center
         img(src='./assets/eq34-17.png' height="70px" style="margin: 0px 0 -70px 0px;")
-        p(style="margin: 0 0 0 350px;") Wave speed
+        p(style="margin: 0 0 0 350px;") Rapides de la onda
       .center
         img(src='./assets/eq34-17B.png' height="100px" style="margin: 100px 0 -70px 0px;")
       .center

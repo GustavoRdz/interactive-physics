@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A sinusoidally varying voltage is applied across a capacitor. The capacitance is C = 8.00 &mu;F, the frequency of the applied voltage is f = 3.00 kHz, and the voltage amplitude is &Delta;V<sub>max</sub> = 30.0 V. Find the displacement current in the capacitor.
+    p.problem Se aplica un voltaje sinusoidal a un capacitor. La capacitancia es C = 8.00 μF, la frecuencia de la tensión aplicada es f = 3.00 kHz y la amplitud de la tensión es ΔV<sub> máx</sub> = 30.0 V. Calcule la corriente de desplazamiento en el capacitor.
 
     .center
       img(src="../assets/fig34-3.png" height="300px;")

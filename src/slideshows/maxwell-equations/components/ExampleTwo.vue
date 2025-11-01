@@ -1,7 +1,8 @@
 <template lang="pug">
   eg-transition(:enter='enter', :leave='leave')
     .eg-slide-content
-      p.problem A loop of wire enclosing an area A is placed in a region where the magnetic field is perpendicular to the plane of the loop. The magnitude of <b>B</b> varies in time according to the expression B = B<sub>max</sub>e<sup>-at</sup>, where a is some constant. That is, at t = 0, the field is B<sub>max</sub>, and for t &gt; 0, the field decreases exponentially.<br>Find the induced emf in the loop as a function of time.
+      p.problem Una espira de alambre que encierra un área A se coloca en una región donde el campo magnético es perpendicular al plano de la espira. La magnitud de B varía con el tiempo según la expresión B = B<sub> máx</sub> e<sup> -at</sup> , donde a es una constante. Es decir, en t = 0, el campo es B <sub>máx</sub> , y para t > 0, el campo decrece exponencialmente.
+      
       .center
         img(src='../assets/fig31-6.png' height="200px")
       //- .center

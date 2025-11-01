@@ -1,11 +1,12 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A magnet is placed near a metal loop as shown.<br>(A) Find the direction of the induced current in the loop when the magnet is pushed toward the loop.<br>(B) Find the direction of the induced current in the loop when the magnet is pulled away from the loop.
-    img(src='../assets/fig31-13A.png' width="200px" style="margin: 0 0 0 -50px;")
-    img(src='../assets/fig31-13B.png' width="200px" style="margin: 0 0 0 0px;")
-    img(src='../assets/fig31-13C.png' width="200px" style="margin: 0 0 0 0px;")
-    img(src='../assets/fig31-13D.png' width="200px" style="margin: 0 0 0 0px;")
+    p.problem Se coloca un imán cerca de una espira metálica, como se muestra en la figura. <br>(A) Determine la dirección de la corriente inducida en la espira cuando el imán se acerca a ella. <br>(B) Determine la dirección de la corriente inducida en la espira cuando el imán se aleja de ella. 
+    p.center
+    img(src='../assets/fig31-13A.png' width="180px" style="margin: 0 0 0 -50px;")
+    img(src='../assets/fig31-13B.png' width="180px" style="margin: 0 0 0 0px;")
+    img(src='../assets/fig31-13C.png' width="180px" style="margin: 0 0 0 0px;")
+    img(src='../assets/fig31-13D.png' width="180px" style="margin: 0 0 0 0px;")
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Initial displacement (cm)

@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A coil consists of 200 turns of wire. Each turn is a square of side d = 18 cm, and a uniform magnetic field directed perpendicular to the plane of the coil is turned on. If the field changes linearly from 0 to 0.50 T in 0.80 s, what is the magni- tude of the induced emf in the coil while the field is changing?
+    p.problem Una bobina consta de 200 espiras de alambre. Cada espira es un cuadrado de lado d = 18 cm, y se le aplica un campo magnético uniforme perpendicular al plano de la bobina. Si el campo varía linealmente de 0 a 0.50 T en 0.80 s, ¿cuál es la magnitud de la fem inducida en la bobina durante la variación del campo?
     
 
     //- .center

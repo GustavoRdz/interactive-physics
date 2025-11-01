@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem The coil in an AC generator consists of 8 turns of wire, each of area A = 0.090 0 m<sup>2</sup>, and the total resistance of the wire is 12.0 &ohm;. The coil rotates in a 0.500-T magnetic field at a constant frequency of 60.0 Hz.<br>(A) Find the maximum induced emf in the coil.<br>(B) What is the maximum induced current in the coil when the output terminals are connected to a low-resistance conductor?
+    p.problem La bobina de un generador de corriente alterna consta de 8 espiras de alambre, cada una con un área A = 0,0900 m², y la resistencia total del alambre es de 12.0 Ω. La bobina gira en un campo magnético de 0.500 T a una frecuencia constante de 60.0 Hz.<br>(A) Calcule la fem inducida máxima en la bobina.<br>(B) ¿Cuál es la corriente inducida máxima en la bobina cuando los terminales de salida se conectan a un conductor de baja resistencia?
 
 
     //- .center

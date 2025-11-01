@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A conducting bar moves on two frictionless, parallel rails in the presence of a uniform magnetic field directed into the page. The bar has mass m, and its length is l. The bar is given an initial velocity v<sub>i</sub> to the right and is released at t = 0.<br>(A) Using Newton's laws, find the velocity of the bar as a function of time.<br>(B) Show that the same result is found by using an energy approach.
+    p.problem Calcule la fuerza inducida en la espiración en función del tiempo. Una barra conductora se mueve sobre dos rieles paralelos sin fricción en presencia de un campo magnético uniforme dirigido hacia el interior de la página. La barra tiene masa m y longitud l. Se le da una velocidad inicial v<sub>i</sub> hacia la derecha y se suelta en t = 0. <br>(A) Utilizando las leyes de Newton, halle la velocidad de la barra en función del tiempo.<br> (B) Demuestre que se obtiene el mismo resultado utilizando un enfoque basado en la energía.
 
     .center
       img(src="../assets/fig31-9.png", height="300px" style="margin: 50px 0px 0px 0px;")

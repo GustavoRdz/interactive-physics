@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem Consider a uniformly wound solenoid having N turns and length l. Assume l is much longer than the radius of the windings and the core of the solenoid is air.<br>(A) Find the inductance of the solenoid.<br>(B) Calculate the inductance of the solenoid if it contains 300 turns, its length is 25.0 cm, and its cross-sectional area is 4.00 cm<sup>2</sup>.<br> (C) Calculate the self-induced emf in the solenoid if the current it carries decreases at the rate of 50.0 A/s.
+    p.problem Considere un solenoide de bobinado uniforme con N espiras y longitud l. Suponga que l es mucho mayor que el radio de las espiras y que el núcleo del solenoide es aire.<br>(A) Calcule la inductancia del solenoide.<br>(B) Calcule la inductancia del solenoide si contiene 300 espiras, su longitud es de 25.0 cm y su área transversal es de 4.00 cm².(C) Calcule la fem autoinducida en el solenoide si la corriente que transporta disminuye a razón de 50.0 A/s .
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data Silicon silver mass (fg)

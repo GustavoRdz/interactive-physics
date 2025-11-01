@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A rectangular metallic loop of dimensions l and w and resistance R moves with constant speed v to the right. The loop passes through a uniform magnetic field B directed into the page and extending a distance 3w along the x axis. Define x as the position of the right side of the loop along the x axis.<br>(A) Plot the magnetic flux through the area enclosed by the loop as a function of x.<br>(B) Plot the induced motional emf in the loop as a function of x.
+    p.problem Una espira metálica rectangular de dimensiones l y w y resistencia R se mueve con velocidad constante v hacia la derecha. La espira atraviesa un campo magnético uniforme B dirigido hacia el interior de la página y que se extiende una distancia 3w a lo largo del eje x. Defina x como la posición del lado derecho de la espira a lo largo del eje x.<br>(A) Grafique el flujo magnético a través del área encerrada por la espira en función de x.<br>(B) Grafique la fem inducida por movimiento en la espira en función de x.
 
     .center
       // img(src="../assets/fig31-14.png")

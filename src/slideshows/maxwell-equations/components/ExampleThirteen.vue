@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A sinusoidal electromagnetic wave of fre- quency 40.0 MHz travels in free space in the x direction.<br>(A) Determine the wavelength and period of the wave.<br>(B) At some point and at some instant, the electric field has its maximum value of 750 N/C and is directed along the y axis. Calculate the magnitude and direction of the magnetic field at this position and time.
+    p.problem Una onda electromagnética sinusoidal de frecuencia 40.0 MHz se propaga en el vacío en la dirección x.<br>(A) Determine la longitud de onda y el periodo de la onda.<br> (B) En un punto y en un instante dados, el campo eléctrico alcanza su valor máximo de 750 N/C y está dirigido a lo largo del eje y. Calcule la magnitud y la dirección del campo magnético en esa posición y en ese instante.
     .center
       img(src="../assets/fig34-9.png" height="250px")
 

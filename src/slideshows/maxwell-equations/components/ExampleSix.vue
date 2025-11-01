@@ -1,7 +1,7 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A long solenoid of radius R has n turns of wire per unit length and carries a time-varying current that varies sinusoidally as I = I<sub>max</sub> cos &omega;t, where I<sub>max</sub> is the maximum current and v is the angular frequency of the alternating current source.<br>(A) Determine the magnitude of the induced electric field outside the solenoid at a distance r &gt; R from its long central axis.<br>(B) What is the magnitude of the induced electric field inside the solenoid, a distance r from its axis?
+    p.problem Un solenoide largo de radio R tiene n espiras de alambre por unidad de longitud y conduce una corriente variable en el tiempo que varía sinusoidalmente según I = I<sub>máx</sub> cos ωt, donde I<sub>máx</sub> es la corriente máxima y ω es la frecuencia angular de la fuente de corriente alterna.<br>(A) Determine la magnitud del campo eléctrico inducido fuera del solenoide a una distancia r > R de su eje central.<br>(B) ¿Cuál es la magnitud del campo eléctrico inducido dentro del solenoide, a una distancia r de su eje?
 
     .center
       img(src="../assets/fig31-16.png")
