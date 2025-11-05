@@ -76,9 +76,9 @@
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h4(style="margin: 0px 0px -30px 0px;").center Sección 1
-      h3.center La parábola
+      h3.center La Hipérbola
       p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Definición</span>
-      p(style="margin-top: 0px; color: blue;") Lugar geométrico de un punto que se mueve en un plano <span style="font-family: roboto; font-weight: bold; font-style: italic;">xy</span>, de tal manera que su distancia de una recta fija, llamada directriz (<span style="font-family: roboto; font-weight: bold; font-style: italic;">L</span>), situada en el plano, es siempre igual a su distancia de un punto fijo del plano, que no pertenece a la recta, llamado foco (<span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span>).
+      p(style="margin-top: 0px; color: blue;") Lugar geométrico de un punto <span style="font-family: roboto; font-weight: bold; font-style: italic;">P</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">(</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">x, </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight: bold; font-style: normal;">)</span> que se mueve en un plano <span style="font-family: roboto; font-weight: bold; font-style: italic;">xy</span>, de tal manera el valor absoluto de las distancias de sus distancias a dos puntos fijos <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-size: 20px; font-style: normal;"><sub>1</sub></span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">f</span><span style="font-family: roboto; font-weight: bold; font-size: 20px; -font-style: normal;"><sub>2</sub></span>, del plano, llamados focos, es siempre igual a una cantidad constante, la cual es positiva y menor que la distancia entre los focos.
       // f1_parabolaDef
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
@@ -87,15 +87,15 @@
 
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Elementos de la parabola
+      h3(style="margin-top: -20px;") Elementos de la Hipérbola
       p.center Sea L, la recta fija llamada directriz y f  el punto fijo llamado foco, a partir de estos y del lugar geometrico, sus principales elementos son:
       ol 
-        li <span style="color: #00aa00;"><b>Eje focal</b></span> es la recta perpendicular a la directriz y que pasa por el foco.
-        li <span style="color: #0000aa;"><b>Vértice</b></span> es el punto de intersección del eje focal con la parábola.
-        li <span style="color: #aaaa00;"><b>Cuerda</b></span> es un segmento que une dos puntos cualesquiera de la parabola.
-        li <span style="color: #00aaaa;"><b>Cuerda focal</b></span> es una cuerda que pasa por el foco.
-        li <span style="color: #aa00aa;"><b>Lado recto</b></span> es una cuerda focal perpendicular al eje focal.
-        li <span style="color: #aaaaaa;"><b>Radio focal</b></span> o <span style="color: #aaaaaa;"><b>Radio vector</b></span> es el segmento que une cualquier punto de la parabola con el foco.
+        li <span style="color: #00aa00;"><b>Eje focal</b></span> es la recta perpendicular que pasa por los focos.
+        li <span style="color: #0000aa;"><b>Vértices</b></span> puntos de la hipérbola que cortan al eje focal.
+        li <span style="color: #aaaa00;"><b>Eje transverso</b></span> segmento comprendido entre los vertices.
+        li <span style="color: #00aaaa;"><b>Centro</b></span> punto medio del segmento que une los vertices.
+        li <span style="color: #aa00aa;"><b>Eje normal</b></span> recta que pasa por el centro y es perpendicular al eje focal.
+        li <span style="color: #aaaaaa;"><b>Eje conjugado</b></span> segmento sobre el eje normal que tiene al centro como punto medio.
       .center
         f2_parabolaElem
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -105,20 +105,193 @@
 
     slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px;").center Forma canonica de la ecuacion de la parabola
-      h5(style="margin: -50px 0 0px 0;").center o primera forma ordinaria de la parabola
+      h4(style="margin-top: -20px;").center Primera forma ordinaria de la hipérbola
       // E1_parabolaPrimeraOrd
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
 
-      h6(style="margin: -20px 0 0px 0; color: #0000FF").center Análisis de la ecuación
-      ol
-        li La curva pasa por el origen y no tiene ninguna intersección con los ejes coordenados.
-        li La curva es simétrica con respecto al eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, o bien, el eje focal divide a la parábola en dos partes iguales
-        li Si <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span><span style="font-family: roboto; font-weight:"> = &#x00B1; 2&#x221A;</span>(<span style="font-family: roboto; font-weight: bold; font-style: italic;">px</span>), entonces, para que y tome valores reales y diferentes de cero, <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, deben tener el mismo signo, es decir:
-          ol(type='A')
-            li si <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold; "> &gt; 0</span> , se excluyen todos los valores negativos de <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, por lo tanto, la parábola se abre hacia la derecha. 
-            li si <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold; "> &lt; 0</span> , se excluyen todos los valores positivos de <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span>, por lo tanto, la parábola se abre hacia la izquierda. 
-        li La curva no tiene asintotas verticales ni horizontales.
-        li Existen dos puntos sobre la parábola que tienen abscisas igual a <span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y sus ordenadas son <span style="font-family: roboto; font-weight: bold;">2</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span> y <span style="font-family: roboto; font-weight: bold;">-2</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span>, respectivamente, por lo tanto, la longitud de su lado recto está dada por : <span style="font-family: roboto; font-weight: bold;">|4</span><span style="font-family: roboto; font-weight: bold; font-style: italic;">p</span><span style="font-family: roboto; font-weight: bold;">|</span>.
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+          </g>
+        </svg>
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(style="margin-top: -20px;") Exercise 1
+      example-one(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;").center Asíntotas de una hipérbola
+      // E1_parabolaPrimeraOrd
+      p(style="margin-top: 0px; color: blue;") La hipérbola 
+      p(style="margin-top: 0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      p(style="margin-top: -0px; color: blue;") tiene asistotas <span style="font-family: roboto; font-weight: bold; font-style: italic;">bx</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">ay</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">bx</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">ay</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>  
+      p(style="margin-top: -0px; color: blue;") La hipérbola 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">y</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="50" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="87" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <line  x1="5" y1="40" x2="35" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="80" y1="40" x2="110" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="10" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="87" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+          </g>
+        </svg>
+      p(style="margin-top: -0px; color: blue;") tiene asistotas <span style="font-family: roboto; font-weight: bold; font-style: italic;">ax</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> - </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">by</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span> y <span style="font-family: roboto; font-weight: bold; font-style: italic;">ax</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> + </span><span style="font-family: roboto; font-weight: bold; font-style: italic;">by</span><span style="font-family: roboto; font-weight: bold; font-style: normal;"> = 0</span>  
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
+      example-two(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
+      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
+      example-three(:language='isSpanish')
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h4(style="margin-top: -20px;").center Primera forma ordinaria de la hipérbola
+      // E1_parabolaPrimeraOrd
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="95" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+       
+
+            <line  x1="5" y1="40" x2="85" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="115" y1="40" x2="195" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="140" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="205" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
+      p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> 
+      p(style="margin-top: -0px; color: blue;").center 
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+       
+          <g transform="translate(0, 0)">    
+            <text x="5" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">y</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">k</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="95" y="48" font-size="30" fill="black" font-weight="bold" font-family="Times"> - </text>    
+
+            <text x="120" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: normal;">(</tspan><tspan style="font-style: italic;">x</tspan><tspan style="font-style: normal;"> - </tspan><tspan style="font-style: italic;">h</tspan><tspan style="font-style: normal;">)</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+       
+
+            <line  x1="5" y1="40" x2="85" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            <line  x1="115" y1="40" x2="195" y2="40" fill="none" stroke="#000" stroke-width="3"stroke-linecap="round"/>
+            
+            <text x="30" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">a</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+
+            <text x="140" y="75" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">b</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
+          
+            <text x="205" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
+            
+          </g>
+
+        </svg>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -146,34 +319,8 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(style="margin-top: -20px;") Exercise 1
-      example-one(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 2
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 2
-      example-two(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
-      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h3(v-if = '!isSpanish' style="margin: 0px 0px 30px 0px;") Exercise 3
-      h3(v-if = 'isSpanish' style="margin: 0px 0px 30px 0px;") Ejercicio 3
-      example-three(:language='isSpanish')
-      .prev(@click.stop='previousSlide' style="float: left;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
-      .next(@click.stop='nextSlide' style="float: right;")
-        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
     slide(enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>

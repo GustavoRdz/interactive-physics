@@ -19239,6 +19239,16 @@ input:checked + .slider[data-v-9229343a]:before {
   height: 20px;
 }
 
+.eg-slide .eg-slide-content .figure[data-v-1ccefcb6] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-1ccefcb6] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-1ccefcb6] {
   display: inline-block;
   width: 100px;
@@ -19247,9 +19257,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-1ccefcb6] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -19265,10 +19275,17 @@ input:checked + .slider[data-v-9229343a]:before {
 .correct[data-v-1ccefcb6] {
   background: #80c080;
 }
-.error[data-v-1ccefcb6] {
-  font-size: 14px;
-}
 
+.eg-slide .eg-slide-content .figure[data-v-3536ad9c] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-3536ad9c] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-3536ad9c] {
   display: inline-block;
   width: 100px;
@@ -19277,9 +19294,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-3536ad9c] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -19295,10 +19312,17 @@ input:checked + .slider[data-v-9229343a]:before {
 .correct[data-v-3536ad9c] {
   background: #80c080;
 }
-.error[data-v-3536ad9c] {
-  font-size: 14px;
-}
 
+.eg-slide .eg-slide-content .figure[data-v-b0e46c24] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-b0e46c24] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-b0e46c24] {
   display: inline-block;
   width: 100px;
@@ -19307,9 +19331,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-b0e46c24] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -19324,9 +19348,6 @@ input:checked + .slider[data-v-9229343a]:before {
 }
 .correct[data-v-b0e46c24] {
   background: #80c080;
-}
-.error[data-v-b0e46c24] {
-  font-size: 14px;
 }
 
 .data[data-v-29f75506] {
