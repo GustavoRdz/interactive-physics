@@ -19350,6 +19350,16 @@ input:checked + .slider[data-v-9229343a]:before {
   background: #80c080;
 }
 
+.eg-slide .eg-slide-content .figure[data-v-29f75506] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-29f75506] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-29f75506] {
   display: inline-block;
   width: 100px;
@@ -19358,9 +19368,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-29f75506] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -19376,10 +19386,17 @@ input:checked + .slider[data-v-9229343a]:before {
 .correct[data-v-29f75506] {
   background: #80c080;
 }
-.error[data-v-29f75506] {
-  font-size: 14px;
-}
 
+.eg-slide .eg-slide-content .figure[data-v-24e0cedc] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-24e0cedc] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
 .data[data-v-24e0cedc] {
   display: inline-block;
   width: 100px;
@@ -19388,9 +19405,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-24e0cedc] {
-  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 25px;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
   color: blue;
   width: 100%;
 }
@@ -19405,9 +19422,6 @@ input:checked + .slider[data-v-9229343a]:before {
 }
 .correct[data-v-24e0cedc] {
   background: #80c080;
-}
-.error[data-v-24e0cedc] {
-  font-size: 14px;
 }
 
 .data[data-v-2e29259c] {
@@ -19566,16 +19580,6 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 14px;
 }
 
-.eg-slide .eg-slide-content .figure[data-v-e9a13abe] {
-  width: 80%;
-  margin-left: 10%;
-}
-.eg-slide .eg-slide-content .figure p[data-v-e9a13abe] {
-    font-size: 0.7em;
-    margin-top: 2em;
-    margin-bottom: 0;
-    color: #555;
-}
 .data[data-v-e9a13abe] {
   display: inline-block;
   width: 100px;
@@ -19584,8 +19588,9 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-e9a13abe] {
-  margin: 15px 20px 15px 20px;
-  font-size: 30px;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 25px;
   color: blue;
   width: 100%;
 }
@@ -19600,6 +19605,9 @@ input:checked + .slider[data-v-9229343a]:before {
 }
 .correct[data-v-e9a13abe] {
   background: #80c080;
+}
+.error[data-v-e9a13abe] {
+  font-size: 14px;
 }
 
 .eg-slide .eg-slide-content .figure[data-v-45f306f9] {
@@ -19723,6 +19731,7 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-4b50f42d] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
@@ -19759,6 +19768,7 @@ input:checked + .slider[data-v-9229343a]:before {
   font-size: 20px;
 }
 .problem[data-v-47bdd60c] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
@@ -20122,6 +20132,43 @@ input:checked + .slider[data-v-45892c32]:before {
 .slider.round[data-v-45892c32]:before {
   border: green solid 4px;
   border-radius: 50% 50% 50% 50%;
+}
+
+.eg-slide .eg-slide-content .figure[data-v-ccc9e6d4] {
+  width: 80%;
+  margin-left: 10%;
+}
+.eg-slide .eg-slide-content .figure p[data-v-ccc9e6d4] {
+    font-size: 0.7em;
+    margin-top: 2em;
+    margin-bottom: 0;
+    color: #555;
+}
+.data[data-v-ccc9e6d4] {
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  margin: 5px 3px 5px 3px;
+  font-size: 20px;
+}
+.problem[data-v-ccc9e6d4] {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 15px 20px 15px 20px;
+  font-size: 30px;
+  color: blue;
+  width: 100%;
+}
+.solution[data-v-ccc9e6d4] {
+  margin: 15px 5px 5px 5px;
+  font-size: 20px;
+  color: red;
+  width: 100%;
+}
+.not-correct[data-v-ccc9e6d4] {
+  background: #fa4408;
+}
+.correct[data-v-ccc9e6d4] {
+  background: #80c080;
 }
 
 .eg-slide .eg-slide-content .figure[data-v-5cccab48] {
