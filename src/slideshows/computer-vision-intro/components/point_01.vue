@@ -11,41 +11,41 @@
           <line v-for="x in 24" :x1="20*x" y1="10" :x2="20*x" y2="290"stroke="#000" stroke-width="0.5" stroke-opacity="0.5"/>
 
           <line  x1="0" y1="0" x2="0" y2="250" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 10" begin="0s" dur="2s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 10" begin="0s" dur="1s" fill="freeze"/>
           </line>
           <line  x1="0" y1="10" x2="5" y2="0" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="55 10" begin="0s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="55 10" begin="0s" dur="2s" fill="freeze"/>
           </line>
           <line  x1="0" y1="0" x2="5" y2="10" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 10" begin="0s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 10" begin="0s" dur="2s" fill="freeze"/>
           </line>
           <line  x1="0" y1="0" x2="250" y2="0" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="40 240" begin="0s" dur="2s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="40 240" begin="0s" dur="1s" fill="freeze"/>
           </line>
           <line  x1="0" y1="5" x2="10" y2="0" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="280 240" begin="0s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="280 240" begin="0s" dur="1s" fill="freeze"/>
           </line>
           <line  x1="0" y1="0" x2="10" y2="5" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="280 235" begin="0s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="280 235" begin="0s" dur="1s" fill="freeze"/>
           </line>
         
           <g>
             <text x="0" y="0" font-size="25" font-family= "Times" font-style="italic" fill="black">y</text>
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="30, 30" begin="0s" dur="5s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="30, 30" begin="0s" dur="3s" fill="freeze"/>
           </g>
           <g>
             <text x="0" y="0" font-size="25" font-family= "Times" font-style="italic" fill="black">x</text>
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="260 270" begin="0s" dur="6s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="260 270" begin="0s" dur="4s" fill="freeze"/>
           </g>
 
           <circle  cx="0" cy="0" r="3" fill="#F00">
-            <animateTransform attributeName="transform" type="translate" from='500 0' to="160 140" begin="5s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='500 0' to="160 140" begin="5s" dur="2s" fill="freeze"/>
           </circle>
           <line  x1="0" y1="0" x2="100" y2="0" stroke="#00F">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 140" begin="5s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="60 140" begin="5s" dur="2s" fill="freeze"/>
           </line>
           <line  x1="0" y1="0" x2="0" y2="100" stroke="#00F">
-            <animateTransform attributeName="transform" type="translate" from='0 0' to="160 140" begin="5s" dur="3s" fill="freeze"/>
+            <animateTransform attributeName="transform" type="translate" from='0 0' to="160 140" begin="5s" dur="2s" fill="freeze"/>
           </line>
           <g>
             <text x="0" y="0" font-size="25" font-family= "Times" fill="black">(</text>

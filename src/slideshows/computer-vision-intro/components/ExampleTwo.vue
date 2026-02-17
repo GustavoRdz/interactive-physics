@@ -1,21 +1,20 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A surveyor uses a steel tape that is exactly {{ tapeLength }}.000 m long at a temperature of {{ calibrationTemperature }}&#x00B0;C. The marking on the tape are calibrated for this temperature.
-    p.problem (a) What is the length of the tape when the temperature is {{ measurementTemperature }}&#x00B0;C?
-    p.problem (b) When it is {{ measurementTemperature }}&#x00B0;C, the surveyor uses the tape to measure a distance. The value that she reads off the tape is {{ measurement }} m. What is the actual distance?
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data &#x394;T (&#x00B0;C)
-        input.center.data(:class="checkedUserDT" v-model.number='userDT')
-      p.inline.data &#x394;L (m)
-        input.center.data(:class="checkedUserDL" v-model.number='userDL')
-      p.inline.data (a) L (m)
-        input.center.data(:class="checkedUserL" v-model.number='userL')
-      p.inline.data L/L<sub>0</sub> (.00000)
-        input.center.data(:class="checkedUserLL" v-model.number='userLL')
-      p.inline.data (b) L (m)
-        input.center.data(:class="checkedUserLb" v-model.number='userLb')
+    p.problem Convierte los siguientes puntos proyectivos a coordenadas euclidianas. Si el punto es un punto en el infinito, indica su dirección geométrica:
+    p.problem a) [6 : -3 : 2] <br> b) [4 : 8 : 0] <br> c) [0 : 5 : 1] <br> d) [3 : 3 : 3] <br> e) [1 : 0 : 0]
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data &#x394;T (&#x00B0;C)
+    //-     input.center.data(:class="checkedUserDT" v-model.number='userDT')
+    //-   p.inline.data &#x394;L (m)
+    //-     input.center.data(:class="checkedUserDL" v-model.number='userDL')
+    //-   p.inline.data (a) L (m)
+    //-     input.center.data(:class="checkedUserL" v-model.number='userL')
+    //-   p.inline.data L/L<sub>0</sub> (.00000)
+    //-     input.center.data(:class="checkedUserLL" v-model.number='userLL')
+    //-   p.inline.data (b) L (m)
+    //-     input.center.data(:class="checkedUserLb" v-model.number='userLb')
 
 </template>
 <script>
@@ -145,6 +144,7 @@ export default {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;

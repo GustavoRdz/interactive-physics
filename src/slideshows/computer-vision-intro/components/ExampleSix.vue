@@ -1,14 +1,15 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A sphere of steel that is at a temperature of {{ coldTemperature }}&#x00B0;C has a diameter of {{ sphereDiameter }} cm, while the diameter of a hole that was made in an aluminum plate is {{ holeDiameter }} cm. At what common temperature will the sphere just pass the hole? What is the diameter of the sphere at that temperature?
+  p.problem Calcula el punto de intersección usando P = ℓ₁ × ℓ₂. ¿Qué ocurre en c)?
+  p.problem a) ℓ₁=[1:−1:0]  y  ℓ₂=[1:1:−2] <br> b) ℓ₁=[2:0:−4]  y  ℓ₂=[0:1:−3] <br> c) ℓ₁=[1:0:0]  y  ℓ₂=[0:1:0]
 
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data T<sub>f</sub> (&#x00B0;C)
-        input.center.data(:class="checkedUserTemperature" v-model.number='userTemperature')
-      p.inline.data <em>&#x03C6;</em><sub>sphere</sub> (cm)
-        input.center.data(:class="checkedUserDiameter" v-model.number='userDiameter')
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data T<sub>f</sub> (&#x00B0;C)
+    //-     input.center.data(:class="checkedUserTemperature" v-model.number='userTemperature')
+    //-   p.inline.data <em>&#x03C6;</em><sub>sphere</sub> (cm)
+    //-     input.center.data(:class="checkedUserDiameter" v-model.number='userDiameter')
 
 </template>
 <script>
@@ -163,8 +164,8 @@ button {
 }
 
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
   width: 100%;

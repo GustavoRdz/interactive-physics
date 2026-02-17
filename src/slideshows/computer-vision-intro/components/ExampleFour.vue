@@ -1,91 +1,92 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A poorly designed electronic device has two bolts attached to different parts of the device that almost touch each other in its interior. The steel and brass bolts are at different electric potentials, and if they touch, a short circuit will develop, damaging the device. The initial gap between of the bolts is {{ gapSize }} &#x03BC;m at {{ initialTemperature }}&#x00B0;C. At what temperature will the bolts touch? Assume the distance between the wall of the deviceis not affected by the temperature change.
+  p.problem La ecuación de una recta proyectiva en ℙ² es ax + by + cw = 0, representada como ℓ = [a:b:c]. Escribe la representación homogénea de:
+  p.problem a) y = 2x - 3 <br> b) x = 4 <br> c) y = 0 <br> d) 3x + 4y - 12 = 0
 
-    .center
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" height="200" width="300" >
-        <g style="text-transform: none;">
+    //- .center
+    //-   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" height="200" width="300" >
+    //-     <g style="text-transform: none;">
 
-          <g>
-            <rect x="20" y="95" width="250" height="15" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
-            <path :d="chord" stroke="#000" fill="silver" stroke-opacity="0.5"></path>
-            <animateTransform attributeName="transform" type="translate" from='-150 0' :to="bolt1" begin="0s" dur="5s" fill="freeze"/>
-          </g>
+    //-       <g>
+    //-         <rect x="20" y="95" width="250" height="15" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
+    //-         <path :d="chord" stroke="#000" fill="silver" stroke-opacity="0.5"></path>
+    //-         <animateTransform attributeName="transform" type="translate" from='-150 0' :to="bolt1" begin="0s" dur="5s" fill="freeze"/>
+    //-       </g>
 
-            //- bolt 2
-          <g>
-            <rect x="18" y="95" width="250" height="15" fill="peru" stroke="#000" stroke-opacity="0.5"></rect>
-            <path :d="chord" stroke="#000" fill="peru" stroke-opacity="0.5"></path>
-            <animateTransform attributeName="transform" type="translate" from='140 0' :to="bolt2" begin="0s" dur="5s" fill="freeze"/>
-          </g>
+    //-         //- bolt 2
+    //-       <g>
+    //-         <rect x="18" y="95" width="250" height="15" fill="peru" stroke="#000" stroke-opacity="0.5"></rect>
+    //-         <path :d="chord" stroke="#000" fill="peru" stroke-opacity="0.5"></path>
+    //-         <animateTransform attributeName="transform" type="translate" from='140 0' :to="bolt2" begin="0s" dur="5s" fill="freeze"/>
+    //-       </g>
 
-          <rect x="15" y="-1" width="8" height="210" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
-          <rect x="277" y="-1" width="8" height="210" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
+    //-       <rect x="15" y="-1" width="8" height="210" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
+    //-       <rect x="277" y="-1" width="8" height="210" fill="silver" stroke="#000" stroke-opacity="0.5"></rect>
 
-          //- bolt head 1
-          <path d="M15 75 A15 25 0 0 0 15 130  Z" fill="white" ></path>
-          <path d="M15 75 A15 25 0 0 0 0 90 L4 90 L4 100 L10 100 L10 106 L4 106 L4 115 L0 115 A15 25 0 0 0 15 130 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
-          //- nut
-          <rect x="23" y="78" width="10" height="50" fill="silver" stroke="#000" stroke-opacity="0.1"></rect>
-          <path d="M23 78 l0 14 l2 2 l5 0 l3 -3 l0 -13  Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
-          <path d="M23 96 l2 -2 l5 0 l3 3 l0 12 l-3 3 l-5 0 l-2 -2 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
-          <path d="M23 114 l2 -2 l5 0 l3 3 l0 13 l-10 0 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
+    //-       //- bolt head 1
+    //-       <path d="M15 75 A15 25 0 0 0 15 130  Z" fill="white" ></path>
+    //-       <path d="M15 75 A15 25 0 0 0 0 90 L4 90 L4 100 L10 100 L10 106 L4 106 L4 115 L0 115 A15 25 0 0 0 15 130 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
+    //-       //- nut
+    //-       <rect x="23" y="78" width="10" height="50" fill="silver" stroke="#000" stroke-opacity="0.1"></rect>
+    //-       <path d="M23 78 l0 14 l2 2 l5 0 l3 -3 l0 -13  Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
+    //-       <path d="M23 96 l2 -2 l5 0 l3 3 l0 12 l-3 3 l-5 0 l-2 -2 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
+    //-       <path d="M23 114 l2 -2 l5 0 l3 3 l0 13 l-10 0 Z" fill="silver" stroke="#000" stroke-opacity="0.5"></path>
 
-          //- bolt head 2
-          <path d="M285 75 A15 25 0 0 1 285 130 Z" fill="white"></path>
-          <path d="M285 75 A15 25 0 0 1 300 98 L295 98 L295 106 L300 106 A15 25 0 0 1 285 130 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
-          //- nut 2
-          <rect x="267" y="78" width="10" height="50" fill="peru" stroke="#000" stroke-opacity="0.5"></rect>
-          <path d="M267 78 l0 14 l2 2 l5 0 l3 -3 l0 -13  Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
-          <path d="M267 96 l2 -2 l5 0 l3 3 l0 12 l-3 3 l-5 0 l-2 -2 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
-          <path d="M267 114 l2 -2 l5 0 l3 3 l0 13 l-10 0 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
+    //-       //- bolt head 2
+    //-       <path d="M285 75 A15 25 0 0 1 285 130 Z" fill="white"></path>
+    //-       <path d="M285 75 A15 25 0 0 1 300 98 L295 98 L295 106 L300 106 A15 25 0 0 1 285 130 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
+    //-       //- nut 2
+    //-       <rect x="267" y="78" width="10" height="50" fill="peru" stroke="#000" stroke-opacity="0.5"></rect>
+    //-       <path d="M267 78 l0 14 l2 2 l5 0 l3 -3 l0 -13  Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
+    //-       <path d="M267 96 l2 -2 l5 0 l3 3 l0 12 l-3 3 l-5 0 l-2 -2 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
+    //-       <path d="M267 114 l2 -2 l5 0 l3 3 l0 13 l-10 0 Z" fill="peru" stroke="#000" stroke-opacity="0.5"></path>
 
-          //- cotes
-          <line  x1="273" y1="115" x2="273" y2="175" stroke="#000">
-          <animateTransform attributeName="transform" type="translate" from='-160 0' :to="cote1" begin="0s" dur="5s" fill="freeze"/>
-          </line>
-          <line x1="16" y1="115" x2="16" y2="175" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='150 0' :to="cote2" begin="0s" dur="5s" fill="freeze"/>
-          </line>
+    //-       //- cotes
+    //-       <line  x1="273" y1="115" x2="273" y2="175" stroke="#000">
+    //-       <animateTransform attributeName="transform" type="translate" from='-160 0' :to="cote1" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
+    //-       <line x1="16" y1="115" x2="16" y2="175" stroke="#000">
+    //-         <animateTransform attributeName="transform" type="translate" from='150 0' :to="cote2" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
 
-          <line x1="25" y1="150" x2="30" y2="150"  stroke="#000">
-            <animate attributeName="x2" from='110' :to="coteLine1" begin="0s" dur="5s" fill="freeze"/>
-          </line>
-          <line x1="100" y1="150" x2="276" y2="150"  stroke="#000">
-            <animate attributeName="x1" from='170' :to="coteLine2" begin="0s" dur="5s" fill="freeze"/>
-          </line>
-          <g>
-            <rect x="55" y="130" width="35" height="30" fill="white" stroke="#fff"></rect>
-            <text x="55" y="148" font-size="12" fill="black">{{ Math.round(100*(0.025 * coteLine1 - 1))/100  }} cm </text>
-            <animateTransform attributeName="transform" type="translate" from='10 0' :to="text1" begin="0s" dur="5s" fill="freeze"/>
-          </g>
-          <g>
-            <rect x="190" y="125" width="35" height="30" fill="white" stroke="#fff"/>
-            <text x="190" y="148" font-size="12" fill="black">{{ Math.round(100*(6 - 0.025 * coteLine1))/100 }} cm </text>
-            <animateTransform attributeName="transform" type="translate" from='10 0' :to="text2" begin="0s" dur="5s" fill="freeze"/>
-          </g>
+    //-       <line x1="25" y1="150" x2="30" y2="150"  stroke="#000">
+    //-         <animate attributeName="x2" from='110' :to="coteLine1" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
+    //-       <line x1="100" y1="150" x2="276" y2="150"  stroke="#000">
+    //-         <animate attributeName="x1" from='170' :to="coteLine2" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
+    //-       <g>
+    //-         <rect x="55" y="130" width="35" height="30" fill="white" stroke="#fff"></rect>
+    //-         <text x="55" y="148" font-size="12" fill="black">{{ Math.round(100*(0.025 * coteLine1 - 1))/100  }} cm </text>
+    //-         <animateTransform attributeName="transform" type="translate" from='10 0' :to="text1" begin="0s" dur="5s" fill="freeze"/>
+    //-       </g>
+    //-       <g>
+    //-         <rect x="190" y="125" width="35" height="30" fill="white" stroke="#fff"/>
+    //-         <text x="190" y="148" font-size="12" fill="black">{{ Math.round(100*(6 - 0.025 * coteLine1))/100 }} cm </text>
+    //-         <animateTransform attributeName="transform" type="translate" from='10 0' :to="text2" begin="0s" dur="5s" fill="freeze"/>
+    //-       </g>
 
-          <line  x1="250" y1="172" x2="269" y2="172" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='-160 0' :to="cote1" begin="0s" dur="5s" fill="freeze"/>
-          </line>
-          <line x1="20" y1="172" x2="38" y2="172" stroke="#000">
-            <animateTransform attributeName="transform" type="translate" from='150 0' :to="cote2" begin="0s" dur="5s" fill="freeze"/>
-          </line>
-          <text x="150" y="195" font-size="15" fill="black">{{ gapSize }} &#x03BC;m 
-            <animateTransform attributeName="transform" type="translate" from='10' :to="gapText" begin="0s" dur="5s" fill="freeze"/>
-          </text>
+    //-       <line  x1="250" y1="172" x2="269" y2="172" stroke="#000">
+    //-         <animateTransform attributeName="transform" type="translate" from='-160 0' :to="cote1" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
+    //-       <line x1="20" y1="172" x2="38" y2="172" stroke="#000">
+    //-         <animateTransform attributeName="transform" type="translate" from='150 0' :to="cote2" begin="0s" dur="5s" fill="freeze"/>
+    //-       </line>
+    //-       <text x="150" y="195" font-size="15" fill="black">{{ gapSize }} &#x03BC;m 
+    //-         <animateTransform attributeName="transform" type="translate" from='10' :to="gapText" begin="0s" dur="5s" fill="freeze"/>
+    //-       </text>
 
-        </g>
-      </svg>
-      .center
-        p.solution Please do calculations and introduce your results
-        p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
-        p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
-          input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
-        p.inline.data Touch T (&#x00B0;C)
-          input.center.data(:class="checkedUserT" v-model.number='userT')
+    //-     </g>
+    //-   </svg>
+    //-   .center
+    //-     p.solution Please do calculations and introduce your results
+    //-     p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
+    //-       input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
+    //-     p.inline.data <em>&#x03B1;</em><sub>st</sub> (K<sup>-1</sup>)
+    //-       input.center.data(:class="checkedUserAlphaSt" v-model.number='userAlphaSt')
+    //-     p.inline.data Touch T (&#x00B0;C)
+    //-       input.center.data(:class="checkedUserT" v-model.number='userT')
 
 </template>
 <script>
@@ -398,8 +399,8 @@ button {
 }
 
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
   width: 100%;

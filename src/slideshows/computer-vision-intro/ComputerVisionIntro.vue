@@ -832,13 +832,8 @@
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") La correspondencia entre líneas rectas y vectores no es uno a uno, ya que <span style="color: blue; font-family: Arial;">(a,b,c)<sup>T</sup></span> y <span style="color: blue; font-family: Arial;">(ka,kb,kc)<sup>T</sup></span> representan exactamente la misma línea recta para <span style="color: blue; font-family: Arial;">k &ne; 0</span>, sin embargo son vectores distintos. Estos vectores son considerados como equivalentes y se definen como vectores homogéneos.
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Un punto <span style="color: blue; font-family: Arial;">(x, y)</span> está en la recta <span style="color: blue; font-family: Arial;">l = (a, b, c)<sup>T</sup></span> si y sólo si la ecuación (2.1) es verdadera. Esta ecuación puede escribirse utilizando el producto punto entre los vectores <span style="color: blue; font-family: Arial;"><b>l</b> = [a, b, c]<sup>T</sup></span> y <span style="color: blue; font-family: Arial;"><b>m</b> = [x, y, 1]<sup>T</sup></span> como:
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;").center <span style="color: blue; font-family: Arial;"><b>l</b>•<b>m</b> = <b>l</b><sup>T</sup><b>m</b> = [a,b,c][x,y,1]<sup>T</sup> = ax + by + c = 0</span>. &emsp; (2.2)
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Así, el punto (x,y) es representado por un vector (x,y,1)T. Sin embargo, los vectores (kx,ky,k), para k 6= 0, pueden considerarse tambi ́en como representaciones del mismo punto (x,y) ya que satisfacen la ecuaci ́on [a b c]T[kx ky k] = k(ax + by + c) = 0. Se dice entonces, que los puntos en un plano bidimensional pueden ser representados por vectores homog ́eneos de tres dimensiones cuyos dos primeros elementos son las coordenadas del punto en el plano y el tercer elemento es 1.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En t ́erminos generales, si se tiene un vector homog ́eneo de tres dimensiones dado por (x1, x2, x3)T que representa un punto en un plano, las coordenadas de este punto en el plano est ́an definidas como (x, y) = (x1/x3, x2/x3).En un nivel elemental la geometría es el estudio de puntos y líneas, y sus relaciones.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") A lo largo de la historia la geometría ha sido concebida inicialmente como una disciplina netamente geométrica, en la que las líneas y puntos se estudian sin considerar un sistema de coordenadas.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Posteriormente, mediante la introducción de un sistema de coordenadas cartesiano se logra algebraizar a la geometría.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") De esta manera, las entidades geométricas pueden ser descritas como coordenadas y entidades algebraicas.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Por medio de las relaciones algebraicas se obtiene una representación matemática apropiada para implementar algoritmos y programar métodos computacionales.
-      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En algunos casos la geometría logra visualizar mejor un problema dado, en otros el  álgebra puede representarlo y resolverlo más fácilmente.
+      //- p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Así, el punto (x,y) es representado por un vector (x,y,1)T. Sin embargo, los vectores (kx,ky,k), para k 6= 0, pueden considerarse tambi ́en como representaciones del mismo punto (x,y) ya que satisfacen la ecuaci ́on [a b c]T[kx ky k] = k(ax + by + c) = 0. Se dice entonces, que los puntos en un plano bidimensional pueden ser representados por vectores homog ́eneos de tres dimensiones cuyos dos primeros elementos son las coordenadas del punto en el plano y el tercer elemento es 1.
+      //- p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") En términos generales, si se tiene un vector homog ́eneo de tres dimensiones dado por (x1, x2, x3)T que representa un punto en un plano, las coordenadas de este punto en el plano est ́an definidas como (x, y) = (x1/x3, x2/x3).En un nivel elemental la geometría es el estudio de puntos y líneas, y sus relaciones.
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -877,6 +872,72 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 1
+      example-one
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 2
+      example-two
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 3
+      example-three
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 4
+      example-four
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 5
+      example-five
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        
+    slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
+      h5(v-if = '!isActive').center 
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 6
+      example-six
+      .prev(@click.stop='previousSlide' style="float: left;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
+      .next(@click.stop='nextSlide' style="float: right;")
+        span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
+        
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Detección de caracteristicas</sup>
       h5(v-if = '!isActive').center 
@@ -927,10 +988,12 @@ export default {
     'point': require('./components/point_01'),
     'point-line': require('./components/point_line_01'),
     'point-line-homo': require('./components/point_line_02'),
-    // 'example-three': require('./components/ExampleThree'),
-    'example-four': require('./components/ExampleFour')
-    // 'example-five': require('./components/ExampleFive'),
-    // 'example-six': require('./components/ExampleSix'),
+    'example-one': require('./components/ExampleOne'),
+    'example-two': require('./components/ExampleTwo'),
+    'example-three': require('./components/ExampleThree'),
+    'example-four': require('./components/ExampleFour'),
+    'example-five': require('./components/ExampleFive'),
+    'example-six': require('./components/ExampleSix')
     // 'example-seven': require('./components/ExampleSeven'),
     // 'example-eight': require('./components/ExampleEight'),
     // 'example-nine': require('./components/ExampleNine'),
@@ -945,7 +1008,7 @@ export default {
       isActive: true,
       languages: ['🇺🇸', '🇲🇽'],
       topics: ['Inicio', 'temas', 'Intro', 'histograma', 'Filtro espacial', 'Filtro frecuencias', 'Grometria proyectiva', 'Deteccion de caracteristicas', 'Bibliografía'],
-      page: [1, 2, 4, 8, 10, 14, 20, 25, 32, 34, 35]
+      page: [1, 2, 4, 8, 10, 14, 44, 57, 57]
     }
   },
   methods: {

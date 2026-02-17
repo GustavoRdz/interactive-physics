@@ -1,23 +1,24 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem You place a small piece of ice in your mouth. Eventually, the water all converts from ice at T1 = 32.00&#x00B0;F  to body temperature, T2=98.60&#x00B0;F. Express the temperatures in both Celsius degrees and kelvins, and find &#x0394;T = T2 - T1 in the three scales.
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data T1 (celsius)
-        input.center.data(:class="checkedUserT1Celsius" v-model.number='userT1Celsius')
-      p.inline.data T2 (celsius)
-        input.center.data(:class="checkedUserT2Celsius" v-model.number='userT2Celsius')
-      p.inline.data T1 (kelvin)
-        input.center.data(:class="checkedUserT1Kelvin" v-model.number='userT1Kelvin')
-      p.inline.data T2 (kelvin)
-        input.center.data(:class="checkedUserT2Kelvin" v-model.number='userT2Kelvin')
-      p.inline.data &#x394;T (celcius)
-        input.center.data(:class="checkedUserDTCelsius" v-model.number='userDTCelsius')
-      p.inline.data &#x394;T (kelvin)
-        input.center.data(:class="checkedUserDTKelvin" v-model.number='userDTKelvin')
-      p.inline.data &#x394;T (Fahrenheit)
-        input.center.data(:class="checkedUserDTFahrenheit" v-model.number='userDTFahrenheit')
+    p.problem Convierte los siguientes puntos euclidianos a coordenadas homogéneas y escribe dos representaciones equivalentes distintas para cada uno:
+    p.problem a) P = (3, −5) <br> b) Q = (0, 7) <br> c) R = (-2, 1/2)
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data T1 (celsius)
+    //-     input.center.data(:class="checkedUserT1Celsius" v-model.number='userT1Celsius')
+    //-   p.inline.data T2 (celsius)
+    //-     input.center.data(:class="checkedUserT2Celsius" v-model.number='userT2Celsius')
+    //-   p.inline.data T1 (kelvin)
+    //-     input.center.data(:class="checkedUserT1Kelvin" v-model.number='userT1Kelvin')
+    //-   p.inline.data T2 (kelvin)
+    //-     input.center.data(:class="checkedUserT2Kelvin" v-model.number='userT2Kelvin')
+    //-   p.inline.data &#x394;T (celcius)
+    //-     input.center.data(:class="checkedUserDTCelsius" v-model.number='userDTCelsius')
+    //-   p.inline.data &#x394;T (kelvin)
+    //-     input.center.data(:class="checkedUserDTKelvin" v-model.number='userDTKelvin')
+    //-   p.inline.data &#x394;T (Fahrenheit)
+    //-     input.center.data(:class="checkedUserDTFahrenheit" v-model.number='userDTFahrenheit')
 
 </template>
 <script>
@@ -136,6 +137,7 @@ export default {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;

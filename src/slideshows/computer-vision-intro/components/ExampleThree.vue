@@ -1,21 +1,22 @@
 <template lang="pug">
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-    p.problem A {{ glassVolume }}- cm<sup>3</sup> glass filled to the brim with mercury at {{ initialTemperature }}&#x00B0;C. How much mercury overflows when the temperature of the system is raised to {{ finalTemperature }}&#x00B0;C? The coefficient of linear expansion os the glass is 0.4 x 10 <sup>-5</sup> K<sup>-1</sup>
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data <em>&#x03B2;</em><sub>Hg</sub> (K<sup>-1</sup>)
-        input.center.data(:class="checkedBetaHg" v-model.number='userBetaHg')
-      p.inline.data <em>&#x03B2;</em><sub>Glass</sub> (K<sup>-1</sup>)
-        input.center.data(:class="checkedUserBetaGlass" v-model.number='userBetaGlass')
-      p.inline.data &#x394;T (&#x00B0;C)
-        input.center.data(:class="checkedUserDT" v-model.number='userDT')
-      p.inline.data &#x394;V<sub>Hg</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserDVHg" v-model.number='userDVHg')
-      p.inline.data  &#x394;V<sub>Glass</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserDVGlass" v-model.number='userDVGlass')
-      p.inline.data  &#x394;V<sub>overflow</sub> (cm<sup>3</sup>)
-        input.center.data(:class="checkedUserOverflow" v-model.number='userOverflow')
+    p.problem Determina si los siguientes pares de vectores representan el mismo punto proyectivo. Justifica algebraicamente:
+    p.problem a) [2:4:6]  y  [1:2:3] <br> b) [3:0:6]  y  [1:0:3] <br> c) [1:-1:2]  y  [-2:2:-4]
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data <em>&#x03B2;</em><sub>Hg</sub> (K<sup>-1</sup>)
+    //-     input.center.data(:class="checkedBetaHg" v-model.number='userBetaHg')
+    //-   p.inline.data <em>&#x03B2;</em><sub>Glass</sub> (K<sup>-1</sup>)
+    //-     input.center.data(:class="checkedUserBetaGlass" v-model.number='userBetaGlass')
+    //-   p.inline.data &#x394;T (&#x00B0;C)
+    //-     input.center.data(:class="checkedUserDT" v-model.number='userDT')
+    //-   p.inline.data &#x394;V<sub>Hg</sub> (cm<sup>3</sup>)
+    //-     input.center.data(:class="checkedUserDVHg" v-model.number='userDVHg')
+    //-   p.inline.data  &#x394;V<sub>Glass</sub> (cm<sup>3</sup>)
+    //-     input.center.data(:class="checkedUserDVGlass" v-model.number='userDVGlass')
+    //-   p.inline.data  &#x394;V<sub>overflow</sub> (cm<sup>3</sup>)
+    //-     input.center.data(:class="checkedUserOverflow" v-model.number='userOverflow')
 
 </template>
 <script>
@@ -117,24 +118,74 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.eg-slide {
-  .eg-slide-content {
-    // FIGURE AND CAPTIONS
-    .figure {
-      p {
-        font-size: 0.7em;
-        margin-top: 2em;
-        margin-bottom: 0;
-        color: #555;
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
+@import url('https://fonts.googleapis.com/css?family=Space+Mono');
+
+
+.svg-display {
+        font-family:'Space Mono', monospace;
+        text-transform: "none";
       }
-      width: 80%;
-      margin-left: 10%;
-    }
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #3f3;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 0px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+button {
+  width: 200px;
+  height:40px;
 }
 
 .data {
   display: inline-block;
+  text-transform: none;
   width: 100px;
   height: 30px;
   margin: 5px 3px 5px 3px;
@@ -142,6 +193,7 @@ export default {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
@@ -161,4 +213,5 @@ export default {
 .correct {
   background: #80c080;
 }
+
 </style>

@@ -1,11 +1,12 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem <strong style="color: black;">Ensuring a Tight Fit.</strong> Aluminium rivets used in airplane construction are made slightly larger than rivets holes and cooled by "dry ice" (solid CO<sub>2</sub>) before being driven. If the diameter of a hole is {{ holeDiameter }} mm, what should be the diameter of a rivet at {{ hotTemperature }}&#x00B0;C if its diameter is equal to that of the hole when rivet is cooled to -78&#x00B0;C, the temperature of the dry ice? expansion coefficient for aluminium is 2.4 x 10<sup>-5</sup> &#x00B0;C<sup>-1</sup>.
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data <em>&#x03C6; @{{ hotTemperature }}&#x00B0;</em>
-        input.center.data(:class="checkedUserPhi" v-model.number='userPhi')
+  p.problem Usando el producto vectorial, calcula la recta que pasa por los siguientes pares de puntos. Recuerda: ℓ = P × Q.
+  p.problem a) P=[1:0:1]  y  Q=[0:1:1] <br> b) P=[2:3:1]  y  Q=[1:−1:1] <br> c) P=[1:0:0]  y  Q=[0:1:0]
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data <em>&#x03C6; @{{ hotTemperature }}&#x00B0;</em>
+    //-     input.center.data(:class="checkedUserPhi" v-model.number='userPhi')
 </template>
 <script>
 import eagle from 'eagle.js'
@@ -124,8 +125,8 @@ button {
 }
 
 .problem {
-  text-transform: none;
-  margin: 1px 2px 1px 2px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 15px 20px 15px 20px;
   font-size: 30px;
   color: blue;
   width: 100%;

@@ -29,19 +29,19 @@
       .next(@click.stop='nextSlide' style="float: right;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) Next slide &gt;
 
-    //- slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
-    //-   .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-    //-   h3 Oscillatory motion
-    //-   h5.center Simple pendulum example
-    //-   simple-pendulum
-    //-   .button.prev(@click.stop='previousSlide')
-    //-     span &lt; Prev. slide
-    //-     br
-    //-     span.small  Ctrl + left
-    //-   .button.next(@click.stop='nextSlide')
-    //-     span Next slide &gt;
-    //-     br
-    //-     span.small Ctrl + right
+    slide.boredYet(enter='bounceInDown' , :keyboardNavigation='false' :mouseNavigation='false')
+      .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
+      h3 movimiento oscilatorio
+      h5.center Simple pendulum example
+      simple-pendulum
+      .button.prev(@click.stop='previousSlide')
+        span &lt; Prev. slide
+        br
+        span.small  Ctrl + left
+      .button.next(@click.stop='nextSlide')
+        span Next slide &gt;
+        br
+        span.small Ctrl + right
 
 
     slide(:steps=1, enter='bounceInRight' leave='bounceOutDown' :mouseNavigation='false' style="overflow: scroll;")
@@ -52,22 +52,22 @@
       .center
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
-            <b>Motion of an Object Attached to a Spring</b>
+            <b>Movimiento del sistema masa-resorte</b>
         eg-transition(enter='bounceInRight' leave='bounceOutRight')
           p(v-if="step >= 1")
-            <b>Particle Model in Simple Harmonic Motion</b>
+            <b>Modelo de partícula en el movimiento armónico simple</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
-            <b>Energy of the Simple Harmonic Oscillator</b>
+            <b>Energía en el movimiento armónico simple</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutTop')
           p(v-if="step >= 1")
-            <b>The pendulum and other systems</b>
+            <b>El péndulo y otros sistemas oscilatorios</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutRight')
           p(v-if="step >= 1")
-            <b>Damped oscillations</b>
+            <b>Oscilaciones amortiguadas</b>
         eg-transition(enter='bounceInLeft' leave='bounceOutLeft')
           p(v-if="step >= 1")
-            <b>Forced oscillations and resonance</b>
+            <b>Oscilaciones forzadas y resonancia</b>
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
       .next(@click.stop='nextSlide' style="float: right;")
@@ -76,7 +76,8 @@
     slide(:steps=0, enter='bounceInDown' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
       h3(style="margin-top: -20px;") Periodic motion
-      p.center In our daily life we treat with a many devices that describe <b><em>periodic motion</em></b>:<br> The vibration that produce sound<br> The back-and-fort motion of the pistons in a car engine<br> The motion described by a pendulum in a clock...
+      p.center Muchos tipos de movimiento se repiten una y otra vez: la vibración de un crital de cuarzo en un reloj de pulso, el péndulo oscilante de un reloj con pedestal, las vibraciones sonoras producidas por un clarinete o un tubo de órgano y el movimiento periódico de los pistones de un motor de combustión.
+      p.center A esta clase de movimiento le llamamos <b><em>movimiento periódico</em></b> u <b><em>oscilación</em></b>
       .center
         img(width="400px" src='./assets/motor vocho.gif')
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -86,10 +87,10 @@
 
     slide(:steps=0, enter='bounceInDown', :keyboardNavigation='false' :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }}  : {{ theme }}</sup>
-      h4(style="margin-top: -20px;") Oscillations
-      p(style="margin: 0 0 -0px 0;").center Mass-spring system
+      h4(style="margin-top: -20px;") Oscilaciones
+      p(style="margin: 0 0 -0px 0;").center Sistema masa-resorte
       spring-mass
-      p <span style="font-size: 1em;"><b>Amplitude</b></span>, the maximun displacement of the mass with respect the equilibrium position
+      p <span style="font-size: 1em;"><b>Amplitud (A)</b></span>, Es el desplazamiento máximo de la masa con respecto a la posición de equilbrio
       p <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span>: displacement of the mass with respect to the equilibrium position at <span style="font-size: 1em; font-family: Times New Roman;"><em>x</em></span> = 0.
       .prev(@click.stop='previousSlide' style="float: left;")
         span(style="border: 1px black solid; border-radius: 10px; background: rgba(144,238,144,0.2);" ) &lt; Prev. slide
