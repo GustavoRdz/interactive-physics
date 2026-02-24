@@ -2,7 +2,7 @@
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
   p.problem Calcula el punto de intersección usando P = ℓ₁ × ℓ₂. ¿Qué ocurre en c)?
-  p.problem a) ℓ₁=[1:−1:0]  y  ℓ₂=[1:1:−2] <br> b) ℓ₁=[2:0:−4]  y  ℓ₂=[0:1:−3] <br> c) ℓ₁=[1:0:0]  y  ℓ₂=[0:1:0]
+  p.problem a) ℓ₁=[1, −1, 0]  y  ℓ₂=[1, 1, −2] <br> b) ℓ₁=[2, 0, −4]  y  ℓ₂=[0, 1, −3] <br> c) ℓ₁=[1, 0, 0]  y  ℓ₂=[0, 1, 0]
 
     //- .center
     //-   p.solution Please do calculations and introduce your results

@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem Determina si los siguientes pares de vectores representan el mismo punto proyectivo. Justifica algebraicamente:
-    p.problem a) [2:4:6]  y  [1:2:3] <br> b) [3:0:6]  y  [1:0:3] <br> c) [1:-1:2]  y  [-2:2:-4]
+    p.problem a) [2, 4, 6]  y  [1, 2, 3] <br> b) [3, 0, 6]  y  [1, 0, 3] <br> c) [1, -1, 2]  y  [-2, 2, -4]
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data <em>&#x03B2;</em><sub>Hg</sub> (K<sup>-1</sup>)

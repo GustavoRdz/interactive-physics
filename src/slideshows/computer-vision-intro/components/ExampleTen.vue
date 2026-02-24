@@ -1,7 +1,7 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A hot cooper pot of mass 2.0 kg (including its copper lid) is at a temperature of 150 &#x00B0;C. You pour 0.1 kg of cool water at 25&#x00B0;C into the pot, then quickly replace the lid so no steam can scape. Find the final temperature of the pot and its contents, ans determine the phase of the water (liquid, gas or a mixture). Assume that no heat is lost to the surroundings.
+  p.problem Una imagen tiene un objeto con centro en (5, 5). Se rota 180° respecto a ese punto.<br>a) Construye la transformación compuesta T(5,5) · R(180°) · T(−5,−5).<br>b) Aplica la transformación al punto Q = (8, 3).<br>c) ¿Qué punto es invariante bajo esta transformación? Verifica.
 
     .center
       //- p.solution Please do calculations and introduce your results
@@ -229,6 +229,7 @@ button {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

@@ -1,36 +1,8 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A steel bar 10.0 cm long is welded end to end to a copper bar 20.0 cm long. Each bar has a square cross section, 2.00 cm on a side. The free end of the steel bar is kept at 100°C by placing it in contact with steam, and the free end of the copper bar is kept at 0°C by placing it in contact with ice. Both bars are perfectly insulated on their sides. Find the steady-state temperature at the junction of the two bars and the total rate of heat flow through the bars.
-
+  p.problem Se desea reflejar el punto P=(5,2) sobre la recta y = −x + 8.<br>La reflexión sobre y = −x + k se obtiene como:<br>1. Trasladar para que la recta pase por el origen:   T(0, −k)<br> 2. Reflejar sobre y = −x:<br>M_diag = [ 0  −1  0 ]<br> &emsp;&emsp;&emsp;&emsp;&ensp;[ −1  0  0 ]<br>&emsp;&emsp;&emsp;&emsp;&ensp;[  0  0  1 ]<br>3. Deshacer la traslación:   T(0, k)<br>a) Construye la matriz compuesta y simplifícala.<br>b) Aplica la transformación a P=(5,2).<br>c) Verifica que el punto reflejado P' está a la misma distancia de la recta que P.
   .center
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 120" height="120" width="380" >
-      //- <path d="M0,0 l0 120 l380 -120 l0 120 z" stroke-width="0.3"stroke="#000" fill="none"/>
-
-      <rect x=9 y=10 width=30 height=100 stroke="red" fill="red"/>
-      <rect x=40 y=35 width=100 height=50 stroke="silver" fill="silver"/>
-      <rect x=141 y=35 width=200 height=50 stroke="peru" fill="peru"/>
-      <rect x=341 y=10 width=30 height=100 stroke="deepskyblue" fill="deepskyblue"/>
-
-        <text x="15" y="62" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">H</tspan></text>
-        <text x="345" y="62" font-family="times" font-size="20" font-style="italic">T<tspan baseline-shift="sub" font-size="10">C</tspan></text>
-        <text x="75" y="62" font-family="times" font-size="20" font-style="italic">Steel</text>
-        <text x="200" y="62" font-family="times" font-size="20" font-style="italic">Cooper</text>
-
-        <text x="294" y="65" font-family="times" font-size="25" font-style="italic">&#x03c6;</text>
-        <path d="M290 35 l0 50 M290 35 l-3 10 M290 35 l3 10 M290 85 l-3 -10 M290 85 l3 -10" stroke=#000 fill="none"/>
-
-        <text x="80" y="105" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">S</tspan></text>
-        <path d="M40 100 l35 0 M40 100 l10 3 M40 100 l10 -3 M100 100 l40 0 M140 100 l-10 -3 M140 100 l-10 3" stroke=#000 fill="none"/>
-
-        <line x1=140 y1=90 x2=140 y2=110 stroke="#000"/>
-
-        <text x="230" y="105" font-family="times" font-size="20" font-style="italic">L<tspan baseline-shift="sub" font-size="10">C</tspan></text>
-        <path d="M140 100 l85 0 M140 100 l10 3 M140 100 l10 -3 M250 100 l90 0 M340 100 l-10 -3 M340 100 l-10 3" stroke=#000 fill="none"/>
-
-    </svg>
-
-    .center
       //- p.solution Please do calculations and introduce your results
       //- p.inline.data <em>&#x03B1;</em><sub>br</sub> (K<sup>-1</sup>)
       //-   input.center.data(:class="checkedUserAlphaBr" v-model.number='userAlphaBr')
@@ -256,6 +228,7 @@ button {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

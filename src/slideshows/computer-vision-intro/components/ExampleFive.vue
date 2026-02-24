@@ -2,7 +2,7 @@
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
   p.problem Usando el producto vectorial, calcula la recta que pasa por los siguientes pares de puntos. Recuerda: ℓ = P × Q.
-  p.problem a) P=[1:0:1]  y  Q=[0:1:1] <br> b) P=[2:3:1]  y  Q=[1:−1:1] <br> c) P=[1:0:0]  y  Q=[0:1:0]
+  p.problem a) P=[, 0, 1]  y  Q=[0, 1, 1] <br> b) P=[2, 3, 1]  y  Q=[1, −1, 1] <br> c) P=[1, 0, 0]  y  Q=[0, 1, 0]
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data <em>&#x03C6; @{{ hotTemperature }}&#x00B0;</em>

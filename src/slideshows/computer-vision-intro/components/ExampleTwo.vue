@@ -2,7 +2,7 @@
 eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
     p.problem Convierte los siguientes puntos proyectivos a coordenadas euclidianas. Si el punto es un punto en el infinito, indica su dirección geométrica:
-    p.problem a) [6 : -3 : 2] <br> b) [4 : 8 : 0] <br> c) [0 : 5 : 1] <br> d) [3 : 3 : 3] <br> e) [1 : 0 : 0]
+    p.problem a) [6, -3, 2] <br> b) [4, 8, 0] <br> c) [0, 5, 1] <br> d) [3, 3, 3] <br> e) [1, 0, 0]
     //- .center
     //-   p.solution Please do calculations and introduce your results
     //-   p.inline.data &#x394;T (&#x00B0;C)

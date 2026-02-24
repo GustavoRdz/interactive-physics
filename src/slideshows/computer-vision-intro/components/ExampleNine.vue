@@ -1,7 +1,7 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A glass containing 0.25 kg of a beverage (mostly water) initially at 25 &#x00B0;C. How much ice, initially at -20&#x00B0;C, must you add to obtain a final temperature of 0&#x00B0; with all ice melted? Neglect the heat capacity of glass
+  p.problem Un segmento tiene extremos P1=(3,1) P2=(6,4).<br>a) Escribe la matriz R(90°) y R(−90°).<br>b) Calcula P1' y P2' para una rotación de +90° (antihoraria).<br>c) Calcula P1'' y P2'' para una rotación de −90° (horaria).<br>d) Verifica que la longitud del segmento se conserva en ambos casos.
 
     .center
       //- p.solution Please do calculations and introduce your results
@@ -229,6 +229,7 @@ button {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

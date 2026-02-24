@@ -1,14 +1,15 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A student eats a dinner at {{ calories }} Calories. He wishes to do an equivalent amount of work in the gymnasium by lifting a {{ weight }}-kg barbell. How many times must he raise the barbell to expend this much energy? Assume he rises the barbell {{ height }}m each time lifts it and he regains no energy when he lowers the barbell. Calculate the time required to do the lifts if each one is done in {{ time }}s
+  p.problem Un rectángulo tiene sus cuatro esquinas en los píxeles: <br> A = (1, 1) <br>   B = (4, 1) <br>   C = (4, 3) <br>   D = (1, 3) <br> Se aplica una traslación de tx = 3, ty = 2.
+  p.problem a) Escribe la matriz de traslación T. <br> b) Calcula las coordenadas transformadas A', B', C', D'. <br>c) Verifica que las dimensiones del rectángulo no cambian tras la traslación.
 
-    .center
-      p.solution Please do calculations and introduce your results
-      p.inline.data Number of lifts
-        input.center.data(:class="checkedUserLifts" v-model.number='userLifts')
-      p.inline.data Time (hrs)
-        input.center.data(:class="checkedUserTime" v-model.number='userTime')
+    //- .center
+    //-   p.solution Please do calculations and introduce your results
+    //-   p.inline.data Number of lifts
+    //-     input.center.data(:class="checkedUserLifts" v-model.number='userLifts')
+    //-   p.inline.data Time (hrs)
+    //-     input.center.data(:class="checkedUserTime" v-model.number='userTime')
 
 </template>
 <script>
@@ -148,6 +149,7 @@ button {
 }
 
 .problem {
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

@@ -1,7 +1,7 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A camper pours 0.300 kg of coffee initially in a pot at 70&#x00B0;C, in an aluminum cup of 0.120 kg initially at 20&#x00B0;C. What is the equilibrium temperature? suppose that the coffee has the same specific heat as the water and does not exchange heat with the environment
+  p.problem Un triángulo tiene vértices:<br>P1=(2,2)<br>P2=(6,2)<br>P3=(4,5) <br> a) Aplica un escalado uniforme sx = sy = 2 desde el origen.<br>b) Calcula el área del triángulo original y del escalado.<br>c) ¿En qué factor cambia el área? Generaliza para un escalado uniforme de factor k.
 
 
     .center
@@ -230,6 +230,7 @@ button {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

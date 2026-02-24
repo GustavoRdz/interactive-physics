@@ -1,7 +1,7 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem A Styrofoam cooler has total wall area (including the lid) of 0.80 m<sup>2</sup> and wall thickness 2.0 cm. It is filled with ice, water, and cans of beverage, all at 0°C. What is the rate of heat flow into the cooler if the temperature of the outside wall is 30°C? How much ice melts in 3 hours?
+  p.problem Una imagen de 5×4 px (W=5, H=4) tiene los siguientes puntos de interés:<br>A=(1,0)   B=(4,2)   C=(2,3)   D=(0,1)<br>a) Aplica el flip horizontal. Escribe la matriz y calcula A',B',C',D'.<br>b) Aplica el flip vertical sobre los puntos originales. Calcula A'',B'',C'',D''.<br>c) ¿Qué transformación equivale a aplicar flip horizontal seguido de flip vertical?
 
     .center
       //- p.solution Please do calculations and introduce your results
@@ -229,6 +229,7 @@ button {
 }
 
 .problem {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: none;
   margin: 1px 2px 1px 2px;
   font-size: 30px;

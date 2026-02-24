@@ -1,7 +1,7 @@
 <template lang="pug">
 .eg-transition(:enter='enter', :leave='leave')
   .eg-slide-content
-  p.problem La ecuación de una recta proyectiva en ℙ² es ax + by + cw = 0, representada como ℓ = [a:b:c]. Escribe la representación homogénea de:
+  p.problem La ecuación de una recta proyectiva en ℙ² es ax + by + cw = 0, representada como ℓ = [a, b, c]. Escribe la representación homogénea de:
   p.problem a) y = 2x - 3 <br> b) x = 4 <br> c) y = 0 <br> d) 3x + 4y - 12 = 0
 
     //- .center
