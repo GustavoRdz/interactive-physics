@@ -378,7 +378,7 @@
       p(style="margin-top: 0px; color: blue;") <span style="font-family: roboto; font-weight: bold;">Primera forma ordinaria de la elipse</span>
       p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">x</span> 
       p(style="margin-top: -0px; color: blue;").center 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100" height="100px" width="600x" >
        
           <g transform="translate(0, 0)">    
             <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
@@ -397,11 +397,24 @@
             <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
             
           </g>
+          <line  x1="280" y1="45" x2="420" y2="45" fill="none" stroke="#000" stroke-width="1"stroke-linecap="round"/>
+          <line  x1="350" y1="0" x2="350" y2="100" fill="none" stroke="#000" stroke-width="1"stroke-linecap="round"/>
+          <ellipse cx="350" cy="45" rx="60" ry="30" fill="none" stroke="blue" stroke-width="3"/>
+          <text x="410" y="40" font-size="15" fill="black" font-weight="bold" font-family="Times">V(a,0)</text>    
+          <text x="240" y="40" font-size="15" fill="black" font-weight="bold" font-family="Times">V(-a,0)</text>    
+          <text x="355" y="13" font-size="15" fill="black" font-weight="bold" font-family="Times">A(0,b)</text>    
+          <text x="350" y="90" font-size="15" fill="black" font-weight="bold" font-family="Times">A(0,-b)</text>    
+          <text x="350" y="40" font-size="15" fill="black" font-weight="bold" font-family="Times">C(0,0)</text>
+          <circle r="4" cx="350" cy="15" fill="red"/> 
+          <circle r="4" cx="410" cy="45" fill="red"/> 
+          <circle r="4" cx="350" cy="75" fill="red"/> 
+          <circle r="4" cx="290" cy="45" fill="red"/> 
+          <circle r="4" cx="350" cy="45" fill="red"/> 
 
         </svg>
       p(style="margin-top: -0px; color: blue;") Eje focal sobre el eje <span style="font-family: roboto; font-weight: bold; font-style: italic;">y</span> 
       p(style="margin-top: -0px; color: blue;").center 
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 100" height="100px" width="250px" >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" height="200px" width="600px" >
        
           <g transform="translate(0, 0)">    
             <text x="15" y="30" font-size="30" fill="black" font-weight="bold" font-family="Times"><tspan style="font-style: italic;">x</tspan><tspan baseline-shift = "super" style="font-size: 18px;">2</tspan></text>
@@ -420,6 +433,19 @@
             <text x="120" y="47" font-size="30" fill="black" font-weight="bold" font-family="Times"> = 1</text>    
             
           </g>
+          <line  x1="280" y1="75" x2="420" y2="75" fill="none" stroke="#000" stroke-width="1"stroke-linecap="round"/>
+          <line  x1="350" y1="0" x2="350" y2="145" fill="none" stroke="#000" stroke-width="1"stroke-linecap="round"/>
+          <ellipse cx="350" cy="75" rx="30" ry="60" fill="none" stroke="blue" stroke-width="3"/>
+          <text x="355" y="13" font-size="15" fill="black" font-weight="bold" font-family="Times">V(0,a)</text>    
+          <text x="355" y="145" font-size="15" fill="black" font-weight="bold" font-family="Times">V(0,-a)</text>    
+          <text x="278" y="70" font-size="15" fill="black" font-weight="bold" font-family="Times">A(b,0)</text>    
+          <text x="382" y="70" font-size="15" fill="black" font-weight="bold" font-family="Times">A(-b,0)</text>    
+          <text x="335" y="70" font-size="15" fill="black" font-weight="bold" font-family="Times">C(0,0)</text>
+          <circle r="4" cx="350" cy="15" fill="red"/> 
+          <circle r="4" cx="380" cy="75" fill="red"/> 
+          <circle r="4" cx="350" cy="135" fill="red"/> 
+          <circle r="4" cx="320" cy="75" fill="red"/> 
+          <circle r="4" cx="350" cy="75" fill="red"/> 
 
         </svg>
       //- f1_parabolaDef

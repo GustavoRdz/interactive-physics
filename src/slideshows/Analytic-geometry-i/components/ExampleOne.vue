@@ -25,19 +25,29 @@ eg-transition(:enter='enter', :leave='leave')
         <text x="325" y="265" font-size="30" fill="black" font-weight="bold" font-family="Times" font-style="italic"> O </text>
         
         <!-- triangle -->
-        <line v-if="showLine1" :x1="x1" :y1="y1" :x2="x2" :y2="y2" fill="none" stroke="#F00" stroke-width="2" stroke-linecap="round"/>
-        <line v-if="showLine2" :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#0F0" stroke-width="2" stroke-linecap="round"/>
-        <line v-if="showLine3" :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#00F" stroke-width="2" stroke-linecap="round"/>
+        <line :x1="x1" :y1="y1" :x2="x2" :y2="y2" fill="none" stroke="#000" stroke-width="2" opacity="0.4"/>
+        <line :x1="x1" :y1="y1" :x2="x12" :y2="y12" fill="none" stroke="#F00" stroke-width="8" opacity="0.4"/>
+        <line v-if="showLine1" :x1="x1" :y1="y1" :x2="x2" :y2="y2" fill="none" stroke="#F00" stroke-width="8" stroke-linecap="round"/>
+        <line :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" opacity="0.4"/>
+        <line :x1="x1" :y1="y1" :x2="x13" :y2="y13" fill="none" stroke="#F00" stroke-width="8" opacity="0.4"/>
+        <line v-if="showLine2" :x1="x1" :y1="y1" :x2="x3" :y2="y3" fill="none" stroke="#0F0" stroke-width="8" stroke-linecap="round"/>
+        <line :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#000" stroke-width="2" opacity="0.4"/>
+        <line :x1="x2" :y1="y2" :x2="x23" :y2="y23" fill="none" stroke="#F00" stroke-width="8" opacity="0.4"/>
+        <line v-if="showLine3" :x1="x2" :y1="y2" :x2="x3" :y2="y3" fill="none" stroke="#00F" stroke-width="8" stroke-linecap="round"/>
         
         <!-- Points -->
+        <circle r="8" :cx="x1" :cy="y1"  fill="gray" stroke="none" opacity="0.4"/>
         <circle v-if="showPointX1 && showPointY1" r="8" :cx="x1" :cy="y1"  fill="red" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX1 && showPointY1" :x="x1+10" :y="y1-10" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P1 </text>
+        <circle r="8" :cx="x2" :cy="y2"  fill="gray" stroke="none" opacity="0.4"/>
         <circle v-if="showPointX2 && showPointY2" r="8" :cx="x2" :cy="y2"  fill="blue" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX2 && showPointY2" :x="x2-30" :y="y2" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P2 </text>
+        <circle r="8" :cx="x3" :cy="y3"  fill="gray" stroke="none" opacity="0.4"/>
         <circle v-if="showPointX3 && showPointY3" r="8" :cx="x3" :cy="y3"  fill="green" stroke="#000" stroke-width="1"/>
         <text v-if="showPointX3 && showPointY3" :x="x3" :y="y3+20" font-size="20" fill="black" font-weight="bold" font-family="Times" font-style="italic"> P3 </text>
 
         </svg>
+      //- p {{ x12i }} % {{ y12i }} <br> {{ x12 }} % {{ y12 }} <br> {{ A12 }} % {{ B12 }} % {{ C12 }} <br> {{ m12 }} % {{ b12 }}
     .center
       p(v-if = '!language' style="margin: 10px 0px 0px 0px;").solution Do calculations and introduce your results
       p(v-if = 'language' style="margin: 10px 0px 0px 0px;").solution Efectúe los cálculos e introduzca sus resultados
@@ -114,7 +124,7 @@ export default {
       return Math.round(Math.random() * (max - min) + min)
     },
     x1: function () {
-      return 354 + 38 * this.x1i
+      return 354 + 38 * this.enterX1
     },
     y1i: function () {
       let max = 5
@@ -122,7 +132,7 @@ export default {
       return Math.round(Math.random() * (max - min) + min)
     },
     y1: function () {
-      return 238 - 38 * this.y1i
+      return 238 - 38 * this.enterY1
     },
     x2i: function () {
       let max = -1
@@ -130,7 +140,7 @@ export default {
       return Math.round(Math.random() * (max - min) + min)
     },
     x2: function () {
-      return 354 + 38 * this.x2i
+      return 354 + 38 * this.enterX2
     },
     y2i: function () {
       let max = 3
@@ -138,10 +148,88 @@ export default {
       return Math.round(Math.random() * (max - min) + min)
     },
     y2: function () {
-      return 238 - 38 * this.y2i
+      return 238 - 38 * this.enterY2
     },
-    m1: function () {
-      return (this.y2i - this.y1i) / (this.x2i - this.x1i)
+    m12: function () {
+      return (this.enterY2 - this.enterY1) / (this.enterX2 - this.enterX1)
+    },
+    b12: function () {
+      return this.enterY1 - this.m12 * this.enterX1
+    },
+    A12: function () {
+      return 1 + this.m12 * this.m12
+    },
+    B12: function () {
+      return 2 * this.m12 * (this.b12 - this.enterY1) - 2 * this.enterX1
+    },
+    C12: function () {
+      return Math.pow(this.enterX1, 2) + Math.pow(this.b12 - this.enterY1, 2) - Math.pow(this.enterd12, 2)
+    },
+    x12i: function () {
+      return this.enterX1 > this.enterX2 ? (-this.B12 - Math.sqrt(Math.pow(this.B12, 2) - 4 * this.A12 * this.C12)) / (2 * this.A12) : (-this.B12 + Math.sqrt(Math.pow(this.B12, 2) - 4 * this.A12 * this.C12)) / (2 * this.A12)
+    },
+    x12: function () {
+      return 354 + 38 * this.x12i
+    },
+    y12i: function () {
+      return this.m12 * this.x12i + this.b12
+    },
+    y12: function () {
+      return 238 - 38 * this.y12i
+    },
+    m13: function () {
+      return (this.enterY3 - this.enterY1) / (this.enterX3 - this.enterX1)
+    },
+    b13: function () {
+      return this.enterY1 - this.m13 * this.enterX1
+    },
+    A13: function () {
+      return 1 + this.m13 * this.m13
+    },
+    B13: function () {
+      return 2 * this.m13 * (this.b13 - this.enterY1) - 2 * this.enterX1
+    },
+    C13: function () {
+      return Math.pow(this.enterX1, 2) + Math.pow(this.b13 - this.enterY1, 2) - Math.pow(this.enterd13, 2)
+    },
+    x13i: function () {
+      return this.enterX1 > this.enterX3 ? (-this.B13 - Math.sqrt(Math.pow(this.B13, 2) - 4 * this.A13 * this.C13)) / (2 * this.A13) : (-this.B13 + Math.sqrt(Math.pow(this.B13, 2) - 4 * this.A13 * this.C13)) / (2 * this.A13)
+    },
+    x13: function () {
+      return 354 + 38 * this.x13i
+    },
+    y13i: function () {
+      return this.m13 * this.x13i + this.b13
+    },
+    y13: function () {
+      return 238 - 38 * this.y13i
+    },
+    m23: function () {
+      return (this.enterY3 - this.enterY2) / (this.enterX3 - this.enterX2)
+    },
+    b23: function () {
+      return this.enterY2 - this.m23 * this.enterX2
+    },
+    A23: function () {
+      return 1 + this.m23 * this.m23
+    },
+    B23: function () {
+      return 2 * this.m23 * (this.b23 - this.enterY2) - 2 * this.enterX2
+    },
+    C23: function () {
+      return Math.pow(this.enterX2, 2) + Math.pow(this.b23 - this.enterY2, 2) - Math.pow(this.enterd23, 2)
+    },
+    x23i: function () {
+      return this.enterX2 > this.enterX3 ? (-this.B23 - Math.sqrt(Math.pow(this.B23, 2) - 4 * this.A23 * this.C23)) / (2 * this.A23) : (-this.B23 + Math.sqrt(Math.pow(this.B23, 2) - 4 * this.A23 * this.C23)) / (2 * this.A23)
+    },
+    x23: function () {
+      return 354 + 38 * this.x23i
+    },
+    y23i: function () {
+      return this.m23 * this.x23i + this.b23
+    },
+    y23: function () {
+      return 238 - 38 * this.y23i
     },
     m2: function () {
       return -1 / this.m1
@@ -153,13 +241,13 @@ export default {
       return this.x1i - this.y2i + this.y1i
     },
     x3: function () {
-      return 354 + 38 * this.x3i
+      return 354 + 38 * this.enterX3
     },
     y3i: function () {
       return this.y1i - this.x2i + this.x1i
     },
     y3: function () {
-      return 238 - 38 * this.y3i
+      return 238 - 38 * this.enterY3
     },
     d13: function () {
       return Math.sqrt((this.x3i - this.x1i) ** 2 + (this.y3i - this.y1i) ** 2)

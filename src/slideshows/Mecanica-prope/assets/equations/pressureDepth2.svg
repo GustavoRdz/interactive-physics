@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="400px" height="300px" viewBox="0 0 400 300" enable-background="new 0 0 64 64" xml:space="preserve">
+
+
+
+<g>
+  // container
+	<path d="m220 15 A75 13 0 0 1 380 15 L380 275 A75 13 0 0 1 220 275 L220 15 Z" stroke="#000" fill-opacity="0"/>
+  <path d="m225 15 A75 10 0 0 1 375 15 L375 275 A75 10 0 0 1 225 275 L225 15 Z" stroke="#000" fill-opacity="0"/>
+
+  // water
+  <path d="m225 75 A75 10 0 0 1 375 75 L375 275 A75 10 0 0 1 225 275 L225 275 Z" fill="#0cafFF" fill-opacity="0.8"/>
+  <ellipse cx="300" cy="75" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+	<ellipse cx="300" cy="275" rx="75" ry="10" stroke="black" fill="#0cafFF" fill-opacity="0" stroke-opacity="0.3"/>
+	// container outter border
+		<path d="m225 15 A75 10 0 0 0 375 15 m5 0 A75 13 0 0 1 220 15" stroke="#000" fill-opacity="0"/>
+
+   // Measurement points
+	 // reference point on the surface
+	 <circle cx="330" cy="75" r="5px" fill="red"></circle>
+	  // measurement point on the fluid
+	 <circle cx="280" cy="200" r="5px" fill="red" fill-opacity="0.7"></circle>
+
+  <g transform="translate(10,0)">
+
+  // cotas
+  <line fill="none" stroke="#000000" stroke-width="1" x1="326" y1="75" x2="360" y2="75"/>
+  <line fill="none" stroke="#000000" stroke-width="1" x1="276" y1="200" x2="340" y2="200"/>
+  <line fill="none" stroke="#000000" stroke-width="1" x1="290" y1="275" x2="360" y2="275"/>
+
+  <text x="305" y="239" fill="black" font-size="20" font-family="Times new roman" font-style="italic">y<tspan baseline-shift="sub" font-size="10">1</tspan></text>
+  <text x="345" y="175" fill="black" font-size="20" font-family="Times new roman" font-style="italic">y<tspan baseline-shift="sub" font-size="10">2</tspan></text>
+	<text x="260" y="145" fill="black" font-size="20" font-family="Times new roman" font-style="italic">y<tspan baseline-shift="sub" font-size="10">2</tspan> - y<tspan baseline-shift="sub" font-size="10">1</tspan> = h</text>
+	<text x="230" y="190" fill="red" font-size="20" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="10">1</tspan>=p</text>
+	<text x="275" y="60" fill="red" font-size="20" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="10">2</tspan>=p<tspan baseline-shift="sub" font-size="10">0</tspan></text>
+	<text x="240" y="250" fill="green" font-size="25" font-family="Times new roman" font-style="italic">&#x03c1;</text>
+ 
+
+  <line fill="none" stroke="#000000" stroke-width="1" x1="350" y1="77" x2="350" y2="153"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="350" y1="77" x2="347" y2="90"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="350" y1="77" x2="353" y2="90"/>
+	
+	<line fill="none" stroke="#000000" stroke-width="1" x1="350" y1="190" x2="350" y2="273"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="347" y1="260" x2="350" y2="273"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="353" y1="260" x2="350" y2="273"/>
+
+
+  <line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="202" x2="310" y2="220"/>
+  <line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="202" x2="307" y2="213"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="202" x2="313" y2="213"/>
+	
+	<line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="250" x2="310" y2="273"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="307" y1="260" x2="310" y2="273"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="313" y1="260" x2="310" y2="273"/>
+
+  <line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="77" x2="310" y2="117"/>
+  <line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="77" x2="313" y2="90"/>
+  <line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="77" x2="307" y2="90"/>
+
+	<line fill="none" stroke="#000000" stroke-width="1" x1="310" y1="160" x2="310" y2="198"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="307" y1="185" x2="310" y2="198"/>
+	<line fill="none" stroke="#000000" stroke-width="1" x1="313" y1="185" x2="310" y2="198"/>
+
+  </g>
+
+ </g>
+
+  // equations
+	<g>
+		<text x="0" y="20" fill="black" font-size="20" font-family="Times new roman" fill-opacity="0.4">Homogeneous density <tspan font-famili="Times new roman" font-size="30" font-style="italic">&#x03c1;</tspan></text>
+		<text x="10" y="80" fill="black" font-size="25" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="10">2</tspan> - p<tspan baseline-shift="sub" font-size="10">1</tspan> = -&#x03c1;g<tspan font-style="normal">(</tspan>y<tspan baseline-shift="sub" font-size="10">2</tspan> - y<tspan baseline-shift="sub" font-size="10">1</tspan><tspan font-style="normal">)</tspan></text>
+		<text x="0" y="120" fill="black" font-size="20" font-family="Times new roman" fill-opacity="0.4">then</text>
+		<text x="10" y="150" fill="black" font-size="25" font-family="Times new roman" font-style="italic">p<tspan baseline-shift="sub" font-size="10">0</tspan> - p = -&#x03c1;gh </text>
+		<text x="0" y="200" fill="black" font-size="20" font-family="Times new roman" fill-opacity="0.4">then the presure is</text>
+		<text x="4" y="250" fill="black" font-size="35" font-family="Times new roman" font-style="italic">p = p<tspan baseline-shift="sub" font-size="10">0</tspan> + &#x03c1;gh </text>
+	</g>
+</svg>

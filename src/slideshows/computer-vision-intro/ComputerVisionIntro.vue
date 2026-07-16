@@ -941,7 +941,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 7
       example-seven
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -952,7 +952,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 8
       example-eight
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -963,7 +963,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 9
       example-nine
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -974,7 +974,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 10
       example-ten
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -985,7 +985,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 11
       example-eleven
       .prev(@click.stop='previousSlide' style="float: left;")
@@ -996,7 +996,7 @@
     slide(:steps=1, enter='bounceInDown'  :mouseNavigation='false' style="overflow: scroll;")
       .top <sup style="font-size: 10px;">{{ currentSlideIndex }}/{{ slides.length }} : Geometría proyectiva</sup>
       h5(v-if = '!isActive').center 
-      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Planos, puntos y líneas rectas
+      h5(v-if = 'isActive' style="margin: 0 0 20px 0px;" ).center Transformaciones 2D
       p(v-if = 'isActive' style="margin: 0px 0px 0px 0px;  padding: 15px; line-height: 1.5em;") Ejercicio 12
       example-twelve
       .prev(@click.stop='previousSlide' style="float: left;")
